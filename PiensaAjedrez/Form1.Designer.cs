@@ -50,7 +50,7 @@
             // 
             // panTrabajo
             // 
-            this.panTrabajo.BackColor = System.Drawing.Color.OldLace;
+            this.panTrabajo.BackColor = System.Drawing.Color.White;
             this.panTrabajo.Location = new System.Drawing.Point(12, 86);
             this.panTrabajo.Name = "panTrabajo";
             this.panTrabajo.Size = new System.Drawing.Size(1342, 670);
@@ -248,7 +248,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.Khaki;
+            this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.PiensaAjedrez);
             this.Controls.Add(this.Cerrar);
