@@ -36,13 +36,13 @@
             // lblMensualidades
             // 
             this.lblMensualidades.AutoSize = true;
-            this.lblMensualidades.Font = new System.Drawing.Font("Doppio One", 30F);
-            this.lblMensualidades.ForeColor = System.Drawing.Color.Brown;
+            this.lblMensualidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.lblMensualidades.ForeColor = System.Drawing.Color.SkyBlue;
             this.lblMensualidades.Location = new System.Drawing.Point(20, 20);
             this.lblMensualidades.Name = "lblMensualidades";
-            this.lblMensualidades.Size = new System.Drawing.Size(304, 50);
+            this.lblMensualidades.Size = new System.Drawing.Size(324, 46);
             this.lblMensualidades.TabIndex = 3;
-            this.lblMensualidades.Text = "Mensualidades";
+            this.lblMensualidades.Text = "Registro de pago";
             // 
             // lblSampleText
             // 

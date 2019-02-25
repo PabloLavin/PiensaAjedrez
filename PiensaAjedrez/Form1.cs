@@ -31,27 +31,33 @@ namespace PiensaAjedrez
 
         private void Cerrar_MouseLeave(object sender, EventArgs e)
         {
-            Cerrar.ForeColor = Color.Black;
+            Cerrar.ForeColor = Color.White;
         }
 
         private void btnMensualidades_Click(object sender, EventArgs e)
         {
             ReemplazarPantalla(new Mensualidades());
+            
         }
+       
+
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             ReemplazarPantalla(new UserControl());
+           
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
             ReemplazarPantalla(new UserControl());
+           
         }
 
         private void btnDesconectar_Click(object sender, EventArgs e)
         {
             ReemplazarPantalla(new UserControl());
+           
         }
 
         private void ReemplazarPantalla(UserControl unUserControl)
@@ -59,5 +65,8 @@ namespace PiensaAjedrez
             panTrabajo.Controls.Clear();
             panTrabajo.Controls.Add(unUserControl);
         }
+
+
+       
     }
 }
