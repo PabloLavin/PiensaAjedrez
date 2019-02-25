@@ -16,5 +16,20 @@ namespace PiensaAjedrez
         {
             InitializeComponent();
         }
+
+        private void Cerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Cerrar_MouseEnter(object sender, EventArgs e)
+        {
+            Cerrar.ForeColor = Color.Red;
+        }
+
+        private void Cerrar_MouseLeave(object sender, EventArgs e)
+        {
+            Cerrar.ForeColor = Color.Black;
+        }
     }
 }
