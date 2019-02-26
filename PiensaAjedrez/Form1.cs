@@ -39,12 +39,10 @@ namespace PiensaAjedrez
             ReemplazarPantalla(new Mensualidades());
             
         }
-       
-
-
+   
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            ReemplazarPantalla(new UserControl());
+            ReemplazarPantalla(new RegistroAlumnos());
            
         }
 
@@ -64,9 +62,6 @@ namespace PiensaAjedrez
         {
             panTrabajo.Controls.Clear();
             panTrabajo.Controls.Add(unUserControl);
-        }
-
-
-       
+        }  
     }
 }
