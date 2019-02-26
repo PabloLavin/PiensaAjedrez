@@ -43,6 +43,7 @@ namespace PiensaAjedrez
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             ReemplazarPantalla(new RegistroAlumnos());
+            
            
         }
 

@@ -29,15 +29,25 @@ namespace PiensaAjedrez
         public DateTime FechaNacimiento
         {
             get { return _dtFechaNacimiento; }
-            set { _dtFechaNacimiento = value; }
+            set { _dtFechaNacimiento = value;
+                if (_dtFechaNacimiento > DateTime.Parse("01/01/2011")|| _dtFechaNacimiento < DateTime.Parse("31/12/1910")) 
+                {
+                    throw new Exception("La fecha de nacimiento no es válida.");
+                }
+            }
         }
 
-        private int _intTelefono;
+        private long _lngTelefono;
 
-        public int Telefono
+        public long Telefono
         {
-            get { return _intTelefono; }
-            set { _intTelefono = value; }
+            get { return _lngTelefono; }
+            set { _lngTelefono = value;
+                if (_lngTelefono.ToString().Length > 10)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+            }
         }
 
         private string _strCorreo;

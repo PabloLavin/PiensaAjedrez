@@ -102,7 +102,7 @@
             this.btnDesconectar.OnHoverTextColor = System.Drawing.Color.White;
             this.btnDesconectar.selected = false;
             this.btnDesconectar.Size = new System.Drawing.Size(326, 50);
-            this.btnDesconectar.TabIndex = 3;
+            this.btnDesconectar.TabIndex = 4;
             this.btnDesconectar.Text = "Salir";
             this.btnDesconectar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnDesconectar.Textcolor = System.Drawing.Color.White;
@@ -137,7 +137,7 @@
             this.btnReportes.OnHoverTextColor = System.Drawing.Color.White;
             this.btnReportes.selected = false;
             this.btnReportes.Size = new System.Drawing.Size(358, 50);
-            this.btnReportes.TabIndex = 2;
+            this.btnReportes.TabIndex = 3;
             this.btnReportes.Text = "Estadisticas";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnReportes.Textcolor = System.Drawing.Color.White;
@@ -182,7 +182,7 @@
             // btnMensualidades
             // 
             this.btnMensualidades.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnMensualidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(217)))), ((int)(((byte)(205)))));
+            this.btnMensualidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnMensualidades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMensualidades.BorderRadius = 0;
             this.btnMensualidades.ButtonText = "Registro de pago";

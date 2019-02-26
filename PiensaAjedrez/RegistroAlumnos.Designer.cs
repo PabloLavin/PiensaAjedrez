@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroAlumnos));
             this.dgvAlumnos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
@@ -55,28 +55,28 @@
             this.dgvAlumnos.AllowUserToDeleteRows = false;
             this.dgvAlumnos.AllowUserToResizeColumns = false;
             this.dgvAlumnos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAlumnos.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 11.5F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvAlumnos.DoubleBuffered = true;
             this.dgvAlumnos.EnableHeadersVisualStyles = false;
             this.dgvAlumnos.HeaderBgColor = System.Drawing.Color.DarkTurquoise;
@@ -87,7 +87,7 @@
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvAlumnos.Size = new System.Drawing.Size(1342, 398);
-            this.dgvAlumnos.TabIndex = 0;
+            this.dgvAlumnos.TabIndex = 7;
             // 
             // bunifuCards1
             // 
@@ -112,7 +112,7 @@
             this.bunifuCards1.RightSahddow = true;
             this.bunifuCards1.ShadowDepth = 20;
             this.bunifuCards1.Size = new System.Drawing.Size(1342, 263);
-            this.bunifuCards1.TabIndex = 1;
+            this.bunifuCards1.TabIndex = 0;
             this.bunifuCards1.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuCards1_Paint);
             // 
             // btnAgregar
@@ -137,7 +137,7 @@
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(5);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(181, 41);
-            this.btnAgregar.TabIndex = 12;
+            this.btnAgregar.TabIndex = 5;
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -151,14 +151,14 @@
             this.dtFechaNacimiento.Location = new System.Drawing.Point(8, 193);
             this.dtFechaNacimiento.Name = "dtFechaNacimiento";
             this.dtFechaNacimiento.Size = new System.Drawing.Size(302, 36);
-            this.dtFechaNacimiento.TabIndex = 11;
+            this.dtFechaNacimiento.TabIndex = 4;
             this.dtFechaNacimiento.Value = new System.DateTime(2019, 2, 25, 17, 51, 30, 840);
             // 
             // txtCorreo
             // 
             this.txtCorreo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCorreo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             this.txtCorreo.HintForeColor = System.Drawing.Color.Empty;
             this.txtCorreo.HintText = "";
             this.txtCorreo.isPassword = false;
@@ -169,9 +169,16 @@
             this.txtCorreo.Location = new System.Drawing.Point(659, 107);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(312, 33);
-            this.txtCorreo.TabIndex = 10;
-            this.txtCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtCorreo.Size = new System.Drawing.Size(344, 33);
+            this.txtCorreo.TabIndex = 3;
+            this.txtCorreo.Text = "ejemplo@hotmail.com";
+            this.txtCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCorreo.Click += new System.EventHandler(this.txtCorreo_Click_1);
+            this.txtCorreo.Enter += new System.EventHandler(this.txtCorreo_Enter);
+            this.txtCorreo.Leave += new System.EventHandler(this.txtCorreo_Leave);
+            this.txtCorreo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtCorreo_MouseClick);
+            this.txtCorreo.MouseEnter += new System.EventHandler(this.txtCorreo_MouseEnter);
+            this.txtCorreo.MouseLeave += new System.EventHandler(this.txtCorreo_MouseLeave);
             // 
             // txtTelefono
             // 
@@ -189,8 +196,10 @@
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(250, 33);
-            this.txtTelefono.TabIndex = 9;
+            this.txtTelefono.TabIndex = 2;
             this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtTelefono.OnValueChanged += new System.EventHandler(this.txtTelefono_OnValueChanged);
+            this.txtTelefono.Leave += new System.EventHandler(this.txtTelefono_Leave);
             // 
             // txtEscuela
             // 
@@ -208,7 +217,7 @@
             this.txtEscuela.Margin = new System.Windows.Forms.Padding(4);
             this.txtEscuela.Name = "txtEscuela";
             this.txtEscuela.Size = new System.Drawing.Size(385, 33);
-            this.txtEscuela.TabIndex = 7;
+            this.txtEscuela.TabIndex = 1;
             this.txtEscuela.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // txtNombre
@@ -227,7 +236,7 @@
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(386, 33);
-            this.txtNombre.TabIndex = 6;
+            this.txtNombre.TabIndex = 0;
             this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // lblCorreo
