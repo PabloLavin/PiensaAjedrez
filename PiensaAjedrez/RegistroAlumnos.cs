@@ -12,6 +12,7 @@ namespace PiensaAjedrez
 {
     public partial class RegistroAlumnos : UserControl
     {
+        List<Alumnos> listaAlumnos = new List<Alumnos>();
         public RegistroAlumnos()
         {
             InitializeComponent();
@@ -31,7 +32,35 @@ namespace PiensaAjedrez
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            Alumnos miAlumno = new Alumnos();
             
+            miAlumno.Nombre = txtNombre.Text;
+            miAlumno.Escuela = txtEscuela.Text;
+            miAlumno.FechaNacimiento = dtFechaNacimiento.Value;
+            miAlumno.Telefono = int.Parse(txtTelefono.Text);
+            miAlumno.Correo = txtCorreo.Text;
+            listaAlumnos.Add(miAlumno);
+            MostrarDatos();
+            LimpiarControles();
+            MessageBox.Show("Alumno añadido con éxito.");
+        }
+
+        void MostrarDatos()
+        {
+            dgvAlumnos.Rows.Clear();
+            foreach (Alumnos miAlumno in listaAlumnos)
+            {
+                dgvAlumnos.Rows.Add(miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo);
+            }
+        }
+        
+        void LimpiarControles()
+        {
+            foreach (Control c in bunifuCards1.Controls)
+            {
+                if (c is Bunifu.Framework.UI.BunifuMaterialTextbox)
+                    c.Text = "";
+            }
         }
     }
 }
