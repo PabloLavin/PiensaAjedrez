@@ -17,6 +17,7 @@ namespace PiensaAjedrez
         {
             InitializeComponent();
             txtNombre.Focus();
+            imgFiltro.Enabled = false;
             dgvAlumnos.Columns.Add("Nombre", "Nombre");
             dgvAlumnos.Columns.Add("Escuela", "Escuela");
             dgvAlumnos.Columns.Add("Fecha de nacimiento", "Fecha de nacimiento");
@@ -50,7 +51,7 @@ namespace PiensaAjedrez
             }
             catch (IndexOutOfRangeException c)
             {
-                MessageBox.Show("Solo se permiten 10 dígitos en el número de teléfono.");
+                MessageBox.Show("Sólo se permiten 10 dígitos en el número de teléfono.");
             }
             catch (Exception x)
             {
@@ -123,12 +124,12 @@ namespace PiensaAjedrez
 
         private void txtTelefono_Leave(object sender, EventArgs e)
         {
-            if (txtTelefono.Text.Length == 10)
-            {
-                txtTelefono.Text = "(" + txtTelefono.Text.Substring(0, 3) + ") "+txtTelefono.Text.Substring(3,3)+" - "+txtTelefono.Text.Substring(6,4);
+            //if (txtTelefono.Text.Length == 10)
+            //{
+            //    txtTelefono.Text = "(" + txtTelefono.Text.Substring(0, 3) + ") "+txtTelefono.Text.Substring(3,3)+" - "+txtTelefono.Text.Substring(6,4);
                 
 
-            }
+            //}
         }
 
         private void txtCorreo_Enter(object sender, EventArgs e)
@@ -142,12 +143,8 @@ namespace PiensaAjedrez
         }
 
         private void txtCorreo_Leave(object sender, EventArgs e)
-        {
-
-            if (txtCorreo.Text == "")
-            {
-
-                txtCorreo.Text = "ejemplo@hotmail.com";
+        {if (txtCorreo.Text == "")
+            {txtCorreo.Text = "ejemplo@hotmail.com";
                 txtCorreo.ForeColor = Color.FromArgb(129, 129, 129);
             }
         }
