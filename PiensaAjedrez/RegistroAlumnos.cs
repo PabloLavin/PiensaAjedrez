@@ -41,7 +41,7 @@ namespace PiensaAjedrez
                 miAlumno.Nombre = txtNombre.Text;
                 miAlumno.Escuela = txtEscuela.Text;
                 miAlumno.FechaNacimiento = dtFechaNacimiento.Value;
-                miAlumno.Telefono = Int64.Parse(txtTelefono.Text.Substring(1, 3) + txtTelefono.Text.Substring(6, 3) + txtTelefono.Text.Substring(12, 4));
+                miAlumno.Telefono = Int64.Parse(txtTelefono.Text);
                 miAlumno.Correo = txtCorreo.Text;
                 listaAlumnos.Add(miAlumno);
                 MostrarDatos();
@@ -76,16 +76,7 @@ namespace PiensaAjedrez
                     c.Text = "";
             }
         }
-
-        private void txtCorreo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCorreo_Click_1(object sender, EventArgs e)
-        {
-        }
-
+        #region Eventos 
         private void txtCorreo_MouseEnter(object sender, EventArgs e)
         {
             if (txtCorreo.Text == "ejemplo@hotmail.com")
@@ -94,12 +85,6 @@ namespace PiensaAjedrez
                 txtCorreo.Text = "";
                 txtCorreo.ForeColor = Color.FromArgb(25, 25, 25);
             }
-        }
-
-        private void txtCorreo_MouseClick(object sender, MouseEventArgs e)
-        {
-
-
         }
 
         private void txtCorreo_MouseLeave(object sender, EventArgs e)
@@ -113,25 +98,6 @@ namespace PiensaAjedrez
 
         }
 
-        private void txtTelefono_OnValueChanged(object sender, EventArgs e)
-        {
-            //if(txtTelefono.Text.Length==10&&txtTelefono.Text.Contains("("))
-            //{
-                
-            //}
-
-        }
-
-        private void txtTelefono_Leave(object sender, EventArgs e)
-        {
-            //if (txtTelefono.Text.Length == 10)
-            //{
-            //    txtTelefono.Text = "(" + txtTelefono.Text.Substring(0, 3) + ") "+txtTelefono.Text.Substring(3,3)+" - "+txtTelefono.Text.Substring(6,4);
-                
-
-            //}
-        }
-
         private void txtCorreo_Enter(object sender, EventArgs e)
         {
             if (txtCorreo.Text == "ejemplo@hotmail.com")
@@ -143,11 +109,174 @@ namespace PiensaAjedrez
         }
 
         private void txtCorreo_Leave(object sender, EventArgs e)
-        {if (txtCorreo.Text == "")
-            {txtCorreo.Text = "ejemplo@hotmail.com";
+        {
+            if (txtCorreo.Text == "")
+            {
+                txtCorreo.Text = "ejemplo@hotmail.com";
                 txtCorreo.ForeColor = Color.FromArgb(129, 129, 129);
             }
         }
+
+        private void txtFiltonombre_Enter(object sender, EventArgs e)
+        {
+            if (txtFiltonombre.Text == "Nombre")
+                txtFiltonombre.Text = "";
+        }
+
+        private void txtFiltonombre_Leave(object sender, EventArgs e)
+        {
+            if (txtFiltonombre.Text == "")
+                txtFiltonombre.Text = "Nombre";
+        }
+
+        private void txtFiltonombre_MouseEnter(object sender, EventArgs e)
+        {
+            if (txtFiltonombre.Text == "Nombre")
+                txtFiltonombre.Text = "";
+        }
+
+        private void txtFiltonombre_MouseLeave(object sender, EventArgs e)
+        {
+            if (txtFiltonombre.Text == "")
+                txtFiltonombre.Text = "Nombre";
+        }
+
+        private void txtFiltoescuela_Enter(object sender, EventArgs e)
+        {
+            if (txtFiltoescuela.Text == "Escuela")
+                txtFiltoescuela.Text = "";
+        }
+
+        private void txtFiltoescuela_Leave(object sender, EventArgs e)
+        {
+            if (txtFiltoescuela.Text == "")
+                txtFiltoescuela.Text = "Escuela";
+        }
+
+        private void txtFiltoescuela_MouseEnter(object sender, EventArgs e)
+        {
+            if (txtFiltoescuela.Text == "Escuela")
+                txtFiltoescuela.Text = "";
+        }
+
+        private void txtFiltoescuela_MouseLeave(object sender, EventArgs e)
+        {
+            if (txtFiltoescuela.Text == "")
+                txtFiltoescuela.Text = "Escuela";
+        }
+
+        private void txtFiltroFechaNacimiento_Enter(object sender, EventArgs e)
+        {
+            if (txtFiltroFechaNacimiento.Text == "dd/mm/aa")
+                txtFiltroFechaNacimiento.Text = "";
+        }
+
+        private void txtFiltroFechaNacimiento_Leave(object sender, EventArgs e)
+        {
+            if (txtFiltroFechaNacimiento.Text == "")
+                txtFiltroFechaNacimiento.Text = "dd/mm/aa";
+        }
+
+        private void txtFiltroFechaNacimiento_MouseEnter(object sender, EventArgs e)
+        {
+            if (txtFiltroFechaNacimiento.Text == "dd/mm/aa")
+                txtFiltroFechaNacimiento.Text = "";
+        }
+
+        private void txtFiltroFechaNacimiento_MouseLeave(object sender, EventArgs e)
+        {
+            if (txtFiltroFechaNacimiento.Text == "")
+                txtFiltroFechaNacimiento.Text = "dd/mm/aa";
+        }
+
+        private void txtFiltroTelefono_Enter(object sender, EventArgs e)
+        {
+            if (txtFiltroTelefono.Text == "Telefono")
+                txtFiltroTelefono.Text = "";
+        }
+
+        private void txtFiltroTelefono_Leave(object sender, EventArgs e)
+        {
+            if (txtFiltroTelefono.Text == "")
+                txtFiltroTelefono.Text = "Telefono";
+        }
+
+        private void txtFiltroTelefono_MouseEnter(object sender, EventArgs e)
+        {
+            if (txtFiltroTelefono.Text == "Telefono")
+                txtFiltroTelefono.Text = "";
+        }
+
+        private void txtFiltroTelefono_MouseLeave(object sender, EventArgs e)
+        {
+            if (txtFiltroTelefono.Text == "")
+                txtFiltroTelefono.Text = "Telefono";
+        }
+
+        private void txtFiltroCorreo_Enter(object sender, EventArgs e)
+        {
+            if (txtFiltroCorreo.Text == "Correo")
+                txtFiltroCorreo.Text = "";
+        }
+
+        private void txtFiltroCorreo_Leave(object sender, EventArgs e)
+        {
+            if (txtFiltroCorreo.Text == "")
+                txtFiltroCorreo.Text = "Correo";
+        }
+
+        private void txtFiltroCorreo_MouseEnter(object sender, EventArgs e)
+        {
+            if (txtFiltroCorreo.Text == "Correo")
+                txtFiltroCorreo.Text = "";
+        }
+
+        private void txtFiltroCorreo_MouseLeave(object sender, EventArgs e)
+        {
+            if (txtFiltroCorreo.Text == "")
+                txtFiltroCorreo.Text = "Correo";
+        }
+        #endregion
+        private void chkNombre_OnChange(object sender, EventArgs e)
+        {
+            if (chkNombre.Checked)
+                txtFiltonombre.Enabled = true;
+            else
+                txtFiltonombre.Enabled = false;    
+        }
+
+        private void chkEscuela_OnChange(object sender, EventArgs e)
+        {
+            if (chkEscuela.Checked)
+                txtFiltoescuela.Enabled = true;
+            else
+                txtFiltoescuela.Enabled = false;
+        }
+
+        private void chkFechaNacimiento_OnChange(object sender, EventArgs e)
+        {
+            if (chkFechaNacimiento.Checked)
+                txtFiltroFechaNacimiento.Enabled = true;
+            else
+                txtFiltroFechaNacimiento.Enabled = false;
+        }
+
+        private void chkTelefono_OnChange(object sender, EventArgs e)
+        {
+            if (chkTelefono.Checked)
+                txtFiltroTelefono.Enabled = true;
+            else
+                txtFiltroTelefono.Enabled = false;
+        }
+
+        private void chkCorreo_OnChange(object sender, EventArgs e)
+        {
+            if (chkCorreo.Checked)
+                txtFiltroCorreo.Enabled = true;
+            else
+                txtFiltroCorreo.Enabled = false;
+        }
     }
-}
+    }
+
 
