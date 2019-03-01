@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace PiensaAjedrez
 {
-    class Alumnos
+    class Alumno
     {
+        private string _strNumeroDeControl;
+
+        public string NumeroDeControl
+        {
+            get { return _strNumeroDeControl; }
+            set { _strNumeroDeControl = value; }
+        }
+
+
         private string _strNombre;
 
         public string Nombre
@@ -37,13 +46,13 @@ namespace PiensaAjedrez
             }
         }
 
-        private long _lngTelefono;
+        private string _strTelefono;
 
-        public long Telefono
+        public string Telefono
         {
-            get { return _lngTelefono; }
-            set { _lngTelefono = value;
-                if (_lngTelefono.ToString().Length > 10)
+            get { return _strTelefono; }
+            set { _strTelefono = value;
+                if (_strTelefono.Length > 10)
                 {
                     throw new IndexOutOfRangeException();
                 }
@@ -58,6 +67,13 @@ namespace PiensaAjedrez
             set { _strCorreo = value; }
         }
 
+        private bool _blnActivo;
+
+        public bool Activo
+        {
+            get { return _blnActivo; }
+            set { _blnActivo = value; }
+        }
 
 
     }

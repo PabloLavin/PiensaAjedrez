@@ -12,18 +12,22 @@ namespace PiensaAjedrez
 {
     public partial class RegistroAlumnos : UserControl
     {
-        List<Alumnos> listaAlumnos = new List<Alumnos>();
+        List<Alumno> listaAlumnos = new List<Alumno>();
         public RegistroAlumnos()
         {
             InitializeComponent();
             txtNombre.Focus();
             imgFiltro.Enabled = false;
+            dgvAlumnos.Columns.Add("No. Ctrl", "No. Ctrl");
             dgvAlumnos.Columns.Add("Nombre", "Nombre");
             dgvAlumnos.Columns.Add("Escuela", "Escuela");
             dgvAlumnos.Columns.Add("Fecha de nacimiento", "Fecha de nacimiento");
             dgvAlumnos.Columns.Add("Telefono", "Teléfono");
             dgvAlumnos.Columns.Add("Correo", "Correo");
+            dgvAlumnos.Columns.Add("Activo", "Activo");
             dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAlumnos.Columns[6].Width = dgvAlumnos.Columns[6].GetPreferredWidth(DataGridViewAutoSizeColumnMode.Fill, true);
+            lblnumerocontrol.Text = "19100000";
 
         }
 
@@ -34,19 +38,24 @@ namespace PiensaAjedrez
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Alumnos miAlumno = new Alumnos();
+            Alumno miAlumno = new Alumno();
             try
             {
-
+                if (chkActivo.Checked)
+                    miAlumno.Activo = true;
+                else
+                    miAlumno.Activo = false;
                 miAlumno.Nombre = txtNombre.Text;
                 miAlumno.Escuela = txtEscuela.Text;
                 miAlumno.FechaNacimiento = dtFechaNacimiento.Value;
-                miAlumno.Telefono = Int64.Parse(txtTelefono.Text);
+                miAlumno.Telefono = txtTelefono.Text;
                 miAlumno.Correo = txtCorreo.Text;
+                miAlumno.NumeroDeControl = ((int.Parse("19100000")) + (listaAlumnos.Count)).ToString();
                 listaAlumnos.Add(miAlumno);
                 MostrarDatos();
                 LimpiarControles();
                 MessageBox.Show("Alumno añadido con éxito.");
+                lblnumerocontrol.Text = ((int.Parse(miAlumno.NumeroDeControl)) + 1).ToString();
 
             }
             catch (IndexOutOfRangeException c)
@@ -62,9 +71,9 @@ namespace PiensaAjedrez
         void MostrarDatos()
         {
             dgvAlumnos.Rows.Clear();
-            foreach (Alumnos miAlumno in listaAlumnos)
+            foreach (Alumno miAlumno in listaAlumnos)
             {
-                dgvAlumnos.Rows.Add(miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo);
+                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo)?"Si":"No"));
             }
         }
 
@@ -76,6 +85,7 @@ namespace PiensaAjedrez
                     c.Text = "";
             }
         }
+       
         #region Eventos 
         private void txtCorreo_MouseEnter(object sender, EventArgs e)
         {
@@ -236,7 +246,7 @@ namespace PiensaAjedrez
             if (txtFiltroCorreo.Text == "")
                 txtFiltroCorreo.Text = "Correo";
         }
-        #endregion
+        
         private void chkNombre_OnChange(object sender, EventArgs e)
         {
             if (chkNombre.Checked)
@@ -276,7 +286,9 @@ namespace PiensaAjedrez
             else
                 txtFiltroCorreo.Enabled = false;
         }
+        #endregion
+
     }
-    }
+}
 
 
