@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PiensaAjedrez
 {
-    class Alumno:IEquatable<Alumno>
+    class Alumno:IEquatable<Alumno>, IComparable<Alumno>
     {
         private string _strNumeroDeControl;
 
@@ -51,12 +51,7 @@ namespace PiensaAjedrez
         public string Telefono
         {
             get { return _strTelefono; }
-            set { _strTelefono = value;
-                if (_strTelefono.Length > 10)
-                {
-                    throw new IndexOutOfRangeException();
-                }
-            }
+            set { _strTelefono = value; }
         }
 
         private string _strCorreo;
@@ -78,6 +73,11 @@ namespace PiensaAjedrez
         public bool Equals(Alumno otroAlumno)
         {
             return this.NumeroDeControl.Equals(otroAlumno.NumeroDeControl);
+        }
+
+        public int CompareTo(Alumno otroAlumno)
+        {
+            return int.Parse(this.NumeroDeControl).CompareTo(int.Parse(otroAlumno.NumeroDeControl));
         }
     }
 }

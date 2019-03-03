@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroAlumnos));
             this.dgvAlumnos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
+            this.cbEscuelas = new Bunifu.Framework.UI.BunifuDropdown();
+            this.btnAgregado = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCancelar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnLimpiar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.lblActivo = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -58,14 +60,14 @@
             this.chkCorreo = new Bunifu.Framework.UI.BunifuCheckbox();
             this.txtFiltonombre = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtFiltoescuela = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.txtFiltroFechaNacimiento = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtFiltroTelefono = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtFiltroCorreo = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
+            this.txtFiltroAño = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.cbMes = new System.Windows.Forms.ComboBox();
+            this.cbDia = new System.Windows.Forms.ComboBox();
             this.lblfiltrar = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.imgFiltro = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btnAgregado = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.cbEscuelas = new Bunifu.Framework.UI.BunifuDropdown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.bunifuCards1.SuspendLayout();
             this.bunifuCards2.SuspendLayout();
@@ -78,29 +80,29 @@
             this.dgvAlumnos.AllowUserToDeleteRows = false;
             this.dgvAlumnos.AllowUserToResizeColumns = false;
             this.dgvAlumnos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvAlumnos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlumnos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Century Gothic", 11.5F);
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvAlumnos.DoubleBuffered = true;
             this.dgvAlumnos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAlumnos.EnableHeadersVisualStyles = false;
@@ -112,9 +114,9 @@
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAlumnos.RowHeadersVisible = false;
             this.dgvAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
+            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvAlumnos.RowTemplate.Height = 25;
             this.dgvAlumnos.RowTemplate.ReadOnly = true;
             this.dgvAlumnos.Size = new System.Drawing.Size(1288, 347);
@@ -153,6 +155,55 @@
             this.bunifuCards1.Size = new System.Drawing.Size(923, 245);
             this.bunifuCards1.TabIndex = 0;
             this.bunifuCards1.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuCards1_Paint);
+            // 
+            // cbEscuelas
+            // 
+            this.cbEscuelas.BackColor = System.Drawing.Color.Transparent;
+            this.cbEscuelas.BorderRadius = 3;
+            this.cbEscuelas.DisabledColor = System.Drawing.Color.Gray;
+            this.cbEscuelas.ForeColor = System.Drawing.Color.White;
+            this.cbEscuelas.Items = new string[0];
+            this.cbEscuelas.Location = new System.Drawing.Point(105, 97);
+            this.cbEscuelas.Name = "cbEscuelas";
+            this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.cbEscuelas.onHoverColor = System.Drawing.Color.Teal;
+            this.cbEscuelas.selectedIndex = -1;
+            this.cbEscuelas.Size = new System.Drawing.Size(382, 35);
+            this.cbEscuelas.TabIndex = 14;
+            // 
+            // btnAgregado
+            // 
+            this.btnAgregado.Activecolor = System.Drawing.Color.Transparent;
+            this.btnAgregado.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAgregado.BorderRadius = 0;
+            this.btnAgregado.ButtonText = "bunifuFlatButton1";
+            this.btnAgregado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregado.DisabledColor = System.Drawing.Color.Gray;
+            this.btnAgregado.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnAgregado.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnAgregado.Iconimage")));
+            this.btnAgregado.Iconimage_right = null;
+            this.btnAgregado.Iconimage_right_Selected = null;
+            this.btnAgregado.Iconimage_Selected = null;
+            this.btnAgregado.IconMarginLeft = 0;
+            this.btnAgregado.IconMarginRight = 0;
+            this.btnAgregado.IconRightVisible = true;
+            this.btnAgregado.IconRightZoom = 0D;
+            this.btnAgregado.IconVisible = true;
+            this.btnAgregado.IconZoom = 61D;
+            this.btnAgregado.IsTab = false;
+            this.btnAgregado.Location = new System.Drawing.Point(874, 193);
+            this.btnAgregado.Name = "btnAgregado";
+            this.btnAgregado.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnAgregado.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btnAgregado.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnAgregado.selected = false;
+            this.btnAgregado.Size = new System.Drawing.Size(25, 25);
+            this.btnAgregado.TabIndex = 13;
+            this.btnAgregado.Text = "bunifuFlatButton1";
+            this.btnAgregado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregado.Textcolor = System.Drawing.Color.White;
+            this.btnAgregado.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // btnCancelar
             // 
@@ -311,7 +362,7 @@
             // txtCorreo
             // 
             this.txtCorreo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCorreo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreo.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.txtCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             this.txtCorreo.HintForeColor = System.Drawing.Color.Empty;
             this.txtCorreo.HintText = "";
@@ -323,7 +374,7 @@
             this.txtCorreo.Location = new System.Drawing.Point(607, 97);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(282, 33);
+            this.txtCorreo.Size = new System.Drawing.Size(265, 33);
             this.txtCorreo.TabIndex = 3;
             this.txtCorreo.Text = "ejemplo@hotmail.com";
             this.txtCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -335,7 +386,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTelefono.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.txtTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtTelefono.HintForeColor = System.Drawing.Color.Empty;
             this.txtTelefono.HintText = "";
@@ -354,7 +405,7 @@
             // txtNombre
             // 
             this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNombre.HintForeColor = System.Drawing.Color.Empty;
             this.txtNombre.HintText = "";
@@ -432,7 +483,7 @@
             this.chkNombre.Checked = false;
             this.chkNombre.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkNombre.ForeColor = System.Drawing.Color.White;
-            this.chkNombre.Location = new System.Drawing.Point(20, 67);
+            this.chkNombre.Location = new System.Drawing.Point(12, 67);
             this.chkNombre.Name = "chkNombre";
             this.chkNombre.Size = new System.Drawing.Size(20, 20);
             this.chkNombre.TabIndex = 8;
@@ -445,7 +496,7 @@
             this.chkEscuela.Checked = false;
             this.chkEscuela.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkEscuela.ForeColor = System.Drawing.Color.White;
-            this.chkEscuela.Location = new System.Drawing.Point(20, 118);
+            this.chkEscuela.Location = new System.Drawing.Point(12, 118);
             this.chkEscuela.Name = "chkEscuela";
             this.chkEscuela.Size = new System.Drawing.Size(20, 20);
             this.chkEscuela.TabIndex = 9;
@@ -458,7 +509,7 @@
             this.chkFechaNacimiento.Checked = false;
             this.chkFechaNacimiento.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkFechaNacimiento.ForeColor = System.Drawing.Color.White;
-            this.chkFechaNacimiento.Location = new System.Drawing.Point(20, 167);
+            this.chkFechaNacimiento.Location = new System.Drawing.Point(12, 167);
             this.chkFechaNacimiento.Name = "chkFechaNacimiento";
             this.chkFechaNacimiento.Size = new System.Drawing.Size(20, 20);
             this.chkFechaNacimiento.TabIndex = 10;
@@ -471,7 +522,7 @@
             this.chkTelefono.Checked = false;
             this.chkTelefono.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkTelefono.ForeColor = System.Drawing.Color.White;
-            this.chkTelefono.Location = new System.Drawing.Point(172, 167);
+            this.chkTelefono.Location = new System.Drawing.Point(178, 167);
             this.chkTelefono.Name = "chkTelefono";
             this.chkTelefono.Size = new System.Drawing.Size(20, 20);
             this.chkTelefono.TabIndex = 11;
@@ -484,7 +535,7 @@
             this.chkCorreo.Checked = false;
             this.chkCorreo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkCorreo.ForeColor = System.Drawing.Color.White;
-            this.chkCorreo.Location = new System.Drawing.Point(20, 208);
+            this.chkCorreo.Location = new System.Drawing.Point(12, 208);
             this.chkCorreo.Name = "chkCorreo";
             this.chkCorreo.Size = new System.Drawing.Size(20, 20);
             this.chkCorreo.TabIndex = 12;
@@ -503,13 +554,14 @@
             this.txtFiltonombre.LineIdleColor = System.Drawing.Color.Teal;
             this.txtFiltonombre.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
             this.txtFiltonombre.LineThickness = 3;
-            this.txtFiltonombre.Location = new System.Drawing.Point(46, 60);
+            this.txtFiltonombre.Location = new System.Drawing.Point(38, 60);
             this.txtFiltonombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtFiltonombre.Name = "txtFiltonombre";
-            this.txtFiltonombre.Size = new System.Drawing.Size(266, 27);
+            this.txtFiltonombre.Size = new System.Drawing.Size(279, 27);
             this.txtFiltonombre.TabIndex = 6;
             this.txtFiltonombre.Text = "Nombre";
             this.txtFiltonombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFiltonombre.OnValueChanged += new System.EventHandler(this.txtFiltonombre_OnValueChanged);
             this.txtFiltonombre.Enter += new System.EventHandler(this.txtFiltonombre_Enter);
             this.txtFiltonombre.Leave += new System.EventHandler(this.txtFiltonombre_Leave);
             this.txtFiltonombre.MouseEnter += new System.EventHandler(this.txtFiltonombre_MouseEnter);
@@ -528,42 +580,18 @@
             this.txtFiltoescuela.LineIdleColor = System.Drawing.Color.Teal;
             this.txtFiltoescuela.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
             this.txtFiltoescuela.LineThickness = 3;
-            this.txtFiltoescuela.Location = new System.Drawing.Point(46, 106);
+            this.txtFiltoescuela.Location = new System.Drawing.Point(38, 106);
             this.txtFiltoescuela.Margin = new System.Windows.Forms.Padding(4);
             this.txtFiltoescuela.Name = "txtFiltoescuela";
-            this.txtFiltoescuela.Size = new System.Drawing.Size(265, 32);
+            this.txtFiltoescuela.Size = new System.Drawing.Size(279, 32);
             this.txtFiltoescuela.TabIndex = 13;
             this.txtFiltoescuela.Text = "Escuela";
             this.txtFiltoescuela.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFiltoescuela.OnValueChanged += new System.EventHandler(this.txtFiltoescuela_OnValueChanged);
             this.txtFiltoescuela.Enter += new System.EventHandler(this.txtFiltoescuela_Enter);
             this.txtFiltoescuela.Leave += new System.EventHandler(this.txtFiltoescuela_Leave);
             this.txtFiltoescuela.MouseEnter += new System.EventHandler(this.txtFiltoescuela_MouseEnter);
             this.txtFiltoescuela.MouseLeave += new System.EventHandler(this.txtFiltoescuela_MouseLeave);
-            // 
-            // txtFiltroFechaNacimiento
-            // 
-            this.txtFiltroFechaNacimiento.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtFiltroFechaNacimiento.Enabled = false;
-            this.txtFiltroFechaNacimiento.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltroFechaNacimiento.ForeColor = System.Drawing.Color.Black;
-            this.txtFiltroFechaNacimiento.HintForeColor = System.Drawing.Color.Empty;
-            this.txtFiltroFechaNacimiento.HintText = "";
-            this.txtFiltroFechaNacimiento.isPassword = false;
-            this.txtFiltroFechaNacimiento.LineFocusedColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtFiltroFechaNacimiento.LineIdleColor = System.Drawing.Color.Teal;
-            this.txtFiltroFechaNacimiento.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtFiltroFechaNacimiento.LineThickness = 3;
-            this.txtFiltroFechaNacimiento.Location = new System.Drawing.Point(46, 160);
-            this.txtFiltroFechaNacimiento.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFiltroFechaNacimiento.Name = "txtFiltroFechaNacimiento";
-            this.txtFiltroFechaNacimiento.Size = new System.Drawing.Size(106, 27);
-            this.txtFiltroFechaNacimiento.TabIndex = 14;
-            this.txtFiltroFechaNacimiento.Text = "dd/mm/aa";
-            this.txtFiltroFechaNacimiento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtFiltroFechaNacimiento.Enter += new System.EventHandler(this.txtFiltroFechaNacimiento_Enter);
-            this.txtFiltroFechaNacimiento.Leave += new System.EventHandler(this.txtFiltroFechaNacimiento_Leave);
-            this.txtFiltroFechaNacimiento.MouseEnter += new System.EventHandler(this.txtFiltroFechaNacimiento_MouseEnter);
-            this.txtFiltroFechaNacimiento.MouseLeave += new System.EventHandler(this.txtFiltroFechaNacimiento_MouseLeave);
             // 
             // txtFiltroTelefono
             // 
@@ -578,13 +606,14 @@
             this.txtFiltroTelefono.LineIdleColor = System.Drawing.Color.Teal;
             this.txtFiltroTelefono.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
             this.txtFiltroTelefono.LineThickness = 3;
-            this.txtFiltroTelefono.Location = new System.Drawing.Point(198, 160);
+            this.txtFiltroTelefono.Location = new System.Drawing.Point(204, 160);
             this.txtFiltroTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtFiltroTelefono.Name = "txtFiltroTelefono";
             this.txtFiltroTelefono.Size = new System.Drawing.Size(113, 27);
             this.txtFiltroTelefono.TabIndex = 15;
             this.txtFiltroTelefono.Text = "Telefono";
             this.txtFiltroTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFiltroTelefono.OnValueChanged += new System.EventHandler(this.txtFiltroTelefono_OnValueChanged);
             this.txtFiltroTelefono.Enter += new System.EventHandler(this.txtFiltroTelefono_Enter);
             this.txtFiltroTelefono.Leave += new System.EventHandler(this.txtFiltroTelefono_Leave);
             this.txtFiltroTelefono.MouseEnter += new System.EventHandler(this.txtFiltroTelefono_MouseEnter);
@@ -603,13 +632,14 @@
             this.txtFiltroCorreo.LineIdleColor = System.Drawing.Color.Teal;
             this.txtFiltroCorreo.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
             this.txtFiltroCorreo.LineThickness = 3;
-            this.txtFiltroCorreo.Location = new System.Drawing.Point(46, 201);
+            this.txtFiltroCorreo.Location = new System.Drawing.Point(38, 201);
             this.txtFiltroCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.txtFiltroCorreo.Name = "txtFiltroCorreo";
-            this.txtFiltroCorreo.Size = new System.Drawing.Size(265, 27);
+            this.txtFiltroCorreo.Size = new System.Drawing.Size(279, 27);
             this.txtFiltroCorreo.TabIndex = 16;
             this.txtFiltroCorreo.Text = "Correo";
             this.txtFiltroCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFiltroCorreo.OnValueChanged += new System.EventHandler(this.txtFiltroCorreo_OnValueChanged);
             this.txtFiltroCorreo.Enter += new System.EventHandler(this.txtFiltroCorreo_Enter);
             this.txtFiltroCorreo.Leave += new System.EventHandler(this.txtFiltroCorreo_Leave);
             this.txtFiltroCorreo.MouseEnter += new System.EventHandler(this.txtFiltroCorreo_MouseEnter);
@@ -621,6 +651,9 @@
             this.bunifuCards2.BorderRadius = 5;
             this.bunifuCards2.BottomSahddow = true;
             this.bunifuCards2.color = System.Drawing.Color.Teal;
+            this.bunifuCards2.Controls.Add(this.txtFiltroAño);
+            this.bunifuCards2.Controls.Add(this.cbMes);
+            this.bunifuCards2.Controls.Add(this.cbDia);
             this.bunifuCards2.Controls.Add(this.lblfiltrar);
             this.bunifuCards2.Controls.Add(this.imgFiltro);
             this.bunifuCards2.Controls.Add(this.chkCorreo);
@@ -628,7 +661,6 @@
             this.bunifuCards2.Controls.Add(this.txtFiltroTelefono);
             this.bunifuCards2.Controls.Add(this.chkTelefono);
             this.bunifuCards2.Controls.Add(this.chkFechaNacimiento);
-            this.bunifuCards2.Controls.Add(this.txtFiltroFechaNacimiento);
             this.bunifuCards2.Controls.Add(this.txtFiltoescuela);
             this.bunifuCards2.Controls.Add(this.txtFiltonombre);
             this.bunifuCards2.Controls.Add(this.chkNombre);
@@ -641,12 +673,116 @@
             this.bunifuCards2.Size = new System.Drawing.Size(335, 245);
             this.bunifuCards2.TabIndex = 17;
             // 
+            // txtFiltroAño
+            // 
+            this.txtFiltroAño.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtFiltroAño.Enabled = false;
+            this.txtFiltroAño.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltroAño.ForeColor = System.Drawing.Color.Black;
+            this.txtFiltroAño.HintForeColor = System.Drawing.Color.Empty;
+            this.txtFiltroAño.HintText = "";
+            this.txtFiltroAño.isPassword = false;
+            this.txtFiltroAño.LineFocusedColor = System.Drawing.Color.DeepSkyBlue;
+            this.txtFiltroAño.LineIdleColor = System.Drawing.Color.Teal;
+            this.txtFiltroAño.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
+            this.txtFiltroAño.LineThickness = 3;
+            this.txtFiltroAño.Location = new System.Drawing.Point(126, 160);
+            this.txtFiltroAño.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFiltroAño.Name = "txtFiltroAño";
+            this.txtFiltroAño.Size = new System.Drawing.Size(40, 27);
+            this.txtFiltroAño.TabIndex = 21;
+            this.txtFiltroAño.Text = "Año";
+            this.txtFiltroAño.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFiltroAño.OnValueChanged += new System.EventHandler(this.txtFiltroAño_OnValueChanged);
+            this.txtFiltroAño.Enter += new System.EventHandler(this.txtFiltroAño_Enter);
+            this.txtFiltroAño.Leave += new System.EventHandler(this.txtFiltroAño_Leave);
+            this.txtFiltroAño.MouseEnter += new System.EventHandler(this.txtFiltroAño_MouseEnter);
+            this.txtFiltroAño.MouseLeave += new System.EventHandler(this.txtFiltroAño_MouseLeave);
+            // 
+            // cbMes
+            // 
+            this.cbMes.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.cbMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMes.Enabled = false;
+            this.cbMes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbMes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMes.ForeColor = System.Drawing.Color.White;
+            this.cbMes.FormattingEnabled = true;
+            this.cbMes.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.cbMes.Location = new System.Drawing.Point(83, 169);
+            this.cbMes.Name = "cbMes";
+            this.cbMes.Size = new System.Drawing.Size(36, 25);
+            this.cbMes.TabIndex = 20;
+            this.cbMes.TextChanged += new System.EventHandler(this.cbMes_TextChanged);
+            // 
+            // cbDia
+            // 
+            this.cbDia.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.cbDia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDia.Enabled = false;
+            this.cbDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbDia.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDia.ForeColor = System.Drawing.Color.White;
+            this.cbDia.FormattingEnabled = true;
+            this.cbDia.IntegralHeight = false;
+            this.cbDia.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31"});
+            this.cbDia.Location = new System.Drawing.Point(42, 169);
+            this.cbDia.MaxDropDownItems = 12;
+            this.cbDia.Name = "cbDia";
+            this.cbDia.Size = new System.Drawing.Size(37, 25);
+            this.cbDia.TabIndex = 19;
+            
+            this.cbDia.TextChanged += new System.EventHandler(this.cbDia_TextChanged);
+            // 
             // lblfiltrar
             // 
             this.lblfiltrar.AutoSize = true;
             this.lblfiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblfiltrar.ForeColor = System.Drawing.Color.DimGray;
-            this.lblfiltrar.Location = new System.Drawing.Point(57, 23);
+            this.lblfiltrar.Location = new System.Drawing.Point(49, 22);
             this.lblfiltrar.Name = "lblfiltrar";
             this.lblfiltrar.Size = new System.Drawing.Size(113, 25);
             this.lblfiltrar.TabIndex = 18;
@@ -657,62 +793,13 @@
             this.imgFiltro.BackColor = System.Drawing.Color.Transparent;
             this.imgFiltro.Image = ((System.Drawing.Image)(resources.GetObject("imgFiltro.Image")));
             this.imgFiltro.ImageActive = ((System.Drawing.Image)(resources.GetObject("imgFiltro.ImageActive")));
-            this.imgFiltro.Location = new System.Drawing.Point(20, 18);
+            this.imgFiltro.Location = new System.Drawing.Point(12, 17);
             this.imgFiltro.Name = "imgFiltro";
             this.imgFiltro.Size = new System.Drawing.Size(31, 36);
             this.imgFiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgFiltro.TabIndex = 17;
             this.imgFiltro.TabStop = false;
             this.imgFiltro.Zoom = 10;
-            // 
-            // btnAgregado
-            // 
-            this.btnAgregado.Activecolor = System.Drawing.Color.Transparent;
-            this.btnAgregado.BackColor = System.Drawing.Color.Transparent;
-            this.btnAgregado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAgregado.BorderRadius = 0;
-            this.btnAgregado.ButtonText = "bunifuFlatButton1";
-            this.btnAgregado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregado.DisabledColor = System.Drawing.Color.Gray;
-            this.btnAgregado.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnAgregado.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnAgregado.Iconimage")));
-            this.btnAgregado.Iconimage_right = null;
-            this.btnAgregado.Iconimage_right_Selected = null;
-            this.btnAgregado.Iconimage_Selected = null;
-            this.btnAgregado.IconMarginLeft = 0;
-            this.btnAgregado.IconMarginRight = 0;
-            this.btnAgregado.IconRightVisible = true;
-            this.btnAgregado.IconRightZoom = 0D;
-            this.btnAgregado.IconVisible = true;
-            this.btnAgregado.IconZoom = 61D;
-            this.btnAgregado.IsTab = false;
-            this.btnAgregado.Location = new System.Drawing.Point(874, 193);
-            this.btnAgregado.Name = "btnAgregado";
-            this.btnAgregado.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnAgregado.OnHovercolor = System.Drawing.Color.Transparent;
-            this.btnAgregado.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnAgregado.selected = false;
-            this.btnAgregado.Size = new System.Drawing.Size(25, 25);
-            this.btnAgregado.TabIndex = 13;
-            this.btnAgregado.Text = "bunifuFlatButton1";
-            this.btnAgregado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregado.Textcolor = System.Drawing.Color.White;
-            this.btnAgregado.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // cbEscuelas
-            // 
-            this.cbEscuelas.BackColor = System.Drawing.Color.Transparent;
-            this.cbEscuelas.BorderRadius = 3;
-            this.cbEscuelas.DisabledColor = System.Drawing.Color.Gray;
-            this.cbEscuelas.ForeColor = System.Drawing.Color.White;
-            this.cbEscuelas.Items = new string[0];
-            this.cbEscuelas.Location = new System.Drawing.Point(105, 97);
-            this.cbEscuelas.Name = "cbEscuelas";
-            this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.cbEscuelas.onHoverColor = System.Drawing.Color.Teal;
-            this.cbEscuelas.selectedIndex = -1;
-            this.cbEscuelas.Size = new System.Drawing.Size(382, 35);
-            this.cbEscuelas.TabIndex = 14;
             // 
             // RegistroAlumnos
             // 
@@ -756,7 +843,6 @@
         private Bunifu.Framework.UI.BunifuCheckbox chkCorreo;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtFiltonombre;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtFiltoescuela;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtFiltroFechaNacimiento;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtFiltroTelefono;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtFiltroCorreo;
         private Bunifu.Framework.UI.BunifuCards bunifuCards2;
@@ -770,5 +856,8 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnLimpiar;
         private Bunifu.Framework.UI.BunifuFlatButton btnAgregado;
         private Bunifu.Framework.UI.BunifuDropdown cbEscuelas;
+        private System.Windows.Forms.ComboBox cbDia;
+        private System.Windows.Forms.ComboBox cbMes;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtFiltroAño;
     }
 }

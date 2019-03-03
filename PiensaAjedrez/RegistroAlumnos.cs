@@ -18,6 +18,28 @@ namespace PiensaAjedrez
             InitializeComponent();
             txtNombre.Focus();
             btnCancelar.Visible = false;
+            foreach (var ctl in txtFiltroAño.Controls)
+            {
+
+                if (ctl.GetType() == typeof(TextBox))
+
+                {
+                    var txt = (TextBox)ctl;
+                    txt.MaxLength = 4;
+                }
+
+            }
+            foreach (var ctl in txtTelefono.Controls)
+            {
+
+                if (ctl.GetType() == typeof(TextBox))
+
+                {
+                    var txt = (TextBox)ctl;
+                    txt.MaxLength = 10;
+                }
+
+            }
             btnAgregado.Visible = false;
             imgFiltro.Enabled = false;
             dgvAlumnos.Columns.Add("No. Ctrl", "No. Ctrl");
@@ -65,11 +87,13 @@ namespace PiensaAjedrez
                 }
                 else
                 {
-                    
+                    btnCancelar.Visible = false;
                     miAlumno.NumeroDeControl = lblnumerocontrol.Text;
                     listaAlumnos.Remove(miAlumno);
                 }
                 listaAlumnos.Add(miAlumno);
+                if(btnAgregar.ButtonText=="Editar")
+                    listaAlumnos.Sort();
                 MostrarDatos();
                 LimpiarControles();
                 btnAgregado.Visible = true;
@@ -78,10 +102,6 @@ namespace PiensaAjedrez
                 lblnumerocontrol.Text = ((int.Parse("19100000")) + (listaAlumnos.Count)).ToString();
                 btnAgregar.ButtonText = "Agregar";
 
-            }
-            catch (IndexOutOfRangeException c)
-            {
-                MessageBox.Show("Sólo se permiten 10 dígitos en el número de teléfono.");
             }
             catch (Exception x)
             {
@@ -165,6 +185,7 @@ namespace PiensaAjedrez
         {
             if (txtFiltonombre.Text == "Nombre")
                 txtFiltonombre.Text = "";
+
         }
 
         private void txtFiltonombre_MouseLeave(object sender, EventArgs e)
@@ -196,31 +217,7 @@ namespace PiensaAjedrez
             if (txtFiltoescuela.Text == "")
                 txtFiltoescuela.Text = "Escuela";
         }
-
-        private void txtFiltroFechaNacimiento_Enter(object sender, EventArgs e)
-        {
-            if (txtFiltroFechaNacimiento.Text == "dd/mm/aa")
-                txtFiltroFechaNacimiento.Text = "";
-        }
-
-        private void txtFiltroFechaNacimiento_Leave(object sender, EventArgs e)
-        {
-            if (txtFiltroFechaNacimiento.Text == "")
-                txtFiltroFechaNacimiento.Text = "dd/mm/aa";
-        }
-
-        private void txtFiltroFechaNacimiento_MouseEnter(object sender, EventArgs e)
-        {
-            if (txtFiltroFechaNacimiento.Text == "dd/mm/aa")
-                txtFiltroFechaNacimiento.Text = "";
-        }
-
-        private void txtFiltroFechaNacimiento_MouseLeave(object sender, EventArgs e)
-        {
-            if (txtFiltroFechaNacimiento.Text == "")
-                txtFiltroFechaNacimiento.Text = "dd/mm/aa";
-        }
-
+        
         private void txtFiltroTelefono_Enter(object sender, EventArgs e)
         {
             if (txtFiltroTelefono.Text == "Telefono")
@@ -274,23 +271,44 @@ namespace PiensaAjedrez
             if (chkNombre.Checked)
                 txtFiltonombre.Enabled = true;
             else
-                txtFiltonombre.Enabled = false;    
-        }
+            {
+                txtFiltonombre.Enabled = false;
+                MostrarDatos();
+                txtFiltonombre.Text = "";
+            }
+            }
 
         private void chkEscuela_OnChange(object sender, EventArgs e)
         {
             if (chkEscuela.Checked)
                 txtFiltoescuela.Enabled = true;
             else
+            {
                 txtFiltoescuela.Enabled = false;
+                MostrarDatos();
+                txtFiltoescuela.Text = "";
+            }
         }
 
         private void chkFechaNacimiento_OnChange(object sender, EventArgs e)
         {
             if (chkFechaNacimiento.Checked)
-                txtFiltroFechaNacimiento.Enabled = true;
+            {
+                cbDia.Enabled = true;
+                cbMes.Enabled = true;
+                txtFiltroAño.Enabled = true;
+            }
             else
-                txtFiltroFechaNacimiento.Enabled = false;
+            {
+                cbDia.Enabled = false;
+                cbMes.Enabled = false;
+                txtFiltroAño.Enabled = false;
+                MostrarDatos();
+                txtFiltroAño.Text = "";
+                cbDia.Text = "";
+                cbMes.Text = "";
+
+            }
         }
 
         private void chkTelefono_OnChange(object sender, EventArgs e)
@@ -298,15 +316,23 @@ namespace PiensaAjedrez
             if (chkTelefono.Checked)
                 txtFiltroTelefono.Enabled = true;
             else
+            {
                 txtFiltroTelefono.Enabled = false;
-        }
+                MostrarDatos();
+                txtFiltroTelefono.Text = "";
+            }
+            }
 
         private void chkCorreo_OnChange(object sender, EventArgs e)
         {
             if (chkCorreo.Checked)
                 txtFiltroCorreo.Enabled = true;
             else
+            {
                 txtFiltroCorreo.Enabled = false;
+                MostrarDatos();
+                txtFiltroCorreo.Text = "";
+            }
         }
         #endregion
 
@@ -331,6 +357,7 @@ namespace PiensaAjedrez
                     }
                         lblnumerocontrol.Text = alumnos.NumeroDeControl;
                         btnAgregar.ButtonText = "Editar";
+                    btnAgregar.IdleFillColor = Color.Teal;
                     btnCancelar.Visible = true;
                 } 
             }
@@ -345,6 +372,7 @@ namespace PiensaAjedrez
         {
             LimpiarControles();
             btnAgregar.ButtonText = "Agregar";
+            btnAgregar.IdleFillColor = Color.FromArgb(59, 202, 192);
             lblnumerocontrol.Text = ((int.Parse("19100000")) + (listaAlumnos.Count)).ToString();
             btnCancelar.Visible = false;
             dgvAlumnos.Focus();
@@ -378,8 +406,159 @@ namespace PiensaAjedrez
 
             }
         }
+
+        private void txtFiltonombre_OnValueChanged(object sender, EventArgs e)
+        {
+                dgvAlumnos.Rows.Clear();
+                foreach (Alumno miAlumno in listaAlumnos)
+                {
+                    if (miAlumno.Nombre.Contains(txtFiltonombre.Text))
+                    {
+                        dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"));
+                    }
+
+                }
+        }
+
+        private void txtFiltoescuela_OnValueChanged(object sender, EventArgs e)
+        {
+            dgvAlumnos.Rows.Clear();
+            foreach (Alumno miAlumno in listaAlumnos)
+            {
+                if (miAlumno.Escuela.Contains(txtFiltoescuela.Text))
+                {
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"));
+                }
+
+            }
+        }
+
+       
+
+        private void txtFiltroTelefono_OnValueChanged(object sender, EventArgs e)
+        {
+            dgvAlumnos.Rows.Clear();
+            foreach (Alumno miAlumno in listaAlumnos)
+            {
+                if (miAlumno.Telefono.Contains(txtFiltroTelefono.Text))
+                {
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"));
+                }
+
+            }
+        }
+
+        private void txtFiltroCorreo_OnValueChanged(object sender, EventArgs e)
+        {
+            dgvAlumnos.Rows.Clear();
+            foreach (Alumno miAlumno in listaAlumnos)
+            {
+                if (miAlumno.Correo.Contains(txtFiltroCorreo.Text))
+                {
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"));
+                }
+
+            }
+        }
+        
+        private void txtFiltroAño_Enter(object sender, EventArgs e)
+        {
+            if (txtFiltroAño.Text=="Año")
+                txtFiltroAño.Text = "";  
+        }
+
+        private void txtFiltroAño_Leave(object sender, EventArgs e)
+        {
+            if (txtFiltroAño.Text == "")
+                txtFiltroAño.Text = "Año";
+        }
+
+        private void txtFiltroAño_MouseEnter(object sender, EventArgs e)
+        {
+            if (txtFiltroAño.Text == "Año")
+                txtFiltroAño.Text = "";
+        }
+
+        private void txtFiltroAño_MouseLeave(object sender, EventArgs e)
+        {
+            if (txtFiltroAño.Text == "")
+                txtFiltroAño.Text = "Año";
+        }
+
+
+        private void cbDia_TextChanged(object sender, EventArgs e)
+        {
+            BusquedaFiltrada();
+        }
+
+        private void cbMes_TextChanged(object sender, EventArgs e)
+        {
+            BusquedaFiltrada();
+        }
+        bool blnDia = true, blnMes=true,blnAño=true, blnDiaContains = true, blnMesContains = true, blnAñoContains = true;
+
+        private void txtFiltroAño_OnValueChanged(object sender, EventArgs e)
+        {
+            BusquedaFiltrada();
+        }
+
+        #region Filtrar
+        void ObtenerBooleanos()
+        {
+            blnDia = (cbDia.Text == "");
+            blnMes = (cbMes.Text == "");
+            blnAño = (txtFiltroAño.Text == "");
+        }
+        void ObtenerBooleanos(Alumno miAlumno)
+        {
+            blnDiaContains = ((miAlumno.FechaNacimiento.Day.ToString().Contains(cbDia.Text)));
+            blnMesContains = ((miAlumno.FechaNacimiento.Month.ToString().Contains(cbMes.Text)));
+            blnAñoContains= ((miAlumno.FechaNacimiento.Year.ToString().Contains(txtFiltroAño.Text)));
+
+            if (blnDia && blnMes && !blnAño)
+                if (blnAñoContains)
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"));
+
+            if (!blnDia && !blnMes && !blnAño)
+                if (blnDiaContains && blnMesContains && blnAñoContains)
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"));
+
+            if (!blnDia && blnMes && !blnAño)
+                if (blnDiaContains && blnAñoContains)
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"));
+
+            if (blnDia && !blnMes && !blnAño)
+                if (blnMesContains && blnAñoContains)
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"));
+
+            if (!blnDia && !blnMes && blnAño)
+                if (blnDia && blnMes)
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"));
+
+            if (!blnDia && blnMes && blnAño)
+                if (blnDiaContains)
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"));
+
+            if (blnDia && !blnMes && blnAño)
+                if (blnMesContains)
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"));
+
+            if (blnDia && blnMes && blnAño)
+                MostrarDatos();
+
+        }
+        void BusquedaFiltrada()
+        {
+            dgvAlumnos.Rows.Clear();
+            ObtenerBooleanos();
+            foreach (Alumno miAlumno in listaAlumnos)
+            {
+                ObtenerBooleanos(miAlumno);
+            }
+        }
+        #endregion
     }
-    }
+}
 
 
 
