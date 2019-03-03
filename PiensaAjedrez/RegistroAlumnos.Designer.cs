@@ -35,11 +35,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroAlumnos));
             this.dgvAlumnos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
+            this.btnCancelar = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnLimpiar = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.lblActivo = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.chkActivo = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.lblnumerocontrol = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lblNocontrol = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnAgregar = new Bunifu.Framework.UI.BunifuThinButton2();
             this.dtFechaNacimiento = new Bunifu.Framework.UI.BunifuDatepicker();
             this.txtCorreo = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtTelefono = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.txtEscuela = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtNombre = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lblCorreo = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblTelefono = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -59,10 +64,8 @@
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
             this.lblfiltrar = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.imgFiltro = new Bunifu.Framework.UI.BunifuImageButton();
-            this.lblNocontrol = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.lblnumerocontrol = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.chkActivo = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.lblActivo = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btnAgregado = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.cbEscuelas = new Bunifu.Framework.UI.BunifuDropdown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.bunifuCards1.SuspendLayout();
             this.bunifuCards2.SuspendLayout();
@@ -81,7 +84,7 @@
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlumnos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.5F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
@@ -90,7 +93,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
@@ -109,13 +112,14 @@
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAlumnos.RowHeadersVisible = false;
             this.dgvAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAlumnos.RowTemplate.Height = 25;
             this.dgvAlumnos.RowTemplate.ReadOnly = true;
             this.dgvAlumnos.Size = new System.Drawing.Size(1288, 347);
             this.dgvAlumnos.TabIndex = 7;
+            this.dgvAlumnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellClick);
             // 
             // bunifuCards1
             // 
@@ -123,6 +127,10 @@
             this.bunifuCards1.BorderRadius = 5;
             this.bunifuCards1.BottomSahddow = true;
             this.bunifuCards1.color = System.Drawing.Color.Teal;
+            this.bunifuCards1.Controls.Add(this.cbEscuelas);
+            this.bunifuCards1.Controls.Add(this.btnAgregado);
+            this.bunifuCards1.Controls.Add(this.btnCancelar);
+            this.bunifuCards1.Controls.Add(this.btnLimpiar);
             this.bunifuCards1.Controls.Add(this.lblActivo);
             this.bunifuCards1.Controls.Add(this.chkActivo);
             this.bunifuCards1.Controls.Add(this.lblnumerocontrol);
@@ -131,7 +139,6 @@
             this.bunifuCards1.Controls.Add(this.dtFechaNacimiento);
             this.bunifuCards1.Controls.Add(this.txtCorreo);
             this.bunifuCards1.Controls.Add(this.txtTelefono);
-            this.bunifuCards1.Controls.Add(this.txtEscuela);
             this.bunifuCards1.Controls.Add(this.txtNombre);
             this.bunifuCards1.Controls.Add(this.lblCorreo);
             this.bunifuCards1.Controls.Add(this.lblTelefono);
@@ -146,6 +153,121 @@
             this.bunifuCards1.Size = new System.Drawing.Size(923, 245);
             this.bunifuCards1.TabIndex = 0;
             this.bunifuCards1.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuCards1_Paint);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Activecolor = System.Drawing.Color.Transparent;
+            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCancelar.BorderRadius = 0;
+            this.btnCancelar.ButtonText = "bunifuFlatButton1";
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.DisabledColor = System.Drawing.Color.Gray;
+            this.btnCancelar.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnCancelar.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Iconimage")));
+            this.btnCancelar.Iconimage_right = null;
+            this.btnCancelar.Iconimage_right_Selected = null;
+            this.btnCancelar.Iconimage_Selected = null;
+            this.btnCancelar.IconMarginLeft = -5;
+            this.btnCancelar.IconMarginRight = 0;
+            this.btnCancelar.IconRightVisible = true;
+            this.btnCancelar.IconRightZoom = 0D;
+            this.btnCancelar.IconVisible = true;
+            this.btnCancelar.IconZoom = 46D;
+            this.btnCancelar.IsTab = false;
+            this.btnCancelar.Location = new System.Drawing.Point(879, 62);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnCancelar.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btnCancelar.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCancelar.selected = false;
+            this.btnCancelar.Size = new System.Drawing.Size(25, 25);
+            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.Text = "bunifuFlatButton1";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Textcolor = System.Drawing.Color.White;
+            this.btnCancelar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Activecolor = System.Drawing.Color.Transparent;
+            this.btnLimpiar.BackColor = System.Drawing.Color.Transparent;
+            this.btnLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnLimpiar.BorderRadius = 0;
+            this.btnLimpiar.ButtonText = "bunifuFlatButton1";
+            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar.DisabledColor = System.Drawing.Color.Gray;
+            this.btnLimpiar.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnLimpiar.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.Iconimage")));
+            this.btnLimpiar.Iconimage_right = null;
+            this.btnLimpiar.Iconimage_right_Selected = null;
+            this.btnLimpiar.Iconimage_Selected = null;
+            this.btnLimpiar.IconMarginLeft = 0;
+            this.btnLimpiar.IconMarginRight = 0;
+            this.btnLimpiar.IconRightVisible = true;
+            this.btnLimpiar.IconRightZoom = 0D;
+            this.btnLimpiar.IconVisible = true;
+            this.btnLimpiar.IconZoom = 68D;
+            this.btnLimpiar.IsTab = false;
+            this.btnLimpiar.Location = new System.Drawing.Point(879, 23);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnLimpiar.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btnLimpiar.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnLimpiar.selected = false;
+            this.btnLimpiar.Size = new System.Drawing.Size(25, 25);
+            this.btnLimpiar.TabIndex = 11;
+            this.btnLimpiar.Text = "bunifuFlatButton1";
+            this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiar.Textcolor = System.Drawing.Color.White;
+            this.btnLimpiar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // lblActivo
+            // 
+            this.lblActivo.AutoSize = true;
+            this.lblActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActivo.ForeColor = System.Drawing.Color.Black;
+            this.lblActivo.Location = new System.Drawing.Point(533, 193);
+            this.lblActivo.Name = "lblActivo";
+            this.lblActivo.Size = new System.Drawing.Size(66, 25);
+            this.lblActivo.TabIndex = 10;
+            this.lblActivo.Text = "Activo";
+            // 
+            // chkActivo
+            // 
+            this.chkActivo.BackColor = System.Drawing.Color.SkyBlue;
+            this.chkActivo.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkActivo.Checked = false;
+            this.chkActivo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
+            this.chkActivo.ForeColor = System.Drawing.Color.White;
+            this.chkActivo.Location = new System.Drawing.Point(507, 198);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.Size = new System.Drawing.Size(20, 20);
+            this.chkActivo.TabIndex = 9;
+            // 
+            // lblnumerocontrol
+            // 
+            this.lblnumerocontrol.AutoSize = true;
+            this.lblnumerocontrol.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnumerocontrol.ForeColor = System.Drawing.Color.Teal;
+            this.lblnumerocontrol.Location = new System.Drawing.Point(97, 13);
+            this.lblnumerocontrol.Name = "lblnumerocontrol";
+            this.lblnumerocontrol.Size = new System.Drawing.Size(74, 25);
+            this.lblnumerocontrol.TabIndex = 7;
+            this.lblnumerocontrol.Text = "No.ctrl";
+            // 
+            // lblNocontrol
+            // 
+            this.lblNocontrol.AutoSize = true;
+            this.lblNocontrol.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNocontrol.ForeColor = System.Drawing.Color.Teal;
+            this.lblNocontrol.Location = new System.Drawing.Point(14, 13);
+            this.lblNocontrol.Name = "lblNocontrol";
+            this.lblNocontrol.Size = new System.Drawing.Size(74, 25);
+            this.lblNocontrol.TabIndex = 6;
+            this.lblNocontrol.Text = "No.ctrl";
             // 
             // btnAgregar
             // 
@@ -165,10 +287,10 @@
             this.btnAgregar.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnAgregar.IdleForecolor = System.Drawing.Color.White;
             this.btnAgregar.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnAgregar.Location = new System.Drawing.Point(708, 187);
+            this.btnAgregar.Location = new System.Drawing.Point(676, 187);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(5);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(181, 41);
+            this.btnAgregar.Size = new System.Drawing.Size(185, 41);
             this.btnAgregar.TabIndex = 5;
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -184,7 +306,7 @@
             this.dtFechaNacimiento.Name = "dtFechaNacimiento";
             this.dtFechaNacimiento.Size = new System.Drawing.Size(302, 36);
             this.dtFechaNacimiento.TabIndex = 4;
-            this.dtFechaNacimiento.Value = new System.DateTime(2019, 2, 25, 17, 51, 30, 840);
+            this.dtFechaNacimiento.Value = new System.DateTime(2010, 9, 2, 0, 0, 0, 0);
             // 
             // txtCorreo
             // 
@@ -225,28 +347,9 @@
             this.txtTelefono.Location = new System.Drawing.Point(606, 42);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(222, 33);
+            this.txtTelefono.Size = new System.Drawing.Size(204, 33);
             this.txtTelefono.TabIndex = 2;
             this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtEscuela
-            // 
-            this.txtEscuela.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtEscuela.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEscuela.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtEscuela.HintForeColor = System.Drawing.Color.Empty;
-            this.txtEscuela.HintText = "";
-            this.txtEscuela.isPassword = false;
-            this.txtEscuela.LineFocusedColor = System.Drawing.Color.SkyBlue;
-            this.txtEscuela.LineIdleColor = System.Drawing.Color.Teal;
-            this.txtEscuela.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
-            this.txtEscuela.LineThickness = 4;
-            this.txtEscuela.Location = new System.Drawing.Point(103, 97);
-            this.txtEscuela.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEscuela.Name = "txtEscuela";
-            this.txtEscuela.Size = new System.Drawing.Size(385, 33);
-            this.txtEscuela.TabIndex = 1;
-            this.txtEscuela.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNombre
             // 
@@ -562,50 +665,54 @@
             this.imgFiltro.TabStop = false;
             this.imgFiltro.Zoom = 10;
             // 
-            // lblNocontrol
+            // btnAgregado
             // 
-            this.lblNocontrol.AutoSize = true;
-            this.lblNocontrol.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNocontrol.ForeColor = System.Drawing.Color.Teal;
-            this.lblNocontrol.Location = new System.Drawing.Point(14, 13);
-            this.lblNocontrol.Name = "lblNocontrol";
-            this.lblNocontrol.Size = new System.Drawing.Size(74, 25);
-            this.lblNocontrol.TabIndex = 6;
-            this.lblNocontrol.Text = "No.ctrl";
+            this.btnAgregado.Activecolor = System.Drawing.Color.Transparent;
+            this.btnAgregado.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAgregado.BorderRadius = 0;
+            this.btnAgregado.ButtonText = "bunifuFlatButton1";
+            this.btnAgregado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregado.DisabledColor = System.Drawing.Color.Gray;
+            this.btnAgregado.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnAgregado.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnAgregado.Iconimage")));
+            this.btnAgregado.Iconimage_right = null;
+            this.btnAgregado.Iconimage_right_Selected = null;
+            this.btnAgregado.Iconimage_Selected = null;
+            this.btnAgregado.IconMarginLeft = 0;
+            this.btnAgregado.IconMarginRight = 0;
+            this.btnAgregado.IconRightVisible = true;
+            this.btnAgregado.IconRightZoom = 0D;
+            this.btnAgregado.IconVisible = true;
+            this.btnAgregado.IconZoom = 61D;
+            this.btnAgregado.IsTab = false;
+            this.btnAgregado.Location = new System.Drawing.Point(874, 193);
+            this.btnAgregado.Name = "btnAgregado";
+            this.btnAgregado.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnAgregado.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btnAgregado.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnAgregado.selected = false;
+            this.btnAgregado.Size = new System.Drawing.Size(25, 25);
+            this.btnAgregado.TabIndex = 13;
+            this.btnAgregado.Text = "bunifuFlatButton1";
+            this.btnAgregado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregado.Textcolor = System.Drawing.Color.White;
+            this.btnAgregado.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
-            // lblnumerocontrol
+            // cbEscuelas
             // 
-            this.lblnumerocontrol.AutoSize = true;
-            this.lblnumerocontrol.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnumerocontrol.ForeColor = System.Drawing.Color.Teal;
-            this.lblnumerocontrol.Location = new System.Drawing.Point(97, 13);
-            this.lblnumerocontrol.Name = "lblnumerocontrol";
-            this.lblnumerocontrol.Size = new System.Drawing.Size(74, 25);
-            this.lblnumerocontrol.TabIndex = 7;
-            this.lblnumerocontrol.Text = "No.ctrl";
-            // 
-            // chkActivo
-            // 
-            this.chkActivo.BackColor = System.Drawing.Color.SkyBlue;
-            this.chkActivo.ChechedOffColor = System.Drawing.Color.SkyBlue;
-            this.chkActivo.Checked = false;
-            this.chkActivo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
-            this.chkActivo.ForeColor = System.Drawing.Color.White;
-            this.chkActivo.Location = new System.Drawing.Point(507, 198);
-            this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(20, 20);
-            this.chkActivo.TabIndex = 9;
-            // 
-            // lblActivo
-            // 
-            this.lblActivo.AutoSize = true;
-            this.lblActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActivo.ForeColor = System.Drawing.Color.Black;
-            this.lblActivo.Location = new System.Drawing.Point(533, 193);
-            this.lblActivo.Name = "lblActivo";
-            this.lblActivo.Size = new System.Drawing.Size(66, 25);
-            this.lblActivo.TabIndex = 10;
-            this.lblActivo.Text = "Activo";
+            this.cbEscuelas.BackColor = System.Drawing.Color.Transparent;
+            this.cbEscuelas.BorderRadius = 3;
+            this.cbEscuelas.DisabledColor = System.Drawing.Color.Gray;
+            this.cbEscuelas.ForeColor = System.Drawing.Color.White;
+            this.cbEscuelas.Items = new string[0];
+            this.cbEscuelas.Location = new System.Drawing.Point(105, 97);
+            this.cbEscuelas.Name = "cbEscuelas";
+            this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.cbEscuelas.onHoverColor = System.Drawing.Color.Teal;
+            this.cbEscuelas.selectedIndex = -1;
+            this.cbEscuelas.Size = new System.Drawing.Size(382, 35);
+            this.cbEscuelas.TabIndex = 14;
             // 
             // RegistroAlumnos
             // 
@@ -637,7 +744,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblNombre;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtCorreo;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtTelefono;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtEscuela;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtNombre;
         private Bunifu.Framework.UI.BunifuCustomLabel lblCorreo;
         private Bunifu.Framework.UI.BunifuCustomLabel lblTelefono;
@@ -660,5 +766,9 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblNocontrol;
         private Bunifu.Framework.UI.BunifuCustomLabel lblActivo;
         private Bunifu.Framework.UI.BunifuCheckbox chkActivo;
+        private Bunifu.Framework.UI.BunifuFlatButton btnCancelar;
+        private Bunifu.Framework.UI.BunifuFlatButton btnLimpiar;
+        private Bunifu.Framework.UI.BunifuFlatButton btnAgregado;
+        private Bunifu.Framework.UI.BunifuDropdown cbEscuelas;
     }
 }

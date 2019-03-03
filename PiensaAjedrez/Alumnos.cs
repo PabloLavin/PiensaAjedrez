@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PiensaAjedrez
 {
-    class Alumno
+    class Alumno:IEquatable<Alumno>
     {
         private string _strNumeroDeControl;
 
@@ -75,6 +75,9 @@ namespace PiensaAjedrez
             set { _blnActivo = value; }
         }
 
-
+        public bool Equals(Alumno otroAlumno)
+        {
+            return this.NumeroDeControl.Equals(otroAlumno.NumeroDeControl);
+        }
     }
 }

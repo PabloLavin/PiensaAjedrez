@@ -17,6 +17,8 @@ namespace PiensaAjedrez
         {
             InitializeComponent();
             txtNombre.Focus();
+            btnCancelar.Visible = false;
+            btnAgregado.Visible = false;
             imgFiltro.Enabled = false;
             dgvAlumnos.Columns.Add("No. Ctrl", "No. Ctrl");
             dgvAlumnos.Columns.Add("Nombre", "Nombre");
@@ -26,7 +28,14 @@ namespace PiensaAjedrez
             dgvAlumnos.Columns.Add("Correo", "Correo");
             dgvAlumnos.Columns.Add("Activo", "Activo");
             dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvAlumnos.Columns[6].Width = dgvAlumnos.Columns[6].GetPreferredWidth(DataGridViewAutoSizeColumnMode.Fill, true);
+            dgvAlumnos.Columns[6].Width = 99;
+            //dgvAlumnos.Columns[6]
+            dgvAlumnos.Columns[0].Width = 80;
+            dgvAlumnos.Columns[3].Width = 270;
+            dgvAlumnos.Columns[4].Width = 110;
+            dgvAlumnos.Columns[5].Width = 270;
+            dgvAlumnos.Columns[1].Width = 250;
+            dgvAlumnos.Columns[2].Width = 270;
             lblnumerocontrol.Text = "19100000";
 
         }
@@ -41,21 +50,33 @@ namespace PiensaAjedrez
             Alumno miAlumno = new Alumno();
             try
             {
-                if (chkActivo.Checked)
-                    miAlumno.Activo = true;
+                    if (chkActivo.Checked)
+                        miAlumno.Activo = true;
+                    else
+                        miAlumno.Activo = false;
+                    miAlumno.Nombre = txtNombre.Text;
+                    miAlumno.Escuela = cbEscuelas.Text;
+                    miAlumno.FechaNacimiento = dtFechaNacimiento.Value;
+                    miAlumno.Telefono = txtTelefono.Text;
+                    miAlumno.Correo = txtCorreo.Text;
+                if (btnAgregar.ButtonText=="Agregar")
+                {
+                    miAlumno.NumeroDeControl = ((int.Parse("19100000")) + (listaAlumnos.Count)).ToString();
+                }
                 else
-                    miAlumno.Activo = false;
-                miAlumno.Nombre = txtNombre.Text;
-                miAlumno.Escuela = txtEscuela.Text;
-                miAlumno.FechaNacimiento = dtFechaNacimiento.Value;
-                miAlumno.Telefono = txtTelefono.Text;
-                miAlumno.Correo = txtCorreo.Text;
-                miAlumno.NumeroDeControl = ((int.Parse("19100000")) + (listaAlumnos.Count)).ToString();
+                {
+                    
+                    miAlumno.NumeroDeControl = lblnumerocontrol.Text;
+                    listaAlumnos.Remove(miAlumno);
+                }
                 listaAlumnos.Add(miAlumno);
                 MostrarDatos();
                 LimpiarControles();
-                MessageBox.Show("Alumno añadido con éxito.");
-                lblnumerocontrol.Text = ((int.Parse(miAlumno.NumeroDeControl)) + 1).ToString();
+                btnAgregado.Visible = true;
+                InitializeTimer();
+       
+                lblnumerocontrol.Text = ((int.Parse("19100000")) + (listaAlumnos.Count)).ToString();
+                btnAgregar.ButtonText = "Agregar";
 
             }
             catch (IndexOutOfRangeException c)
@@ -73,7 +94,7 @@ namespace PiensaAjedrez
             dgvAlumnos.Rows.Clear();
             foreach (Alumno miAlumno in listaAlumnos)
             {
-                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo)?"Si":"No"));
+                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo)?"Si":"No"));
             }
         }
 
@@ -84,6 +105,7 @@ namespace PiensaAjedrez
                 if (c is Bunifu.Framework.UI.BunifuMaterialTextbox)
                     c.Text = "";
             }
+            txtCorreo.Text = "ejemplo@hotmail.com";
         }
        
         #region Eventos 
@@ -288,7 +310,76 @@ namespace PiensaAjedrez
         }
         #endregion
 
+        private void dgvAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (Alumno alumnos in listaAlumnos)
+            {
+                if (alumnos.NumeroDeControl== dgvAlumnos.CurrentRow.Cells[0].Value.ToString())
+                {
+                    txtNombre.Text = alumnos.Nombre;
+                    cbEscuelas.Text = alumnos.Escuela;
+                    txtCorreo.Text = alumnos.Correo;
+                    txtTelefono.Text = alumnos.Telefono;
+                    dtFechaNacimiento.Value = alumnos.FechaNacimiento;
+                    if (alumnos.Activo)
+                    {
+                        chkActivo.Checked = true;
+                    }
+                    else
+                    {
+                        chkActivo.Checked = false;
+                    }
+                        lblnumerocontrol.Text = alumnos.NumeroDeControl;
+                        btnAgregar.ButtonText = "Editar";
+                    btnCancelar.Visible = true;
+                } 
+            }
+        }
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarControles();
+            
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            LimpiarControles();
+            btnAgregar.ButtonText = "Agregar";
+            lblnumerocontrol.Text = ((int.Parse("19100000")) + (listaAlumnos.Count)).ToString();
+            btnCancelar.Visible = false;
+            dgvAlumnos.Focus();
+        }
+
+
+        private int counter;
+        Timer timer1 = new Timer();
+
+        public void InitializeTimer()
+        {
+            counter = 0;
+            timer1.Interval = 300;
+            timer1.Enabled = true;
+            timer1.Tick += new System.EventHandler(this.timer1_Tick);
+        }
+
+        private void timer1_Tick(object sender, System.EventArgs e)
+        {
+            if (counter >= 10)
+            {
+          
+                timer1.Enabled = false;
+                counter = 0;
+                btnAgregado.Visible = false;
+            }
+            else
+            {
+
+                counter += 1;
+
+            }
+        }
     }
-}
+    }
+
 
 
