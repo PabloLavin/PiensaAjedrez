@@ -49,20 +49,24 @@ namespace PiensaAjedrez
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            ReemplazarPantalla(new UserControl());
-           
+            ReemplazarPantalla(new UserControl());           
         }
 
         private void btnDesconectar_Click(object sender, EventArgs e)
         {
-            ReemplazarPantalla(new UserControl());
-           
+            if(DialogResult.Yes == MessageBox.Show("¿Desea cerrar la conexión y salir del sistema de Piensa Ajedrez?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question))            
+                Application.Exit();            
         }
 
         private void ReemplazarPantalla(UserControl unUserControl)
         {
             panTrabajo.Controls.Clear();
             panTrabajo.Controls.Add(unUserControl);
-        }  
+        }
+
+        private void btnColegios_Click(object sender, EventArgs e)
+        {
+            ReemplazarPantalla(new UserControl());
+        }
     }
 }

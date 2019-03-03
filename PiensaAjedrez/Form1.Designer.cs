@@ -40,6 +40,8 @@
             this.Cerrar = new System.Windows.Forms.Label();
             this.PiensaAjedrez = new System.Windows.Forms.Label();
             this.elpTrabajo = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.btnColegios = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bnfArrastrar = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +62,7 @@
             // 
             this.panelMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelMenu.BackgroundImage")));
             this.panelMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelMenu.Controls.Add(this.btnColegios);
             this.panelMenu.Controls.Add(this.btnDesconectar);
             this.panelMenu.Controls.Add(this.btnReportes);
             this.panelMenu.Controls.Add(this.btnRegistrar);
@@ -94,14 +97,14 @@
             this.btnDesconectar.IconRightZoom = 0D;
             this.btnDesconectar.IconVisible = false;
             this.btnDesconectar.IconZoom = 90D;
-            this.btnDesconectar.IsTab = true;
-            this.btnDesconectar.Location = new System.Drawing.Point(1040, 0);
+            this.btnDesconectar.IsTab = false;
+            this.btnDesconectar.Location = new System.Drawing.Point(1186, 0);
             this.btnDesconectar.Name = "btnDesconectar";
             this.btnDesconectar.Normalcolor = System.Drawing.Color.Transparent;
             this.btnDesconectar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnDesconectar.OnHoverTextColor = System.Drawing.Color.White;
             this.btnDesconectar.selected = false;
-            this.btnDesconectar.Size = new System.Drawing.Size(326, 50);
+            this.btnDesconectar.Size = new System.Drawing.Size(180, 50);
             this.btnDesconectar.TabIndex = 4;
             this.btnDesconectar.Text = "Salir";
             this.btnDesconectar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -130,13 +133,13 @@
             this.btnReportes.IconVisible = false;
             this.btnReportes.IconZoom = 90D;
             this.btnReportes.IsTab = true;
-            this.btnReportes.Location = new System.Drawing.Point(687, 0);
+            this.btnReportes.Location = new System.Drawing.Point(875, 0);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Normalcolor = System.Drawing.Color.Transparent;
             this.btnReportes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnReportes.OnHoverTextColor = System.Drawing.Color.White;
             this.btnReportes.selected = false;
-            this.btnReportes.Size = new System.Drawing.Size(358, 50);
+            this.btnReportes.Size = new System.Drawing.Size(312, 50);
             this.btnReportes.TabIndex = 3;
             this.btnReportes.Text = "Estadisticas";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -165,13 +168,13 @@
             this.btnRegistrar.IconVisible = false;
             this.btnRegistrar.IconZoom = 90D;
             this.btnRegistrar.IsTab = true;
-            this.btnRegistrar.Location = new System.Drawing.Point(340, 0);
+            this.btnRegistrar.Location = new System.Drawing.Point(294, 0);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Normalcolor = System.Drawing.Color.Transparent;
             this.btnRegistrar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnRegistrar.OnHoverTextColor = System.Drawing.Color.White;
             this.btnRegistrar.selected = false;
-            this.btnRegistrar.Size = new System.Drawing.Size(351, 50);
+            this.btnRegistrar.Size = new System.Drawing.Size(319, 50);
             this.btnRegistrar.TabIndex = 1;
             this.btnRegistrar.Text = "Registrar alumnos";
             this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -206,7 +209,7 @@
             this.btnMensualidades.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnMensualidades.OnHoverTextColor = System.Drawing.Color.White;
             this.btnMensualidades.selected = true;
-            this.btnMensualidades.Size = new System.Drawing.Size(342, 50);
+            this.btnMensualidades.Size = new System.Drawing.Size(298, 50);
             this.btnMensualidades.TabIndex = 0;
             this.btnMensualidades.Text = "Registro de pago";
             this.btnMensualidades.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -224,6 +227,7 @@
             this.Cerrar.Size = new System.Drawing.Size(26, 25);
             this.Cerrar.TabIndex = 1;
             this.Cerrar.Text = "X";
+            this.Cerrar.Visible = false;
             this.Cerrar.Click += new System.EventHandler(this.Cerrar_Click);
             this.Cerrar.MouseEnter += new System.EventHandler(this.Cerrar_MouseEnter);
             this.Cerrar.MouseLeave += new System.EventHandler(this.Cerrar_MouseLeave);
@@ -244,6 +248,48 @@
             this.elpTrabajo.ElipseRadius = 12;
             this.elpTrabajo.TargetControl = this.panTrabajo;
             // 
+            // btnColegios
+            // 
+            this.btnColegios.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnColegios.BackColor = System.Drawing.Color.Transparent;
+            this.btnColegios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnColegios.BorderRadius = 0;
+            this.btnColegios.ButtonText = "Colegios";
+            this.btnColegios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnColegios.DisabledColor = System.Drawing.Color.Gray;
+            this.btnColegios.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnColegios.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnColegios.Iconimage")));
+            this.btnColegios.Iconimage_right = null;
+            this.btnColegios.Iconimage_right_Selected = null;
+            this.btnColegios.Iconimage_Selected = null;
+            this.btnColegios.IconMarginLeft = 0;
+            this.btnColegios.IconMarginRight = 0;
+            this.btnColegios.IconRightVisible = false;
+            this.btnColegios.IconRightZoom = 0D;
+            this.btnColegios.IconVisible = false;
+            this.btnColegios.IconZoom = 90D;
+            this.btnColegios.IsTab = true;
+            this.btnColegios.Location = new System.Drawing.Point(612, 0);
+            this.btnColegios.Name = "btnColegios";
+            this.btnColegios.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnColegios.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnColegios.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnColegios.selected = false;
+            this.btnColegios.Size = new System.Drawing.Size(264, 50);
+            this.btnColegios.TabIndex = 5;
+            this.btnColegios.Text = "Colegios";
+            this.btnColegios.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnColegios.Textcolor = System.Drawing.Color.White;
+            this.btnColegios.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.btnColegios.Click += new System.EventHandler(this.btnColegios_Click);
+            // 
+            // bnfArrastrar
+            // 
+            this.bnfArrastrar.Fixed = true;
+            this.bnfArrastrar.Horizontal = true;
+            this.bnfArrastrar.TargetControl = this;
+            this.bnfArrastrar.Vertical = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,11 +302,10 @@
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panTrabajo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.TopMost = true;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -279,6 +324,8 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnRegistrar;
         private Bunifu.Framework.UI.BunifuFlatButton btnMensualidades;
         private Bunifu.Framework.UI.BunifuElipse elpTrabajo;
+        private Bunifu.Framework.UI.BunifuFlatButton btnColegios;
+        private Bunifu.Framework.UI.BunifuDragControl bnfArrastrar;
     }
 }
 
