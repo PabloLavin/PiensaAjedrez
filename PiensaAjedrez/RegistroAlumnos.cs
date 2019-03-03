@@ -50,8 +50,7 @@ namespace PiensaAjedrez
             dgvAlumnos.Columns.Add("Correo", "Correo");
             dgvAlumnos.Columns.Add("Activo", "Activo");
             dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvAlumnos.Columns[6].Width = 99;
-            //dgvAlumnos.Columns[6]
+            dgvAlumnos.Columns[6].Width = 99;            
             dgvAlumnos.Columns[0].Width = 80;
             dgvAlumnos.Columns[3].Width = 270;
             dgvAlumnos.Columns[4].Width = 110;
@@ -59,7 +58,8 @@ namespace PiensaAjedrez
             dgvAlumnos.Columns[1].Width = 250;
             dgvAlumnos.Columns[2].Width = 270;
             lblnumerocontrol.Text = "19100000";
-
+            cbDia.SelectedIndex = 0;
+            cbMes.SelectedIndex = 0;
         }
 
         private void bunifuCards1_Paint(object sender, PaintEventArgs e)
@@ -97,11 +97,9 @@ namespace PiensaAjedrez
                 MostrarDatos();
                 LimpiarControles();
                 btnAgregado.Visible = true;
-                InitializeTimer();
-       
+                InitializeTimer();       
                 lblnumerocontrol.Text = ((int.Parse("19100000")) + (listaAlumnos.Count)).ToString();
                 btnAgregar.ButtonText = "Agregar";
-
             }
             catch (Exception x)
             {
@@ -192,31 +190,7 @@ namespace PiensaAjedrez
         {
             if (txtFiltonombre.Text == "")
                 txtFiltonombre.Text = "Nombre";
-        }
-
-        private void txtFiltoescuela_Enter(object sender, EventArgs e)
-        {
-            if (txtFiltoescuela.Text == "Escuela")
-                txtFiltoescuela.Text = "";
-        }
-
-        private void txtFiltoescuela_Leave(object sender, EventArgs e)
-        {
-            if (txtFiltoescuela.Text == "")
-                txtFiltoescuela.Text = "Escuela";
-        }
-
-        private void txtFiltoescuela_MouseEnter(object sender, EventArgs e)
-        {
-            if (txtFiltoescuela.Text == "Escuela")
-                txtFiltoescuela.Text = "";
-        }
-
-        private void txtFiltoescuela_MouseLeave(object sender, EventArgs e)
-        {
-            if (txtFiltoescuela.Text == "")
-                txtFiltoescuela.Text = "Escuela";
-        }
+        }       
         
         private void txtFiltroTelefono_Enter(object sender, EventArgs e)
         {
@@ -274,19 +248,23 @@ namespace PiensaAjedrez
             {
                 txtFiltonombre.Enabled = false;
                 MostrarDatos();
-                txtFiltonombre.Text = "";
+                txtFiltonombre.Text = "Nombre";
             }
             }
 
         private void chkEscuela_OnChange(object sender, EventArgs e)
         {
             if (chkEscuela.Checked)
-                txtFiltoescuela.Enabled = true;
+            {
+                cboFiltroEscuela.Enabled = true;
+                lblFiltroEscuela.Enabled = true;
+            }                
             else
             {
-                txtFiltoescuela.Enabled = false;
+                cboFiltroEscuela.Enabled = false;
+                lblFiltroEscuela.Enabled = false;
                 MostrarDatos();
-                txtFiltoescuela.Text = "";
+                cboFiltroEscuela.Text = "";
             }
         }
 
@@ -304,10 +282,9 @@ namespace PiensaAjedrez
                 cbMes.Enabled = false;
                 txtFiltroAño.Enabled = false;
                 MostrarDatos();
-                txtFiltroAño.Text = "";
-                cbDia.Text = "";
-                cbMes.Text = "";
-
+                txtFiltroAño.Text = "Año";
+                cbDia.SelectedIndex = 0;
+                cbMes.SelectedIndex = 0;
             }
         }
 
@@ -319,7 +296,7 @@ namespace PiensaAjedrez
             {
                 txtFiltroTelefono.Enabled = false;
                 MostrarDatos();
-                txtFiltroTelefono.Text = "";
+                txtFiltroTelefono.Text = "Teléfono";
             }
             }
 
@@ -331,7 +308,7 @@ namespace PiensaAjedrez
             {
                 txtFiltroCorreo.Enabled = false;
                 MostrarDatos();
-                txtFiltroCorreo.Text = "";
+                txtFiltroCorreo.Text = "Correo";
             }
         }
         #endregion
@@ -420,12 +397,12 @@ namespace PiensaAjedrez
                 }
         }
 
-        private void txtFiltoescuela_OnValueChanged(object sender, EventArgs e)
+        private void cboFiltroEscuela_OnItemSelected(object sender, EventArgs e)
         {
             dgvAlumnos.Rows.Clear();
             foreach (Alumno miAlumno in listaAlumnos)
             {
-                if (miAlumno.Escuela.Contains(txtFiltoescuela.Text))
+                if (miAlumno.Escuela.Contains(cboFiltroEscuela.Text))
                 {
                     dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"));
                 }
@@ -496,6 +473,24 @@ namespace PiensaAjedrez
             BusquedaFiltrada();
         }
         bool blnDia = true, blnMes=true,blnAño=true, blnDiaContains = true, blnMesContains = true, blnAñoContains = true;
+
+        private void chkFiltroActivo_OnChange(object sender, EventArgs e)
+        {
+            if (!chkFiltroActivo.Checked)
+            {
+                MostrarDatos();
+            }
+            else
+            {
+                dgvAlumnos.Rows.Clear();
+                foreach (Alumno miAlumno in listaAlumnos)
+                {
+                    if (miAlumno.Activo)                    
+                        dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"));                    
+                }
+            }
+            
+        }
 
         private void txtFiltroAño_OnValueChanged(object sender, EventArgs e)
         {
