@@ -52,7 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alumnos.cs" />
+    <Compile Include="Alumno.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

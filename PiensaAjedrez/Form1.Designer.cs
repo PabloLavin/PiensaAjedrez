@@ -208,7 +208,7 @@
             this.btnReportes.BackColor = System.Drawing.Color.Transparent;
             this.btnReportes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnReportes.BorderRadius = 0;
-            this.btnReportes.ButtonText = "Estadisticas";
+            this.btnReportes.ButtonText = "Estadísticas";
             this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReportes.DisabledColor = System.Drawing.Color.Gray;
             this.btnReportes.Iconcolor = System.Drawing.Color.Transparent;
@@ -231,7 +231,7 @@
             this.btnReportes.selected = false;
             this.btnReportes.Size = new System.Drawing.Size(312, 50);
             this.btnReportes.TabIndex = 3;
-            this.btnReportes.Text = "Estadisticas";
+            this.btnReportes.Text = "Estadísticas";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnReportes.Textcolor = System.Drawing.Color.White;
             this.btnReportes.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 16F);

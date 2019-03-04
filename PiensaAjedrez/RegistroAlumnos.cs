@@ -77,7 +77,7 @@ namespace PiensaAjedrez
                     else
                         miAlumno.Activo = false;
                     miAlumno.Nombre = txtNombre.Text;
-                    miAlumno.Escuela = cbEscuelas.Text;
+                    miAlumno.Escuela = cbEscuelas.selectedValue;
                     miAlumno.FechaNacimiento = dtFechaNacimiento.Value;
                     miAlumno.Telefono = txtTelefono.Text;
                     miAlumno.Correo = txtCorreo.Text;
@@ -118,7 +118,7 @@ namespace PiensaAjedrez
 
         void LimpiarControles()
         {
-            foreach (Control c in bunifuCards1.Controls)
+            foreach (Control c in bnfcarAgregar.Controls)
             {
                 if (c is Bunifu.Framework.UI.BunifuMaterialTextbox)
                     c.Text = "";
