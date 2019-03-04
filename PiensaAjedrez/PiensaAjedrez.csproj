@@ -87,6 +87,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RegistroAlumnos.resx">
       <DependentUpon>RegistroAlumnos.cs</DependentUpon>
@@ -106,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PiensaAjedrez.ico" />
+    <None Include="Resources\botonPiensaAjedrez.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

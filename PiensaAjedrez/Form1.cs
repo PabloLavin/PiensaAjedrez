@@ -68,5 +68,13 @@ namespace PiensaAjedrez
         {
             ReemplazarPantalla(new UserControl());
         }
+
+        private void btnPiensaAjedrez_Click(object sender, EventArgs e)
+        {   
+            if (btnRegistrar.selected)            
+                ReemplazarPantalla(new RegistroAlumnos());            
+            if (btnMensualidades.selected)
+                ReemplazarPantalla(new Mensualidades());
+        }
     }
 }
