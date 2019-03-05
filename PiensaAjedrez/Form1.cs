@@ -66,7 +66,7 @@ namespace PiensaAjedrez
 
         private void btnColegios_Click(object sender, EventArgs e)
         {
-            ReemplazarPantalla(new UserControl());
+            ReemplazarPantalla(new Escuelas());
         }
 
         private void btnPiensaAjedrez_Click(object sender, EventArgs e)
