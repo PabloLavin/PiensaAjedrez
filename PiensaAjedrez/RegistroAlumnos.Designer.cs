@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroAlumnos));
             this.dgvAlumnos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
@@ -62,6 +62,8 @@
             this.txtFiltroTelefono = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtFiltroCorreo = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
+            this.lblFiltroActivo = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.chkFiltroActivo = new Bunifu.Framework.UI.BunifuCheckbox();
             this.lblFiltroEscuela = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.cboFiltroEscuela = new Bunifu.Framework.UI.BunifuDropdown();
             this.txtFiltroAño = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -69,8 +71,6 @@
             this.cbDia = new System.Windows.Forms.ComboBox();
             this.lblfiltrar = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.imgFiltro = new Bunifu.Framework.UI.BunifuImageButton();
-            this.chkFiltroActivo = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.lblFiltroActivo = new Bunifu.Framework.UI.BunifuCustomLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.bunifuCards1.SuspendLayout();
             this.bunifuCards2.SuspendLayout();
@@ -83,29 +83,29 @@
             this.dgvAlumnos.AllowUserToDeleteRows = false;
             this.dgvAlumnos.AllowUserToResizeColumns = false;
             this.dgvAlumnos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAlumnos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlumnos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.5F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvAlumnos.DoubleBuffered = true;
             this.dgvAlumnos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAlumnos.EnableHeadersVisualStyles = false;
@@ -117,9 +117,9 @@
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAlumnos.RowHeadersVisible = false;
             this.dgvAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAlumnos.RowTemplate.Height = 25;
             this.dgvAlumnos.RowTemplate.ReadOnly = true;
             this.dgvAlumnos.Size = new System.Drawing.Size(1288, 347);
@@ -653,6 +653,30 @@
             this.bunifuCards2.Size = new System.Drawing.Size(335, 257);
             this.bunifuCards2.TabIndex = 17;
             // 
+            // lblFiltroActivo
+            // 
+            this.lblFiltroActivo.AutoSize = true;
+            this.lblFiltroActivo.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.lblFiltroActivo.ForeColor = System.Drawing.Color.Black;
+            this.lblFiltroActivo.Location = new System.Drawing.Point(37, 222);
+            this.lblFiltroActivo.Name = "lblFiltroActivo";
+            this.lblFiltroActivo.Size = new System.Drawing.Size(171, 21);
+            this.lblFiltroActivo.TabIndex = 23;
+            this.lblFiltroActivo.Text = "Solo alumnos activos";
+            // 
+            // chkFiltroActivo
+            // 
+            this.chkFiltroActivo.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.chkFiltroActivo.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkFiltroActivo.Checked = true;
+            this.chkFiltroActivo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
+            this.chkFiltroActivo.ForeColor = System.Drawing.Color.White;
+            this.chkFiltroActivo.Location = new System.Drawing.Point(12, 223);
+            this.chkFiltroActivo.Name = "chkFiltroActivo";
+            this.chkFiltroActivo.Size = new System.Drawing.Size(20, 20);
+            this.chkFiltroActivo.TabIndex = 15;
+            this.chkFiltroActivo.OnChange += new System.EventHandler(this.chkFiltroActivo_OnChange);
+            // 
             // lblFiltroEscuela
             // 
             this.lblFiltroEscuela.AutoSize = true;
@@ -660,7 +684,7 @@
             this.lblFiltroEscuela.ForeColor = System.Drawing.Color.Black;
             this.lblFiltroEscuela.Location = new System.Drawing.Point(47, 100);
             this.lblFiltroEscuela.Name = "lblFiltroEscuela";
-            this.lblFiltroEscuela.Size = new System.Drawing.Size(68, 19);
+            this.lblFiltroEscuela.Size = new System.Drawing.Size(69, 21);
             this.lblFiltroEscuela.TabIndex = 15;
             this.lblFiltroEscuela.Text = "Escuela";
             // 
@@ -668,7 +692,7 @@
             // 
             this.cboFiltroEscuela.BackColor = System.Drawing.Color.Transparent;
             this.cboFiltroEscuela.BorderRadius = 3;
-            this.cboFiltroEscuela.DisabledColor = System.Drawing.Color.Gray;
+            this.cboFiltroEscuela.DisabledColor = System.Drawing.Color.SkyBlue;
             this.cboFiltroEscuela.Enabled = false;
             this.cboFiltroEscuela.ForeColor = System.Drawing.Color.White;
             this.cboFiltroEscuela.Items = new string[0];
@@ -731,7 +755,7 @@
             "12"});
             this.cbMes.Location = new System.Drawing.Point(83, 147);
             this.cbMes.Name = "cbMes";
-            this.cbMes.Size = new System.Drawing.Size(36, 24);
+            this.cbMes.Size = new System.Drawing.Size(36, 25);
             this.cbMes.TabIndex = 20;
             this.cbMes.TextChanged += new System.EventHandler(this.cbMes_TextChanged);
             // 
@@ -780,7 +804,7 @@
             this.cbDia.Location = new System.Drawing.Point(42, 146);
             this.cbDia.MaxDropDownItems = 12;
             this.cbDia.Name = "cbDia";
-            this.cbDia.Size = new System.Drawing.Size(37, 24);
+            this.cbDia.Size = new System.Drawing.Size(37, 25);
             this.cbDia.TabIndex = 19;
             this.cbDia.TextChanged += new System.EventHandler(this.cbDia_TextChanged);
             // 
@@ -807,30 +831,6 @@
             this.imgFiltro.TabIndex = 17;
             this.imgFiltro.TabStop = false;
             this.imgFiltro.Zoom = 10;
-            // 
-            // chkFiltroActivo
-            // 
-            this.chkFiltroActivo.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.chkFiltroActivo.ChechedOffColor = System.Drawing.Color.SkyBlue;
-            this.chkFiltroActivo.Checked = true;
-            this.chkFiltroActivo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
-            this.chkFiltroActivo.ForeColor = System.Drawing.Color.White;
-            this.chkFiltroActivo.Location = new System.Drawing.Point(12, 223);
-            this.chkFiltroActivo.Name = "chkFiltroActivo";
-            this.chkFiltroActivo.Size = new System.Drawing.Size(20, 20);
-            this.chkFiltroActivo.TabIndex = 15;
-            this.chkFiltroActivo.OnChange += new System.EventHandler(this.chkFiltroActivo_OnChange);
-            // 
-            // lblFiltroActivo
-            // 
-            this.lblFiltroActivo.AutoSize = true;
-            this.lblFiltroActivo.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.lblFiltroActivo.ForeColor = System.Drawing.Color.Black;
-            this.lblFiltroActivo.Location = new System.Drawing.Point(37, 222);
-            this.lblFiltroActivo.Name = "lblFiltroActivo";
-            this.lblFiltroActivo.Size = new System.Drawing.Size(173, 19);
-            this.lblFiltroActivo.TabIndex = 23;
-            this.lblFiltroActivo.Text = "Solo alumnos activos";
             // 
             // RegistroAlumnos
             // 

@@ -60,6 +60,7 @@ namespace PiensaAjedrez
             lblnumerocontrol.Text = "19100000";
             cbDia.SelectedIndex = 0;
             cbMes.SelectedIndex = 0;
+            
         }
 
         private void bunifuCards1_Paint(object sender, PaintEventArgs e)
@@ -357,14 +358,14 @@ namespace PiensaAjedrez
 
 
         private int counter;
-        Timer timer1 = new Timer();
+       Timer timer1 = new Timer();
 
-        public void InitializeTimer()
+         public void InitializeTimer()
         {
             counter = 0;
             timer1.Interval = 300;
             timer1.Enabled = true;
-            timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            timer1.Tick += new System.EventHandler(timer1_Tick);
         }
 
         private void timer1_Tick(object sender, System.EventArgs e)
