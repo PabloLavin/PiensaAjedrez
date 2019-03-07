@@ -144,7 +144,6 @@
             this.tsEliminarAlumno});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(162, 24);
-            this.contextMenuStrip1.Click += new System.EventHandler(this.contextMenuStrip1_Click);
             // 
             // tsEliminarAlumno
             // 
@@ -152,6 +151,7 @@
             this.tsEliminarAlumno.Padding = new System.Windows.Forms.Padding(0);
             this.tsEliminarAlumno.Size = new System.Drawing.Size(161, 20);
             this.tsEliminarAlumno.Text = "Eliminar alumno";
+            this.tsEliminarAlumno.Click += new System.EventHandler(this.tsEliminarAlumno_Click);
             // 
             // bunifuCards1
             // 
@@ -204,7 +204,7 @@
             // 
             this.btnCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.BackgroundImage")));
             this.btnCancelar.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.InitialImage")));
-            this.btnCancelar.Location = new System.Drawing.Point(874, 63);
+            this.btnCancelar.Location = new System.Drawing.Point(874, 205);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(30, 32);
             this.btnCancelar.TabIndex = 17;
@@ -679,9 +679,9 @@
             // 
             // chkFiltroActivo
             // 
-            this.chkFiltroActivo.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.chkFiltroActivo.BackColor = System.Drawing.Color.SkyBlue;
             this.chkFiltroActivo.ChechedOffColor = System.Drawing.Color.SkyBlue;
-            this.chkFiltroActivo.Checked = true;
+            this.chkFiltroActivo.Checked = false;
             this.chkFiltroActivo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkFiltroActivo.ForeColor = System.Drawing.Color.White;
             this.chkFiltroActivo.Location = new System.Drawing.Point(12, 223);
@@ -847,9 +847,10 @@
             // 
             // Cancelartt
             // 
+            this.Cancelartt.AutomaticDelay = 0;
             this.Cancelartt.AutoPopDelay = 5000;
-            this.Cancelartt.InitialDelay = 500;
-            this.Cancelartt.ReshowDelay = 0;
+            this.Cancelartt.InitialDelay = 250;
+            this.Cancelartt.ReshowDelay = 100;
             // 
             // RegistroAlumnos
             // 

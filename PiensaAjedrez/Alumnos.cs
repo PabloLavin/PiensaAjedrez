@@ -78,6 +78,15 @@ namespace PiensaAjedrez
             set { _strTutor = value; }
         }
 
+        public Alumno()
+        {
+
+        }
+
+        public Alumno(string strNumeroControl)
+        {
+            _strNumeroDeControl = strNumeroControl;
+        }
 
         public bool Equals(Alumno otroAlumno)
         {

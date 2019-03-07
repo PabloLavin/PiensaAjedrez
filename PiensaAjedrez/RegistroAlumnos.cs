@@ -12,9 +12,11 @@ namespace PiensaAjedrez
 {
     public partial class RegistroAlumnos : UserControl
     {
+
         List<Alumno> listaAlumnos = new List<Alumno>();
         public RegistroAlumnos()
         {
+            
             InitializeComponent();
             txtNombre.Focus();
             btnCancelar.Visible = false;
@@ -45,15 +47,15 @@ namespace PiensaAjedrez
             dgvAlumnos.Columns.Add("No. Ctrl", "No. Ctrl");
             dgvAlumnos.Columns.Add("Nombre", "Nombre");
             dgvAlumnos.Columns.Add("Escuela", "Escuela");
-            dgvAlumnos.Columns.Add("Fecha de nacimiento", "Fecha de nacimiento");
+            dgvAlumnos.Columns.Add("Fec. nac.", "Fec. nac.");
             dgvAlumnos.Columns.Add("Telefono", "Teléfono");
             dgvAlumnos.Columns.Add("Correo", "Correo");
             dgvAlumnos.Columns.Add("Activo", "Activo");
             dgvAlumnos.Columns.Add("Tutor", "Tutor");
             dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvAlumnos.Columns[6].Width = 99;            
+            dgvAlumnos.Columns[6].Width = 84;            
             dgvAlumnos.Columns[0].Width = 80;
-            dgvAlumnos.Columns[3].Width = 270;
+            dgvAlumnos.Columns[3].Width = 130;
             dgvAlumnos.Columns[4].Width = 110;
             dgvAlumnos.Columns[5].Width = 263;
             dgvAlumnos.Columns[1].Width = 250;
@@ -122,7 +124,7 @@ namespace PiensaAjedrez
             dgvAlumnos.Rows.Clear();
             foreach (Alumno miAlumno in listaAlumnos)
             {
-                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo)?"Si":"No"), miAlumno.Tutor);
+                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo)?"Si":"No"), miAlumno.Tutor);
             }
         }
 
@@ -325,10 +327,7 @@ namespace PiensaAjedrez
 
         private void dgvAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if ( == MouseButtons.Right)
-            //{
-            //    dgvAlumnos.CurrentRow.Selected = true;
-            //}
+            
             foreach (Alumno alumnos in listaAlumnos)
             {
                 if (alumnos.NumeroDeControl== dgvAlumnos.CurrentRow.Cells[0].Value.ToString())
@@ -398,7 +397,7 @@ namespace PiensaAjedrez
                 {
                     if (miAlumno.Nombre.Contains(txtFiltonombre.Text))
                     {
-                        dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
+                        dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
                     }
 
                 }
@@ -411,7 +410,7 @@ namespace PiensaAjedrez
             {
                 if (miAlumno.Escuela.Contains(cboFiltroEscuela.Text))
                 {
-                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
                 }
 
             }
@@ -426,7 +425,7 @@ namespace PiensaAjedrez
             {
                 if (miAlumno.Telefono.Contains(txtFiltroTelefono.Text))
                 {
-                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
                 }
 
             }
@@ -439,7 +438,7 @@ namespace PiensaAjedrez
             {
                 if (miAlumno.Correo.Contains(txtFiltroCorreo.Text))
                 {
-                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
                 }
 
             }
@@ -501,17 +500,30 @@ namespace PiensaAjedrez
             LimpiarControles();
         }
 
-        private void contextMenuStrip1_Click(object sender, EventArgs e)
-        {
-            if(MouseButtons==MouseButtons.Right)
-                dgvAlumnos.CurrentRow.Selected = true;
-        }
+       
 
         private void dgvAlumnos_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //if (e.Button == MouseButtons.Right)
-            //    dgvAlumnos.CurrentCell = dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            //dgvAlumnos.Rows[e.RowIndex].Selected
+            if (e.Button == MouseButtons.Right)
+            {
+                dgvAlumnos.CurrentCell = dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                dgvAlumnos.Rows[e.RowIndex].Selected = true;
+                dgvAlumnos.Focus();
+            }
+        }
+
+        private void tsEliminarAlumno_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes == MessageBox.Show("¿Desea eliminar al alumno "+dgvAlumnos.CurrentRow.Cells[0].Value.ToString()+"?", "Eliminar alumno", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+                    listaAlumnos.Remove(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString()));
+            MostrarDatos();
+            LimpiarControles();
+            if (btnAgregar.ButtonText == "Editar")
+            {
+                btnAgregar.ButtonText = "Agregar";
+                btnCancelar.Visible = false;
+            }
+            
         }
 
         private void chkFiltroActivo_OnChange(object sender, EventArgs e)
@@ -526,7 +538,7 @@ namespace PiensaAjedrez
                 foreach (Alumno miAlumno in listaAlumnos)
                 {
                     if (miAlumno.Activo)                    
-                        dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);                    
+                        dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);                    
                 }
             }
             
@@ -552,31 +564,31 @@ namespace PiensaAjedrez
 
             if (blnDia && blnMes && !blnAño)
                 if (blnAñoContains)
-                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
 
             if (!blnDia && !blnMes && !blnAño)
                 if (blnDiaContains && blnMesContains && blnAñoContains)
-                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
 
             if (!blnDia && blnMes && !blnAño)
                 if (blnDiaContains && blnAñoContains)
-                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
 
             if (blnDia && !blnMes && !blnAño)
                 if (blnMesContains && blnAñoContains)
-                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
 
             if (!blnDia && !blnMes && blnAño)
                 if (blnDia && blnMes)
-                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
 
             if (!blnDia && blnMes && blnAño)
                 if (blnDiaContains)
-                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
 
             if (blnDia && !blnMes && blnAño)
                 if (blnMesContains)
-                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToLongDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
+                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
 
             if (blnDia && blnMes && blnAño)
                 MostrarDatos();
