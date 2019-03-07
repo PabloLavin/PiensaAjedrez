@@ -28,17 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroAlumnos));
             this.dgvAlumnos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsEliminarAlumno = new System.Windows.Forms.ToolStripMenuItem();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
+            this.btnLimpiar = new System.Windows.Forms.PictureBox();
+            this.btnCancelar = new System.Windows.Forms.PictureBox();
+            this.txtTutor = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.lblTutor = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.cbEscuelas = new Bunifu.Framework.UI.BunifuDropdown();
             this.btnAgregado = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnCancelar = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnLimpiar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.lblActivo = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.chkActivo = new Bunifu.Framework.UI.BunifuCheckbox();
             this.lblnumerocontrol = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -71,8 +76,12 @@
             this.cbDia = new System.Windows.Forms.ComboBox();
             this.lblfiltrar = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.imgFiltro = new Bunifu.Framework.UI.BunifuImageButton();
+            this.Cancelartt = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.bunifuCards1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLimpiar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             this.bunifuCards2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).BeginInit();
             this.SuspendLayout();
@@ -98,6 +107,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAlumnos.ContextMenuStrip = this.contextMenuStrip1;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -122,9 +132,26 @@
             this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAlumnos.RowTemplate.Height = 25;
             this.dgvAlumnos.RowTemplate.ReadOnly = true;
+            this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAlumnos.Size = new System.Drawing.Size(1288, 347);
             this.dgvAlumnos.TabIndex = 7;
             this.dgvAlumnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellClick);
+            this.dgvAlumnos.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAlumnos_CellMouseDown);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsEliminarAlumno});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(162, 24);
+            this.contextMenuStrip1.Click += new System.EventHandler(this.contextMenuStrip1_Click);
+            // 
+            // tsEliminarAlumno
+            // 
+            this.tsEliminarAlumno.Name = "tsEliminarAlumno";
+            this.tsEliminarAlumno.Padding = new System.Windows.Forms.Padding(0);
+            this.tsEliminarAlumno.Size = new System.Drawing.Size(161, 20);
+            this.tsEliminarAlumno.Text = "Eliminar alumno";
             // 
             // bunifuCards1
             // 
@@ -132,10 +159,12 @@
             this.bunifuCards1.BorderRadius = 5;
             this.bunifuCards1.BottomSahddow = true;
             this.bunifuCards1.color = System.Drawing.Color.Teal;
+            this.bunifuCards1.Controls.Add(this.btnLimpiar);
+            this.bunifuCards1.Controls.Add(this.btnCancelar);
+            this.bunifuCards1.Controls.Add(this.txtTutor);
+            this.bunifuCards1.Controls.Add(this.lblTutor);
             this.bunifuCards1.Controls.Add(this.cbEscuelas);
             this.bunifuCards1.Controls.Add(this.btnAgregado);
-            this.bunifuCards1.Controls.Add(this.btnCancelar);
-            this.bunifuCards1.Controls.Add(this.btnLimpiar);
             this.bunifuCards1.Controls.Add(this.lblActivo);
             this.bunifuCards1.Controls.Add(this.chkActivo);
             this.bunifuCards1.Controls.Add(this.lblnumerocontrol);
@@ -159,6 +188,60 @@
             this.bunifuCards1.TabIndex = 0;
             this.bunifuCards1.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuCards1_Paint);
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.BackgroundImage")));
+            this.btnLimpiar.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.InitialImage")));
+            this.btnLimpiar.Location = new System.Drawing.Point(874, 21);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(30, 32);
+            this.btnLimpiar.TabIndex = 18;
+            this.btnLimpiar.TabStop = false;
+            this.Cancelartt.SetToolTip(this.btnLimpiar, "Limpiar campos");
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click_1);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.BackgroundImage")));
+            this.btnCancelar.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.InitialImage")));
+            this.btnCancelar.Location = new System.Drawing.Point(874, 63);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(30, 32);
+            this.btnCancelar.TabIndex = 17;
+            this.btnCancelar.TabStop = false;
+            this.Cancelartt.SetToolTip(this.btnCancelar, "Cancelar edición");
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // txtTutor
+            // 
+            this.txtTutor.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTutor.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.txtTutor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtTutor.HintForeColor = System.Drawing.Color.Empty;
+            this.txtTutor.HintText = "";
+            this.txtTutor.isPassword = false;
+            this.txtTutor.LineFocusedColor = System.Drawing.Color.SkyBlue;
+            this.txtTutor.LineIdleColor = System.Drawing.Color.Teal;
+            this.txtTutor.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
+            this.txtTutor.LineThickness = 4;
+            this.txtTutor.Location = new System.Drawing.Point(102, 150);
+            this.txtTutor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTutor.Name = "txtTutor";
+            this.txtTutor.Size = new System.Drawing.Size(385, 33);
+            this.txtTutor.TabIndex = 15;
+            this.txtTutor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblTutor
+            // 
+            this.lblTutor.AutoSize = true;
+            this.lblTutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTutor.ForeColor = System.Drawing.Color.Black;
+            this.lblTutor.Location = new System.Drawing.Point(14, 158);
+            this.lblTutor.Name = "lblTutor";
+            this.lblTutor.Size = new System.Drawing.Size(58, 25);
+            this.lblTutor.TabIndex = 16;
+            this.lblTutor.Text = "Tutor";
+            // 
             // cbEscuelas
             // 
             this.cbEscuelas.BackColor = System.Drawing.Color.Transparent;
@@ -166,7 +249,7 @@
             this.cbEscuelas.DisabledColor = System.Drawing.Color.Gray;
             this.cbEscuelas.ForeColor = System.Drawing.Color.White;
             this.cbEscuelas.Items = new string[0];
-            this.cbEscuelas.Location = new System.Drawing.Point(105, 97);
+            this.cbEscuelas.Location = new System.Drawing.Point(105, 102);
             this.cbEscuelas.Name = "cbEscuelas";
             this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.cbEscuelas.onHoverColor = System.Drawing.Color.Teal;
@@ -195,7 +278,7 @@
             this.btnAgregado.IconVisible = true;
             this.btnAgregado.IconZoom = 61D;
             this.btnAgregado.IsTab = false;
-            this.btnAgregado.Location = new System.Drawing.Point(874, 193);
+            this.btnAgregado.Location = new System.Drawing.Point(879, 212);
             this.btnAgregado.Name = "btnAgregado";
             this.btnAgregado.Normalcolor = System.Drawing.Color.Transparent;
             this.btnAgregado.OnHovercolor = System.Drawing.Color.Transparent;
@@ -208,82 +291,12 @@
             this.btnAgregado.Textcolor = System.Drawing.Color.White;
             this.btnAgregado.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Activecolor = System.Drawing.Color.Transparent;
-            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCancelar.BorderRadius = 0;
-            this.btnCancelar.ButtonText = "bunifuFlatButton1";
-            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.DisabledColor = System.Drawing.Color.Gray;
-            this.btnCancelar.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnCancelar.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Iconimage")));
-            this.btnCancelar.Iconimage_right = null;
-            this.btnCancelar.Iconimage_right_Selected = null;
-            this.btnCancelar.Iconimage_Selected = null;
-            this.btnCancelar.IconMarginLeft = -5;
-            this.btnCancelar.IconMarginRight = 0;
-            this.btnCancelar.IconRightVisible = true;
-            this.btnCancelar.IconRightZoom = 0D;
-            this.btnCancelar.IconVisible = true;
-            this.btnCancelar.IconZoom = 46D;
-            this.btnCancelar.IsTab = false;
-            this.btnCancelar.Location = new System.Drawing.Point(878, 62);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnCancelar.OnHovercolor = System.Drawing.Color.Transparent;
-            this.btnCancelar.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnCancelar.selected = false;
-            this.btnCancelar.Size = new System.Drawing.Size(25, 25);
-            this.btnCancelar.TabIndex = 12;
-            this.btnCancelar.Text = "bunifuFlatButton1";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Textcolor = System.Drawing.Color.White;
-            this.btnCancelar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Activecolor = System.Drawing.Color.Transparent;
-            this.btnLimpiar.BackColor = System.Drawing.Color.Transparent;
-            this.btnLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnLimpiar.BorderRadius = 0;
-            this.btnLimpiar.ButtonText = "bunifuFlatButton1";
-            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLimpiar.DisabledColor = System.Drawing.Color.Gray;
-            this.btnLimpiar.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnLimpiar.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.Iconimage")));
-            this.btnLimpiar.Iconimage_right = null;
-            this.btnLimpiar.Iconimage_right_Selected = null;
-            this.btnLimpiar.Iconimage_Selected = null;
-            this.btnLimpiar.IconMarginLeft = 0;
-            this.btnLimpiar.IconMarginRight = 0;
-            this.btnLimpiar.IconRightVisible = true;
-            this.btnLimpiar.IconRightZoom = 0D;
-            this.btnLimpiar.IconVisible = true;
-            this.btnLimpiar.IconZoom = 68D;
-            this.btnLimpiar.IsTab = false;
-            this.btnLimpiar.Location = new System.Drawing.Point(879, 23);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnLimpiar.OnHovercolor = System.Drawing.Color.Transparent;
-            this.btnLimpiar.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnLimpiar.selected = false;
-            this.btnLimpiar.Size = new System.Drawing.Size(25, 25);
-            this.btnLimpiar.TabIndex = 11;
-            this.btnLimpiar.Text = "bunifuFlatButton1";
-            this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiar.Textcolor = System.Drawing.Color.White;
-            this.btnLimpiar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
             // lblActivo
             // 
             this.lblActivo.AutoSize = true;
             this.lblActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblActivo.ForeColor = System.Drawing.Color.Black;
-            this.lblActivo.Location = new System.Drawing.Point(533, 193);
+            this.lblActivo.Location = new System.Drawing.Point(533, 212);
             this.lblActivo.Name = "lblActivo";
             this.lblActivo.Size = new System.Drawing.Size(66, 25);
             this.lblActivo.TabIndex = 10;
@@ -296,7 +309,7 @@
             this.chkActivo.Checked = false;
             this.chkActivo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkActivo.ForeColor = System.Drawing.Color.White;
-            this.chkActivo.Location = new System.Drawing.Point(507, 198);
+            this.chkActivo.Location = new System.Drawing.Point(507, 217);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(20, 20);
             this.chkActivo.TabIndex = 9;
@@ -341,7 +354,7 @@
             this.btnAgregar.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnAgregar.IdleForecolor = System.Drawing.Color.White;
             this.btnAgregar.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnAgregar.Location = new System.Drawing.Point(676, 187);
+            this.btnAgregar.Location = new System.Drawing.Point(686, 202);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(5);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(185, 41);
@@ -354,11 +367,11 @@
             this.dtFechaNacimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.dtFechaNacimiento.BorderRadius = 0;
             this.dtFechaNacimiento.ForeColor = System.Drawing.Color.White;
-            this.dtFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtFechaNacimiento.FormatCustom = null;
-            this.dtFechaNacimiento.Location = new System.Drawing.Point(20, 193);
+            this.dtFechaNacimiento.Location = new System.Drawing.Point(214, 198);
             this.dtFechaNacimiento.Name = "dtFechaNacimiento";
-            this.dtFechaNacimiento.Size = new System.Drawing.Size(302, 36);
+            this.dtFechaNacimiento.Size = new System.Drawing.Size(167, 36);
             this.dtFechaNacimiento.TabIndex = 4;
             this.dtFechaNacimiento.Value = new System.DateTime(2010, 9, 2, 0, 0, 0, 0);
             // 
@@ -374,7 +387,7 @@
             this.txtCorreo.LineIdleColor = System.Drawing.Color.Teal;
             this.txtCorreo.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
             this.txtCorreo.LineThickness = 4;
-            this.txtCorreo.Location = new System.Drawing.Point(607, 97);
+            this.txtCorreo.Location = new System.Drawing.Point(606, 104);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(265, 33);
@@ -398,7 +411,7 @@
             this.txtTelefono.LineIdleColor = System.Drawing.Color.Teal;
             this.txtTelefono.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
             this.txtTelefono.LineThickness = 4;
-            this.txtTelefono.Location = new System.Drawing.Point(606, 42);
+            this.txtTelefono.Location = new System.Drawing.Point(606, 50);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(204, 33);
@@ -417,7 +430,7 @@
             this.txtNombre.LineIdleColor = System.Drawing.Color.Teal;
             this.txtNombre.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
             this.txtNombre.LineThickness = 4;
-            this.txtNombre.Location = new System.Drawing.Point(102, 42);
+            this.txtNombre.Location = new System.Drawing.Point(102, 50);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(385, 33);
@@ -429,7 +442,7 @@
             this.lblCorreo.AutoSize = true;
             this.lblCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorreo.ForeColor = System.Drawing.Color.Black;
-            this.lblCorreo.Location = new System.Drawing.Point(528, 105);
+            this.lblCorreo.Location = new System.Drawing.Point(527, 112);
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(72, 25);
             this.lblCorreo.TabIndex = 5;
@@ -440,7 +453,7 @@
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefono.ForeColor = System.Drawing.Color.Black;
-            this.lblTelefono.Location = new System.Drawing.Point(510, 50);
+            this.lblTelefono.Location = new System.Drawing.Point(510, 58);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(89, 25);
             this.lblTelefono.TabIndex = 4;
@@ -451,7 +464,7 @@
             this.lblFechaNacimiento.AutoSize = true;
             this.lblFechaNacimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaNacimiento.ForeColor = System.Drawing.Color.Black;
-            this.lblFechaNacimiento.Location = new System.Drawing.Point(15, 165);
+            this.lblFechaNacimiento.Location = new System.Drawing.Point(15, 209);
             this.lblFechaNacimiento.Name = "lblFechaNacimiento";
             this.lblFechaNacimiento.Size = new System.Drawing.Size(193, 25);
             this.lblFechaNacimiento.TabIndex = 3;
@@ -462,7 +475,7 @@
             this.lblEscuela.AutoSize = true;
             this.lblEscuela.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEscuela.ForeColor = System.Drawing.Color.Black;
-            this.lblEscuela.Location = new System.Drawing.Point(14, 105);
+            this.lblEscuela.Location = new System.Drawing.Point(14, 110);
             this.lblEscuela.Name = "lblEscuela";
             this.lblEscuela.Size = new System.Drawing.Size(82, 25);
             this.lblEscuela.TabIndex = 2;
@@ -473,7 +486,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.Black;
-            this.lblNombre.Location = new System.Drawing.Point(14, 50);
+            this.lblNombre.Location = new System.Drawing.Point(14, 58);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(81, 25);
             this.lblNombre.TabIndex = 1;
@@ -662,7 +675,7 @@
             this.lblFiltroActivo.Name = "lblFiltroActivo";
             this.lblFiltroActivo.Size = new System.Drawing.Size(171, 21);
             this.lblFiltroActivo.TabIndex = 23;
-            this.lblFiltroActivo.Text = "Solo alumnos activos";
+            this.lblFiltroActivo.Text = "Sólo alumnos activos";
             // 
             // chkFiltroActivo
             // 
@@ -832,6 +845,12 @@
             this.imgFiltro.TabStop = false;
             this.imgFiltro.Zoom = 10;
             // 
+            // Cancelartt
+            // 
+            this.Cancelartt.AutoPopDelay = 5000;
+            this.Cancelartt.InitialDelay = 500;
+            this.Cancelartt.ReshowDelay = 0;
+            // 
             // RegistroAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -844,8 +863,11 @@
             this.Name = "RegistroAlumnos";
             this.Size = new System.Drawing.Size(1342, 670);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.bunifuCards1.ResumeLayout(false);
             this.bunifuCards1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLimpiar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).EndInit();
             this.bunifuCards2.ResumeLayout(false);
             this.bunifuCards2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).EndInit();
@@ -882,8 +904,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblNocontrol;
         private Bunifu.Framework.UI.BunifuCustomLabel lblActivo;
         private Bunifu.Framework.UI.BunifuCheckbox chkActivo;
-        private Bunifu.Framework.UI.BunifuFlatButton btnCancelar;
-        private Bunifu.Framework.UI.BunifuFlatButton btnLimpiar;
         private Bunifu.Framework.UI.BunifuFlatButton btnAgregado;
         private Bunifu.Framework.UI.BunifuDropdown cbEscuelas;
         private System.Windows.Forms.ComboBox cbDia;
@@ -893,5 +913,12 @@
         private Bunifu.Framework.UI.BunifuDropdown cboFiltroEscuela;
         private Bunifu.Framework.UI.BunifuCustomLabel lblFiltroActivo;
         private Bunifu.Framework.UI.BunifuCheckbox chkFiltroActivo;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtTutor;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblTutor;
+        private System.Windows.Forms.ToolTip Cancelartt;
+        private System.Windows.Forms.PictureBox btnCancelar;
+        private System.Windows.Forms.PictureBox btnLimpiar;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsEliminarAlumno;
     }
 }

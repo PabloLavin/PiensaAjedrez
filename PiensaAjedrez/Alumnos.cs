@@ -70,6 +70,15 @@ namespace PiensaAjedrez
             set { _blnActivo = value; }
         }
 
+        private string _strTutor;
+
+        public string Tutor
+        {
+            get { return _strTutor; }
+            set { _strTutor = value; }
+        }
+
+
         public bool Equals(Alumno otroAlumno)
         {
             return this.NumeroDeControl.Equals(otroAlumno.NumeroDeControl);
