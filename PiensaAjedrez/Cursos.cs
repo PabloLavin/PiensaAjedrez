@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PiensaAjedrez
 {
-    class Cursos
+    class Cursos: IEquatable<Cursos>    
     {
         private DateTime _dtmInicioCursos;
 
@@ -28,7 +28,21 @@ namespace PiensaAjedrez
                 
             }
         }
+        public Cursos()
+        {
 
+        }
+
+        public Cursos(DateTime dtIniciocurso, DateTime dtFinCurso)
+        {
+            _dtmInicioCursos = dtIniciocurso;
+            _dtmFinCurso = dtFinCurso;
+        }
+
+        public bool Equals(Cursos otroCurso)
+        {
+            return (this.InicioCursos.Equals(otroCurso.InicioCursos) && this.FinCurso.Equals(otroCurso.FinCurso));
+        }
 
     }
 }

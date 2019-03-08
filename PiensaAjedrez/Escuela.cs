@@ -22,6 +22,9 @@ namespace PiensaAjedrez
         }
        
 
+        
+       
+
         public List<Cursos> listaCursos = new List<Cursos>();
         
         public bool Equals(Escuela otraEscuela)

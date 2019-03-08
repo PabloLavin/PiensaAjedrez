@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Escuelas));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -38,6 +39,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
+            this.btnCancelar = new System.Windows.Forms.PictureBox();
             this.btnAgregado = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnEscuela = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnAgregarColegio = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -45,6 +47,7 @@
             this.txtNombreColegio = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lblNombreColegio = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
+            this.btnCancelarCurso = new System.Windows.Forms.PictureBox();
             this.btnAgregadoCurso = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
             this.lblFinCurso = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -55,12 +58,18 @@
             this.lblCurso = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.dgvEscuelas = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.dgvCursos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.bunifuCards1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).BeginInit();
             this.bunifuCards2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarCurso)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEscuelas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuCards1
@@ -69,6 +78,7 @@
             this.bunifuCards1.BorderRadius = 5;
             this.bunifuCards1.BottomSahddow = true;
             this.bunifuCards1.color = System.Drawing.Color.Teal;
+            this.bunifuCards1.Controls.Add(this.btnCancelar);
             this.bunifuCards1.Controls.Add(this.btnAgregado);
             this.bunifuCards1.Controls.Add(this.btnEscuela);
             this.bunifuCards1.Controls.Add(this.btnAgregarColegio);
@@ -82,6 +92,19 @@
             this.bunifuCards1.ShadowDepth = 20;
             this.bunifuCards1.Size = new System.Drawing.Size(631, 252);
             this.bunifuCards1.TabIndex = 0;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.BackgroundImage")));
+            this.btnCancelar.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.InitialImage")));
+            this.btnCancelar.Location = new System.Drawing.Point(386, 198);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(30, 32);
+            this.btnCancelar.TabIndex = 18;
+            this.btnCancelar.TabStop = false;
+            this.toolTip1.SetToolTip(this.btnCancelar, "Cancelar edición");
+            this.btnCancelar.Visible = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAgregado
             // 
@@ -202,6 +225,7 @@
             this.bunifuCards2.BorderRadius = 5;
             this.bunifuCards2.BottomSahddow = true;
             this.bunifuCards2.color = System.Drawing.Color.Teal;
+            this.bunifuCards2.Controls.Add(this.btnCancelarCurso);
             this.bunifuCards2.Controls.Add(this.btnAgregadoCurso);
             this.bunifuCards2.Controls.Add(this.bunifuImageButton2);
             this.bunifuCards2.Controls.Add(this.lblFinCurso);
@@ -217,6 +241,19 @@
             this.bunifuCards2.ShadowDepth = 20;
             this.bunifuCards2.Size = new System.Drawing.Size(631, 252);
             this.bunifuCards2.TabIndex = 5;
+            // 
+            // btnCancelarCurso
+            // 
+            this.btnCancelarCurso.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelarCurso.BackgroundImage")));
+            this.btnCancelarCurso.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCancelarCurso.InitialImage")));
+            this.btnCancelarCurso.Location = new System.Drawing.Point(392, 198);
+            this.btnCancelarCurso.Name = "btnCancelarCurso";
+            this.btnCancelarCurso.Size = new System.Drawing.Size(30, 32);
+            this.btnCancelarCurso.TabIndex = 19;
+            this.btnCancelarCurso.TabStop = false;
+            this.toolTip1.SetToolTip(this.btnCancelarCurso, "Cancelar edición");
+            this.btnCancelarCurso.Visible = false;
+            this.btnCancelarCurso.Click += new System.EventHandler(this.btnCancelarCurso_Click);
             // 
             // btnAgregadoCurso
             // 
@@ -422,6 +459,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCursos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCursos.ContextMenuStrip = this.contextMenuStrip1;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -446,8 +484,31 @@
             this.dgvCursos.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvCursos.RowTemplate.Height = 25;
             this.dgvCursos.RowTemplate.ReadOnly = true;
+            this.dgvCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCursos.Size = new System.Drawing.Size(631, 336);
             this.dgvCursos.TabIndex = 9;
+            this.dgvCursos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCursos_CellClick);
+            this.dgvCursos.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCursos_CellMouseDown);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 5000;
+            this.toolTip1.InitialDelay = 250;
+            this.toolTip1.ReshowDelay = 100;
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "Eliminar curso";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // Escuelas
             // 
@@ -462,12 +523,15 @@
             this.Size = new System.Drawing.Size(1342, 670);
             this.bunifuCards1.ResumeLayout(false);
             this.bunifuCards1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).EndInit();
             this.bunifuCards2.ResumeLayout(false);
             this.bunifuCards2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarCurso)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEscuelas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -492,5 +556,10 @@
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvEscuelas;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvCursos;
         private Bunifu.Framework.UI.BunifuFlatButton btnAgregadoCurso;
+        private System.Windows.Forms.PictureBox btnCancelar;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox btnCancelarCurso;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

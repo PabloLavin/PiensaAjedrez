@@ -23,6 +23,8 @@ namespace PiensaAjedrez
             btnAgregado.Visible = false;
             btnAgregadoCurso.Visible = false;
             btnAgregarCurso.Visible = false;
+            btnCancelar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnCancelarCurso.BackgroundImageLayout = ImageLayout.Stretch;
 
         }
          List<Escuela> listaEscuela = new List<Escuela>();
@@ -37,6 +39,7 @@ namespace PiensaAjedrez
                         MostrarDatos();
                         btnAgregarColegio.ButtonText = "Agregar";
                         txtNombreColegio.Text = "";
+                        btnCancelar.Visible = false;
                         return;
                     }
                 }  
@@ -104,24 +107,54 @@ namespace PiensaAjedrez
         {
             try
             {
-                Cursos miCurso = new Cursos();
-                miCurso.InicioCursos = dtmInicioCurso.Value;
-                miCurso.FinCurso = dtmFinCurso.Value;
-                dgvCursos.Rows.Clear();
-                foreach (Escuela miEscuela in listaEscuela)
+               
+                if (btnAgregarCurso.ButtonText == "Editar")
                 {
-                    if (miEscuela.Nombre == dgvEscuelas.CurrentRow.Cells[0].Value.ToString())
+                    foreach (Escuela miEscuela in listaEscuela)
                     {
-                        miEscuela.listaCursos.Add(miCurso);
-                        foreach (Cursos miCursos in miEscuela.listaCursos)
-                        {
-                            dgvCursos.Rows.Add(miCursos.InicioCursos.ToLongDateString(), miCursos.FinCurso.ToLongDateString());
-                        }
+                        if (miEscuela.Nombre== dgvEscuelas.CurrentRow.Cells[0].Value.ToString())
+                            foreach (Cursos miCursos in miEscuela.listaCursos)
+                            {
+                                if (miCursos.InicioCursos.ToShortDateString()==DateTime.Parse(dgvCursos.CurrentRow.Cells[0].Value.ToString()).ToShortDateString()&&miCursos.FinCurso.ToShortDateString()== DateTime.Parse(dgvCursos.CurrentRow.Cells[1].Value.ToString()).ToShortDateString())
+                                {
+                                    miCursos.InicioCursos = dtmInicioCurso.Value;
+                                    miCursos.FinCurso = dtmFinCurso.Value;
+                                    btnAgregarCurso.ButtonText = "Agregar curso";
+                                    btnAgregadoCurso.Visible = true;
+                                    InitializeTimer();
+                                    dgvCursos.Rows.Clear();
+                                    btnCancelarCurso.Visible = false;
+                                    foreach (Cursos curso in miEscuela.listaCursos)
+                                    {
+                                        dgvCursos.Rows.Add(curso.InicioCursos.ToLongDateString(), curso.FinCurso.ToLongDateString());
+                                    }
+                                    return;
+                                }
+
+                            }
 
                     }
                 }
-                btnAgregadoCurso.Visible = true;
-                InitializeTimer();
+
+                 Cursos miCurso = new Cursos();
+                miCurso.InicioCursos = dtmInicioCurso.Value;
+                miCurso.FinCurso = dtmFinCurso.Value;
+                dgvCursos.Rows.Clear();
+                    foreach (Escuela miEscuela in listaEscuela)
+                    {
+                        if (miEscuela.Nombre == dgvEscuelas.CurrentRow.Cells[0].Value.ToString())
+                        {
+                            miEscuela.listaCursos.Add(miCurso);
+                            foreach (Cursos miCursos in miEscuela.listaCursos)
+                            {
+                                dgvCursos.Rows.Add(miCursos.InicioCursos.ToLongDateString(), miCursos.FinCurso.ToLongDateString());
+                            }
+
+                        }
+                    }
+                    btnAgregadoCurso.Visible = true;
+                    InitializeTimer();
+
                 
             }
             catch (Exception x)
@@ -136,6 +169,7 @@ namespace PiensaAjedrez
             btnAgregarCurso.Visible = true;
             btnAgregarColegio.ButtonText = "Editar";
             btnAgregarColegio.IdleFillColor = Color.Teal;
+            btnCancelar.Visible = true;
             foreach (Escuela miEscuela in listaEscuela)
             {
                 if (miEscuela.Nombre == dgvEscuelas.CurrentRow.Cells[0].Value.ToString())
@@ -149,6 +183,73 @@ namespace PiensaAjedrez
 
                 }
 
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            txtNombreColegio.Text = "";
+            btnAgregarColegio.ButtonText = "Agregar";
+            btnAgregarColegio.IdleFillColor = Color.FromArgb(59, 202, 192);
+            btnAgregarCurso.Visible = false;
+            btnCancelar.Visible = false;
+            dgvEscuelas.Focus();
+        }
+
+        private void dgvCursos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dtmInicioCurso.Value = DateTime.Parse(dgvCursos.CurrentRow.Cells[0].Value.ToString());
+            dtmFinCurso.Value = DateTime.Parse(dgvCursos.CurrentRow.Cells[1].Value.ToString());
+            btnAgregarCurso.ButtonText = "Editar";
+            btnCancelarCurso.Visible = true;
+            btnAgregarCurso.IdleFillColor = Color.Teal;
+        }
+
+        private void btnCancelarCurso_Click(object sender, EventArgs e)
+        {
+            
+            btnAgregarCurso.ButtonText = "Agregar";
+            btnAgregarCurso.IdleFillColor = Color.FromArgb(59, 202, 192);
+            
+            btnCancelarCurso.Visible = false;
+            dgvCursos.Focus();
+        }
+
+        private void dgvCursos_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                dgvCursos.CurrentCell = dgvCursos.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                dgvCursos.Rows[e.RowIndex].Selected = true;
+                dgvCursos.Focus();
+            }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes == MessageBox.Show("¿Desea eliminar el curso que comprende del " + dgvCursos.CurrentRow.Cells[0].Value.ToString() +" al "+ dgvCursos.CurrentRow.Cells[1].Value.ToString()+ "?", "Eliminar curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            {
+                foreach (Escuela miEscuela in listaEscuela)
+                    if (miEscuela.Nombre == dgvEscuelas.CurrentRow.Cells[0].Value.ToString())
+                    {
+                        Cursos otroCurso = new Cursos();
+                        otroCurso.InicioCursos = DateTime.Parse(dgvCursos.CurrentRow.Cells[0].Value.ToString());
+                        otroCurso.FinCurso= DateTime.Parse(dgvCursos.CurrentRow.Cells[1].Value.ToString());
+                        miEscuela.listaCursos.Remove(otroCurso);
+                        dgvCursos.Rows.Clear();
+                        foreach (Cursos curso in miEscuela.listaCursos)
+                        {
+                            dgvCursos.Rows.Add(curso.InicioCursos.ToLongDateString(), curso.FinCurso.ToLongDateString());
+                        }
+
+                    }
+            }
+            
+            
+            if (btnAgregarColegio.ButtonText == "Editar")
+            {
+                btnAgregarColegio.ButtonText = "Agregar";
+                btnCancelar.Visible = false;
             }
         }
     }
