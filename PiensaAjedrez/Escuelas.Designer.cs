@@ -59,8 +59,8 @@
             this.dgvEscuelas = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.dgvCursos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsEliminarCurso = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.bunifuCards1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).BeginInit();
@@ -493,22 +493,22 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
+            this.tsEliminarCurso});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            // 
+            // tsEliminarCurso
+            // 
+            this.tsEliminarCurso.Name = "tsEliminarCurso";
+            this.tsEliminarCurso.Size = new System.Drawing.Size(180, 22);
+            this.tsEliminarCurso.Text = "Eliminar curso";
+            this.tsEliminarCurso.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolTip1
             // 
             this.toolTip1.AutoPopDelay = 5000;
             this.toolTip1.InitialDelay = 250;
             this.toolTip1.ReshowDelay = 100;
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem1.Text = "Eliminar curso";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // Escuelas
             // 
@@ -560,6 +560,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox btnCancelarCurso;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tsEliminarCurso;
     }
 }

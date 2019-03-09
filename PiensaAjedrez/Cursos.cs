@@ -41,7 +41,7 @@ namespace PiensaAjedrez
 
         public bool Equals(Cursos otroCurso)
         {
-            return (this.InicioCursos.Equals(otroCurso.InicioCursos) && this.FinCurso.Equals(otroCurso.FinCurso));
+            return (this.InicioCursos.ToShortDateString().Equals(otroCurso.InicioCursos.ToShortDateString()) && this.FinCurso.ToShortDateString().Equals(otroCurso.FinCurso.ToShortDateString()));
         }
 
     }
