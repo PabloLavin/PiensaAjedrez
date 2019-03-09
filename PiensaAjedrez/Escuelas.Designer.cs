@@ -97,9 +97,9 @@
             // 
             this.btnCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.BackgroundImage")));
             this.btnCancelar.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.InitialImage")));
-            this.btnCancelar.Location = new System.Drawing.Point(386, 198);
+            this.btnCancelar.Location = new System.Drawing.Point(386, 200);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(30, 32);
+            this.btnCancelar.Size = new System.Drawing.Size(27, 27);
             this.btnCancelar.TabIndex = 18;
             this.btnCancelar.TabStop = false;
             this.toolTip1.SetToolTip(this.btnCancelar, "Cancelar edición");
@@ -495,12 +495,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsEliminarCurso});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(150, 26);
             // 
             // tsEliminarCurso
             // 
             this.tsEliminarCurso.Name = "tsEliminarCurso";
-            this.tsEliminarCurso.Size = new System.Drawing.Size(180, 22);
+            this.tsEliminarCurso.Size = new System.Drawing.Size(149, 22);
             this.tsEliminarCurso.Text = "Eliminar curso";
             this.tsEliminarCurso.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 

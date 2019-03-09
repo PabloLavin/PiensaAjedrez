@@ -204,9 +204,9 @@
             // 
             this.btnCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.BackgroundImage")));
             this.btnCancelar.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.InitialImage")));
-            this.btnCancelar.Location = new System.Drawing.Point(874, 205);
+            this.btnCancelar.Location = new System.Drawing.Point(874, 209);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(30, 32);
+            this.btnCancelar.Size = new System.Drawing.Size(30, 30);
             this.btnCancelar.TabIndex = 17;
             this.btnCancelar.TabStop = false;
             this.Cancelartt.SetToolTip(this.btnCancelar, "Cancelar edición");

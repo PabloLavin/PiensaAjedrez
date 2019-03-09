@@ -27,9 +27,10 @@ namespace PiensaAjedrez
             btnCancelarCurso.BackgroundImageLayout = ImageLayout.Stretch;
             tsEliminarCurso.Visible = false;
             contextMenuStrip1.Enabled = false;
-
         }
+
          List<Escuela> listaEscuela = new List<Escuela>();
+
         private void btnAgregarColegio_Click(object sender, EventArgs e)
         {
             if (btnAgregarColegio.ButtonText == "Editar")
@@ -45,7 +46,6 @@ namespace PiensaAjedrez
                         return;
                     }
                 }  
-                
             
             if (!listaEscuela.Contains(new Escuela(txtNombreColegio.Text)))
             {
@@ -54,27 +54,21 @@ namespace PiensaAjedrez
                 InitializeTimer();
                 txtNombreColegio.Text = "";
                 MostrarDatos();
-                dgvCursos.Rows.Clear();
-                
+                dgvCursos.Rows.Clear();                
             }
             else
                 MessageBox.Show("Escuela duplicada.");
-
-            txtNombreColegio.Focus();
-        
+            txtNombreColegio.Focus();        
         }
 
         void MostrarDatos()
         {
-            dgvEscuelas.Rows.Clear();
-            
+            dgvEscuelas.Rows.Clear();       
             foreach (Escuela escuela in listaEscuela)
             {
                 dgvEscuelas.Rows.Add(escuela.Nombre);
             }    
         }
-
-        
 
         private int counter;
         Timer timer1 = new Timer();
@@ -91,7 +85,6 @@ namespace PiensaAjedrez
         {
             if (counter >= 10)
             {
-
                 timer1.Enabled = false;
                 counter = 0;
                 btnAgregado.Visible = false;
@@ -99,9 +92,7 @@ namespace PiensaAjedrez
             }
             else
             {
-
                 counter += 1;
-
             }
         }
 
@@ -109,17 +100,15 @@ namespace PiensaAjedrez
         {
             try
             {
-               
-                if (btnAgregarCurso.ButtonText == "Editar")
+              if (btnAgregarCurso.ButtonText == "Editar")
                 {
                     foreach (Escuela miEscuela in listaEscuela)
                     {
                         if (miEscuela.Nombre== dgvEscuelas.CurrentRow.Cells[0].Value.ToString())
                             foreach (Cursos miCursos in miEscuela.listaCursos)
                             {
-                                if (miCursos.InicioCursos.ToShortDateString()==DateTime.Parse(dgvCursos.CurrentRow.Cells[0].Value.ToString()).ToShortDateString()&&miCursos.FinCurso.ToShortDateString()== DateTime.Parse(dgvCursos.CurrentRow.Cells[1].Value.ToString()).ToShortDateString())
+                                if (miCursos.Equals(new Cursos(DateTime.Parse(dgvCursos.CurrentRow.Cells[0].Value.ToString()), DateTime.Parse(dgvCursos.CurrentRow.Cells[1].Value.ToString()))))
                                 {
-                                    
                                     miCursos.InicioCursos = dtmInicioCurso.Value;
                                     miCursos.FinCurso = dtmFinCurso.Value;
                                     btnAgregarCurso.ButtonText = "Agregar curso";
@@ -128,42 +117,30 @@ namespace PiensaAjedrez
                                     dgvCursos.Rows.Clear();
                                     btnCancelarCurso.Visible = false;
                                     foreach (Cursos curso in miEscuela.listaCursos)
-                                    {
-                                        dgvCursos.Rows.Add(curso.InicioCursos.ToLongDateString(), curso.FinCurso.ToLongDateString());
-                                    }
+                                         dgvCursos.Rows.Add(curso.InicioCursos.ToLongDateString(), curso.FinCurso.ToLongDateString());
                                     return;
                                 }
 
                             }
-
                     }
                 }
                 contextMenuStrip1.Enabled = true;
-                tsEliminarCurso.Visible = true;
-                Cursos miCurso = new Cursos();
-                miCurso.InicioCursos = dtmInicioCurso.Value;
-                miCurso.FinCurso = dtmFinCurso.Value;
+                tsEliminarCurso.Visible = true;              
                 dgvCursos.Rows.Clear();
                     foreach (Escuela miEscuela in listaEscuela)
                     {
                         if (miEscuela.Nombre == dgvEscuelas.CurrentRow.Cells[0].Value.ToString())
                         {
-                            miEscuela.listaCursos.Add(miCurso);
+                            miEscuela.listaCursos.Add(new Cursos(dtmInicioCurso.Value, dtmFinCurso.Value));
                             foreach (Cursos miCursos in miEscuela.listaCursos)
-                            {
-                                dgvCursos.Rows.Add(miCursos.InicioCursos.ToLongDateString(), miCursos.FinCurso.ToLongDateString());
-                            }
-
+                                 dgvCursos.Rows.Add(miCursos.InicioCursos.ToLongDateString(), miCursos.FinCurso.ToLongDateString());   
                         }
                     }
                     btnAgregadoCurso.Visible = true;
                     InitializeTimer();
-
-                
             }
             catch (Exception x)
             {
-
                 MessageBox.Show(x.Message);
             }
         }
@@ -181,12 +158,8 @@ namespace PiensaAjedrez
                     txtNombreColegio.Text = miEscuela.Nombre;
                     dgvCursos.Rows.Clear();
                     foreach (Cursos miCurso in miEscuela.listaCursos)
-                    {
                         dgvCursos.Rows.Add(miCurso.InicioCursos.ToLongDateString(), miCurso.FinCurso.ToLongDateString());
-                    }
-
                 }
-
             }
         }
 
@@ -210,11 +183,9 @@ namespace PiensaAjedrez
         }
 
         private void btnCancelarCurso_Click(object sender, EventArgs e)
-        {
-            
+        {           
             btnAgregarCurso.ButtonText = "Agregar";
-            btnAgregarCurso.IdleFillColor = Color.FromArgb(59, 202, 192);
-            
+            btnAgregarCurso.IdleFillColor = Color.FromArgb(59, 202, 192);            
             btnCancelarCurso.Visible = false;
             dgvCursos.Focus();
         }
@@ -236,21 +207,13 @@ namespace PiensaAjedrez
                 foreach (Escuela miEscuela in listaEscuela)
                     if (miEscuela.Nombre == dgvEscuelas.CurrentRow.Cells[0].Value.ToString())
                     {
-                        Cursos otroCurso = new Cursos();
-                        otroCurso.InicioCursos = DateTime.Parse(dgvCursos.CurrentRow.Cells[0].Value.ToString());
-                        otroCurso.FinCurso= DateTime.Parse(dgvCursos.CurrentRow.Cells[1].Value.ToString());
-
-                        miEscuela.listaCursos.Remove(otroCurso);
+                        miEscuela.listaCursos.Remove(new Cursos(DateTime.Parse(dgvCursos.CurrentRow.Cells[0].Value.ToString()), DateTime.Parse(dgvCursos.CurrentRow.Cells[01].Value.ToString())));
                         dgvCursos.Rows.Clear();
                         foreach (Cursos curso in miEscuela.listaCursos)
-                        {
-                            dgvCursos.Rows.Add(curso.InicioCursos.ToLongDateString(), curso.FinCurso.ToLongDateString());
-                        }
-
+                             dgvCursos.Rows.Add(curso.InicioCursos.ToLongDateString(), curso.FinCurso.ToLongDateString());                      
                     }
             }
-            
-            
+
             if (btnAgregarColegio.ButtonText == "Editar")
             {
                 btnAgregarColegio.ButtonText = "Agregar";
