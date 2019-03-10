@@ -30,14 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Escuelas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
             this.btnCancelar = new System.Windows.Forms.PictureBox();
             this.btnAgregado = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -61,6 +65,10 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsEliminarCurso = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lblActividad = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btnAgregarActividad = new Bunifu.Framework.UI.BunifuImageButton();
+            this.txtActividad = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.dgvListaActividades = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.bunifuCards1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).BeginInit();
@@ -70,6 +78,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvEscuelas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarActividad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaActividades)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuCards1
@@ -225,6 +235,10 @@
             this.bunifuCards2.BorderRadius = 5;
             this.bunifuCards2.BottomSahddow = true;
             this.bunifuCards2.color = System.Drawing.Color.Teal;
+            this.bunifuCards2.Controls.Add(this.dgvListaActividades);
+            this.bunifuCards2.Controls.Add(this.txtActividad);
+            this.bunifuCards2.Controls.Add(this.btnAgregarActividad);
+            this.bunifuCards2.Controls.Add(this.lblActividad);
             this.bunifuCards2.Controls.Add(this.btnCancelarCurso);
             this.bunifuCards2.Controls.Add(this.btnAgregadoCurso);
             this.bunifuCards2.Controls.Add(this.bunifuImageButton2);
@@ -241,12 +255,13 @@
             this.bunifuCards2.ShadowDepth = 20;
             this.bunifuCards2.Size = new System.Drawing.Size(631, 252);
             this.bunifuCards2.TabIndex = 5;
+            this.bunifuCards2.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuCards2_Paint);
             // 
             // btnCancelarCurso
             // 
             this.btnCancelarCurso.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelarCurso.BackgroundImage")));
             this.btnCancelarCurso.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCancelarCurso.InitialImage")));
-            this.btnCancelarCurso.Location = new System.Drawing.Point(392, 198);
+            this.btnCancelarCurso.Location = new System.Drawing.Point(208, 203);
             this.btnCancelarCurso.Name = "btnCancelarCurso";
             this.btnCancelarCurso.Size = new System.Drawing.Size(30, 32);
             this.btnCancelarCurso.TabIndex = 19;
@@ -294,9 +309,9 @@
             this.bunifuImageButton2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.Image")));
             this.bunifuImageButton2.ImageActive = null;
-            this.bunifuImageButton2.Location = new System.Drawing.Point(277, 60);
+            this.bunifuImageButton2.Location = new System.Drawing.Point(257, 59);
             this.bunifuImageButton2.Name = "bunifuImageButton2";
-            this.bunifuImageButton2.Size = new System.Drawing.Size(71, 123);
+            this.bunifuImageButton2.Size = new System.Drawing.Size(71, 130);
             this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.bunifuImageButton2.TabIndex = 9;
             this.bunifuImageButton2.TabStop = false;
@@ -305,14 +320,15 @@
             // lblFinCurso
             // 
             this.lblFinCurso.AutoSize = true;
-            this.lblFinCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblFinCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFinCurso.ForeColor = System.Drawing.Color.Black;
-            this.lblFinCurso.Location = new System.Drawing.Point(443, 71);
+            this.lblFinCurso.Location = new System.Drawing.Point(24, 105);
             this.lblFinCurso.Name = "lblFinCurso";
-            this.lblFinCurso.Size = new System.Drawing.Size(100, 50);
+            this.lblFinCurso.Size = new System.Drawing.Size(32, 20);
             this.lblFinCurso.TabIndex = 8;
-            this.lblFinCurso.Text = "Fin\r\ndel curso";
+            this.lblFinCurso.Text = "Fin\r\n";
             this.lblFinCurso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFinCurso.Click += new System.EventHandler(this.lblFinCurso_Click);
             // 
             // dtmFinCurso
             // 
@@ -321,23 +337,25 @@
             this.dtmFinCurso.ForeColor = System.Drawing.Color.White;
             this.dtmFinCurso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtmFinCurso.FormatCustom = null;
-            this.dtmFinCurso.Location = new System.Drawing.Point(405, 124);
+            this.dtmFinCurso.Location = new System.Drawing.Point(78, 96);
             this.dtmFinCurso.Name = "dtmFinCurso";
-            this.dtmFinCurso.Size = new System.Drawing.Size(169, 36);
+            this.dtmFinCurso.Size = new System.Drawing.Size(173, 29);
             this.dtmFinCurso.TabIndex = 7;
             this.dtmFinCurso.Value = new System.DateTime(2019, 3, 5, 10, 54, 35, 360);
+            this.dtmFinCurso.onValueChanged += new System.EventHandler(this.dtmFinCurso_onValueChanged);
             // 
             // lblInicioCurso
             // 
             this.lblInicioCurso.AutoSize = true;
-            this.lblInicioCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblInicioCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInicioCurso.ForeColor = System.Drawing.Color.Black;
-            this.lblInicioCurso.Location = new System.Drawing.Point(87, 71);
+            this.lblInicioCurso.Location = new System.Drawing.Point(24, 67);
             this.lblInicioCurso.Name = "lblInicioCurso";
-            this.lblInicioCurso.Size = new System.Drawing.Size(100, 50);
+            this.lblInicioCurso.Size = new System.Drawing.Size(48, 20);
             this.lblInicioCurso.TabIndex = 6;
-            this.lblInicioCurso.Text = "Inicio\r\ndel curso\r\n";
+            this.lblInicioCurso.Text = "Inicio\r\n";
             this.lblInicioCurso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblInicioCurso.Click += new System.EventHandler(this.lblInicioCurso_Click);
             // 
             // dtmInicioCurso
             // 
@@ -346,11 +364,12 @@
             this.dtmInicioCurso.ForeColor = System.Drawing.Color.White;
             this.dtmInicioCurso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtmInicioCurso.FormatCustom = null;
-            this.dtmInicioCurso.Location = new System.Drawing.Point(54, 124);
+            this.dtmInicioCurso.Location = new System.Drawing.Point(78, 59);
             this.dtmInicioCurso.Name = "dtmInicioCurso";
-            this.dtmInicioCurso.Size = new System.Drawing.Size(169, 36);
+            this.dtmInicioCurso.Size = new System.Drawing.Size(173, 29);
             this.dtmInicioCurso.TabIndex = 5;
             this.dtmInicioCurso.Value = new System.DateTime(2019, 3, 5, 0, 0, 0, 0);
+            this.dtmInicioCurso.onValueChanged += new System.EventHandler(this.dtmInicioCurso_onValueChanged);
             // 
             // btnAgregarCurso
             // 
@@ -361,7 +380,7 @@
             this.btnAgregarCurso.ActiveLineColor = System.Drawing.Color.Teal;
             this.btnAgregarCurso.BackColor = System.Drawing.Color.White;
             this.btnAgregarCurso.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgregarCurso.BackgroundImage")));
-            this.btnAgregarCurso.ButtonText = "Agregar curso";
+            this.btnAgregarCurso.ButtonText = "Agregar";
             this.btnAgregarCurso.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarCurso.Font = new System.Drawing.Font("Century Gothic", 11.5F);
             this.btnAgregarCurso.ForeColor = System.Drawing.Color.SeaGreen;
@@ -370,7 +389,7 @@
             this.btnAgregarCurso.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnAgregarCurso.IdleForecolor = System.Drawing.Color.White;
             this.btnAgregarCurso.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnAgregarCurso.Location = new System.Drawing.Point(245, 195);
+            this.btnAgregarCurso.Location = new System.Drawing.Point(61, 200);
             this.btnAgregarCurso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAgregarCurso.Name = "btnAgregarCurso";
             this.btnAgregarCurso.Size = new System.Drawing.Size(140, 35);
@@ -395,29 +414,29 @@
             this.dgvEscuelas.AllowUserToDeleteRows = false;
             this.dgvEscuelas.AllowUserToResizeColumns = false;
             this.dgvEscuelas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvEscuelas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvEscuelas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvEscuelas.BackgroundColor = System.Drawing.Color.White;
             this.dgvEscuelas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvEscuelas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvEscuelas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEscuelas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEscuelas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvEscuelas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEscuelas.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEscuelas.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvEscuelas.DoubleBuffered = true;
             this.dgvEscuelas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvEscuelas.EnableHeadersVisualStyles = false;
@@ -429,9 +448,9 @@
             this.dgvEscuelas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvEscuelas.RowHeadersVisible = false;
             this.dgvEscuelas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgvEscuelas.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.dgvEscuelas.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvEscuelas.RowTemplate.Height = 25;
             this.dgvEscuelas.RowTemplate.ReadOnly = true;
             this.dgvEscuelas.Size = new System.Drawing.Size(631, 336);
@@ -444,30 +463,30 @@
             this.dgvCursos.AllowUserToDeleteRows = false;
             this.dgvCursos.AllowUserToResizeColumns = false;
             this.dgvCursos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvCursos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvCursos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvCursos.BackgroundColor = System.Drawing.Color.White;
             this.dgvCursos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCursos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvCursos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.5F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCursos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 11.5F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCursos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCursos.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCursos.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCursos.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvCursos.DoubleBuffered = true;
             this.dgvCursos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCursos.EnableHeadersVisualStyles = false;
@@ -479,9 +498,9 @@
             this.dgvCursos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvCursos.RowHeadersVisible = false;
             this.dgvCursos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.dgvCursos.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            this.dgvCursos.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvCursos.RowTemplate.Height = 25;
             this.dgvCursos.RowTemplate.ReadOnly = true;
             this.dgvCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -510,6 +529,100 @@
             this.toolTip1.InitialDelay = 250;
             this.toolTip1.ReshowDelay = 100;
             // 
+            // lblActividad
+            // 
+            this.lblActividad.AutoSize = true;
+            this.lblActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActividad.ForeColor = System.Drawing.Color.Black;
+            this.lblActividad.Location = new System.Drawing.Point(24, 145);
+            this.lblActividad.Name = "lblActividad";
+            this.lblActividad.Size = new System.Drawing.Size(86, 20);
+            this.lblActividad.TabIndex = 20;
+            this.lblActividad.Text = "Actividad";
+            this.lblActividad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnAgregarActividad
+            // 
+            this.btnAgregarActividad.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarActividad.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarActividad.Image")));
+            this.btnAgregarActividad.ImageActive = null;
+            this.btnAgregarActividad.Location = new System.Drawing.Point(225, 163);
+            this.btnAgregarActividad.Name = "btnAgregarActividad";
+            this.btnAgregarActividad.Size = new System.Drawing.Size(24, 24);
+            this.btnAgregarActividad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAgregarActividad.TabIndex = 22;
+            this.btnAgregarActividad.TabStop = false;
+            this.toolTip1.SetToolTip(this.btnAgregarActividad, "Agregar actividad");
+            this.btnAgregarActividad.Zoom = 10;
+            // 
+            // txtActividad
+            // 
+            this.txtActividad.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtActividad.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.txtActividad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtActividad.HintForeColor = System.Drawing.Color.Empty;
+            this.txtActividad.HintText = "";
+            this.txtActividad.isPassword = false;
+            this.txtActividad.LineFocusedColor = System.Drawing.Color.DarkSlateGray;
+            this.txtActividad.LineIdleColor = System.Drawing.Color.Teal;
+            this.txtActividad.LineMouseHoverColor = System.Drawing.Color.DarkSlateGray;
+            this.txtActividad.LineThickness = 4;
+            this.txtActividad.Location = new System.Drawing.Point(28, 162);
+            this.txtActividad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtActividad.Name = "txtActividad";
+            this.txtActividad.Size = new System.Drawing.Size(190, 27);
+            this.txtActividad.TabIndex = 23;
+            this.txtActividad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // dgvListaActividades
+            // 
+            this.dgvListaActividades.AllowUserToAddRows = false;
+            this.dgvListaActividades.AllowUserToDeleteRows = false;
+            this.dgvListaActividades.AllowUserToResizeColumns = false;
+            this.dgvListaActividades.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvListaActividades.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvListaActividades.BackgroundColor = System.Drawing.Color.White;
+            this.dgvListaActividades.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvListaActividades.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dgvListaActividades.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaActividades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvListaActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaActividades.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvListaActividades.DoubleBuffered = true;
+            this.dgvListaActividades.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvListaActividades.EnableHeadersVisualStyles = false;
+            this.dgvListaActividades.HeaderBgColor = System.Drawing.Color.Teal;
+            this.dgvListaActividades.HeaderForeColor = System.Drawing.Color.White;
+            this.dgvListaActividades.Location = new System.Drawing.Point(334, 48);
+            this.dgvListaActividades.Name = "dgvListaActividades";
+            this.dgvListaActividades.ReadOnly = true;
+            this.dgvListaActividades.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvListaActividades.RowHeadersVisible = false;
+            this.dgvListaActividades.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dgvListaActividades.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvListaActividades.RowTemplate.Height = 25;
+            this.dgvListaActividades.RowTemplate.ReadOnly = true;
+            this.dgvListaActividades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvListaActividades.Size = new System.Drawing.Size(267, 163);
+            this.dgvListaActividades.TabIndex = 26;
+            // 
             // Escuelas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -532,6 +645,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvEscuelas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarActividad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaActividades)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -561,5 +676,9 @@
         private System.Windows.Forms.PictureBox btnCancelarCurso;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsEliminarCurso;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblActividad;
+        private Bunifu.Framework.UI.BunifuImageButton btnAgregarActividad;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtActividad;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid dgvListaActividades;
     }
 }

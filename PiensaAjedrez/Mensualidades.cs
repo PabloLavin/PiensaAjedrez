@@ -38,6 +38,11 @@ namespace PiensaAjedrez
             dgvAlumnos.Columns.Add("Oct", "Oct");
             dgvAlumnos.Columns.Add("Nov", "Nov");
             dgvAlumnos.Columns.Add("Dic", "Dic");
+            //dgvAlumnos.Columns.Add("Act_1", "Act_1");
+            //dgvAlumnos.Columns.Add("Act_2", "Act_2");
+            //dgvAlumnos.Columns.Add("Act_3", "Act_3");
+            //dgvAlumnos.Columns.Add("Act_4", "Act_4");
+            //dgvAlumnos.Columns.Add("Act_5", "Act_5");
             dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAlumnos.Columns[0].Width = 80;
             dgvAlumnos.Columns[1].Width = 250;

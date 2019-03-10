@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace PiensaAjedrez
 {
@@ -23,10 +24,18 @@ namespace PiensaAjedrez
             btnAgregado.Visible = false;
             btnAgregadoCurso.Visible = false;
             btnAgregarCurso.Visible = false;
+            btnAgregarActividad.Enabled = false;
             btnCancelar.BackgroundImageLayout = ImageLayout.Stretch;
             btnCancelarCurso.BackgroundImageLayout = ImageLayout.Stretch;
             tsEliminarCurso.Visible = false;
             contextMenuStrip1.Enabled = false;
+            dgvListaActividades.Columns.Add("Lista de actividades", "Lista de actividades");
+            dgvListaActividades.Rows.Add("Entrenamiento");
+            dgvListaActividades.Rows.Add("Concurso");
+            dgvListaActividades.Rows.Add("Partida amistosa");
+            dgvListaActividades.Rows.Add("Blitz");
+            dgvListaActividades.Rows.Add("Torneo");
+            dgvListaActividades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
          List<Escuela> listaEscuela = new List<Escuela>();
@@ -148,6 +157,7 @@ namespace PiensaAjedrez
         private void dgvEscuelas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnAgregarCurso.Visible = true;
+            btnAgregarActividad.Enabled = true;
             btnAgregarColegio.ButtonText = "Editar";
             btnAgregarColegio.IdleFillColor = Color.Teal;
             btnCancelar.Visible = true;
@@ -220,5 +230,32 @@ namespace PiensaAjedrez
                 btnCancelar.Visible = false;
             }
         }
+
+        private void bunifuCards2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dtmInicioCurso_onValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblInicioCurso_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFinCurso_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtmFinCurso_onValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }
