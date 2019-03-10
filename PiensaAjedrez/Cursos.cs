@@ -8,6 +8,8 @@ namespace PiensaAjedrez
 {
     class Cursos: IEquatable<Cursos>    
     {
+        public List<Alumno> listaAlumnos = new List<Alumno>();
+
         private DateTime _dtmInicioCursos;
 
         public DateTime InicioCursos

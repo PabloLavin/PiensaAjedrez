@@ -16,5 +16,33 @@ namespace PiensaAjedrez
         {
             InitializeComponent();
         }
+
+        private void Mensualidades_Load(object sender, EventArgs e)
+        {
+            btnAgregado.Visible = false;
+            cbEscuelas.AddItem("INSTITUTO TECNOLÓGICO DE NUEVO LAREDO");
+            cbEscuelas.selectedIndex = 0;
+            
+
+            dgvAlumnos.Columns.Add("No. ctrl.", "No. ctrl.");
+            dgvAlumnos.Columns.Add("Nombre", "Nombre");
+            dgvAlumnos.Columns.Add("Ene", "Ene");
+            dgvAlumnos.Columns.Add("Feb", "Feb");
+            dgvAlumnos.Columns.Add("Mar", "Mar");
+            dgvAlumnos.Columns.Add("Abr", "Abr");
+            dgvAlumnos.Columns.Add("May", "May");
+            dgvAlumnos.Columns.Add("Jun", "Jun");
+            dgvAlumnos.Columns.Add("Jul", "Jul");
+            dgvAlumnos.Columns.Add("Ago", "Ago");
+            dgvAlumnos.Columns.Add("Sep", "Sep");
+            dgvAlumnos.Columns.Add("Oct", "Oct");
+            dgvAlumnos.Columns.Add("Nov", "Nov");
+            dgvAlumnos.Columns.Add("Dic", "Dic");
+            dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAlumnos.Columns[0].Width = 80;
+            dgvAlumnos.Columns[1].Width = 250;
+            dgvAlumnos.Rows.Add("19100000", "Shawn HBK Michaels");
+            dgvAlumnos.Rows.Add("19100001", "Triple H");
+        }
     }
 }
