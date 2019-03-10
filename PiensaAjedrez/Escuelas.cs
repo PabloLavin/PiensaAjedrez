@@ -36,6 +36,7 @@ namespace PiensaAjedrez
             dgvListaActividades.Rows.Add("Blitz");
             dgvListaActividades.Rows.Add("Torneo");
             dgvListaActividades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
         }
 
          List<Escuela> listaEscuela = new List<Escuela>();
