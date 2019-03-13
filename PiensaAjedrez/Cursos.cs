@@ -9,6 +9,7 @@ namespace PiensaAjedrez
     class Cursos: IEquatable<Cursos>    
     {
         public List<Alumno> listaAlumnos = new List<Alumno>();
+        public List<string> listaActividades = new List<string>();
 
         private DateTime _dtmInicioCursos;
 
@@ -35,17 +36,31 @@ namespace PiensaAjedrez
 
         }
 
+        public Cursos(DateTime dtIniciocurso, DateTime dtFinCurso, List<string> actividades)
+        {
+            _dtmInicioCursos = dtIniciocurso;
+            _dtmFinCurso = dtFinCurso;
+            foreach (string actividad in actividades)
+            {
+                listaActividades.Add(actividad);
+            }
+        }
+
         public Cursos(DateTime dtIniciocurso, DateTime dtFinCurso)
         {
             _dtmInicioCursos = dtIniciocurso;
             _dtmFinCurso = dtFinCurso;
         }
 
+        
+
         public bool Equals(Cursos otroCurso)
         {
             return (this.InicioCursos.ToShortDateString().Equals(otroCurso.InicioCursos.ToShortDateString()) 
                 && this.FinCurso.ToShortDateString().Equals(otroCurso.FinCurso.ToShortDateString()));
         }
+
+
 
     }
 }
