@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mensualidades));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
+            this.lblDeudores = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCheckbox1 = new Bunifu.Framework.UI.BunifuCheckbox();
             this.lblfiltrar = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.imgFiltro = new Bunifu.Framework.UI.BunifuImageButton();
             this.chkCorreo = new Bunifu.Framework.UI.BunifuCheckbox();
@@ -41,29 +44,28 @@
             this.txtFiltroNombre = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.chkNombre = new Bunifu.Framework.UI.BunifuCheckbox();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
-            this.cbEscuelas = new Bunifu.Framework.UI.BunifuDropdown();
+            this.lblFechaPago = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.dtFechaPago = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.btnRegistroPago = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnAgregado = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.lblMetodoPago = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.cbMetodoPago = new Bunifu.Framework.UI.BunifuDropdown();
+            this.lblMonto = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtMonto = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.lblAlumno = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lblNombre = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lblNroControl = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnEscuela = new Bunifu.Framework.UI.BunifuImageButton();
             this.lblEscuela = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.lblNroControl = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.lblNombre = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.lblAlumno = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtMonto = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.lblMonto = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuDropdown1 = new Bunifu.Framework.UI.BunifuDropdown();
-            this.lblMetodoPago = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.lblMesPago = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.lblFechaPago = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btnAgregado = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.cbEscuelas = new Bunifu.Framework.UI.BunifuDropdown();
             this.dgvAlumnos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.btnRegistroPago = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.bunifuCheckbox1 = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.lblDeudores = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuCards2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).BeginInit();
             this.bunifuCards1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,6 +90,29 @@
             this.bunifuCards2.ShadowDepth = 20;
             this.bunifuCards2.Size = new System.Drawing.Size(335, 257);
             this.bunifuCards2.TabIndex = 18;
+            // 
+            // lblDeudores
+            // 
+            this.lblDeudores.AutoSize = true;
+            this.lblDeudores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeudores.ForeColor = System.Drawing.Color.Black;
+            this.lblDeudores.Location = new System.Drawing.Point(113, 202);
+            this.lblDeudores.Name = "lblDeudores";
+            this.lblDeudores.Size = new System.Drawing.Size(142, 20);
+            this.lblDeudores.TabIndex = 23;
+            this.lblDeudores.Text = "Alumnos deudores";
+            // 
+            // bunifuCheckbox1
+            // 
+            this.bunifuCheckbox1.BackColor = System.Drawing.Color.SkyBlue;
+            this.bunifuCheckbox1.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.bunifuCheckbox1.Checked = false;
+            this.bunifuCheckbox1.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
+            this.bunifuCheckbox1.ForeColor = System.Drawing.Color.White;
+            this.bunifuCheckbox1.Location = new System.Drawing.Point(87, 202);
+            this.bunifuCheckbox1.Name = "bunifuCheckbox1";
+            this.bunifuCheckbox1.Size = new System.Drawing.Size(20, 20);
+            this.bunifuCheckbox1.TabIndex = 19;
             // 
             // lblfiltrar
             // 
@@ -185,12 +210,12 @@
             this.bunifuCards1.BorderRadius = 5;
             this.bunifuCards1.BottomSahddow = true;
             this.bunifuCards1.color = System.Drawing.Color.Teal;
+            this.bunifuCards1.Controls.Add(this.lblFechaPago);
+            this.bunifuCards1.Controls.Add(this.dtFechaPago);
             this.bunifuCards1.Controls.Add(this.btnRegistroPago);
             this.bunifuCards1.Controls.Add(this.btnAgregado);
-            this.bunifuCards1.Controls.Add(this.lblFechaPago);
-            this.bunifuCards1.Controls.Add(this.lblMesPago);
             this.bunifuCards1.Controls.Add(this.lblMetodoPago);
-            this.bunifuCards1.Controls.Add(this.bunifuDropdown1);
+            this.bunifuCards1.Controls.Add(this.cbMetodoPago);
             this.bunifuCards1.Controls.Add(this.lblMonto);
             this.bunifuCards1.Controls.Add(this.txtMonto);
             this.bunifuCards1.Controls.Add(this.lblAlumno);
@@ -208,171 +233,55 @@
             this.bunifuCards1.Size = new System.Drawing.Size(923, 257);
             this.bunifuCards1.TabIndex = 19;
             // 
-            // cbEscuelas
-            // 
-            this.cbEscuelas.BackColor = System.Drawing.Color.Transparent;
-            this.cbEscuelas.BorderRadius = 3;
-            this.cbEscuelas.DisabledColor = System.Drawing.Color.Gray;
-            this.cbEscuelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbEscuelas.ForeColor = System.Drawing.Color.White;
-            this.cbEscuelas.Items = new string[0];
-            this.cbEscuelas.Location = new System.Drawing.Point(41, 166);
-            this.cbEscuelas.Name = "cbEscuelas";
-            this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.cbEscuelas.onHoverColor = System.Drawing.Color.Teal;
-            this.cbEscuelas.selectedIndex = -1;
-            this.cbEscuelas.Size = new System.Drawing.Size(319, 39);
-            this.cbEscuelas.TabIndex = 14;
-            // 
-            // btnEscuela
-            // 
-            this.btnEscuela.BackColor = System.Drawing.Color.Transparent;
-            this.btnEscuela.Image = ((System.Drawing.Image)(resources.GetObject("btnEscuela.Image")));
-            this.btnEscuela.ImageActive = null;
-            this.btnEscuela.Location = new System.Drawing.Point(157, 54);
-            this.btnEscuela.Name = "btnEscuela";
-            this.btnEscuela.Size = new System.Drawing.Size(82, 65);
-            this.btnEscuela.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnEscuela.TabIndex = 16;
-            this.btnEscuela.TabStop = false;
-            this.btnEscuela.Zoom = 10;
-            // 
-            // lblEscuela
-            // 
-            this.lblEscuela.AutoSize = true;
-            this.lblEscuela.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lblEscuela.Location = new System.Drawing.Point(158, 122);
-            this.lblEscuela.Name = "lblEscuela";
-            this.lblEscuela.Size = new System.Drawing.Size(82, 25);
-            this.lblEscuela.TabIndex = 15;
-            this.lblEscuela.Text = "Escuela";
-            // 
-            // bunifuImageButton2
-            // 
-            this.bunifuImageButton2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.Image")));
-            this.bunifuImageButton2.ImageActive = null;
-            this.bunifuImageButton2.Location = new System.Drawing.Point(377, 40);
-            this.bunifuImageButton2.Name = "bunifuImageButton2";
-            this.bunifuImageButton2.Size = new System.Drawing.Size(71, 180);
-            this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton2.TabIndex = 17;
-            this.bunifuImageButton2.TabStop = false;
-            this.bunifuImageButton2.Zoom = 10;
-            // 
-            // lblNroControl
-            // 
-            this.lblNroControl.AutoSize = true;
-            this.lblNroControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNroControl.ForeColor = System.Drawing.Color.Teal;
-            this.lblNroControl.Location = new System.Drawing.Point(455, 75);
-            this.lblNroControl.Name = "lblNroControl";
-            this.lblNroControl.Size = new System.Drawing.Size(98, 24);
-            this.lblNroControl.TabIndex = 18;
-            this.lblNroControl.Text = "19100000";
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.ForeColor = System.Drawing.Color.Teal;
-            this.lblNombre.Location = new System.Drawing.Point(559, 75);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(296, 24);
-            this.lblNombre.TabIndex = 19;
-            this.lblNombre.Text = "Nombre(s) Apellido P. Apellido M.";
-            // 
-            // lblAlumno
-            // 
-            this.lblAlumno.AutoSize = true;
-            this.lblAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlumno.ForeColor = System.Drawing.Color.Black;
-            this.lblAlumno.Location = new System.Drawing.Point(454, 35);
-            this.lblAlumno.Name = "lblAlumno";
-            this.lblAlumno.Size = new System.Drawing.Size(94, 29);
-            this.lblAlumno.TabIndex = 20;
-            this.lblAlumno.Text = "Alumno";
-            // 
-            // txtMonto
-            // 
-            this.txtMonto.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMonto.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.txtMonto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtMonto.HintForeColor = System.Drawing.Color.Empty;
-            this.txtMonto.HintText = "";
-            this.txtMonto.isPassword = false;
-            this.txtMonto.LineFocusedColor = System.Drawing.Color.SkyBlue;
-            this.txtMonto.LineIdleColor = System.Drawing.Color.Teal;
-            this.txtMonto.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
-            this.txtMonto.LineThickness = 4;
-            this.txtMonto.Location = new System.Drawing.Point(506, 108);
-            this.txtMonto.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(78, 33);
-            this.txtMonto.TabIndex = 21;
-            this.txtMonto.Text = "$";
-            this.txtMonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // lblMonto
-            // 
-            this.lblMonto.AutoSize = true;
-            this.lblMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonto.ForeColor = System.Drawing.Color.Black;
-            this.lblMonto.Location = new System.Drawing.Point(455, 121);
-            this.lblMonto.Name = "lblMonto";
-            this.lblMonto.Size = new System.Drawing.Size(54, 20);
-            this.lblMonto.TabIndex = 22;
-            this.lblMonto.Text = "Monto";
-            // 
-            // bunifuDropdown1
-            // 
-            this.bunifuDropdown1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuDropdown1.BorderRadius = 3;
-            this.bunifuDropdown1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuDropdown1.ForeColor = System.Drawing.Color.White;
-            this.bunifuDropdown1.Items = new string[] {
-        "Efectivo",
-        "Depósito"};
-            this.bunifuDropdown1.Location = new System.Drawing.Point(733, 113);
-            this.bunifuDropdown1.Name = "bunifuDropdown1";
-            this.bunifuDropdown1.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.bunifuDropdown1.onHoverColor = System.Drawing.Color.Teal;
-            this.bunifuDropdown1.selectedIndex = -1;
-            this.bunifuDropdown1.Size = new System.Drawing.Size(122, 35);
-            this.bunifuDropdown1.TabIndex = 23;
-            // 
-            // lblMetodoPago
-            // 
-            this.lblMetodoPago.AutoSize = true;
-            this.lblMetodoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMetodoPago.ForeColor = System.Drawing.Color.Black;
-            this.lblMetodoPago.Location = new System.Drawing.Point(602, 121);
-            this.lblMetodoPago.Name = "lblMetodoPago";
-            this.lblMetodoPago.Size = new System.Drawing.Size(125, 20);
-            this.lblMetodoPago.TabIndex = 24;
-            this.lblMetodoPago.Text = "Método de pago";
-            // 
-            // lblMesPago
-            // 
-            this.lblMesPago.AutoSize = true;
-            this.lblMesPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMesPago.ForeColor = System.Drawing.Color.Black;
-            this.lblMesPago.Location = new System.Drawing.Point(454, 173);
-            this.lblMesPago.Name = "lblMesPago";
-            this.lblMesPago.Size = new System.Drawing.Size(122, 25);
-            this.lblMesPago.TabIndex = 25;
-            this.lblMesPago.Text = "Septiembre";
-            // 
             // lblFechaPago
             // 
             this.lblFechaPago.AutoSize = true;
             this.lblFechaPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaPago.ForeColor = System.Drawing.Color.Black;
-            this.lblFechaPago.Location = new System.Drawing.Point(455, 202);
+            this.lblFechaPago.Location = new System.Drawing.Point(455, 178);
             this.lblFechaPago.Name = "lblFechaPago";
-            this.lblFechaPago.Size = new System.Drawing.Size(89, 20);
-            this.lblFechaPago.TabIndex = 26;
-            this.lblFechaPago.Text = "09/03/2019";
+            this.lblFechaPago.Size = new System.Drawing.Size(125, 20);
+            this.lblFechaPago.TabIndex = 29;
+            this.lblFechaPago.Text = "Método de pago";
+            // 
+            // dtFechaPago
+            // 
+            this.dtFechaPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.dtFechaPago.BorderRadius = 0;
+            this.dtFechaPago.ForeColor = System.Drawing.Color.White;
+            this.dtFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaPago.FormatCustom = null;
+            this.dtFechaPago.Location = new System.Drawing.Point(459, 201);
+            this.dtFechaPago.Name = "dtFechaPago";
+            this.dtFechaPago.Size = new System.Drawing.Size(148, 28);
+            this.dtFechaPago.TabIndex = 28;
+            this.toolTip1.SetToolTip(this.dtFechaPago, "Fecha de pago");
+            this.dtFechaPago.Value = new System.DateTime(2019, 3, 12, 0, 0, 0, 0);
+            // 
+            // btnRegistroPago
+            // 
+            this.btnRegistroPago.ActiveBorderThickness = 1;
+            this.btnRegistroPago.ActiveCornerRadius = 20;
+            this.btnRegistroPago.ActiveFillColor = System.Drawing.Color.Teal;
+            this.btnRegistroPago.ActiveForecolor = System.Drawing.Color.White;
+            this.btnRegistroPago.ActiveLineColor = System.Drawing.Color.Teal;
+            this.btnRegistroPago.BackColor = System.Drawing.Color.White;
+            this.btnRegistroPago.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRegistroPago.BackgroundImage")));
+            this.btnRegistroPago.ButtonText = "Registrar pago";
+            this.btnRegistroPago.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistroPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistroPago.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.btnRegistroPago.IdleBorderThickness = 1;
+            this.btnRegistroPago.IdleCornerRadius = 20;
+            this.btnRegistroPago.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnRegistroPago.IdleForecolor = System.Drawing.Color.White;
+            this.btnRegistroPago.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnRegistroPago.Location = new System.Drawing.Point(670, 181);
+            this.btnRegistroPago.Margin = new System.Windows.Forms.Padding(5);
+            this.btnRegistroPago.Name = "btnRegistroPago";
+            this.btnRegistroPago.Size = new System.Drawing.Size(185, 41);
+            this.btnRegistroPago.TabIndex = 27;
+            this.btnRegistroPago.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnAgregado
             // 
@@ -407,6 +316,151 @@
             this.btnAgregado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregado.Textcolor = System.Drawing.Color.White;
             this.btnAgregado.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // lblMetodoPago
+            // 
+            this.lblMetodoPago.AutoSize = true;
+            this.lblMetodoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMetodoPago.ForeColor = System.Drawing.Color.Black;
+            this.lblMetodoPago.Location = new System.Drawing.Point(602, 121);
+            this.lblMetodoPago.Name = "lblMetodoPago";
+            this.lblMetodoPago.Size = new System.Drawing.Size(125, 20);
+            this.lblMetodoPago.TabIndex = 24;
+            this.lblMetodoPago.Text = "Método de pago";
+            // 
+            // cbMetodoPago
+            // 
+            this.cbMetodoPago.BackColor = System.Drawing.Color.Transparent;
+            this.cbMetodoPago.BorderRadius = 3;
+            this.cbMetodoPago.DisabledColor = System.Drawing.Color.Gray;
+            this.cbMetodoPago.ForeColor = System.Drawing.Color.White;
+            this.cbMetodoPago.Items = new string[] {
+        "Efectivo",
+        "Depósito"};
+            this.cbMetodoPago.Location = new System.Drawing.Point(733, 113);
+            this.cbMetodoPago.Name = "cbMetodoPago";
+            this.cbMetodoPago.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.cbMetodoPago.onHoverColor = System.Drawing.Color.Teal;
+            this.cbMetodoPago.selectedIndex = -1;
+            this.cbMetodoPago.Size = new System.Drawing.Size(122, 35);
+            this.cbMetodoPago.TabIndex = 23;
+            // 
+            // lblMonto
+            // 
+            this.lblMonto.AutoSize = true;
+            this.lblMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonto.ForeColor = System.Drawing.Color.Black;
+            this.lblMonto.Location = new System.Drawing.Point(455, 121);
+            this.lblMonto.Name = "lblMonto";
+            this.lblMonto.Size = new System.Drawing.Size(54, 20);
+            this.lblMonto.TabIndex = 22;
+            this.lblMonto.Text = "Monto";
+            // 
+            // txtMonto
+            // 
+            this.txtMonto.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMonto.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.txtMonto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtMonto.HintForeColor = System.Drawing.Color.Empty;
+            this.txtMonto.HintText = "";
+            this.txtMonto.isPassword = false;
+            this.txtMonto.LineFocusedColor = System.Drawing.Color.SkyBlue;
+            this.txtMonto.LineIdleColor = System.Drawing.Color.Teal;
+            this.txtMonto.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
+            this.txtMonto.LineThickness = 4;
+            this.txtMonto.Location = new System.Drawing.Point(506, 108);
+            this.txtMonto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(78, 33);
+            this.txtMonto.TabIndex = 21;
+            this.txtMonto.Text = "$";
+            this.txtMonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // lblAlumno
+            // 
+            this.lblAlumno.AutoSize = true;
+            this.lblAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlumno.ForeColor = System.Drawing.Color.Black;
+            this.lblAlumno.Location = new System.Drawing.Point(454, 35);
+            this.lblAlumno.Name = "lblAlumno";
+            this.lblAlumno.Size = new System.Drawing.Size(94, 29);
+            this.lblAlumno.TabIndex = 20;
+            this.lblAlumno.Text = "Alumno";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.Teal;
+            this.lblNombre.Location = new System.Drawing.Point(559, 75);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(296, 24);
+            this.lblNombre.TabIndex = 19;
+            this.lblNombre.Text = "Nombre(s) Apellido P. Apellido M.";
+            // 
+            // lblNroControl
+            // 
+            this.lblNroControl.AutoSize = true;
+            this.lblNroControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNroControl.ForeColor = System.Drawing.Color.Teal;
+            this.lblNroControl.Location = new System.Drawing.Point(455, 75);
+            this.lblNroControl.Name = "lblNroControl";
+            this.lblNroControl.Size = new System.Drawing.Size(98, 24);
+            this.lblNroControl.TabIndex = 18;
+            this.lblNroControl.Text = "19100000";
+            // 
+            // bunifuImageButton2
+            // 
+            this.bunifuImageButton2.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.Image")));
+            this.bunifuImageButton2.ImageActive = null;
+            this.bunifuImageButton2.Location = new System.Drawing.Point(377, 40);
+            this.bunifuImageButton2.Name = "bunifuImageButton2";
+            this.bunifuImageButton2.Size = new System.Drawing.Size(71, 180);
+            this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuImageButton2.TabIndex = 17;
+            this.bunifuImageButton2.TabStop = false;
+            this.bunifuImageButton2.Zoom = 10;
+            // 
+            // btnEscuela
+            // 
+            this.btnEscuela.BackColor = System.Drawing.Color.Transparent;
+            this.btnEscuela.Image = ((System.Drawing.Image)(resources.GetObject("btnEscuela.Image")));
+            this.btnEscuela.ImageActive = null;
+            this.btnEscuela.Location = new System.Drawing.Point(157, 54);
+            this.btnEscuela.Name = "btnEscuela";
+            this.btnEscuela.Size = new System.Drawing.Size(82, 65);
+            this.btnEscuela.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnEscuela.TabIndex = 16;
+            this.btnEscuela.TabStop = false;
+            this.btnEscuela.Zoom = 10;
+            // 
+            // lblEscuela
+            // 
+            this.lblEscuela.AutoSize = true;
+            this.lblEscuela.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.lblEscuela.Location = new System.Drawing.Point(158, 122);
+            this.lblEscuela.Name = "lblEscuela";
+            this.lblEscuela.Size = new System.Drawing.Size(82, 25);
+            this.lblEscuela.TabIndex = 15;
+            this.lblEscuela.Text = "Escuela";
+            // 
+            // cbEscuelas
+            // 
+            this.cbEscuelas.BackColor = System.Drawing.Color.Transparent;
+            this.cbEscuelas.BorderRadius = 3;
+            this.cbEscuelas.DisabledColor = System.Drawing.Color.Gray;
+            this.cbEscuelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbEscuelas.ForeColor = System.Drawing.Color.White;
+            this.cbEscuelas.Items = new string[0];
+            this.cbEscuelas.Location = new System.Drawing.Point(41, 166);
+            this.cbEscuelas.Name = "cbEscuelas";
+            this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.cbEscuelas.onHoverColor = System.Drawing.Color.Teal;
+            this.cbEscuelas.selectedIndex = -1;
+            this.cbEscuelas.Size = new System.Drawing.Size(319, 39);
+            this.cbEscuelas.TabIndex = 14;
+            this.cbEscuelas.onItemSelected += new System.EventHandler(this.cbEscuelas_onItemSelected);
             // 
             // dgvAlumnos
             // 
@@ -456,54 +510,7 @@
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvAlumnos.Size = new System.Drawing.Size(1288, 347);
             this.dgvAlumnos.TabIndex = 20;
-            // 
-            // btnRegistroPago
-            // 
-            this.btnRegistroPago.ActiveBorderThickness = 1;
-            this.btnRegistroPago.ActiveCornerRadius = 20;
-            this.btnRegistroPago.ActiveFillColor = System.Drawing.Color.Teal;
-            this.btnRegistroPago.ActiveForecolor = System.Drawing.Color.White;
-            this.btnRegistroPago.ActiveLineColor = System.Drawing.Color.Teal;
-            this.btnRegistroPago.BackColor = System.Drawing.Color.White;
-            this.btnRegistroPago.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRegistroPago.BackgroundImage")));
-            this.btnRegistroPago.ButtonText = "Registrar pago";
-            this.btnRegistroPago.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistroPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistroPago.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.btnRegistroPago.IdleBorderThickness = 1;
-            this.btnRegistroPago.IdleCornerRadius = 20;
-            this.btnRegistroPago.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnRegistroPago.IdleForecolor = System.Drawing.Color.White;
-            this.btnRegistroPago.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnRegistroPago.Location = new System.Drawing.Point(670, 181);
-            this.btnRegistroPago.Margin = new System.Windows.Forms.Padding(5);
-            this.btnRegistroPago.Name = "btnRegistroPago";
-            this.btnRegistroPago.Size = new System.Drawing.Size(185, 41);
-            this.btnRegistroPago.TabIndex = 27;
-            this.btnRegistroPago.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // bunifuCheckbox1
-            // 
-            this.bunifuCheckbox1.BackColor = System.Drawing.Color.SkyBlue;
-            this.bunifuCheckbox1.ChechedOffColor = System.Drawing.Color.SkyBlue;
-            this.bunifuCheckbox1.Checked = false;
-            this.bunifuCheckbox1.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
-            this.bunifuCheckbox1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCheckbox1.Location = new System.Drawing.Point(87, 202);
-            this.bunifuCheckbox1.Name = "bunifuCheckbox1";
-            this.bunifuCheckbox1.Size = new System.Drawing.Size(20, 20);
-            this.bunifuCheckbox1.TabIndex = 19;
-            // 
-            // lblDeudores
-            // 
-            this.lblDeudores.AutoSize = true;
-            this.lblDeudores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeudores.ForeColor = System.Drawing.Color.Black;
-            this.lblDeudores.Location = new System.Drawing.Point(113, 202);
-            this.lblDeudores.Name = "lblDeudores";
-            this.lblDeudores.Size = new System.Drawing.Size(142, 20);
-            this.lblDeudores.TabIndex = 23;
-            this.lblDeudores.Text = "Alumnos deudores";
+            this.dgvAlumnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellClick);
             // 
             // Mensualidades
             // 
@@ -521,8 +528,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).EndInit();
             this.bunifuCards1.ResumeLayout(false);
             this.bunifuCards1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
             this.ResumeLayout(false);
 
@@ -546,14 +553,15 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblNroControl;
         private Bunifu.Framework.UI.BunifuCustomLabel lblMonto;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtMonto;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblFechaPago;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblMesPago;
         private Bunifu.Framework.UI.BunifuCustomLabel lblMetodoPago;
-        private Bunifu.Framework.UI.BunifuDropdown bunifuDropdown1;
+        private Bunifu.Framework.UI.BunifuDropdown cbMetodoPago;
         private Bunifu.Framework.UI.BunifuFlatButton btnAgregado;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvAlumnos;
         private Bunifu.Framework.UI.BunifuCustomLabel lblDeudores;
         private Bunifu.Framework.UI.BunifuCheckbox bunifuCheckbox1;
         private Bunifu.Framework.UI.BunifuThinButton2 btnRegistroPago;
+        private Bunifu.Framework.UI.BunifuDatepicker dtFechaPago;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblFechaPago;
     }
 }

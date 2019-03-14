@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PiensaAjedrez
 {
-    class Cursos: IEquatable<Cursos>    
+    public class Cursos: IEquatable<Cursos>    
     {
         public List<Alumno> listaAlumnos = new List<Alumno>();
         public List<string> listaActividades = new List<string>();

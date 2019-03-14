@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PiensaAjedrez
 {
-    class Alumno:IEquatable<Alumno>, IComparable<Alumno>
+   public class Alumno:IEquatable<Alumno>, IComparable<Alumno>
     {
         private string _strNumeroDeControl;
 

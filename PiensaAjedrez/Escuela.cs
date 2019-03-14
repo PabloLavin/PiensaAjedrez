@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PiensaAjedrez
 {
-    class Escuela: IEquatable<Escuela>
+     public class Escuela: IEquatable<Escuela>
     {
         private string _strNombre;
 
@@ -20,13 +20,10 @@ namespace PiensaAjedrez
         {
             Nombre = strNombre;
         }
-       
 
-        
-       
+       public List<Cursos> listaCursos = new List<Cursos>();
+       public List<Alumno> listaAlumno = new List<Alumno>();
 
-        public List<Cursos> listaCursos = new List<Cursos>();
-        
         public bool Equals(Escuela otraEscuela)
         {
             return this.Nombre.Equals(otraEscuela.Nombre);

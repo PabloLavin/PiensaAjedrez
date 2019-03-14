@@ -13,7 +13,7 @@ namespace PiensaAjedrez
     public partial class RegistroAlumnos : UserControl
     {
 
-        List<Alumno> listaAlumnos = new List<Alumno>();
+       public static List<Alumno> listaAlumnos = new List<Alumno>();
         public RegistroAlumnos()
         {
             
@@ -68,6 +68,11 @@ namespace PiensaAjedrez
             contextMenuStrip1.Enabled = false;
             tsEliminarAlumno.Visible = false;
             dgvAlumnos.MultiSelect = false;
+            foreach (Escuela miEscuela in Escuelas.listaEscuela)
+            {
+                cbEscuelas.AddItem(miEscuela.Nombre);
+            }
+            MostrarDatos();
 
         }
 
@@ -86,7 +91,7 @@ namespace PiensaAjedrez
                     else
                         miAlumno.Activo = false;
                     miAlumno.Nombre = txtNombre.Text;
-                    miAlumno.Escuela = cbEscuelas.Text;
+                    miAlumno.Escuela = cbEscuelas.selectedValue;
                     miAlumno.FechaNacimiento = dtFechaNacimiento.Value;
                     miAlumno.Telefono = txtTelefono.Text;
                     miAlumno.Correo = txtCorreo.Text;
@@ -102,6 +107,14 @@ namespace PiensaAjedrez
                     listaAlumnos.Remove(miAlumno);
                 }
                 listaAlumnos.Add(miAlumno);
+                foreach (Escuela miEscuela in Escuelas.listaEscuela)
+                {
+                    if (cbEscuelas.selectedValue==miEscuela.Nombre)
+                    {
+                        miEscuela.listaAlumno.Add(miAlumno);
+                    }
+                }
+
                 if(btnAgregar.ButtonText=="Editar")
                     listaAlumnos.Sort();
                 MostrarDatos();
@@ -327,7 +340,8 @@ namespace PiensaAjedrez
 
         private void dgvAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            contextMenuStrip1.Enabled = true;
+            tsEliminarAlumno.Visible = true;
             foreach (Alumno alumnos in listaAlumnos)
             {
                 if (alumnos.NumeroDeControl== dgvAlumnos.CurrentRow.Cells[0].Value.ToString())
@@ -416,8 +430,6 @@ namespace PiensaAjedrez
             }
         }
 
-       
-
         private void txtFiltroTelefono_OnValueChanged(object sender, EventArgs e)
         {
             dgvAlumnos.Rows.Clear();
@@ -427,7 +439,6 @@ namespace PiensaAjedrez
                 {
                     dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
                 }
-
             }
         }
 
@@ -515,7 +526,12 @@ namespace PiensaAjedrez
         private void tsEliminarAlumno_Click(object sender, EventArgs e)
         {
             if (DialogResult.Yes == MessageBox.Show("¿Desea eliminar al alumno "+dgvAlumnos.CurrentRow.Cells[0].Value.ToString()+"?", "Eliminar alumno", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            {
                     listaAlumnos.Remove(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString()));
+                foreach (Escuela miEscuela in Escuelas.listaEscuela)
+                    if (miEscuela.Equals(new Escuela(dgvAlumnos.CurrentRow.Cells[2].Value.ToString())))
+                        miEscuela.listaAlumno.Remove(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString()));
+            }
             MostrarDatos();
             LimpiarControles();
             if (btnAgregar.ButtonText == "Editar")

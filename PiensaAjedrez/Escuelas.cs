@@ -33,10 +33,11 @@ namespace PiensaAjedrez
             tsEliminarActividad.Visible = false;
             dgvListaActividades.Columns.Add("Lista de actividades", "Lista de actividades");
             dgvListaActividades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            MostrarDatos();
 
         }
 
-         List<Escuela> listaEscuela = new List<Escuela>();
+       public static List<Escuela> listaEscuela =  new List<Escuela>();
 
         private void btnAgregarColegio_Click(object sender, EventArgs e)
         {
@@ -61,7 +62,8 @@ namespace PiensaAjedrez
                 InitializeTimer();
                 txtNombreColegio.Text = "";
                 MostrarDatos();
-                dgvCursos.Rows.Clear();                
+                dgvCursos.Rows.Clear();  
+                
             }
             else
                 MessageBox.Show("Escuela duplicada.");
