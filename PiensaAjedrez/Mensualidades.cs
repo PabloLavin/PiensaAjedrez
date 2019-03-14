@@ -108,11 +108,172 @@ namespace PiensaAjedrez
                         {
                             lblNroControl.Text = miAlumno.NumeroDeControl;
                             lblNombre.Text = miAlumno.Nombre;
+                            ObtenerMes(int.Parse(dgvAlumnos.CurrentCell.ColumnIndex.ToString()));
+                            
                         }
 
             }
             
           
+        }
+        #region Filtro
+        private void txtFiltroNombre_OnValueChanged(object sender, EventArgs e)
+        {
+            dgvAlumnos.Rows.Clear();
+            foreach (Escuela miEscuela in Escuelas.listaEscuela)
+            {
+                if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
+                    foreach (Alumno miAlumno in miEscuela.listaAlumno)
+                        if (miAlumno.Nombre.Contains(txtFiltroNombre.Text))
+                        {
+                            dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
+                        }
+
+            }
+        }
+
+        private void chkNombre_OnChange(object sender, EventArgs e)
+        {
+            if (!chkNombre.Checked)
+                foreach (Escuela miEscuela in Escuelas.listaEscuela)
+                {
+                    if (cbEscuelas.selectedValue == miEscuela.Nombre)
+                    {
+                        LlenarDGV(miEscuela);
+                    }
+                }
+            else
+                txtFiltroNombre.Enabled = true;
+        }
+
+        private void chkCorreo_OnChange(object sender, EventArgs e)
+        {
+            if (!chkCorreo.Checked)
+                foreach (Escuela miEscuela in Escuelas.listaEscuela)
+                {
+                    if (cbEscuelas.selectedValue == miEscuela.Nombre)
+                    {
+                        LlenarDGV(miEscuela);
+                    }
+                }
+            else
+                txtFiltroNoCtrl.Enabled = true;
+        }
+
+        private void txtFiltroNoCtrl_OnValueChanged(object sender, EventArgs e)
+        {
+            dgvAlumnos.Rows.Clear();
+            foreach (Escuela miEscuela in Escuelas.listaEscuela)
+            {
+                if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
+                    foreach (Alumno miAlumno in miEscuela.listaAlumno)
+                        if (miAlumno.NumeroDeControl.Contains(txtFiltroNoCtrl.Text))
+                        {
+                            dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
+                        }
+
+            }
+        }
+        #endregion
+        #region Eventos
+        private void txtFiltroNombre_MouseEnter(object sender, EventArgs e)
+        {
+            if (txtFiltroNombre.Text == "Nombre")
+                txtFiltroNombre.Text = "";
+        }
+
+        private void txtFiltroNombre_MouseLeave(object sender, EventArgs e)
+        {
+            if (txtFiltroNombre.Text == "")
+                txtFiltroNombre.Text = "Nombre";
+        }
+
+        private void txtFiltroNombre_Enter(object sender, EventArgs e)
+        {
+            if (txtFiltroNombre.Text == "Nombre")
+                txtFiltroNombre.Text = "";
+        }
+
+        private void txtFiltroNombre_Leave(object sender, EventArgs e)
+        {
+            if (txtFiltroNombre.Text == "")
+                txtFiltroNombre.Text = "Nombre";
+        }
+
+        private void txtFiltroNoCtrl_Enter(object sender, EventArgs e)
+        {
+            if (txtFiltroNoCtrl.Text == "No. ctrl.")
+                txtFiltroNoCtrl.Text = "";
+        }
+
+        private void txtFiltroNoCtrl_Leave(object sender, EventArgs e)
+        {
+            if (txtFiltroNoCtrl.Text == "")
+                txtFiltroNoCtrl.Text = "No. ctrl.";
+        }
+
+        private void txtFiltroNoCtrl_MouseEnter(object sender, EventArgs e)
+        {
+            if (txtFiltroNoCtrl.Text == "No. ctrl.")
+                txtFiltroNoCtrl.Text = "";
+        }
+
+        private void txtFiltroNoCtrl_MouseLeave(object sender, EventArgs e)
+        {
+            if (txtFiltroNoCtrl.Text == "")
+                txtFiltroNoCtrl.Text = "No. ctrl.";
+        }
+        #endregion
+
+        void ObtenerMes(int intMes)
+        {
+            switch (intMes)
+            {
+                case 2:
+                    lblMesAPagar.Text = "Enero";
+                    break;
+                case 3:
+                    lblMesAPagar.Text = "Febrero";
+                    break;
+                case 4:
+                    lblMesAPagar.Text = "Marzo";
+                    break;
+                case 5:
+                    lblMesAPagar.Text = "Abril";
+                    break;
+                case 6:
+                    lblMesAPagar.Text = "Mayo";
+                    break;
+                case 7:
+                    lblMesAPagar.Text = "Junio";
+                    break;
+                case 8:
+                    lblMesAPagar.Text = "Julio";
+                    break;
+                case 9:
+                    lblMesAPagar.Text = "Agosto";
+                    break;
+                case 10:
+                    lblMesAPagar.Text = "Septiembre";
+                    break;
+                case 11:
+                    lblMesAPagar.Text = "Octubre";
+                    break;
+                case 12:
+                    lblMesAPagar.Text = "Noviembre";
+                    break;
+                case 13:
+                    lblMesAPagar.Text = "Diciembre";
+                    break;
+                default:
+                    return;
+
+            }
+        }
+
+        private void btnRegistroPago_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
