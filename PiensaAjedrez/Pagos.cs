@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PiensaAjedrez
 {
-    class Pagos
+    public class Pagos
     {
         private string _strNumeroRecibo;
 
@@ -32,6 +32,12 @@ namespace PiensaAjedrez
             set { _dblMonto = value; }
         }
 
+        public Pagos(string strRecibo, DateTime dtmFechaPago, double dblPago)
+        {
+            _strNumeroRecibo = strRecibo;
+            _dtFechayHora = dtmFechaPago;
+            _dblMonto = dblPago;
+        }
 
     }
 }

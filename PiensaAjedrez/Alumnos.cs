@@ -8,6 +8,8 @@ namespace PiensaAjedrez
 {
    public class Alumno:IEquatable<Alumno>, IComparable<Alumno>
     {
+       public List<Pagos> listaPagos = new List<Pagos>();
+
         private string _strNumeroDeControl;
 
         public string NumeroDeControl

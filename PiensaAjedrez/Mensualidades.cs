@@ -16,6 +16,7 @@ namespace PiensaAjedrez
         {
             InitializeComponent();
         }
+        List<Pagos> listaPagos = new List<Pagos>();
 
         private void Mensualidades_Load(object sender, EventArgs e)
         {
@@ -95,7 +96,7 @@ namespace PiensaAjedrez
                     LlenarDGV(miEscuela);
                 }
             }
-            Habilitar();
+            //Habilitar();
         }
 
         private void dgvAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -227,45 +228,47 @@ namespace PiensaAjedrez
 
         void ObtenerMes(int intMes)
         {
+            
             switch (intMes)
             {
                 case 2:
-                    lblMesAPagar.Text = "Enero";
+                    lblMesAPagar.Text = "Enero"; Habilitar();
                     break;
                 case 3:
-                    lblMesAPagar.Text = "Febrero";
+                    lblMesAPagar.Text = "Febrero"; Habilitar();
                     break;
                 case 4:
-                    lblMesAPagar.Text = "Marzo";
+                    lblMesAPagar.Text = "Marzo"; Habilitar();
                     break;
                 case 5:
-                    lblMesAPagar.Text = "Abril";
+                    lblMesAPagar.Text = "Abril"; Habilitar();
                     break;
                 case 6:
-                    lblMesAPagar.Text = "Mayo";
+                    lblMesAPagar.Text = "Mayo"; Habilitar();
                     break;
                 case 7:
-                    lblMesAPagar.Text = "Junio";
+                    lblMesAPagar.Text = "Junio"; Habilitar();
                     break;
                 case 8:
-                    lblMesAPagar.Text = "Julio";
+                    lblMesAPagar.Text = "Julio"; Habilitar();
                     break;
                 case 9:
-                    lblMesAPagar.Text = "Agosto";
+                    lblMesAPagar.Text = "Agosto"; Habilitar();
                     break;
                 case 10:
-                    lblMesAPagar.Text = "Septiembre";
+                    lblMesAPagar.Text = "Septiembre"; Habilitar();
                     break;
                 case 11:
-                    lblMesAPagar.Text = "Octubre";
+                    lblMesAPagar.Text = "Octubre"; Habilitar();
                     break;
                 case 12:
-                    lblMesAPagar.Text = "Noviembre";
+                    lblMesAPagar.Text = "Noviembre"; Habilitar();
                     break;
                 case 13:
-                    lblMesAPagar.Text = "Diciembre";
+                    lblMesAPagar.Text = "Diciembre"; Habilitar();
                     break;
                 default:
+                    Deshabilitar();
                     return;
 
             }
@@ -273,7 +276,26 @@ namespace PiensaAjedrez
 
         private void btnRegistroPago_Click(object sender, EventArgs e)
         {
+            foreach (Escuela miEscuela in Escuelas.listaEscuela)
+            {
+                if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
+                    foreach (Alumno miAlumno in miEscuela.listaAlumno)
+                        if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString())))
+                        {
+                            miAlumno.listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text)));
+                            listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text)));
+                            dgvAlumnos.CurrentCell.Value = txtMonto.Text;
+                            MessageBox.Show(ObtenerClaveRecibo());
 
+                        }
+
+            }
+
+        }
+
+        string ObtenerClaveRecibo()
+        {
+            return dtFechaPago.Value.Day.ToString()+ dtFechaPago.Value.Month.ToString()+ dtFechaPago.Value.Year.ToString() + ((int.Parse("1000")) + (listaPagos.Count)).ToString();
         }
     }
 }
