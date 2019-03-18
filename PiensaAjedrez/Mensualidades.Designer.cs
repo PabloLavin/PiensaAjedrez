@@ -44,6 +44,8 @@
             this.txtFiltroNombre = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.chkNombre = new Bunifu.Framework.UI.BunifuCheckbox();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
+            this.lblNota = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtNota = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lblMesAPagar = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblFechaPago = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.dtFechaPago = new Bunifu.Framework.UI.BunifuDatepicker();
@@ -142,7 +144,7 @@
             // chkCorreo
             // 
             this.chkCorreo.BackColor = System.Drawing.Color.SkyBlue;
-            this.chkCorreo.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkCorreo.ChechedOffColor = System.Drawing.Color.LightSeaGreen;
             this.chkCorreo.Checked = false;
             this.chkCorreo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkCorreo.ForeColor = System.Drawing.Color.White;
@@ -207,7 +209,7 @@
             // chkNombre
             // 
             this.chkNombre.BackColor = System.Drawing.Color.SkyBlue;
-            this.chkNombre.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkNombre.ChechedOffColor = System.Drawing.Color.LightSeaGreen;
             this.chkNombre.Checked = false;
             this.chkNombre.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkNombre.ForeColor = System.Drawing.Color.White;
@@ -223,6 +225,8 @@
             this.bunifuCards1.BorderRadius = 5;
             this.bunifuCards1.BottomSahddow = true;
             this.bunifuCards1.color = System.Drawing.Color.Teal;
+            this.bunifuCards1.Controls.Add(this.lblNota);
+            this.bunifuCards1.Controls.Add(this.txtNota);
             this.bunifuCards1.Controls.Add(this.lblMesAPagar);
             this.bunifuCards1.Controls.Add(this.lblFechaPago);
             this.bunifuCards1.Controls.Add(this.dtFechaPago);
@@ -246,6 +250,36 @@
             this.bunifuCards1.ShadowDepth = 20;
             this.bunifuCards1.Size = new System.Drawing.Size(923, 257);
             this.bunifuCards1.TabIndex = 19;
+            // 
+            // lblNota
+            // 
+            this.lblNota.AutoSize = true;
+            this.lblNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota.ForeColor = System.Drawing.Color.Black;
+            this.lblNota.Location = new System.Drawing.Point(660, 178);
+            this.lblNota.Name = "lblNota";
+            this.lblNota.Size = new System.Drawing.Size(43, 20);
+            this.lblNota.TabIndex = 32;
+            this.lblNota.Text = "Nota";
+            // 
+            // txtNota
+            // 
+            this.txtNota.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNota.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.txtNota.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtNota.HintForeColor = System.Drawing.Color.Empty;
+            this.txtNota.HintText = "";
+            this.txtNota.isPassword = false;
+            this.txtNota.LineFocusedColor = System.Drawing.Color.SkyBlue;
+            this.txtNota.LineIdleColor = System.Drawing.Color.Teal;
+            this.txtNota.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
+            this.txtNota.LineThickness = 4;
+            this.txtNota.Location = new System.Drawing.Point(723, 165);
+            this.txtNota.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNota.Name = "txtNota";
+            this.txtNota.Size = new System.Drawing.Size(132, 33);
+            this.txtNota.TabIndex = 31;
+            this.txtNota.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // lblMesAPagar
             // 
@@ -301,7 +335,7 @@
             this.btnRegistroPago.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnRegistroPago.IdleForecolor = System.Drawing.Color.White;
             this.btnRegistroPago.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnRegistroPago.Location = new System.Drawing.Point(670, 181);
+            this.btnRegistroPago.Location = new System.Drawing.Point(670, 211);
             this.btnRegistroPago.Margin = new System.Windows.Forms.Padding(5);
             this.btnRegistroPago.Name = "btnRegistroPago";
             this.btnRegistroPago.Size = new System.Drawing.Size(185, 41);
@@ -330,7 +364,7 @@
             this.btnAgregado.IconVisible = true;
             this.btnAgregado.IconZoom = 61D;
             this.btnAgregado.IsTab = false;
-            this.btnAgregado.Location = new System.Drawing.Point(863, 190);
+            this.btnAgregado.Location = new System.Drawing.Point(863, 220);
             this.btnAgregado.Name = "btnAgregado";
             this.btnAgregado.Normalcolor = System.Drawing.Color.Transparent;
             this.btnAgregado.OnHovercolor = System.Drawing.Color.Transparent;
@@ -358,7 +392,7 @@
             // 
             this.cbMetodoPago.BackColor = System.Drawing.Color.Transparent;
             this.cbMetodoPago.BorderRadius = 3;
-            this.cbMetodoPago.DisabledColor = System.Drawing.Color.Gray;
+            this.cbMetodoPago.DisabledColor = System.Drawing.Color.SkyBlue;
             this.cbMetodoPago.ForeColor = System.Drawing.Color.White;
             this.cbMetodoPago.Items = new string[] {
         "Efectivo",
@@ -589,5 +623,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private Bunifu.Framework.UI.BunifuCustomLabel lblFechaPago;
         private Bunifu.Framework.UI.BunifuCustomLabel lblMesAPagar;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblNota;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtNota;
     }
 }

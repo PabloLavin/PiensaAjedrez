@@ -16,6 +16,14 @@ namespace PiensaAjedrez
             set { _strNumeroRecibo = value; }
         }
 
+        private string _strNota;
+
+        public string Nota
+        {
+            get { return _strNota; }
+            set { _strNota = value; }
+        }
+
         private DateTime _dtFechayHora;
 
         public DateTime FechayHora
@@ -32,11 +40,21 @@ namespace PiensaAjedrez
             set { _dblMonto = value; }
         }
 
-        public Pagos(string strRecibo, DateTime dtmFechaPago, double dblPago)
+        private string _strMesPagado;
+
+        public string MesPagado
+        {
+            get { return _strMesPagado; }
+            set { _strMesPagado = value; }
+        }
+
+        public Pagos(string strRecibo, DateTime dtmFechaPago, double dblPago, string strNota, string strMes)
         {
             _strNumeroRecibo = strRecibo;
             _dtFechayHora = dtmFechaPago;
             _dblMonto = dblPago;
+            _strNota = strNota;
+            _strMesPagado = strMes;
         }
 
     }

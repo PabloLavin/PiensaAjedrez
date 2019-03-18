@@ -26,27 +26,31 @@ namespace PiensaAjedrez
 
             dgvAlumnos.Columns.Add("No. ctrl.", "No. ctrl.");
             dgvAlumnos.Columns.Add("Nombre", "Nombre");
-            dgvAlumnos.Columns.Add("Ene", "Ene");
-            dgvAlumnos.Columns.Add("Feb", "Feb");
-            dgvAlumnos.Columns.Add("Mar", "Mar");
-            dgvAlumnos.Columns.Add("Abr", "Abr");
-            dgvAlumnos.Columns.Add("May", "May");
-            dgvAlumnos.Columns.Add("Jun", "Jun");
-            dgvAlumnos.Columns.Add("Jul", "Jul");
-            dgvAlumnos.Columns.Add("Ago", "Ago");
-            dgvAlumnos.Columns.Add("Sep", "Sep");
-            dgvAlumnos.Columns.Add("Oct", "Oct");
-            dgvAlumnos.Columns.Add("Nov", "Nov");
-            dgvAlumnos.Columns.Add("Dic", "Dic");
-            dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAlumnos.Columns.Add("Ene", "Enero");
+            dgvAlumnos.Columns.Add("Feb", "Febrero");
+            dgvAlumnos.Columns.Add("Mar", "Marzo");
+            dgvAlumnos.Columns.Add("Abr", "Abril");
+            dgvAlumnos.Columns.Add("May", "Mayo");
+            dgvAlumnos.Columns.Add("Jun", "Junio");
+            dgvAlumnos.Columns.Add("Jul", "Julio");
+            dgvAlumnos.Columns.Add("Ago", "Agosto");
+            dgvAlumnos.Columns.Add("Sep", "Septiembre");
+            dgvAlumnos.Columns.Add("Oct", "Octubre");
+            dgvAlumnos.Columns.Add("Nov", "Noviembre");
+            dgvAlumnos.Columns.Add("Dic", "Diciembre");
+            dgvAlumnos.Columns.Add("Inscrip.", "Inscrip");
+            dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dgvAlumnos.Columns[0].Width = 80;
             dgvAlumnos.Columns[1].Width = 250;
+           
             Deshabilitar();
             foreach (Escuela miEscuela in Escuelas.listaEscuela)
             {
                 cbEscuelas.AddItem(miEscuela.Nombre);
             }
 
+            txtFiltroNombre.LineIdleColor = Color.SkyBlue;
+            txtFiltroNoCtrl.LineIdleColor = Color.SkyBlue;
         }
         
 
@@ -62,6 +66,9 @@ namespace PiensaAjedrez
                     c.Enabled = false;
             }
             cbMetodoPago.Enabled = false;
+            lblMesAPagar.Text = "Mes";
+            txtMonto.LineIdleColor = Color.SkyBlue;
+            txtNota.LineIdleColor = Color.SkyBlue;
         }
 
         void Habilitar()
@@ -76,6 +83,8 @@ namespace PiensaAjedrez
                     c.Enabled = true;
             }
             cbMetodoPago.Enabled = true;
+            txtMonto.LineIdleColor = Color.Teal;
+            txtNota.LineIdleColor = Color.Teal;
         }
 
         void LlenarDGV(Escuela otraEscuela)
@@ -84,7 +93,13 @@ namespace PiensaAjedrez
             foreach (Alumno miAlumno in otraEscuela.listaAlumno)
             {
                 dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
+                foreach (Pagos miPago in miAlumno.listaPagos)
+                {
+                    
+
+                }
             }
+
         }
 
         private void cbEscuelas_onItemSelected(object sender, EventArgs e)
@@ -96,7 +111,7 @@ namespace PiensaAjedrez
                     LlenarDGV(miEscuela);
                 }
             }
-            //Habilitar();
+          
         }
 
         private void dgvAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -117,6 +132,7 @@ namespace PiensaAjedrez
             
           
         }
+       
         #region Filtro
         private void txtFiltroNombre_OnValueChanged(object sender, EventArgs e)
         {
@@ -136,6 +152,9 @@ namespace PiensaAjedrez
         private void chkNombre_OnChange(object sender, EventArgs e)
         {
             if (!chkNombre.Checked)
+            {
+                txtFiltroNombre.Enabled = false;
+                txtFiltroNombre.LineIdleColor = Color.SkyBlue;
                 foreach (Escuela miEscuela in Escuelas.listaEscuela)
                 {
                     if (cbEscuelas.selectedValue == miEscuela.Nombre)
@@ -143,13 +162,22 @@ namespace PiensaAjedrez
                         LlenarDGV(miEscuela);
                     }
                 }
+
+            }
             else
+            {
                 txtFiltroNombre.Enabled = true;
+                txtFiltroNombre.LineIdleColor = Color.Teal;
+
+            }
         }
 
         private void chkCorreo_OnChange(object sender, EventArgs e)
         {
             if (!chkCorreo.Checked)
+            {
+                txtFiltroNoCtrl.Enabled = false;
+                txtFiltroNoCtrl.LineIdleColor = Color.SkyBlue;
                 foreach (Escuela miEscuela in Escuelas.listaEscuela)
                 {
                     if (cbEscuelas.selectedValue == miEscuela.Nombre)
@@ -157,8 +185,12 @@ namespace PiensaAjedrez
                         LlenarDGV(miEscuela);
                     }
                 }
+            }
             else
+            {
                 txtFiltroNoCtrl.Enabled = true;
+                txtFiltroNoCtrl.LineIdleColor = Color.Teal;
+            }
         }
 
         private void txtFiltroNoCtrl_OnValueChanged(object sender, EventArgs e)
@@ -231,6 +263,12 @@ namespace PiensaAjedrez
             
             switch (intMes)
             {
+                case 0:
+                    Deshabilitar();
+                    break;
+                case 1:
+                    Deshabilitar();
+                    break;
                 case 2:
                     lblMesAPagar.Text = "Enero"; Habilitar();
                     break;
@@ -267,6 +305,9 @@ namespace PiensaAjedrez
                 case 13:
                     lblMesAPagar.Text = "Diciembre"; Habilitar();
                     break;
+                case 14:
+                    lblMesAPagar.Text = "Inscripción"; Habilitar();
+                    break;
                 default:
                     Deshabilitar();
                     return;
@@ -282,13 +323,14 @@ namespace PiensaAjedrez
                     foreach (Alumno miAlumno in miEscuela.listaAlumno)
                         if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString())))
                         {
-                            miAlumno.listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text)));
-                            listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text)));
-                            dgvAlumnos.CurrentCell.Value = txtMonto.Text;
-                            MessageBox.Show(ObtenerClaveRecibo());
 
+                            if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: "+miAlumno.Nombre+"\nNúmero de control: "+miAlumno.NumeroDeControl+"\nMes: "+lblMesAPagar.Text+"\nPor el monto de: $"+txtMonto.Text, "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                            {
+                                miAlumno.listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text));
+                                listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text));
+
+                            }
                         }
-
             }
 
         }

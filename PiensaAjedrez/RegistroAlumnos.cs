@@ -112,6 +112,11 @@ namespace PiensaAjedrez
                     if (cbEscuelas.selectedValue==miEscuela.Nombre)
                     {
                         miEscuela.listaAlumno.Add(miAlumno);
+                        if(miAlumno.Activo)
+                            if (miEscuela.CursoActivo != null)
+                            {
+                                miEscuela.CursoActivo.listaAlumnos.Add(miAlumno);
+                            }
                     }
                 }
 

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace PiensaAjedrez
 {
-    public class Cursos: IEquatable<Cursos>    
+    public class Cursos: IEquatable<Cursos>, IComparable<Cursos>
+        
     {
         public List<Alumno> listaAlumnos = new List<Alumno>();
         public List<string> listaActividades = new List<string>();
@@ -30,10 +31,6 @@ namespace PiensaAjedrez
 
                 
             }
-        }
-        public Cursos()
-        {
-
         }
 
         public Cursos(DateTime dtIniciocurso, DateTime dtFinCurso, List<string> actividades)
@@ -60,7 +57,10 @@ namespace PiensaAjedrez
                 && this.FinCurso.ToShortDateString().Equals(otroCurso.FinCurso.ToShortDateString()));
         }
 
-
+        public int CompareTo(Cursos otroCurso)
+        {
+            return this.FinCurso.ToShortDateString().CompareTo(otroCurso.FinCurso.ToShortDateString());
+        }
 
     }
 }
