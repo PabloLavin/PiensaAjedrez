@@ -75,6 +75,8 @@ namespace PiensaAjedrez
                 ReemplazarPantalla(new RegistroAlumnos());            
             if (btnMensualidades.selected)
                 ReemplazarPantalla(new Mensualidades());
+            if (btnColegios.selected)
+                ReemplazarPantalla(new Escuelas());
         }
     }
 }

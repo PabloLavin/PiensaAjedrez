@@ -36,11 +36,21 @@ namespace PiensaAjedrez
         {
             _dtmInicioCursos = dtIniciocurso;
             _dtmFinCurso = dtFinCurso;
+            Activo = true;
             foreach (string actividad in actividades)
             {
                 listaActividades.Add(actividad);
             }
         }
+
+        private bool _blnActivo;
+
+        public bool Activo
+        {
+            get { return _blnActivo; }
+            set { _blnActivo = value; }
+        }
+
 
         public Cursos(DateTime dtIniciocurso, DateTime dtFinCurso)
         {
@@ -48,7 +58,7 @@ namespace PiensaAjedrez
             _dtmFinCurso = dtFinCurso;
         }
 
-        
+
 
         public bool Equals(Cursos otroCurso)
         {

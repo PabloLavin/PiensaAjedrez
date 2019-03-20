@@ -16,11 +16,19 @@ namespace PiensaAjedrez
         public Escuelas()
         {
             InitializeComponent();
+
             dgvEscuelas.Columns.Add("Nombre del colegio", "Nombre del colegio");
+
             dgvCursos.Columns.Add("Inicio del curso", "Inicio del curso");
             dgvCursos.Columns.Add("Fin del curso", "Fin del curso");
+
+            dgvCursosPasados.Columns.Add("Inicio del curso", "Inicio del curso");
+            dgvCursosPasados.Columns.Add("Fin del curso", "Fin del curso");
+
             dgvEscuelas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCursos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCursosPasados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
             btnAgregado.Visible = false;
             btnAgregadoCurso.Visible = false;
             btnAgregarCurso.Visible = false;
@@ -41,7 +49,6 @@ namespace PiensaAjedrez
         }
 
         public static List<Escuela> listaEscuela = new List<Escuela>();
-        public static int intContadorCurso = 0;
 
         private void btnAgregarColegio_Click(object sender, EventArgs e)
         {
@@ -170,9 +177,7 @@ namespace PiensaAjedrez
 
                             miEscuela.listaCursos.Add(new Cursos(dtmInicioCurso.Value, dtmFinCurso.Value, lstActividades));
                             miEscuela.CursoActivo = new Cursos(dtmInicioCurso.Value, dtmFinCurso.Value, lstActividades);
-                            intContadorCurso += 1;
-                            foreach (Cursos miCursos in miEscuela.listaCursos)
-                                dgvCursos.Rows.Add(miCursos.InicioCursos.ToLongDateString(), miCursos.FinCurso.ToLongDateString());
+                            dgvCursos.Rows.Add(miEscuela.CursoActivo.InicioCursos.ToLongDateString(), miEscuela.CursoActivo.FinCurso.ToLongDateString());
 
                             btnAgregadoCurso.Visible = true;
                             InitializeTimer();
@@ -205,6 +210,7 @@ namespace PiensaAjedrez
                 dgvListaActividades.Rows.Clear();
 
             }
+            dgvCursosPasados.Rows.Clear();
             btnFinalizarCurso.Visible = false;
             btnAgregarCurso.Visible = true;
             btnAgregarActividad.Enabled = true;
@@ -214,16 +220,18 @@ namespace PiensaAjedrez
 
             foreach (Escuela miEscuela in listaEscuela)
             {
-                if (miEscuela.Nombre == dgvEscuelas.CurrentRow.Cells[0].Value.ToString())
+                if (miEscuela.Equals(new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString())))
                 {
                     txtNombreColegio.Text = miEscuela.Nombre;
                     dgvCursos.Rows.Clear();
-
-                    if (miEscuela.listaCursos.Count > 0)
-                        ComprobarCaducidad(miEscuela);
-                       
-                        foreach (Cursos miCurso in miEscuela.listaCursos)
-                             dgvCursos.Rows.Add(miCurso.InicioCursos.ToLongDateString(), miCurso.FinCurso.ToLongDateString());
+                    try
+                    {
+                        if (miEscuela.listaCursos.Count > 0)
+                            ComprobarCaducidad(miEscuela);
+                    }catch( Exception x) { }
+                    FillDgv(miEscuela);
+                    if(miEscuela.CursoActivo!=null)
+                        dgvCursos.Rows.Add(miEscuela.CursoActivo.InicioCursos.ToLongDateString(), miEscuela.CursoActivo.FinCurso.ToLongDateString());
                 }
             }
         }
@@ -237,6 +245,7 @@ namespace PiensaAjedrez
             btnCancelar.Visible = false;
             dgvEscuelas.Focus();
             dgvCursos.Rows.Clear();
+            dgvCursosPasados.Rows.Clear();
             btnCancelarCurso.Visible = false;
             btnFinalizarCurso.Visible = false;
             
@@ -394,7 +403,15 @@ namespace PiensaAjedrez
                 {
                     if (miEscuela.Equals(new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString())))
                     {
-                        miEscuela.CursoActivo = null;
+                        foreach (Cursos miCurso in miEscuela.listaCursos)
+                        {
+                            if (miCurso.Equals(miEscuela.CursoActivo))
+                            {
+                                miCurso.Activo = false;
+                                FillDgv(miEscuela);
+                                miEscuela.CursoActivo = null;
+                            }
+                        }   
                     }
                 }
                 btnAgregarCurso.ButtonText = "Agregar curso";
@@ -446,5 +463,17 @@ namespace PiensaAjedrez
             }
         
 }
+
+        void FillDgv(Escuela miEscuela)
+        {
+            dgvCursosPasados.Rows.Clear();
+            foreach (Cursos miCurso in miEscuela.listaCursos)
+            {
+                if (!miCurso.Activo)
+                    dgvCursosPasados.Rows.Add(miCurso.InicioCursos.ToShortDateString(),miCurso.FinCurso.ToShortDateString());
+            }
+        }
+
+        
     }
 }

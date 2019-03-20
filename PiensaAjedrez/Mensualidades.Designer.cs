@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mensualidades));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
             this.lblDeudores = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCheckbox1 = new Bunifu.Framework.UI.BunifuCheckbox();
@@ -143,8 +143,8 @@
             // 
             // chkCorreo
             // 
-            this.chkCorreo.BackColor = System.Drawing.Color.SkyBlue;
-            this.chkCorreo.ChechedOffColor = System.Drawing.Color.LightSeaGreen;
+            this.chkCorreo.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.chkCorreo.ChechedOffColor = System.Drawing.Color.SkyBlue;
             this.chkCorreo.Checked = false;
             this.chkCorreo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkCorreo.ForeColor = System.Drawing.Color.White;
@@ -208,8 +208,8 @@
             // 
             // chkNombre
             // 
-            this.chkNombre.BackColor = System.Drawing.Color.SkyBlue;
-            this.chkNombre.ChechedOffColor = System.Drawing.Color.LightSeaGreen;
+            this.chkNombre.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.chkNombre.ChechedOffColor = System.Drawing.Color.SkyBlue;
             this.chkNombre.Checked = false;
             this.chkNombre.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkNombre.ForeColor = System.Drawing.Color.White;
@@ -256,7 +256,7 @@
             this.lblNota.AutoSize = true;
             this.lblNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNota.ForeColor = System.Drawing.Color.Black;
-            this.lblNota.Location = new System.Drawing.Point(660, 178);
+            this.lblNota.Location = new System.Drawing.Point(673, 178);
             this.lblNota.Name = "lblNota";
             this.lblNota.Size = new System.Drawing.Size(43, 20);
             this.lblNota.TabIndex = 32;
@@ -527,29 +527,29 @@
             this.dgvAlumnos.AllowUserToDeleteRows = false;
             this.dgvAlumnos.AllowUserToResizeColumns = false;
             this.dgvAlumnos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvAlumnos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlumnos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvAlumnos.DoubleBuffered = true;
             this.dgvAlumnos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAlumnos.EnableHeadersVisualStyles = false;
@@ -561,9 +561,9 @@
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAlumnos.RowHeadersVisible = false;
             this.dgvAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvAlumnos.RowTemplate.Height = 25;
             this.dgvAlumnos.RowTemplate.ReadOnly = true;
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
