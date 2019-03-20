@@ -12,6 +12,7 @@ namespace PiensaAjedrez
         public List<Alumno> listaAlumnos = new List<Alumno>();
         public List<string> listaActividades = new List<string>();
 
+      
         private DateTime _dtmInicioCursos;
 
         public DateTime InicioCursos
@@ -27,9 +28,7 @@ namespace PiensaAjedrez
             get { return _dtmFinCurso; }
             set { _dtmFinCurso = value;
                 if (_dtmFinCurso < _dtmInicioCursos)
-                    throw new Exception("Fecha de fin de curso invalida.");
-
-                
+                    throw new Exception("Fecha de fin de curso invalida.");     
             }
         }
 

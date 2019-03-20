@@ -93,11 +93,6 @@ namespace PiensaAjedrez
             foreach (Alumno miAlumno in otraEscuela.listaAlumno)
             {
                 dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
-                foreach (Pagos miPago in miAlumno.listaPagos)
-                {
-                    
-
-                }
             }
 
         }
@@ -124,13 +119,9 @@ namespace PiensaAjedrez
                         {
                             lblNroControl.Text = miAlumno.NumeroDeControl;
                             lblNombre.Text = miAlumno.Nombre;
-                            ObtenerMes(int.Parse(dgvAlumnos.CurrentCell.ColumnIndex.ToString()));
-                            
+                            ObtenerMes(int.Parse(dgvAlumnos.CurrentCell.ColumnIndex.ToString()));   
                         }
-
             }
-            
-          
         }
        
         #region Filtro
@@ -324,7 +315,7 @@ namespace PiensaAjedrez
                         if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString())))
                         {
 
-                            if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: "+miAlumno.Nombre+"\nNúmero de control: "+miAlumno.NumeroDeControl+"\nMes: "+lblMesAPagar.Text+"\nPor el monto de: $"+txtMonto.Text, "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                            if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: "+miAlumno.Nombre+"\nNúmero de control: "+miAlumno.NumeroDeControl+"\nMes: "+lblMesAPagar.Text+"\nPor el monto de: $"+txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString(), "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                             {
                                 miAlumno.listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text));
                                 listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text));
@@ -339,5 +330,7 @@ namespace PiensaAjedrez
         {
             return dtFechaPago.Value.Day.ToString()+ dtFechaPago.Value.Month.ToString()+ dtFechaPago.Value.Year.ToString() + ((int.Parse("1000")) + (listaPagos.Count)).ToString();
         }
+
+        
     }
 }

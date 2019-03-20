@@ -35,17 +35,20 @@ namespace PiensaAjedrez
             dgvListaActividades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             btnFinalizarCurso.Visible = false;
             MostrarDatos();
+            dtmFinCurso.Value = DateTime.Today;
+            dtmInicioCurso.Value = DateTime.Today;
 
         }
 
         public static List<Escuela> listaEscuela = new List<Escuela>();
+        public static int intContadorCurso = 0;
 
         private void btnAgregarColegio_Click(object sender, EventArgs e)
         {
             if (btnAgregarColegio.ButtonText == "Editar")
                 foreach (Escuela otraEscuela in listaEscuela)
                 {
-                    if (otraEscuela.Nombre == dgvEscuelas.CurrentRow.Cells[0].Value.ToString())
+                    if (otraEscuela.Equals(new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString())))
                     {
                         otraEscuela.Nombre = txtNombreColegio.Text;
                         MostrarDatos();
@@ -115,13 +118,13 @@ namespace PiensaAjedrez
                     btnFinalizarCurso.Visible = false;
                     foreach (Escuela miEscuela in listaEscuela)
                     {
-                        if (miEscuela.Nombre == dgvEscuelas.CurrentRow.Cells[0].Value.ToString())
+                        if (miEscuela.Equals(new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString())))
                             foreach (Cursos miCursos in miEscuela.listaCursos)
                             {
                                 if (miCursos.Equals(new Cursos(DateTime.Parse(dgvCursos.CurrentRow.Cells[0].Value.ToString()), DateTime.Parse(dgvCursos.CurrentRow.Cells[1].Value.ToString()))))
                                 {
                                     bool blnActivo = false;
-                                    if (miEscuela.CursoActivo == miCursos)
+                                    if (miEscuela.CursoActivo.Equals(miCursos))
                                     {
                                         blnActivo = true;
                                     }
@@ -152,7 +155,7 @@ namespace PiensaAjedrez
                 contextMenuStrip1.Enabled = true;
                 tsEliminarCurso.Visible = true;
 
-
+                dgvCursos.Rows.Clear();
                 foreach (Escuela miEscuela in listaEscuela)
                 {
                     if (miEscuela.Nombre == dgvEscuelas.CurrentRow.Cells[0].Value.ToString())
@@ -167,7 +170,7 @@ namespace PiensaAjedrez
 
                             miEscuela.listaCursos.Add(new Cursos(dtmInicioCurso.Value, dtmFinCurso.Value, lstActividades));
                             miEscuela.CursoActivo = new Cursos(dtmInicioCurso.Value, dtmFinCurso.Value, lstActividades);
-
+                            intContadorCurso += 1;
                             foreach (Cursos miCursos in miEscuela.listaCursos)
                                 dgvCursos.Rows.Add(miCursos.InicioCursos.ToLongDateString(), miCursos.FinCurso.ToLongDateString());
 
@@ -183,6 +186,7 @@ namespace PiensaAjedrez
 
                     }
                 }
+
 
             }
             catch (Exception x)
@@ -214,51 +218,12 @@ namespace PiensaAjedrez
                 {
                     txtNombreColegio.Text = miEscuela.Nombre;
                     dgvCursos.Rows.Clear();
-                    try
-                    {
-                        if (miEscuela.listaCursos.Count > 0)
-                            if (miEscuela.CursoActivo.CompareTo(new Cursos(DateTime.Today, DateTime.Today)) <= 0)
-                            {
-                                bool blnBandera = true;
-                                do
-                                {
-                                    if (DialogResult.Yes == MessageBox.Show("El curso activo de " + miEscuela.Nombre + " expira hoy o ya expiró\n¿Desea extender su duración?", "Fin de curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
-                                    {
-                                        //Agregarle 5 dias al curso que se encuentra en la lista y sea igual al activo y hacer el curso activo igual a este.
 
-                                        foreach (Cursos miCurso in miEscuela.listaCursos)
-                                        {
-                                            if (miCurso.Equals(miEscuela.CursoActivo))
-                                            {
-                                                miCurso.FinCurso = DateTime.Today.AddDays(5);
-                                                miEscuela.CursoActivo = miCurso;
-                                            }
-                                        }
-                                    MessageBox.Show("Curso extendido.");
-                                    blnBandera = false;
-
-                                    }
-                                
-                                
-                            else
-                            {
-                                    if (DialogResult.Yes == MessageBox.Show("¿Seguro que desea terminar el curso?", "Fin de curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
-                                    {
-                                        miEscuela.CursoActivo = null;
-                                        MessageBox.Show("Curso finalizado.");
-                                        blnBandera = false;
-                                    }
-                                }
-                            } while (blnBandera) ;
-
-                    }
-                    }catch(Exception x)
-                    {
-                        MessageBox.Show(x.Message);   
-                    }
+                    if (miEscuela.listaCursos.Count > 0)
+                        ComprobarCaducidad(miEscuela);
                        
-                    foreach (Cursos miCurso in miEscuela.listaCursos)
-                        dgvCursos.Rows.Add(miCurso.InicioCursos.ToLongDateString(), miCurso.FinCurso.ToLongDateString());
+                        foreach (Cursos miCurso in miEscuela.listaCursos)
+                             dgvCursos.Rows.Add(miCurso.InicioCursos.ToLongDateString(), miCurso.FinCurso.ToLongDateString());
                 }
             }
         }
@@ -272,6 +237,8 @@ namespace PiensaAjedrez
             btnCancelar.Visible = false;
             dgvEscuelas.Focus();
             dgvCursos.Rows.Clear();
+            btnCancelarCurso.Visible = false;
+            btnFinalizarCurso.Visible = false;
             
         }
 
@@ -280,6 +247,7 @@ namespace PiensaAjedrez
             dtmInicioCurso.Value = DateTime.Parse(dgvCursos.CurrentRow.Cells[0].Value.ToString());
             dtmFinCurso.Value = DateTime.Parse(dgvCursos.CurrentRow.Cells[1].Value.ToString());
             dgvListaActividades.Rows.Clear();
+            btnFinalizarCurso.Visible = false;
 
             
             btnAgregarCurso.ButtonText = "Editar";
@@ -435,7 +403,48 @@ namespace PiensaAjedrez
                 dgvCursos.Focus();
                 btnFinalizarCurso.Visible = false;
                 dgvListaActividades.Rows.Clear();
+                dgvCursos.Rows.Clear();
             }
         }
+
+        void ComprobarCaducidad(Escuela miEscuela)
+        {
+            if (miEscuela.CursoActivo.CompareTo(new Cursos(DateTime.Today, DateTime.Today)) <= 0)
+            {
+                bool blnBandera = true;
+                do
+                {
+                    if (DialogResult.Yes == MessageBox.Show("El curso activo de " + miEscuela.Nombre + " expira hoy o ya expiró\n¿Desea extender su duración?", "Fin de curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+                    {
+                        //Agregarle 5 dias al curso que se encuentra en la lista y sea igual al activo y hacer el curso activo igual a este.
+
+                        foreach (Cursos miCurso in miEscuela.listaCursos)
+                        {
+                            if (miCurso.Equals(miEscuela.CursoActivo))
+                            {
+                                miCurso.FinCurso = DateTime.Today.AddDays(5);
+                                miEscuela.CursoActivo = miCurso;
+                            }
+                        }
+                        MessageBox.Show("Curso extendido.");
+                        blnBandera = false;
+
+                    }
+
+
+                    else
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("¿Seguro que desea terminar el curso?", "Fin de curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+                        {
+                            miEscuela.CursoActivo = null;
+                            MessageBox.Show("Curso finalizado.");
+                            blnBandera = false;
+                        }
+                    }
+                } while (blnBandera);
+
+            }
+        
+}
     }
 }
