@@ -58,8 +58,6 @@ namespace PiensaAjedrez
             _dtmFinCurso = dtFinCurso;
         }
 
-
-
         public bool Equals(Cursos otroCurso)
         {
             return (this.InicioCursos.ToShortDateString().Equals(otroCurso.InicioCursos.ToShortDateString()) 

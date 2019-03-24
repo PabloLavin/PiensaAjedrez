@@ -652,6 +652,7 @@
             this.dgvCursos.TabIndex = 9;
             this.dgvCursos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCursos_CellClick);
             this.dgvCursos.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCursos_CellMouseDown);
+           
             // 
             // contextMenuStrip1
             // 
@@ -722,6 +723,7 @@
             this.dgvCursosPasados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCursosPasados.Size = new System.Drawing.Size(631, 261);
             this.dgvCursosPasados.TabIndex = 10;
+            
             // 
             // Escuelas
             // 

@@ -33,14 +33,10 @@ namespace PiensaAjedrez
             set { _CursoActivo = value; }
         }
 
-
         public bool Equals(Escuela otraEscuela)
         {
             return this.Nombre.Equals(otraEscuela.Nombre);
         }
-
-
-
     }
 }
 
