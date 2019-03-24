@@ -622,7 +622,6 @@
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCursos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCursos.ContextMenuStrip = this.contextMenuStrip1;
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -651,8 +650,6 @@
             this.dgvCursos.Size = new System.Drawing.Size(631, 47);
             this.dgvCursos.TabIndex = 9;
             this.dgvCursos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCursos_CellClick);
-            this.dgvCursos.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCursos_CellMouseDown);
-           
             // 
             // contextMenuStrip1
             // 
@@ -723,7 +720,7 @@
             this.dgvCursosPasados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCursosPasados.Size = new System.Drawing.Size(631, 261);
             this.dgvCursosPasados.TabIndex = 10;
-            
+            this.dgvCursosPasados.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCursosPasados_CellMouseDown);
             // 
             // Escuelas
             // 
