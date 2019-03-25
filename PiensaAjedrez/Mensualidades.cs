@@ -112,6 +112,7 @@ namespace PiensaAjedrez
 
         private void cbEscuelas_onItemSelected(object sender, EventArgs e)
         {
+            if(Escuelas.listaEscuela.Count>0)
             foreach (Escuela miEscuela in Escuelas.listaEscuela)
             {
                 if (cbEscuelas.selectedValue == miEscuela.Nombre)
@@ -382,12 +383,12 @@ namespace PiensaAjedrez
                                 try
                                 {
                                     Correo.EnviarCorreo(Correo.CrearCorreo(miAlumno, new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString())));
-
-                                }catch(Exception x)
+                                }
+                                catch(Exception x)
                                 {
                                     MessageBox.Show(x.Message);
                                 }
-                                    listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString()));
+                                listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString()));
                                 LlenarDGV(miEscuela);
                                 Deshabilitar();
                             }
@@ -401,7 +402,7 @@ namespace PiensaAjedrez
             return dtFechaPago.Value.Day.ToString()+ dtFechaPago.Value.Month.ToString()+ dtFechaPago.Value.Year.ToString() + ((int.Parse("1000")) + (listaPagos.Count)).ToString();
         }
 
-        void RellenarPagos(Alumno miAlumno)
+        void RellenarPagos(Alumno miAlumno, int intCaso)
         {
             foreach (Pagos miPagos in miAlumno.listaPagos)
             {
@@ -414,8 +415,18 @@ namespace PiensaAjedrez
                         {
                             if (miAlumno.NumeroDeControl.Equals(Fila.Cells[0].Value.ToString()))
                             {
-                                Fila.Cells[columna.Index].Value = miPagos.Monto;
-                            }
+                                 Fila.Cells[columna.Index].Value = miPagos.Monto.ToString("c");
+                                    if (intCaso.Equals(1))
+                                    {
+                                        Fila.Cells[columna.Index].Style.BackColor = Color.LightGreen;
+                                        Fila.Cells[columna.Index].Style.ForeColor = Color.Black;
+                                    }
+                                    else
+                                    {
+                                        Fila.Cells[columna.Index].Style.BackColor = Color.FromArgb(238, 250, 90);
+                                        Fila.Cells[columna.Index].Style.ForeColor = Color.Black;
+                                    }
+                                }
                         }
                     }
                 }
