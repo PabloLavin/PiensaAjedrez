@@ -51,6 +51,13 @@ namespace PiensaAjedrez
 
             txtFiltroNombre.LineIdleColor = Color.SkyBlue;
             txtFiltroNoCtrl.LineIdleColor = Color.SkyBlue;
+
+            cbAño.Items.Clear();
+            for (int i = 2010; i <=2050 ; i++)
+            {
+                cbAño.Items.Add(Convert.ToString(i));
+            }
+            cbAño.Text = DateTime.Today.Year.ToString();
         }
         
 
@@ -63,12 +70,17 @@ namespace PiensaAjedrez
                 if (c is Bunifu.Framework.UI.BunifuThinButton2)
                     c.Visible = false;
                 if (c is Bunifu.Framework.UI.BunifuMaterialTextbox)
+                {
                     c.Enabled = false;
+                    c.Text = "";
+                }
             }
             cbMetodoPago.Enabled = false;
             lblMesAPagar.Text = "Mes";
             txtMonto.LineIdleColor = Color.SkyBlue;
             txtNota.LineIdleColor = Color.SkyBlue;
+            lblNombre.Text = "Nombre(s) Apellido P. Apellido M.";
+            lblNroControl.Text = "19100000";
         }
 
         void Habilitar()
@@ -93,6 +105,7 @@ namespace PiensaAjedrez
             foreach (Alumno miAlumno in otraEscuela.listaAlumno)
             {
                 dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
+                RellenarPagos(miAlumno);
             }
 
         }
@@ -104,6 +117,7 @@ namespace PiensaAjedrez
                 if (cbEscuelas.selectedValue == miEscuela.Nombre)
                 {
                     LlenarDGV(miEscuela);
+                    Deshabilitar();
                 }
             }
           
@@ -135,6 +149,7 @@ namespace PiensaAjedrez
                         if (miAlumno.Nombre.Contains(txtFiltroNombre.Text))
                         {
                             dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
+                            RellenarPagos(miAlumno);
                         }
 
             }
@@ -194,8 +209,54 @@ namespace PiensaAjedrez
                         if (miAlumno.NumeroDeControl.Contains(txtFiltroNoCtrl.Text))
                         {
                             dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
+                            RellenarPagos(miAlumno);
                         }
 
+            }
+        }
+
+        private void cbAño_TextChanged(object sender, EventArgs e)
+        {
+            if (chkAño.Checked)
+            {
+                dgvAlumnos.Rows.Clear();
+                foreach (Escuela miEscuela in Escuelas.listaEscuela)
+                {
+                    if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
+                        foreach (Alumno miAlumno in miEscuela.listaAlumno)
+                            foreach (Pagos miPago in miAlumno.listaPagos)
+                            {
+                                if (miPago.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
+                                {
+                                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
+                                    RellenarPagos(miAlumno);
+                                }
+
+                            }
+
+                }
+            }
+        }  
+
+        private void chkAño_OnChange(object sender, EventArgs e)
+        {
+            if (chkAño.Checked)
+            {
+                cbAño.Enabled = true;
+                cbAño.BackColor = Color.FromArgb(59, 202, 192);
+            }
+            else
+            {
+                cbAño.Enabled = false;
+                cbAño.BackColor = Color.SkyBlue;
+                cbAño.Text = DateTime.Today.Year.ToString();
+                foreach (Escuela miEscuela in Escuelas.listaEscuela)
+                {
+                    if (cbEscuelas.selectedValue == miEscuela.Nombre)
+                    {
+                        LlenarDGV(miEscuela);
+                    }
+                }
             }
         }
         #endregion
@@ -317,9 +378,18 @@ namespace PiensaAjedrez
 
                             if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: "+miAlumno.Nombre+"\nNúmero de control: "+miAlumno.NumeroDeControl+"\nMes: "+lblMesAPagar.Text+"\nPor el monto de: $"+txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString(), "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                             {
-                                miAlumno.listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text));
-                                listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text));
+                                miAlumno.listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString()));
+                                try
+                                {
+                                    Correo.EnviarCorreo(Correo.CrearCorreo(miAlumno, new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString())));
 
+                                }catch(Exception x)
+                                {
+                                    MessageBox.Show(x.Message);
+                                }
+                                    listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString()));
+                                LlenarDGV(miEscuela);
+                                Deshabilitar();
                             }
                         }
             }
@@ -331,6 +401,25 @@ namespace PiensaAjedrez
             return dtFechaPago.Value.Day.ToString()+ dtFechaPago.Value.Month.ToString()+ dtFechaPago.Value.Year.ToString() + ((int.Parse("1000")) + (listaPagos.Count)).ToString();
         }
 
-        
+        void RellenarPagos(Alumno miAlumno)
+        {
+            foreach (Pagos miPagos in miAlumno.listaPagos)
+            {
+                if(miPagos.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
+                foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
+                {
+                    if (miPagos.MesPagado.Equals(columna.HeaderText))
+                    {
+                        foreach (DataGridViewRow Fila in dgvAlumnos.Rows)
+                        {
+                            if (miAlumno.NumeroDeControl.Equals(Fila.Cells[0].Value.ToString()))
+                            {
+                                Fila.Cells[columna.Index].Value = miPagos.Monto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

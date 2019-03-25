@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mensualidades));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
-            this.lblDeudores = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCheckbox1 = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.cbAño = new System.Windows.Forms.ComboBox();
+            this.chkAño = new Bunifu.Framework.UI.BunifuCheckbox();
             this.lblfiltrar = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.imgFiltro = new Bunifu.Framework.UI.BunifuImageButton();
             this.chkCorreo = new Bunifu.Framework.UI.BunifuCheckbox();
@@ -78,8 +78,8 @@
             this.bunifuCards2.BorderRadius = 5;
             this.bunifuCards2.BottomSahddow = true;
             this.bunifuCards2.color = System.Drawing.Color.Teal;
-            this.bunifuCards2.Controls.Add(this.lblDeudores);
-            this.bunifuCards2.Controls.Add(this.bunifuCheckbox1);
+            this.bunifuCards2.Controls.Add(this.cbAño);
+            this.bunifuCards2.Controls.Add(this.chkAño);
             this.bunifuCards2.Controls.Add(this.lblfiltrar);
             this.bunifuCards2.Controls.Add(this.imgFiltro);
             this.bunifuCards2.Controls.Add(this.chkCorreo);
@@ -94,28 +94,45 @@
             this.bunifuCards2.Size = new System.Drawing.Size(335, 257);
             this.bunifuCards2.TabIndex = 18;
             // 
-            // lblDeudores
+            // cbAño
             // 
-            this.lblDeudores.AutoSize = true;
-            this.lblDeudores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeudores.ForeColor = System.Drawing.Color.Black;
-            this.lblDeudores.Location = new System.Drawing.Point(113, 202);
-            this.lblDeudores.Name = "lblDeudores";
-            this.lblDeudores.Size = new System.Drawing.Size(142, 20);
-            this.lblDeudores.TabIndex = 23;
-            this.lblDeudores.Text = "Alumnos deudores";
+            this.cbAño.BackColor = System.Drawing.Color.SkyBlue;
+            this.cbAño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAño.Enabled = false;
+            this.cbAño.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbAño.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAño.ForeColor = System.Drawing.Color.White;
+            this.cbAño.FormattingEnabled = true;
+            this.cbAño.IntegralHeight = false;
+            this.cbAño.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"});
+            this.cbAño.Location = new System.Drawing.Point(128, 187);
+            this.cbAño.MaxDropDownItems = 12;
+            this.cbAño.Name = "cbAño";
+            this.cbAño.Size = new System.Drawing.Size(105, 32);
+            this.cbAño.TabIndex = 25;
+            this.cbAño.TextChanged += new System.EventHandler(this.cbAño_TextChanged);
             // 
-            // bunifuCheckbox1
+            // chkAño
             // 
-            this.bunifuCheckbox1.BackColor = System.Drawing.Color.SkyBlue;
-            this.bunifuCheckbox1.ChechedOffColor = System.Drawing.Color.SkyBlue;
-            this.bunifuCheckbox1.Checked = false;
-            this.bunifuCheckbox1.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
-            this.bunifuCheckbox1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCheckbox1.Location = new System.Drawing.Point(87, 202);
-            this.bunifuCheckbox1.Name = "bunifuCheckbox1";
-            this.bunifuCheckbox1.Size = new System.Drawing.Size(20, 20);
-            this.bunifuCheckbox1.TabIndex = 19;
+            this.chkAño.BackColor = System.Drawing.Color.SkyBlue;
+            this.chkAño.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkAño.Checked = false;
+            this.chkAño.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
+            this.chkAño.ForeColor = System.Drawing.Color.White;
+            this.chkAño.Location = new System.Drawing.Point(102, 192);
+            this.chkAño.Name = "chkAño";
+            this.chkAño.Size = new System.Drawing.Size(20, 20);
+            this.chkAño.TabIndex = 24;
+            this.chkAño.OnChange += new System.EventHandler(this.chkAño_OnChange);
             // 
             // lblfiltrar
             // 
@@ -143,12 +160,12 @@
             // 
             // chkCorreo
             // 
-            this.chkCorreo.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.chkCorreo.BackColor = System.Drawing.Color.SkyBlue;
             this.chkCorreo.ChechedOffColor = System.Drawing.Color.SkyBlue;
             this.chkCorreo.Checked = false;
             this.chkCorreo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkCorreo.ForeColor = System.Drawing.Color.White;
-            this.chkCorreo.Location = new System.Drawing.Point(14, 145);
+            this.chkCorreo.Location = new System.Drawing.Point(12, 142);
             this.chkCorreo.Name = "chkCorreo";
             this.chkCorreo.Size = new System.Drawing.Size(20, 20);
             this.chkCorreo.TabIndex = 12;
@@ -167,7 +184,7 @@
             this.txtFiltroNoCtrl.LineIdleColor = System.Drawing.Color.Teal;
             this.txtFiltroNoCtrl.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
             this.txtFiltroNoCtrl.LineThickness = 3;
-            this.txtFiltroNoCtrl.Location = new System.Drawing.Point(40, 138);
+            this.txtFiltroNoCtrl.Location = new System.Drawing.Point(38, 135);
             this.txtFiltroNoCtrl.Margin = new System.Windows.Forms.Padding(4);
             this.txtFiltroNoCtrl.Name = "txtFiltroNoCtrl";
             this.txtFiltroNoCtrl.Size = new System.Drawing.Size(279, 27);
@@ -193,7 +210,7 @@
             this.txtFiltroNombre.LineIdleColor = System.Drawing.Color.Teal;
             this.txtFiltroNombre.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
             this.txtFiltroNombre.LineThickness = 3;
-            this.txtFiltroNombre.Location = new System.Drawing.Point(40, 83);
+            this.txtFiltroNombre.Location = new System.Drawing.Point(38, 83);
             this.txtFiltroNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtFiltroNombre.Name = "txtFiltroNombre";
             this.txtFiltroNombre.Size = new System.Drawing.Size(279, 27);
@@ -208,12 +225,12 @@
             // 
             // chkNombre
             // 
-            this.chkNombre.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.chkNombre.BackColor = System.Drawing.Color.SkyBlue;
             this.chkNombre.ChechedOffColor = System.Drawing.Color.SkyBlue;
             this.chkNombre.Checked = false;
             this.chkNombre.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkNombre.ForeColor = System.Drawing.Color.White;
-            this.chkNombre.Location = new System.Drawing.Point(14, 89);
+            this.chkNombre.Location = new System.Drawing.Point(12, 89);
             this.chkNombre.Name = "chkNombre";
             this.chkNombre.Size = new System.Drawing.Size(20, 20);
             this.chkNombre.TabIndex = 8;
@@ -401,7 +418,7 @@
             this.cbMetodoPago.Name = "cbMetodoPago";
             this.cbMetodoPago.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.cbMetodoPago.onHoverColor = System.Drawing.Color.Teal;
-            this.cbMetodoPago.selectedIndex = -1;
+            this.cbMetodoPago.selectedIndex = 0;
             this.cbMetodoPago.Size = new System.Drawing.Size(122, 35);
             this.cbMetodoPago.TabIndex = 23;
             // 
@@ -527,29 +544,29 @@
             this.dgvAlumnos.AllowUserToDeleteRows = false;
             this.dgvAlumnos.AllowUserToResizeColumns = false;
             this.dgvAlumnos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvAlumnos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlumnos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.5F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 11.5F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvAlumnos.DoubleBuffered = true;
             this.dgvAlumnos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAlumnos.EnableHeadersVisualStyles = false;
@@ -561,9 +578,9 @@
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAlumnos.RowHeadersVisible = false;
             this.dgvAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvAlumnos.RowTemplate.Height = 25;
             this.dgvAlumnos.RowTemplate.ReadOnly = true;
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -616,8 +633,6 @@
         private Bunifu.Framework.UI.BunifuDropdown cbMetodoPago;
         private Bunifu.Framework.UI.BunifuFlatButton btnAgregado;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvAlumnos;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblDeudores;
-        private Bunifu.Framework.UI.BunifuCheckbox bunifuCheckbox1;
         private Bunifu.Framework.UI.BunifuThinButton2 btnRegistroPago;
         private Bunifu.Framework.UI.BunifuDatepicker dtFechaPago;
         private System.Windows.Forms.ToolTip toolTip1;
@@ -625,5 +640,7 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblMesAPagar;
         private Bunifu.Framework.UI.BunifuCustomLabel lblNota;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtNota;
+        private Bunifu.Framework.UI.BunifuCheckbox chkAño;
+        private System.Windows.Forms.ComboBox cbAño;
     }
 }

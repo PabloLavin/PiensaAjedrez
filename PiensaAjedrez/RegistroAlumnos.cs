@@ -116,6 +116,11 @@ namespace PiensaAjedrez
                             if (miEscuela.CursoActivo != null)
                             {
                                 miEscuela.CursoActivo.listaAlumnos.Add(miAlumno);
+                                foreach (Cursos miCurso in miEscuela.listaCursos)
+                                {
+                                    if (miCurso.Equals(miEscuela.CursoActivo) && miCurso.Activo)
+                                        miCurso.listaAlumnos.Add(miAlumno);
+                                }
                             }
                     }
                 }

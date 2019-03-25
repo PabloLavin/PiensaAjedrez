@@ -40,6 +40,15 @@ namespace PiensaAjedrez
             set { _dblMonto = value; }
         }
 
+        private string _strMetodoPago;
+
+        public string MetodoPago
+        {
+            get { return _strMetodoPago; }
+            set { _strMetodoPago = value; }
+        }
+
+
         private string _strMesPagado;
 
         public string MesPagado
@@ -48,13 +57,14 @@ namespace PiensaAjedrez
             set { _strMesPagado = value; }
         }
 
-        public Pagos(string strRecibo, DateTime dtmFechaPago, double dblPago, string strNota, string strMes)
+        public Pagos(string strRecibo, DateTime dtmFechaPago, double dblPago, string strNota, string strMes, string strMetodo)
         {
             _strNumeroRecibo = strRecibo;
             _dtFechayHora = dtmFechaPago;
             _dblMonto = dblPago;
             _strNota = strNota;
             _strMesPagado = strMes;
+            MetodoPago = strMetodo;
         }
 
     }
