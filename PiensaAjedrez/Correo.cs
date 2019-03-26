@@ -40,10 +40,7 @@ namespace PiensaAjedrez
             mail.AlternateViews.Add(ObtenerImagen("\\sistema ajedrez\\PiensaAjedrez\\PiensaAjedrez\\Properties\\PiensaAjedrezLogo.png", miAlumno,miPago, intCaso));
             mail.From = new MailAddress("wweyes21@outlook.com");
             mail.To.Add(miAlumno.Correo);
-            if(intCaso==1)
-                mail.Subject = "Piensa Ajedrez | Pago de " + miPago.MesPagado + " realizado";
-            else
-                mail.Subject = "Piensa Ajedrez | Pago de inscripción realizado";
+            mail.Subject = "Piensa Ajedrez | Pago de " + miPago.MesPagado + " realizado";
             return mail;
         }
     }

@@ -32,11 +32,30 @@ namespace PiensaAjedrez
             }
         }
 
+        private double _dblTotalInscripciones;
+
+        public double TotalInscripcion
+        {
+            get { return _dblTotalInscripciones; }
+            set { _dblTotalInscripciones = value; }
+        }
+
+        private double _dbltotalMensualidades;
+
+        public double TotalMensualidad
+        {
+            get { return _dbltotalMensualidades; }
+            set { _dbltotalMensualidades = value; }
+        }
+
+
         public Cursos(DateTime dtIniciocurso, DateTime dtFinCurso, List<string> actividades)
         {
             _dtmInicioCursos = dtIniciocurso;
             _dtmFinCurso = dtFinCurso;
             Activo = true;
+            TotalInscripcion = 0;
+            TotalMensualidad = 0;
             foreach (string actividad in actividades)
             {
                 listaActividades.Add(actividad);

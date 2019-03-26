@@ -23,8 +23,27 @@ namespace PiensaAjedrez
         {
             btnAgregado.Visible = false;
             dtFechaPago.Value = DateTime.Today;
-            
+            InicializarDGV();
 
+            Deshabilitar();
+            foreach (Escuela miEscuela in Escuelas.listaEscuela)
+            {
+                cbEscuelas.AddItem(miEscuela.Nombre);
+            }
+
+            txtFiltroNombre.LineIdleColor = Color.SkyBlue;
+            txtFiltroNoCtrl.LineIdleColor = Color.SkyBlue;
+
+            cbAño.Items.Clear();
+            for (int i = 2010; i <=2050 ; i++)
+            {
+                cbAño.Items.Add(Convert.ToString(i));
+            }
+            cbAño.Text = DateTime.Today.Year.ToString();
+        }
+
+        void InicializarDGV()
+        {
             dgvAlumnos.Columns.Add("No. ctrl.", "No. ctrl.");
             dgvAlumnos.Columns.Add("Nombre", "Nombre");
             dgvAlumnos.Columns.Add("Ene", "Enero");
@@ -43,24 +62,9 @@ namespace PiensaAjedrez
             dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dgvAlumnos.Columns[0].Width = 80;
             dgvAlumnos.Columns[1].Width = 250;
-           
-            Deshabilitar();
-            foreach (Escuela miEscuela in Escuelas.listaEscuela)
-            {
-                cbEscuelas.AddItem(miEscuela.Nombre);
-            }
 
-            txtFiltroNombre.LineIdleColor = Color.SkyBlue;
-            txtFiltroNoCtrl.LineIdleColor = Color.SkyBlue;
-
-            cbAño.Items.Clear();
-            for (int i = 2010; i <=2050 ; i++)
-            {
-                cbAño.Items.Add(Convert.ToString(i));
-            }
-            cbAño.Text = DateTime.Today.Year.ToString();
         }
-        
+
 
         void Deshabilitar()
         {
@@ -102,7 +106,22 @@ namespace PiensaAjedrez
 
         void LlenarDGV(Escuela otraEscuela)
         {
+            dgvAlumnos.Columns.Clear();
+            InicializarDGV();
             dgvAlumnos.Rows.Clear();
+
+            if (otraEscuela.CursoActivo != null)
+            {
+            lblcantidadinscripcion.Text = otraEscuela.CursoActivo.TotalInscripcion.ToString("c");
+            lbltotalMensualidades.Text = otraEscuela.CursoActivo.TotalMensualidad.ToString("c");
+                if (otraEscuela.CursoActivo.listaActividades.Count > 0)
+                {
+                    foreach (string miActividad in otraEscuela.CursoActivo.listaActividades)
+                    {
+                        dgvAlumnos.Columns.Add(miActividad, miActividad);
+                    }
+                }
+            }
             foreach (Alumno miAlumno in otraEscuela.listaAlumno)
             {
                 dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
@@ -383,6 +402,21 @@ namespace PiensaAjedrez
                 case 14:
                     lblMesAPagar.Text = "Inscripcion"; Habilitar(); intCaso = 0;
                     break;
+                case 15:
+                    lblMesAPagar.Text = dgvAlumnos.Columns[intMes].HeaderText; Habilitar(); intCaso = 1;
+                    break;
+                case 16:
+                    lblMesAPagar.Text = dgvAlumnos.Columns[intMes].HeaderText; Habilitar(); intCaso = 1;
+                    break;
+                case 17:
+                    lblMesAPagar.Text = dgvAlumnos.Columns[intMes].HeaderText; Habilitar(); intCaso = 1;
+                    break;
+                case 18:
+                    lblMesAPagar.Text = dgvAlumnos.Columns[intMes].HeaderText; Habilitar(); intCaso = 1;
+                    break;
+                case 19:
+                    lblMesAPagar.Text = dgvAlumnos.Columns[intMes].HeaderText; Habilitar(); intCaso = 1;
+                    break;
                 default:
                     Deshabilitar();
                     return;
@@ -404,6 +438,12 @@ namespace PiensaAjedrez
                                 miAlumno.listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), false));
                                 EnviarCorreo(miAlumno, new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), true));
                                 listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), false));
+                                
+                                if(miEscuela.CursoActivo!=null)
+                                if (lblMesAPagar.Text.Equals("Inscripcion"))
+                                    miEscuela.CursoActivo.TotalInscripcion += double.Parse(txtMonto.Text);
+                                else
+                                    miEscuela.CursoActivo.TotalMensualidad += double.Parse(txtMonto.Text);
                                 LlenarDGV(miEscuela);
                                 Deshabilitar();
                             }
