@@ -111,6 +111,8 @@ namespace PiensaAjedrez
                 {
                     if (cbEscuelas.selectedValue==miEscuela.Nombre)
                     {
+                        if (btnAgregar.ButtonText == "Editar")
+                            miEscuela.listaAlumno.Remove(miAlumno);
                         miEscuela.listaAlumno.Add(miAlumno);
                         if(miAlumno.Activo)
                             if (miEscuela.CursoActivo != null)
@@ -122,6 +124,7 @@ namespace PiensaAjedrez
                                         miCurso.listaAlumnos.Add(miAlumno);
                                 }
                             }
+                        miEscuela.listaAlumno.Sort();
                     }
                 }
 

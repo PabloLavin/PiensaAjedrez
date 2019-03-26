@@ -17,6 +17,7 @@ namespace PiensaAjedrez
             InitializeComponent();
         }
         List<Pagos> listaPagos = new List<Pagos>();
+        int intCaso = 1;
 
         private void Mensualidades_Load(object sender, EventArgs e)
         {
@@ -38,7 +39,7 @@ namespace PiensaAjedrez
             dgvAlumnos.Columns.Add("Oct", "Octubre");
             dgvAlumnos.Columns.Add("Nov", "Noviembre");
             dgvAlumnos.Columns.Add("Dic", "Diciembre");
-            dgvAlumnos.Columns.Add("Inscrip.", "Inscrip");
+            dgvAlumnos.Columns.Add("Inscrip.", "Inscripcion");
             dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dgvAlumnos.Columns[0].Width = 80;
             dgvAlumnos.Columns[1].Width = 250;
@@ -126,6 +127,14 @@ namespace PiensaAjedrez
 
         private void dgvAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            bool blnReenviar = false;
+            if (dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.FromArgb(238,250,90)))
+            {
+                if (DialogResult.Yes == MessageBox.Show("¿Intentar de nuevo?", "Enviar correo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    blnReenviar = true;
+                }
+            }
             foreach (Escuela miEscuela in Escuelas.listaEscuela)
             {
                 if(miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
@@ -134,7 +143,20 @@ namespace PiensaAjedrez
                         {
                             lblNroControl.Text = miAlumno.NumeroDeControl;
                             lblNombre.Text = miAlumno.Nombre;
-                            ObtenerMes(int.Parse(dgvAlumnos.CurrentCell.ColumnIndex.ToString()));   
+                            ObtenerMes(int.Parse(dgvAlumnos.CurrentCell.ColumnIndex.ToString()));
+                            if (blnReenviar)
+                            {
+                                foreach (Pagos miPago in miAlumno.listaPagos)
+                                {
+                                    if (miPago.MesPagado.Equals(lblMesAPagar.Text) && miPago.Monto.ToString("c").Equals(dgvAlumnos.CurrentCell.Value.ToString()))
+                                    {
+                                        EnviarCorreo(miAlumno, miPago);
+                                        LlenarDGV(miEscuela);
+                                        Deshabilitar();
+                                    }
+
+                                }
+                            }
                         }
             }
         }
@@ -323,43 +345,43 @@ namespace PiensaAjedrez
                     Deshabilitar();
                     break;
                 case 2:
-                    lblMesAPagar.Text = "Enero"; Habilitar();
+                    lblMesAPagar.Text = "Enero"; Habilitar(); intCaso = 1;
                     break;
                 case 3:
-                    lblMesAPagar.Text = "Febrero"; Habilitar();
+                    lblMesAPagar.Text = "Febrero"; Habilitar(); intCaso = 1;
                     break;
                 case 4:
-                    lblMesAPagar.Text = "Marzo"; Habilitar();
+                    lblMesAPagar.Text = "Marzo"; Habilitar(); intCaso = 1;
                     break;
                 case 5:
-                    lblMesAPagar.Text = "Abril"; Habilitar();
+                    lblMesAPagar.Text = "Abril"; Habilitar(); intCaso = 1;
                     break;
                 case 6:
-                    lblMesAPagar.Text = "Mayo"; Habilitar();
+                    lblMesAPagar.Text = "Mayo"; Habilitar(); intCaso = 1;
                     break;
                 case 7:
-                    lblMesAPagar.Text = "Junio"; Habilitar();
+                    lblMesAPagar.Text = "Junio"; Habilitar(); intCaso = 1;
                     break;
                 case 8:
-                    lblMesAPagar.Text = "Julio"; Habilitar();
+                    lblMesAPagar.Text = "Julio"; Habilitar(); intCaso = 1;
                     break;
                 case 9:
-                    lblMesAPagar.Text = "Agosto"; Habilitar();
+                    lblMesAPagar.Text = "Agosto"; Habilitar(); intCaso = 1;
                     break;
                 case 10:
-                    lblMesAPagar.Text = "Septiembre"; Habilitar();
+                    lblMesAPagar.Text = "Septiembre"; Habilitar(); intCaso = 1;
                     break;
                 case 11:
-                    lblMesAPagar.Text = "Octubre"; Habilitar();
+                    lblMesAPagar.Text = "Octubre"; Habilitar(); intCaso = 1;
                     break;
                 case 12:
-                    lblMesAPagar.Text = "Noviembre"; Habilitar();
+                    lblMesAPagar.Text = "Noviembre"; Habilitar(); intCaso = 1;
                     break;
                 case 13:
-                    lblMesAPagar.Text = "Diciembre"; Habilitar();
+                    lblMesAPagar.Text = "Diciembre"; Habilitar(); intCaso = 1;
                     break;
                 case 14:
-                    lblMesAPagar.Text = "Inscripción"; Habilitar();
+                    lblMesAPagar.Text = "Inscripcion"; Habilitar(); intCaso = 0;
                     break;
                 default:
                     Deshabilitar();
@@ -377,24 +399,16 @@ namespace PiensaAjedrez
                         if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString())))
                         {
 
-                            if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: "+miAlumno.Nombre+"\nNúmero de control: "+miAlumno.NumeroDeControl+"\nMes: "+lblMesAPagar.Text+"\nPor el monto de: $"+txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString(), "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                            if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: " + miAlumno.Nombre + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nMes: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString(), "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                             {
-                                miAlumno.listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString()));
-                                try
-                                {
-                                    Correo.EnviarCorreo(Correo.CrearCorreo(miAlumno, new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString())));
-                                }
-                                catch(Exception x)
-                                {
-                                    MessageBox.Show(x.Message);
-                                }
-                                listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString()));
+                                miAlumno.listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), false));
+                                EnviarCorreo(miAlumno, new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), true));
+                                listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), false));
                                 LlenarDGV(miEscuela);
                                 Deshabilitar();
                             }
                         }
             }
-
         }
 
         string ObtenerClaveRecibo()
@@ -402,32 +416,53 @@ namespace PiensaAjedrez
             return dtFechaPago.Value.Day.ToString()+ dtFechaPago.Value.Month.ToString()+ dtFechaPago.Value.Year.ToString() + ((int.Parse("1000")) + (listaPagos.Count)).ToString();
         }
 
-        void RellenarPagos(Alumno miAlumno, int intCaso)
+        void RellenarPagos(Alumno miAlumno)
         {
             foreach (Pagos miPagos in miAlumno.listaPagos)
             {
-                if(miPagos.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
-                foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
-                {
-                    if (miPagos.MesPagado.Equals(columna.HeaderText))
+                if (miPagos.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
+                    foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
                     {
-                        foreach (DataGridViewRow Fila in dgvAlumnos.Rows)
+                        if (miPagos.MesPagado.Equals(columna.HeaderText))
                         {
-                            if (miAlumno.NumeroDeControl.Equals(Fila.Cells[0].Value.ToString()))
+                            foreach (DataGridViewRow Fila in dgvAlumnos.Rows)
                             {
-                                 Fila.Cells[columna.Index].Value = miPagos.Monto.ToString("c");
-                                    if (intCaso.Equals(1))
-                                    {
+                                if (miAlumno.NumeroDeControl.Equals(Fila.Cells[0].Value.ToString()))
+                                {
+                                    Fila.Cells[columna.Index].Value = miPagos.Monto.ToString("c");
+                                    Fila.Cells[columna.Index].Style.ForeColor = Color.Black;
+                                    if (miPagos.Notificado)
                                         Fila.Cells[columna.Index].Style.BackColor = Color.LightGreen;
-                                        Fila.Cells[columna.Index].Style.ForeColor = Color.Black;
-                                    }
                                     else
-                                    {
                                         Fila.Cells[columna.Index].Style.BackColor = Color.FromArgb(238, 250, 90);
-                                        Fila.Cells[columna.Index].Style.ForeColor = Color.Black;
-                                    }
                                 }
+                            }
                         }
+                    }
+            }
+        }
+
+        void EnviarCorreo(Alumno miAlumno,Pagos miPago)
+        {
+            try
+            {
+                Correo.EnviarCorreo(Correo.CrearCorreo(miAlumno, miPago, intCaso));
+                foreach (Pagos pagos in miAlumno.listaPagos)
+                {
+                    if (pagos.Equals(miPago))
+                    {
+                        pagos.Notificado = true;
+                    }
+                }
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+                foreach (Pagos pagos in miAlumno.listaPagos)
+                {
+                    if (pagos.Equals(miPago))
+                    {
+                        pagos.Notificado = false;
                     }
                 }
             }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PiensaAjedrez
 {
-    public class Pagos
+    public class Pagos:IEquatable<Pagos>
     {
         private string _strNumeroRecibo;
 
@@ -57,7 +57,25 @@ namespace PiensaAjedrez
             set { _strMesPagado = value; }
         }
 
-        public Pagos(string strRecibo, DateTime dtmFechaPago, double dblPago, string strNota, string strMes, string strMetodo)
+        private bool _blnNotificado;
+
+        public bool Notificado
+        {
+            get { return _blnNotificado; }
+            set { _blnNotificado = value; }
+        }
+
+        public Pagos(string strClave)
+        {
+            NumeroRecibo = strClave;
+        }
+
+        public bool Equals(Pagos otroPago)
+        {
+            return this.NumeroRecibo.Equals(otroPago.NumeroRecibo);
+        }
+
+        public Pagos(string strRecibo, DateTime dtmFechaPago, double dblPago, string strNota, string strMes, string strMetodo, bool notificado)
         {
             _strNumeroRecibo = strRecibo;
             _dtFechayHora = dtmFechaPago;
@@ -65,6 +83,7 @@ namespace PiensaAjedrez
             _strNota = strNota;
             _strMesPagado = strMes;
             MetodoPago = strMetodo;
+            Notificado = notificado;
         }
 
     }
