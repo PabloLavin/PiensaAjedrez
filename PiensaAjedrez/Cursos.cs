@@ -12,7 +12,16 @@ namespace PiensaAjedrez
         public List<Alumno> listaAlumnos = new List<Alumno>();
         public List<string> listaActividades = new List<string>();
 
-      
+        private string _strClave;
+
+        public string Clave
+        {
+            get { return _strClave; }
+            set { _strClave = value; }
+        }
+
+
+
         private DateTime _dtmInicioCursos;
 
         public DateTime InicioCursos
@@ -48,6 +57,15 @@ namespace PiensaAjedrez
             set { _dbltotalMensualidades = value; }
         }
 
+        private double _dlTotalIngresos;
+
+        public double TotalIngresos
+        {
+            get { return _dlTotalIngresos; }
+            set { _dlTotalIngresos = value; }
+        }
+
+
 
         public Cursos(DateTime dtIniciocurso, DateTime dtFinCurso, List<string> actividades)
         {
@@ -56,6 +74,8 @@ namespace PiensaAjedrez
             Activo = true;
             TotalInscripcion = 0;
             TotalMensualidad = 0;
+            TotalIngresos = 0;
+            Clave = dtIniciocurso.Month.ToString() + dtFinCurso.Month.ToString() + new Random().Next(10,500);
             foreach (string actividad in actividades)
             {
                 listaActividades.Add(actividad);
@@ -77,15 +97,19 @@ namespace PiensaAjedrez
             _dtmFinCurso = dtFinCurso;
         }
 
+        public Cursos(string strClave)
+        {
+            Clave = strClave;
+        }
+
         public bool Equals(Cursos otroCurso)
         {
-            return (this.InicioCursos.ToShortDateString().Equals(otroCurso.InicioCursos.ToShortDateString()) 
-                && this.FinCurso.ToShortDateString().Equals(otroCurso.FinCurso.ToShortDateString()));
+            return this.Clave.Equals(otroCurso.Clave);
         }
 
         public int CompareTo(Cursos otroCurso)
         {
-            return this.FinCurso.ToShortDateString().CompareTo(otroCurso.FinCurso.ToShortDateString());
+            return this.FinCurso.CompareTo(otroCurso.FinCurso);
         }
 
     }

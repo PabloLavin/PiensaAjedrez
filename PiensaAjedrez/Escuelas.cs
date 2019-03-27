@@ -19,15 +19,20 @@ namespace PiensaAjedrez
 
             dgvEscuelas.Columns.Add("Nombre del colegio", "Nombre del colegio");
 
+            dgvCursos.Columns.Add("Clave", "Clave");
             dgvCursos.Columns.Add("Inicio del curso", "Inicio del curso");
             dgvCursos.Columns.Add("Fin del curso", "Fin del curso");
 
+            dgvCursosPasados.Columns.Add("Clave", "Clave");
             dgvCursosPasados.Columns.Add("Inicio del curso", "Inicio del curso");
             dgvCursosPasados.Columns.Add("Fin del curso", "Fin del curso");
 
             dgvEscuelas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCursos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCursosPasados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvCursos.Columns[0].Width = 86;
+            dgvCursosPasados.Columns[0].Width = 86;
 
             btnAgregado.Visible = false;
             btnAgregadoCurso.Visible = false;
@@ -128,7 +133,7 @@ namespace PiensaAjedrez
                         if (miEscuela.Equals(new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString())))
                             foreach (Cursos miCursos in miEscuela.listaCursos)
                             {
-                                if (miCursos.Equals(new Cursos(DateTime.Parse(dgvCursos.CurrentRow.Cells[0].Value.ToString()), DateTime.Parse(dgvCursos.CurrentRow.Cells[1].Value.ToString()))))
+                                if (miCursos.Equals(new Cursos(dgvCursos.CurrentRow.Cells[0].Value.ToString())))
                                 {
                                     bool blnActivo = false;
                                     if (miEscuela.CursoActivo.Equals(miCursos))
@@ -150,9 +155,8 @@ namespace PiensaAjedrez
                                     InitializeTimer();
                                     dgvCursos.Rows.Clear();
                                     dgvListaActividades.Rows.Clear();
-                                    btnCancelarCurso.Visible = false;
-                                    foreach (Cursos curso in miEscuela.listaCursos)
-                                        dgvCursos.Rows.Add(curso.InicioCursos.ToLongDateString(), curso.FinCurso.ToLongDateString());
+                                    btnCancelarCurso.Visible = false; 
+                                    dgvCursos.Rows.Add(miEscuela.CursoActivo.Clave, miEscuela.CursoActivo.InicioCursos.ToLongDateString(), miEscuela.CursoActivo.FinCurso.ToLongDateString());
                                     return;
                                 }
 
@@ -179,7 +183,7 @@ namespace PiensaAjedrez
                             miCurso.Activo = true;
                             miEscuela.listaCursos.Add(miCurso);
                             miEscuela.CursoActivo = miCurso;
-                            dgvCursos.Rows.Add(miEscuela.CursoActivo.InicioCursos.ToLongDateString(), miEscuela.CursoActivo.FinCurso.ToLongDateString());
+                            dgvCursos.Rows.Add(miEscuela.CursoActivo.Clave ,miEscuela.CursoActivo.InicioCursos.ToLongDateString(), miEscuela.CursoActivo.FinCurso.ToLongDateString());
 
                             btnAgregadoCurso.Visible = true;
                             InitializeTimer();
@@ -204,6 +208,11 @@ namespace PiensaAjedrez
 
         private void dgvEscuelas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgvEscuelas.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione una escuela de la lista.");
+                return;
+            }
             if (btnAgregarCurso.ButtonText == "Editar")
             {
                 btnAgregarCurso.ButtonText = "Agregar curso";
@@ -232,7 +241,7 @@ namespace PiensaAjedrez
                    
                     FillDgv(miEscuela);
                     if(miEscuela.CursoActivo!=null)
-                        dgvCursos.Rows.Add(miEscuela.CursoActivo.InicioCursos.ToLongDateString(), miEscuela.CursoActivo.FinCurso.ToLongDateString());
+                        dgvCursos.Rows.Add(miEscuela.CursoActivo.Clave, miEscuela.CursoActivo.InicioCursos.ToLongDateString(), miEscuela.CursoActivo.FinCurso.ToLongDateString());
                 }
             }
         }
@@ -254,8 +263,13 @@ namespace PiensaAjedrez
 
         private void dgvCursos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            dtmInicioCurso.Value = DateTime.Parse(dgvCursos.CurrentRow.Cells[0].Value.ToString());
-            dtmFinCurso.Value = DateTime.Parse(dgvCursos.CurrentRow.Cells[1].Value.ToString());
+            if (dgvCursos.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un curso de la lista.");
+                return;
+            }
+            dtmInicioCurso.Value = DateTime.Parse(dgvCursos.CurrentRow.Cells[1].Value.ToString());
+            dtmFinCurso.Value = DateTime.Parse(dgvCursos.CurrentRow.Cells[2].Value.ToString());
             dgvListaActividades.Rows.Clear();
             btnFinalizarCurso.Visible = false;
 
@@ -269,9 +283,7 @@ namespace PiensaAjedrez
                 if (miEscuela.Nombre == dgvEscuelas.CurrentRow.Cells[0].Value.ToString())
                     foreach (Cursos miCursos in miEscuela.listaCursos)
                     {
-                       new Cursos(DateTime.Parse(dgvCursos.CurrentRow.Cells[0].Value.ToString()), DateTime.Parse(dgvCursos.CurrentRow.Cells[1].Value.ToString()));
-                       
-                        if (miCursos.Equals(new Cursos(DateTime.Parse(dgvCursos.CurrentRow.Cells[0].Value.ToString()), DateTime.Parse(dgvCursos.CurrentRow.Cells[1].Value.ToString()))))
+                        if (miCursos.Equals(new Cursos(dgvCursos.CurrentRow.Cells[0].Value.ToString())))
                         {
                             foreach (string actividad in miCursos.listaActividades)
                             {
@@ -305,12 +317,12 @@ namespace PiensaAjedrez
        
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("¿Desea eliminar el curso que comprende del " + dgvCursosPasados.CurrentRow.Cells[0].Value.ToString() + " al " + dgvCursosPasados.CurrentRow.Cells[1].Value.ToString() + "?", "Eliminar curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            if (DialogResult.Yes == MessageBox.Show("¿Desea eliminar el curso que comprende del " + dgvCursosPasados.CurrentRow.Cells[1].Value.ToString() + " al " + dgvCursosPasados.CurrentRow.Cells[2].Value.ToString()+" con clave: "+ dgvCursosPasados.CurrentRow.Cells[0].Value.ToString() + "?", "Eliminar curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
             {
                 foreach (Escuela miEscuela in listaEscuela)
                     if (miEscuela.Equals(new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString())))
                     {
-                        miEscuela.listaCursos.Remove(new Cursos(DateTime.Parse(dgvCursosPasados.CurrentRow.Cells[0].Value.ToString()), DateTime.Parse(dgvCursosPasados.CurrentRow.Cells[1].Value.ToString())));
+                        miEscuela.listaCursos.Remove(new Cursos(dgvCursosPasados.CurrentRow.Cells[0].Value.ToString()));
 
                         btnAgregarCurso.ButtonText = "Agregar curso";
 
@@ -351,7 +363,7 @@ namespace PiensaAjedrez
                         {
                             foreach (Cursos miCurso in miEscuela.listaCursos)
                             {
-                                if (miCurso.Equals(new Cursos(DateTime.Parse(dgvCursos.CurrentRow.Cells[0].Value.ToString()), DateTime.Parse(dgvCursos.CurrentRow.Cells[1].Value.ToString()))))
+                                if (miCurso.Equals(new Cursos(dgvCursos.CurrentRow.Cells[0].Value.ToString())))
                                 {
                                     miCurso.listaActividades.Remove(dgvListaActividades.CurrentRow.Cells[0].Value.ToString());
                                     dgvListaActividades.Rows.Clear();
@@ -388,7 +400,7 @@ namespace PiensaAjedrez
 
         private void btnFinalizarCurso_Click_1(object sender, EventArgs e)
         {
-                if (DialogResult.Yes == MessageBox.Show("¿Desea finalizar el curso que comprende del " + dgvCursos.CurrentRow.Cells[0].Value.ToString() + " al " + dgvCursos.CurrentRow.Cells[1].Value.ToString() + "?", "Finalizar curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+                if (DialogResult.Yes == MessageBox.Show("¿Desea finalizar el curso que comprende del " + dgvCursos.CurrentRow.Cells[1].Value.ToString() + " al " + dgvCursos.CurrentRow.Cells[2].Value.ToString() +" con clave "+ dgvCursos.CurrentRow.Cells[0].Value.ToString() + "?", "Finalizar curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
                 {
                     foreach (Escuela miEscuela in listaEscuela)
                     {
@@ -443,8 +455,14 @@ namespace PiensaAjedrez
                     {
                         if (DialogResult.Yes == MessageBox.Show("¿Seguro que desea terminar el curso?", "Fin de curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
                         {
+                                foreach (Cursos cursos in miEscuela.listaCursos)
+                                {
+                                    if (cursos.Equals(miEscuela.CursoActivo))
+                                        cursos.Activo = false;
+                                }
                             miEscuela.CursoActivo = null;
                             MessageBox.Show("Curso finalizado.");
+                            FillDgv(miEscuela);
                             blnBandera = false;
                         }
                     }
@@ -458,7 +476,7 @@ namespace PiensaAjedrez
             foreach (Cursos miCurso in miEscuela.listaCursos)
             {
                 if(!miCurso.Activo)
-                 dgvCursosPasados.Rows.Add(miCurso.InicioCursos.ToLongDateString(),miCurso.FinCurso.ToLongDateString());
+                 dgvCursosPasados.Rows.Add(miCurso.Clave,miCurso.InicioCursos.ToLongDateString(),miCurso.FinCurso.ToLongDateString());
             }
         }
 

@@ -147,6 +147,11 @@ namespace PiensaAjedrez
         private void dgvAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             bool blnReenviar = false;
+            if (dgvAlumnos.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un alumno de la lista.");
+                return;
+            }
             if (dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.FromArgb(238,250,90)))
             {
                 if (DialogResult.Yes == MessageBox.Show("¿Intentar de nuevo?", "Enviar correo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
@@ -444,6 +449,8 @@ namespace PiensaAjedrez
                                     miEscuela.CursoActivo.TotalInscripcion += double.Parse(txtMonto.Text);
                                 else
                                     miEscuela.CursoActivo.TotalMensualidad += double.Parse(txtMonto.Text);
+
+                                miEscuela.CursoActivo.TotalIngresos += double.Parse(txtMonto.Text);
                                 LlenarDGV(miEscuela);
                                 Deshabilitar();
                             }
