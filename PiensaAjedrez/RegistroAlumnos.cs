@@ -71,7 +71,9 @@ namespace PiensaAjedrez
             foreach (Escuela miEscuela in Escuelas.listaEscuela)
             {
                 cbEscuelas.AddItem(miEscuela.Nombre);
+                cboFiltroEscuela.AddItem(miEscuela.Nombre);
             }
+           
             MostrarDatos();
 
         }
@@ -307,7 +309,7 @@ namespace PiensaAjedrez
                 cboFiltroEscuela.Enabled = false;
                 lblFiltroEscuela.Enabled = false;
                 MostrarDatos();
-                cboFiltroEscuela.Text = "";
+                cboFiltroEscuela.ResetText();
             }
         }
 
@@ -380,6 +382,7 @@ namespace PiensaAjedrez
                     txtTelefono.Text = alumnos.Telefono;
                     dtFechaNacimiento.Value = alumnos.FechaNacimiento;
                     txtTutor.Text = alumnos.Tutor;
+                    cbEscuelas.selectedIndex = ObtenerIndex(alumnos.Escuela);
                     if (alumnos.Activo)
                     {
                         chkActivo.Checked = true;
@@ -450,7 +453,7 @@ namespace PiensaAjedrez
             dgvAlumnos.Rows.Clear();
             foreach (Alumno miAlumno in listaAlumnos)
             {
-                if (miAlumno.Escuela.Contains(cboFiltroEscuela.Text))
+                if (miAlumno.Escuela.Contains(cboFiltroEscuela.selectedValue))
                 {
                     dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
                 }
@@ -648,6 +651,18 @@ namespace PiensaAjedrez
             }
         }
         #endregion
+
+        int ObtenerIndex(string strEscuela)
+        {
+            Escuela[] arreglo = new Escuela[Escuelas.listaEscuela.Count];
+            Escuelas.listaEscuela.CopyTo(arreglo);
+            for (int i = 0; i < arreglo.Length; i++)
+            {
+                if (strEscuela.Equals(arreglo[i].Nombre))
+                    return i;
+            }
+            return -1;
+        }
     }
 }
 
