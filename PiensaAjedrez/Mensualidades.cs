@@ -24,6 +24,7 @@ namespace PiensaAjedrez
             btnAgregado.Visible = false;
             dtFechaPago.Value = DateTime.Today;
             InicializarDGV();
+            btnAgregadoGasto.Visible = false;
 
             Deshabilitar();
             foreach (Escuela miEscuela in Escuelas.listaEscuela)
@@ -86,6 +87,10 @@ namespace PiensaAjedrez
             txtNota.LineIdleColor = Color.SkyBlue;
             lblNombre.Text = "Nombre(s) Apellido P. Apellido M.";
             lblNroControl.Text = "19100000";
+            cbGastos.Enabled = false;
+            txtMontoAdicional.Enabled = false;
+            txtMotivo.Enabled = false;
+            btnRegistrarGasto.Visible = false;
         }
 
         void Habilitar()
@@ -102,6 +107,7 @@ namespace PiensaAjedrez
             cbMetodoPago.Enabled = true;
             txtMonto.LineIdleColor = Color.Teal;
             txtNota.LineIdleColor = Color.Teal;
+            
         }
 
         void LlenarDGV(Escuela otraEscuela)
@@ -139,7 +145,13 @@ namespace PiensaAjedrez
                 {
                     LlenarDGV(miEscuela);
                     Deshabilitar();
-                }
+                        cbGastos.Enabled = true;
+                        txtMontoAdicional.Enabled = true;
+                        txtMotivo.Enabled = true;
+                        btnRegistrarGasto.Visible = true;
+                        txtMotivo.LineIdleColor = Color.Teal;
+                        txtMontoAdicional.LineIdleColor = Color.Teal;
+                    }
             }
           
         }
@@ -512,6 +524,19 @@ namespace PiensaAjedrez
                         pagos.Notificado = false;
                     }
                 }
+            }
+        }
+
+        private void btnRegistrarGasto_Click(object sender, EventArgs e)
+        {
+            foreach (Escuela miEscuela in Escuelas.listaEscuela)
+            {
+                if (miEscuela.Equals(cbEscuelas.selectedValue.ToString()))
+                    if (miEscuela.CursoActivo != null)
+                    {
+                        miEscuela.CursoActivo.listaGastos.Add(new Gastos(cbGastos.selectedValue.ToString(), double.Parse(txtMontoAdicional.Text), txtMotivo.Text));
+                        miEscuela.CursoActivo.TotalIngresos -= double.Parse(txtMontoAdicional.Text);
+                    }
             }
         }
     }

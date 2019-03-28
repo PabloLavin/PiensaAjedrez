@@ -11,6 +11,7 @@ namespace PiensaAjedrez
     {
         public List<Alumno> listaAlumnos = new List<Alumno>();
         public List<string> listaActividades = new List<string>();
+        public List<Gastos> listaGastos = new List<Gastos>();
 
         private string _strClave;
 
