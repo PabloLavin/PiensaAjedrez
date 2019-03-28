@@ -281,12 +281,16 @@ namespace PiensaAjedrez
         private void chkNombre_OnChange(object sender, EventArgs e)
         {
             if (chkNombre.Checked)
+            {
                 txtFiltonombre.Enabled = true;
+                txtFiltonombre.LineIdleColor = Color.FromArgb(59, 202, 192);
+            }
             else
             {
                 txtFiltonombre.Enabled = false;
                 MostrarDatos();
                 txtFiltonombre.Text = "Nombre";
+                txtFiltonombre.LineIdleColor = Color.SkyBlue;
             }
             }
 
@@ -296,6 +300,7 @@ namespace PiensaAjedrez
             {
                 cboFiltroEscuela.Enabled = true;
                 lblFiltroEscuela.Enabled = true;
+                cboFiltroEscuela.NomalColor = Color.FromArgb(59, 202, 192);
             }                
             else
             {
@@ -313,6 +318,7 @@ namespace PiensaAjedrez
                 cbDia.Enabled = true;
                 cbMes.Enabled = true;
                 txtFiltroAño.Enabled = true;
+                txtFiltroAño.LineIdleColor = Color.FromArgb(59, 202, 192);
             }
             else
             {
@@ -323,30 +329,39 @@ namespace PiensaAjedrez
                 txtFiltroAño.Text = "Año";
                 cbDia.SelectedIndex = 0;
                 cbMes.SelectedIndex = 0;
+                txtFiltroAño.LineIdleColor = Color.SkyBlue;
             }
         }
 
         private void chkTelefono_OnChange(object sender, EventArgs e)
         {
             if (chkTelefono.Checked)
+            {
                 txtFiltroTelefono.Enabled = true;
+                txtFiltroTelefono.LineIdleColor = Color.FromArgb(59, 202, 192);
+            }
             else
             {
                 txtFiltroTelefono.Enabled = false;
                 MostrarDatos();
                 txtFiltroTelefono.Text = "Teléfono";
+                txtFiltroTelefono.LineIdleColor = Color.SkyBlue;
             }
             }
 
         private void chkCorreo_OnChange(object sender, EventArgs e)
         {
             if (chkCorreo.Checked)
+            {
                 txtFiltroCorreo.Enabled = true;
+                txtFiltroCorreo.LineIdleColor = Color.FromArgb(59, 202, 192);
+            }
             else
             {
                 txtFiltroCorreo.Enabled = false;
                 MostrarDatos();
                 txtFiltroCorreo.Text = "Correo";
+                txtFiltroCorreo.LineIdleColor = Color.SkyBlue;
             }
         }
         #endregion

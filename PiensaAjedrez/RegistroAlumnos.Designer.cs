@@ -567,7 +567,7 @@
             this.txtFiltonombre.HintText = "";
             this.txtFiltonombre.isPassword = false;
             this.txtFiltonombre.LineFocusedColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtFiltonombre.LineIdleColor = System.Drawing.Color.Teal;
+            this.txtFiltonombre.LineIdleColor = System.Drawing.Color.SkyBlue;
             this.txtFiltonombre.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
             this.txtFiltonombre.LineThickness = 3;
             this.txtFiltonombre.Location = new System.Drawing.Point(38, 57);
@@ -593,7 +593,7 @@
             this.txtFiltroTelefono.HintText = "";
             this.txtFiltroTelefono.isPassword = false;
             this.txtFiltroTelefono.LineFocusedColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtFiltroTelefono.LineIdleColor = System.Drawing.Color.Teal;
+            this.txtFiltroTelefono.LineIdleColor = System.Drawing.Color.SkyBlue;
             this.txtFiltroTelefono.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
             this.txtFiltroTelefono.LineThickness = 3;
             this.txtFiltroTelefono.Location = new System.Drawing.Point(204, 142);
@@ -619,7 +619,7 @@
             this.txtFiltroCorreo.HintText = "";
             this.txtFiltroCorreo.isPassword = false;
             this.txtFiltroCorreo.LineFocusedColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtFiltroCorreo.LineIdleColor = System.Drawing.Color.Teal;
+            this.txtFiltroCorreo.LineIdleColor = System.Drawing.Color.SkyBlue;
             this.txtFiltroCorreo.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
             this.txtFiltroCorreo.LineThickness = 3;
             this.txtFiltroCorreo.Location = new System.Drawing.Point(38, 183);
@@ -711,7 +711,7 @@
             this.cboFiltroEscuela.Items = new string[0];
             this.cboFiltroEscuela.Location = new System.Drawing.Point(120, 94);
             this.cboFiltroEscuela.Name = "cboFiltroEscuela";
-            this.cboFiltroEscuela.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.cboFiltroEscuela.NomalColor = System.Drawing.Color.SkyBlue;
             this.cboFiltroEscuela.onHoverColor = System.Drawing.Color.Teal;
             this.cboFiltroEscuela.selectedIndex = -1;
             this.cboFiltroEscuela.Size = new System.Drawing.Size(191, 35);
@@ -728,7 +728,7 @@
             this.txtFiltroAño.HintText = "";
             this.txtFiltroAño.isPassword = false;
             this.txtFiltroAño.LineFocusedColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtFiltroAño.LineIdleColor = System.Drawing.Color.Teal;
+            this.txtFiltroAño.LineIdleColor = System.Drawing.Color.SkyBlue;
             this.txtFiltroAño.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
             this.txtFiltroAño.LineThickness = 3;
             this.txtFiltroAño.Location = new System.Drawing.Point(126, 142);
