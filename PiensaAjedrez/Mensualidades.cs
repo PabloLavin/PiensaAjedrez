@@ -86,7 +86,7 @@ namespace PiensaAjedrez
             txtMonto.LineIdleColor = Color.SkyBlue;
             txtNota.LineIdleColor = Color.SkyBlue;
             lblNombre.Text = "Nombre(s) Apellido P. Apellido M.";
-            lblNroControl.Text = "19100000";
+            lblNroControl.Text = "19100000";/*
             if (cbEscuelas.selectedValue.Equals(""))
             { 
                 cbGastos.Enabled = false;
@@ -94,6 +94,7 @@ namespace PiensaAjedrez
                 txtMotivo.Enabled = false;
                 btnRegistrarGasto.Visible = false;
             }
+            */
         }
 
         void Habilitar()

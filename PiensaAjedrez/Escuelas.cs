@@ -58,41 +58,37 @@ namespace PiensaAjedrez
         private void btnAgregarColegio_Click(object sender, EventArgs e)
         {
             if (btnAgregarColegio.ButtonText == "Editar")
-                foreach (Escuela otraEscuela in listaEscuela)
-                {
-                    if (otraEscuela.Equals(new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString())))
-                    {
-                        otraEscuela.Nombre = txtNombreColegio.Text;
-                        MostrarDatos();
-                        btnAgregarColegio.ButtonText = "Agregar";
-                        txtNombreColegio.Text = "";
-                        btnCancelar.Visible = false;
-                        return;
-                    }
-                }
-
-            if (!listaEscuela.Contains(new Escuela(txtNombreColegio.Text)))
             {
-                listaEscuela.Add(new Escuela(txtNombreColegio.Text));
-                btnAgregado.Visible = true;
-                InitializeTimer();
-                txtNombreColegio.Text = "";
+                ConexionBD.RenombrarEscuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString(), txtNombreColegio.Text);
                 MostrarDatos();
-                dgvCursos.Rows.Clear();
-
+                btnAgregarColegio.ButtonText = "Agregar";
+                txtNombreColegio.Text = "";
+                btnCancelar.Visible = false;
             }
             else
-                MessageBox.Show("Escuela duplicada.");
-            txtNombreColegio.Focus();
+            {
+                try
+                {
+                    ConexionBD.AgregarEscuela(txtNombreColegio.Text);
+                    btnAgregado.Visible = true;
+                    InitializeTimer();
+                    txtNombreColegio.Text = "";
+                    MostrarDatos();
+                    dgvCursos.Rows.Clear();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Escuela duplicada.");
+                }
+                txtNombreColegio.Focus();
+            }            
         }
 
         void MostrarDatos()
         {
             dgvEscuelas.Rows.Clear();
-            foreach (Escuela escuela in listaEscuela)
-            {
-                dgvEscuelas.Rows.Add(escuela.Nombre);
-            }
+            foreach (Escuela escuela in ConexionBD.CargarEscuelas())            
+                dgvEscuelas.Rows.Add(escuela.Nombre);            
         }
 
         private int counter;
