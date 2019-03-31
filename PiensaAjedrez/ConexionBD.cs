@@ -42,8 +42,16 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("UPDATE ESCUELA SET NombreEscuela = '"+strNuevoNombre+"' WHERE NombreEscuela = '"+strNombreOriginal+"'", con);
-                comando.ExecuteNonQuery();
+                try
+                {
+                    SqlCommand comando = new SqlCommand("UPDATE ESCUELA SET NombreEscuela = '" + strNuevoNombre + "' WHERE NombreEscuela = '" + strNombreOriginal + "'", con);
+                    comando.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    throw new Exception("No es posible cambiarle el nombre a una escuela que ya tiene cursos registrados o ponerle el nombre de otra ya registrada.");
+                }
+                
             }
         }
 
@@ -51,7 +59,8 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                string strQuery = @"IF NOT(EXISTS(SELECT * FROM CURSO WHERE Activo = 1 AND NombreEscuela = '"+strNombreEscuela+"')) BEGIN INSERT INTO CURSO VALUES((SELECT COUNT(*) FROM CURSO) + 1, '"+strNombreEscuela+"', '"+FechaInicio.Year + "-" +FechaInicio.Day + "-" + FechaInicio.Month+ "', '" + FechaFinal.Year + "-" + FechaFinal.Day + "-" + FechaFinal.Month + "', 1) END ELSE RAISERROR('Ya existe un curso activo para este colegio. Debe finalizarlo.', 16, 1) ";
+                string strClave = FechaInicio.Month.ToString() + FechaFinal.Month.ToString() + new Random().Next(10, 500);
+                string strQuery = @"IF NOT(EXISTS(SELECT * FROM CURSO WHERE Activo = 1 AND NombreEscuela = '"+strNombreEscuela+"')) BEGIN INSERT INTO CURSO VALUES('"+strClave+"', '"+strNombreEscuela+"', '"+FechaInicio.Year + "-" +FechaInicio.Day + "-" + FechaInicio.Month+ "', '" + FechaFinal.Year + "-" + FechaFinal.Day + "-" + FechaFinal.Month + "', 1) END ELSE RAISERROR('Ya existe un curso activo para este colegio. Debe finalizarlo.', 16, 1) ";
                 SqlCommand comando = new SqlCommand(strQuery, con);
                 comando.ExecuteNonQuery();
             }
@@ -74,11 +83,11 @@ namespace PiensaAjedrez
             return unCurso;
         }
 
-        public static void ActualizarDatosCurso(string strNombreEscuela, string strNuevoNombreEscuela, DateTime FechaInicio, DateTime FechaFinal)
+        public static void ActualizarDatosCurso(string strNombreEscuela, DateTime FechaInicio, DateTime FechaFinal)
         {
             using (SqlConnection con = ObtenerConexion())
             {                
-                SqlCommand comando = new SqlCommand("UPDATE CURSO SET NombreEscuela = " + strNuevoNombreEscuela + ", InicioCurso = '" + FechaInicio.Year + "-" + FechaInicio.Day + "-" + FechaInicio.Month + "', FinCurso = '" + FechaFinal.Year + "-" + FechaFinal.Day + "-" + FechaFinal.Month + "', WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "'", con);
+                SqlCommand comando = new SqlCommand("UPDATE CURSO SET InicioCurso = '" + FechaInicio.Year + "-" + FechaInicio.Day + "-" + FechaInicio.Month + "', FinCurso = '" + FechaFinal.Year + "-" + FechaFinal.Day + "-" + FechaFinal.Month + "' WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "'", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -96,7 +105,8 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO ACTIVIDAD VALUES ((SELECT COUNT(*) FROM ACTIVIDAD), '"+strNombreActividad+"', (SELECT IDCurso FROM CURSO WHERE Activo = 1 AND NombreEscuela = '"+strNombreEscuela+"'))", con);
+                string strClave = strNombreEscuela.Substring(0,1) + strNombreActividad.Substring(0,1) + new Random().Next(10, 500);
+                SqlCommand comando = new SqlCommand("INSERT INTO ACTIVIDAD VALUES ('"+strClave+"', '"+strNombreActividad+"', (SELECT IDCurso FROM CURSO WHERE Activo = 1 AND NombreEscuela = '"+strNombreEscuela+"'))", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -141,10 +151,6 @@ namespace PiensaAjedrez
             }
             return Actividades;
         }
-
-        /*
-         * Cargar todas las actividades
-         * Cargar todos los cursos
-         */
+         
     }
 }
