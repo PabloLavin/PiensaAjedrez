@@ -46,5 +46,105 @@ namespace PiensaAjedrez
                 comando.ExecuteNonQuery();
             }
         }
+
+        public static void AgregarCurso(string strNombreEscuela, DateTime FechaInicio, DateTime FechaFinal)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                string strQuery = @"IF NOT(EXISTS(SELECT * FROM CURSO WHERE Activo = 1 AND NombreEscuela = '"+strNombreEscuela+"')) BEGIN INSERT INTO CURSO VALUES((SELECT COUNT(*) FROM CURSO) + 1, '"+strNombreEscuela+"', '"+FechaInicio.Year + "-" +FechaInicio.Day + "-" + FechaInicio.Month+ "', '" + FechaFinal.Year + "-" + FechaFinal.Day + "-" + FechaFinal.Month + "', 1) END ELSE RAISERROR('Ya existe un curso activo para este colegio. Debe finalizarlo.', 16, 1) ";
+                SqlCommand comando = new SqlCommand(strQuery, con);
+                comando.ExecuteNonQuery();
+            }
+        }
+
+        public static Cursos CargarCursoActivo(string strNombreEscuela)
+        {
+            Cursos unCurso = null;
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM CURSO WHERE Activo = 1 AND NombreEscuela ='"+strNombreEscuela+"'", con);
+                SqlDataReader curso = comando.ExecuteReader();
+                while (curso.Read())
+                {
+                    unCurso = new Cursos(curso.GetDateTime(2), curso.GetDateTime(3));
+                    unCurso.Clave = curso.GetString(0);                    
+                    unCurso.Activo = true;
+                }                    
+            }
+            return unCurso;
+        }
+
+        public static void ActualizarDatosCurso(string strNombreEscuela, string strNuevoNombreEscuela, DateTime FechaInicio, DateTime FechaFinal)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {                
+                SqlCommand comando = new SqlCommand("UPDATE CURSO SET NombreEscuela = " + strNuevoNombreEscuela + ", InicioCurso = '" + FechaInicio.Year + "-" + FechaInicio.Day + "-" + FechaInicio.Month + "', FinCurso = '" + FechaFinal.Year + "-" + FechaFinal.Day + "-" + FechaFinal.Month + "', WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "'", con);
+                comando.ExecuteNonQuery();
+            }
+        }
+
+        public static void FinalizarCurso(string strNombreEscuela)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {                
+                SqlCommand comando = new SqlCommand("UPDATE CURSO SET Activo = 0 WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "'", con);
+                comando.ExecuteNonQuery();
+            }
+        }
+
+        public static void AgregarActividad(string strNombreEscuela, string strNombreActividad)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("INSERT INTO ACTIVIDAD VALUES ((SELECT COUNT(*) FROM ACTIVIDAD), '"+strNombreActividad+"', (SELECT IDCurso FROM CURSO WHERE Activo = 1 AND NombreEscuela = '"+strNombreEscuela+"'))", con);
+                comando.ExecuteNonQuery();
+            }
+        }
+
+        public static void EliminarActividad(string strNombreEscuela, string strNombreActividad)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("DELETE FROM ACTIVIDAD WHERE Nombre = '"+strNombreActividad+"' AND IDCurso = (SELECT IDCurso FROM CURSO WHERE Activo = 1 AND NombreEscuela = '"+strNombreEscuela+"')", con);
+                comando.ExecuteNonQuery();
+            }
+        }
+
+
+        public static List<Cursos> CargarCursos(string strNombreEscuela)
+        {
+            List<Cursos> listaCursos = new List<Cursos>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM CURSO WHERE NombreEscuela ='" + strNombreEscuela + "'", con);
+                SqlDataReader curso = comando.ExecuteReader();
+                while (curso.Read())
+                {
+                    Cursos unCurso = new Cursos(curso.GetDateTime(2), curso.GetDateTime(3));
+                    unCurso.Clave = curso.GetString(0);                    
+                    unCurso.Activo = curso.GetInt16(4) == 1;
+                    listaCursos.Add(unCurso);
+                }
+            }
+            return listaCursos;
+        }
+
+        public static List<string> CargarActividades(string IDCurso)
+        {
+            List<string> Actividades = new List<string>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM ACTIVIDAD WHERE IDCurso = '" + IDCurso+"'", con);
+                SqlDataReader actividad = comando.ExecuteReader();
+                while (actividad.Read())                
+                    Actividades.Add(actividad.GetString(1));                
+            }
+            return Actividades;
+        }
+
+        /*
+         * Cargar todas las actividades
+         * Cargar todos los cursos
+         */
     }
 }
