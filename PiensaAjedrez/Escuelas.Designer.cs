@@ -383,6 +383,7 @@
             this.dgvListaActividades.TabIndex = 26;
             this.dgvListaActividades.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaActividades_CellClick);
             this.dgvListaActividades.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvListaActividades_CellMouseDown);
+            this.dgvListaActividades.Leave += new System.EventHandler(this.dgvListaActividades_Leave);
             // 
             // contextMenuStrip2
             // 

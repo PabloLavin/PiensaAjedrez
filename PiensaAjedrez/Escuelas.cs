@@ -125,6 +125,7 @@ namespace PiensaAjedrez
                 {
                     /*             
                     * Editar curso actually edits them.
+                    * Editar curso actually edits actividades.
                     */
                     btnFinalizarCurso.Visible = false;
                     foreach (Escuela miEscuela in listaEscuela)
@@ -344,7 +345,9 @@ namespace PiensaAjedrez
                             {
                                 if (miCurso.Equals(new Cursos(dgvCursos.CurrentRow.Cells[0].Value.ToString())))
                                 {
-                                    miCurso.listaActividades.Remove(dgvListaActividades.CurrentRow.Cells[0].Value.ToString());
+                                    string strNombreActividad = dgvListaActividades.CurrentRow.Cells[0].Value.ToString();
+                                    miCurso.listaActividades.Remove(strNombreActividad);
+                                    ConexionBD.EliminarActividad(miEscuela.Nombre,strNombreActividad);
                                     dgvListaActividades.Rows.Clear();
                                     foreach (string actividad in miCurso.listaActividades)
                                     {
@@ -356,7 +359,7 @@ namespace PiensaAjedrez
                     }
                 }
                 else
-                {
+                {                    
                     dgvListaActividades.Rows.Remove(dgvListaActividades.CurrentRow);
                 }
             }
@@ -366,9 +369,13 @@ namespace PiensaAjedrez
         {
             if (e.Button == MouseButtons.Right)
             {
+                tsEliminarActividad.Enabled = true;
+                tsEliminarActividad.Visible = true;
+                contextMenuStrip2.Visible = true;
+                contextMenuStrip2.Enabled = true;
                 dgvListaActividades.CurrentCell = dgvListaActividades.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 dgvListaActividades.Rows[e.RowIndex].Selected = true;
-                dgvListaActividades.Focus();
+                dgvListaActividades.Focus();                
             }
         }
 
@@ -467,6 +474,14 @@ namespace PiensaAjedrez
                 dgvCursosPasados.Rows[e.RowIndex].Selected = true;
                 dgvCursosPasados.Focus();
             }
+        }
+
+        private void dgvListaActividades_Leave(object sender, EventArgs e)
+        {
+            tsEliminarActividad.Enabled = false;
+            tsEliminarActividad.Visible = false;
+            contextMenuStrip2.Visible = false;
+            contextMenuStrip2.Enabled = false;
         }
     }
 }
