@@ -172,6 +172,7 @@
             this.btnEscuela.TabIndex = 5;
             this.btnEscuela.TabStop = false;
             this.btnEscuela.Zoom = 10;
+            
             // 
             // btnAgregarColegio
             // 

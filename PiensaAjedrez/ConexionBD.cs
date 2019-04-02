@@ -11,7 +11,7 @@ namespace PiensaAjedrez
     {
         public static SqlConnection ObtenerConexion()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=LA-DIVERTIDA; Initial Catalog = PIENSAJEDREZ; Server=LA-DIVERTIDA\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
+            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
             con.Open();
             return (con);
         }
@@ -60,7 +60,7 @@ namespace PiensaAjedrez
             using (SqlConnection con = ObtenerConexion())
             {
                 string strClave = FechaInicio.Month.ToString() + FechaFinal.Month.ToString() + new Random().Next(10, 500);
-                string strQuery = @"IF NOT(EXISTS(SELECT * FROM CURSO WHERE Activo = 1 AND NombreEscuela = '"+strNombreEscuela+"')) BEGIN INSERT INTO CURSO VALUES('"+strClave+"', '"+strNombreEscuela+"', '"+FechaInicio.Year + "-" +FechaInicio.Day + "-" + FechaInicio.Month+ "', '" + FechaFinal.Year + "-" + FechaFinal.Day + "-" + FechaFinal.Month + "', 1) END ELSE RAISERROR('Ya existe un curso activo para este colegio. Debe finalizarlo.', 16, 1) ";
+                string strQuery = @"IF NOT(EXISTS(SELECT * FROM CURSO WHERE Activo = 1 AND NombreEscuela = '"+strNombreEscuela+"')) BEGIN INSERT INTO CURSO VALUES('"+strClave+"', '"+strNombreEscuela+"', '"+FechaInicio.Year + "-" +FechaInicio.Month + "-" + FechaInicio.Day+ "', '" + FechaFinal.Year + "-" + FechaFinal.Month + "-" + FechaFinal.Day + "', 1) END ELSE RAISERROR('Ya existe un curso activo para este colegio. Debe finalizarlo.', 16, 1) ";
                 SqlCommand comando = new SqlCommand(strQuery, con);
                 comando.ExecuteNonQuery();
             }
@@ -87,7 +87,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {                
-                SqlCommand comando = new SqlCommand("UPDATE CURSO SET InicioCurso = '" + FechaInicio.Year + "-" + FechaInicio.Day + "-" + FechaInicio.Month + "', FinCurso = '" + FechaFinal.Year + "-" + FechaFinal.Day + "-" + FechaFinal.Month + "' WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "'", con);
+                SqlCommand comando = new SqlCommand("UPDATE CURSO SET InicioCurso = '" + FechaInicio.Year + "-" + FechaInicio.Month + "-" + FechaInicio.Day+ "', FinCurso = '" + FechaFinal.Year + "-" + FechaFinal.Month + "-" + FechaFinal.Day + "' WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "'", con);
                 comando.ExecuteNonQuery();
             }
         }

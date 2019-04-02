@@ -405,9 +405,9 @@ namespace PiensaAjedrez
                         foreach (Cursos miCurso in miEscuela.listaCursos)
                         {
                             if (miCurso.Equals(miEscuela.CursoActivo))
-                            {                        
-                                miCurso.FinCurso = DateTime.Today.AddDays(5);
-                                miEscuela.CursoActivo = miCurso;
+                            {
+                                    ConexionBD.ActualizarDatosCurso(miEscuela.Nombre, miCurso.InicioCursos, DateTime.Today.AddDays(5));
+                                    miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
                             }
                         }
                         MessageBox.Show("Curso extendido.");
@@ -459,5 +459,25 @@ namespace PiensaAjedrez
             contextMenuStrip2.Visible = false;
             contextMenuStrip2.Enabled = false;
         }
+
+
+        ////PruebaIntensivaBaseDeDatos
+        //void ProbarBase()
+        //{
+        //    List<int> lista = new List<int>();
+        //    int a = 0;
+        //    for (int i = 0; i < 120; i++)
+        //    {
+                
+        //        ConexionBD.AgregarEscuela("BAYBAY"+Convert.ToString(i));
+
+
+        //    }
+        //}
+
+        //private void btnEscuela_Click(object sender, EventArgs e)
+        //{
+        //    ProbarBase();
+        //}
     }
 }
