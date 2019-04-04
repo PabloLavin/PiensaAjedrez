@@ -129,6 +129,7 @@ namespace PiensaAjedrez
                     foreach (string miActividad in otraEscuela.CursoActivo.listaActividades)
                     {
                         dgvAlumnos.Columns.Add(miActividad, miActividad);
+                        dgvAlumnos.Columns.Add(miActividad, miActividad);
                     }
                 }
             }
@@ -459,8 +460,9 @@ namespace PiensaAjedrez
 
                             if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: " + miAlumno.Nombre + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nMes: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString(), "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                             {
-                                ConexionBD.AgregarPago(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), false), miAlumno);
-                                EnviarCorreo(miAlumno, new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), true));
+                                Pagos unPago = new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), false);
+                                ConexionBD.AgregarPago(unPago, miAlumno);
+                                EnviarCorreo(miAlumno, unPago);
                                 miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre); 
                                 if(miEscuela.CursoActivo!=null)
                                 if (lblMesAPagar.Text.Equals("Inscripcion"))
@@ -512,12 +514,15 @@ namespace PiensaAjedrez
             try
             {
                 Correo.EnviarCorreo(Correo.CrearCorreo(miAlumno, miPago, intCaso));
-                ConexionBD.ConfirmarEnvioCorreo(miPago);                
+                miPago.Notificado = true;
+                ConexionBD.ConfirmarEnvioCorreo(miPago);
+                  
+               
             }
             catch (Exception x)
             {
                 MessageBox.Show(x.Message);
-                foreach (Pagos pagos in ConexionBD.CargarPagosAlumno(miAlumno.Nombre))
+                foreach (Pagos pagos in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
                 {
                     if (pagos.Equals(miPago))
                     {

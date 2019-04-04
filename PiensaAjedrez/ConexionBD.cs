@@ -234,7 +234,7 @@ namespace PiensaAjedrez
             List<Pagos> listaPagos = new List<Pagos>();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT * FROM PAGO where NumeroControl = '"+strNumeroControl+"'", con);
+                SqlCommand comando = new SqlCommand("SELECT * FROM PAGO WHERE NumeroControl = '"+strNumeroControl+"'", con);
                 SqlDataReader pagos = comando.ExecuteReader();
                 while (pagos.Read())
                     listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4),double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt32(7)==1?true:false)));
