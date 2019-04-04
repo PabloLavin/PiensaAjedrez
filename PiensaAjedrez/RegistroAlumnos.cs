@@ -79,11 +79,6 @@ namespace PiensaAjedrez
 
         }
 
-        private void bunifuCards1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Alumno miAlumno = new Alumno();
@@ -408,9 +403,7 @@ namespace PiensaAjedrez
         {
             LimpiarControles();
             
-        }
-
-      
+        }     
 
 
         private int counter;
@@ -443,8 +436,8 @@ namespace PiensaAjedrez
 
         private void txtFiltonombre_OnValueChanged(object sender, EventArgs e)
         {
-                dgvAlumnos.Rows.Clear();
-                foreach (Alumno miAlumno in listaAlumnos)
+                dgvAlumnos.Rows.Clear();                
+                foreach (Alumno miAlumno in ConexionBD.CargarAlumnosFiltrados(new Filtro()))
                 {
                     if (miAlumno.Nombre.Contains(txtFiltonombre.Text))
                     {
@@ -542,7 +535,7 @@ namespace PiensaAjedrez
             btnCancelar.Visible = false;
             dgvAlumnos.Focus();
         }
-
+            
         private void btnLimpiar_Click_1(object sender, EventArgs e)
         {
             LimpiarControles();
@@ -668,6 +661,27 @@ namespace PiensaAjedrez
                     return i;
             }
             return -1;
+        }
+
+        private void Filtrar()
+        {
+            Filtro unFiltro = new Filtro();
+            unFiltro.Activos = chkActivo.Checked;
+            unFiltro.Correo = chkCorreo.Checked;
+            unFiltro.Escuela = chkEscuela.Checked;
+            unFiltro.Fecha = chkFechaNacimiento.Checked;
+            unFiltro.Nombre = chkNombre.Checked;
+            unFiltro.ValorCorreo = txtFiltroCorreo.Text;
+            unFiltro.ValorEscuela = cboFiltroEscuela.selectedValue;
+            unFiltro.ValorFecha = new DateTime(int.Parse(txtFiltroAño.Text), (int)cbMes.SelectedValue, (int)cbDia.SelectedValue);
+            unFiltro.ValorNombre = txtFiltonombre.Text;
+
+            dgvAlumnos.Rows.Clear();
+            foreach (Alumno miAlumno in ConexionBD.CargarAlumnosFiltrados(unFiltro))
+            {
+                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
+            }
+
         }
     }
 }
