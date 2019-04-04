@@ -13,7 +13,7 @@ namespace PiensaAjedrez
     public partial class RegistroAlumnos : UserControl
     {
 
-       public static List<Alumno> listaAlumnos = new List<Alumno>();
+        public static List<Alumno> listaAlumnos = ConexionBD.CargarAlumnos();
         public RegistroAlumnos()
         {
             
@@ -106,16 +106,17 @@ namespace PiensaAjedrez
                 {
                     btnCancelar.Visible = false;
                     miAlumno.NumeroDeControl = lblnumerocontrol.Text;
-                    listaAlumnos.Remove(miAlumno);
+                    ConexionBD.EditarAlumno(miAlumno.NumeroDeControl, miAlumno);
+                    return;
                 }
-                listaAlumnos.Add(miAlumno);
-                foreach (Escuela miEscuela in Escuelas.listaEscuela)
+                ConexionBD.AgregarAlumno(miAlumno);
+                foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
                 {
                     if (cbEscuelas.selectedValue==miEscuela.Nombre)
                     {
                         if (btnAgregar.ButtonText == "Editar")
                             miEscuela.listaAlumno.Remove(miAlumno);
-                        miEscuela.listaAlumno.Add(miAlumno);
+                        //miEscuela.listaAlumno.Add(miAlumno);
                         if(miAlumno.Activo)
                             if (miEscuela.CursoActivo != null)
                             {
@@ -150,7 +151,7 @@ namespace PiensaAjedrez
         void MostrarDatos()
         {
             dgvAlumnos.Rows.Clear();
-            foreach (Alumno miAlumno in listaAlumnos)
+            foreach (Alumno miAlumno in ConexionBD.CargarAlumnos())
             {
                 dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo)?"Si":"No"), miAlumno.Tutor);
             }
@@ -372,7 +373,7 @@ namespace PiensaAjedrez
         {
             contextMenuStrip1.Enabled = true;
             tsEliminarAlumno.Visible = true;
-            foreach (Alumno alumnos in listaAlumnos)
+            foreach (Alumno alumnos in ConexionBD.CargarAlumnos())
             {
                 if (alumnos.NumeroDeControl== dgvAlumnos.CurrentRow.Cells[0].Value.ToString())
                 {

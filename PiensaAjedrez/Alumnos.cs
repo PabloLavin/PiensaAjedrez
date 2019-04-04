@@ -85,6 +85,18 @@ namespace PiensaAjedrez
 
         }
 
+        public Alumno(string strNroControl, string strNombre, string strEscuela, DateTime dtmFechaNacimiento, string strTelefono, string strCorreo, int intActivo, string strTutor)
+        {
+            NumeroDeControl = strNroControl;
+            Nombre = strNombre;
+            Escuela = strEscuela;
+            FechaNacimiento = dtmFechaNacimiento;
+            Telefono = strTelefono;
+            Correo = strCorreo;
+            Activo= (intActivo==1) ? true:false;
+            Tutor = strTutor;
+        }
+
         public Alumno(string strNumeroControl)
         {
             _strNumeroDeControl = strNumeroControl;

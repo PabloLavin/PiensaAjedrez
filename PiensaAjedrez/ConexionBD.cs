@@ -151,6 +151,40 @@ namespace PiensaAjedrez
             }
             return Actividades;
         }
-         
+
+        #region Alumnos
+        public static void AgregarAlumno(Alumno unAlumno)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("INSERT INTO ALUMNO VALUES ('" + unAlumno.NumeroDeControl + "','" + unAlumno.Nombre + "','" + unAlumno.Escuela + "', '" + unAlumno.FechaNacimiento.Year + "-" + unAlumno.FechaNacimiento.Month + "-" + unAlumno.FechaNacimiento.Day + "', '" + unAlumno.Telefono + "', '" + unAlumno.Correo + "', '" + (unAlumno.Activo ? "1" : "0") + "', '" + unAlumno.Tutor + "')", con);
+                comando.ExecuteNonQuery();
+            }
+        }
+
+        public static List<Alumno> CargarAlumnos()
+        {
+            List<Alumno> listaAlumnos = new List<Alumno>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO", con);
+                SqlDataReader alumnos = comando.ExecuteReader();
+                while (alumnos.Read())
+                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), DateTime.Parse(alumnos.GetString(3)), alumnos.GetString(4), alumnos.GetString(5), int.Parse(alumnos.GetString(6)), alumnos.GetString(7)));
+            }
+            return listaAlumnos;
+        }
+
+        public static void EditarAlumno(string strNroControl, Alumno unAlumno)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                
+                    SqlCommand comando = new SqlCommand("UPDATE ALUMNO SET Nombre = '" + unAlumno.Nombre + "', NombreEscuela = '" + unAlumno.Escuela+ "', FechaNacimiento = '" + unAlumno.FechaNacimiento.Year + "-" + unAlumno.FechaNacimiento.Month + "-" + unAlumno.FechaNacimiento.Day + "', Telefono = '" + unAlumno.Telefono + "', Correo = '" + unAlumno.Correo + "', Activo = '" + (unAlumno.Activo?"1":"0") + "', Tutor = '" + unAlumno.Tutor + "'  WHERE NumeroControl = '" + strNroControl + "'", con);
+                    comando.ExecuteNonQuery();
+            }
+        }
+        #endregion
+
     }
 }
