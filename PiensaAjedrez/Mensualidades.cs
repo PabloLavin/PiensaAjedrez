@@ -129,7 +129,6 @@ namespace PiensaAjedrez
                     foreach (string miActividad in otraEscuela.CursoActivo.listaActividades)
                     {
                         dgvAlumnos.Columns.Add(miActividad, miActividad);
-                        dgvAlumnos.Columns.Add(miActividad, miActividad);
                     }
                 }
             }
@@ -192,10 +191,10 @@ namespace PiensaAjedrez
         private void txtFiltroNombre_OnValueChanged(object sender, EventArgs e)
         {
             dgvAlumnos.Rows.Clear();
-            foreach (Escuela miEscuela in Escuelas.listaEscuela)
+            foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
             {
                 if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
-                    foreach (Alumno miAlumno in miEscuela.listaAlumno)
+                    foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
                         if (miAlumno.Nombre.Contains(txtFiltroNombre.Text))
                         {
                             dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
@@ -234,7 +233,7 @@ namespace PiensaAjedrez
             {
                 txtFiltroNoCtrl.Enabled = false;
                 txtFiltroNoCtrl.LineIdleColor = Color.SkyBlue;
-                foreach (Escuela miEscuela in Escuelas.listaEscuela)
+                foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
                 {
                     if (cbEscuelas.selectedValue == miEscuela.Nombre)
                     {
@@ -252,15 +251,18 @@ namespace PiensaAjedrez
         private void txtFiltroNoCtrl_OnValueChanged(object sender, EventArgs e)
         {
             dgvAlumnos.Rows.Clear();
-            foreach (Escuela miEscuela in Escuelas.listaEscuela)
+            foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
             {
                 if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
-                    foreach (Alumno miAlumno in miEscuela.listaAlumno)
+                    foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
+                    {
+                        
                         if (miAlumno.NumeroDeControl.Contains(txtFiltroNoCtrl.Text))
                         {
                             dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
                             RellenarPagos(miAlumno);
                         }
+                    }
 
             }
         }
@@ -274,15 +276,18 @@ namespace PiensaAjedrez
                 {
                     if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
                         foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
+                        {
+                            dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
                             foreach (Pagos miPago in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
                             {
                                 if (miPago.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
                                 {
-                                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
+
                                     RellenarPagos(miAlumno);
                                 }
 
                             }
+                        }
 
                 }
             }
