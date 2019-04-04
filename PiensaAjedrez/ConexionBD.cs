@@ -254,6 +254,16 @@ namespace PiensaAjedrez
             }
             return listaPagos;
         }
+
+        public static void ConfirmarEnvioCorreo(Pagos unPago)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                int intNotificado = unPago.Notificado ? 1 : 0;
+                SqlCommand comando = new SqlCommand("UPDATE PAGO SET Notificado = "+intNotificado+" WHERE NumeroRecibo = '"+unPago.NumeroRecibo+"'", con);
+                comando.ExecuteNonQuery();
+            }
+        }
         #endregion
 
     }

@@ -189,7 +189,7 @@ namespace PiensaAjedrez
                             ObtenerMes(int.Parse(dgvAlumnos.CurrentCell.ColumnIndex.ToString()));
                             if (blnReenviar)
                             {
-                                foreach (Pagos miPago in miAlumno.listaPagos)
+                                foreach (Pagos miPago in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
                                 {
                                     if (miPago.MesPagado.Equals(lblMesAPagar.Text) && miPago.Monto.ToString("c").Equals(dgvAlumnos.CurrentCell.Value.ToString()))
                                     {
@@ -495,7 +495,7 @@ namespace PiensaAjedrez
                                 if (miAlumno.NumeroDeControl.Equals(Fila.Cells[0].Value.ToString()))
                                 {
                                     Fila.Cells[columna.Index].Value = miPagos.Monto.ToString("c");
-                                    Fila.Cells[columna.Index].Style.ForeColor = Color.Black;
+                                    Fila.Cells[columna.Index].Style.ForeColor = Color.Black;                                    
                                     if (miPagos.Notificado)
                                         Fila.Cells[columna.Index].Style.BackColor = Color.LightGreen;
                                     else
@@ -512,13 +512,7 @@ namespace PiensaAjedrez
             try
             {
                 Correo.EnviarCorreo(Correo.CrearCorreo(miAlumno, miPago, intCaso));
-                foreach (Pagos pagos in ConexionBD.CargarPagosAlumno(miAlumno.Nombre))
-                {
-                    if (pagos.Equals(miPago))
-                    {
-                        pagos.Notificado = true;
-                    }
-                }
+                ConexionBD.ConfirmarEnvioCorreo(miPago);                
             }
             catch (Exception x)
             {
@@ -528,9 +522,12 @@ namespace PiensaAjedrez
                     if (pagos.Equals(miPago))
                     {
                         pagos.Notificado = false;
+                        ConexionBD.ConfirmarEnvioCorreo(pagos);
                     }
                 }
             }
+            LlenarDGV(new Escuela(cbEscuelas.selectedValue));
+
         }
 
         private void btnRegistrarGasto_Click(object sender, EventArgs e)
