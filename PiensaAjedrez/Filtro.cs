@@ -86,14 +86,7 @@ namespace PiensaAjedrez
             get { return _strCorreo; }
             set { _strCorreo = value; }
         }
-
-        private bool _blnValorActivos;
-        public bool ValorActivos
-        {
-            get { return _blnValorActivos; }
-            set { _blnValorActivos = value; }
-        }
-
+        
         private string _strNoControl;
         public string ValorNoControl
         {

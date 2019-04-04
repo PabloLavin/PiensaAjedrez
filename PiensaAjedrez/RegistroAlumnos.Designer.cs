@@ -186,7 +186,6 @@
             this.bunifuCards1.ShadowDepth = 20;
             this.bunifuCards1.Size = new System.Drawing.Size(923, 257);
             this.bunifuCards1.TabIndex = 0;
-            this.bunifuCards1.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuCards1_Paint);
             // 
             // btnLimpiar
             // 
@@ -673,7 +672,7 @@
             this.lblFiltroActivo.ForeColor = System.Drawing.Color.Black;
             this.lblFiltroActivo.Location = new System.Drawing.Point(37, 222);
             this.lblFiltroActivo.Name = "lblFiltroActivo";
-            this.lblFiltroActivo.Size = new System.Drawing.Size(171, 21);
+            this.lblFiltroActivo.Size = new System.Drawing.Size(173, 19);
             this.lblFiltroActivo.TabIndex = 23;
             this.lblFiltroActivo.Text = "Sólo alumnos activos";
             // 
@@ -697,7 +696,7 @@
             this.lblFiltroEscuela.ForeColor = System.Drawing.Color.Black;
             this.lblFiltroEscuela.Location = new System.Drawing.Point(47, 100);
             this.lblFiltroEscuela.Name = "lblFiltroEscuela";
-            this.lblFiltroEscuela.Size = new System.Drawing.Size(69, 21);
+            this.lblFiltroEscuela.Size = new System.Drawing.Size(68, 19);
             this.lblFiltroEscuela.TabIndex = 15;
             this.lblFiltroEscuela.Text = "Escuela";
             // 
@@ -768,7 +767,7 @@
             "12"});
             this.cbMes.Location = new System.Drawing.Point(83, 147);
             this.cbMes.Name = "cbMes";
-            this.cbMes.Size = new System.Drawing.Size(36, 25);
+            this.cbMes.Size = new System.Drawing.Size(36, 24);
             this.cbMes.TabIndex = 20;
             this.cbMes.TextChanged += new System.EventHandler(this.cbMes_TextChanged);
             // 
@@ -817,7 +816,7 @@
             this.cbDia.Location = new System.Drawing.Point(42, 146);
             this.cbDia.MaxDropDownItems = 12;
             this.cbDia.Name = "cbDia";
-            this.cbDia.Size = new System.Drawing.Size(37, 25);
+            this.cbDia.Size = new System.Drawing.Size(37, 24);
             this.cbDia.TabIndex = 19;
             this.cbDia.TextChanged += new System.EventHandler(this.cbDia_TextChanged);
             // 
