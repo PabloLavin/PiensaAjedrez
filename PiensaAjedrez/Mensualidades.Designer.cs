@@ -652,6 +652,7 @@
             this.dgvAlumnos.Size = new System.Drawing.Size(923, 347);
             this.dgvAlumnos.TabIndex = 20;
             this.dgvAlumnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellClick);
+            this.dgvAlumnos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellDoubleClick);
             // 
             // bunifuCards3
             // 

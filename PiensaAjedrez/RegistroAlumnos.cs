@@ -60,7 +60,7 @@ namespace PiensaAjedrez
             dgvAlumnos.Columns[5].Width = 263;
             dgvAlumnos.Columns[1].Width = 250;
             dgvAlumnos.Columns[2].Width = 250;
-            lblnumerocontrol.Text = "19100000";
+            lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2)))+( int.Parse("100000") + (ConexionBD.CargarAlumnos().Count)).ToString());
             cbDia.SelectedIndex = 0;
             cbMes.SelectedIndex = 0;
             btnCancelar.BackgroundImageLayout = ImageLayout.Stretch;
@@ -96,7 +96,7 @@ namespace PiensaAjedrez
                     miAlumno.Tutor = txtTutor.Text;
                 if (btnAgregar.ButtonText=="Agregar")
                 {
-                    miAlumno.NumeroDeControl = ((int.Parse("19100000")) + (listaAlumnos.Count)).ToString();
+                    miAlumno.NumeroDeControl = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count)).ToString());
                 }
                 else
                 {
@@ -137,7 +137,7 @@ namespace PiensaAjedrez
                 LimpiarControles();
                 btnAgregado.Visible = true;
                 InitializeTimer();       
-                lblnumerocontrol.Text = ((int.Parse("19100000")) + (listaAlumnos.Count)).ToString();
+                lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count)).ToString());
                 btnAgregar.ButtonText = "Agregar";
                 contextMenuStrip1.Enabled = true;
                 tsEliminarAlumno.Visible = true;

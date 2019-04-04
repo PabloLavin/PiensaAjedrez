@@ -166,19 +166,13 @@ namespace PiensaAjedrez
 
         private void dgvAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            bool blnReenviar = false;
+            
             if (dgvAlumnos.CurrentRow == null)
             {
                 MessageBox.Show("Seleccione un alumno de la lista.");
                 return;
             }
-            if (dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.FromArgb(238,250,90)))
-            {
-                if (DialogResult.Yes == MessageBox.Show("¿Intentar de nuevo?", "Enviar correo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-                {
-                    blnReenviar = true;
-                }
-            }
+            
             foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
             {
                 if(miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
@@ -188,19 +182,8 @@ namespace PiensaAjedrez
                             lblNroControl.Text = miAlumno.NumeroDeControl;
                             lblNombre.Text = miAlumno.Nombre;
                             ObtenerMes(int.Parse(dgvAlumnos.CurrentCell.ColumnIndex.ToString()));
-                            if (blnReenviar)
-                            {
-                                foreach (Pagos miPago in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
-                                {
-                                    if (miPago.MesPagado.Equals(lblMesAPagar.Text) && miPago.Monto.ToString("c").Equals(dgvAlumnos.CurrentCell.Value.ToString()))
-                                    {
-                                        EnviarCorreo(miAlumno, miPago);
-                                        LlenarDGV(miEscuela);
-                                        Deshabilitar();
-                                    }
-
-                                }
-                            }
+                            if (dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.FromArgb(238, 250, 90)))
+                                 txtMonto.Text = dgvAlumnos.CurrentCell.Value.ToString().Substring(1);
                         }
             }
         }
@@ -546,6 +529,48 @@ namespace PiensaAjedrez
                         miEscuela.CursoActivo.TotalIngresos -= double.Parse(txtMontoAdicional.Text);
                     }
             }
+        }
+
+        private void dgvAlumnos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            bool blnReenviar = false;
+            if (dgvAlumnos.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un alumno de la lista.");
+                return;
+            }
+            if (dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.FromArgb(238, 250, 90)))
+            {
+                if (DialogResult.Yes == MessageBox.Show("¿Intentar de nuevo?", "Enviar correo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    blnReenviar = true;
+                }
+            }
+            foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
+            {
+                if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
+                    foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
+                        if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString())))
+                        {
+                            lblNroControl.Text = miAlumno.NumeroDeControl;
+                            lblNombre.Text = miAlumno.Nombre;
+                            ObtenerMes(int.Parse(dgvAlumnos.CurrentCell.ColumnIndex.ToString()));
+                            if (blnReenviar)
+                            {
+                                foreach (Pagos miPago in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
+                                {
+                                    if (miPago.MesPagado.Equals(lblMesAPagar.Text) && miPago.Monto.ToString("c").Equals(dgvAlumnos.CurrentCell.Value.ToString()))
+                                    {
+                                        EnviarCorreo(miAlumno, miPago);
+                                        LlenarDGV(miEscuela);
+                                        Deshabilitar();
+                                    }
+
+                                }
+                            }
+                        }
+            }
+
         }
     }
 }
