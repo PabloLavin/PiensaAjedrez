@@ -270,11 +270,11 @@ namespace PiensaAjedrez
             if (chkAño.Checked)
             {
                 dgvAlumnos.Rows.Clear();
-                foreach (Escuela miEscuela in Escuelas.listaEscuela)
+                foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
                 {
                     if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
-                        foreach (Alumno miAlumno in miEscuela.listaAlumno)
-                            foreach (Pagos miPago in miAlumno.listaPagos)
+                        foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
+                            foreach (Pagos miPago in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
                             {
                                 if (miPago.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
                                 {
@@ -300,7 +300,7 @@ namespace PiensaAjedrez
                 cbAño.Enabled = false;
                 cbAño.BackColor = Color.SkyBlue;
                 cbAño.Text = DateTime.Today.Year.ToString();
-                foreach (Escuela miEscuela in Escuelas.listaEscuela)
+                foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
                 {
                     if (cbEscuelas.selectedValue == miEscuela.Nombre)
                     {
