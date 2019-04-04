@@ -191,6 +191,19 @@ namespace PiensaAjedrez
                     comando.ExecuteNonQuery();
             }
         }
+        
+        public static List<Alumno> CargarAlumnosFiltrados(Filtro unFiltro) //Pendiente de agregar filtros
+        {
+            List<Alumno> listaAlumnos = new List<Alumno>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO " + unFiltro.ToString(), con);
+                SqlDataReader alumnos = comando.ExecuteReader();
+                while (alumnos.Read())
+                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7)));
+            }
+            return listaAlumnos;
+        }
         #endregion
 
         #region RegistroPago

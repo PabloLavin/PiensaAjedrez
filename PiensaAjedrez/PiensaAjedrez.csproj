@@ -63,6 +63,7 @@
     <Compile Include="Escuelas.Designer.cs">
       <DependentUpon>Escuelas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Filtro.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
