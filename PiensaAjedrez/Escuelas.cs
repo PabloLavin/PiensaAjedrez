@@ -417,11 +417,7 @@ namespace PiensaAjedrez
                     {
                         if (DialogResult.Yes == MessageBox.Show("¿Seguro que desea terminar el curso?", "Fin de curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
                         {
-                                foreach (Cursos cursos in miEscuela.listaCursos)
-                                {
-                                    if (cursos.Equals(miEscuela.CursoActivo))
-                                        cursos.Activo = false;
-                                }
+                            ConexionBD.FinalizarCurso(miEscuela.Nombre);
                             miEscuela.CursoActivo = null;
                             MessageBox.Show("Curso finalizado.");
                             FillDgv(miEscuela);
@@ -459,25 +455,5 @@ namespace PiensaAjedrez
             contextMenuStrip2.Visible = false;
             contextMenuStrip2.Enabled = false;
         }
-
-
-        ////PruebaIntensivaBaseDeDatos
-        //void ProbarBase()
-        //{
-        //    List<int> lista = new List<int>();
-        //    int a = 0;
-        //    for (int i = 0; i < 120; i++)
-        //    {
-                
-        //        ConexionBD.AgregarEscuela("BAYBAY"+Convert.ToString(i));
-
-
-        //    }
-        //}
-
-        //private void btnEscuela_Click(object sender, EventArgs e)
-        //{
-        //    ProbarBase();
-        //}
     }
 }
