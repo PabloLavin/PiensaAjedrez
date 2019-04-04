@@ -11,9 +11,16 @@ namespace PiensaAjedrez
     {
         public static SqlConnection ObtenerConexion()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
+            SqlConnection con = new SqlConnection(@"Data Source=LA-DIVERTIDA; Initial Catalog = PIENSAJEDREZ; Server=LA-DIVERTIDA\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
+            //SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
             con.Open();
             return (con);
+        }
+
+        public static string FormatearFecha(DateTime unaFecha)
+        {
+            return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month; //Formato de Pablo
+            //return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day; //Formato de los WWEYES
         }
 
         public static void AgregarEscuela(string strEscuela)
@@ -49,7 +56,7 @@ namespace PiensaAjedrez
                 }
                 catch (Exception)
                 {
-                    throw new Exception("No es posible cambiarle el nombre a una escuela que ya tiene cursos registrados o ponerle el nombre de otra ya registrada.");
+                    throw new Exception("No es posible cambiarle el nombre a una escuela que:\n1. Ya tiene alumnos registrados.\n 2.Ya tiene cursos registrados. \n3.Está por asignarle el nombre de otra escuela existente.");
                 }
                 
             }
@@ -60,7 +67,7 @@ namespace PiensaAjedrez
             using (SqlConnection con = ObtenerConexion())
             {
                 string strClave = FechaInicio.Month.ToString() + FechaFinal.Month.ToString() + new Random().Next(10, 500);
-                string strQuery = @"IF NOT(EXISTS(SELECT * FROM CURSO WHERE Activo = 1 AND NombreEscuela = '"+strNombreEscuela+"')) BEGIN INSERT INTO CURSO VALUES('"+strClave+"', '"+strNombreEscuela+"', '"+FechaInicio.Year + "-" +FechaInicio.Month + "-" + FechaInicio.Day+ "', '" + FechaFinal.Year + "-" + FechaFinal.Month + "-" + FechaFinal.Day + "', 1) END ELSE RAISERROR('Ya existe un curso activo para este colegio. Debe finalizarlo.', 16, 1) ";
+                string strQuery = @"IF NOT(EXISTS(SELECT * FROM CURSO WHERE Activo = 1 AND NombreEscuela = '"+strNombreEscuela+"')) BEGIN INSERT INTO CURSO VALUES('"+strClave+"', '"+strNombreEscuela+"', '"+FormatearFecha(FechaInicio)+ "', '" + FormatearFecha(FechaFinal) + "', 1) END ELSE RAISERROR('Ya existe un curso activo para este colegio. Debe finalizarlo.', 16, 1) ";
                 SqlCommand comando = new SqlCommand(strQuery, con);
                 comando.ExecuteNonQuery();
             }
@@ -87,7 +94,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {                
-                SqlCommand comando = new SqlCommand("UPDATE CURSO SET InicioCurso = '" + FechaInicio.Year + "-" + FechaInicio.Month + "-" + FechaInicio.Day+ "', FinCurso = '" + FechaFinal.Year + "-" + FechaFinal.Month + "-" + FechaFinal.Day + "' WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "'", con);
+                SqlCommand comando = new SqlCommand("UPDATE CURSO SET InicioCurso = '" + FormatearFecha(FechaInicio)+ "', FinCurso = '" + FormatearFecha(FechaFinal) + "' WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "'", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -157,7 +164,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO ALUMNO VALUES ('" + unAlumno.NumeroDeControl + "','" + unAlumno.Nombre + "','" + unAlumno.Escuela + "', '" + unAlumno.FechaNacimiento.Year + "-" + unAlumno.FechaNacimiento.Month + "-" + unAlumno.FechaNacimiento.Day + "', '" + unAlumno.Telefono + "', '" + unAlumno.Correo + "', '" + (unAlumno.Activo ? "1" : "0") + "', '" + unAlumno.Tutor + "')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO ALUMNO VALUES ('" + unAlumno.NumeroDeControl + "','" + unAlumno.Nombre + "','" + unAlumno.Escuela + "', '" + FormatearFecha(unAlumno.FechaNacimiento)+ "', '" + unAlumno.Telefono + "', '" + unAlumno.Correo + "', '" + (unAlumno.Activo ? "1" : "0") + "', '" + unAlumno.Tutor + "')", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -170,7 +177,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO", con);
                 SqlDataReader alumnos = comando.ExecuteReader();
                 while (alumnos.Read())
-                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), DateTime.Parse(alumnos.GetString(3)), alumnos.GetString(4), alumnos.GetString(5), int.Parse(alumnos.GetString(6)), alumnos.GetString(7)));
+                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7)));
             }
             return listaAlumnos;
         }
@@ -180,7 +187,7 @@ namespace PiensaAjedrez
             using (SqlConnection con = ObtenerConexion())
             {
                 
-                    SqlCommand comando = new SqlCommand("UPDATE ALUMNO SET Nombre = '" + unAlumno.Nombre + "', NombreEscuela = '" + unAlumno.Escuela+ "', FechaNacimiento = '" + unAlumno.FechaNacimiento.Year + "-" + unAlumno.FechaNacimiento.Month + "-" + unAlumno.FechaNacimiento.Day + "', Telefono = '" + unAlumno.Telefono + "', Correo = '" + unAlumno.Correo + "', Activo = '" + (unAlumno.Activo?"1":"0") + "', Tutor = '" + unAlumno.Tutor + "'  WHERE NumeroControl = '" + strNroControl + "'", con);
+                    SqlCommand comando = new SqlCommand("UPDATE ALUMNO SET Nombre = '" + unAlumno.Nombre + "', NombreEscuela = '" + unAlumno.Escuela+ "', FechaNacimiento = '" + FormatearFecha(unAlumno.FechaNacimiento)+ "', Telefono = '" + unAlumno.Telefono + "', Correo = '" + unAlumno.Correo + "', Activo = '" + (unAlumno.Activo?"1":"0") + "', Tutor = '" + unAlumno.Tutor + "'  WHERE NumeroControl = '" + strNroControl + "'", con);
                     comando.ExecuteNonQuery();
             }
         }

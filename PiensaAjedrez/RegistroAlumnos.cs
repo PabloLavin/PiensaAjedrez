@@ -68,12 +68,13 @@ namespace PiensaAjedrez
             contextMenuStrip1.Enabled = false;
             tsEliminarAlumno.Visible = false;
             dgvAlumnos.MultiSelect = false;
-            foreach (Escuela miEscuela in Escuelas.listaEscuela)
+            foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
             {
                 cbEscuelas.AddItem(miEscuela.Nombre);
                 cboFiltroEscuela.AddItem(miEscuela.Nombre);
             }
-           
+            if (ConexionBD.CargarEscuelas().Count > 0)
+                cbEscuelas.selectedIndex = 0;
             MostrarDatos();
 
         }
@@ -107,6 +108,7 @@ namespace PiensaAjedrez
                     btnCancelar.Visible = false;
                     miAlumno.NumeroDeControl = lblnumerocontrol.Text;
                     ConexionBD.EditarAlumno(miAlumno.NumeroDeControl, miAlumno);
+                    MostrarDatos();
                     return;
                 }
                 ConexionBD.AgregarAlumno(miAlumno);
