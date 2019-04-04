@@ -11,16 +11,16 @@ namespace PiensaAjedrez
     {
         public static SqlConnection ObtenerConexion()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=LA-DIVERTIDA; Initial Catalog = PIENSAJEDREZ; Server=LA-DIVERTIDA\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
-            //SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
+            //SqlConnection con = new SqlConnection(@"Data Source=LA-DIVERTIDA; Initial Catalog = PIENSAJEDREZ; Server=LA-DIVERTIDA\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
+            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
             con.Open();
             return (con);
         }
 
         public static string FormatearFecha(DateTime unaFecha)
         {
-            return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month; //Formato de Pablo
-            //return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day; //Formato de los WWEYES
+           /* return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month;*/ //Formato de Pablo
+            return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day; //Formato de los WWEYES
         }
 
         public static void AgregarEscuela(string strEscuela)
@@ -190,6 +190,56 @@ namespace PiensaAjedrez
                     SqlCommand comando = new SqlCommand("UPDATE ALUMNO SET Nombre = '" + unAlumno.Nombre + "', NombreEscuela = '" + unAlumno.Escuela+ "', FechaNacimiento = '" + FormatearFecha(unAlumno.FechaNacimiento)+ "', Telefono = '" + unAlumno.Telefono + "', Correo = '" + unAlumno.Correo + "', Activo = '" + (unAlumno.Activo?"1":"0") + "', Tutor = '" + unAlumno.Tutor + "'  WHERE NumeroControl = '" + strNroControl + "'", con);
                     comando.ExecuteNonQuery();
             }
+        }
+        #endregion
+
+        #region RegistroPago
+        public static List<Alumno> CargarAlumnos(string strNombreEscuela)
+        {
+            List<Alumno> listaAlumnos = new List<Alumno>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO where NombreEscuela = '"+strNombreEscuela+"'", con);
+                SqlDataReader alumnos = comando.ExecuteReader();
+                while (alumnos.Read())
+                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7)));
+            }
+            return listaAlumnos;
+        }
+
+        public static void AgregarPago(Pagos unPago, Alumno unAlumno)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("INSERT INTO PAGO VALUES ('"+unPago.NumeroRecibo+ "', '" + unAlumno.NumeroDeControl + "', '" + unPago.Monto + "', '" + unPago.MesPagado + "', '" + FormatearFecha(unPago.FechayHora) + "', '" + unPago.MetodoPago + "', '" + unPago.Nota + "', '" + (unPago.Notificado?1:0) + "')", con);
+                comando.ExecuteNonQuery();
+            }
+        }
+
+        public static List<Pagos> CargarPagosAlumno(string strNumeroControl)
+        {
+            List<Pagos> listaPagos = new List<Pagos>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM PAGO where NumeroControl = '"+strNumeroControl+"'", con);
+                SqlDataReader pagos = comando.ExecuteReader();
+                while (pagos.Read())
+                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4),double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt32(7)==1?true:false)));
+            }
+            return listaPagos;
+        }
+
+        public static List<Pagos> CargarPagos()
+        {
+            List<Pagos> listaPagos = new List<Pagos>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM PAGO ", con);
+                SqlDataReader pagos = comando.ExecuteReader();
+                while (pagos.Read())
+                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt32(7) == 1 ? true : false)));
+            }
+            return listaPagos;
         }
         #endregion
 

@@ -16,7 +16,7 @@ namespace PiensaAjedrez
         {
             InitializeComponent();
         }
-        List<Pagos> listaPagos = new List<Pagos>();
+        
         int intCaso = 1;
 
         private void Mensualidades_Load(object sender, EventArgs e)
@@ -27,7 +27,7 @@ namespace PiensaAjedrez
             btnAgregadoGasto.Visible = false;
 
             Deshabilitar();
-            foreach (Escuela miEscuela in Escuelas.listaEscuela)
+            foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
             {
                 cbEscuelas.AddItem(miEscuela.Nombre);
             }
@@ -119,7 +119,7 @@ namespace PiensaAjedrez
             dgvAlumnos.Columns.Clear();
             InicializarDGV();
             dgvAlumnos.Rows.Clear();
-
+            
             if (otraEscuela.CursoActivo != null)
             {
             lblcantidadinscripcion.Text = otraEscuela.CursoActivo.TotalInscripcion.ToString("c");
@@ -132,7 +132,7 @@ namespace PiensaAjedrez
                     }
                 }
             }
-            foreach (Alumno miAlumno in otraEscuela.listaAlumno)
+            foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(otraEscuela.Nombre))
             {
                 dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
                 RellenarPagos(miAlumno);
@@ -143,12 +143,13 @@ namespace PiensaAjedrez
         private void cbEscuelas_onItemSelected(object sender, EventArgs e)
         {
             if(Escuelas.listaEscuela.Count>0)
-            foreach (Escuela miEscuela in Escuelas.listaEscuela)
+            foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
             {
                 if (cbEscuelas.selectedValue == miEscuela.Nombre)
                 {
                     miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
                     miEscuela.CursoActivo.listaActividades = ConexionBD.CargarActividades(miEscuela.CursoActivo.Clave);
+                    
                     LlenarDGV(miEscuela);
                     Deshabilitar();
                         cbGastos.Enabled = true;
@@ -177,10 +178,10 @@ namespace PiensaAjedrez
                     blnReenviar = true;
                 }
             }
-            foreach (Escuela miEscuela in Escuelas.listaEscuela)
+            foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
             {
                 if(miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
-                    foreach (Alumno miAlumno in miEscuela.listaAlumno)
+                    foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
                         if(miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString())))
                         {
                             lblNroControl.Text = miAlumno.NumeroDeControl;
@@ -449,19 +450,18 @@ namespace PiensaAjedrez
 
         private void btnRegistroPago_Click(object sender, EventArgs e)
         {
-            foreach (Escuela miEscuela in Escuelas.listaEscuela)
+            foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
             {
                 if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
-                    foreach (Alumno miAlumno in miEscuela.listaAlumno)
+                    foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
                         if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString())))
                         {
 
                             if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: " + miAlumno.Nombre + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nMes: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString(), "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                             {
-                                miAlumno.listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), false));
+                                ConexionBD.AgregarPago(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), false), miAlumno);
                                 EnviarCorreo(miAlumno, new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), true));
-                                listaPagos.Add(new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), false));
-                                
+                                miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre); 
                                 if(miEscuela.CursoActivo!=null)
                                 if (lblMesAPagar.Text.Equals("Inscripcion"))
                                     miEscuela.CursoActivo.TotalInscripcion += double.Parse(txtMonto.Text);
@@ -478,12 +478,12 @@ namespace PiensaAjedrez
 
         string ObtenerClaveRecibo()
         {
-            return dtFechaPago.Value.Day.ToString()+ dtFechaPago.Value.Month.ToString()+ dtFechaPago.Value.Year.ToString() + ((int.Parse("1000")) + (listaPagos.Count)).ToString();
+            return dtFechaPago.Value.Day.ToString()+ dtFechaPago.Value.Month.ToString()+ dtFechaPago.Value.Year.ToString() + ((int.Parse("1000")) + (ConexionBD.CargarPagos().Count)).ToString();
         }
 
         void RellenarPagos(Alumno miAlumno)
         {
-            foreach (Pagos miPagos in miAlumno.listaPagos)
+            foreach (Pagos miPagos in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
             {
                 if (miPagos.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
                     foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
@@ -512,7 +512,7 @@ namespace PiensaAjedrez
             try
             {
                 Correo.EnviarCorreo(Correo.CrearCorreo(miAlumno, miPago, intCaso));
-                foreach (Pagos pagos in miAlumno.listaPagos)
+                foreach (Pagos pagos in ConexionBD.CargarPagosAlumno(miAlumno.Nombre))
                 {
                     if (pagos.Equals(miPago))
                     {
@@ -523,7 +523,7 @@ namespace PiensaAjedrez
             catch (Exception x)
             {
                 MessageBox.Show(x.Message);
-                foreach (Pagos pagos in miAlumno.listaPagos)
+                foreach (Pagos pagos in ConexionBD.CargarPagosAlumno(miAlumno.Nombre))
                 {
                     if (pagos.Equals(miPago))
                     {
@@ -535,7 +535,7 @@ namespace PiensaAjedrez
 
         private void btnRegistrarGasto_Click(object sender, EventArgs e)
         {
-            foreach (Escuela miEscuela in Escuelas.listaEscuela)
+            foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
             {
                 if (miEscuela.Equals(cbEscuelas.selectedValue.ToString()))
                     if (miEscuela.CursoActivo != null)

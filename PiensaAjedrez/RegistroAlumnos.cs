@@ -108,33 +108,36 @@ namespace PiensaAjedrez
                     btnCancelar.Visible = false;
                     miAlumno.NumeroDeControl = lblnumerocontrol.Text;
                     ConexionBD.EditarAlumno(miAlumno.NumeroDeControl, miAlumno);
+                    listaAlumnos.Sort();
+                    btnAgregar.ButtonText = "Agregar";
+                    btnAgregar.IdleFillColor = Color.FromArgb(59, 202, 192);
+                    LimpiarControles();
                     MostrarDatos();
                     return;
                 }
                 ConexionBD.AgregarAlumno(miAlumno);
-                foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
-                {
-                    if (cbEscuelas.selectedValue==miEscuela.Nombre)
-                    {
-                        if (btnAgregar.ButtonText == "Editar")
-                            miEscuela.listaAlumno.Remove(miAlumno);
-                        //miEscuela.listaAlumno.Add(miAlumno);
-                        if(miAlumno.Activo)
-                            if (miEscuela.CursoActivo != null)
-                            {
-                                miEscuela.CursoActivo.listaAlumnos.Add(miAlumno);
-                                foreach (Cursos miCurso in miEscuela.listaCursos)
-                                {
-                                    if (miCurso.Equals(miEscuela.CursoActivo) && miCurso.Activo)
-                                        miCurso.listaAlumnos.Add(miAlumno);
-                                }
-                            }
-                        miEscuela.listaAlumno.Sort();
-                    }
-                }
+                //foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
+                //{
+                //    if (cbEscuelas.selectedValue==miEscuela.Nombre)
+                //    {
+                //        if (btnAgregar.ButtonText == "Editar")
+                //            miEscuela.listaAlumno.Remove(miAlumno);
+                //        //miEscuela.listaAlumno.Add(miAlumno);
+                //        if(miAlumno.Activo)
+                //            if (miEscuela.CursoActivo != null)
+                //            {
+                //                miEscuela.CursoActivo.listaAlumnos.Add(miAlumno);
+                //                foreach (Cursos miCurso in miEscuela.listaCursos)
+                //                {
+                //                    if (miCurso.Equals(miEscuela.CursoActivo) && miCurso.Activo)
+                //                        miCurso.listaAlumnos.Add(miAlumno);
+                //                }
+                //            }
+                //        miEscuela.listaAlumno.Sort();
+                //    }
+                
 
-                if(btnAgregar.ButtonText=="Editar")
-                    listaAlumnos.Sort();
+                
                 MostrarDatos();
                 LimpiarControles();
                 btnAgregado.Visible = true;
