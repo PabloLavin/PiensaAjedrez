@@ -11,16 +11,16 @@ namespace PiensaAjedrez
     {
         public static SqlConnection ObtenerConexion()
         {
-            //SqlConnection con = new SqlConnection(@"Data Source=LA-DIVERTIDA; Initial Catalog = PIENSAJEDREZ; Server=LA-DIVERTIDA\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
-            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
+            SqlConnection con = new SqlConnection(@"Data Source=LA-DIVERTIDA; Initial Catalog = PIENSAJEDREZ; Server=LA-DIVERTIDA\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
+            //SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
             con.Open();
             return (con);
         }
 
         public static string FormatearFecha(DateTime unaFecha)
         {
-            //return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month;//Formato de Pablo
-            return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day; //Formato de los WWEYES
+            return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month;//Formato de Pablo
+            //return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day;   //Formato de los WWEYES
         }
 
         public static void AgregarEscuela(string strEscuela)
@@ -298,6 +298,14 @@ namespace PiensaAjedrez
             return dblTotalInscripciones;
         }
 
+        public static void RegistrarGasto(string strRazon, double dblMonto, string strNota, string strNombreEscuela, DateTime dtpFecha)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("INSERT INTO GASTO VALUES ((SELECT COUNT(*) + 1 FROM GASTO), '"+strRazon+"', "+dblMonto+", '"+strNota+"', '"+strNombreEscuela+"','"+FormatearFecha(dtpFecha)+"')", con);
+                comando.ExecuteNonQuery();
+            }
+        }
 
     }
 }

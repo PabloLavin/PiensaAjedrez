@@ -186,6 +186,7 @@
             this.bunifuCards1.Size = new System.Drawing.Size(923, 257);
             this.bunifuCards1.TabIndex = 0;
             this.bunifuCards1.TabStop = true;
+            this.bunifuCards1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             // 
             // btnLimpiar
             // 
@@ -229,6 +230,7 @@
             this.txtTutor.Size = new System.Drawing.Size(385, 33);
             this.txtTutor.TabIndex = 2;
             this.txtTutor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             // 
             // lblTutor
             // 
@@ -255,6 +257,7 @@
             this.cbEscuelas.selectedIndex = -1;
             this.cbEscuelas.Size = new System.Drawing.Size(382, 35);
             this.cbEscuelas.TabIndex = 1;
+            this.cbEscuelas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             // 
             // btnAgregado
             // 
@@ -303,9 +306,9 @@
             // 
             // chkActivo
             // 
-            this.chkActivo.BackColor = System.Drawing.Color.SkyBlue;
+            this.chkActivo.BackColor = System.Drawing.Color.LightSeaGreen;
             this.chkActivo.ChechedOffColor = System.Drawing.Color.SkyBlue;
-            this.chkActivo.Checked = false;
+            this.chkActivo.Checked = true;
             this.chkActivo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkActivo.ForeColor = System.Drawing.Color.White;
             this.chkActivo.Location = new System.Drawing.Point(507, 217);
@@ -313,7 +316,7 @@
             this.chkActivo.Size = new System.Drawing.Size(20, 20);
             this.chkActivo.TabIndex = 6;
             this.chkActivo.Click += new System.EventHandler(this.chkActivo_Click);
-            this.chkActivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckSpace);
+            this.chkActivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             // 
             // lblnumerocontrol
             // 
@@ -363,14 +366,6 @@
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             this.btnAgregar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
-            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
-            this.cbEscuelas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
-            this.txtTutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
-            this.dtFechaNacimiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
-            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
-            this.txtCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
-            this.chkActivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
-            this.bunifuCards1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             // 
             // dtFechaNacimiento
             // 
@@ -384,6 +379,7 @@
             this.dtFechaNacimiento.Size = new System.Drawing.Size(167, 36);
             this.dtFechaNacimiento.TabIndex = 3;
             this.dtFechaNacimiento.Value = new System.DateTime(2010, 9, 2, 0, 0, 0, 0);
+            this.dtFechaNacimiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             // 
             // txtCorreo
             // 
@@ -405,6 +401,7 @@
             this.txtCorreo.Text = "ejemplo@hotmail.com";
             this.txtCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCorreo.Enter += new System.EventHandler(this.txtCorreo_Enter);
+            this.txtCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             this.txtCorreo.Leave += new System.EventHandler(this.txtCorreo_Leave);
             this.txtCorreo.MouseEnter += new System.EventHandler(this.txtCorreo_MouseEnter);
             this.txtCorreo.MouseLeave += new System.EventHandler(this.txtCorreo_MouseLeave);
@@ -427,6 +424,7 @@
             this.txtTelefono.Size = new System.Drawing.Size(204, 33);
             this.txtTelefono.TabIndex = 4;
             this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             // 
             // txtNombre
             // 
@@ -446,6 +444,7 @@
             this.txtNombre.Size = new System.Drawing.Size(385, 33);
             this.txtNombre.TabIndex = 0;
             this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             // 
             // lblCorreo
             // 
@@ -683,7 +682,7 @@
             this.lblFiltroActivo.ForeColor = System.Drawing.Color.Black;
             this.lblFiltroActivo.Location = new System.Drawing.Point(37, 222);
             this.lblFiltroActivo.Name = "lblFiltroActivo";
-            this.lblFiltroActivo.Size = new System.Drawing.Size(171, 21);
+            this.lblFiltroActivo.Size = new System.Drawing.Size(173, 19);
             this.lblFiltroActivo.TabIndex = 23;
             this.lblFiltroActivo.Text = "Sólo alumnos activos";
             // 
@@ -707,7 +706,7 @@
             this.lblFiltroEscuela.ForeColor = System.Drawing.Color.Black;
             this.lblFiltroEscuela.Location = new System.Drawing.Point(47, 100);
             this.lblFiltroEscuela.Name = "lblFiltroEscuela";
-            this.lblFiltroEscuela.Size = new System.Drawing.Size(69, 21);
+            this.lblFiltroEscuela.Size = new System.Drawing.Size(68, 19);
             this.lblFiltroEscuela.TabIndex = 15;
             this.lblFiltroEscuela.Text = "Escuela";
             // 
@@ -778,7 +777,7 @@
             "12"});
             this.cbMes.Location = new System.Drawing.Point(54, 146);
             this.cbMes.Name = "cbMes";
-            this.cbMes.Size = new System.Drawing.Size(51, 25);
+            this.cbMes.Size = new System.Drawing.Size(51, 24);
             this.cbMes.TabIndex = 20;
             this.cbMes.SelectedIndexChanged += new System.EventHandler(this.cbMes_SelectedIndexChanged);
             this.cbMes.TextChanged += new System.EventHandler(this.cbMes_TextChanged);
@@ -828,7 +827,7 @@
             this.cbDia.Location = new System.Drawing.Point(42, 146);
             this.cbDia.MaxDropDownItems = 12;
             this.cbDia.Name = "cbDia";
-            this.cbDia.Size = new System.Drawing.Size(37, 25);
+            this.cbDia.Size = new System.Drawing.Size(37, 24);
             this.cbDia.TabIndex = 19;
             this.cbDia.Visible = false;
             this.cbDia.TextChanged += new System.EventHandler(this.cbDia_TextChanged);

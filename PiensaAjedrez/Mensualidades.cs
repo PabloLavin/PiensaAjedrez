@@ -43,6 +43,8 @@ namespace PiensaAjedrez
                 cbAño.Items.Add(Convert.ToString(i));
             }
             cbAño.Text = DateTime.Today.Year.ToString();
+            dtFechaPago.Value = DateTime.Now;
+            bnfdtpFechaGasto.Value = DateTime.Now;
         }
 
         void InicializarDGV()
@@ -153,7 +155,7 @@ namespace PiensaAjedrez
                         if (miEscuela.CursoActivo != null)
                         {
                             miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
-                            miEscuela.CursoActivo.listaActividades = ConexionBD.CargarActividades(miEscuela.CursoActivo.Clave);
+                            miEscuela.CursoActivo.listaActividades = ConexionBD.CargarActividades(miEscuela.CursoActivo.Clave);                            
                         }
                     
                     LlenarDGV(miEscuela);
@@ -164,8 +166,19 @@ namespace PiensaAjedrez
                         btnRegistrarGasto.Visible = true;
                         txtMotivo.LineIdleColor = Color.Teal;
                         txtMontoAdicional.LineIdleColor = Color.Teal;
+                        if (cbEscuelas.selectedValue.Length > 26)
+                        {
+                            lblEscuelaSeleccionada.Text = cbEscuelas.selectedValue.Substring(0, 25) + "..." ;
+                        }
+                        else
+                        {
+                            lblEscuelaSeleccionada.Text = cbEscuelas.selectedValue;
+                        }
+                        
                     }
-            }
+                    
+                }
+            
           
         }
 
@@ -536,16 +549,16 @@ namespace PiensaAjedrez
 
         private void btnRegistrarGasto_Click(object sender, EventArgs e)
         {
-            foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
+            /*try
+            {*/
+                ConexionBD.RegistrarGasto(cbGastos.selectedValue.ToString(),double.Parse(txtMontoAdicional.Text), txtNota.Text, cbEscuelas.selectedValue.ToString(), bnfdtpFechaGasto.Value);
+                MessageBox.Show("Gasto registrado con éxito.", "Registro de gasto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            /*}
+            catch (Exception)
             {
-                if (cbEscuelas.selectedIndex != -1)
-                    if (miEscuela.Equals(cbEscuelas.selectedValue.ToString()))
-                    if (miEscuela.CursoActivo != null)
-                    {
-                        miEscuela.CursoActivo.listaGastos.Add(new Gastos(cbGastos.selectedValue.ToString(), double.Parse(txtMontoAdicional.Text), txtMotivo.Text));
-                        miEscuela.CursoActivo.TotalIngresos -= double.Parse(txtMontoAdicional.Text);
-                    }
+                MessageBox.Show("Error al registrar gasto", "Error de registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+*/          
         }
 
         private void dgvAlumnos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

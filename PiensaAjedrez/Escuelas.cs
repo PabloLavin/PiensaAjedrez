@@ -50,6 +50,7 @@ namespace PiensaAjedrez
             MostrarDatos();
             dtmFinCurso.Value = DateTime.Today;
             dtmInicioCurso.Value = DateTime.Today;
+            bunifuCards2.Visible = false;
 
         }
 
@@ -179,6 +180,7 @@ namespace PiensaAjedrez
             if (dgvEscuelas.CurrentRow == null)
             {
                 MessageBox.Show("Seleccione una escuela de la lista.");
+                MostrarCursos(false);
                 return;
             }
             if (btnAgregarCurso.ButtonText == "Editar")
@@ -189,8 +191,9 @@ namespace PiensaAjedrez
                 dgvListaActividades.Rows.Clear();
             }
             dgvCursosPasados.Rows.Clear();
+            MostrarCursos(true);
             btnFinalizarCurso.Visible = false;
-            btnAgregarCurso.Visible = true;
+            btnAgregarCurso.Visible = true;            
             btnAgregarActividad.Enabled = true;
             btnAgregarColegio.ButtonText = "Editar";
             btnAgregarColegio.IdleFillColor = Color.Teal;
@@ -211,6 +214,7 @@ namespace PiensaAjedrez
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            MostrarCursos(false);
             txtNombreColegio.Text = "";
             btnAgregarColegio.ButtonText = "Agregar";
             btnAgregarColegio.IdleFillColor = Color.FromArgb(59, 202, 192);
@@ -475,5 +479,19 @@ namespace PiensaAjedrez
             }
         }
 
+        private void bunifuCards2_Enter(object sender, EventArgs e)
+        {
+            if (dgvEscuelas.CurrentRow == null)
+                MostrarCursos(false);
+            else
+                MostrarCursos(true);
+        }
+
+        private void MostrarCursos(bool blnEstado)
+        {
+            bunifuCards2.Visible = blnEstado;
+            dgvCursos.Visible = blnEstado;
+            dgvCursosPasados.Visible = blnEstado;
+        }
     }
 }
