@@ -11,12 +11,16 @@ namespace PiensaAjedrez
 {
     abstract class Correo
     {
+
+        public static string Usuario = "wweyes21@outlook.com";
+        public static string Contrasena = "KnightJopus21";
+
        static public void EnviarCorreo(MailMessage miCorreo)
         {
             SmtpClient client = new SmtpClient("smtp-mail.outlook.com", 587);
 
             client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential(miCorreo.From.ToString(), "KnightJopus21");
+            client.Credentials = new NetworkCredential(miCorreo.From.ToString(), Contrasena);
             int temp = System.Net.ServicePointManager.MaxServicePointIdleTime;
             System.Net.ServicePointManager.MaxServicePointIdleTime = 1;
             client.EnableSsl = true;
@@ -38,7 +42,7 @@ namespace PiensaAjedrez
             MailMessage mail = new MailMessage();
             mail.IsBodyHtml = true;            
             mail.AlternateViews.Add(ObtenerImagen(System.IO.Directory.GetCurrentDirectory() + @"\PiensaAjedrezLogo.png", miAlumno,miPago, intCaso));
-            mail.From = new MailAddress("wweyes21@outlook.com");
+            mail.From = new MailAddress(Usuario);
             mail.To.Add(miAlumno.Correo);
             mail.Subject = "Piensa Ajedrez | Pago de " + miPago.MesPagado + " realizado";
             return mail;

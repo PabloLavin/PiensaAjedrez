@@ -15,6 +15,8 @@ namespace PiensaAjedrez
         public Mensualidades()
         {
             InitializeComponent();
+            txtCorreoEnvios.Text = Correo.Usuario;
+            txtCorreoEnvios.Text = Correo.Contrasena;
         }
         
         int intCaso = 1;
@@ -501,6 +503,8 @@ namespace PiensaAjedrez
         {
             try
             {
+                Correo.Usuario = txtCorreoEnvios.Text;
+                Correo.Contrasena = txtPassword.Text;
                 Correo.EnviarCorreo(Correo.CrearCorreo(miAlumno, miPago, intCaso));
                 miPago.Notificado = true;
                 ConexionBD.ConfirmarEnvioCorreo(miPago);

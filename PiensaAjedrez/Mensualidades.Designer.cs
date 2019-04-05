@@ -79,6 +79,9 @@
             this.lblMotivo = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.bunifuCards4 = new Bunifu.Framework.UI.BunifuCards();
+            this.txtCorreoEnvios = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtPassword = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuCards2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).BeginInit();
             this.bunifuCards1.SuspendLayout();
@@ -87,6 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.bunifuCards3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
+            this.bunifuCards4.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuCards2
@@ -671,11 +675,11 @@
             this.bunifuCards3.Controls.Add(this.bunifuCustomLabel1);
             this.bunifuCards3.Controls.Add(this.bunifuImageButton1);
             this.bunifuCards3.LeftSahddow = false;
-            this.bunifuCards3.Location = new System.Drawing.Point(980, 297);
+            this.bunifuCards3.Location = new System.Drawing.Point(980, 413);
             this.bunifuCards3.Name = "bunifuCards3";
             this.bunifuCards3.RightSahddow = true;
             this.bunifuCards3.ShadowDepth = 20;
-            this.bunifuCards3.Size = new System.Drawing.Size(335, 347);
+            this.bunifuCards3.Size = new System.Drawing.Size(335, 231);
             this.bunifuCards3.TabIndex = 21;
             // 
             // btnAgregadoGasto
@@ -699,7 +703,7 @@
             this.btnAgregadoGasto.IconVisible = true;
             this.btnAgregadoGasto.IconZoom = 61D;
             this.btnAgregadoGasto.IsTab = false;
-            this.btnAgregadoGasto.Location = new System.Drawing.Point(277, 282);
+            this.btnAgregadoGasto.Location = new System.Drawing.Point(279, 188);
             this.btnAgregadoGasto.Name = "btnAgregadoGasto";
             this.btnAgregadoGasto.Normalcolor = System.Drawing.Color.Transparent;
             this.btnAgregadoGasto.OnHovercolor = System.Drawing.Color.Transparent;
@@ -722,7 +726,7 @@
             this.cbGastos.Items = new string[] {
         "Pago a colegio",
         "Gasto adicional"};
-            this.cbGastos.Location = new System.Drawing.Point(34, 104);
+            this.cbGastos.Location = new System.Drawing.Point(34, 62);
             this.cbGastos.Name = "cbGastos";
             this.cbGastos.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.cbGastos.onHoverColor = System.Drawing.Color.Teal;
@@ -748,7 +752,7 @@
             this.btnRegistrarGasto.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnRegistrarGasto.IdleForecolor = System.Drawing.Color.White;
             this.btnRegistrarGasto.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnRegistrarGasto.Location = new System.Drawing.Point(74, 273);
+            this.btnRegistrarGasto.Location = new System.Drawing.Point(78, 180);
             this.btnRegistrarGasto.Margin = new System.Windows.Forms.Padding(5);
             this.btnRegistrarGasto.Name = "btnRegistrarGasto";
             this.btnRegistrarGasto.Size = new System.Drawing.Size(185, 41);
@@ -761,7 +765,7 @@
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.Black;
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(211, 214);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(211, 142);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(18, 20);
             this.bunifuCustomLabel2.TabIndex = 41;
@@ -780,7 +784,7 @@
             this.txtMotivo.LineIdleColor = System.Drawing.Color.SkyBlue;
             this.txtMotivo.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
             this.txtMotivo.LineThickness = 4;
-            this.txtMotivo.Location = new System.Drawing.Point(34, 201);
+            this.txtMotivo.Location = new System.Drawing.Point(34, 133);
             this.txtMotivo.Margin = new System.Windows.Forms.Padding(4);
             this.txtMotivo.Name = "txtMotivo";
             this.txtMotivo.Size = new System.Drawing.Size(159, 33);
@@ -792,7 +796,7 @@
             this.lblMontoAdicional.AutoSize = true;
             this.lblMontoAdicional.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMontoAdicional.ForeColor = System.Drawing.Color.Black;
-            this.lblMontoAdicional.Location = new System.Drawing.Point(228, 177);
+            this.lblMontoAdicional.Location = new System.Drawing.Point(225, 111);
             this.lblMontoAdicional.Name = "lblMontoAdicional";
             this.lblMontoAdicional.Size = new System.Drawing.Size(58, 20);
             this.lblMontoAdicional.TabIndex = 39;
@@ -811,7 +815,7 @@
             this.txtMontoAdicional.LineIdleColor = System.Drawing.Color.SkyBlue;
             this.txtMontoAdicional.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
             this.txtMontoAdicional.LineThickness = 4;
-            this.txtMontoAdicional.Location = new System.Drawing.Point(229, 201);
+            this.txtMontoAdicional.Location = new System.Drawing.Point(229, 132);
             this.txtMontoAdicional.Margin = new System.Windows.Forms.Padding(4);
             this.txtMontoAdicional.Name = "txtMontoAdicional";
             this.txtMontoAdicional.Size = new System.Drawing.Size(66, 33);
@@ -823,7 +827,7 @@
             this.lblMotivo.AutoSize = true;
             this.lblMotivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMotivo.ForeColor = System.Drawing.Color.Black;
-            this.lblMotivo.Location = new System.Drawing.Point(30, 177);
+            this.lblMotivo.Location = new System.Drawing.Point(34, 111);
             this.lblMotivo.Name = "lblMotivo";
             this.lblMotivo.Size = new System.Drawing.Size(43, 20);
             this.lblMotivo.TabIndex = 37;
@@ -853,11 +857,70 @@
             this.bunifuImageButton1.TabStop = false;
             this.bunifuImageButton1.Zoom = 10;
             // 
+            // bunifuCards4
+            // 
+            this.bunifuCards4.BackColor = System.Drawing.Color.White;
+            this.bunifuCards4.BorderRadius = 5;
+            this.bunifuCards4.BottomSahddow = true;
+            this.bunifuCards4.color = System.Drawing.Color.Teal;
+            this.bunifuCards4.Controls.Add(this.txtCorreoEnvios);
+            this.bunifuCards4.Controls.Add(this.txtPassword);
+            this.bunifuCards4.LeftSahddow = false;
+            this.bunifuCards4.Location = new System.Drawing.Point(980, 297);
+            this.bunifuCards4.Name = "bunifuCards4";
+            this.bunifuCards4.RightSahddow = true;
+            this.bunifuCards4.ShadowDepth = 20;
+            this.bunifuCards4.Size = new System.Drawing.Size(332, 110);
+            this.bunifuCards4.TabIndex = 44;
+            // 
+            // txtCorreoEnvios
+            // 
+            this.txtCorreoEnvios.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCorreoEnvios.Enabled = false;
+            this.txtCorreoEnvios.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.txtCorreoEnvios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCorreoEnvios.HintForeColor = System.Drawing.Color.Empty;
+            this.txtCorreoEnvios.HintText = "";
+            this.txtCorreoEnvios.isPassword = false;
+            this.txtCorreoEnvios.LineFocusedColor = System.Drawing.Color.SkyBlue;
+            this.txtCorreoEnvios.LineIdleColor = System.Drawing.Color.SkyBlue;
+            this.txtCorreoEnvios.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
+            this.txtCorreoEnvios.LineThickness = 4;
+            this.txtCorreoEnvios.Location = new System.Drawing.Point(34, 13);
+            this.txtCorreoEnvios.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCorreoEnvios.Name = "txtCorreoEnvios";
+            this.txtCorreoEnvios.Size = new System.Drawing.Size(250, 33);
+            this.txtCorreoEnvios.TabIndex = 40;
+            this.txtCorreoEnvios.Text = "correoenvios@hotmail.com";
+            this.txtCorreoEnvios.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPassword.Enabled = false;
+            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtPassword.HintForeColor = System.Drawing.Color.Empty;
+            this.txtPassword.HintText = "";
+            this.txtPassword.isPassword = true;
+            this.txtPassword.LineFocusedColor = System.Drawing.Color.SkyBlue;
+            this.txtPassword.LineIdleColor = System.Drawing.Color.SkyBlue;
+            this.txtPassword.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
+            this.txtPassword.LineThickness = 4;
+            this.txtPassword.Location = new System.Drawing.Point(34, 54);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(250, 33);
+            this.txtPassword.TabIndex = 38;
+            this.txtPassword.Text = "passw0rd";
+            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
             // Mensualidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.Controls.Add(this.bunifuCards4);
             this.Controls.Add(this.bunifuCards3);
             this.Controls.Add(this.dgvAlumnos);
             this.Controls.Add(this.bunifuCards1);
@@ -876,6 +939,7 @@
             this.bunifuCards3.ResumeLayout(false);
             this.bunifuCards3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
+            this.bunifuCards4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -926,5 +990,8 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtMontoAdicional;
         private Bunifu.Framework.UI.BunifuCustomLabel lblMotivo;
         private Bunifu.Framework.UI.BunifuFlatButton btnAgregadoGasto;
+        private Bunifu.Framework.UI.BunifuCards bunifuCards4;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtCorreoEnvios;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtPassword;
     }
 }
