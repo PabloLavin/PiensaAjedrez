@@ -611,12 +611,13 @@ namespace PiensaAjedrez
 
         private void chkActivo_Click(object sender, EventArgs e)
         {
-            if (chkActivo.Checked)
-                chkActivo.Checked = false;
-            else
-                chkActivo.Checked = true;
+            
         }
         #endregion
+
+        private void chkActivo_OnChange(object sender, EventArgs e)
+        {
+        }
     }
 }
 
