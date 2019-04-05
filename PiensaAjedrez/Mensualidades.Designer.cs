@@ -876,7 +876,6 @@
             // txtCorreoEnvios
             // 
             this.txtCorreoEnvios.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCorreoEnvios.Enabled = false;
             this.txtCorreoEnvios.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.txtCorreoEnvios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtCorreoEnvios.HintForeColor = System.Drawing.Color.Empty;
@@ -897,7 +896,6 @@
             // txtPassword
             // 
             this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPassword.Enabled = false;
             this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtPassword.HintForeColor = System.Drawing.Color.Empty;

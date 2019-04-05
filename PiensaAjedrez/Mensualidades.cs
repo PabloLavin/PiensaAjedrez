@@ -16,7 +16,7 @@ namespace PiensaAjedrez
         {
             InitializeComponent();
             txtCorreoEnvios.Text = Correo.Usuario;
-            txtCorreoEnvios.Text = Correo.Contrasena;
+            txtPassword.Text = Correo.Contrasena;
         }
         
         int intCaso = 1;
