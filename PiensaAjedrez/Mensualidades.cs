@@ -212,8 +212,9 @@ namespace PiensaAjedrez
             {
                 txtFiltroNombre.Enabled = false;
                 txtFiltroNombre.LineIdleColor = Color.SkyBlue;
-                foreach (Escuela miEscuela in Escuelas.listaEscuela)
+                foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
                 {
+                    if(cbEscuelas.selectedIndex!=-1)
                     if (cbEscuelas.selectedValue == miEscuela.Nombre)
                     {
                         LlenarDGV(miEscuela);
@@ -237,10 +238,11 @@ namespace PiensaAjedrez
                 txtFiltroNoCtrl.LineIdleColor = Color.SkyBlue;
                 foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
                 {
-                    if (cbEscuelas.selectedValue == miEscuela.Nombre)
-                    {
+                    if (cbEscuelas.selectedIndex != -1)
+                        if (cbEscuelas.selectedValue == miEscuela.Nombre)
+                        {
                         LlenarDGV(miEscuela);
-                    }
+                        }
                 }
             }
             else
@@ -309,10 +311,11 @@ namespace PiensaAjedrez
                 cbAño.Text = DateTime.Today.Year.ToString();
                 foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
                 {
-                    if (cbEscuelas.selectedValue == miEscuela.Nombre)
-                    {
-                        LlenarDGV(miEscuela);
-                    }
+                    if (cbEscuelas.selectedIndex != -1)
+                        if (cbEscuelas.selectedValue == miEscuela.Nombre)
+                        {
+                            LlenarDGV(miEscuela);
+                        }
                 }
             }
         }
@@ -531,7 +534,8 @@ namespace PiensaAjedrez
         {
             foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
             {
-                if (miEscuela.Equals(cbEscuelas.selectedValue.ToString()))
+                if (cbEscuelas.selectedIndex != -1)
+                    if (miEscuela.Equals(cbEscuelas.selectedValue.ToString()))
                     if (miEscuela.CursoActivo != null)
                     {
                         miEscuela.CursoActivo.listaGastos.Add(new Gastos(cbGastos.selectedValue.ToString(), double.Parse(txtMontoAdicional.Text), txtMotivo.Text));

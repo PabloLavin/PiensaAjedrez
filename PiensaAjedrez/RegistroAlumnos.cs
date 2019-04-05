@@ -88,6 +88,12 @@ namespace PiensaAjedrez
                         miAlumno.Activo = true;
                     else
                         miAlumno.Activo = false;
+                if (txtNombre.Text == "")
+                {
+                    MessageBox.Show("No ha introducido ningún nombre.");
+                    return;
+                }
+
                     miAlumno.Nombre = txtNombre.Text;
                     miAlumno.Escuela = cbEscuelas.selectedValue;
                     miAlumno.FechaNacimiento = dtFechaNacimiento.Value;
