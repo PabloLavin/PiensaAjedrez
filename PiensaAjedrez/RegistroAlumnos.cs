@@ -129,7 +129,7 @@ namespace PiensaAjedrez
             }
             catch (Exception x)
             {
-                MessageBox.Show(x.Message);
+                MessageBox.Show("Compruebe que los datos ingresados sean correctos.", "Error al agregar un alumno",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 

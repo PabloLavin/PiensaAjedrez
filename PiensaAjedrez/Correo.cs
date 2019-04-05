@@ -11,11 +11,15 @@ namespace PiensaAjedrez
 {
     abstract class Correo
     {
+        public static string Usuario = "piensaajedrez@outlook.com";
+        public static string Contrasena = "123";
 
+        /*
         public static string Usuario = "wweyes21@outlook.com";
         public static string Contrasena = "KnightJopus21";
+        */
 
-       static public void EnviarCorreo(MailMessage miCorreo)
+        static public void EnviarCorreo(MailMessage miCorreo)
         {
             SmtpClient client = new SmtpClient("smtp-mail.outlook.com", 587);
 

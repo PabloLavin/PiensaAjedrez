@@ -19,7 +19,7 @@ namespace PiensaAjedrez
 
         public static string FormatearFecha(DateTime unaFecha)
         {
-           /* return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month;*/ //Formato de Pablo
+            //return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month;//Formato de Pablo
             return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day; //Formato de los WWEYES
         }
 
@@ -221,7 +221,7 @@ namespace PiensaAjedrez
         }
 
         public static void AgregarPago(Pagos unPago, Alumno unAlumno)
-        {
+        {            
             using (SqlConnection con = ObtenerConexion())
             {
                 SqlCommand comando = new SqlCommand("INSERT INTO PAGO VALUES ('"+unPago.NumeroRecibo+ "', '" + unAlumno.NumeroDeControl + "', '" + unPago.Monto + "', '" + unPago.MesPagado + "', '" + FormatearFecha(unPago.FechayHora) + "', '" + unPago.MetodoPago + "', '" + unPago.Nota + "', '" + (unPago.Notificado?1:0) + "')", con);
@@ -265,6 +265,39 @@ namespace PiensaAjedrez
             }
         }
         #endregion
+
+        public static double TotalMensualidades(string strNombreEscuela)
+        {
+            double dblTotalMensualidades = 0;
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM PAGO, ALUMNO, CURSO  WHERE PAGO.NumeroControl = ALUMNO.NumeroControl AND ALUMNO.NombreEscuela = CURSO.NombreEscuela  AND MesPagado != 'Inscripcion' AND CURSO.Activo = 1 AND CURSO.NombreEscuela = '"+strNombreEscuela+"' ", con);
+                SqlDataReader mensualidades = comando.ExecuteReader();
+                while (mensualidades.Read())
+                {
+                    if (!mensualidades.IsDBNull(0))                    
+                        dblTotalMensualidades = double.Parse(Convert.ToString(mensualidades.GetSqlMoney(0)));                    
+                }   
+            }
+            return dblTotalMensualidades;
+        }
+
+        public static double TotalInscripciones(string strNombreEscuela)
+        {
+            double dblTotalInscripciones = 0;
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM PAGO, ALUMNO, CURSO  WHERE PAGO.NumeroControl = ALUMNO.NumeroControl AND ALUMNO.NombreEscuela = CURSO.NombreEscuela  AND MesPagado = 'Inscripcion' AND CURSO.Activo = 1 AND CURSO.NombreEscuela = '" + strNombreEscuela + "' ", con);
+                SqlDataReader inscripciones = comando.ExecuteReader();
+                while (inscripciones.Read())
+                {
+                    if (!inscripciones.IsDBNull(0))
+                        dblTotalInscripciones = double.Parse(Convert.ToString(inscripciones.GetSqlMoney(0)));
+                }
+            }
+            return dblTotalInscripciones;
+        }
+
 
     }
 }

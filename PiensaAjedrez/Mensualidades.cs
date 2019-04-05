@@ -121,11 +121,17 @@ namespace PiensaAjedrez
             dgvAlumnos.Columns.Clear();
             InicializarDGV();
             dgvAlumnos.Rows.Clear();
-            
+            otraEscuela.CursoActivo = ConexionBD.CargarCursoActivo(otraEscuela.Nombre);
+            foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(otraEscuela.Nombre))
+            {
+                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
+                RellenarPagos(miAlumno);
+            }
+
             if (otraEscuela.CursoActivo != null)
             {
-            lblcantidadinscripcion.Text = otraEscuela.CursoActivo.TotalInscripcion.ToString("c");
-            lbltotalMensualidades.Text = otraEscuela.CursoActivo.TotalMensualidad.ToString("c");
+            lblcantidadinscripcion.Text = ConexionBD.TotalInscripciones(otraEscuela.Nombre).ToString("c");
+                lbltotalMensualidades.Text = ConexionBD.TotalMensualidades(otraEscuela.Nombre).ToString("c");
                 if (otraEscuela.CursoActivo.listaActividades.Count > 0)
                 {
                     foreach (string miActividad in otraEscuela.CursoActivo.listaActividades)
@@ -133,11 +139,6 @@ namespace PiensaAjedrez
                         dgvAlumnos.Columns.Add(miActividad, miActividad);
                     }
                 }
-            }
-            foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(otraEscuela.Nombre))
-            {
-                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
-                RellenarPagos(miAlumno);
             }
 
         }
@@ -519,7 +520,7 @@ namespace PiensaAjedrez
             }
             catch (Exception x)
             {
-                MessageBox.Show(x.Message);
+                MessageBox.Show("Ocurrió un error al intentar enviar un correo.\nCompruebe sus credenciales y la conexión a internet.\nSi el error persiste, intente más tarde.", "Error de conexión", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 foreach (Pagos pagos in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
                 {
                     if (pagos.Equals(miPago))
