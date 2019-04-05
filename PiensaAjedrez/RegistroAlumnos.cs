@@ -110,29 +110,7 @@ namespace PiensaAjedrez
                     MostrarDatos();
                     return;
                 }
-                ConexionBD.AgregarAlumno(miAlumno);
-                //foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
-                //{
-                //    if (cbEscuelas.selectedValue==miEscuela.Nombre)
-                //    {
-                //        if (btnAgregar.ButtonText == "Editar")
-                //            miEscuela.listaAlumno.Remove(miAlumno);
-                //        //miEscuela.listaAlumno.Add(miAlumno);
-                //        if(miAlumno.Activo)
-                //            if (miEscuela.CursoActivo != null)
-                //            {
-                //                miEscuela.CursoActivo.listaAlumnos.Add(miAlumno);
-                //                foreach (Cursos miCurso in miEscuela.listaCursos)
-                //                {
-                //                    if (miCurso.Equals(miEscuela.CursoActivo) && miCurso.Activo)
-                //                        miCurso.listaAlumnos.Add(miAlumno);
-                //                }
-                //            }
-                //        miEscuela.listaAlumno.Sort();
-                //    }
-                
-
-                
+                ConexionBD.AgregarAlumno(miAlumno); 
                 MostrarDatos();
                 LimpiarControles();
                 btnAgregado.Visible = true;
@@ -501,7 +479,7 @@ namespace PiensaAjedrez
             LimpiarControles();
             btnAgregar.ButtonText = "Agregar";
             btnAgregar.IdleFillColor = Color.FromArgb(59, 202, 192);
-            lblnumerocontrol.Text = ((int.Parse("19100000")) + (listaAlumnos.Count)).ToString();
+            lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count)).ToString());
             btnCancelar.Visible = false;
             dgvAlumnos.Focus();
         }
