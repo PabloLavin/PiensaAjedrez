@@ -59,6 +59,23 @@ namespace PiensaAjedrez
             set { _blnNumeroControl = value; }
         }
 
+        private bool _blnTelefono;
+
+        public bool Telefono
+        {
+            get { return _blnTelefono; }
+            set { _blnTelefono = value; }
+        }
+
+        private string _strTelefono;
+
+        public string ValorTelefono
+        {
+            get { return _strTelefono; }
+            set { _strTelefono = value; }
+        }
+
+
         private string _strNombre;
         public string ValorNombre
         {
@@ -99,47 +116,54 @@ namespace PiensaAjedrez
         {
             bool blnAnteriorExiste = false;
             string strConsulta = "";
-            if (Nombre || Escuela || Fecha || Correo || Activos || NumeroControl)
+            if (Nombre || Escuela || Fecha || Correo || Activos || NumeroControl || Telefono)
             {
                 strConsulta += " WHERE ";
                 if (Nombre)
                 {
-                    strConsulta += " Nombre = '" + ValorNombre + "' ";
+                    strConsulta += " Nombre LIKE '%" + ValorNombre + "%' ";
                     blnAnteriorExiste = true;
                 }                    
                 if (Escuela)
                 {
                     if (blnAnteriorExiste)
                         strConsulta += " AND ";
-                    strConsulta += " NombreEscuela = '" + ValorEscuela + "' ";
+                    strConsulta += " NombreEscuela LIKE '%" + ValorEscuela + "%' ";
                     blnAnteriorExiste = true;
                 }
                 if (Fecha)
                 {
                     if (blnAnteriorExiste)
                         strConsulta += " AND ";
-                    strConsulta += " MONTH(FechaNacimiento) = '" + ValorFecha.Month + "'  AND YEAR(FechaNacimiento) = '"+ValorFecha.Year+"' ";
+                    strConsulta += " MONTH(FechaNacimiento) = '" + ValorFecha.Month + "' AND YEAR(FechaNacimiento) = '"+ValorFecha.Year+"' ";
                     blnAnteriorExiste = true;
                 }
                 if (Correo)
                 {
                     if (blnAnteriorExiste)
                         strConsulta += " AND ";
-                    strConsulta += " Correo = '" + ValorCorreo + "' ";
+                    strConsulta += " Correo LIKE '%" + ValorCorreo + "%' ";
                     blnAnteriorExiste = true;
                 }
                 if (Activos)
                 {
                     if (blnAnteriorExiste)
                         strConsulta += " AND ";
-                    strConsulta += " Activo = " + 1 ;
+                    strConsulta += " Activo = 1 ";
                     blnAnteriorExiste = true;
                 }
                 if (NumeroControl)
                 {
                     if (blnAnteriorExiste)
                         strConsulta += " AND ";
-                    strConsulta += " NumeroControl = '" + ValorNoControl + "' ";
+                    strConsulta += " NumeroControl LIKE '%" + ValorNoControl + "%' ";
+                    blnAnteriorExiste = true;
+                }
+                if (Telefono)
+                {
+                    if (blnAnteriorExiste)
+                        strConsulta += " AND ";
+                    strConsulta += " Telefono LIKE '%" + ValorTelefono + "%' ";
                     blnAnteriorExiste = true;
                 }
             }

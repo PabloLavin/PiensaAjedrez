@@ -730,10 +730,10 @@
             this.txtFiltroAño.LineIdleColor = System.Drawing.Color.SkyBlue;
             this.txtFiltroAño.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
             this.txtFiltroAño.LineThickness = 3;
-            this.txtFiltroAño.Location = new System.Drawing.Point(126, 142);
+            this.txtFiltroAño.Location = new System.Drawing.Point(112, 142);
             this.txtFiltroAño.Margin = new System.Windows.Forms.Padding(4);
             this.txtFiltroAño.Name = "txtFiltroAño";
-            this.txtFiltroAño.Size = new System.Drawing.Size(40, 27);
+            this.txtFiltroAño.Size = new System.Drawing.Size(54, 27);
             this.txtFiltroAño.TabIndex = 21;
             this.txtFiltroAño.Text = "Año";
             this.txtFiltroAño.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -765,10 +765,11 @@
             "10",
             "11",
             "12"});
-            this.cbMes.Location = new System.Drawing.Point(83, 147);
+            this.cbMes.Location = new System.Drawing.Point(54, 146);
             this.cbMes.Name = "cbMes";
-            this.cbMes.Size = new System.Drawing.Size(36, 24);
+            this.cbMes.Size = new System.Drawing.Size(51, 24);
             this.cbMes.TabIndex = 20;
+            this.cbMes.SelectedIndexChanged += new System.EventHandler(this.cbMes_SelectedIndexChanged);
             this.cbMes.TextChanged += new System.EventHandler(this.cbMes_TextChanged);
             // 
             // cbDia
@@ -818,6 +819,7 @@
             this.cbDia.Name = "cbDia";
             this.cbDia.Size = new System.Drawing.Size(37, 24);
             this.cbDia.TabIndex = 19;
+            this.cbDia.Visible = false;
             this.cbDia.TextChanged += new System.EventHandler(this.cbDia_TextChanged);
             // 
             // lblfiltrar
