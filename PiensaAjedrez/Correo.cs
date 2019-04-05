@@ -36,8 +36,8 @@ namespace PiensaAjedrez
        static public MailMessage CrearCorreo(Alumno miAlumno, Pagos miPago, int intCaso)
         {
             MailMessage mail = new MailMessage();
-            mail.IsBodyHtml = true;
-            mail.AlternateViews.Add(ObtenerImagen("\\sistema ajedrez\\PiensaAjedrez\\PiensaAjedrez\\Properties\\PiensaAjedrezLogo.png", miAlumno,miPago, intCaso));
+            mail.IsBodyHtml = true;            
+            mail.AlternateViews.Add(ObtenerImagen(System.IO.Directory.GetCurrentDirectory() + @"\PiensaAjedrezLogo.png", miAlumno,miPago, intCaso));
             mail.From = new MailAddress("wweyes21@outlook.com");
             mail.To.Add(miAlumno.Correo);
             mail.Subject = "Piensa Ajedrez | Pago de " + miPago.MesPagado + " realizado";
