@@ -185,6 +185,7 @@
             this.bunifuCards1.ShadowDepth = 20;
             this.bunifuCards1.Size = new System.Drawing.Size(923, 257);
             this.bunifuCards1.TabIndex = 0;
+            this.bunifuCards1.TabStop = true;
             // 
             // btnLimpiar
             // 
@@ -226,7 +227,7 @@
             this.txtTutor.Margin = new System.Windows.Forms.Padding(4);
             this.txtTutor.Name = "txtTutor";
             this.txtTutor.Size = new System.Drawing.Size(385, 33);
-            this.txtTutor.TabIndex = 15;
+            this.txtTutor.TabIndex = 2;
             this.txtTutor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblTutor
@@ -253,7 +254,7 @@
             this.cbEscuelas.onHoverColor = System.Drawing.Color.Teal;
             this.cbEscuelas.selectedIndex = -1;
             this.cbEscuelas.Size = new System.Drawing.Size(382, 35);
-            this.cbEscuelas.TabIndex = 14;
+            this.cbEscuelas.TabIndex = 1;
             // 
             // btnAgregado
             // 
@@ -310,7 +311,9 @@
             this.chkActivo.Location = new System.Drawing.Point(507, 217);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(20, 20);
-            this.chkActivo.TabIndex = 9;
+            this.chkActivo.TabIndex = 6;
+            this.chkActivo.Click += new System.EventHandler(this.chkActivo_Click);
+            this.chkActivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckSpace);
             // 
             // lblnumerocontrol
             // 
@@ -356,9 +359,18 @@
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(5);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(185, 41);
-            this.btnAgregar.TabIndex = 5;
+            this.btnAgregar.TabIndex = 7;
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
+            this.cbEscuelas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
+            this.txtTutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
+            this.dtFechaNacimiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
+            this.txtCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
+            this.chkActivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
+            this.bunifuCards1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             // 
             // dtFechaNacimiento
             // 
@@ -370,7 +382,7 @@
             this.dtFechaNacimiento.Location = new System.Drawing.Point(214, 198);
             this.dtFechaNacimiento.Name = "dtFechaNacimiento";
             this.dtFechaNacimiento.Size = new System.Drawing.Size(167, 36);
-            this.dtFechaNacimiento.TabIndex = 4;
+            this.dtFechaNacimiento.TabIndex = 3;
             this.dtFechaNacimiento.Value = new System.DateTime(2010, 9, 2, 0, 0, 0, 0);
             // 
             // txtCorreo
@@ -389,7 +401,7 @@
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(265, 33);
-            this.txtCorreo.TabIndex = 3;
+            this.txtCorreo.TabIndex = 5;
             this.txtCorreo.Text = "ejemplo@hotmail.com";
             this.txtCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCorreo.Enter += new System.EventHandler(this.txtCorreo_Enter);
@@ -413,7 +425,7 @@
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(204, 33);
-            this.txtTelefono.TabIndex = 2;
+            this.txtTelefono.TabIndex = 4;
             this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNombre

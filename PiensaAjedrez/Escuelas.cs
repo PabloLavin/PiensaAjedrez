@@ -467,6 +467,13 @@ namespace PiensaAjedrez
             contextMenuStrip2.Enabled = false;
         }
 
-       
+        private void CheckEnter(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                    btnAgregarColegio_Click(sender, e);
+            }
+        }
+
     }
 }

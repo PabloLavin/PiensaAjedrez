@@ -112,6 +112,9 @@
             this.bunifuCards1.ShadowDepth = 20;
             this.bunifuCards1.Size = new System.Drawing.Size(631, 252);
             this.bunifuCards1.TabIndex = 0;
+            this.bunifuCards1.TabStop = true;
+            this.btnAgregarColegio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
+            this.txtNombreColegio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             // 
             // btnCancelar
             // 
@@ -195,7 +198,7 @@
             this.btnAgregarColegio.Margin = new System.Windows.Forms.Padding(5);
             this.btnAgregarColegio.Name = "btnAgregarColegio";
             this.btnAgregarColegio.Size = new System.Drawing.Size(124, 35);
-            this.btnAgregarColegio.TabIndex = 4;
+            this.btnAgregarColegio.TabIndex = 1;
             this.btnAgregarColegio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnAgregarColegio.Click += new System.EventHandler(this.btnAgregarColegio_Click);
             // 
@@ -226,7 +229,7 @@
             this.txtNombreColegio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombreColegio.Name = "txtNombreColegio";
             this.txtNombreColegio.Size = new System.Drawing.Size(404, 27);
-            this.txtNombreColegio.TabIndex = 2;
+            this.txtNombreColegio.TabIndex = 0;
             this.txtNombreColegio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblNombreColegio
@@ -265,7 +268,8 @@
             this.bunifuCards2.RightSahddow = true;
             this.bunifuCards2.ShadowDepth = 20;
             this.bunifuCards2.Size = new System.Drawing.Size(631, 252);
-            this.bunifuCards2.TabIndex = 5;
+            this.bunifuCards2.TabIndex = 1;
+            this.bunifuCards2.TabStop = true;
             // 
             // btnFinalizarCurso
             // 
@@ -328,7 +332,7 @@
             this.btnAgregarCurso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAgregarCurso.Name = "btnAgregarCurso";
             this.btnAgregarCurso.Size = new System.Drawing.Size(140, 35);
-            this.btnAgregarCurso.TabIndex = 4;
+            this.btnAgregarCurso.TabIndex = 3;
             this.btnAgregarCurso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnAgregarCurso.Click += new System.EventHandler(this.btnAgregarCurso_Click);
             // 
@@ -415,7 +419,7 @@
             this.txtActividad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtActividad.Name = "txtActividad";
             this.txtActividad.Size = new System.Drawing.Size(190, 27);
-            this.txtActividad.TabIndex = 23;
+            this.txtActividad.TabIndex = 2;
             this.txtActividad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnAgregarActividad
@@ -480,7 +484,7 @@
             this.dtmFinCurso.Location = new System.Drawing.Point(78, 96);
             this.dtmFinCurso.Name = "dtmFinCurso";
             this.dtmFinCurso.Size = new System.Drawing.Size(173, 29);
-            this.dtmFinCurso.TabIndex = 7;
+            this.dtmFinCurso.TabIndex = 1;
             this.dtmFinCurso.Value = new System.DateTime(2019, 3, 5, 10, 54, 35, 360);
             // 
             // lblInicioCurso
@@ -505,7 +509,7 @@
             this.dtmInicioCurso.Location = new System.Drawing.Point(78, 59);
             this.dtmInicioCurso.Name = "dtmInicioCurso";
             this.dtmInicioCurso.Size = new System.Drawing.Size(173, 29);
-            this.dtmInicioCurso.TabIndex = 5;
+            this.dtmInicioCurso.TabIndex = 0;
             this.dtmInicioCurso.Value = new System.DateTime(2019, 3, 5, 0, 0, 0, 0);
             // 
             // lblCurso

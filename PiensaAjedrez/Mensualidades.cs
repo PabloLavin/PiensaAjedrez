@@ -149,8 +149,11 @@ namespace PiensaAjedrez
             {
                 if (cbEscuelas.selectedValue == miEscuela.Nombre)
                 {
-                    miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
-                    miEscuela.CursoActivo.listaActividades = ConexionBD.CargarActividades(miEscuela.CursoActivo.Clave);
+                        if (miEscuela.CursoActivo != null)
+                        {
+                            miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
+                            miEscuela.CursoActivo.listaActividades = ConexionBD.CargarActividades(miEscuela.CursoActivo.Clave);
+                        }
                     
                     LlenarDGV(miEscuela);
                     Deshabilitar();

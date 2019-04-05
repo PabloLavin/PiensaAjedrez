@@ -291,7 +291,8 @@
             this.bunifuCards1.RightSahddow = true;
             this.bunifuCards1.ShadowDepth = 20;
             this.bunifuCards1.Size = new System.Drawing.Size(923, 257);
-            this.bunifuCards1.TabIndex = 19;
+            this.bunifuCards1.TabIndex = 0;
+            this.bunifuCards1.TabStop = true;
             // 
             // lbltotalMensualidades
             // 
@@ -364,7 +365,7 @@
             this.txtNota.Margin = new System.Windows.Forms.Padding(4);
             this.txtNota.Name = "txtNota";
             this.txtNota.Size = new System.Drawing.Size(132, 33);
-            this.txtNota.TabIndex = 31;
+            this.txtNota.TabIndex = 5;
             this.txtNota.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // lblMesAPagar
@@ -399,7 +400,7 @@
             this.dtFechaPago.Location = new System.Drawing.Point(459, 201);
             this.dtFechaPago.Name = "dtFechaPago";
             this.dtFechaPago.Size = new System.Drawing.Size(148, 28);
-            this.dtFechaPago.TabIndex = 28;
+            this.dtFechaPago.TabIndex = 4;
             this.toolTip1.SetToolTip(this.dtFechaPago, "Fecha de pago");
             this.dtFechaPago.Value = new System.DateTime(2019, 3, 12, 0, 0, 0, 0);
             // 
@@ -425,7 +426,7 @@
             this.btnRegistroPago.Margin = new System.Windows.Forms.Padding(5);
             this.btnRegistroPago.Name = "btnRegistroPago";
             this.btnRegistroPago.Size = new System.Drawing.Size(185, 41);
-            this.btnRegistroPago.TabIndex = 27;
+            this.btnRegistroPago.TabIndex = 6;
             this.btnRegistroPago.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnRegistroPago.Click += new System.EventHandler(this.btnRegistroPago_Click);
             // 
@@ -489,7 +490,7 @@
             this.cbMetodoPago.onHoverColor = System.Drawing.Color.Teal;
             this.cbMetodoPago.selectedIndex = 0;
             this.cbMetodoPago.Size = new System.Drawing.Size(122, 35);
-            this.cbMetodoPago.TabIndex = 23;
+            this.cbMetodoPago.TabIndex = 3;
             // 
             // lblMonto
             // 
@@ -518,7 +519,7 @@
             this.txtMonto.Margin = new System.Windows.Forms.Padding(4);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(66, 33);
-            this.txtMonto.TabIndex = 21;
+            this.txtMonto.TabIndex = 2;
             this.txtMonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // lblAlumno
@@ -604,7 +605,7 @@
             this.cbEscuelas.onHoverColor = System.Drawing.Color.Teal;
             this.cbEscuelas.selectedIndex = -1;
             this.cbEscuelas.Size = new System.Drawing.Size(319, 39);
-            this.cbEscuelas.TabIndex = 14;
+            this.cbEscuelas.TabIndex = 0;
             this.cbEscuelas.onItemSelected += new System.EventHandler(this.cbEscuelas_onItemSelected);
             // 
             // dgvAlumnos
@@ -654,7 +655,7 @@
             this.dgvAlumnos.RowTemplate.ReadOnly = true;
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvAlumnos.Size = new System.Drawing.Size(923, 347);
-            this.dgvAlumnos.TabIndex = 20;
+            this.dgvAlumnos.TabIndex = 1;
             this.dgvAlumnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellClick);
             this.dgvAlumnos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellDoubleClick);
             // 

@@ -61,6 +61,7 @@
             this.panTrabajo.Name = "panTrabajo";
             this.panTrabajo.Size = new System.Drawing.Size(1342, 649);
             this.panTrabajo.TabIndex = 0;
+            this.panTrabajo.TabStop = true;
             // 
             // Cerrar
             // 
@@ -160,7 +161,8 @@
             this.btnColegios.OnHoverTextColor = System.Drawing.Color.White;
             this.btnColegios.selected = false;
             this.btnColegios.Size = new System.Drawing.Size(264, 50);
-            this.btnColegios.TabIndex = 5;
+            this.btnColegios.TabIndex = 3;
+            this.btnColegios.TabStop = false;
             this.btnColegios.Text = "Colegios";
             this.btnColegios.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnColegios.Textcolor = System.Drawing.Color.White;
@@ -195,7 +197,7 @@
             this.btnDesconectar.OnHoverTextColor = System.Drawing.Color.White;
             this.btnDesconectar.selected = false;
             this.btnDesconectar.Size = new System.Drawing.Size(160, 50);
-            this.btnDesconectar.TabIndex = 4;
+            this.btnDesconectar.TabIndex = 1;
             this.btnDesconectar.Text = "Salir";
             this.btnDesconectar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnDesconectar.Textcolor = System.Drawing.Color.White;
@@ -230,7 +232,8 @@
             this.btnReportes.OnHoverTextColor = System.Drawing.Color.White;
             this.btnReportes.selected = false;
             this.btnReportes.Size = new System.Drawing.Size(312, 50);
-            this.btnReportes.TabIndex = 3;
+            this.btnReportes.TabIndex = 4;
+            this.btnReportes.TabStop = false;
             this.btnReportes.Text = "Estadisticas";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnReportes.Textcolor = System.Drawing.Color.White;
@@ -265,7 +268,8 @@
             this.btnRegistrar.OnHoverTextColor = System.Drawing.Color.White;
             this.btnRegistrar.selected = false;
             this.btnRegistrar.Size = new System.Drawing.Size(294, 50);
-            this.btnRegistrar.TabIndex = 1;
+            this.btnRegistrar.TabIndex = 2;
+            this.btnRegistrar.TabStop = false;
             this.btnRegistrar.Text = "Registrar alumnos";
             this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnRegistrar.Textcolor = System.Drawing.Color.White;
@@ -300,7 +304,8 @@
             this.btnMensualidades.OnHoverTextColor = System.Drawing.Color.White;
             this.btnMensualidades.selected = true;
             this.btnMensualidades.Size = new System.Drawing.Size(248, 50);
-            this.btnMensualidades.TabIndex = 0;
+            this.btnMensualidades.TabIndex = 1;
+            this.btnMensualidades.TabStop = false;
             this.btnMensualidades.Text = "Registro de pago";
             this.btnMensualidades.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnMensualidades.Textcolor = System.Drawing.Color.White;

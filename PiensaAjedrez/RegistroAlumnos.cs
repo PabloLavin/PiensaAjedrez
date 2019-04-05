@@ -18,6 +18,7 @@ namespace PiensaAjedrez
         {
             
             InitializeComponent();
+            
             txtNombre.Focus();
             btnCancelar.Visible = false;
             foreach (var ctl in txtFiltroAño.Controls)
@@ -591,6 +592,31 @@ namespace PiensaAjedrez
         {
             Filtrar();
         }
+        #region EventosTeclas
+        private void CheckEnter(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnAgregar_Click(sender, e);
+            }
+        }
+
+        private void CheckSpace(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+            {
+                chkActivo_Click(sender, e);
+            }
+        }
+
+        private void chkActivo_Click(object sender, EventArgs e)
+        {
+            if (chkActivo.Checked)
+                chkActivo.Checked = false;
+            else
+                chkActivo.Checked = true;
+        }
+        #endregion
     }
 }
 
