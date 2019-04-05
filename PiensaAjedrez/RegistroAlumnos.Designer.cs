@@ -107,7 +107,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAlumnos.ContextMenuStrip = this.contextMenuStrip1;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -672,7 +671,7 @@
             this.lblFiltroActivo.ForeColor = System.Drawing.Color.Black;
             this.lblFiltroActivo.Location = new System.Drawing.Point(37, 222);
             this.lblFiltroActivo.Name = "lblFiltroActivo";
-            this.lblFiltroActivo.Size = new System.Drawing.Size(173, 19);
+            this.lblFiltroActivo.Size = new System.Drawing.Size(171, 21);
             this.lblFiltroActivo.TabIndex = 23;
             this.lblFiltroActivo.Text = "Sólo alumnos activos";
             // 
@@ -696,7 +695,7 @@
             this.lblFiltroEscuela.ForeColor = System.Drawing.Color.Black;
             this.lblFiltroEscuela.Location = new System.Drawing.Point(47, 100);
             this.lblFiltroEscuela.Name = "lblFiltroEscuela";
-            this.lblFiltroEscuela.Size = new System.Drawing.Size(68, 19);
+            this.lblFiltroEscuela.Size = new System.Drawing.Size(69, 21);
             this.lblFiltroEscuela.TabIndex = 15;
             this.lblFiltroEscuela.Text = "Escuela";
             // 
@@ -767,7 +766,7 @@
             "12"});
             this.cbMes.Location = new System.Drawing.Point(54, 146);
             this.cbMes.Name = "cbMes";
-            this.cbMes.Size = new System.Drawing.Size(51, 24);
+            this.cbMes.Size = new System.Drawing.Size(51, 25);
             this.cbMes.TabIndex = 20;
             this.cbMes.SelectedIndexChanged += new System.EventHandler(this.cbMes_SelectedIndexChanged);
             this.cbMes.TextChanged += new System.EventHandler(this.cbMes_TextChanged);
@@ -817,7 +816,7 @@
             this.cbDia.Location = new System.Drawing.Point(42, 146);
             this.cbDia.MaxDropDownItems = 12;
             this.cbDia.Name = "cbDia";
-            this.cbDia.Size = new System.Drawing.Size(37, 24);
+            this.cbDia.Size = new System.Drawing.Size(37, 25);
             this.cbDia.TabIndex = 19;
             this.cbDia.Visible = false;
             this.cbDia.TextChanged += new System.EventHandler(this.cbDia_TextChanged);

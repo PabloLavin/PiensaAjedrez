@@ -221,6 +221,7 @@ namespace PiensaAjedrez
             dgvCursosPasados.Rows.Clear();
             btnCancelarCurso.Visible = false;
             btnFinalizarCurso.Visible = false;
+            dgvListaActividades.Rows.Clear();
             
         }
 
@@ -358,6 +359,11 @@ namespace PiensaAjedrez
         {
             if (e.Button == MouseButtons.Right)
             {
+                if (dgvListaActividades.CurrentRow == null)
+                {
+                    MessageBox.Show("Seleccione una actividad de la lista.");
+                    return;
+                }
                 tsEliminarActividad.Enabled = true;
                 tsEliminarActividad.Visible = true;
                 contextMenuStrip2.Visible = true;
@@ -370,6 +376,11 @@ namespace PiensaAjedrez
 
         private void dgvListaActividades_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgvListaActividades.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione una actividad de la lista.");
+                return;
+            }
             txtActividad.Text = dgvListaActividades.CurrentRow.Cells[0].Value.ToString();
         }
 
@@ -440,12 +451,12 @@ namespace PiensaAjedrez
 
         private void dgvCursosPasados_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                dgvCursosPasados.CurrentCell = dgvCursosPasados.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                dgvCursosPasados.Rows[e.RowIndex].Selected = true;
-                dgvCursosPasados.Focus();
-            }
+            //if (e.Button == MouseButtons.Right)
+            //{
+            //    dgvCursosPasados.CurrentCell = dgvCursosPasados.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            //    dgvCursosPasados.Rows[e.RowIndex].Selected = true;
+            //    dgvCursosPasados.Focus();
+            //}
         }
 
         private void dgvListaActividades_Leave(object sender, EventArgs e)
@@ -455,5 +466,7 @@ namespace PiensaAjedrez
             contextMenuStrip2.Visible = false;
             contextMenuStrip2.Enabled = false;
         }
+
+       
     }
 }

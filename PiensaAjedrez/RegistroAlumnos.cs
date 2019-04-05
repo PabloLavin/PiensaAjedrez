@@ -499,12 +499,17 @@ namespace PiensaAjedrez
 
         private void dgvAlumnos_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                dgvAlumnos.CurrentCell = dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                dgvAlumnos.Rows[e.RowIndex].Selected = true;
-                dgvAlumnos.Focus();
-            }
+            //if (dgvAlumnos.CurrentRow == null)
+            //{
+            //    MessageBox.Show("Seleccione un alumno de la lista.");
+            //    return;
+            //}
+            //if (e.Button == MouseButtons.Right)
+            //{
+            //    dgvAlumnos.CurrentCell = dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            //    dgvAlumnos.Rows[e.RowIndex].Selected = true;
+            //    dgvAlumnos.Focus();
+            //}
         }
 
         private void tsEliminarAlumno_Click(object sender, EventArgs e)

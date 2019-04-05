@@ -172,7 +172,6 @@
             this.btnEscuela.TabIndex = 5;
             this.btnEscuela.TabStop = false;
             this.btnEscuela.Zoom = 10;
-            
             // 
             // btnAgregarColegio
             // 
@@ -694,7 +693,6 @@
             dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCursosPasados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvCursosPasados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCursosPasados.ContextMenuStrip = this.contextMenuStrip1;
             dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
