@@ -27,6 +27,38 @@ namespace PiensaAjedrez
             set { _strNombre = value; }
         }
 
+        private string _strApellidoPaterno;
+
+        public string ApellidoPaterno
+        {
+            get { return _strApellidoPaterno; }
+            set { _strApellidoPaterno = value; }
+        }
+
+        private string _strApellidoMaterno;
+
+        public string ApellidoMaterno
+        {
+            get { return _strApellidoMaterno; }
+            set { _strApellidoMaterno = value; }
+        }
+
+        private string _strPadre;
+
+        public string Padre
+        {
+            get { return _strPadre; }
+            set { _strPadre = value; }
+        }
+
+        private int _intGrado;
+
+        public int Grado
+        {
+            get { return _intGrado; }
+            set { _intGrado = value; }
+        }
+
         private string _strEscuela;
 
         public string Escuela
@@ -85,7 +117,7 @@ namespace PiensaAjedrez
 
         }
 
-        public Alumno(string strNroControl, string strNombre, string strEscuela, DateTime dtmFechaNacimiento, string strTelefono, string strCorreo, int intActivo, string strTutor)
+        public Alumno(string strNroControl, string strNombre, string strEscuela, DateTime dtmFechaNacimiento, string strTelefono, string strCorreo, int intActivo, string strTutor, string strApellidoP, string strApellidoM, int intGrado, string strPadre)
         {
             NumeroDeControl = strNroControl;
             Nombre = strNombre;
@@ -95,6 +127,10 @@ namespace PiensaAjedrez
             Correo = strCorreo;
             Activo= (intActivo==1) ? true:false;
             Tutor = strTutor;
+            ApellidoPaterno = strApellidoP;
+            ApellidoMaterno = strApellidoM;
+            Padre = strPadre;
+            Grado = intGrado;
         }
 
         public Alumno(string strNumeroControl)

@@ -11,16 +11,16 @@ namespace PiensaAjedrez
     {
         public static SqlConnection ObtenerConexion()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=LA-DIVERTIDA; Initial Catalog = PIENSAJEDREZ; Server=LA-DIVERTIDA\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
-            //SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
+            //SqlConnection con = new SqlConnection(@"Data Source=LA-DIVERTIDA; Initial Catalog = PIENSAJEDREZ; Server=LA-DIVERTIDA\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
+            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
             con.Open();
             return (con);
         }
 
         public static string FormatearFecha(DateTime unaFecha)
         {
-            return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month;//Formato de Pablo
-            //return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day;   //Formato de los WWEYES
+            //return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month;//Formato de Pablo
+            return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day;   //Formato de los WWEYES
         }
 
         public static void AgregarEscuela(string strEscuela)
@@ -85,6 +85,7 @@ namespace PiensaAjedrez
                     unCurso = new Cursos(curso.GetDateTime(2), curso.GetDateTime(3));
                     unCurso.Clave = curso.GetString(0);                    
                     unCurso.Activo = true;
+                    unCurso.listaActividades=CargarActividades(unCurso.Clave);
                 }                    
             }
             return unCurso;
@@ -177,7 +178,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO", con);
                 SqlDataReader alumnos = comando.ExecuteReader();
                 while (alumnos.Read())
-                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7)));
+                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(1), alumnos.GetString(1), 1, alumnos.GetString(1)));
             }
             return listaAlumnos;
         }
@@ -200,7 +201,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO " + unFiltro.ToString(), con);
                 SqlDataReader alumnos = comando.ExecuteReader();
                 while (alumnos.Read())
-                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7)));
+                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(1), alumnos.GetString(1), 1, alumnos.GetString(1)));
             }
             return listaAlumnos;
         }
@@ -215,7 +216,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO where NombreEscuela = '"+strNombreEscuela+"'", con);
                 SqlDataReader alumnos = comando.ExecuteReader();
                 while (alumnos.Read())
-                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7)));
+                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(1), alumnos.GetString(1), 1, alumnos.GetString(1)));
             }
             return listaAlumnos;
         }
@@ -303,6 +304,32 @@ namespace PiensaAjedrez
             using (SqlConnection con = ObtenerConexion())
             {
                 SqlCommand comando = new SqlCommand("INSERT INTO GASTO VALUES ((SELECT COUNT(*) + 1 FROM GASTO), '"+strRazon+"', "+dblMonto+", '"+strNota+"', '"+strNombreEscuela+"','"+FormatearFecha(dtpFecha)+"')", con);
+                comando.ExecuteNonQuery();
+            }
+        }
+
+        public static double TotalGastos(string strNombreEscuela)
+        {
+            double dblTotalMensualidades = 0;
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM GASTO, ESCUELA  WHERE GASTO.NombreEscuela = '"+strNombreEscuela+"'", con);
+                SqlDataReader gastos = comando.ExecuteReader();
+                while (gastos.Read())
+                {
+                    if (!gastos.IsDBNull(0))
+                        dblTotalMensualidades = double.Parse(Convert.ToString(gastos.GetSqlMoney(0)));
+                }
+            }
+            return dblTotalMensualidades;
+        }
+
+        public static void EditarPago(Pagos unPago, bool blnLiquidado, string strNumeroControl, double dblMonto)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+
+                SqlCommand comando = new SqlCommand("UPDATE PAGO SET Monto= '" + unPago.Monto + "',  Liquidado = '" + (blnLiquidado?1:0) + "'  WHERE NumeroControl = '" + strNumeroControl + "' AND MesPagado = '"+unPago.MesPagado+"' AND Monto = '"+dblMonto+"'", con);
                 comando.ExecuteNonQuery();
             }
         }

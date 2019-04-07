@@ -29,19 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroAlumnos));
             this.dgvAlumnos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsEliminarAlumno = new System.Windows.Forms.ToolStripMenuItem();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
-            this.btnLimpiar = new System.Windows.Forms.PictureBox();
+            this.lblPadre = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtPadre = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtGrado = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.lblGrado = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnCancelar = new System.Windows.Forms.PictureBox();
-            this.txtTutor = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lblTutor = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lblApellidoM = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtApellidoM = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.lblApellidoP = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtApellidoP = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtTutor = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.lblNombre = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btnLimpiar = new System.Windows.Forms.PictureBox();
             this.cbEscuelas = new Bunifu.Framework.UI.BunifuDropdown();
             this.btnAgregado = new Bunifu.Framework.UI.BunifuFlatButton();
             this.lblActivo = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -57,7 +66,6 @@
             this.lblTelefono = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblFechaNacimiento = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblEscuela = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.lblNombre = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.chkNombre = new Bunifu.Framework.UI.BunifuCheckbox();
             this.chkEscuela = new Bunifu.Framework.UI.BunifuCheckbox();
             this.chkFechaNacimiento = new Bunifu.Framework.UI.BunifuCheckbox();
@@ -80,8 +88,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.bunifuCards1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnLimpiar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLimpiar)).BeginInit();
             this.bunifuCards2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).BeginInit();
             this.SuspendLayout();
@@ -92,29 +100,29 @@
             this.dgvAlumnos.AllowUserToDeleteRows = false;
             this.dgvAlumnos.AllowUserToResizeColumns = false;
             this.dgvAlumnos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvAlumnos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlumnos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.5F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvAlumnos.DoubleBuffered = true;
             this.dgvAlumnos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAlumnos.EnableHeadersVisualStyles = false;
@@ -126,9 +134,9 @@
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAlumnos.RowHeadersVisible = false;
             this.dgvAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
+            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvAlumnos.RowTemplate.Height = 25;
             this.dgvAlumnos.RowTemplate.ReadOnly = true;
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -158,10 +166,19 @@
             this.bunifuCards1.BorderRadius = 5;
             this.bunifuCards1.BottomSahddow = true;
             this.bunifuCards1.color = System.Drawing.Color.Teal;
-            this.bunifuCards1.Controls.Add(this.btnLimpiar);
+            this.bunifuCards1.Controls.Add(this.lblPadre);
+            this.bunifuCards1.Controls.Add(this.txtPadre);
+            this.bunifuCards1.Controls.Add(this.txtGrado);
+            this.bunifuCards1.Controls.Add(this.lblGrado);
             this.bunifuCards1.Controls.Add(this.btnCancelar);
-            this.bunifuCards1.Controls.Add(this.txtTutor);
             this.bunifuCards1.Controls.Add(this.lblTutor);
+            this.bunifuCards1.Controls.Add(this.lblApellidoM);
+            this.bunifuCards1.Controls.Add(this.txtApellidoM);
+            this.bunifuCards1.Controls.Add(this.lblApellidoP);
+            this.bunifuCards1.Controls.Add(this.txtApellidoP);
+            this.bunifuCards1.Controls.Add(this.txtTutor);
+            this.bunifuCards1.Controls.Add(this.lblNombre);
+            this.bunifuCards1.Controls.Add(this.btnLimpiar);
             this.bunifuCards1.Controls.Add(this.cbEscuelas);
             this.bunifuCards1.Controls.Add(this.btnAgregado);
             this.bunifuCards1.Controls.Add(this.lblActivo);
@@ -177,7 +194,6 @@
             this.bunifuCards1.Controls.Add(this.lblTelefono);
             this.bunifuCards1.Controls.Add(this.lblFechaNacimiento);
             this.bunifuCards1.Controls.Add(this.lblEscuela);
-            this.bunifuCards1.Controls.Add(this.lblNombre);
             this.bunifuCards1.LeftSahddow = false;
             this.bunifuCards1.Location = new System.Drawing.Point(27, 24);
             this.bunifuCards1.Name = "bunifuCards1";
@@ -187,18 +203,67 @@
             this.bunifuCards1.TabIndex = 0;
             this.bunifuCards1.TabStop = true;
             this.bunifuCards1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
+            this.bunifuCards1.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuCards1_Paint);
             // 
-            // btnLimpiar
+            // lblPadre
             // 
-            this.btnLimpiar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.BackgroundImage")));
-            this.btnLimpiar.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.InitialImage")));
-            this.btnLimpiar.Location = new System.Drawing.Point(874, 21);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(30, 32);
-            this.btnLimpiar.TabIndex = 18;
-            this.btnLimpiar.TabStop = false;
-            this.Cancelartt.SetToolTip(this.btnLimpiar, "Limpiar campos");
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click_1);
+            this.lblPadre.AutoSize = true;
+            this.lblPadre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPadre.ForeColor = System.Drawing.Color.Black;
+            this.lblPadre.Location = new System.Drawing.Point(20, 167);
+            this.lblPadre.Name = "lblPadre";
+            this.lblPadre.Size = new System.Drawing.Size(56, 20);
+            this.lblPadre.TabIndex = 26;
+            this.lblPadre.Text = "Padre";
+            // 
+            // txtPadre
+            // 
+            this.txtPadre.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPadre.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPadre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtPadre.HintForeColor = System.Drawing.Color.Empty;
+            this.txtPadre.HintText = "";
+            this.txtPadre.isPassword = false;
+            this.txtPadre.LineFocusedColor = System.Drawing.Color.SkyBlue;
+            this.txtPadre.LineIdleColor = System.Drawing.Color.Teal;
+            this.txtPadre.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
+            this.txtPadre.LineThickness = 3;
+            this.txtPadre.Location = new System.Drawing.Point(78, 156);
+            this.txtPadre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPadre.Name = "txtPadre";
+            this.txtPadre.Size = new System.Drawing.Size(308, 33);
+            this.txtPadre.TabIndex = 25;
+            this.txtPadre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtGrado
+            // 
+            this.txtGrado.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtGrado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGrado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtGrado.HintForeColor = System.Drawing.Color.Empty;
+            this.txtGrado.HintText = "";
+            this.txtGrado.isPassword = false;
+            this.txtGrado.LineFocusedColor = System.Drawing.Color.SkyBlue;
+            this.txtGrado.LineIdleColor = System.Drawing.Color.Teal;
+            this.txtGrado.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
+            this.txtGrado.LineThickness = 3;
+            this.txtGrado.Location = new System.Drawing.Point(473, 201);
+            this.txtGrado.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGrado.Name = "txtGrado";
+            this.txtGrado.Size = new System.Drawing.Size(74, 33);
+            this.txtGrado.TabIndex = 23;
+            this.txtGrado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblGrado
+            // 
+            this.lblGrado.AutoSize = true;
+            this.lblGrado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGrado.ForeColor = System.Drawing.Color.Black;
+            this.lblGrado.Location = new System.Drawing.Point(409, 213);
+            this.lblGrado.Name = "lblGrado";
+            this.lblGrado.Size = new System.Drawing.Size(59, 20);
+            this.lblGrado.TabIndex = 24;
+            this.lblGrado.Text = "Grado";
             // 
             // btnCancelar
             // 
@@ -212,10 +277,81 @@
             this.Cancelartt.SetToolTip(this.btnCancelar, "Cancelar edición");
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // lblTutor
+            // 
+            this.lblTutor.AutoSize = true;
+            this.lblTutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTutor.ForeColor = System.Drawing.Color.Black;
+            this.lblTutor.Location = new System.Drawing.Point(20, 213);
+            this.lblTutor.Name = "lblTutor";
+            this.lblTutor.Size = new System.Drawing.Size(51, 20);
+            this.lblTutor.TabIndex = 16;
+            this.lblTutor.Text = "Tutor";
+            // 
+            // lblApellidoM
+            // 
+            this.lblApellidoM.AutoSize = true;
+            this.lblApellidoM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellidoM.ForeColor = System.Drawing.Color.Black;
+            this.lblApellidoM.Location = new System.Drawing.Point(612, 61);
+            this.lblApellidoM.Name = "lblApellidoM";
+            this.lblApellidoM.Size = new System.Drawing.Size(97, 20);
+            this.lblApellidoM.TabIndex = 22;
+            this.lblApellidoM.Text = "Apellido M.";
+            // 
+            // txtApellidoM
+            // 
+            this.txtApellidoM.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtApellidoM.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellidoM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtApellidoM.HintForeColor = System.Drawing.Color.Empty;
+            this.txtApellidoM.HintText = "";
+            this.txtApellidoM.isPassword = false;
+            this.txtApellidoM.LineFocusedColor = System.Drawing.Color.SkyBlue;
+            this.txtApellidoM.LineIdleColor = System.Drawing.Color.Teal;
+            this.txtApellidoM.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
+            this.txtApellidoM.LineThickness = 4;
+            this.txtApellidoM.Location = new System.Drawing.Point(708, 53);
+            this.txtApellidoM.Margin = new System.Windows.Forms.Padding(4);
+            this.txtApellidoM.Name = "txtApellidoM";
+            this.txtApellidoM.Size = new System.Drawing.Size(169, 33);
+            this.txtApellidoM.TabIndex = 2;
+            this.txtApellidoM.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblApellidoP
+            // 
+            this.lblApellidoP.AutoSize = true;
+            this.lblApellidoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellidoP.ForeColor = System.Drawing.Color.Black;
+            this.lblApellidoP.Location = new System.Drawing.Point(346, 61);
+            this.lblApellidoP.Name = "lblApellidoP";
+            this.lblApellidoP.Size = new System.Drawing.Size(94, 20);
+            this.lblApellidoP.TabIndex = 20;
+            this.lblApellidoP.Text = "Apellido P.";
+            // 
+            // txtApellidoP
+            // 
+            this.txtApellidoP.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtApellidoP.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellidoP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtApellidoP.HintForeColor = System.Drawing.Color.Empty;
+            this.txtApellidoP.HintText = "";
+            this.txtApellidoP.isPassword = false;
+            this.txtApellidoP.LineFocusedColor = System.Drawing.Color.SkyBlue;
+            this.txtApellidoP.LineIdleColor = System.Drawing.Color.Teal;
+            this.txtApellidoP.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
+            this.txtApellidoP.LineThickness = 4;
+            this.txtApellidoP.Location = new System.Drawing.Point(434, 53);
+            this.txtApellidoP.Margin = new System.Windows.Forms.Padding(4);
+            this.txtApellidoP.Name = "txtApellidoP";
+            this.txtApellidoP.Size = new System.Drawing.Size(169, 33);
+            this.txtApellidoP.TabIndex = 1;
+            this.txtApellidoP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // txtTutor
             // 
             this.txtTutor.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTutor.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.txtTutor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTutor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtTutor.HintForeColor = System.Drawing.Color.Empty;
             this.txtTutor.HintText = "";
@@ -223,25 +359,37 @@
             this.txtTutor.LineFocusedColor = System.Drawing.Color.SkyBlue;
             this.txtTutor.LineIdleColor = System.Drawing.Color.Teal;
             this.txtTutor.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
-            this.txtTutor.LineThickness = 4;
-            this.txtTutor.Location = new System.Drawing.Point(102, 150);
+            this.txtTutor.LineThickness = 3;
+            this.txtTutor.Location = new System.Drawing.Point(78, 201);
             this.txtTutor.Margin = new System.Windows.Forms.Padding(4);
             this.txtTutor.Name = "txtTutor";
-            this.txtTutor.Size = new System.Drawing.Size(385, 33);
-            this.txtTutor.TabIndex = 2;
+            this.txtTutor.Size = new System.Drawing.Size(308, 33);
+            this.txtTutor.TabIndex = 6;
             this.txtTutor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             // 
-            // lblTutor
+            // lblNombre
             // 
-            this.lblTutor.AutoSize = true;
-            this.lblTutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTutor.ForeColor = System.Drawing.Color.Black;
-            this.lblTutor.Location = new System.Drawing.Point(14, 158);
-            this.lblTutor.Name = "lblTutor";
-            this.lblTutor.Size = new System.Drawing.Size(58, 25);
-            this.lblTutor.TabIndex = 16;
-            this.lblTutor.Text = "Tutor";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.Black;
+            this.lblNombre.Location = new System.Drawing.Point(19, 61);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(92, 20);
+            this.lblNombre.TabIndex = 1;
+            this.lblNombre.Text = "Nombre(s)";
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.BackgroundImage")));
+            this.btnLimpiar.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.InitialImage")));
+            this.btnLimpiar.Location = new System.Drawing.Point(874, 21);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(30, 32);
+            this.btnLimpiar.TabIndex = 18;
+            this.btnLimpiar.TabStop = false;
+            this.Cancelartt.SetToolTip(this.btnLimpiar, "Limpiar campos");
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click_1);
             // 
             // cbEscuelas
             // 
@@ -250,13 +398,13 @@
             this.cbEscuelas.DisabledColor = System.Drawing.Color.Gray;
             this.cbEscuelas.ForeColor = System.Drawing.Color.White;
             this.cbEscuelas.Items = new string[0];
-            this.cbEscuelas.Location = new System.Drawing.Point(105, 102);
+            this.cbEscuelas.Location = new System.Drawing.Point(485, 156);
             this.cbEscuelas.Name = "cbEscuelas";
             this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.cbEscuelas.onHoverColor = System.Drawing.Color.Teal;
             this.cbEscuelas.selectedIndex = -1;
-            this.cbEscuelas.Size = new System.Drawing.Size(382, 35);
-            this.cbEscuelas.TabIndex = 1;
+            this.cbEscuelas.Size = new System.Drawing.Size(391, 35);
+            this.cbEscuelas.TabIndex = 7;
             this.cbEscuelas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             // 
             // btnAgregado
@@ -296,11 +444,11 @@
             // lblActivo
             // 
             this.lblActivo.AutoSize = true;
-            this.lblActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblActivo.ForeColor = System.Drawing.Color.Black;
-            this.lblActivo.Location = new System.Drawing.Point(533, 212);
+            this.lblActivo.Location = new System.Drawing.Point(607, 212);
             this.lblActivo.Name = "lblActivo";
-            this.lblActivo.Size = new System.Drawing.Size(66, 25);
+            this.lblActivo.Size = new System.Drawing.Size(58, 20);
             this.lblActivo.TabIndex = 10;
             this.lblActivo.Text = "Activo";
             // 
@@ -311,10 +459,10 @@
             this.chkActivo.Checked = true;
             this.chkActivo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkActivo.ForeColor = System.Drawing.Color.White;
-            this.chkActivo.Location = new System.Drawing.Point(507, 217);
+            this.chkActivo.Location = new System.Drawing.Point(581, 212);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(20, 20);
-            this.chkActivo.TabIndex = 6;
+            this.chkActivo.TabIndex = 8;
             this.chkActivo.OnChange += new System.EventHandler(this.chkActivo_OnChange);
             this.chkActivo.Click += new System.EventHandler(this.chkActivo_Click);
             this.chkActivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
@@ -333,11 +481,11 @@
             // lblNocontrol
             // 
             this.lblNocontrol.AutoSize = true;
-            this.lblNocontrol.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNocontrol.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNocontrol.ForeColor = System.Drawing.Color.Teal;
             this.lblNocontrol.Location = new System.Drawing.Point(14, 13);
             this.lblNocontrol.Name = "lblNocontrol";
-            this.lblNocontrol.Size = new System.Drawing.Size(74, 25);
+            this.lblNocontrol.Size = new System.Drawing.Size(81, 25);
             this.lblNocontrol.TabIndex = 6;
             this.lblNocontrol.Text = "No.ctrl";
             // 
@@ -359,11 +507,11 @@
             this.btnAgregar.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnAgregar.IdleForecolor = System.Drawing.Color.White;
             this.btnAgregar.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnAgregar.Location = new System.Drawing.Point(686, 202);
+            this.btnAgregar.Location = new System.Drawing.Point(691, 202);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(5);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(185, 41);
-            this.btnAgregar.TabIndex = 7;
+            this.btnAgregar.TabIndex = 9;
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             this.btnAgregar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
@@ -375,7 +523,7 @@
             this.dtFechaNacimiento.ForeColor = System.Drawing.Color.White;
             this.dtFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtFechaNacimiento.FormatCustom = null;
-            this.dtFechaNacimiento.Location = new System.Drawing.Point(214, 198);
+            this.dtFechaNacimiento.Location = new System.Drawing.Point(163, 110);
             this.dtFechaNacimiento.Name = "dtFechaNacimiento";
             this.dtFechaNacimiento.Size = new System.Drawing.Size(167, 36);
             this.dtFechaNacimiento.TabIndex = 3;
@@ -385,32 +533,32 @@
             // txtCorreo
             // 
             this.txtCorreo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCorreo.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.txtCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            this.txtCorreo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreo.ForeColor = System.Drawing.Color.Black;
             this.txtCorreo.HintForeColor = System.Drawing.Color.Empty;
             this.txtCorreo.HintText = "";
             this.txtCorreo.isPassword = false;
             this.txtCorreo.LineFocusedColor = System.Drawing.Color.SkyBlue;
             this.txtCorreo.LineIdleColor = System.Drawing.Color.Teal;
             this.txtCorreo.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
-            this.txtCorreo.LineThickness = 4;
-            this.txtCorreo.Location = new System.Drawing.Point(606, 104);
+            this.txtCorreo.LineThickness = 3;
+            this.txtCorreo.Location = new System.Drawing.Point(616, 96);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(265, 33);
+            this.txtCorreo.Size = new System.Drawing.Size(260, 33);
             this.txtCorreo.TabIndex = 5;
-            this.txtCorreo.Text = "ejemplo@hotmail.com";
             this.txtCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCorreo.Enter += new System.EventHandler(this.txtCorreo_Enter);
             this.txtCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             this.txtCorreo.Leave += new System.EventHandler(this.txtCorreo_Leave);
             this.txtCorreo.MouseEnter += new System.EventHandler(this.txtCorreo_MouseEnter);
             this.txtCorreo.MouseLeave += new System.EventHandler(this.txtCorreo_MouseLeave);
+            this.txtCorreo.MouseHover += new System.EventHandler(this.txtCorreo_MouseHover);
             // 
             // txtTelefono
             // 
             this.txtTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTelefono.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.txtTelefono.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtTelefono.HintForeColor = System.Drawing.Color.Empty;
             this.txtTelefono.HintText = "";
@@ -418,11 +566,11 @@
             this.txtTelefono.LineFocusedColor = System.Drawing.Color.SkyBlue;
             this.txtTelefono.LineIdleColor = System.Drawing.Color.Teal;
             this.txtTelefono.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
-            this.txtTelefono.LineThickness = 4;
-            this.txtTelefono.Location = new System.Drawing.Point(606, 50);
+            this.txtTelefono.LineThickness = 3;
+            this.txtTelefono.Location = new System.Drawing.Point(423, 98);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(204, 33);
+            this.txtTelefono.Size = new System.Drawing.Size(124, 33);
             this.txtTelefono.TabIndex = 4;
             this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
@@ -430,7 +578,7 @@
             // txtNombre
             // 
             this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombre.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.txtNombre.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNombre.HintForeColor = System.Drawing.Color.Empty;
             this.txtNombre.HintText = "";
@@ -439,10 +587,10 @@
             this.txtNombre.LineIdleColor = System.Drawing.Color.Teal;
             this.txtNombre.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
             this.txtNombre.LineThickness = 4;
-            this.txtNombre.Location = new System.Drawing.Point(102, 50);
+            this.txtNombre.Location = new System.Drawing.Point(107, 53);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(385, 33);
+            this.txtNombre.Size = new System.Drawing.Size(223, 33);
             this.txtNombre.TabIndex = 0;
             this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
@@ -450,57 +598,46 @@
             // lblCorreo
             // 
             this.lblCorreo.AutoSize = true;
-            this.lblCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorreo.ForeColor = System.Drawing.Color.Black;
-            this.lblCorreo.Location = new System.Drawing.Point(527, 112);
+            this.lblCorreo.Location = new System.Drawing.Point(555, 109);
             this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(72, 25);
+            this.lblCorreo.Size = new System.Drawing.Size(63, 20);
             this.lblCorreo.TabIndex = 5;
             this.lblCorreo.Text = "Correo";
             // 
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefono.ForeColor = System.Drawing.Color.Black;
-            this.lblTelefono.Location = new System.Drawing.Point(510, 58);
+            this.lblTelefono.Location = new System.Drawing.Point(346, 109);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(89, 25);
+            this.lblTelefono.Size = new System.Drawing.Size(79, 20);
             this.lblTelefono.TabIndex = 4;
             this.lblTelefono.Text = "Teléfono";
             // 
             // lblFechaNacimiento
             // 
             this.lblFechaNacimiento.AutoSize = true;
-            this.lblFechaNacimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaNacimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaNacimiento.ForeColor = System.Drawing.Color.Black;
-            this.lblFechaNacimiento.Location = new System.Drawing.Point(15, 209);
+            this.lblFechaNacimiento.Location = new System.Drawing.Point(20, 115);
             this.lblFechaNacimiento.Name = "lblFechaNacimiento";
-            this.lblFechaNacimiento.Size = new System.Drawing.Size(193, 25);
+            this.lblFechaNacimiento.Size = new System.Drawing.Size(141, 20);
             this.lblFechaNacimiento.TabIndex = 3;
-            this.lblFechaNacimiento.Text = "Fecha de nacimiento";
+            this.lblFechaNacimiento.Text = "Fecha de nacim.";
             // 
             // lblEscuela
             // 
             this.lblEscuela.AutoSize = true;
-            this.lblEscuela.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEscuela.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEscuela.ForeColor = System.Drawing.Color.Black;
-            this.lblEscuela.Location = new System.Drawing.Point(14, 110);
+            this.lblEscuela.Location = new System.Drawing.Point(409, 167);
             this.lblEscuela.Name = "lblEscuela";
-            this.lblEscuela.Size = new System.Drawing.Size(82, 25);
+            this.lblEscuela.Size = new System.Drawing.Size(73, 20);
             this.lblEscuela.TabIndex = 2;
             this.lblEscuela.Text = "Escuela";
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.ForeColor = System.Drawing.Color.Black;
-            this.lblNombre.Location = new System.Drawing.Point(14, 58);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(81, 25);
-            this.lblNombre.TabIndex = 1;
-            this.lblNombre.Text = "Nombre";
             // 
             // chkNombre
             // 
@@ -588,10 +725,6 @@
             this.txtFiltonombre.Text = "Nombre";
             this.txtFiltonombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtFiltonombre.OnValueChanged += new System.EventHandler(this.txtFiltonombre_OnValueChanged);
-            this.txtFiltonombre.Enter += new System.EventHandler(this.txtFiltonombre_Enter);
-            this.txtFiltonombre.Leave += new System.EventHandler(this.txtFiltonombre_Leave);
-            this.txtFiltonombre.MouseEnter += new System.EventHandler(this.txtFiltonombre_MouseEnter);
-            this.txtFiltonombre.MouseLeave += new System.EventHandler(this.txtFiltonombre_MouseLeave);
             // 
             // txtFiltroTelefono
             // 
@@ -614,10 +747,6 @@
             this.txtFiltroTelefono.Text = "Teléfono";
             this.txtFiltroTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtFiltroTelefono.OnValueChanged += new System.EventHandler(this.txtFiltroTelefono_OnValueChanged);
-            this.txtFiltroTelefono.Enter += new System.EventHandler(this.txtFiltroTelefono_Enter);
-            this.txtFiltroTelefono.Leave += new System.EventHandler(this.txtFiltroTelefono_Leave);
-            this.txtFiltroTelefono.MouseEnter += new System.EventHandler(this.txtFiltroTelefono_MouseEnter);
-            this.txtFiltroTelefono.MouseLeave += new System.EventHandler(this.txtFiltroTelefono_MouseLeave);
             // 
             // txtFiltroCorreo
             // 
@@ -640,10 +769,6 @@
             this.txtFiltroCorreo.Text = "Correo";
             this.txtFiltroCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtFiltroCorreo.OnValueChanged += new System.EventHandler(this.txtFiltroCorreo_OnValueChanged);
-            this.txtFiltroCorreo.Enter += new System.EventHandler(this.txtFiltroCorreo_Enter);
-            this.txtFiltroCorreo.Leave += new System.EventHandler(this.txtFiltroCorreo_Leave);
-            this.txtFiltroCorreo.MouseEnter += new System.EventHandler(this.txtFiltroCorreo_MouseEnter);
-            this.txtFiltroCorreo.MouseLeave += new System.EventHandler(this.txtFiltroCorreo_MouseLeave);
             // 
             // bunifuCards2
             // 
@@ -683,7 +808,7 @@
             this.lblFiltroActivo.ForeColor = System.Drawing.Color.Black;
             this.lblFiltroActivo.Location = new System.Drawing.Point(37, 222);
             this.lblFiltroActivo.Name = "lblFiltroActivo";
-            this.lblFiltroActivo.Size = new System.Drawing.Size(173, 19);
+            this.lblFiltroActivo.Size = new System.Drawing.Size(171, 21);
             this.lblFiltroActivo.TabIndex = 23;
             this.lblFiltroActivo.Text = "Sólo alumnos activos";
             // 
@@ -707,7 +832,7 @@
             this.lblFiltroEscuela.ForeColor = System.Drawing.Color.Black;
             this.lblFiltroEscuela.Location = new System.Drawing.Point(47, 100);
             this.lblFiltroEscuela.Name = "lblFiltroEscuela";
-            this.lblFiltroEscuela.Size = new System.Drawing.Size(68, 19);
+            this.lblFiltroEscuela.Size = new System.Drawing.Size(69, 21);
             this.lblFiltroEscuela.TabIndex = 15;
             this.lblFiltroEscuela.Text = "Escuela";
             // 
@@ -749,10 +874,6 @@
             this.txtFiltroAño.Text = "Año";
             this.txtFiltroAño.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtFiltroAño.OnValueChanged += new System.EventHandler(this.txtFiltroAño_OnValueChanged);
-            this.txtFiltroAño.Enter += new System.EventHandler(this.txtFiltroAño_Enter);
-            this.txtFiltroAño.Leave += new System.EventHandler(this.txtFiltroAño_Leave);
-            this.txtFiltroAño.MouseEnter += new System.EventHandler(this.txtFiltroAño_MouseEnter);
-            this.txtFiltroAño.MouseLeave += new System.EventHandler(this.txtFiltroAño_MouseLeave);
             // 
             // cbMes
             // 
@@ -778,7 +899,7 @@
             "12"});
             this.cbMes.Location = new System.Drawing.Point(54, 146);
             this.cbMes.Name = "cbMes";
-            this.cbMes.Size = new System.Drawing.Size(51, 24);
+            this.cbMes.Size = new System.Drawing.Size(51, 25);
             this.cbMes.TabIndex = 20;
             this.cbMes.SelectedIndexChanged += new System.EventHandler(this.cbMes_SelectedIndexChanged);
             this.cbMes.TextChanged += new System.EventHandler(this.cbMes_TextChanged);
@@ -828,7 +949,7 @@
             this.cbDia.Location = new System.Drawing.Point(42, 146);
             this.cbDia.MaxDropDownItems = 12;
             this.cbDia.Name = "cbDia";
-            this.cbDia.Size = new System.Drawing.Size(37, 24);
+            this.cbDia.Size = new System.Drawing.Size(37, 25);
             this.cbDia.TabIndex = 19;
             this.cbDia.Visible = false;
             this.cbDia.TextChanged += new System.EventHandler(this.cbDia_TextChanged);
@@ -879,8 +1000,8 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.bunifuCards1.ResumeLayout(false);
             this.bunifuCards1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnLimpiar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLimpiar)).EndInit();
             this.bunifuCards2.ResumeLayout(false);
             this.bunifuCards2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).EndInit();
@@ -933,5 +1054,13 @@
         private System.Windows.Forms.PictureBox btnLimpiar;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsEliminarAlumno;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblApellidoM;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtApellidoM;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblApellidoP;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtApellidoP;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblPadre;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtPadre;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtGrado;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblGrado;
     }
 }

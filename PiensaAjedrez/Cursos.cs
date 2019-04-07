@@ -12,6 +12,7 @@ namespace PiensaAjedrez
         public List<Alumno> listaAlumnos = new List<Alumno>();
         public List<string> listaActividades = new List<string>();
         public List<Gastos> listaGastos = new List<Gastos>();
+       
 
         private string _strClave;
 
@@ -90,6 +91,8 @@ namespace PiensaAjedrez
             get { return _blnActivo; }
             set { _blnActivo = value; }
         }
+
+       
 
 
         public Cursos(DateTime dtIniciocurso, DateTime dtFinCurso)

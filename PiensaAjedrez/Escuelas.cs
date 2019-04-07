@@ -319,6 +319,11 @@ namespace PiensaAjedrez
                 MessageBox.Show("Limite de actividades alcanzado.");
                 return;
             }
+            if (txtActividad.Text == "")
+            {
+                MessageBox.Show("Introduzca una actividad primero.");
+                return;
+            }
 
 
             dgvListaActividades.Rows.Add(txtActividad.Text);
