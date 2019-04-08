@@ -51,7 +51,7 @@ namespace PiensaAjedrez
             dtmFinCurso.Value = DateTime.Today;
             dtmInicioCurso.Value = DateTime.Today;
             bunifuCards2.Visible = false;
-
+            btnActualizarGrados.Visible = false;
         }
 
         public static List<Escuela> listaEscuela = ConexionBD.CargarEscuelas();
@@ -71,7 +71,7 @@ namespace PiensaAjedrez
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }                
+                }
             }
             else
             {
@@ -89,14 +89,29 @@ namespace PiensaAjedrez
                     MessageBox.Show("Escuela duplicada.");
                 }
                 txtNombreColegio.Focus();
-            }            
+            }
         }
+
+        //void ActualizarCursos()
+        //{
+        //    foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
+        //    {
+        //        if (ConexionBD.CargarAlumnos(unaEscuela.Nombre).Count != 0)
+        //        {
+        //            if (DateTime.Today.Month >= 8)
+        //            {
+        //                if (DialogResult.Yes == MessageBox.Show("Desea actua", "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+        //                {
+        //                }
+        //        }
+        //    }
+        //}
 
         void MostrarDatos()
         {
             dgvEscuelas.Rows.Clear();
-            foreach (Escuela escuela in ConexionBD.CargarEscuelas())            
-                dgvEscuelas.Rows.Add(escuela.Nombre);            
+            foreach (Escuela escuela in ConexionBD.CargarEscuelas())
+                dgvEscuelas.Rows.Add(escuela.Nombre);
         }
 
         private int counter;
@@ -131,27 +146,27 @@ namespace PiensaAjedrez
             {
                 if (btnAgregarCurso.ButtonText == "Editar")
                 {
-                    
+
                     btnFinalizarCurso.Visible = false;
                     string strUnaEscuela = dgvEscuelas.CurrentRow.Cells[0].Value.ToString();
                     ConexionBD.ActualizarDatosCurso(strUnaEscuela, dtmInicioCurso.Value, dtmFinCurso.Value);
                     btnAgregarCurso.ButtonText = "Agregar curso";
                     btnAgregadoCurso.Visible = true;
                     InitializeTimer();
-                    dgvCursos.Rows.Clear();                    
+                    dgvCursos.Rows.Clear();
                     btnCancelarCurso.Visible = false;
                     Cursos unCurso = ConexionBD.CargarCursoActivo(strUnaEscuela);
                     unCurso.listaActividades = ConexionBD.CargarActividades(unCurso.Clave);
                     foreach (string unaActivdad in unCurso.listaActividades)
                     {
                         ConexionBD.EliminarActividad(strUnaEscuela, unaActivdad);
-                    }                        
+                    }
                     for (int i = 0; i < dgvListaActividades.Rows.Count; i++)
-                    { 
+                    {
                         ConexionBD.AgregarActividad(strUnaEscuela, dgvListaActividades.Rows[i].Cells[0].Value.ToString());
                     }
                     dgvCursos.Rows.Add(unCurso.Clave, unCurso.InicioCursos.ToLongDateString(), unCurso.FinCurso.ToLongDateString());
-                    return;                    
+                    return;
                 }
                 contextMenuStrip1.Enabled = true;
                 tsEliminarCurso.Visible = true;
@@ -162,12 +177,12 @@ namespace PiensaAjedrez
                 for (int i = 0; i < dgvListaActividades.Rows.Count; i++)
                 {
                     ConexionBD.AgregarActividad(strEscuela, dgvListaActividades.Rows[i].Cells[0].Value.ToString());
-                }                
-                dgvCursos.Rows.Clear();                
+                }
+                dgvCursos.Rows.Clear();
                 Cursos miCurso = ConexionBD.CargarCursoActivo(strEscuela);
-                dgvCursos.Rows.Add(miCurso.Clave, miCurso.InicioCursos.ToLongDateString(), miCurso.FinCurso.ToLongDateString());                
+                dgvCursos.Rows.Add(miCurso.Clave, miCurso.InicioCursos.ToLongDateString(), miCurso.FinCurso.ToLongDateString());
                 btnAgregadoCurso.Visible = true;
-                InitializeTimer();                
+                InitializeTimer();
             }
             catch (Exception x)
             {
@@ -190,15 +205,16 @@ namespace PiensaAjedrez
                 btnCancelarCurso.Visible = false;
                 dgvListaActividades.Rows.Clear();
             }
+            btnActualizarGrados.Visible = true;
             dgvCursosPasados.Rows.Clear();
             MostrarCursos(true);
             btnFinalizarCurso.Visible = false;
-            btnAgregarCurso.Visible = true;            
+            btnAgregarCurso.Visible = true;
             btnAgregarActividad.Enabled = true;
             btnAgregarColegio.ButtonText = "Editar";
             btnAgregarColegio.IdleFillColor = Color.Teal;
             btnCancelar.Visible = true;
-            
+
             Escuela unaEscuela = new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString());
             unaEscuela.CursoActivo = ConexionBD.CargarCursoActivo(unaEscuela.Nombre);
             unaEscuela.listaCursos = ConexionBD.CargarCursos(unaEscuela.Nombre);
@@ -206,7 +222,7 @@ namespace PiensaAjedrez
             dgvCursos.Rows.Clear();
             ComprobarCaducidad(unaEscuela);
             if (unaEscuela.CursoActivo != null)
-                 dgvCursos.Rows.Add(unaEscuela.CursoActivo.Clave, unaEscuela.CursoActivo.InicioCursos.ToLongDateString(), unaEscuela.CursoActivo.FinCurso.ToLongDateString());
+                dgvCursos.Rows.Add(unaEscuela.CursoActivo.Clave, unaEscuela.CursoActivo.InicioCursos.ToLongDateString(), unaEscuela.CursoActivo.FinCurso.ToLongDateString());
             FillDgv(unaEscuela);
             txtActividad.Text = "";
             dgvListaActividades.Rows.Clear();
@@ -226,7 +242,7 @@ namespace PiensaAjedrez
             btnCancelarCurso.Visible = false;
             btnFinalizarCurso.Visible = false;
             dgvListaActividades.Rows.Clear();
-            
+
         }
 
         private void dgvCursos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -240,7 +256,7 @@ namespace PiensaAjedrez
             dtmFinCurso.Value = DateTime.Parse(dgvCursos.CurrentRow.Cells[2].Value.ToString());
             dgvListaActividades.Rows.Clear();
             btnFinalizarCurso.Visible = false;
-            
+
             contextMenuStrip1.Enabled = true;
             tsEliminarCurso.Visible = true;
             btnAgregarCurso.ButtonText = "Editar";
@@ -252,7 +268,7 @@ namespace PiensaAjedrez
                 miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
                 miEscuela.listaCursos = ConexionBD.CargarCursos(miEscuela.Nombre);
                 if (miEscuela.Nombre == dgvEscuelas.CurrentRow.Cells[0].Value.ToString())
-                {                    
+                {
                     foreach (Cursos miCursos in miEscuela.listaCursos)
                     {
                         miCursos.listaActividades = ConexionBD.CargarActividades(miCursos.Clave);
@@ -288,10 +304,10 @@ namespace PiensaAjedrez
         }
 
         #region SeleccionarDataGrid
-       
+
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("¿Desea eliminar el curso que comprende del " + dgvCursosPasados.CurrentRow.Cells[1].Value.ToString() + " al " + dgvCursosPasados.CurrentRow.Cells[2].Value.ToString()+" con clave: "+ dgvCursosPasados.CurrentRow.Cells[0].Value.ToString() + "?", "Eliminar curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            if (DialogResult.Yes == MessageBox.Show("¿Desea eliminar el curso que comprende del " + dgvCursosPasados.CurrentRow.Cells[1].Value.ToString() + " al " + dgvCursosPasados.CurrentRow.Cells[2].Value.ToString() + " con clave: " + dgvCursosPasados.CurrentRow.Cells[0].Value.ToString() + "?", "Eliminar curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
             {
                 foreach (Escuela miEscuela in listaEscuela)
                     if (miEscuela.Equals(new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString())))
@@ -346,7 +362,7 @@ namespace PiensaAjedrez
                                 {
                                     string strNombreActividad = dgvListaActividades.CurrentRow.Cells[0].Value.ToString();
                                     miCurso.listaActividades.Remove(strNombreActividad);
-                                    ConexionBD.EliminarActividad(miEscuela.Nombre,strNombreActividad);
+                                    ConexionBD.EliminarActividad(miEscuela.Nombre, strNombreActividad);
                                     dgvListaActividades.Rows.Clear();
                                     foreach (string actividad in miCurso.listaActividades)
                                     {
@@ -358,7 +374,7 @@ namespace PiensaAjedrez
                     }
                 }
                 else
-                {                    
+                {
                     dgvListaActividades.Rows.Remove(dgvListaActividades.CurrentRow);
                 }
             }
@@ -379,7 +395,7 @@ namespace PiensaAjedrez
                 contextMenuStrip2.Enabled = true;
                 dgvListaActividades.CurrentCell = dgvListaActividades.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 dgvListaActividades.Rows[e.RowIndex].Selected = true;
-                dgvListaActividades.Focus();                
+                dgvListaActividades.Focus();
             }
         }
 
@@ -395,66 +411,67 @@ namespace PiensaAjedrez
 
         private void btnFinalizarCurso_Click_1(object sender, EventArgs e)
         {
-                if (DialogResult.Yes == MessageBox.Show("¿Desea finalizar el curso que comprende del " + dgvCursos.CurrentRow.Cells[1].Value.ToString() + " al " + dgvCursos.CurrentRow.Cells[2].Value.ToString() +" con clave "+ dgvCursos.CurrentRow.Cells[0].Value.ToString() + "?", "Finalizar curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
-                {
-                    Escuela unaEscuela = new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString());
-                    ConexionBD.FinalizarCurso(unaEscuela.Nombre);
-                    unaEscuela.listaCursos = ConexionBD.CargarCursos(unaEscuela.Nombre);
-                    FillDgv(unaEscuela);
-                }            
-                    btnAgregarCurso.ButtonText = "Agregar curso";
-                    btnAgregarCurso.IdleFillColor = Color.FromArgb(59, 202, 192);
-                    btnCancelarCurso.Visible = false;
-                    dgvCursos.Focus();
-                    btnFinalizarCurso.Visible = false;
-                    dgvListaActividades.Rows.Clear();
-                    dgvCursos.Rows.Clear();
+            if (DialogResult.Yes == MessageBox.Show("¿Desea finalizar el curso que comprende del " + dgvCursos.CurrentRow.Cells[1].Value.ToString() + " al " + dgvCursos.CurrentRow.Cells[2].Value.ToString() + " con clave " + dgvCursos.CurrentRow.Cells[0].Value.ToString() + "?", "Finalizar curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            {
+                Escuela unaEscuela = new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString());
+                ConexionBD.FinalizarCurso(unaEscuela.Nombre);
+                unaEscuela.listaCursos = ConexionBD.CargarCursos(unaEscuela.Nombre);
+                FillDgv(unaEscuela);
+            }
+            btnAgregarCurso.ButtonText = "Agregar curso";
+            btnAgregarCurso.IdleFillColor = Color.FromArgb(59, 202, 192);
+            btnCancelarCurso.Visible = false;
+            dgvCursos.Focus();
+            btnFinalizarCurso.Visible = false;
+            dgvListaActividades.Rows.Clear();
+            dgvCursos.Rows.Clear();
         }
 
         void ComprobarCaducidad(Escuela miEscuela)
         {
-            if(miEscuela.CursoActivo!=null)
-            if (miEscuela.CursoActivo.CompareTo(new Cursos(DateTime.Today, DateTime.Today)) <= 0)
-            {
-                bool blnBandera = true;
-                do
+            if (miEscuela.CursoActivo != null)
+                if (miEscuela.CursoActivo.CompareTo(new Cursos(DateTime.Today, DateTime.Today)) <= 0)
                 {
-                    if (DialogResult.Yes == MessageBox.Show("El curso activo de " + miEscuela.Nombre + " expira hoy o ya expiró\n¿Desea extender su duración?", "Fin de curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
-                    {
-                        //Agregarle 5 dias al curso que se encuentra en la lista y sea igual al activo y hacer el curso activo igual a este.                        
-                        foreach (Cursos miCurso in miEscuela.listaCursos)
-                        {
-                            if (miCurso.Equals(miEscuela.CursoActivo))
-                            {
-                                    ConexionBD.ActualizarDatosCurso(miEscuela.Nombre, miCurso.InicioCursos, DateTime.Today.AddDays(5));
-                                    miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
-                            }
-                        }
-                        MessageBox.Show("Curso extendido.");
-                        blnBandera = false;
-                    }
-                    else
-                    {
-                        if (DialogResult.Yes == MessageBox.Show("¿Seguro que desea terminar el curso?", "Fin de curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
-                        {
-                            ConexionBD.FinalizarCurso(miEscuela.Nombre);
-                            miEscuela.CursoActivo = null;
-                            MessageBox.Show("Curso finalizado.");
-                            FillDgv(miEscuela);
-                            blnBandera = false;
-                        }
-                    }
-                } while (blnBandera);
-            }    
-}
+                    MessageBox.Show("El curso activo de " + miEscuela.Nombre + " expira hoy o ya expiró.","Curso expirado",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //    bool blnBandera = true;
+                    //    do
+                    //    {
+                    //        if (DialogResult.Yes == MessageBox.Show("El curso activo de " + miEscuela.Nombre + " expira hoy o ya expiró\n¿Desea extender su duración?", "Fin de curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+                    //        {
+                    //            //Agregarle 5 dias al curso que se encuentra en la lista y sea igual al activo y hacer el curso activo igual a este.                        
+                    //            foreach (Cursos miCurso in miEscuela.listaCursos)
+                    //            {
+                    //                if (miCurso.Equals(miEscuela.CursoActivo))
+                    //                {
+                    //                    ConexionBD.ActualizarDatosCurso(miEscuela.Nombre, miCurso.InicioCursos, DateTime.Today.AddDays(5));
+                    //                    miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
+                    //                }
+                    //            }
+                    //            MessageBox.Show("Curso extendido.");
+                    //            blnBandera = false;
+                    //        }
+                    //        else
+                    //        {
+                    //            if (DialogResult.Yes == MessageBox.Show("¿Seguro que desea terminar el curso?", "Fin de curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+                    //            {
+                    //                //ConexionBD.FinalizarCurso(miEscuela.Nombre);
+                    //                //miEscuela.CursoActivo = null;
+                    //                //MessageBox.Show("Curso finalizado.");
+                    //                FillDgv(miEscuela);
+                    //                blnBandera = false;
+                    //            }
+                    //        }
+                    //    } while (blnBandera);
+                }
+        }
 
         void FillDgv(Escuela miEscuela)
         {
             dgvCursosPasados.Rows.Clear();
             foreach (Cursos miCurso in miEscuela.listaCursos)
-            {                
-                if (!miCurso.Activo)                                    
-                    dgvCursosPasados.Rows.Add(miCurso.Clave, miCurso.InicioCursos.ToLongDateString(), miCurso.FinCurso.ToLongDateString());                    
+            {
+                if (!miCurso.Activo)
+                    dgvCursosPasados.Rows.Add(miCurso.Clave, miCurso.InicioCursos.ToLongDateString(), miCurso.FinCurso.ToLongDateString());
             }
         }
 
@@ -480,7 +497,7 @@ namespace PiensaAjedrez
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                    btnAgregarColegio_Click(sender, e);
+                btnAgregarColegio_Click(sender, e);
             }
         }
 
@@ -497,6 +514,28 @@ namespace PiensaAjedrez
             bunifuCards2.Visible = blnEstado;
             dgvCursos.Visible = blnEstado;
             dgvCursosPasados.Visible = blnEstado;
+        }
+
+        private void btnEscuela_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnActualizarGrados_Click(object sender, EventArgs e)
+        {
+            //foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
+            //{
+            //    if (unaEscuela.Equals(new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString())))
+            //        if (ConexionBD.CargarAlumnos(unaEscuela.Nombre).Count != 0)
+            //            if (DialogResult.Yes == MessageBox.Show("Desea actualizar los grados de los alumnos en " + unaEscuela.Nombre + "?", "Actualizar grados", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            //            {
+            //                foreach (Alumno unAlumno in ConexionBD.CargarAlumnos(unaEscuela.Nombre))
+            //                {
+            //                    if (unAlumno.Grado <= 7)
+            //                        unAlumno.Grado++;
+            //                }
+            //            }
+            //}
         }
     }
 }
