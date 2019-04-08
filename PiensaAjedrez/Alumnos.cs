@@ -66,7 +66,7 @@ namespace PiensaAjedrez
         {
             get { return _dtFechaNacimiento; }
             set { _dtFechaNacimiento = value;
-                if (_dtFechaNacimiento > DateTime.Parse("01/01/2011")|| _dtFechaNacimiento < DateTime.Parse("31/12/1910")) 
+                if (_dtFechaNacimiento > DateTime.Today|| _dtFechaNacimiento < DateTime.Parse("31/12/1910")) 
                 {
                     throw new Exception("La fecha de nacimiento no es válida.");
                 }

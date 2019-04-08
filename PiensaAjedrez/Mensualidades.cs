@@ -267,7 +267,7 @@ namespace PiensaAjedrez
                         if(miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString())))
                         {
                             lblNroControl.Text = miAlumno.NumeroDeControl;
-                            lblNombre.Text = miAlumno.Nombre;
+                            lblNombre.Text = ObtenerNombreCompleto(miAlumno);
                             ObtenerMes(int.Parse(dgvAlumnos.CurrentCell.ColumnIndex.ToString()));
                             if (dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.FromArgb(238, 250, 90)))
                                  txtMonto.Text = dgvAlumnos.CurrentCell.Value.ToString().Substring(1);
@@ -485,6 +485,7 @@ namespace PiensaAjedrez
 
         private void btnRegistroPago_Click(object sender, EventArgs e)
         {
+
             foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
             {
                 if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
@@ -494,6 +495,8 @@ namespace PiensaAjedrez
 
                             if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: " + miAlumno.Nombre + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nMes: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString(), "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                             {
+                                Correo.Usuario = txtCorreoEnvios.Text;
+                                Correo.Contrasena = txtPassword.Text;
                                 Pagos unPago = new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), false);
                                 ConexionBD.AgregarPago(unPago, miAlumno);
                                 EnviarCorreo(miAlumno, unPago);
@@ -515,6 +518,11 @@ namespace PiensaAjedrez
         string ObtenerClaveRecibo()
         {
             return dtFechaPago.Value.Day.ToString()+ dtFechaPago.Value.Month.ToString()+ dtFechaPago.Value.Year.ToString() + ((int.Parse("1000")) + (ConexionBD.CargarPagos().Count)).ToString();
+        }
+
+        string ObtenerNombreCompleto(Alumno unAlumno)
+        {
+            return (unAlumno.ApellidoPaterno+" "+unAlumno.ApellidoMaterno+" "+unAlumno.Nombre);
         }
 
         void RellenarPagos(Alumno miAlumno)
