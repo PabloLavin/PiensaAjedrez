@@ -55,8 +55,7 @@ namespace PiensaAjedrez
             dgvAlumnos.Columns.Add("Telefono", "Teléfono");
             dgvAlumnos.Columns.Add("Correo", "Correo");
             dgvAlumnos.Columns.Add("Activo", "Activo");
-            dgvAlumnos.Columns.Add("Tutor", "Tutor");
-            dgvAlumnos.Columns.Add("Padre", "Padre");
+            dgvAlumnos.Columns.Add("Tutor", "Padre o Tutor");
             dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             dgvAlumnos.Columns[6].Width = 92;
@@ -110,6 +109,9 @@ namespace PiensaAjedrez
                     miAlumno.Telefono = txtTelefono.Text;
                     miAlumno.Correo = txtCorreo.Text;
                     miAlumno.Tutor = txtTutor.Text;
+                miAlumno.ApellidoPaterno = txtApellidoP.Text;
+                miAlumno.ApellidoMaterno = txtApellidoM.Text;
+                miAlumno.Grado = int.Parse(txtGrado.Text);
                 if (btnAgregar.ButtonText=="Agregar")
                 {
                     miAlumno.NumeroDeControl = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count)).ToString());
@@ -147,7 +149,7 @@ namespace PiensaAjedrez
             dgvAlumnos.Rows.Clear();
             foreach (Alumno miAlumno in ConexionBD.CargarAlumnos())
             {
-                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl,miAlumno.Grado,miAlumno.ApellidoPaterno,miAlumno.ApellidoMaterno, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo)?"Si":"No"), miAlumno.Tutor, miAlumno.Padre);
+                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl,miAlumno.Grado,miAlumno.ApellidoPaterno,miAlumno.ApellidoMaterno, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo)?"Si":"No"), miAlumno.Tutor);
             }
         }
 
@@ -382,6 +384,9 @@ namespace PiensaAjedrez
                     txtTelefono.Text = alumnos.Telefono;
                     dtFechaNacimiento.Value = alumnos.FechaNacimiento;
                     txtTutor.Text = alumnos.Tutor;
+                    txtApellidoP.Text = alumnos.ApellidoPaterno;
+                    txtApellidoM.Text = alumnos.ApellidoMaterno;
+                    txtGrado.Text = Convert.ToString(alumnos.Grado);
                     cbEscuelas.selectedIndex = ObtenerIndex(alumnos.Escuela);
                     if (alumnos.Activo)
                     {
@@ -583,7 +588,7 @@ namespace PiensaAjedrez
             dgvAlumnos.Rows.Clear();
             foreach (Alumno miAlumno in ConexionBD.CargarAlumnosFiltrados(unFiltro))
             {
-                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Grado, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor, miAlumno.Padre);
+                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Grado, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
             }
 
         }

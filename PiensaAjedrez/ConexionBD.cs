@@ -165,7 +165,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO ALUMNO VALUES ('" + unAlumno.NumeroDeControl + "','" + unAlumno.Nombre + "','" + unAlumno.Escuela + "', '" + FormatearFecha(unAlumno.FechaNacimiento)+ "', '" + unAlumno.Telefono + "', '" + unAlumno.Correo + "', '" + (unAlumno.Activo ? "1" : "0") + "', '" + unAlumno.Tutor + "')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO ALUMNO VALUES ('" + unAlumno.NumeroDeControl + "','" + unAlumno.Nombre + "','" + unAlumno.Escuela + "', '" + FormatearFecha(unAlumno.FechaNacimiento)+ "', '" + unAlumno.Telefono + "', '" + unAlumno.Correo + "', '" + (unAlumno.Activo ? "1" : "0") + "', '" + unAlumno.Tutor + "',  '" + unAlumno.ApellidoPaterno + "',  '" + unAlumno.ApellidoMaterno + "',  '" + unAlumno.Grado + "')", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -178,7 +178,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO", con);
                 SqlDataReader alumnos = comando.ExecuteReader();
                 while (alumnos.Read())
-                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(1), alumnos.GetString(1), 1, alumnos.GetString(1)));
+                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(8), alumnos.GetString(9), alumnos.GetInt16(10)));
             }
             return listaAlumnos;
         }
@@ -188,7 +188,7 @@ namespace PiensaAjedrez
             using (SqlConnection con = ObtenerConexion())
             {
                 
-                    SqlCommand comando = new SqlCommand("UPDATE ALUMNO SET Nombre = '" + unAlumno.Nombre + "', NombreEscuela = '" + unAlumno.Escuela+ "', FechaNacimiento = '" + FormatearFecha(unAlumno.FechaNacimiento)+ "', Telefono = '" + unAlumno.Telefono + "', Correo = '" + unAlumno.Correo + "', Activo = '" + (unAlumno.Activo?"1":"0") + "', Tutor = '" + unAlumno.Tutor + "'  WHERE NumeroControl = '" + strNroControl + "'", con);
+                    SqlCommand comando = new SqlCommand("UPDATE ALUMNO SET Nombre = '" + unAlumno.Nombre + "', NombreEscuela = '" + unAlumno.Escuela+ "', FechaNacimiento = '" + FormatearFecha(unAlumno.FechaNacimiento)+ "', Telefono = '" + unAlumno.Telefono + "', Correo = '" + unAlumno.Correo + "', Activo = '" + (unAlumno.Activo?"1":"0") + "', Tutor = '" + unAlumno.Tutor + "', ApellidoPaterno = '" + unAlumno.ApellidoPaterno + "', ApellidoMaterno = '" + unAlumno.ApellidoMaterno + "', Grado = '" + unAlumno.Grado + "'  WHERE NumeroControl = '" + strNroControl + "'", con);
                     comando.ExecuteNonQuery();
             }
         }
@@ -201,7 +201,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO " + unFiltro.ToString(), con);
                 SqlDataReader alumnos = comando.ExecuteReader();
                 while (alumnos.Read())
-                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(1), alumnos.GetString(1), 1, alumnos.GetString(1)));
+                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(8), alumnos.GetString(9), alumnos.GetInt16(10)));
             }
             return listaAlumnos;
         }
@@ -216,7 +216,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO where NombreEscuela = '"+strNombreEscuela+"'", con);
                 SqlDataReader alumnos = comando.ExecuteReader();
                 while (alumnos.Read())
-                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(1), alumnos.GetString(1), 1, alumnos.GetString(1)));
+                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(8), alumnos.GetString(9), alumnos.GetInt16(10)));
             }
             return listaAlumnos;
         }

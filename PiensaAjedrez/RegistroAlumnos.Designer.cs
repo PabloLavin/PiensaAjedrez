@@ -29,17 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroAlumnos));
             this.dgvAlumnos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsEliminarAlumno = new System.Windows.Forms.ToolStripMenuItem();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
-            this.lblPadre = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtPadre = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtGrado = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lblGrado = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnCancelar = new System.Windows.Forms.PictureBox();
@@ -100,29 +98,29 @@
             this.dgvAlumnos.AllowUserToDeleteRows = false;
             this.dgvAlumnos.AllowUserToResizeColumns = false;
             this.dgvAlumnos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAlumnos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlumnos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvAlumnos.DoubleBuffered = true;
             this.dgvAlumnos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAlumnos.EnableHeadersVisualStyles = false;
@@ -134,9 +132,9 @@
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAlumnos.RowHeadersVisible = false;
             this.dgvAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
-            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAlumnos.RowTemplate.Height = 25;
             this.dgvAlumnos.RowTemplate.ReadOnly = true;
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -166,8 +164,6 @@
             this.bunifuCards1.BorderRadius = 5;
             this.bunifuCards1.BottomSahddow = true;
             this.bunifuCards1.color = System.Drawing.Color.Teal;
-            this.bunifuCards1.Controls.Add(this.lblPadre);
-            this.bunifuCards1.Controls.Add(this.txtPadre);
             this.bunifuCards1.Controls.Add(this.txtGrado);
             this.bunifuCards1.Controls.Add(this.lblGrado);
             this.bunifuCards1.Controls.Add(this.btnCancelar);
@@ -204,36 +200,6 @@
             this.bunifuCards1.TabStop = true;
             this.bunifuCards1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             this.bunifuCards1.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuCards1_Paint);
-            // 
-            // lblPadre
-            // 
-            this.lblPadre.AutoSize = true;
-            this.lblPadre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPadre.ForeColor = System.Drawing.Color.Black;
-            this.lblPadre.Location = new System.Drawing.Point(20, 167);
-            this.lblPadre.Name = "lblPadre";
-            this.lblPadre.Size = new System.Drawing.Size(56, 20);
-            this.lblPadre.TabIndex = 26;
-            this.lblPadre.Text = "Padre";
-            // 
-            // txtPadre
-            // 
-            this.txtPadre.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPadre.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPadre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtPadre.HintForeColor = System.Drawing.Color.Empty;
-            this.txtPadre.HintText = "";
-            this.txtPadre.isPassword = false;
-            this.txtPadre.LineFocusedColor = System.Drawing.Color.SkyBlue;
-            this.txtPadre.LineIdleColor = System.Drawing.Color.Teal;
-            this.txtPadre.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
-            this.txtPadre.LineThickness = 3;
-            this.txtPadre.Location = new System.Drawing.Point(78, 156);
-            this.txtPadre.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPadre.Name = "txtPadre";
-            this.txtPadre.Size = new System.Drawing.Size(308, 33);
-            this.txtPadre.TabIndex = 25;
-            this.txtPadre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtGrado
             // 
@@ -282,11 +248,11 @@
             this.lblTutor.AutoSize = true;
             this.lblTutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTutor.ForeColor = System.Drawing.Color.Black;
-            this.lblTutor.Location = new System.Drawing.Point(20, 213);
+            this.lblTutor.Location = new System.Drawing.Point(20, 167);
             this.lblTutor.Name = "lblTutor";
-            this.lblTutor.Size = new System.Drawing.Size(51, 20);
+            this.lblTutor.Size = new System.Drawing.Size(118, 20);
             this.lblTutor.TabIndex = 16;
-            this.lblTutor.Text = "Tutor";
+            this.lblTutor.Text = "Padre o Tutor";
             // 
             // lblApellidoM
             // 
@@ -360,10 +326,10 @@
             this.txtTutor.LineIdleColor = System.Drawing.Color.Teal;
             this.txtTutor.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
             this.txtTutor.LineThickness = 3;
-            this.txtTutor.Location = new System.Drawing.Point(78, 201);
+            this.txtTutor.Location = new System.Drawing.Point(133, 158);
             this.txtTutor.Margin = new System.Windows.Forms.Padding(4);
             this.txtTutor.Name = "txtTutor";
-            this.txtTutor.Size = new System.Drawing.Size(308, 33);
+            this.txtTutor.Size = new System.Drawing.Size(269, 33);
             this.txtTutor.TabIndex = 6;
             this.txtTutor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
@@ -1058,8 +1024,6 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtApellidoM;
         private Bunifu.Framework.UI.BunifuCustomLabel lblApellidoP;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtApellidoP;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblPadre;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtPadre;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtGrado;
         private Bunifu.Framework.UI.BunifuCustomLabel lblGrado;
     }

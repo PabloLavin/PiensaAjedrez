@@ -28,6 +28,7 @@ namespace PiensaAjedrez
             InicializarDGV();
             btnAgregadoGasto.Visible = false;
 
+
             Deshabilitar();
             foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
             {
@@ -158,8 +159,6 @@ namespace PiensaAjedrez
         {
             foreach (Control c in bunifuCards1.Controls)
             {
-                if (c is Bunifu.Framework.UI.BunifuDatepicker)
-                    c.Visible = false;
                 if (c is Bunifu.Framework.UI.BunifuThinButton2)
                     c.Visible = false;
                 if (c is Bunifu.Framework.UI.BunifuMaterialTextbox)
@@ -168,6 +167,7 @@ namespace PiensaAjedrez
                     c.Text = "";
                 }
             }
+            dtFechaPago.Visible = false;
             cbMetodoPago.Enabled = false;
             lblMesAPagar.Text = "Mes";
             txtMonto.LineIdleColor = Color.SkyBlue;
@@ -197,6 +197,7 @@ namespace PiensaAjedrez
                 if (c is Bunifu.Framework.UI.BunifuMaterialTextbox)
                     c.Enabled = true;
             }
+            
             cbMetodoPago.Enabled = true;
             txtMonto.LineIdleColor = Color.Teal;
             txtNota.LineIdleColor = Color.Teal;

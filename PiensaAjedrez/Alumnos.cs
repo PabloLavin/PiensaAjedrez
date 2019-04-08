@@ -43,14 +43,7 @@ namespace PiensaAjedrez
             set { _strApellidoMaterno = value; }
         }
 
-        private string _strPadre;
-
-        public string Padre
-        {
-            get { return _strPadre; }
-            set { _strPadre = value; }
-        }
-
+       
         private int _intGrado;
 
         public int Grado
@@ -117,7 +110,7 @@ namespace PiensaAjedrez
 
         }
 
-        public Alumno(string strNroControl, string strNombre, string strEscuela, DateTime dtmFechaNacimiento, string strTelefono, string strCorreo, int intActivo, string strTutor, string strApellidoP, string strApellidoM, int intGrado, string strPadre)
+        public Alumno(string strNroControl, string strNombre, string strEscuela, DateTime dtmFechaNacimiento, string strTelefono, string strCorreo, int intActivo, string strTutor, string strApellidoP, string strApellidoM, int intGrado)
         {
             NumeroDeControl = strNroControl;
             Nombre = strNombre;
@@ -129,7 +122,6 @@ namespace PiensaAjedrez
             Tutor = strTutor;
             ApellidoPaterno = strApellidoP;
             ApellidoMaterno = strApellidoM;
-            Padre = strPadre;
             Grado = intGrado;
         }
 
