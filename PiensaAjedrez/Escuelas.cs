@@ -51,7 +51,10 @@ namespace PiensaAjedrez
             dtmFinCurso.Value = DateTime.Today;
             dtmInicioCurso.Value = DateTime.Today;
             bunifuCards2.Visible = false;
-            btnActualizarGrados.Visible = false;
+            //btnActualizarGrados.Visible = false;
+           
+            if (DateTime.Today.Month >= 1 && DateTime.Today.Month <= 7)
+                ReiniciarGrados();
         }
 
         public static List<Escuela> listaEscuela = ConexionBD.CargarEscuelas();
@@ -92,20 +95,41 @@ namespace PiensaAjedrez
             }
         }
 
-        //void ActualizarCursos()
-        //{
-        //    foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
-        //    {
-        //        if (ConexionBD.CargarAlumnos(unaEscuela.Nombre).Count != 0)
-        //        {
-        //            if (DateTime.Today.Month >= 8)
-        //            {
-        //                if (DialogResult.Yes == MessageBox.Show("Desea actua", "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-        //                {
-        //                }
-        //        }
-        //    }
-        //}
+        void ReiniciarGrados()
+        {
+            foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
+            {
+                ConexionBD.ActualizarGrado(unaEscuela.Nombre, false);
+            }
+        }
+
+        void ActualizarGrados()
+        {
+            foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
+            {
+                bool blnBandera = false;
+                if (ConexionBD.CargarAlumnos(unaEscuela.Nombre).Count != 0)
+                {
+                    if (DateTime.Today.Month >=8 && !unaEscuela.GradoActualizado)
+                    {
+                        if (DialogResult.Yes == MessageBox.Show("¿Desea actualizar grados de los alumnos?", "Actualizar grados de alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                        {
+                            blnBandera = true;
+                            foreach (Alumno unAlumno in ConexionBD.CargarAlumnos(unaEscuela.Nombre))
+                            {
+                                if (unAlumno.Grado <= 7)
+                                {
+                                    unAlumno.Grado++;
+                                    ConexionBD.EditarAlumno(unAlumno.NumeroDeControl, unAlumno);
+                                }
+                            }
+                            if (blnBandera)
+                                ConexionBD.ActualizarGrado(unaEscuela.Nombre, true);
+                        }
+                    }
+                }
+            }
+        }
 
         void MostrarDatos()
         {
@@ -205,7 +229,7 @@ namespace PiensaAjedrez
                 btnCancelarCurso.Visible = false;
                 dgvListaActividades.Rows.Clear();
             }
-            btnActualizarGrados.Visible = true;
+            //btnActualizarGrados.Visible = true;
             dgvCursosPasados.Rows.Clear();
             MostrarCursos(true);
             btnFinalizarCurso.Visible = false;
@@ -536,6 +560,11 @@ namespace PiensaAjedrez
             //                }
             //            }
             //}
+        }
+
+        private void Escuelas_Load(object sender, EventArgs e)
+        {
+            ActualizarGrados();
         }
     }
 }

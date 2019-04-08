@@ -27,7 +27,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO ESCUELA VALUES ('"+strEscuela+"')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO ESCUELA VALUES ('"+strEscuela+"', '"+0+"')", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -37,10 +37,10 @@ namespace PiensaAjedrez
             List<Escuela> listaEscuelas = new List<Escuela>();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT NombreEscuela FROM ESCUELA", con);
+                SqlCommand comando = new SqlCommand("SELECT * FROM ESCUELA", con);
                 SqlDataReader escuelas = comando.ExecuteReader();
                 while (escuelas.Read())
-                    listaEscuelas.Add(new Escuela(escuelas.GetString(0)));
+                    listaEscuelas.Add(new Escuela(escuelas.GetString(0), (escuelas.GetInt16(1)==1?true:false)));
             }
             return listaEscuelas;
         }
@@ -58,6 +58,18 @@ namespace PiensaAjedrez
                 {
                     throw new Exception("No es posible cambiarle el nombre a una escuela que:\n1. Ya tiene alumnos registrados.\n 2.Ya tiene cursos registrados. \n3.Está por asignarle el nombre de otra escuela existente.");
                 }
+                
+            }
+        }
+
+        public static void ActualizarGrado(string strNombre, bool blnActualizado)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+               
+                    SqlCommand comando = new SqlCommand("UPDATE ESCUELA SET GradoActualizado = '" +(blnActualizado?1:0) + "' WHERE NombreEscuela = '" + strNombre + "'", con);
+                    comando.ExecuteNonQuery();
+                
                 
             }
         }

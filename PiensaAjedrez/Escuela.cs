@@ -22,6 +22,13 @@ namespace PiensaAjedrez
             CursoActivo = null;
         }
 
+        public Escuela(string strNombre, bool blnActualizado)
+        {
+            Nombre = strNombre;
+            CursoActivo = null;
+            GradoActualizado = blnActualizado;
+        }
+
         public List<Cursos> listaCursos = new List<Cursos>();
         public List<Alumno> listaAlumno = new List<Alumno>();
 
@@ -32,6 +39,15 @@ namespace PiensaAjedrez
             get { return _CursoActivo; }
             set { _CursoActivo = value; }
         }
+
+        private bool _blnGradoACtualizado;
+
+        public bool GradoActualizado
+        {
+            get { return _blnGradoACtualizado; }
+            set { _blnGradoACtualizado = value; }
+        }
+
 
         public bool Equals(Escuela otraEscuela)
         {
