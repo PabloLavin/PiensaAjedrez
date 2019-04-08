@@ -25,7 +25,6 @@ namespace PiensaAjedrez
         {
             btnAgregado.Visible = false;
             dtFechaPago.Value = DateTime.Today;
-            InicializarDGV();
             btnAgregadoGasto.Visible = false;
 
 
@@ -46,29 +45,6 @@ namespace PiensaAjedrez
             cbAño.Text = DateTime.Today.Year.ToString();
             dtFechaPago.Value = DateTime.Now;
             bnfdtpFechaGasto.Value = DateTime.Now;
-        }
-
-        void InicializarDGV()
-        {
-            dgvAlumnos.Columns.Add("No. ctrl.", "No. ctrl.");
-            dgvAlumnos.Columns.Add("Nombre", "Nombre");
-            dgvAlumnos.Columns.Add("Ene", "Enero");
-            dgvAlumnos.Columns.Add("Feb", "Febrero");
-            dgvAlumnos.Columns.Add("Mar", "Marzo");
-            dgvAlumnos.Columns.Add("Abr", "Abril");
-            dgvAlumnos.Columns.Add("May", "Mayo");
-            dgvAlumnos.Columns.Add("Jun", "Junio");
-            dgvAlumnos.Columns.Add("Jul", "Julio");
-            dgvAlumnos.Columns.Add("Ago", "Agosto");
-            dgvAlumnos.Columns.Add("Sep", "Septiembre");
-            dgvAlumnos.Columns.Add("Oct", "Octubre");
-            dgvAlumnos.Columns.Add("Nov", "Noviembre");
-            dgvAlumnos.Columns.Add("Dic", "Diciembre");
-            dgvAlumnos.Columns.Add("Inscrip.", "Inscripcion");
-            dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-            dgvAlumnos.Columns[0].Width = 80;
-            dgvAlumnos.Columns[1].Width = 250;
-
         }
 
         void CargarDGV(Escuela unaEscuela)
