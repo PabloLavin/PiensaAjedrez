@@ -45,6 +45,8 @@ namespace PiensaAjedrez
             cbAño.Text = DateTime.Today.Year.ToString();
             dtFechaPago.Value = DateTime.Now;
             bnfdtpFechaGasto.Value = DateTime.Now;
+            if (ConexionBD.CargarEscuelas().Count > -1)
+                cbEscuelas.selectedIndex = 0;
         }
 
         void CargarDGV(Escuela unaEscuela)
@@ -493,13 +495,14 @@ namespace PiensaAjedrez
                         if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString())))
                         {
 
-                            if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: " + miAlumno.Nombre + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nAsunto: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString(), "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                            if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: " + ObtenerNombreCompleto(miAlumno) + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nAsunto: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString(), "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                             {
                                 Correo.Usuario = txtCorreoEnvios.Text;
                                 Correo.Contrasena = txtPassword.Text;
                                 Pagos unPago = new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), false);
                                 ConexionBD.AgregarPago(unPago, miAlumno);
-                                EnviarCorreo(miAlumno, unPago);
+                                if (DialogResult.Yes == MessageBox.Show("Desea enviar un correo con los datos de pago a: " + ObtenerNombreCompleto(miAlumno), "Envío de correo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                                    EnviarCorreo(miAlumno, unPago);
                                 miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre); 
                                 if(miEscuela.CursoActivo!=null)
                                 if (lblMesAPagar.Text.Equals("Inscripcion"))
