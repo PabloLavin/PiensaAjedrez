@@ -284,9 +284,9 @@ namespace PiensaAjedrez
             {
                 if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
                     foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
-                        if (miAlumno.Nombre.Contains(txtFiltroNombre.Text))
+                        if (ObtenerNombreCompleto(miAlumno).Contains(txtFiltroNombre.Text))
                         {
-                            dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
+                            dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl,miAlumno.ApellidoPaterno,miAlumno.ApellidoMaterno, miAlumno.Nombre);
                             RellenarPagos(miAlumno);
                         }
 
@@ -355,7 +355,7 @@ namespace PiensaAjedrez
                         
                         if (miAlumno.NumeroDeControl.Contains(txtFiltroNoCtrl.Text))
                         {
-                            dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
+                            dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl,miAlumno.ApellidoPaterno,miAlumno.ApellidoMaterno,miAlumno.Nombre);
                             RellenarPagos(miAlumno);
                         }
                     }
@@ -493,7 +493,7 @@ namespace PiensaAjedrez
                         if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString())))
                         {
 
-                            if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: " + miAlumno.Nombre + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nMes: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString(), "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                            if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: " + miAlumno.Nombre + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nAsunto: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString(), "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                             {
                                 Correo.Usuario = txtCorreoEnvios.Text;
                                 Correo.Contrasena = txtPassword.Text;
@@ -616,7 +616,7 @@ namespace PiensaAjedrez
                         if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString())))
                         {
                             lblNroControl.Text = miAlumno.NumeroDeControl;
-                            lblNombre.Text = miAlumno.Nombre;
+                            lblNombre.Text = ObtenerNombreCompleto(miAlumno);
                             ObtenerMes(int.Parse(dgvAlumnos.CurrentCell.ColumnIndex.ToString()));
                             if (blnReenviar)
                             {

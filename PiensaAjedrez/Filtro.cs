@@ -122,6 +122,8 @@ namespace PiensaAjedrez
                 if (Nombre)
                 {
                     strConsulta += " Nombre LIKE '%" + ValorNombre + "%' ";
+                    strConsulta += "OR ApellidoPaterno LIKE '%" + ValorNombre + "%' ";
+                    strConsulta += "OR ApellidoMaterno LIKE '%" + ValorNombre + "%' ";
                     blnAnteriorExiste = true;
                 }                    
                 if (Escuela)
