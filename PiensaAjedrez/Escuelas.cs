@@ -61,37 +61,47 @@ namespace PiensaAjedrez
 
         private void btnAgregarColegio_Click(object sender, EventArgs e)
         {
-            if (btnAgregarColegio.ButtonText == "Editar")
+            if (txtNombreColegio.Text != "")
             {
-                try
+
+
+                if (btnAgregarColegio.ButtonText == "Editar")
                 {
-                    ConexionBD.RenombrarEscuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString(), txtNombreColegio.Text);
-                    MostrarDatos();
-                    btnAgregarColegio.ButtonText = "Agregar";
-                    txtNombreColegio.Text = "";
-                    btnCancelar.Visible = false;
+                    try
+                    {
+                        ConexionBD.RenombrarEscuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString(), txtNombreColegio.Text);
+                        MostrarDatos();
+                        btnAgregarColegio.ButtonText = "Agregar";
+                        txtNombreColegio.Text = "";
+                        btnCancelar.Visible = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    try
+                    {
+                        ConexionBD.AgregarEscuela(txtNombreColegio.Text);
+                        btnAgregado.Visible = true;
+                        InitializeTimer();
+                        txtNombreColegio.Text = "";
+                        MostrarDatos();
+                        dgvCursos.Rows.Clear();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Escuela duplicada.");
+                    }
+                    txtNombreColegio.Focus();
                 }
             }
             else
             {
-                try
-                {
-                    ConexionBD.AgregarEscuela(txtNombreColegio.Text);
-                    btnAgregado.Visible = true;
-                    InitializeTimer();
-                    txtNombreColegio.Text = "";
-                    MostrarDatos();
-                    dgvCursos.Rows.Clear();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Escuela duplicada.");
-                }
-                txtNombreColegio.Focus();
+                MessageBox.Show("Introduzca un nombre de colegio.");
+                return;
             }
         }
 

@@ -56,6 +56,7 @@ namespace PiensaAjedrez
             if (unaEscuela.CursoActivo == null)
             {
                 MessageBox.Show(unaEscuela.Nombre + " no contiene ningún curso actualmente.\nAgregue uno para continuar.");
+                return;
             }
             else
             {
@@ -74,7 +75,7 @@ namespace PiensaAjedrez
                      dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 else
                 {
-                    dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                    dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                     dgvAlumnos.Columns[0].Frozen = true;
                     dgvAlumnos.Columns[1].Frozen = true;
                     dgvAlumnos.Columns[2].Frozen = true;
@@ -195,8 +196,16 @@ namespace PiensaAjedrez
             otraEscuela.CursoActivo = ConexionBD.CargarCursoActivo(otraEscuela.Nombre);
             CargarDGV(otraEscuela);
             dgvAlumnos.Rows.Clear();
-           
-            
+            if (otraEscuela.CursoActivo.listaActividades.Count > 0)
+            {
+                foreach (string miActividad in otraEscuela.CursoActivo.listaActividades)
+                {
+                    dgvAlumnos.Columns.Add(miActividad, miActividad);
+                }
+
+            }
+
+
             foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(otraEscuela.Nombre))
             {
                 if (miAlumno.Activo)
@@ -213,13 +222,7 @@ namespace PiensaAjedrez
             lblIngresos.Text= (ConexionBD.TotalInscripciones(otraEscuela.Nombre) + ConexionBD.TotalMensualidades(otraEscuela.Nombre)).ToString("c");
             lblEgresos.Text = ConexionBD.TotalGastos(otraEscuela.Nombre).ToString("c");
             lblBalance.Text = ((double.Parse(lblIngresos.Text.Substring(1))-double.Parse(lblEgresos.Text.Substring(1))).ToString("c"));
-                if (otraEscuela.CursoActivo.listaActividades.Count > 0)
-                {
-                    foreach (string miActividad in otraEscuela.CursoActivo.listaActividades)
-                    {
-                        dgvAlumnos.Columns.Add(miActividad, miActividad);
-                    }
-                }
+               
             }
 
         }
@@ -235,9 +238,16 @@ namespace PiensaAjedrez
                         {
                             miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
                         }
-                    
-                    LlenarDGV(miEscuela);
-                    Deshabilitar();
+
+                        try
+                        {
+                            LlenarDGV(miEscuela);
+                        }
+                        catch (Exception x)
+                        {
+                           
+                        } 
+                        Deshabilitar();
                         cbGastos.Enabled = true;
                         txtMontoAdicional.Enabled = true;
                         txtMotivo.Enabled = true;
@@ -402,7 +412,7 @@ namespace PiensaAjedrez
                     if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
                         foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
                         {
-                            dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Nombre);
+                            dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl,miAlumno.ApellidoPaterno,miAlumno.ApellidoMaterno, miAlumno.Nombre);
                             foreach (Pagos miPago in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
                             {
                                 if (miPago.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
@@ -635,10 +645,23 @@ namespace PiensaAjedrez
         {
             /*try
             {*/
-                ConexionBD.RegistrarGasto(cbGastos.selectedValue.ToString(),double.Parse(txtMontoAdicional.Text), txtNota.Text, cbEscuelas.selectedValue.ToString(), bnfdtpFechaGasto.Value);
+            if (cbGastos.selectedIndex != -1)
+            {
+                try
+                {
+                ConexionBD.RegistrarGasto(cbGastos.selectedValue.ToString(), double.Parse(txtMontoAdicional.Text), txtNota.Text, cbEscuelas.selectedValue.ToString(), bnfdtpFechaGasto.Value);
+                }
+                catch (Exception x) { MessageBox.Show("Introduzca solo valores numéricos."); return; }
                 MessageBox.Show("Gasto registrado con éxito.", "Registro de gasto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            txtMontoAdicional.Text = "";
-            LlenarDGV(new Escuela(cbEscuelas.selectedValue));
+                txtMontoAdicional.Text = "";
+                LlenarDGV(new Escuela(cbEscuelas.selectedValue));
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un asunto de gasto.");
+                return;
+            }
+               
             /*}
             catch (Exception)
             {
