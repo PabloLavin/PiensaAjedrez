@@ -65,6 +65,15 @@ namespace PiensaAjedrez
             set { _blnNotificado = value; }
         }
 
+        private bool _blnLiquidado;
+
+        public bool Liquidado
+        {
+            get { return _blnLiquidado; }
+            set { _blnLiquidado = value; }
+        }
+
+
         public Pagos(string strClave)
         {
             NumeroRecibo = strClave;
@@ -75,7 +84,7 @@ namespace PiensaAjedrez
             return this.NumeroRecibo.Equals(otroPago.NumeroRecibo);
         }
 
-        public Pagos(string strRecibo, DateTime dtmFechaPago, double dblPago, string strNota, string strMes, string strMetodo, bool notificado)
+        public Pagos(string strRecibo, DateTime dtmFechaPago, double dblPago, string strNota, string strMes, string strMetodo, bool notificado, bool blnliquidado)
         {
             _strNumeroRecibo = strRecibo;
             _dtFechayHora = dtmFechaPago;
@@ -84,6 +93,7 @@ namespace PiensaAjedrez
             _strMesPagado = strMes;
             MetodoPago = strMetodo;
             Notificado = notificado;
+            Liquidado = blnliquidado;
         }
 
     }
