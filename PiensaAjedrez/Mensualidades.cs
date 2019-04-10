@@ -71,8 +71,11 @@ namespace PiensaAjedrez
                 {
                     dgvAlumnos.Columns.Add(mes, mes);
                 }
-                if(dgvAlumnos.Columns.Count<8)
+                if (dgvAlumnos.Columns.Count <= 10)
+                {
                      dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dgvAlumnos.Columns[4].Width = 120;
+                }
                 else
                 {
                     dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -696,7 +699,7 @@ namespace PiensaAjedrez
                             
                                 foreach (Pagos miPago in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
                                 {
-
+                                    if(dgvAlumnos.CurrentCell.Value!=null)
                                     if (miPago.Monto.ToString("c").Equals(dgvAlumnos.CurrentCell.Value.ToString()) && miPago.MesPagado.Equals(dgvAlumnos.CurrentCell.OwningColumn.HeaderText) && miPago.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
                                     {
                                         txtNota.Text = miPago.Nota;
