@@ -292,6 +292,10 @@ namespace PiensaAjedrez
                                         chkLiquidado.Checked = pagos.Liquidado?false:true;
                                         if (chkLiquidado.Checked)
                                             txtMonto.Text = "";
+                                        else
+                                        {
+                                            btnRegistroPago.Visible = false;
+                                        }
                                     }
                                     
                                 }
