@@ -217,7 +217,7 @@
             this.txtGrado.Margin = new System.Windows.Forms.Padding(4);
             this.txtGrado.Name = "txtGrado";
             this.txtGrado.Size = new System.Drawing.Size(74, 33);
-            this.txtGrado.TabIndex = 23;
+            this.txtGrado.TabIndex = 8;
             this.txtGrado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblGrado
@@ -428,7 +428,7 @@
             this.chkActivo.Location = new System.Drawing.Point(581, 212);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(20, 20);
-            this.chkActivo.TabIndex = 8;
+            this.chkActivo.TabIndex = 9;
             this.chkActivo.OnChange += new System.EventHandler(this.chkActivo_OnChange);
             this.chkActivo.Click += new System.EventHandler(this.chkActivo_Click);
             this.chkActivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
@@ -477,7 +477,7 @@
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(5);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(185, 41);
-            this.btnAgregar.TabIndex = 9;
+            this.btnAgregar.TabIndex = 10;
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             this.btnAgregar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);

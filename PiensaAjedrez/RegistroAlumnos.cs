@@ -111,7 +111,10 @@ namespace PiensaAjedrez
                     miAlumno.Tutor = txtTutor.Text;
                 miAlumno.ApellidoPaterno = txtApellidoP.Text;
                 miAlumno.ApellidoMaterno = txtApellidoM.Text;
-                miAlumno.Grado = int.Parse(txtGrado.Text);
+                if (txtGrado.Text != "")
+                    miAlumno.Grado = int.Parse(txtGrado.Text);
+                else
+                    miAlumno.Grado = 0;
                 if (btnAgregar.ButtonText=="Agregar")
                 {
                     miAlumno.NumeroDeControl = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count)).ToString());
