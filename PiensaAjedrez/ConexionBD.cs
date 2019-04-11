@@ -12,8 +12,8 @@ namespace PiensaAjedrez
         public static SqlConnection ObtenerConexion()
         {
             //SqlConnection con = new SqlConnection(@"Data Source=LA-DIVERTIDA; Initial Catalog = PIENSAJEDREZ; Server=LA-DIVERTIDA\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
-            //SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
-            SqlConnection con = new SqlConnection(@"Data Source=ANCIRALAPTOP; Initial Catalog = PIENSAJEDREZ; Server=ANCIRALAPTOP\TEW_SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
+            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
+            //SqlConnection con = new SqlConnection(@"Data Source=ANCIRALAPTOP; Initial Catalog = PIENSAJEDREZ; Server=ANCIRALAPTOP\TEW_SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
 
             con.Open();
             return (con);
@@ -29,7 +29,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO ESCUELA VALUES ('"+strEscuela+"', '"+0+"')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO ESCUELA VALUES ('" + strEscuela + "', '" + 0 + "')", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -42,7 +42,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM ESCUELA", con);
                 SqlDataReader escuelas = comando.ExecuteReader();
                 while (escuelas.Read())
-                    listaEscuelas.Add(new Escuela(escuelas.GetString(0), (escuelas.GetInt16(1)==1?true:false)));
+                    listaEscuelas.Add(new Escuela(escuelas.GetString(0), (escuelas.GetInt16(1) == 1 ? true : false)));
             }
             return listaEscuelas;
         }
@@ -60,7 +60,7 @@ namespace PiensaAjedrez
                 {
                     throw new Exception("No es posible cambiarle el nombre a una escuela que:\n1. Ya tiene alumnos registrados.\n 2.Ya tiene cursos registrados. \n3.Está por asignarle el nombre de otra escuela existente.");
                 }
-                
+
             }
         }
 
@@ -68,11 +68,11 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-               
-                    SqlCommand comando = new SqlCommand("UPDATE ESCUELA SET GradoActualizado = '" +(blnActualizado?1:0) + "' WHERE NombreEscuela = '" + strNombre + "'", con);
-                    comando.ExecuteNonQuery();
-                
-                
+
+                SqlCommand comando = new SqlCommand("UPDATE ESCUELA SET GradoActualizado = '" + (blnActualizado ? 1 : 0) + "' WHERE NombreEscuela = '" + strNombre + "'", con);
+                comando.ExecuteNonQuery();
+
+
             }
         }
 
@@ -81,7 +81,7 @@ namespace PiensaAjedrez
             using (SqlConnection con = ObtenerConexion())
             {
                 string strClave = FechaInicio.Month.ToString() + FechaFinal.Month.ToString() + new Random().Next(10, 500);
-                string strQuery = @"IF NOT(EXISTS(SELECT * FROM CURSO WHERE Activo = 1 AND NombreEscuela = '"+strNombreEscuela+"')) BEGIN INSERT INTO CURSO VALUES('"+strClave+"', '"+strNombreEscuela+"', '"+FormatearFecha(FechaInicio)+ "', '" + FormatearFecha(FechaFinal) + "', 1) END ELSE RAISERROR('Ya existe un curso activo para este colegio. Debe finalizarlo.', 16, 1) ";
+                string strQuery = @"IF NOT(EXISTS(SELECT * FROM CURSO WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "')) BEGIN INSERT INTO CURSO VALUES('" + strClave + "', '" + strNombreEscuela + "', '" + FormatearFecha(FechaInicio) + "', '" + FormatearFecha(FechaFinal) + "', 1) END ELSE RAISERROR('Ya existe un curso activo para este colegio. Debe finalizarlo.', 16, 1) ";
                 SqlCommand comando = new SqlCommand(strQuery, con);
                 comando.ExecuteNonQuery();
             }
@@ -92,15 +92,15 @@ namespace PiensaAjedrez
             Cursos unCurso = null;
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT * FROM CURSO WHERE Activo = 1 AND NombreEscuela ='"+strNombreEscuela+"'", con);
+                SqlCommand comando = new SqlCommand("SELECT * FROM CURSO WHERE Activo = 1 AND NombreEscuela ='" + strNombreEscuela + "'", con);
                 SqlDataReader curso = comando.ExecuteReader();
                 while (curso.Read())
                 {
                     unCurso = new Cursos(curso.GetDateTime(2), curso.GetDateTime(3));
-                    unCurso.Clave = curso.GetString(0);                    
+                    unCurso.Clave = curso.GetString(0);
                     unCurso.Activo = true;
-                    unCurso.listaActividades=CargarActividades(unCurso.Clave);
-                }                    
+                    unCurso.listaActividades = CargarActividades(unCurso.Clave);
+                }
             }
             return unCurso;
         }
@@ -108,8 +108,8 @@ namespace PiensaAjedrez
         public static void ActualizarDatosCurso(string strNombreEscuela, DateTime FechaInicio, DateTime FechaFinal)
         {
             using (SqlConnection con = ObtenerConexion())
-            {                
-                SqlCommand comando = new SqlCommand("UPDATE CURSO SET InicioCurso = '" + FormatearFecha(FechaInicio)+ "', FinCurso = '" + FormatearFecha(FechaFinal) + "' WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "'", con);
+            {
+                SqlCommand comando = new SqlCommand("UPDATE CURSO SET InicioCurso = '" + FormatearFecha(FechaInicio) + "', FinCurso = '" + FormatearFecha(FechaFinal) + "' WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "'", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -117,7 +117,7 @@ namespace PiensaAjedrez
         public static void FinalizarCurso(string strNombreEscuela)
         {
             using (SqlConnection con = ObtenerConexion())
-            {                
+            {
                 SqlCommand comando = new SqlCommand("UPDATE CURSO SET Activo = 0 WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "'", con);
                 comando.ExecuteNonQuery();
             }
@@ -127,8 +127,8 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                string strClave = strNombreEscuela.Substring(0,1) + strNombreActividad.Substring(0,1) + new Random().Next(10, 500);
-                SqlCommand comando = new SqlCommand("INSERT INTO ACTIVIDAD VALUES ('"+strClave+"', '"+strNombreActividad+"', (SELECT IDCurso FROM CURSO WHERE Activo = 1 AND NombreEscuela = '"+strNombreEscuela+"'))", con);
+                string strClave = strNombreEscuela.Substring(0, 1) + strNombreActividad.Substring(0, 1) + new Random().Next(10, 500);
+                SqlCommand comando = new SqlCommand("INSERT INTO ACTIVIDAD VALUES ('" + strClave + "', '" + strNombreActividad + "', (SELECT IDCurso FROM CURSO WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "'))", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -137,7 +137,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("DELETE FROM ACTIVIDAD WHERE Nombre = '"+strNombreActividad+"' AND IDCurso = (SELECT IDCurso FROM CURSO WHERE Activo = 1 AND NombreEscuela = '"+strNombreEscuela+"')", con);
+                SqlCommand comando = new SqlCommand("DELETE FROM ACTIVIDAD WHERE Nombre = '" + strNombreActividad + "' AND IDCurso = (SELECT IDCurso FROM CURSO WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "')", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -153,7 +153,7 @@ namespace PiensaAjedrez
                 while (curso.Read())
                 {
                     Cursos unCurso = new Cursos(curso.GetDateTime(2), curso.GetDateTime(3));
-                    unCurso.Clave = curso.GetString(0);                    
+                    unCurso.Clave = curso.GetString(0);
                     unCurso.Activo = curso.GetInt16(4) == 1;
                     listaCursos.Add(unCurso);
                 }
@@ -166,10 +166,10 @@ namespace PiensaAjedrez
             List<string> Actividades = new List<string>();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT * FROM ACTIVIDAD WHERE IDCurso = '" + IDCurso+"'", con);
+                SqlCommand comando = new SqlCommand("SELECT * FROM ACTIVIDAD WHERE IDCurso = '" + IDCurso + "'", con);
                 SqlDataReader actividad = comando.ExecuteReader();
-                while (actividad.Read())                
-                    Actividades.Add(actividad.GetString(1));                
+                while (actividad.Read())
+                    Actividades.Add(actividad.GetString(1));
             }
             return Actividades;
         }
@@ -179,7 +179,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO ALUMNO VALUES ('" + unAlumno.NumeroDeControl + "','" + unAlumno.Nombre + "','" + unAlumno.Escuela + "', '" + FormatearFecha(unAlumno.FechaNacimiento)+ "', '" + unAlumno.Telefono + "', '" + unAlumno.Correo + "', '" + (unAlumno.Activo ? "1" : "0") + "', '" + unAlumno.Tutor + "',  '" + unAlumno.ApellidoPaterno + "',  '" + unAlumno.ApellidoMaterno + "',  '" + unAlumno.Grado + "')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO ALUMNO VALUES ('" + unAlumno.NumeroDeControl + "','" + unAlumno.Nombre + "','" + unAlumno.Escuela + "', '" + FormatearFecha(unAlumno.FechaNacimiento) + "', '" + unAlumno.Telefono + "', '" + unAlumno.Correo + "', '" + (unAlumno.Activo ? "1" : "0") + "', '" + unAlumno.Tutor + "',  '" + unAlumno.ApellidoPaterno + "',  '" + unAlumno.ApellidoMaterno + "',  '" + unAlumno.Grado + "')", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -201,12 +201,12 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                
-                    SqlCommand comando = new SqlCommand("UPDATE ALUMNO SET Nombre = '" + unAlumno.Nombre + "', NombreEscuela = '" + unAlumno.Escuela+ "', FechaNacimiento = '" + FormatearFecha(unAlumno.FechaNacimiento)+ "', Telefono = '" + unAlumno.Telefono + "', Correo = '" + unAlumno.Correo + "', Activo = '" + (unAlumno.Activo?"1":"0") + "', Tutor = '" + unAlumno.Tutor + "', ApellidoPaterno = '" + unAlumno.ApellidoPaterno + "', ApellidoMaterno = '" + unAlumno.ApellidoMaterno + "', Grado = '" + unAlumno.Grado + "'  WHERE NumeroControl = '" + strNroControl + "'", con);
-                    comando.ExecuteNonQuery();
+
+                SqlCommand comando = new SqlCommand("UPDATE ALUMNO SET Nombre = '" + unAlumno.Nombre + "', NombreEscuela = '" + unAlumno.Escuela + "', FechaNacimiento = '" + FormatearFecha(unAlumno.FechaNacimiento) + "', Telefono = '" + unAlumno.Telefono + "', Correo = '" + unAlumno.Correo + "', Activo = '" + (unAlumno.Activo ? "1" : "0") + "', Tutor = '" + unAlumno.Tutor + "', ApellidoPaterno = '" + unAlumno.ApellidoPaterno + "', ApellidoMaterno = '" + unAlumno.ApellidoMaterno + "', Grado = '" + unAlumno.Grado + "'  WHERE NumeroControl = '" + strNroControl + "'", con);
+                comando.ExecuteNonQuery();
             }
         }
-        
+
         public static List<Alumno> CargarAlumnosFiltrados(Filtro unFiltro) //Pendiente de agregar filtros
         {
             List<Alumno> listaAlumnos = new List<Alumno>();
@@ -227,7 +227,7 @@ namespace PiensaAjedrez
             List<Alumno> listaAlumnos = new List<Alumno>();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO where NombreEscuela = '"+strNombreEscuela+"'", con);
+                SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO where NombreEscuela = '" + strNombreEscuela + "'", con);
                 SqlDataReader alumnos = comando.ExecuteReader();
                 while (alumnos.Read())
                     listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(8), alumnos.GetString(9), alumnos.GetInt16(10)));
@@ -236,10 +236,10 @@ namespace PiensaAjedrez
         }
 
         public static void AgregarPago(Pagos unPago, Alumno unAlumno)
-        {            
+        {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO PAGO VALUES ('"+unPago.NumeroRecibo+ "', '" + unAlumno.NumeroDeControl + "', '" + unPago.Monto + "', '" + unPago.MesPagado + "', '" + FormatearFecha(unPago.FechayHora) + "', '" + unPago.MetodoPago + "', '" + unPago.Nota + "', '" + (unPago.Notificado?1:0) + "', '"+ (unPago.Liquidado ? 1 : 0) + "')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO PAGO VALUES ('" + unPago.NumeroRecibo + "', '" + unAlumno.NumeroDeControl + "', '" + unPago.Monto + "', '" + unPago.MesPagado + "', '" + FormatearFecha(unPago.FechayHora) + "', '" + unPago.MetodoPago + "', '" + unPago.Nota + "', '" + (unPago.Notificado ? 1 : 0) + "', '" + (unPago.Liquidado ? 1 : 0) + "')", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -249,10 +249,10 @@ namespace PiensaAjedrez
             List<Pagos> listaPagos = new List<Pagos>();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT * FROM PAGO WHERE NumeroControl = '"+strNumeroControl+"'", con);
+                SqlCommand comando = new SqlCommand("SELECT * FROM PAGO WHERE NumeroControl = '" + strNumeroControl + "'", con);
                 SqlDataReader pagos = comando.ExecuteReader();
                 while (pagos.Read())
-                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4),double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7)==1?true:false), (pagos.GetInt16(8) == 1 ? true : false)));
+                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7) == 1 ? true : false), (pagos.GetInt16(8) == 1 ? true : false)));
             }
             return listaPagos;
         }
@@ -275,7 +275,7 @@ namespace PiensaAjedrez
             using (SqlConnection con = ObtenerConexion())
             {
                 int intNotificado = unPago.Notificado ? 1 : 0;
-                SqlCommand comando = new SqlCommand("UPDATE PAGO SET Notificado = "+intNotificado+" WHERE NumeroRecibo = '"+unPago.NumeroRecibo+"'", con);
+                SqlCommand comando = new SqlCommand("UPDATE PAGO SET Notificado = " + intNotificado + " WHERE NumeroRecibo = '" + unPago.NumeroRecibo + "'", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -286,13 +286,13 @@ namespace PiensaAjedrez
             double dblTotalMensualidades = 0;
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM PAGO, ALUMNO, CURSO  WHERE PAGO.NumeroControl = ALUMNO.NumeroControl AND ALUMNO.NombreEscuela = CURSO.NombreEscuela  AND MesPagado != 'Inscripcion' AND CURSO.Activo = 1 AND CURSO.NombreEscuela = '"+strNombreEscuela+"' ", con);
+                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM PAGO, ALUMNO, CURSO  WHERE PAGO.NumeroControl = ALUMNO.NumeroControl AND ALUMNO.NombreEscuela = CURSO.NombreEscuela  AND MesPagado != 'Inscripcion' AND CURSO.Activo = 1 AND CURSO.NombreEscuela = '" + strNombreEscuela + "' ", con);
                 SqlDataReader mensualidades = comando.ExecuteReader();
                 while (mensualidades.Read())
                 {
-                    if (!mensualidades.IsDBNull(0))                    
-                        dblTotalMensualidades = double.Parse(Convert.ToString(mensualidades.GetSqlMoney(0)));                    
-                }   
+                    if (!mensualidades.IsDBNull(0))
+                        dblTotalMensualidades = double.Parse(Convert.ToString(mensualidades.GetSqlMoney(0)));
+                }
             }
             return dblTotalMensualidades;
         }
@@ -317,7 +317,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO GASTO VALUES ((SELECT COUNT(*) + 1 FROM GASTO), '"+strRazon+"', "+dblMonto+", '"+strNota+"', '"+strNombreEscuela+"','"+FormatearFecha(dtpFecha)+"')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO GASTO VALUES ((SELECT COUNT(*) + 1 FROM GASTO), '" + strRazon + "', " + dblMonto + ", '" + strNota + "', '" + strNombreEscuela + "','" + FormatearFecha(dtpFecha) + "')", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -327,7 +327,7 @@ namespace PiensaAjedrez
             double dblTotalMensualidades = 0;
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM GASTO, ESCUELA  WHERE GASTO.NombreEscuela = '"+strNombreEscuela+"'", con);
+                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM GASTO WHERE GASTO.NombreEscuela = '" + strNombreEscuela + "'", con);
                 SqlDataReader gastos = comando.ExecuteReader();
                 while (gastos.Read())
                 {
@@ -343,10 +343,23 @@ namespace PiensaAjedrez
             using (SqlConnection con = ObtenerConexion())
             {
 
-                SqlCommand comando = new SqlCommand("UPDATE PAGO SET Monto = '" + (dblMonto+unPago.Monto) + "',  Liquidado = '" + (blnLiquidado?1:0) + "', Nota = '" + unPago.Nota + "'  WHERE NumeroControl = '" + strNumeroControl + "' AND MesPagado = '"+unPago.MesPagado+"' AND Monto = '"+dblMonto+"'", con);
+                SqlCommand comando = new SqlCommand("UPDATE PAGO SET Monto = '" + (dblMonto + unPago.Monto) + "',  Liquidado = '" + (blnLiquidado ? 1 : 0) + "', Nota = '" + unPago.Nota + "'  WHERE NumeroControl = '" + strNumeroControl + "' AND MesPagado = '" + unPago.MesPagado + "' AND Monto = '" + dblMonto + "'", con);
                 comando.ExecuteNonQuery();
             }
         }
 
+        public static List<Gastos> CargarGastos(string strNombreEscuela)
+        {
+            List<Gastos> listaPagos = new List<Gastos>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM GASTO WHERE NombreEscuela = '" + strNombreEscuela + "' ", con);
+                SqlDataReader pagos = comando.ExecuteReader();
+                while (pagos.Read())
+                    listaPagos.Add(new Gastos(pagos.GetString(1), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(3), pagos.GetDateTime(5)));
+            }
+            return listaPagos;
+
+        }
     }
 }

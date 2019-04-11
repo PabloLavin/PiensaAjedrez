@@ -652,11 +652,12 @@ namespace PiensaAjedrez
             {
                 try
                 {
-                ConexionBD.RegistrarGasto(cbGastos.selectedValue.ToString(), double.Parse(txtMontoAdicional.Text), txtNota.Text, cbEscuelas.selectedValue.ToString(), bnfdtpFechaGasto.Value);
+                ConexionBD.RegistrarGasto(cbGastos.selectedValue.ToString(), double.Parse(txtMontoAdicional.Text), txtMotivo.Text, cbEscuelas.selectedValue.ToString(), bnfdtpFechaGasto.Value);
                 }
                 catch (Exception x) { MessageBox.Show("Introduzca solo valores numéricos."); return; }
                 MessageBox.Show("Gasto registrado con éxito.", "Registro de gasto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtMontoAdicional.Text = "";
+                txtMotivo.Text = "";
                 LlenarDGV(new Escuela(cbEscuelas.selectedValue));
             }
             else
@@ -721,6 +722,9 @@ namespace PiensaAjedrez
 
         }
 
-      
+        private void btnVerGastos_Click(object sender, EventArgs e)
+        {
+            new Form2(cbEscuelas.selectedValue).Show();
+        }
     }
 }
