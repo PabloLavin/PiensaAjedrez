@@ -37,7 +37,7 @@
             this.dgvAlumnos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsEliminarAlumno = new System.Windows.Forms.ToolStripMenuItem();
-            this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
+            this.bnfcarAgregar = new Bunifu.Framework.UI.BunifuCards();
             this.txtGrado = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lblGrado = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnCancelar = new System.Windows.Forms.PictureBox();
@@ -85,7 +85,7 @@
             this.Cancelartt = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            this.bunifuCards1.SuspendLayout();
+            this.bnfcarAgregar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLimpiar)).BeginInit();
             this.bunifuCards2.SuspendLayout();
@@ -158,48 +158,48 @@
             this.tsEliminarAlumno.Text = "Eliminar alumno";
             this.tsEliminarAlumno.Click += new System.EventHandler(this.tsEliminarAlumno_Click);
             // 
-            // bunifuCards1
+            // bnfcarAgregar
             // 
-            this.bunifuCards1.BackColor = System.Drawing.Color.White;
-            this.bunifuCards1.BorderRadius = 5;
-            this.bunifuCards1.BottomSahddow = true;
-            this.bunifuCards1.color = System.Drawing.Color.Teal;
-            this.bunifuCards1.Controls.Add(this.txtGrado);
-            this.bunifuCards1.Controls.Add(this.lblGrado);
-            this.bunifuCards1.Controls.Add(this.btnCancelar);
-            this.bunifuCards1.Controls.Add(this.lblTutor);
-            this.bunifuCards1.Controls.Add(this.lblApellidoM);
-            this.bunifuCards1.Controls.Add(this.txtApellidoM);
-            this.bunifuCards1.Controls.Add(this.lblApellidoP);
-            this.bunifuCards1.Controls.Add(this.txtApellidoP);
-            this.bunifuCards1.Controls.Add(this.txtTutor);
-            this.bunifuCards1.Controls.Add(this.lblNombre);
-            this.bunifuCards1.Controls.Add(this.btnLimpiar);
-            this.bunifuCards1.Controls.Add(this.cbEscuelas);
-            this.bunifuCards1.Controls.Add(this.btnAgregado);
-            this.bunifuCards1.Controls.Add(this.lblActivo);
-            this.bunifuCards1.Controls.Add(this.chkActivo);
-            this.bunifuCards1.Controls.Add(this.lblnumerocontrol);
-            this.bunifuCards1.Controls.Add(this.lblNocontrol);
-            this.bunifuCards1.Controls.Add(this.btnAgregar);
-            this.bunifuCards1.Controls.Add(this.dtFechaNacimiento);
-            this.bunifuCards1.Controls.Add(this.txtCorreo);
-            this.bunifuCards1.Controls.Add(this.txtTelefono);
-            this.bunifuCards1.Controls.Add(this.txtNombre);
-            this.bunifuCards1.Controls.Add(this.lblCorreo);
-            this.bunifuCards1.Controls.Add(this.lblTelefono);
-            this.bunifuCards1.Controls.Add(this.lblFechaNacimiento);
-            this.bunifuCards1.Controls.Add(this.lblEscuela);
-            this.bunifuCards1.LeftSahddow = false;
-            this.bunifuCards1.Location = new System.Drawing.Point(27, 24);
-            this.bunifuCards1.Name = "bunifuCards1";
-            this.bunifuCards1.RightSahddow = true;
-            this.bunifuCards1.ShadowDepth = 20;
-            this.bunifuCards1.Size = new System.Drawing.Size(923, 257);
-            this.bunifuCards1.TabIndex = 0;
-            this.bunifuCards1.TabStop = true;
-            this.bunifuCards1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
-            this.bunifuCards1.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuCards1_Paint);
+            this.bnfcarAgregar.BackColor = System.Drawing.Color.White;
+            this.bnfcarAgregar.BorderRadius = 5;
+            this.bnfcarAgregar.BottomSahddow = true;
+            this.bnfcarAgregar.color = System.Drawing.Color.Teal;
+            this.bnfcarAgregar.Controls.Add(this.txtGrado);
+            this.bnfcarAgregar.Controls.Add(this.lblGrado);
+            this.bnfcarAgregar.Controls.Add(this.btnCancelar);
+            this.bnfcarAgregar.Controls.Add(this.lblTutor);
+            this.bnfcarAgregar.Controls.Add(this.lblApellidoM);
+            this.bnfcarAgregar.Controls.Add(this.txtApellidoM);
+            this.bnfcarAgregar.Controls.Add(this.lblApellidoP);
+            this.bnfcarAgregar.Controls.Add(this.txtApellidoP);
+            this.bnfcarAgregar.Controls.Add(this.txtTutor);
+            this.bnfcarAgregar.Controls.Add(this.lblNombre);
+            this.bnfcarAgregar.Controls.Add(this.btnLimpiar);
+            this.bnfcarAgregar.Controls.Add(this.cbEscuelas);
+            this.bnfcarAgregar.Controls.Add(this.btnAgregado);
+            this.bnfcarAgregar.Controls.Add(this.lblActivo);
+            this.bnfcarAgregar.Controls.Add(this.chkActivo);
+            this.bnfcarAgregar.Controls.Add(this.lblnumerocontrol);
+            this.bnfcarAgregar.Controls.Add(this.lblNocontrol);
+            this.bnfcarAgregar.Controls.Add(this.btnAgregar);
+            this.bnfcarAgregar.Controls.Add(this.dtFechaNacimiento);
+            this.bnfcarAgregar.Controls.Add(this.txtCorreo);
+            this.bnfcarAgregar.Controls.Add(this.txtTelefono);
+            this.bnfcarAgregar.Controls.Add(this.txtNombre);
+            this.bnfcarAgregar.Controls.Add(this.lblCorreo);
+            this.bnfcarAgregar.Controls.Add(this.lblTelefono);
+            this.bnfcarAgregar.Controls.Add(this.lblFechaNacimiento);
+            this.bnfcarAgregar.Controls.Add(this.lblEscuela);
+            this.bnfcarAgregar.LeftSahddow = false;
+            this.bnfcarAgregar.Location = new System.Drawing.Point(27, 24);
+            this.bnfcarAgregar.Name = "bnfcarAgregar";
+            this.bnfcarAgregar.RightSahddow = true;
+            this.bnfcarAgregar.ShadowDepth = 20;
+            this.bnfcarAgregar.Size = new System.Drawing.Size(923, 257);
+            this.bnfcarAgregar.TabIndex = 0;
+            this.bnfcarAgregar.TabStop = true;
+            this.bnfcarAgregar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
+            this.bnfcarAgregar.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuCards1_Paint);
             // 
             // txtGrado
             // 
@@ -956,7 +956,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.Controls.Add(this.bunifuCards1);
+            this.Controls.Add(this.bnfcarAgregar);
             this.Controls.Add(this.dgvAlumnos);
             this.Controls.Add(this.bunifuCards2);
             this.ForeColor = System.Drawing.Color.White;
@@ -964,8 +964,8 @@
             this.Size = new System.Drawing.Size(1342, 670);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            this.bunifuCards1.ResumeLayout(false);
-            this.bunifuCards1.PerformLayout();
+            this.bnfcarAgregar.ResumeLayout(false);
+            this.bnfcarAgregar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLimpiar)).EndInit();
             this.bunifuCards2.ResumeLayout(false);
@@ -978,7 +978,7 @@
         #endregion
 
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvAlumnos;
-        private Bunifu.Framework.UI.BunifuCards bunifuCards1;
+        private Bunifu.Framework.UI.BunifuCards bnfcarAgregar;
         private Bunifu.Framework.UI.BunifuCustomLabel lblFechaNacimiento;
         private Bunifu.Framework.UI.BunifuCustomLabel lblEscuela;
         private Bunifu.Framework.UI.BunifuCustomLabel lblNombre;
