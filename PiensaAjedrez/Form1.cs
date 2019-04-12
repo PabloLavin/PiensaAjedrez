@@ -66,7 +66,7 @@ namespace PiensaAjedrez
 
         private void btnColegios_Click(object sender, EventArgs e)
         {
-            ReemplazarPantalla(new UserControl());
+            ReemplazarPantalla(new Escuelas());
         }
 
         private void btnPiensaAjedrez_Click(object sender, EventArgs e)
@@ -75,6 +75,8 @@ namespace PiensaAjedrez
                 ReemplazarPantalla(new RegistroAlumnos());            
             if (btnMensualidades.selected)
                 ReemplazarPantalla(new Mensualidades());
+            if (btnColegios.selected)
+                ReemplazarPantalla(new Escuelas());
         }
     }
 }
