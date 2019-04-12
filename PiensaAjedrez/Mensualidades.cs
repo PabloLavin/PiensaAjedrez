@@ -246,7 +246,7 @@ namespace PiensaAjedrez
                         {
                             LlenarDGV(miEscuela);
                         }
-                        catch (Exception x)
+                        catch (Exception)
                         {
                            
                         } 
@@ -628,7 +628,7 @@ namespace PiensaAjedrez
                   
                
             }
-            catch (Exception x)
+            catch (Exception)
             {
                 MessageBox.Show("Ocurrió un error al intentar enviar un correo.\nCompruebe sus credenciales y la conexión a internet.\nSi el error persiste, intente más tarde.", "Error de conexión", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 foreach (Pagos pagos in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
@@ -654,7 +654,7 @@ namespace PiensaAjedrez
                 {
                 ConexionBD.RegistrarGasto(cbGastos.selectedValue.ToString(), double.Parse(txtMontoAdicional.Text), txtMotivo.Text, cbEscuelas.selectedValue.ToString(), bnfdtpFechaGasto.Value);
                 }
-                catch (Exception x) { MessageBox.Show("Introduzca solo valores numéricos."); return; }
+                catch (Exception) { MessageBox.Show("Introduzca solo valores numéricos."); return; }
                 MessageBox.Show("Gasto registrado con éxito.", "Registro de gasto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtMontoAdicional.Text = "";
                 txtMotivo.Text = "";
