@@ -141,7 +141,7 @@ namespace PiensaAjedrez
                 contextMenuStrip1.Enabled = true;
                 tsEliminarAlumno.Visible = true;
             }
-            catch (Exception x)
+            catch (Exception)
             {
                 MessageBox.Show("Compruebe que los datos ingresados sean correctos.", "Error al agregar un alumno",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
