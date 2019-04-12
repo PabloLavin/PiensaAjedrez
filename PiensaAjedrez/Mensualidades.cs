@@ -549,7 +549,9 @@ namespace PiensaAjedrez
                                     else
                                     {
                                         ConexionBD.EditarPago(unPago, false, miAlumno.NumeroDeControl, double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1)));
-                                    }
+                                    }                                    
+                                    if (DialogResult.Yes == MessageBox.Show("Desea enviar un correo con los datos de pago a: " + ObtenerNombreCompleto(miAlumno), "Envío de correo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                                        EnviarCorreo(miAlumno, unPago);
                                 }
                                 else
                                 {
@@ -557,14 +559,17 @@ namespace PiensaAjedrez
                                     {
                                         unPago.Liquidado = true;
                                         ConexionBD.AgregarPago(unPago, miAlumno);
+                                        EnviarCorreo(miAlumno, unPago);
                                     }
                                     else
                                     {
+                                        Pagos unPagoAuxiliar = new Pagos(unPago.NumeroRecibo,unPago.FechayHora, unPago.Monto, unPago.Nota, unPago.MesPagado, unPago.MetodoPago, unPago.Notificado, unPago.Liquidado);                                        
+                                        unPagoAuxiliar.Monto += double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1));
                                         ConexionBD.EditarPago(unPago, true, miAlumno.NumeroDeControl, double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1)));
+                                        EnviarCorreo(miAlumno, unPagoAuxiliar);
                                     }
-                                }
-                                if (DialogResult.Yes == MessageBox.Show("Desea enviar un correo con los datos de pago a: " + ObtenerNombreCompleto(miAlumno), "Envío de correo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-                                    EnviarCorreo(miAlumno, unPago);
+                                        
+                                }                                
                                 miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre); 
                                 if(miEscuela.CursoActivo!=null)
                                 if (lblMesAPagar.Text.Equals("Inscripcion"))

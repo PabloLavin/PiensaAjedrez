@@ -227,7 +227,7 @@ namespace PiensaAjedrez
             List<Alumno> listaAlumnos = new List<Alumno>();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO where NombreEscuela = '" + strNombreEscuela + "'", con);
+                SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO where NombreEscuela = '" + strNombreEscuela + "' ORDER BY APELLIDOPATERNO, APELLIDOMATERNO, NOMBRE, NUMEROCONTROL", con);
                 SqlDataReader alumnos = comando.ExecuteReader();
                 while (alumnos.Read())
                     listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(8), alumnos.GetString(9), alumnos.GetInt16(10)));
@@ -353,7 +353,7 @@ namespace PiensaAjedrez
             List<Gastos> listaPagos = new List<Gastos>();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT * FROM GASTO WHERE NombreEscuela = '" + strNombreEscuela + "' ", con);
+                SqlCommand comando = new SqlCommand("SELECT * FROM GASTO WHERE NombreEscuela = '" + strNombreEscuela + "' ORDER BY FECHAHORA, MONTO DESC ", con);
                 SqlDataReader pagos = comando.ExecuteReader();
                 while (pagos.Read())
                     listaPagos.Add(new Gastos(pagos.GetString(1), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(3), pagos.GetDateTime(5)));
