@@ -40,12 +40,22 @@ namespace PiensaAjedrez
             set { _dtmFechaGasto = value; }
         }
 
-        public Gastos(string strMotivo, double dblMonto, string strNota, DateTime dtmFecha)
+        private string _strIDCurso;
+
+        public string IDCurso
+        {
+            get { return _strIDCurso; }
+            set { _strIDCurso = value; }
+        }
+
+
+        public Gastos(string strMotivo, double dblMonto, string strNota, DateTime dtmFecha, string strCurso)
         {
             Motivo = strMotivo;
             Monto = dblMonto;
             Nota = strNota;
             FechaGasto = dtmFecha;
+            IDCurso = strCurso;
         }
 
         public Gastos(string strMotivo, double dblMonto, string strNota)

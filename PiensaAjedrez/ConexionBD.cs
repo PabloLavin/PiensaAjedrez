@@ -12,8 +12,8 @@ namespace PiensaAjedrez
         public static SqlConnection ObtenerConexion()
         {
             //SqlConnection con = new SqlConnection(@"Data Source=LAVINW8; Initial Catalog = PIENSAJEDREZ; Server=LAVINW8\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
-            //SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
-            SqlConnection con = new SqlConnection(@"Data Source=ANCIRALAPTOP; Initial Catalog = PIENSAJEDREZ; Server=ANCIRALAPTOP\TEW_SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
+            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
+            //SqlConnection con = new SqlConnection(@"Data Source=ANCIRALAPTOP; Initial Catalog = PIENSAJEDREZ; Server=ANCIRALAPTOP\TEW_SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
 
             con.Open();
             return (con);
@@ -239,7 +239,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO PAGO VALUES ('" + unPago.NumeroRecibo + "', '" + unAlumno.NumeroDeControl + "', '" + unPago.Monto + "', '" + unPago.MesPagado + "', '" + FormatearFecha(unPago.FechayHora) + "', '" + unPago.MetodoPago + "', '" + unPago.Nota + "', '" + (unPago.Notificado ? 1 : 0) + "', '" + (unPago.Liquidado ? 1 : 0) + "')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO PAGO VALUES ('" + unPago.NumeroRecibo + "', '" + unAlumno.NumeroDeControl + "', '" + unPago.Monto + "', '" + unPago.MesPagado + "', '" + FormatearFecha(unPago.FechayHora) + "', '" + unPago.MetodoPago + "', '" + unPago.Nota + "', '" + (unPago.Notificado ? 1 : 0) + "', '" + (unPago.Liquidado ? 1 : 0) + "', '" + unPago.IDCurso + "')", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -252,7 +252,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM PAGO WHERE NumeroControl = '" + strNumeroControl + "'", con);
                 SqlDataReader pagos = comando.ExecuteReader();
                 while (pagos.Read())
-                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7) == 1 ? true : false), (pagos.GetInt16(8) == 1 ? true : false)));
+                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7) == 1 ? true : false), (pagos.GetInt16(8) == 1 ? true : false), pagos.GetString(9)));
             }
             return listaPagos;
         }
@@ -265,7 +265,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM PAGO ", con);
                 SqlDataReader pagos = comando.ExecuteReader();
                 while (pagos.Read())
-                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7) == 1 ? true : false), (pagos.GetInt16(8) == 1 ? true : false)));
+                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7) == 1 ? true : false), (pagos.GetInt16(8) == 1 ? true : false),pagos.GetString(9)));
             }
             return listaPagos;
         }
@@ -356,7 +356,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM GASTO WHERE NombreEscuela = '" + strNombreEscuela + "' ORDER BY FECHAHORA, MONTO DESC ", con);
                 SqlDataReader pagos = comando.ExecuteReader();
                 while (pagos.Read())
-                    listaPagos.Add(new Gastos(pagos.GetString(1), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(3), pagos.GetDateTime(5)));
+                    listaPagos.Add(new Gastos(pagos.GetString(1), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(3), pagos.GetDateTime(5), pagos.GetString(6)));
             }
             return listaPagos;
 

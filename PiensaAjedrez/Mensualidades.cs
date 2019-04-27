@@ -214,7 +214,7 @@ namespace PiensaAjedrez
                 if (miAlumno.Activo)
                 {
                     dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl,miAlumno.ApellidoPaterno,miAlumno.ApellidoMaterno, miAlumno.Nombre);
-                    RellenarPagos(miAlumno);
+                    RellenarPagos(miAlumno, otraEscuela.CursoActivo.Clave);
                 }
             }
 
@@ -329,7 +329,7 @@ namespace PiensaAjedrez
                         if (ObtenerNombreCompleto(miAlumno).Contains(txtFiltroNombre.Text))
                         {
                             dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl,miAlumno.ApellidoPaterno,miAlumno.ApellidoMaterno, miAlumno.Nombre);
-                            RellenarPagos(miAlumno);
+                            RellenarPagos(miAlumno,miEscuela.CursoActivo.Clave);
                         }
 
             }
@@ -398,7 +398,7 @@ namespace PiensaAjedrez
                         if (miAlumno.NumeroDeControl.Contains(txtFiltroNoCtrl.Text))
                         {
                             dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl,miAlumno.ApellidoPaterno,miAlumno.ApellidoMaterno,miAlumno.Nombre);
-                            RellenarPagos(miAlumno);
+                            RellenarPagos(miAlumno, miEscuela.CursoActivo.Clave);
                         }
                     }
 
@@ -421,7 +421,7 @@ namespace PiensaAjedrez
                                 if (miPago.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
                                 {
 
-                                    RellenarPagos(miAlumno);
+                                    RellenarPagos(miAlumno, miEscuela.CursoActivo.Clave);
                                 }
 
                             }
@@ -539,7 +539,7 @@ namespace PiensaAjedrez
                             {
                                 Correo.Usuario = txtCorreoEnvios.Text;
                                 Correo.Contrasena = txtPassword.Text;
-                                Pagos unPago = new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(),false, (chkLiquidado.Checked?false:true));
+                                Pagos unPago = new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(),false, (chkLiquidado.Checked?false:true), ConexionBD.CargarCursoActivo(miEscuela.Nombre).Clave);
                                 if (!unPago.Liquidado)
                                 {
                                     if (dgvAlumnos.CurrentCell.Value==null)
@@ -563,7 +563,7 @@ namespace PiensaAjedrez
                                     }
                                     else
                                     {
-                                        Pagos unPagoAuxiliar = new Pagos(unPago.NumeroRecibo,unPago.FechayHora, unPago.Monto, unPago.Nota, unPago.MesPagado, unPago.MetodoPago, unPago.Notificado, unPago.Liquidado);                                        
+                                        Pagos unPagoAuxiliar = new Pagos(unPago.NumeroRecibo,unPago.FechayHora, unPago.Monto, unPago.Nota, unPago.MesPagado, unPago.MetodoPago, unPago.Notificado, unPago.Liquidado, miEscuela.CursoActivo.Clave);                                        
                                         unPagoAuxiliar.Monto += double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1));
                                         ConexionBD.EditarPago(unPago, true, miAlumno.NumeroDeControl, double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1)));
                                         EnviarCorreo(miAlumno, unPagoAuxiliar);
@@ -595,11 +595,11 @@ namespace PiensaAjedrez
             return (unAlumno.ApellidoPaterno+" "+unAlumno.ApellidoMaterno+" "+unAlumno.Nombre);
         }
 
-        void RellenarPagos(Alumno miAlumno)
+        void RellenarPagos(Alumno miAlumno, string strCurso)
         {
             foreach (Pagos miPagos in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
             {
-                if (miPagos.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
+                if (miPagos.IDCurso.Equals(strCurso))
                     foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
                     {
                         if (miPagos.MesPagado.Equals(columna.HeaderText))
