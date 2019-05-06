@@ -13,10 +13,12 @@ namespace PiensaAjedrez
    public partial class Form2 : Form
     {
         string Escuela="";
-        public Form2(string strNombreEscuela)
+        Cursos Curso;
+        public Form2(string strNombreEscuela, Cursos unCurso)
         {
             InitializeComponent();
             Escuela = strNombreEscuela;
+            Curso = unCurso;
         }
 
        
@@ -41,6 +43,7 @@ namespace PiensaAjedrez
             dgvGastos.Rows.Clear();
             foreach (Gastos unGasto in ConexionBD.CargarGastos(strNombreEscuela))
             {
+                if(unGasto.IDCurso.Equals(Curso.Clave))
                 dgvGastos.Rows.Add(unGasto.Motivo,unGasto.Monto.ToString("c"),unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
             }
         }

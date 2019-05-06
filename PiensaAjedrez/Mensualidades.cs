@@ -60,7 +60,7 @@ namespace PiensaAjedrez
             }
             else
             {
-                dgvAlumnos.Columns.Add("No. ctrl.", "No. ctrl.");
+                dgvAlumnos.Columns.Add("N° de ctrl.", "N° de ctrl.");
                 dgvAlumnos.Columns.Add("ApellidoP", "Apellido P");
                 dgvAlumnos.Columns.Add("Apellido M", "Apellido M");
                 dgvAlumnos.Columns.Add("Nombre", "Nombre");
@@ -84,7 +84,7 @@ namespace PiensaAjedrez
                     dgvAlumnos.Columns[2].Frozen = true;
                     dgvAlumnos.Columns[3].Frozen = true;
                 }
-                dgvAlumnos.Columns[0].Width = 80;
+                dgvAlumnos.Columns[0].Width = 95;
                 dgvAlumnos.Columns[1].Width = 115;
                 dgvAlumnos.Columns[2].Width = 125;
                 dgvAlumnos.Columns[3].Width = 150;
@@ -507,7 +507,7 @@ namespace PiensaAjedrez
         void ObtenerMes(int intMes)
         {
             lblMesAPagar.Text = dgvAlumnos.Columns[intMes].HeaderText;
-            if (dgvAlumnos.Columns[intMes].HeaderText == "No. ctrl." || dgvAlumnos.Columns[intMes].HeaderText == "Nombre"|| dgvAlumnos.Columns[intMes].HeaderText == "Apellido P"|| dgvAlumnos.Columns[intMes].HeaderText == "Apellido M")
+            if (dgvAlumnos.Columns[intMes].HeaderText == "N° de ctrl." || dgvAlumnos.Columns[intMes].HeaderText == "Nombre"|| dgvAlumnos.Columns[intMes].HeaderText == "Apellido P"|| dgvAlumnos.Columns[intMes].HeaderText == "Apellido M")
             {
                 Deshabilitar();
             }
@@ -537,6 +537,7 @@ namespace PiensaAjedrez
 
                             if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: " + ObtenerNombreCompleto(miAlumno) + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nAsunto: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString(), "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                             {
+                                miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
                                 Correo.Usuario = txtCorreoEnvios.Text;
                                 Correo.Contrasena = txtPassword.Text;
                                 Pagos unPago = new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(),false, (chkLiquidado.Checked?false:true), ConexionBD.CargarCursoActivo(miEscuela.Nombre).Clave);
@@ -545,13 +546,12 @@ namespace PiensaAjedrez
                                     if (dgvAlumnos.CurrentCell.Value==null)
                                     {
                                         ConexionBD.AgregarPago(unPago, miAlumno);
+
                                     }
                                     else
                                     {
                                         ConexionBD.EditarPago(unPago, false, miAlumno.NumeroDeControl, double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1)));
                                     }                                    
-                                    if (DialogResult.Yes == MessageBox.Show("Desea enviar un correo con los datos de pago a: " + ObtenerNombreCompleto(miAlumno), "Envío de correo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-                                        EnviarCorreo(miAlumno, unPago);
                                 }
                                 else
                                 {
@@ -559,14 +559,15 @@ namespace PiensaAjedrez
                                     {
                                         unPago.Liquidado = true;
                                         ConexionBD.AgregarPago(unPago, miAlumno);
-                                        EnviarCorreo(miAlumno, unPago);
+                                        if (DialogResult.Yes == MessageBox.Show("Desea enviar un correo con los datos de pago a: " + ObtenerNombreCompleto(miAlumno), "Envío de correo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                                            EnviarCorreo(miAlumno, unPago);
                                     }
                                     else
                                     {
+
                                         Pagos unPagoAuxiliar = new Pagos(unPago.NumeroRecibo,unPago.FechayHora, unPago.Monto, unPago.Nota, unPago.MesPagado, unPago.MetodoPago, unPago.Notificado, unPago.Liquidado, miEscuela.CursoActivo.Clave);                                        
                                         unPagoAuxiliar.Monto += double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1));
                                         ConexionBD.EditarPago(unPago, true, miAlumno.NumeroDeControl, double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1)));
-                                        EnviarCorreo(miAlumno, unPagoAuxiliar);
                                     }
                                         
                                 }                                
@@ -587,7 +588,7 @@ namespace PiensaAjedrez
 
         string ObtenerClaveRecibo()
         {
-            return dtFechaPago.Value.Day.ToString()+ dtFechaPago.Value.Month.ToString()+ dtFechaPago.Value.Year.ToString() + ((int.Parse("1000")) + (ConexionBD.CargarPagos().Count)).ToString();
+            return DateTime.Today.Day.ToString()+ DateTime.Today.Month.ToString()+ DateTime.Today.Year.ToString() + ((int.Parse("1000")) + (ConexionBD.CargarPagos().Count)).ToString();
         }
 
         string ObtenerNombreCompleto(Alumno unAlumno)
@@ -657,10 +658,13 @@ namespace PiensaAjedrez
             {
                 try
                 {
-                ConexionBD.RegistrarGasto(cbGastos.selectedValue.ToString(), double.Parse(txtMontoAdicional.Text), txtMotivo.Text, cbEscuelas.selectedValue.ToString(), bnfdtpFechaGasto.Value);
+                    if (DialogResult.Yes == MessageBox.Show("Confirmar gasto:\nRazón: " + cbGastos.selectedValue.ToString() + "\nMonto: " + double.Parse(txtMontoAdicional.Text).ToString("c") + "\nEscuela: " + cbEscuelas.selectedValue.ToString() + "\nFecha: " + bnfdtpFechaGasto.Value + "\nNota: " + txtMotivo.Text, "Confirmar gasto", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                    {
+                        ConexionBD.RegistrarGasto(cbGastos.selectedValue.ToString(), double.Parse(txtMontoAdicional.Text), txtMotivo.Text, cbEscuelas.selectedValue.ToString(), bnfdtpFechaGasto.Value, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue.ToString()).Clave);
+                        MessageBox.Show("Gasto registrado con éxito.", "Registro de gasto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 catch (Exception) { MessageBox.Show("Introduzca solo valores numéricos."); return; }
-                MessageBox.Show("Gasto registrado con éxito.", "Registro de gasto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtMontoAdicional.Text = "";
                 txtMotivo.Text = "";
                 LlenarDGV(new Escuela(cbEscuelas.selectedValue));
@@ -729,7 +733,7 @@ namespace PiensaAjedrez
 
         private void btnVerGastos_Click(object sender, EventArgs e)
         {
-            new Form2(cbEscuelas.selectedValue).Show();
+            new Form2(cbEscuelas.selectedValue.ToString(), ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue.ToString())).Show();
         }
     }
 }

@@ -659,7 +659,7 @@
             this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAlumnos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvAlumnos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dgvAlumnos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
@@ -667,7 +667,6 @@
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -681,6 +680,7 @@
             this.dgvAlumnos.DoubleBuffered = true;
             this.dgvAlumnos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAlumnos.EnableHeadersVisualStyles = false;
+            this.dgvAlumnos.GridColor = System.Drawing.Color.Black;
             this.dgvAlumnos.HeaderBgColor = System.Drawing.Color.Teal;
             this.dgvAlumnos.HeaderForeColor = System.Drawing.Color.White;
             this.dgvAlumnos.Location = new System.Drawing.Point(27, 297);
