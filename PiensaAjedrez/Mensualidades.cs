@@ -324,14 +324,20 @@ namespace PiensaAjedrez
             if(cbEscuelas.selectedIndex!=-1)
             foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
             {
-                if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
-                    foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
-                        if (ObtenerNombreCompleto(miAlumno).Contains(txtFiltroNombre.Text))
-                        {
-                            dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl,miAlumno.ApellidoPaterno,miAlumno.ApellidoMaterno, miAlumno.Nombre);
-                            RellenarPagos(miAlumno,miEscuela.CursoActivo.Clave);
-                        }
+                    if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
+                    {
+                        miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
 
+                        foreach (Alumno miAlumno in ConexionBD.CargarAlumnosOrdenados(miEscuela.Nombre))
+                            if (ObtenerNombreCompleto(miAlumno).Contains(txtFiltroNombre.Text))
+                            {
+                                if (miAlumno.Activo)
+                                {
+                                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre);
+                                RellenarPagos(miAlumno, miEscuela.CursoActivo.Clave);
+                                }
+                            }
+                    }
             }
         }
 
@@ -390,18 +396,24 @@ namespace PiensaAjedrez
             dgvAlumnos.Rows.Clear();
             foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
             {
-                if(cbEscuelas.selectedIndex!=-1)
-                if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
-                    foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
+                if (cbEscuelas.selectedIndex != -1)
+                    if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
                     {
-                        
-                        if (miAlumno.NumeroDeControl.Contains(txtFiltroNoCtrl.Text))
+                        miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
+
+                        foreach (Alumno miAlumno in ConexionBD.CargarAlumnosOrdenados(miEscuela.Nombre))
                         {
-                            dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl,miAlumno.ApellidoPaterno,miAlumno.ApellidoMaterno,miAlumno.Nombre);
-                            RellenarPagos(miAlumno, miEscuela.CursoActivo.Clave);
+
+                            if (miAlumno.NumeroDeControl.Contains(txtFiltroNoCtrl.Text))
+                            {
+                                if (miAlumno.Activo)
+                                {
+                                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre);
+                                    RellenarPagos(miAlumno, miEscuela.CursoActivo.Clave);
+                                }
+                            }
                         }
                     }
-
             }
         }
 
@@ -413,9 +425,13 @@ namespace PiensaAjedrez
                 foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
                 {
                     if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
-                        foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
+                    {
+                        miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
+
+                        foreach (Alumno miAlumno in ConexionBD.CargarAlumnosOrdenados(miEscuela.Nombre))
                         {
-                            dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl,miAlumno.ApellidoPaterno,miAlumno.ApellidoMaterno, miAlumno.Nombre);
+                            if (miAlumno.Activo)
+                                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre);
                             foreach (Pagos miPago in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
                             {
                                 if (miPago.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
@@ -426,6 +442,7 @@ namespace PiensaAjedrez
 
                             }
                         }
+                    }
 
                 }
             }
