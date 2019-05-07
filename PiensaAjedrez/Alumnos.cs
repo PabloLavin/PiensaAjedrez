@@ -125,6 +125,14 @@ namespace PiensaAjedrez
             Grado = intGrado;
         }
 
+        public Alumno(string strNumeroControl, string strNombre, string strAMaterno, string strAPaterno)
+        {
+            NumeroDeControl = strNumeroControl;
+            Nombre = strNombre;
+            ApellidoMaterno = strAMaterno;
+            ApellidoPaterno = strAPaterno;
+        }
+
         public Alumno(string strNumeroControl)
         {
             _strNumeroDeControl = strNumeroControl;

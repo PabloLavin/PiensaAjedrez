@@ -12,8 +12,8 @@ namespace PiensaAjedrez
         public static SqlConnection ObtenerConexion()
         {
             //SqlConnection con = new SqlConnection(@"Data Source=LAVINW8; Initial Catalog = PIENSAJEDREZ; Server=LAVINW8\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
-            //SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
-            SqlConnection con = new SqlConnection(@"Data Source=ANCIRALAPTOP; Initial Catalog = PIENSAJEDREZ; Server=ANCIRALAPTOP\TEW_SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
+            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
+            //SqlConnection con = new SqlConnection(@"Data Source=ANCIRALAPTOP; Initial Catalog = PIENSAJEDREZ; Server=ANCIRALAPTOP\TEW_SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
 
             con.Open();
             return (con);
@@ -76,12 +76,12 @@ namespace PiensaAjedrez
             }
         }
 
-        public static void AgregarCurso(string strNombreEscuela, DateTime FechaInicio, DateTime FechaFinal)
+        public static void AgregarCurso(string strNombreEscuela, DateTime FechaInicio, DateTime FechaFinal, string strDiaclase)
         {
             using (SqlConnection con = ObtenerConexion())
             {
                 string strClave = FechaInicio.Month.ToString() + FechaFinal.Month.ToString() + new Random().Next(10, 500);
-                string strQuery = @"IF NOT(EXISTS(SELECT * FROM CURSO WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "')) BEGIN INSERT INTO CURSO VALUES('" + strClave + "', '" + strNombreEscuela + "', '" + FormatearFecha(FechaInicio) + "', '" + FormatearFecha(FechaFinal) + "', 1) END ELSE RAISERROR('Ya existe un curso activo para este colegio. Debe finalizarlo.', 16, 1) ";
+                string strQuery = @"IF NOT(EXISTS(SELECT * FROM CURSO WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "')) BEGIN INSERT INTO CURSO VALUES('" + strClave + "', '" + strNombreEscuela + "', '" + FormatearFecha(FechaInicio) + "', '" + FormatearFecha(FechaFinal) + "', 1, '"+strDiaclase+"') END ELSE RAISERROR('Ya existe un curso activo para este colegio. Debe finalizarlo.', 16, 1) ";
                 SqlCommand comando = new SqlCommand(strQuery, con);
                 comando.ExecuteNonQuery();
             }
@@ -100,16 +100,17 @@ namespace PiensaAjedrez
                     unCurso.Clave = curso.GetString(0);
                     unCurso.Activo = true;
                     unCurso.listaActividades = CargarActividades(unCurso.Clave);
+                    unCurso.DiaDeClase = curso.GetString(5);
                 }
             }
             return unCurso;
         }
 
-        public static void ActualizarDatosCurso(string strNombreEscuela, DateTime FechaInicio, DateTime FechaFinal)
+        public static void ActualizarDatosCurso(string strNombreEscuela, DateTime FechaInicio, DateTime FechaFinal, string strDiaClase)
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("UPDATE CURSO SET InicioCurso = '" + FormatearFecha(FechaInicio) + "', FinCurso = '" + FormatearFecha(FechaFinal) + "' WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "'", con);
+                SqlCommand comando = new SqlCommand("UPDATE CURSO SET InicioCurso = '" + FormatearFecha(FechaInicio) + "', FinCurso = '" + FormatearFecha(FechaFinal) + "', DiaClase = '"+strDiaClase+"' WHERE Activo = 1 AND NombreEscuela = '" + strNombreEscuela + "'", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -231,6 +232,29 @@ namespace PiensaAjedrez
                 SqlDataReader alumnos = comando.ExecuteReader();
                 while (alumnos.Read())
                     listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(8), alumnos.GetString(9), alumnos.GetInt16(10)));
+            }
+            return listaAlumnos;
+        }
+
+        public static List<Alumno> CargarAlumnosOrdenados(string strNombreEscuela)
+        {
+            List<Alumno> listaAlumnos = new List<Alumno>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("select DISTInct Pago.NumeroControl, PAGO.NumeroRecibo, ALUMNO.* from PAGO, ALUMNO where ALUMNO.NombreEscuela='"+strNombreEscuela+"' AND ALUMNO.NumeroControl = PAGO.NumeroControl Order by PAGO.NumeroRecibo DESC", con);
+                SqlDataReader alumnos = comando.ExecuteReader();
+                while (alumnos.Read())
+                {
+                    if(!listaAlumnos.Contains(new Alumno(alumnos.GetString(0))))
+                     listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(3), alumnos.GetString(4), alumnos.GetDateTime(5), alumnos.GetString(6), alumnos.GetString(7), alumnos.GetInt16(8), alumnos.GetString(9), alumnos.GetString(10), alumnos.GetString(11), alumnos.GetInt16(12)));
+                }
+                    foreach (Alumno unAlumno in CargarAlumnos(strNombreEscuela))
+                    {
+                        if (!listaAlumnos.Contains(unAlumno))
+                            listaAlumnos.Add(unAlumno);
+                 
+                    }
+                
             }
             return listaAlumnos;
         }

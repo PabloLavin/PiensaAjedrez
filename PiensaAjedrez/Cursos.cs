@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace PiensaAjedrez
 {
-    public class Cursos: IEquatable<Cursos>, IComparable<Cursos>
-        
+    public class Cursos : IEquatable<Cursos>, IComparable<Cursos>
+
     {
         public List<Alumno> listaAlumnos = new List<Alumno>();
         public List<string> listaActividades = new List<string>();
         public List<Gastos> listaGastos = new List<Gastos>();
-       
+
 
         private string _strClave;
 
@@ -39,7 +39,7 @@ namespace PiensaAjedrez
             get { return _dtmFinCurso; }
             set { _dtmFinCurso = value;
                 if (_dtmFinCurso < _dtmInicioCursos)
-                    throw new Exception("Fecha de fin de curso invalida.");     
+                    throw new Exception("Fecha de fin de curso invalida.");
             }
         }
 
@@ -67,9 +67,18 @@ namespace PiensaAjedrez
             set { _dlTotalIngresos = value; }
         }
 
+        private string _strDiaDeClase;
+
+        public string DiaDeClase
+        {
+            get { return _strDiaDeClase; }
+            set { _strDiaDeClase = value; }
+        }
 
 
-        public Cursos(DateTime dtIniciocurso, DateTime dtFinCurso, List<string> actividades)
+
+
+        public Cursos(DateTime dtIniciocurso, DateTime dtFinCurso, List<string> actividades, string strDiaClase)
         {
             _dtmInicioCursos = dtIniciocurso;
             _dtmFinCurso = dtFinCurso;
@@ -77,6 +86,7 @@ namespace PiensaAjedrez
             TotalInscripcion = 0;
             TotalMensualidad = 0;
             TotalIngresos = 0;
+            DiaDeClase = strDiaClase;
             Clave = dtIniciocurso.Month.ToString() + dtFinCurso.Month.ToString() + new Random().Next(10,500);
             foreach (string actividad in actividades)
             {

@@ -209,7 +209,7 @@ namespace PiensaAjedrez
             }
 
 
-            foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(otraEscuela.Nombre))
+            foreach (Alumno miAlumno in ConexionBD.CargarAlumnosOrdenados(otraEscuela.Nombre))
             {
                 if (miAlumno.Activo)
                 {

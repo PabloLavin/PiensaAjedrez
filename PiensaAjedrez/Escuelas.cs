@@ -34,6 +34,8 @@ namespace PiensaAjedrez
             dgvCursos.Columns[0].Width = 86;
             dgvCursosPasados.Columns[0].Width = 86;
 
+            cbDiaClase.Visible = false;
+
             btnAgregado.Visible = false;
             btnAgregadoCurso.Visible = false;
             btnAgregarCurso.Visible = false;
@@ -183,7 +185,7 @@ namespace PiensaAjedrez
 
                     btnFinalizarCurso.Visible = false;
                     string strUnaEscuela = dgvEscuelas.CurrentRow.Cells[0].Value.ToString();
-                    ConexionBD.ActualizarDatosCurso(strUnaEscuela, dtmInicioCurso.Value, dtmFinCurso.Value);
+                    ConexionBD.ActualizarDatosCurso(strUnaEscuela, dtmInicioCurso.Value, dtmFinCurso.Value, cbDiaClase.selectedValue.ToString());
                     btnAgregarCurso.ButtonText = "Agregar curso";
                     btnAgregadoCurso.Visible = true;
                     InitializeTimer();
@@ -207,7 +209,7 @@ namespace PiensaAjedrez
 
 
                 string strEscuela = dgvEscuelas.CurrentRow.Cells[0].Value.ToString();
-                ConexionBD.AgregarCurso(strEscuela, dtmInicioCurso.Value, dtmFinCurso.Value);
+                ConexionBD.AgregarCurso(strEscuela, dtmInicioCurso.Value, dtmFinCurso.Value, cbDiaClase.selectedValue.ToString());
                 for (int i = 0; i < dgvListaActividades.Rows.Count; i++)
                 {
                     ConexionBD.AgregarActividad(strEscuela, dgvListaActividades.Rows[i].Cells[0].Value.ToString());
@@ -248,6 +250,7 @@ namespace PiensaAjedrez
             btnAgregarColegio.ButtonText = "Editar";
             btnAgregarColegio.IdleFillColor = Color.Teal;
             btnCancelar.Visible = true;
+            cbDiaClase.Visible = true;
 
             Escuela unaEscuela = new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString());
             unaEscuela.CursoActivo = ConexionBD.CargarCursoActivo(unaEscuela.Nombre);
@@ -291,6 +294,8 @@ namespace PiensaAjedrez
             dgvListaActividades.Rows.Clear();
             btnFinalizarCurso.Visible = false;
 
+            cbDiaClase.Visible = true;
+
             contextMenuStrip1.Enabled = true;
             tsEliminarCurso.Visible = true;
             btnAgregarCurso.ButtonText = "Editar";
@@ -301,6 +306,7 @@ namespace PiensaAjedrez
             {
                 miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
                 miEscuela.listaCursos = ConexionBD.CargarCursos(miEscuela.Nombre);
+                cbDiaClase.selectedIndex = ObtenerIndex(miEscuela.CursoActivo.DiaDeClase);
                 if (miEscuela.Nombre == dgvEscuelas.CurrentRow.Cells[0].Value.ToString())
                 {
                     foreach (Cursos miCursos in miEscuela.listaCursos)
@@ -575,6 +581,22 @@ namespace PiensaAjedrez
         private void Escuelas_Load(object sender, EventArgs e)
         {
             ActualizarGrados();
+        }
+
+
+           int ObtenerIndex(string strDia)
+        {
+            switch (strDia)
+            {
+                case "Lunes": return 0;
+                case "Martes": return 1;
+                case "Miercoles": return 2;
+                case "Jueves": return 3;
+                case "Viernes": return 4;
+                case "Sabado": return 5;
+                case "Domingo": return 6;
+                default: return 0;
+            }
         }
     }
 }
