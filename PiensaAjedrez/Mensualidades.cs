@@ -551,7 +551,7 @@ namespace PiensaAjedrez
                                 miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
                                 Correo.Usuario = txtCorreoEnvios.Text;
                                 Correo.Contrasena = txtPassword.Text;
-                                Pagos unPago = new Pagos(ObtenerClaveRecibo(), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(),false, (chkLiquidado.Checked?false:true), ConexionBD.CargarCursoActivo(miEscuela.Nombre).Clave);
+                                Pagos unPago = new Pagos(ObtenerClaveRecibo(dtFechaPago.Value), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(),false, (chkLiquidado.Checked?false:true), ConexionBD.CargarCursoActivo(miEscuela.Nombre).Clave);
                                 if (!unPago.Liquidado)
                                 {
                                     if (dgvAlumnos.CurrentCell.Value==null)
@@ -570,7 +570,6 @@ namespace PiensaAjedrez
                                     {
                                         unPago.Liquidado = true;
                                         ConexionBD.AgregarPago(unPago, miAlumno);
-                                        if (DialogResult.Yes == MessageBox.Show("Desea enviar un correo con los datos de pago a: " + ObtenerNombreCompleto(miAlumno), "Envío de correo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                                             EnviarCorreo(miAlumno, unPago);
                                     }
                                     else
@@ -597,9 +596,10 @@ namespace PiensaAjedrez
             }
         }
 
-        string ObtenerClaveRecibo()
+        
+        string ObtenerClaveRecibo(DateTime unaFecha)
         {
-            return DateTime.Today.Day.ToString()+ DateTime.Today.Month.ToString()+ DateTime.Today.Year.ToString() + ((int.Parse("1000")) + (ConexionBD.CargarPagos().Count)).ToString();
+           return unaFecha.Day.ToString()+unaFecha.Month.ToString()+ unaFecha.Year.ToString() + ((int.Parse("1000")) + (ConexionBD.CargarPagos().Count)).ToString();
         }
 
         string ObtenerNombreCompleto(Alumno unAlumno)

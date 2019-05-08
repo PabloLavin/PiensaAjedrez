@@ -118,8 +118,7 @@
             this.dgvGastos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGastos.BackgroundColor = System.Drawing.Color.White;
             this.dgvGastos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvGastos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvGastos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvGastos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.5F);
@@ -140,6 +139,7 @@
             this.dgvGastos.DoubleBuffered = true;
             this.dgvGastos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvGastos.EnableHeadersVisualStyles = false;
+            this.dgvGastos.GridColor = System.Drawing.Color.Black;
             this.dgvGastos.HeaderBgColor = System.Drawing.Color.Teal;
             this.dgvGastos.HeaderForeColor = System.Drawing.Color.White;
             this.dgvGastos.Location = new System.Drawing.Point(22, 82);

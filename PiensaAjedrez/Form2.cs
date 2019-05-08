@@ -28,10 +28,12 @@ namespace PiensaAjedrez
         private void Form2_Load(object sender, EventArgs e)
         {
             dgvGastos.Columns.Add("Razón", "Razón");
+            dgvGastos.Columns.Add("$", "$");
             dgvGastos.Columns.Add("Monto", "Monto");
             dgvGastos.Columns.Add("Nota", "Nota");
             dgvGastos.Columns.Add("Fecha", "Fecha");
             dgvGastos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvGastos.Columns[1].Width = 25;
             RellenarDGV(Escuela);
         }
 
@@ -40,7 +42,7 @@ namespace PiensaAjedrez
             dgvGastos.Rows.Clear();
             foreach (Gastos unGasto in ConexionBD.CargarGastos())
             {
-                dgvGastos.Rows.Add(unGasto.Motivo, unGasto.Monto, unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
+                dgvGastos.Rows.Add(unGasto.Motivo,"$", unGasto.Monto, unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
             }
         }
 

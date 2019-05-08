@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mensualidades));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
             this.cbAño = new System.Windows.Forms.ComboBox();
             this.chkAño = new Bunifu.Framework.UI.BunifuCheckbox();
@@ -44,6 +44,9 @@
             this.txtFiltroNombre = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.chkNombre = new Bunifu.Framework.UI.BunifuCheckbox();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
+            this.bunifuImageButton6 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.lblIngresosCantidad = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lblTotalGanancias = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblLiquidado = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.chkLiquidado = new Bunifu.Framework.UI.BunifuCheckbox();
             this.lbltotalMensualidades = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -97,11 +100,10 @@
             this.txtPassword = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuCards5 = new Bunifu.Framework.UI.BunifuCards();
             this.bunifuImageButton4 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.lblIngresosCantidad = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.lblTotalGanancias = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCards2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).BeginInit();
             this.bunifuCards1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
@@ -277,6 +279,7 @@
             this.bunifuCards1.BorderRadius = 5;
             this.bunifuCards1.BottomSahddow = true;
             this.bunifuCards1.color = System.Drawing.Color.Teal;
+            this.bunifuCards1.Controls.Add(this.bunifuImageButton6);
             this.bunifuCards1.Controls.Add(this.lblIngresosCantidad);
             this.bunifuCards1.Controls.Add(this.lblTotalGanancias);
             this.bunifuCards1.Controls.Add(this.lblLiquidado);
@@ -303,6 +306,7 @@
             this.bunifuCards1.Controls.Add(this.lblEscuela);
             this.bunifuCards1.Controls.Add(this.cbEscuelas);
             this.bunifuCards1.Controls.Add(this.bunifuImageButton2);
+            this.bunifuCards1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCards1.LeftSahddow = false;
             this.bunifuCards1.Location = new System.Drawing.Point(27, 24);
             this.bunifuCards1.Name = "bunifuCards1";
@@ -311,6 +315,41 @@
             this.bunifuCards1.Size = new System.Drawing.Size(943, 257);
             this.bunifuCards1.TabIndex = 0;
             this.bunifuCards1.TabStop = true;
+            // 
+            // bunifuImageButton6
+            // 
+            this.bunifuImageButton6.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuImageButton6.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton6.Image")));
+            this.bunifuImageButton6.ImageActive = null;
+            this.bunifuImageButton6.Location = new System.Drawing.Point(282, 188);
+            this.bunifuImageButton6.Name = "bunifuImageButton6";
+            this.bunifuImageButton6.Size = new System.Drawing.Size(3, 43);
+            this.bunifuImageButton6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bunifuImageButton6.TabIndex = 41;
+            this.bunifuImageButton6.TabStop = false;
+            this.bunifuImageButton6.Zoom = 10;
+            // 
+            // lblIngresosCantidad
+            // 
+            this.lblIngresosCantidad.AutoSize = true;
+            this.lblIngresosCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIngresosCantidad.ForeColor = System.Drawing.Color.Black;
+            this.lblIngresosCantidad.Location = new System.Drawing.Point(321, 213);
+            this.lblIngresosCantidad.Name = "lblIngresosCantidad";
+            this.lblIngresosCantidad.Size = new System.Drawing.Size(44, 18);
+            this.lblIngresosCantidad.TabIndex = 40;
+            this.lblIngresosCantidad.Text = "$0.00";
+            // 
+            // lblTotalGanancias
+            // 
+            this.lblTotalGanancias.AutoSize = true;
+            this.lblTotalGanancias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalGanancias.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalGanancias.Location = new System.Drawing.Point(291, 186);
+            this.lblTotalGanancias.Name = "lblTotalGanancias";
+            this.lblTotalGanancias.Size = new System.Drawing.Size(130, 16);
+            this.lblTotalGanancias.TabIndex = 39;
+            this.lblTotalGanancias.Text = "Total de Ingresos";
             // 
             // lblLiquidado
             // 
@@ -340,44 +379,44 @@
             // lbltotalMensualidades
             // 
             this.lbltotalMensualidades.AutoSize = true;
-            this.lbltotalMensualidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalMensualidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalMensualidades.ForeColor = System.Drawing.Color.Black;
-            this.lbltotalMensualidades.Location = new System.Drawing.Point(271, 200);
+            this.lbltotalMensualidades.Location = new System.Drawing.Point(186, 219);
             this.lbltotalMensualidades.Name = "lbltotalMensualidades";
-            this.lbltotalMensualidades.Size = new System.Drawing.Size(49, 20);
+            this.lbltotalMensualidades.Size = new System.Drawing.Size(44, 18);
             this.lbltotalMensualidades.TabIndex = 36;
             this.lbltotalMensualidades.Text = "$0.00";
             // 
             // lblMensualidadestl
             // 
             this.lblMensualidadestl.AutoSize = true;
-            this.lblMensualidadestl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensualidadestl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMensualidadestl.ForeColor = System.Drawing.Color.Black;
-            this.lblMensualidadestl.Location = new System.Drawing.Point(79, 201);
+            this.lblMensualidadestl.Location = new System.Drawing.Point(12, 219);
             this.lblMensualidadestl.Name = "lblMensualidadestl";
-            this.lblMensualidadestl.Size = new System.Drawing.Size(186, 18);
+            this.lblMensualidadestl.Size = new System.Drawing.Size(176, 16);
             this.lblMensualidadestl.TabIndex = 35;
             this.lblMensualidadestl.Text = "Total de Mensualidades";
             // 
             // lblcantidadinscripcion
             // 
             this.lblcantidadinscripcion.AutoSize = true;
-            this.lblcantidadinscripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcantidadinscripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblcantidadinscripcion.ForeColor = System.Drawing.Color.Black;
-            this.lblcantidadinscripcion.Location = new System.Drawing.Point(271, 177);
+            this.lblcantidadinscripcion.Location = new System.Drawing.Point(186, 186);
             this.lblcantidadinscripcion.Name = "lblcantidadinscripcion";
-            this.lblcantidadinscripcion.Size = new System.Drawing.Size(49, 20);
+            this.lblcantidadinscripcion.Size = new System.Drawing.Size(44, 18);
             this.lblcantidadinscripcion.TabIndex = 34;
             this.lblcantidadinscripcion.Text = "$0.00";
             // 
             // lblinscripcionestotal
             // 
             this.lblinscripcionestotal.AutoSize = true;
-            this.lblinscripcionestotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblinscripcionestotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblinscripcionestotal.ForeColor = System.Drawing.Color.Black;
-            this.lblinscripcionestotal.Location = new System.Drawing.Point(79, 178);
+            this.lblinscripcionestotal.Location = new System.Drawing.Point(12, 186);
             this.lblinscripcionestotal.Name = "lblinscripcionestotal";
-            this.lblinscripcionestotal.Size = new System.Drawing.Size(174, 18);
+            this.lblinscripcionestotal.Size = new System.Drawing.Size(162, 16);
             this.lblinscripcionestotal.TabIndex = 33;
             this.lblinscripcionestotal.Text = "Total de Inscripciones\r\n";
             // 
@@ -523,6 +562,7 @@
             this.cbMetodoPago.BackColor = System.Drawing.Color.Transparent;
             this.cbMetodoPago.BorderRadius = 3;
             this.cbMetodoPago.DisabledColor = System.Drawing.Color.SkyBlue;
+            this.cbMetodoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMetodoPago.ForeColor = System.Drawing.Color.White;
             this.cbMetodoPago.Items = new string[] {
         "Efectivo",
@@ -658,29 +698,29 @@
             this.dgvAlumnos.AllowUserToDeleteRows = false;
             this.dgvAlumnos.AllowUserToResizeColumns = false;
             this.dgvAlumnos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvAlumnos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 11.5F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvAlumnos.DoubleBuffered = true;
             this.dgvAlumnos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAlumnos.EnableHeadersVisualStyles = false;
@@ -693,9 +733,9 @@
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAlumnos.RowHeadersVisible = false;
             this.dgvAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvAlumnos.RowTemplate.Height = 25;
             this.dgvAlumnos.RowTemplate.ReadOnly = true;
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -1131,28 +1171,6 @@
             this.bunifuImageButton4.TabStop = false;
             this.bunifuImageButton4.Zoom = 10;
             // 
-            // lblIngresosCantidad
-            // 
-            this.lblIngresosCantidad.AutoSize = true;
-            this.lblIngresosCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIngresosCantidad.ForeColor = System.Drawing.Color.Black;
-            this.lblIngresosCantidad.Location = new System.Drawing.Point(271, 224);
-            this.lblIngresosCantidad.Name = "lblIngresosCantidad";
-            this.lblIngresosCantidad.Size = new System.Drawing.Size(49, 20);
-            this.lblIngresosCantidad.TabIndex = 40;
-            this.lblIngresosCantidad.Text = "$0.00";
-            // 
-            // lblTotalGanancias
-            // 
-            this.lblTotalGanancias.AutoSize = true;
-            this.lblTotalGanancias.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalGanancias.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalGanancias.Location = new System.Drawing.Point(79, 225);
-            this.lblTotalGanancias.Name = "lblTotalGanancias";
-            this.lblTotalGanancias.Size = new System.Drawing.Size(139, 18);
-            this.lblTotalGanancias.TabIndex = 39;
-            this.lblTotalGanancias.Text = "Total de Ingresos";
-            // 
             // Mensualidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1172,6 +1190,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).EndInit();
             this.bunifuCards1.ResumeLayout(false);
             this.bunifuCards1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
@@ -1255,5 +1274,6 @@
         private Bunifu.Framework.UI.BunifuImageButton btnVerGastos;
         private Bunifu.Framework.UI.BunifuCustomLabel lblIngresosCantidad;
         private Bunifu.Framework.UI.BunifuCustomLabel lblTotalGanancias;
+        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton6;
     }
 }

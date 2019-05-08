@@ -45,7 +45,7 @@ namespace PiensaAjedrez
             }
             btnAgregado.Visible = false;
             imgFiltro.Enabled = false;
-            dgvAlumnos.Columns.Add("No. Ctrl", "No. Ctrl");
+            dgvAlumnos.Columns.Add("No. Ctrl", "N° de ctrl");
             dgvAlumnos.Columns.Add("Grado", "Grado");
             dgvAlumnos.Columns.Add("Apellido P.", "Apellido P");
             dgvAlumnos.Columns.Add("Apellido M.", "Apellido M");
@@ -64,7 +64,7 @@ namespace PiensaAjedrez
             dgvAlumnos.Columns[3].Width = 90;  //Materno
             dgvAlumnos.Columns[4].Width = 110;  //Nombre
             dgvAlumnos.Columns[5].Width = 190;  //Escuela
-            dgvAlumnos.Columns[1].Width = 49;   //Grado
+            dgvAlumnos.Columns[1].Width = 54;   //Grado
             dgvAlumnos.Columns[2].Width = 94;  //Paterno
             dgvAlumnos.Columns[7].Width = 92;
             dgvAlumnos.Columns[9].Width = 50;
