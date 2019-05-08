@@ -323,7 +323,7 @@ namespace PiensaAjedrez
                         miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
 
                         foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
-                            if (ObtenerNombreCompleto(miAlumno).Contains(txtFiltroNombre.Text))
+                            if (ObtenerNombreCompleto(miAlumno).ToLower().Contains(txtFiltroNombre.Text)|| ObtenerNombreCompleto(miAlumno).Contains(txtFiltroNombre.Text)|| ObtenerNombreCompleto(miAlumno).ToUpper().Contains(txtFiltroNombre.Text))
                             {
                                 if (miAlumno.Activo)
                                 {
