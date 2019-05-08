@@ -139,6 +139,7 @@
             this.btnColegios.BackColor = System.Drawing.Color.Transparent;
             this.btnColegios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnColegios.BorderRadius = 0;
+            this.btnColegios.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.btnColegios.ButtonText = "Colegios";
             this.btnColegios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnColegios.DisabledColor = System.Drawing.Color.Gray;
@@ -175,6 +176,7 @@
             this.btnDesconectar.BackColor = System.Drawing.Color.Transparent;
             this.btnDesconectar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDesconectar.BorderRadius = 0;
+            this.btnDesconectar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.btnDesconectar.ButtonText = "Salir";
             this.btnDesconectar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDesconectar.DisabledColor = System.Drawing.Color.Gray;
@@ -210,6 +212,7 @@
             this.btnReportes.BackColor = System.Drawing.Color.Transparent;
             this.btnReportes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnReportes.BorderRadius = 0;
+            this.btnReportes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.btnReportes.ButtonText = "Estadisticas";
             this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReportes.DisabledColor = System.Drawing.Color.Gray;
@@ -247,6 +250,7 @@
             this.btnRegistrar.BackColor = System.Drawing.Color.Transparent;
             this.btnRegistrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRegistrar.BorderRadius = 0;
+            this.btnRegistrar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.btnRegistrar.ButtonText = "Registrar alumnos";
             this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistrar.DisabledColor = System.Drawing.Color.Gray;
@@ -283,6 +287,7 @@
             this.btnMensualidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnMensualidades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMensualidades.BorderRadius = 0;
+            this.btnMensualidades.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.btnMensualidades.ButtonText = "Registro de pago";
             this.btnMensualidades.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMensualidades.DisabledColor = System.Drawing.Color.Gray;

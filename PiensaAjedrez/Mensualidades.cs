@@ -84,10 +84,11 @@ namespace PiensaAjedrez
                     dgvAlumnos.Columns[2].Frozen = true;
                     dgvAlumnos.Columns[3].Frozen = true;
                 }
-                dgvAlumnos.Columns[0].Width = 95;
+                dgvAlumnos.Columns[0].Width = 110;
                 dgvAlumnos.Columns[1].Width = 115;
                 dgvAlumnos.Columns[2].Width = 125;
                 dgvAlumnos.Columns[3].Width = 150;
+
             }
         }
 
@@ -209,7 +210,7 @@ namespace PiensaAjedrez
             }
 
 
-            foreach (Alumno miAlumno in ConexionBD.CargarAlumnosOrdenados(otraEscuela.Nombre))
+            foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(otraEscuela.Nombre))
             {
                 if (miAlumno.Activo)
                 {
@@ -222,10 +223,11 @@ namespace PiensaAjedrez
             {
             lblcantidadinscripcion.Text = ConexionBD.TotalInscripciones(otraEscuela.Nombre).ToString("c");
             lbltotalMensualidades.Text = ConexionBD.TotalMensualidades(otraEscuela.Nombre).ToString("c");
-            lblIngresos.Text= (ConexionBD.TotalInscripciones(otraEscuela.Nombre) + ConexionBD.TotalMensualidades(otraEscuela.Nombre)).ToString("c");
-            lblEgresos.Text = ConexionBD.TotalGastos(otraEscuela.Nombre).ToString("c");
-            lblBalance.Text = ((double.Parse(lblIngresos.Text.Substring(1))-double.Parse(lblEgresos.Text.Substring(1))).ToString("c"));
-               
+            lblIngresosCantidad.Text= (ConexionBD.TotalInscripciones(otraEscuela.Nombre) + ConexionBD.TotalMensualidades(otraEscuela.Nombre)).ToString("c");
+            lblEgresos.Text = ConexionBD.TotalGastos().ToString("c");
+                lblIngresos.Text = ConexionBD.TotalIngresos().ToString("c");
+                lblBalance.Text = ((double.Parse(lblIngresos.Text.Substring(1))-double.Parse(lblEgresos.Text.Substring(1))).ToString("c"));
+                   
             }
 
         }
@@ -257,14 +259,6 @@ namespace PiensaAjedrez
                         btnRegistrarGasto.Visible = true;
                         txtMotivo.LineIdleColor = Color.Teal;
                         txtMontoAdicional.LineIdleColor = Color.Teal;
-                        if (cbEscuelas.selectedValue.Length > 26)
-                        {
-                            lblEscuelaSeleccionada.Text = cbEscuelas.selectedValue.Substring(0, 25) + "..." ;
-                        }
-                        else
-                        {
-                            lblEscuelaSeleccionada.Text = cbEscuelas.selectedValue;
-                        }
                         
                     }
                     
@@ -328,7 +322,7 @@ namespace PiensaAjedrez
                     {
                         miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
 
-                        foreach (Alumno miAlumno in ConexionBD.CargarAlumnosOrdenados(miEscuela.Nombre))
+                        foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
                             if (ObtenerNombreCompleto(miAlumno).Contains(txtFiltroNombre.Text))
                             {
                                 if (miAlumno.Activo)
@@ -401,7 +395,7 @@ namespace PiensaAjedrez
                     {
                         miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
 
-                        foreach (Alumno miAlumno in ConexionBD.CargarAlumnosOrdenados(miEscuela.Nombre))
+                        foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
                         {
 
                             if (miAlumno.NumeroDeControl.Contains(txtFiltroNoCtrl.Text))
@@ -428,7 +422,7 @@ namespace PiensaAjedrez
                     {
                         miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
 
-                        foreach (Alumno miAlumno in ConexionBD.CargarAlumnosOrdenados(miEscuela.Nombre))
+                        foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
                         {
                             if (miAlumno.Activo)
                                 dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre);
@@ -524,7 +518,7 @@ namespace PiensaAjedrez
         void ObtenerMes(int intMes)
         {
             lblMesAPagar.Text = dgvAlumnos.Columns[intMes].HeaderText;
-            if (dgvAlumnos.Columns[intMes].HeaderText == "N° de ctrl." || dgvAlumnos.Columns[intMes].HeaderText == "Nombre"|| dgvAlumnos.Columns[intMes].HeaderText == "Apellido P"|| dgvAlumnos.Columns[intMes].HeaderText == "Apellido M")
+            if (dgvAlumnos.Columns[intMes].HeaderText == "N° de ctrl." || dgvAlumnos.Columns[intMes].HeaderText == "Nombre" || dgvAlumnos.Columns[intMes].HeaderText == "Apellido P" || dgvAlumnos.Columns[intMes].HeaderText == "Apellido M")
             {
                 Deshabilitar();
             }
@@ -552,7 +546,7 @@ namespace PiensaAjedrez
                         if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString())))
                         {
 
-                            if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: " + ObtenerNombreCompleto(miAlumno) + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nAsunto: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString(), "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                            if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: " + ObtenerNombreCompleto(miAlumno) + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nAsunto: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString()+"\nNota: "+txtNota.Text, "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                             {
                                 miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
                                 Correo.Usuario = txtCorreoEnvios.Text;
@@ -750,7 +744,7 @@ namespace PiensaAjedrez
 
         private void btnVerGastos_Click(object sender, EventArgs e)
         {
-            new Form2(cbEscuelas.selectedValue.ToString(), ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue.ToString())).Show();
+            new Form2().Show();
         }
     }
 }

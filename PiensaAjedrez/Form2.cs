@@ -14,11 +14,9 @@ namespace PiensaAjedrez
     {
         string Escuela="";
         Cursos Curso;
-        public Form2(string strNombreEscuela, Cursos unCurso)
+        public Form2()
         {
             InitializeComponent();
-            Escuela = strNombreEscuela;
-            Curso = unCurso;
         }
 
        
@@ -35,16 +33,14 @@ namespace PiensaAjedrez
             dgvGastos.Columns.Add("Fecha", "Fecha");
             dgvGastos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             RellenarDGV(Escuela);
-            lblEscuela.Text = Escuela;
         }
 
         void RellenarDGV(string strNombreEscuela)
         {
             dgvGastos.Rows.Clear();
-            foreach (Gastos unGasto in ConexionBD.CargarGastos(strNombreEscuela))
+            foreach (Gastos unGasto in ConexionBD.CargarGastos())
             {
-                if(unGasto.IDCurso.Equals(Curso.Clave))
-                dgvGastos.Rows.Add(unGasto.Motivo,unGasto.Monto.ToString("c"),unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
+                dgvGastos.Rows.Add(unGasto.Motivo, unGasto.Monto, unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
             }
         }
 

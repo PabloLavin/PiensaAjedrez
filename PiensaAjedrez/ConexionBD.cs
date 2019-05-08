@@ -346,12 +346,28 @@ namespace PiensaAjedrez
             }
         }
 
-        public static double TotalGastos(string strNombreEscuela)
+        public static double TotalGastos()
         {
             double dblTotalMensualidades = 0;
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM GASTO WHERE GASTO.NombreEscuela = '" + strNombreEscuela + "' AND GASTO.IDCurso ='" + ConexionBD.CargarCursoActivo(strNombreEscuela).Clave + "'", con);
+                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM GASTO", con);
+                SqlDataReader gastos = comando.ExecuteReader();
+                while (gastos.Read())
+                {
+                    if (!gastos.IsDBNull(0))
+                        dblTotalMensualidades = double.Parse(Convert.ToString(gastos.GetSqlMoney(0)));
+                }
+            }
+            return dblTotalMensualidades;
+        }
+
+        public static double TotalIngresos()
+        {
+            double dblTotalMensualidades = 0;
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM PAGO", con);
                 SqlDataReader gastos = comando.ExecuteReader();
                 while (gastos.Read())
                 {
@@ -372,12 +388,12 @@ namespace PiensaAjedrez
             }
         }
 
-        public static List<Gastos> CargarGastos(string strNombreEscuela)
+        public static List<Gastos> CargarGastos()
         {
             List<Gastos> listaPagos = new List<Gastos>();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT * FROM GASTO WHERE NombreEscuela = '" + strNombreEscuela + "' ORDER BY FECHAHORA, MONTO DESC ", con);
+                SqlCommand comando = new SqlCommand("SELECT * FROM GASTO ORDER BY FECHAHORA DESC, MONTO DESC ", con);
                 SqlDataReader pagos = comando.ExecuteReader();
                 while (pagos.Read())
                     listaPagos.Add(new Gastos(pagos.GetString(1), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(3), pagos.GetDateTime(5), pagos.GetString(6)));
