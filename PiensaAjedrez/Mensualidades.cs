@@ -222,8 +222,8 @@ namespace PiensaAjedrez
             if (otraEscuela.CursoActivo != null)
             {
             lblcantidadinscripcion.Text = ConexionBD.TotalInscripciones(otraEscuela.Nombre).ToString("c");
-            lbltotalMensualidades.Text = ConexionBD.TotalMensualidades(otraEscuela.Nombre).ToString("c");
-            lblIngresosCantidad.Text= (ConexionBD.TotalInscripciones(otraEscuela.Nombre) + ConexionBD.TotalMensualidades(otraEscuela.Nombre)).ToString("c");
+            lbltotalMensualidades.Text = ConexionBD.TotalMensualidades(otraEscuela.Nombre, otraEscuela.CursoActivo.Clave).ToString("c");
+            lblIngresosCantidad.Text= (ConexionBD.TotalInscripciones(otraEscuela.Nombre) + ConexionBD.TotalMensualidades(otraEscuela.Nombre,otraEscuela.CursoActivo.Clave)).ToString("c");
             lblEgresos.Text = ConexionBD.TotalGastos().ToString("c");
                 lblIngresos.Text = ConexionBD.TotalIngresos().ToString("c");
                 lblBalance.Text = ((double.Parse(lblIngresos.Text.Substring(1))-double.Parse(lblEgresos.Text.Substring(1))).ToString("c"));
@@ -599,7 +599,7 @@ namespace PiensaAjedrez
         
         string ObtenerClaveRecibo(DateTime unaFecha)
         {
-           return unaFecha.Day.ToString()+unaFecha.Month.ToString()+ unaFecha.Year.ToString() + ((int.Parse("1000")) + (ConexionBD.CargarPagos().Count)).ToString();
+           return unaFecha.Day.ToString()+unaFecha.Month.ToString()+ unaFecha.Year.ToString() + ((int.Parse("1000")) + (ConexionBD.CargarPagos().Count)+new Random().Next(500)).ToString();
         }
 
         string ObtenerNombreCompleto(Alumno unAlumno)

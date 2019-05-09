@@ -263,7 +263,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO PAGO VALUES ('" + (unPago.NumeroRecibo+new Random().Next(500)) + "', '" + unAlumno.NumeroDeControl + "', '" + unPago.Monto + "', '" + unPago.MesPagado + "', '" + FormatearFecha(unPago.FechayHora) + "', '" + unPago.MetodoPago + "', '" + unPago.Nota + "', '" + (unPago.Notificado ? 1 : 0) + "', '" + (unPago.Liquidado ? 1 : 0) + "', '" + unPago.IDCurso + "')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO PAGO VALUES ('" + (unPago.NumeroRecibo) + "', '" + unAlumno.NumeroDeControl + "', '" + unPago.Monto + "', '" + unPago.MesPagado + "', '" + FormatearFecha(unPago.FechayHora) + "', '" + unPago.MetodoPago + "', '" + unPago.Nota + "', '" + (unPago.Notificado ? 1 : 0) + "', '" + (unPago.Liquidado ? 1 : 0) + "', '" + unPago.IDCurso + "')", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -305,12 +305,12 @@ namespace PiensaAjedrez
         }
         #endregion
 
-        public static double TotalMensualidades(string strNombreEscuela)
+        public static double TotalMensualidades(string strNombreEscuela, string strClave)
         {
             double dblTotalMensualidades = 0;
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM PAGO, ALUMNO, CURSO  WHERE PAGO.NumeroControl = ALUMNO.NumeroControl AND ALUMNO.NombreEscuela = CURSO.NombreEscuela  AND MesPagado != 'Inscripcion' AND CURSO.Activo = 1 AND CURSO.NombreEscuela = '" + strNombreEscuela + "' ", con);
+                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM PAGO, ALUMNO, CURSO  WHERE PAGO.NumeroControl = ALUMNO.NumeroControl AND ALUMNO.NombreEscuela = CURSO.NombreEscuela  AND MesPagado != 'Inscripcion' AND CURSO.Activo = 1 AND CURSO.NombreEscuela = '" + strNombreEscuela + "' AND PAGO.IDCurso='"+strClave+"' ", con);
                 SqlDataReader mensualidades = comando.ExecuteReader();
                 while (mensualidades.Read())
                 {
