@@ -60,6 +60,7 @@ namespace PiensaAjedrez
             }
             else
             {
+                dgvAlumnos.Columns.Add("N°.", "N°");
                 dgvAlumnos.Columns.Add("N° de ctrl.", "N° de ctrl.");
                 dgvAlumnos.Columns.Add("ApellidoP", "Apellido P");
                 dgvAlumnos.Columns.Add("Apellido M", "Apellido M");
@@ -74,7 +75,7 @@ namespace PiensaAjedrez
                 if (dgvAlumnos.Columns.Count <= 10)
                 {
                      dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    dgvAlumnos.Columns[4].Width = 120;
+                    dgvAlumnos.Columns[5].Width = 120;
                 }
                 else
                 {
@@ -83,11 +84,13 @@ namespace PiensaAjedrez
                     dgvAlumnos.Columns[1].Frozen = true;
                     dgvAlumnos.Columns[2].Frozen = true;
                     dgvAlumnos.Columns[3].Frozen = true;
+                    dgvAlumnos.Columns[4].Frozen = true;
                 }
-                dgvAlumnos.Columns[0].Width = 110;
-                dgvAlumnos.Columns[1].Width = 115;
-                dgvAlumnos.Columns[2].Width = 125;
-                dgvAlumnos.Columns[3].Width = 150;
+                dgvAlumnos.Columns[0].Width = 25;
+                dgvAlumnos.Columns[1].Width = 110;
+                dgvAlumnos.Columns[2].Width = 115;
+                dgvAlumnos.Columns[3].Width = 125;
+                dgvAlumnos.Columns[4].Width = 150;
 
             }
         }
@@ -208,14 +211,15 @@ namespace PiensaAjedrez
                 }
 
             }
-
+            int numero = 1;
 
             foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(otraEscuela.Nombre))
             {
                 if (miAlumno.Activo)
                 {
-                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl,miAlumno.ApellidoPaterno,miAlumno.ApellidoMaterno, miAlumno.Nombre);
+                    dgvAlumnos.Rows.Add(numero,miAlumno.NumeroDeControl,miAlumno.ApellidoPaterno,miAlumno.ApellidoMaterno, miAlumno.Nombre);
                     RellenarPagos(miAlumno, otraEscuela.CursoActivo.Clave);
+                    numero++;
                 }
             }
 
@@ -282,7 +286,7 @@ namespace PiensaAjedrez
             {
                 if(miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
                     foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
-                        if(miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString())))
+                        if(miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[1].Value.ToString())))
                         {
                             lblNroControl.Text = miAlumno.NumeroDeControl;
                             lblNombre.Text = ObtenerNombreCompleto(miAlumno);
@@ -518,7 +522,7 @@ namespace PiensaAjedrez
         void ObtenerMes(int intMes)
         {
             lblMesAPagar.Text = dgvAlumnos.Columns[intMes].HeaderText;
-            if (dgvAlumnos.Columns[intMes].HeaderText == "N° de ctrl." || dgvAlumnos.Columns[intMes].HeaderText == "Nombre" || dgvAlumnos.Columns[intMes].HeaderText == "Apellido P" || dgvAlumnos.Columns[intMes].HeaderText == "Apellido M")
+            if (dgvAlumnos.Columns[intMes].HeaderText == "N° de ctrl." || dgvAlumnos.Columns[intMes].HeaderText == "Nombre" || dgvAlumnos.Columns[intMes].HeaderText == "Apellido P" || dgvAlumnos.Columns[intMes].HeaderText == "Apellido M"|| dgvAlumnos.Columns[intMes].HeaderText == "N°")
             {
                 Deshabilitar();
             }
@@ -543,7 +547,7 @@ namespace PiensaAjedrez
             {
                 if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
                     foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
-                        if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString())))
+                        if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[1].Value.ToString())))
                         {
 
                             if (DialogResult.Yes == MessageBox.Show("Confirmar pago de: " + ObtenerNombreCompleto(miAlumno) + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nAsunto: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString()+"\nNota: "+txtNota.Text, "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
@@ -618,7 +622,7 @@ namespace PiensaAjedrez
                         {
                             foreach (DataGridViewRow Fila in dgvAlumnos.Rows)
                             {
-                                if (miAlumno.NumeroDeControl.Equals(Fila.Cells[0].Value.ToString()))
+                                if (miAlumno.NumeroDeControl.Equals(Fila.Cells[1].Value.ToString()))
                                 {
                                     Fila.Cells[columna.Index].Value = miPagos.Monto.ToString("c");
                                     Fila.Cells[columna.Index].Style.ForeColor = Color.Black;                                    
@@ -712,7 +716,7 @@ namespace PiensaAjedrez
             {
                 if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
                     foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
-                        if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString())))
+                        if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[1].Value.ToString())))
                         {
                             lblNroControl.Text = miAlumno.NumeroDeControl;
                             lblNombre.Text = ObtenerNombreCompleto(miAlumno);

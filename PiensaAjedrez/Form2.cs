@@ -34,6 +34,9 @@ namespace PiensaAjedrez
             dgvGastos.Columns.Add("Fecha", "Fecha");
             dgvGastos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvGastos.Columns[1].Width = 25;
+            dgvGastos.Columns[2].Width = 65;
+            dgvGastos.Columns[4].Width = 100;
+
             RellenarDGV(Escuela);
         }
 
@@ -44,6 +47,11 @@ namespace PiensaAjedrez
             {
                 dgvGastos.Rows.Add(unGasto.Motivo,"$", unGasto.Monto, unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
             }
+        }
+
+        void QuitarLinea()
+        {
+           dgvGastos.BorderStyle = BorderStyle.None;        
         }
 
         private void btnVerGastos_Click(object sender, EventArgs e)
