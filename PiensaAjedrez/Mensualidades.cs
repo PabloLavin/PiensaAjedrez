@@ -148,7 +148,7 @@ namespace PiensaAjedrez
             {
                 if (c is Bunifu.Framework.UI.BunifuThinButton2)
                     c.Visible = false;
-                if (c is Bunifu.Framework.UI.BunifuMaterialTextbox)
+                if (c is TextBox)
                 {
                     c.Enabled = false;
                     c.Text = "";
@@ -157,7 +157,7 @@ namespace PiensaAjedrez
             dtFechaPago.Visible = false;
             cbMetodoPago.Enabled = false;
             lblMesAPagar.Text = "Mes";
-            txtMonto.LineIdleColor = Color.SkyBlue;
+            //txtMonto.LineIdleColor = Color.SkyBlue;
             txtNota.LineIdleColor = Color.SkyBlue;
             lblNombre.Text = "Nombre(s) Apellido P. Apellido M.";
             lblNroControl.Text = "19100000";
@@ -184,12 +184,12 @@ namespace PiensaAjedrez
                     c.Visible = true;
                 if (c is Bunifu.Framework.UI.BunifuThinButton2)
                     c.Visible = true;
-                if (c is Bunifu.Framework.UI.BunifuMaterialTextbox)
+                if (c is TextBox)
                     c.Enabled = true;
             }
             
             cbMetodoPago.Enabled = true;
-            txtMonto.LineIdleColor = Color.Teal;
+            //txtMonto.LineIdleColor = Color.Teal;
             txtNota.LineIdleColor = Color.Teal;
             chkLiquidado.Enabled = true;
             chkLiquidado.Visible = true;

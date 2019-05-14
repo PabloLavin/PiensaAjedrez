@@ -29,22 +29,54 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO ESCUELA VALUES ('" + strEscuela + "', '" + 0 + "')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO ESCUELA VALUES ('" + strEscuela + "', '" + 0 + "', "+0+")", con);
                 comando.ExecuteNonQuery();
             }
         }
+
+
 
         public static List<Escuela> CargarEscuelas()
         {
             List<Escuela> listaEscuelas = new List<Escuela>();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT * FROM ESCUELA", con);
+                SqlCommand comando = new SqlCommand("SELECT * FROM ESCUELA where activo = 1", con);
                 SqlDataReader escuelas = comando.ExecuteReader();
                 while (escuelas.Read())
-                    listaEscuelas.Add(new Escuela(escuelas.GetString(0), (escuelas.GetInt16(1) == 1 ? true : false)));
+                    listaEscuelas.Add(new Escuela(escuelas.GetString(0), (escuelas.GetInt16(1) == 1 ? true : false), escuelas.GetInt16(2)==1?true:false));
             }
             return listaEscuelas;
+        }
+
+        public static List<Escuela> CargarEscuelasDesactivadas()
+        {
+            List<Escuela> listaEscuelas = new List<Escuela>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM ESCUELA where activo = 0", con);
+                SqlDataReader escuelas = comando.ExecuteReader();
+                while (escuelas.Read())
+                    listaEscuelas.Add(new Escuela(escuelas.GetString(0), (escuelas.GetInt16(1) == 1 ? true : false), escuelas.GetInt16(2) == 1 ? true : false));
+            }
+            return listaEscuelas;
+        }
+
+        public static void ModificarEscuela(string strNombreOriginal, bool blnActivo)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                try
+                {
+                    SqlCommand comando = new SqlCommand("UPDATE ESCUELA SET ACTIVO ="+(blnActivo?1:0)+" WHERE NombreEscuela = '" + strNombreOriginal + "'", con);
+                    comando.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    throw new Exception("No es posible cambiarle el nombre a una escuela que:\n1. Ya tiene alumnos registrados.\n 2.Ya tiene cursos registrados. \n3.Está por asignarle el nombre de otra escuela existente.");
+                }
+
+            }
         }
 
         public static void RenombrarEscuela(string strNombreOriginal, string strNuevoNombre)

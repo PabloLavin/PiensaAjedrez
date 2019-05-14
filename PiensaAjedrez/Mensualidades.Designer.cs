@@ -63,7 +63,6 @@
             this.lblMetodoPago = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.cbMetodoPago = new Bunifu.Framework.UI.BunifuDropdown();
             this.lblMonto = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtMonto = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lblAlumno = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblNombre = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblNroControl = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -100,6 +99,7 @@
             this.txtPassword = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuCards5 = new Bunifu.Framework.UI.BunifuCards();
             this.bunifuImageButton4 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.txtMonto = new System.Windows.Forms.TextBox();
             this.bunifuCards2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).BeginInit();
             this.bunifuCards1.SuspendLayout();
@@ -279,6 +279,7 @@
             this.bunifuCards1.BorderRadius = 5;
             this.bunifuCards1.BottomSahddow = true;
             this.bunifuCards1.color = System.Drawing.Color.Teal;
+            this.bunifuCards1.Controls.Add(this.txtMonto);
             this.bunifuCards1.Controls.Add(this.bunifuImageButton6);
             this.bunifuCards1.Controls.Add(this.lblIngresosCantidad);
             this.bunifuCards1.Controls.Add(this.lblTotalGanancias);
@@ -298,7 +299,6 @@
             this.bunifuCards1.Controls.Add(this.lblMetodoPago);
             this.bunifuCards1.Controls.Add(this.cbMetodoPago);
             this.bunifuCards1.Controls.Add(this.lblMonto);
-            this.bunifuCards1.Controls.Add(this.txtMonto);
             this.bunifuCards1.Controls.Add(this.lblAlumno);
             this.bunifuCards1.Controls.Add(this.lblNombre);
             this.bunifuCards1.Controls.Add(this.lblNroControl);
@@ -586,25 +586,6 @@
             this.lblMonto.Size = new System.Drawing.Size(67, 20);
             this.lblMonto.TabIndex = 22;
             this.lblMonto.Text = "Monto $";
-            // 
-            // txtMonto
-            // 
-            this.txtMonto.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMonto.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.txtMonto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtMonto.HintForeColor = System.Drawing.Color.Empty;
-            this.txtMonto.HintText = "";
-            this.txtMonto.isPassword = false;
-            this.txtMonto.LineFocusedColor = System.Drawing.Color.SkyBlue;
-            this.txtMonto.LineIdleColor = System.Drawing.Color.Teal;
-            this.txtMonto.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
-            this.txtMonto.LineThickness = 4;
-            this.txtMonto.Location = new System.Drawing.Point(518, 99);
-            this.txtMonto.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(66, 33);
-            this.txtMonto.TabIndex = 1;
-            this.txtMonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // lblAlumno
             // 
@@ -1172,6 +1153,14 @@
             this.bunifuImageButton4.TabStop = false;
             this.bunifuImageButton4.Zoom = 10;
             // 
+            // txtMonto
+            // 
+            this.txtMonto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMonto.Location = new System.Drawing.Point(517, 112);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(79, 24);
+            this.txtMonto.TabIndex = 42;
+            // 
             // Mensualidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1226,7 +1215,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblNombre;
         private Bunifu.Framework.UI.BunifuCustomLabel lblNroControl;
         private Bunifu.Framework.UI.BunifuCustomLabel lblMonto;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtMonto;
         private Bunifu.Framework.UI.BunifuCustomLabel lblMetodoPago;
         private Bunifu.Framework.UI.BunifuDropdown cbMetodoPago;
         private Bunifu.Framework.UI.BunifuFlatButton btnAgregado;
@@ -1276,5 +1264,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblIngresosCantidad;
         private Bunifu.Framework.UI.BunifuCustomLabel lblTotalGanancias;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton6;
+        private System.Windows.Forms.TextBox txtMonto;
     }
 }

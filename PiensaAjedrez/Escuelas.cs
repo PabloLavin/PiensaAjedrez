@@ -19,6 +19,8 @@ namespace PiensaAjedrez
 
             dgvEscuelas.Columns.Add("Nombre del colegio", "Nombre del colegio");
 
+            dgvEscuelasDesactivadas.Columns.Add("Nombre del colegio", "Nombre del colegio");
+
             dgvCursos.Columns.Add("Clave", "Clave");
             dgvCursos.Columns.Add("Inicio del curso", "Inicio del curso");
             dgvCursos.Columns.Add("Fin del curso", "Fin del curso");
@@ -28,6 +30,7 @@ namespace PiensaAjedrez
             dgvCursosPasados.Columns.Add("Fin del curso", "Fin del curso");
 
             dgvEscuelas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvEscuelasDesactivadas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCursos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCursosPasados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
@@ -35,6 +38,9 @@ namespace PiensaAjedrez
             dgvCursosPasados.Columns[0].Width = 86;
 
             cbDiaClase.Visible = false;
+            bunifuCustomLabel3.Visible = false;
+            bunifuCustomLabel4.Visible = false;
+            tsDesactivarEscuela.Visible = true;
 
             btnAgregado.Visible = false;
             btnAgregadoCurso.Visible = false;
@@ -42,8 +48,8 @@ namespace PiensaAjedrez
             btnAgregarActividad.Enabled = false;
             btnCancelar.BackgroundImageLayout = ImageLayout.Stretch;
             btnCancelarCurso.BackgroundImageLayout = ImageLayout.Stretch;
-            tsEliminarCurso.Visible = false;
-            contextMenuStrip1.Enabled = false;
+            tsDesactivarEscuela.Visible = true;
+            contextMenuStrip1.Enabled = true;
             contextMenuStrip2.Enabled = false;
             tsEliminarActividad.Visible = false;
             dgvListaActividades.Columns.Add("Lista de actividades", "Lista de actividades");
@@ -148,6 +154,9 @@ namespace PiensaAjedrez
             dgvEscuelas.Rows.Clear();
             foreach (Escuela escuela in ConexionBD.CargarEscuelas())
                 dgvEscuelas.Rows.Add(escuela.Nombre);
+            dgvEscuelasDesactivadas.Rows.Clear();
+            foreach (Escuela unaEscuela in ConexionBD.CargarEscuelasDesactivadas())
+                dgvEscuelasDesactivadas.Rows.Add(unaEscuela.Nombre);
         }
 
         private int counter;
@@ -205,7 +214,7 @@ namespace PiensaAjedrez
                     return;
                 }
                 contextMenuStrip1.Enabled = true;
-                tsEliminarCurso.Visible = true;
+                tsDesactivarEscuela.Visible = true;
 
 
                 string strEscuela = dgvEscuelas.CurrentRow.Cells[0].Value.ToString();
@@ -251,6 +260,8 @@ namespace PiensaAjedrez
             btnAgregarColegio.IdleFillColor = Color.Teal;
             btnCancelar.Visible = true;
             cbDiaClase.Visible = true;
+            bunifuCustomLabel3.Visible = true;
+            bunifuCustomLabel4.Visible = true;
 
             Escuela unaEscuela = new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString());
             unaEscuela.CursoActivo = ConexionBD.CargarCursoActivo(unaEscuela.Nombre);
@@ -269,6 +280,8 @@ namespace PiensaAjedrez
         {
             MostrarCursos(false);
             txtNombreColegio.Text = "";
+            bunifuCustomLabel3.Visible = false;
+            bunifuCustomLabel4.Visible = false;
             btnAgregarColegio.ButtonText = "Agregar";
             btnAgregarColegio.IdleFillColor = Color.FromArgb(59, 202, 192);
             btnAgregarCurso.Visible = false;
@@ -297,7 +310,7 @@ namespace PiensaAjedrez
             cbDiaClase.Visible = true;
 
             contextMenuStrip1.Enabled = true;
-            tsEliminarCurso.Visible = true;
+            tsDesactivarEscuela.Visible = true;
             btnAgregarCurso.ButtonText = "Editar";
             btnCancelarCurso.Visible = true;
             btnAgregarCurso.IdleFillColor = Color.Teal;
@@ -347,21 +360,21 @@ namespace PiensaAjedrez
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("¿Desea eliminar el curso que comprende del " + dgvCursosPasados.CurrentRow.Cells[1].Value.ToString() + " al " + dgvCursosPasados.CurrentRow.Cells[2].Value.ToString() + " con clave: " + dgvCursosPasados.CurrentRow.Cells[0].Value.ToString() + "?", "Eliminar curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
-            {
-                foreach (Escuela miEscuela in listaEscuela)
-                    if (miEscuela.Equals(new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString())))
-                    {
-                        miEscuela.listaCursos.Remove(new Cursos(dgvCursosPasados.CurrentRow.Cells[0].Value.ToString()));
+            //if (DialogResult.Yes == MessageBox.Show("¿Desea eliminar el curso que comprende del " + dgvCursosPasados.CurrentRow.Cells[1].Value.ToString() + " al " + dgvCursosPasados.CurrentRow.Cells[2].Value.ToString() + " con clave: " + dgvCursosPasados.CurrentRow.Cells[0].Value.ToString() + "?", "Eliminar curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            //{
+            //    foreach (Escuela miEscuela in listaEscuela)
+            //        if (miEscuela.Equals(new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString())))
+            //        {
+            //            miEscuela.listaCursos.Remove(new Cursos(dgvCursosPasados.CurrentRow.Cells[0].Value.ToString()));
 
-                        btnAgregarCurso.ButtonText = "Agregar curso";
+            //            btnAgregarCurso.ButtonText = "Agregar curso";
 
-                        btnAgregarCurso.IdleFillColor = Color.FromArgb(59, 202, 192);
-                        btnCancelarCurso.Visible = false;
-                        dgvListaActividades.Rows.Clear();
-                        dgvCursosPasados.Rows.Clear();
-                    }
-            }
+            //            btnAgregarCurso.IdleFillColor = Color.FromArgb(59, 202, 192);
+            //            btnCancelarCurso.Visible = false;
+            //            dgvListaActividades.Rows.Clear();
+            //            dgvCursosPasados.Rows.Clear();
+            //        }
+            //}
         }
 
         #endregion
@@ -596,6 +609,54 @@ namespace PiensaAjedrez
                 case "Sabado": return 5;
                 case "Domingo": return 6;
                 default: return 0;
+            }
+        }
+
+        private void dgvEscuelas_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dgvEscuelas.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione una escuela de la lista.");
+                return;
+            }
+            if (e.Button == MouseButtons.Right)
+            {
+                dgvEscuelas.CurrentCell = dgvEscuelas.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                dgvEscuelas.Rows[e.RowIndex].Selected = true;
+                dgvEscuelas.Focus();
+            }
+        }
+
+        private void contextMenuStrip1_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes == MessageBox.Show("¿Desea desactivar el colegio " + dgvEscuelas.CurrentRow.Cells[0].Value.ToString() + "?", "Desactivar colegio", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            {
+                ConexionBD.ModificarEscuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString(), false);
+                txtNombreColegio.Text = "";
+                btnCancelar.Visible = false;
+                MostrarCursos(false);
+                MostrarDatos();
+                bunifuCustomLabel3.Visible = false;
+                bunifuCustomLabel4.Visible = false;
+            }
+            else
+                return;
+        }
+
+        private void dgvEscuelasDesactivadas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvEscuelasDesactivadas.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione una escuela");
+                return;
+            }
+            if (DialogResult.Yes == MessageBox.Show("¿Desea activar el colegio " + dgvEscuelasDesactivadas.CurrentRow.Cells[0].Value.ToString() + "?", "Activar colegio", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            {
+                ConexionBD.ModificarEscuela(dgvEscuelasDesactivadas.CurrentRow.Cells[0].Value.ToString(), true);
+                MostrarDatos();
+                txtNombreColegio.Text = "";
+                btnCancelar.Visible = false;
+                MostrarCursos(false);
             }
         }
     }
