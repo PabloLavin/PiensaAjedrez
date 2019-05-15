@@ -44,6 +44,7 @@
             this.txtFiltroNombre = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.chkNombre = new Bunifu.Framework.UI.BunifuCheckbox();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
+            this.txtMonto = new System.Windows.Forms.TextBox();
             this.bunifuImageButton6 = new Bunifu.Framework.UI.BunifuImageButton();
             this.lblIngresosCantidad = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblTotalGanancias = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -99,7 +100,6 @@
             this.txtPassword = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuCards5 = new Bunifu.Framework.UI.BunifuCards();
             this.bunifuImageButton4 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.txtMonto = new System.Windows.Forms.TextBox();
             this.bunifuCards2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).BeginInit();
             this.bunifuCards1.SuspendLayout();
@@ -315,6 +315,14 @@
             this.bunifuCards1.Size = new System.Drawing.Size(943, 257);
             this.bunifuCards1.TabIndex = 0;
             this.bunifuCards1.TabStop = true;
+            // 
+            // txtMonto
+            // 
+            this.txtMonto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMonto.Location = new System.Drawing.Point(519, 110);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(79, 24);
+            this.txtMonto.TabIndex = 42;
             // 
             // bunifuImageButton6
             // 
@@ -1152,14 +1160,6 @@
             this.bunifuImageButton4.TabIndex = 41;
             this.bunifuImageButton4.TabStop = false;
             this.bunifuImageButton4.Zoom = 10;
-            // 
-            // txtMonto
-            // 
-            this.txtMonto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMonto.Location = new System.Drawing.Point(517, 112);
-            this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(79, 24);
-            this.txtMonto.TabIndex = 42;
             // 
             // Mensualidades
             // 

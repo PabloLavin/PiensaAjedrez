@@ -629,6 +629,11 @@ namespace PiensaAjedrez
 
         private void contextMenuStrip1_Click(object sender, EventArgs e)
         {
+            if (dgvEscuelas.CurrentRow == null)
+            {
+                MessageBox.Show("No hay escuelas.\nAgregue una para continuar.");
+                return;
+            }
             if (DialogResult.Yes == MessageBox.Show("¿Desea desactivar el colegio " + dgvEscuelas.CurrentRow.Cells[0].Value.ToString() + "?", "Desactivar colegio", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
             {
                 ConexionBD.ModificarEscuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString(), false);
