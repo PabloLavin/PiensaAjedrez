@@ -53,6 +53,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alumnos.cs" />
+    <Compile Include="Asistencia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Asistencia.Designer.cs">
+      <DependentUpon>Asistencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConexionBD.cs" />
     <Compile Include="Correo.cs" />
     <Compile Include="Cursos.cs" />
@@ -98,6 +104,9 @@
     <Compile Include="RegistroAlumnos.Designer.cs">
       <DependentUpon>RegistroAlumnos.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Asistencia.resx">
+      <DependentUpon>Asistencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Escuelas.resx">
       <DependentUpon>Escuelas.cs</DependentUpon>
     </EmbeddedResource>
