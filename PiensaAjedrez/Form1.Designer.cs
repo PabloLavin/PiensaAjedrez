@@ -37,6 +37,7 @@
             this.elpTrabajo = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bnfArrastrar = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panelMenu = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.btnAsistencia = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnPiensaAjedrez = new System.Windows.Forms.PictureBox();
             this.btnColegios = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnDesconectar = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -44,7 +45,6 @@
             this.btnRegistrar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnMensualidades = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnPiensaAjedrezEstetico = new System.Windows.Forms.PictureBox();
-            this.btnAsistencia = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnPiensaAjedrez)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPiensaAjedrezEstetico)).BeginInit();
@@ -123,6 +123,43 @@
             this.panelMenu.Size = new System.Drawing.Size(1366, 49);
             this.panelMenu.TabIndex = 0;
             // 
+            // btnAsistencia
+            // 
+            this.btnAsistencia.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnAsistencia.BackColor = System.Drawing.Color.Transparent;
+            this.btnAsistencia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAsistencia.BorderRadius = 0;
+            this.btnAsistencia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btnAsistencia.ButtonText = "Asistencias";
+            this.btnAsistencia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAsistencia.DisabledColor = System.Drawing.Color.Gray;
+            this.btnAsistencia.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnAsistencia.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnAsistencia.Iconimage")));
+            this.btnAsistencia.Iconimage_right = null;
+            this.btnAsistencia.Iconimage_right_Selected = null;
+            this.btnAsistencia.Iconimage_Selected = null;
+            this.btnAsistencia.IconMarginLeft = 0;
+            this.btnAsistencia.IconMarginRight = 0;
+            this.btnAsistencia.IconRightVisible = false;
+            this.btnAsistencia.IconRightZoom = 0D;
+            this.btnAsistencia.IconVisible = false;
+            this.btnAsistencia.IconZoom = 90D;
+            this.btnAsistencia.IsTab = true;
+            this.btnAsistencia.Location = new System.Drawing.Point(821, 0);
+            this.btnAsistencia.Name = "btnAsistencia";
+            this.btnAsistencia.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnAsistencia.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnAsistencia.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnAsistencia.selected = false;
+            this.btnAsistencia.Size = new System.Drawing.Size(204, 50);
+            this.btnAsistencia.TabIndex = 5;
+            this.btnAsistencia.TabStop = false;
+            this.btnAsistencia.Text = "Asistencias";
+            this.btnAsistencia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAsistencia.Textcolor = System.Drawing.Color.White;
+            this.btnAsistencia.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.btnAsistencia.Click += new System.EventHandler(this.btnAsistencia_Click);
+            // 
             // btnPiensaAjedrez
             // 
             this.btnPiensaAjedrez.BackColor = System.Drawing.Color.Transparent;
@@ -157,13 +194,13 @@
             this.btnColegios.IconVisible = false;
             this.btnColegios.IconZoom = 90D;
             this.btnColegios.IsTab = true;
-            this.btnColegios.Location = new System.Drawing.Point(632, 0);
+            this.btnColegios.Location = new System.Drawing.Point(571, 0);
             this.btnColegios.Name = "btnColegios";
             this.btnColegios.Normalcolor = System.Drawing.Color.Transparent;
             this.btnColegios.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnColegios.OnHoverTextColor = System.Drawing.Color.White;
             this.btnColegios.selected = false;
-            this.btnColegios.Size = new System.Drawing.Size(264, 50);
+            this.btnColegios.Size = new System.Drawing.Size(251, 50);
             this.btnColegios.TabIndex = 3;
             this.btnColegios.TabStop = false;
             this.btnColegios.Text = "Colegios";
@@ -230,13 +267,13 @@
             this.btnReportes.IconVisible = false;
             this.btnReportes.IconZoom = 90D;
             this.btnReportes.IsTab = true;
-            this.btnReportes.Location = new System.Drawing.Point(1043, 0);
+            this.btnReportes.Location = new System.Drawing.Point(1031, 0);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Normalcolor = System.Drawing.Color.Transparent;
             this.btnReportes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnReportes.OnHoverTextColor = System.Drawing.Color.White;
             this.btnReportes.selected = false;
-            this.btnReportes.Size = new System.Drawing.Size(166, 50);
+            this.btnReportes.Size = new System.Drawing.Size(178, 50);
             this.btnReportes.TabIndex = 4;
             this.btnReportes.TabStop = false;
             this.btnReportes.Text = "Estadisticas";
@@ -267,13 +304,13 @@
             this.btnRegistrar.IconVisible = false;
             this.btnRegistrar.IconZoom = 90D;
             this.btnRegistrar.IsTab = true;
-            this.btnRegistrar.Location = new System.Drawing.Point(339, 0);
+            this.btnRegistrar.Location = new System.Drawing.Point(313, 0);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Normalcolor = System.Drawing.Color.Transparent;
             this.btnRegistrar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnRegistrar.OnHoverTextColor = System.Drawing.Color.White;
             this.btnRegistrar.selected = false;
-            this.btnRegistrar.Size = new System.Drawing.Size(294, 50);
+            this.btnRegistrar.Size = new System.Drawing.Size(258, 50);
             this.btnRegistrar.TabIndex = 2;
             this.btnRegistrar.TabStop = false;
             this.btnRegistrar.Text = "Registrar alumnos";
@@ -310,7 +347,7 @@
             this.btnMensualidades.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnMensualidades.OnHoverTextColor = System.Drawing.Color.White;
             this.btnMensualidades.selected = true;
-            this.btnMensualidades.Size = new System.Drawing.Size(248, 50);
+            this.btnMensualidades.Size = new System.Drawing.Size(219, 50);
             this.btnMensualidades.TabIndex = 1;
             this.btnMensualidades.TabStop = false;
             this.btnMensualidades.Text = "Registro de pago";
@@ -329,43 +366,6 @@
             this.btnPiensaAjedrezEstetico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnPiensaAjedrezEstetico.TabIndex = 3;
             this.btnPiensaAjedrezEstetico.TabStop = false;
-            // 
-            // btnAsistencia
-            // 
-            this.btnAsistencia.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnAsistencia.BackColor = System.Drawing.Color.Transparent;
-            this.btnAsistencia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAsistencia.BorderRadius = 0;
-            this.btnAsistencia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btnAsistencia.ButtonText = "Asistencias";
-            this.btnAsistencia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAsistencia.DisabledColor = System.Drawing.Color.Gray;
-            this.btnAsistencia.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnAsistencia.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnAsistencia.Iconimage")));
-            this.btnAsistencia.Iconimage_right = null;
-            this.btnAsistencia.Iconimage_right_Selected = null;
-            this.btnAsistencia.Iconimage_Selected = null;
-            this.btnAsistencia.IconMarginLeft = 0;
-            this.btnAsistencia.IconMarginRight = 0;
-            this.btnAsistencia.IconRightVisible = false;
-            this.btnAsistencia.IconRightZoom = 0D;
-            this.btnAsistencia.IconVisible = false;
-            this.btnAsistencia.IconZoom = 90D;
-            this.btnAsistencia.IsTab = true;
-            this.btnAsistencia.Location = new System.Drawing.Point(876, 0);
-            this.btnAsistencia.Name = "btnAsistencia";
-            this.btnAsistencia.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnAsistencia.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnAsistencia.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnAsistencia.selected = false;
-            this.btnAsistencia.Size = new System.Drawing.Size(166, 50);
-            this.btnAsistencia.TabIndex = 5;
-            this.btnAsistencia.TabStop = false;
-            this.btnAsistencia.Text = "Asistencias";
-            this.btnAsistencia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnAsistencia.Textcolor = System.Drawing.Color.White;
-            this.btnAsistencia.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.btnAsistencia.Click += new System.EventHandler(this.btnAsistencia_Click);
             // 
             // Form1
             // 

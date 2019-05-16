@@ -433,5 +433,32 @@ namespace PiensaAjedrez
             return listaPagos;
 
         }
+
+        #region Asistencia
+        public static void AgregarAsistencia(ClaseAsistencia unaAsistencia, Alumno unAlumno)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("INSERT INTO PAGO VALUES ('" + (unAlumno.NumeroDeControl) + "', '" + unAlumno.Escuela + "', '" + unaAsistencia.IDCurso+ "', '" + FormatearFecha(unaAsistencia.Fecha)+ "')", con);
+                comando.ExecuteNonQuery();
+            }
+        }
+
+
+
+        public static List<ClaseAsistencia> CargarAsistencia(Alumno unAlumno, string strIDCurso)
+        {
+            List<ClaseAsistencia> listaAsistencia = new List<ClaseAsistencia>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM ASISTENCIA where NombreEscuela = '" + unAlumno.Escuela + "' AND NumeroControl= '"+unAlumno.NumeroDeControl+"'AND'"+strIDCurso+"'", con);
+                SqlDataReader Asistencia = comando.ExecuteReader();
+                while (Asistencia.Read())
+                    listaAsistencia.Add(new ClaseAsistencia(Asistencia.GetString(2), Asistencia.GetDateTime(3)));
+            }
+            return listaAsistencia;
+        }
+
+        #endregion
     }
 }

@@ -59,6 +59,7 @@
     <Compile Include="Asistencia.Designer.cs">
       <DependentUpon>Asistencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClaseAsistencia.cs" />
     <Compile Include="ConexionBD.cs" />
     <Compile Include="Correo.cs" />
     <Compile Include="Cursos.cs" />
