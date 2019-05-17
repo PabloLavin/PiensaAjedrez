@@ -39,13 +39,13 @@
             this.lblColegios = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.dgvAlumnos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
+            this.btnDesmarcar = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnMarcarTodos = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.lblFecha = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.cbFechas = new Bunifu.Framework.UI.BunifuDropdown();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCards3 = new Bunifu.Framework.UI.BunifuCards();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.cbFechas = new Bunifu.Framework.UI.BunifuDropdown();
-            this.lblFecha = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btnMarcarTodos = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnDesmarcar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCards1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
@@ -161,7 +161,6 @@
             this.dgvAlumnos.Size = new System.Drawing.Size(1308, 434);
             this.dgvAlumnos.TabIndex = 2;
             this.dgvAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellContentClick);
-         
             // 
             // bunifuCards2
             // 
@@ -182,6 +181,104 @@
             this.bunifuCards2.Size = new System.Drawing.Size(496, 180);
             this.bunifuCards2.TabIndex = 9;
             this.bunifuCards2.TabStop = true;
+            // 
+            // btnDesmarcar
+            // 
+            this.btnDesmarcar.Activecolor = System.Drawing.Color.Firebrick;
+            this.btnDesmarcar.BackColor = System.Drawing.Color.Firebrick;
+            this.btnDesmarcar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDesmarcar.BorderRadius = 0;
+            this.btnDesmarcar.ButtonText = "Desmarcar todos";
+            this.btnDesmarcar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDesmarcar.DisabledColor = System.Drawing.Color.Gray;
+            this.btnDesmarcar.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnDesmarcar.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnDesmarcar.Iconimage")));
+            this.btnDesmarcar.Iconimage_right = null;
+            this.btnDesmarcar.Iconimage_right_Selected = null;
+            this.btnDesmarcar.Iconimage_Selected = null;
+            this.btnDesmarcar.IconMarginLeft = 0;
+            this.btnDesmarcar.IconMarginRight = 0;
+            this.btnDesmarcar.IconRightVisible = true;
+            this.btnDesmarcar.IconRightZoom = 0D;
+            this.btnDesmarcar.IconVisible = true;
+            this.btnDesmarcar.IconZoom = 90D;
+            this.btnDesmarcar.IsTab = false;
+            this.btnDesmarcar.Location = new System.Drawing.Point(332, 102);
+            this.btnDesmarcar.Name = "btnDesmarcar";
+            this.btnDesmarcar.Normalcolor = System.Drawing.Color.Firebrick;
+            this.btnDesmarcar.OnHovercolor = System.Drawing.Color.Firebrick;
+            this.btnDesmarcar.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnDesmarcar.selected = false;
+            this.btnDesmarcar.Size = new System.Drawing.Size(139, 48);
+            this.btnDesmarcar.TabIndex = 12;
+            this.btnDesmarcar.Text = "Desmarcar todos";
+            this.btnDesmarcar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDesmarcar.Textcolor = System.Drawing.Color.White;
+            this.btnDesmarcar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesmarcar.Click += new System.EventHandler(this.BtnDesmarcar_Click);
+            // 
+            // btnMarcarTodos
+            // 
+            this.btnMarcarTodos.Activecolor = System.Drawing.Color.Teal;
+            this.btnMarcarTodos.BackColor = System.Drawing.Color.Teal;
+            this.btnMarcarTodos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMarcarTodos.BorderRadius = 0;
+            this.btnMarcarTodos.ButtonText = "Marcar todos";
+            this.btnMarcarTodos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMarcarTodos.DisabledColor = System.Drawing.Color.Gray;
+            this.btnMarcarTodos.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnMarcarTodos.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnMarcarTodos.Iconimage")));
+            this.btnMarcarTodos.Iconimage_right = null;
+            this.btnMarcarTodos.Iconimage_right_Selected = null;
+            this.btnMarcarTodos.Iconimage_Selected = null;
+            this.btnMarcarTodos.IconMarginLeft = 0;
+            this.btnMarcarTodos.IconMarginRight = 0;
+            this.btnMarcarTodos.IconRightVisible = true;
+            this.btnMarcarTodos.IconRightZoom = 0D;
+            this.btnMarcarTodos.IconVisible = true;
+            this.btnMarcarTodos.IconZoom = 90D;
+            this.btnMarcarTodos.IsTab = false;
+            this.btnMarcarTodos.Location = new System.Drawing.Point(332, 33);
+            this.btnMarcarTodos.Name = "btnMarcarTodos";
+            this.btnMarcarTodos.Normalcolor = System.Drawing.Color.Teal;
+            this.btnMarcarTodos.OnHovercolor = System.Drawing.Color.Teal;
+            this.btnMarcarTodos.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnMarcarTodos.selected = false;
+            this.btnMarcarTodos.Size = new System.Drawing.Size(139, 48);
+            this.btnMarcarTodos.TabIndex = 11;
+            this.btnMarcarTodos.Text = "Marcar todos";
+            this.btnMarcarTodos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMarcarTodos.Textcolor = System.Drawing.Color.White;
+            this.btnMarcarTodos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMarcarTodos.Click += new System.EventHandler(this.BunifuFlatButton1_Click);
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.Color.Black;
+            this.lblFecha.Location = new System.Drawing.Point(15, 69);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(301, 25);
+            this.lblFecha.TabIndex = 10;
+            this.lblFecha.Text = "Seleccione la fecha de asistencia";
+            // 
+            // cbFechas
+            // 
+            this.cbFechas.BackColor = System.Drawing.Color.Transparent;
+            this.cbFechas.BorderRadius = 3;
+            this.cbFechas.DisabledColor = System.Drawing.Color.Gray;
+            this.cbFechas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFechas.ForeColor = System.Drawing.Color.White;
+            this.cbFechas.Items = new string[0];
+            this.cbFechas.Location = new System.Drawing.Point(20, 102);
+            this.cbFechas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFechas.Name = "cbFechas";
+            this.cbFechas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.cbFechas.onHoverColor = System.Drawing.Color.Teal;
+            this.cbFechas.selectedIndex = -1;
+            this.cbFechas.Size = new System.Drawing.Size(296, 35);
+            this.cbFechas.TabIndex = 9;
             // 
             // bunifuCustomLabel1
             // 
@@ -220,104 +317,6 @@
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(71, 25);
             this.bunifuCustomLabel2.TabIndex = 3;
             this.bunifuCustomLabel2.Text = "Filtros";
-            // 
-            // cbFechas
-            // 
-            this.cbFechas.BackColor = System.Drawing.Color.Transparent;
-            this.cbFechas.BorderRadius = 3;
-            this.cbFechas.DisabledColor = System.Drawing.Color.Gray;
-            this.cbFechas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbFechas.ForeColor = System.Drawing.Color.White;
-            this.cbFechas.Items = new string[0];
-            this.cbFechas.Location = new System.Drawing.Point(20, 102);
-            this.cbFechas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cbFechas.Name = "cbFechas";
-            this.cbFechas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.cbFechas.onHoverColor = System.Drawing.Color.Teal;
-            this.cbFechas.selectedIndex = -1;
-            this.cbFechas.Size = new System.Drawing.Size(296, 35);
-            this.cbFechas.TabIndex = 9;
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.ForeColor = System.Drawing.Color.Black;
-            this.lblFecha.Location = new System.Drawing.Point(15, 69);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(301, 25);
-            this.lblFecha.TabIndex = 10;
-            this.lblFecha.Text = "Seleccione la fecha de asistencia";
-            // 
-            // btnMarcarTodos
-            // 
-            this.btnMarcarTodos.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnMarcarTodos.BackColor = System.Drawing.Color.Teal;
-            this.btnMarcarTodos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMarcarTodos.BorderRadius = 0;
-            this.btnMarcarTodos.ButtonText = "Marcar todos";
-            this.btnMarcarTodos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMarcarTodos.DisabledColor = System.Drawing.Color.Gray;
-            this.btnMarcarTodos.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnMarcarTodos.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnMarcarTodos.Iconimage")));
-            this.btnMarcarTodos.Iconimage_right = null;
-            this.btnMarcarTodos.Iconimage_right_Selected = null;
-            this.btnMarcarTodos.Iconimage_Selected = null;
-            this.btnMarcarTodos.IconMarginLeft = 0;
-            this.btnMarcarTodos.IconMarginRight = 0;
-            this.btnMarcarTodos.IconRightVisible = true;
-            this.btnMarcarTodos.IconRightZoom = 0D;
-            this.btnMarcarTodos.IconVisible = true;
-            this.btnMarcarTodos.IconZoom = 90D;
-            this.btnMarcarTodos.IsTab = false;
-            this.btnMarcarTodos.Location = new System.Drawing.Point(332, 33);
-            this.btnMarcarTodos.Name = "btnMarcarTodos";
-            this.btnMarcarTodos.Normalcolor = System.Drawing.Color.Teal;
-            this.btnMarcarTodos.OnHovercolor = System.Drawing.Color.Teal;
-            this.btnMarcarTodos.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnMarcarTodos.selected = false;
-            this.btnMarcarTodos.Size = new System.Drawing.Size(139, 48);
-            this.btnMarcarTodos.TabIndex = 11;
-            this.btnMarcarTodos.Text = "Marcar todos";
-            this.btnMarcarTodos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMarcarTodos.Textcolor = System.Drawing.Color.White;
-            this.btnMarcarTodos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMarcarTodos.Click += new System.EventHandler(this.BunifuFlatButton1_Click);
-            // 
-            // btnDesmarcar
-            // 
-            this.btnDesmarcar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnDesmarcar.BackColor = System.Drawing.Color.Firebrick;
-            this.btnDesmarcar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDesmarcar.BorderRadius = 0;
-            this.btnDesmarcar.ButtonText = "Desmarcar todos";
-            this.btnDesmarcar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDesmarcar.DisabledColor = System.Drawing.Color.Gray;
-            this.btnDesmarcar.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnDesmarcar.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnDesmarcar.Iconimage")));
-            this.btnDesmarcar.Iconimage_right = null;
-            this.btnDesmarcar.Iconimage_right_Selected = null;
-            this.btnDesmarcar.Iconimage_Selected = null;
-            this.btnDesmarcar.IconMarginLeft = 0;
-            this.btnDesmarcar.IconMarginRight = 0;
-            this.btnDesmarcar.IconRightVisible = true;
-            this.btnDesmarcar.IconRightZoom = 0D;
-            this.btnDesmarcar.IconVisible = true;
-            this.btnDesmarcar.IconZoom = 90D;
-            this.btnDesmarcar.IsTab = false;
-            this.btnDesmarcar.Location = new System.Drawing.Point(332, 102);
-            this.btnDesmarcar.Name = "btnDesmarcar";
-            this.btnDesmarcar.Normalcolor = System.Drawing.Color.Firebrick;
-            this.btnDesmarcar.OnHovercolor = System.Drawing.Color.Firebrick;
-            this.btnDesmarcar.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnDesmarcar.selected = false;
-            this.btnDesmarcar.Size = new System.Drawing.Size(139, 48);
-            this.btnDesmarcar.TabIndex = 12;
-            this.btnDesmarcar.Text = "Desmarcar todos";
-            this.btnDesmarcar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDesmarcar.Textcolor = System.Drawing.Color.White;
-            this.btnDesmarcar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesmarcar.Click += new System.EventHandler(this.BtnDesmarcar_Click);
             // 
             // Asistencia
             // 

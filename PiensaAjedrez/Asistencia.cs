@@ -145,24 +145,24 @@ namespace PiensaAjedrez
 
         void RellenarAsistencia(Alumno miAlumno, string strCurso)
         {
-            //    foreach (ClaseAsistencia unaAsistencia in ConexionBD.CargarAsistencia(miAlumno, strCurso))
-            //    {
-            //        if (unaAsistencia.IDCurso.Equals(strCurso))
-            //            foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
-            //            {
-            //                if (unaAsistencia.Fecha.ToShortDateString().Equals(columna.HeaderText))
-            //                {
-            //                    foreach (DataGridViewRow Fila in dgvAlumnos.Rows)
-            //                    {
-            //                        if (miAlumno.NumeroDeControl.Equals(Fila.Cells[1].Value.ToString()))
-            //                        {
-
-            //                        }
-            //                    }
-            //                }
-            //            }
-        //}
-}
+            foreach (ClaseAsistencia unaAsistencia in ConexionBD.CargarAsistencia(miAlumno, strCurso))
+            {
+                if (unaAsistencia.IDCurso.Equals(strCurso))
+                    foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
+                    {
+                        if (unaAsistencia.Fecha.ToShortDateString().Equals(columna.HeaderText))
+                        {
+                            foreach (DataGridViewRow Fila in dgvAlumnos.Rows)
+                            {
+                                if (miAlumno.NumeroDeControl.Equals(Fila.Cells[1].Value.ToString()))
+                                {
+                                    dgvAlumnos.Rows[Fila.Index].Cells[columna.Index].Value = true;
+                                }
+                            }
+                        }
+                    }
+            }
+        }
 
       
         private void dgvAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -208,69 +208,51 @@ namespace PiensaAjedrez
 
         }
 
-      
-        
-        
-        //¡FALTA ARREGLAR!, NO CAPTURA EN LA BASE AÚN
 
-
-
-        ClaseAsistencia CapturarAsistencia()
+        ClaseAsistencia CapturarAsistencias()
         {
-            string strFecha = "";
             foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
             {
                 if (cbEscuelas.selectedValue == unaEscuela.Nombre)
                 {
-                    unaEscuela.CursoActivo = ConexionBD.CargarCursoActivo(unaEscuela.Nombre);
-                    foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(unaEscuela.Nombre))
-                    {
-                        if (miAlumno.NumeroDeControl == dgvAlumnos.CurrentRow.Cells[1].Value.ToString())
-                        {
-                            foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
-                            {
-                                if (columna.Index == dgvAlumnos.CurrentCell.ColumnIndex)
-                                {
-                                    strFecha = columna.HeaderText;
-                                }
-                            }
-                           return new ClaseAsistencia(unaEscuela.CursoActivo.Clave, DateTime.Parse(strFecha));
-                        }
-                    }
+                    return new ClaseAsistencia(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave, DateTime.Parse(cbFechas.selectedValue));
                 }
             }
+
             return new ClaseAsistencia();
         }
 
         private void BunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            //if (DialogResult.Yes == MessageBox.Show("¿Desea marcar a todos los alumnos en la fecha "+cbFechas.selectedValue+"?", "Asistencia Alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
-            //    foreach (DataGridViewRow fila in dgvAlumnos.Rows)
-            //{
-            //    foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
-            //    {
-            //        if (columna.HeaderText == cbFechas.selectedValue)
-            //        {
-            //            dgvAlumnos.Rows[fila.Index].Cells[columna.Index].Value = true;
-            //                ConexionBD.AgregarAsistencia(CapturarAsistencia());
-            //        }
-            //    }
-            //}
+            if (DialogResult.Yes == MessageBox.Show("¿Desea marcar a todos los alumnos en la fecha " + cbFechas.selectedValue + "?", "Asistencia Alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+                foreach (DataGridViewRow fila in dgvAlumnos.Rows)
+                {
+                    foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
+                    {
+                        if (columna.HeaderText == cbFechas.selectedValue)
+                        {
+                            dgvAlumnos.Rows[fila.Index].Cells[columna.Index].Value = true;
+                            ConexionBD.AgregarAsistencia(CapturarAsistencias(), fila.Cells[1].Value.ToString(), cbEscuelas.selectedValue, true);
+                        }
+                    }
+                }
         }
 
         private void BtnDesmarcar_Click(object sender, EventArgs e)
         {
-            //if (DialogResult.Yes == MessageBox.Show("¿Desea retirar la marca de todos los alumnos en la fecha " + cbFechas.selectedValue + "?", "Asistencia Alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
-            //    foreach (DataGridViewRow fila in dgvAlumnos.Rows)
-            //{
-            //    foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
-            //    {
-            //        if (columna.HeaderText == cbFechas.selectedValue)
-            //        {
-            //            dgvAlumnos.Rows[fila.Index].Cells[columna.Index].Value = false;
-            //        }
-            //    }
-            //}
+            if (DialogResult.Yes == MessageBox.Show("¿Desea retirar la marca de todos los alumnos en la fecha " + cbFechas.selectedValue + "?", "Asistencia Alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+                foreach (DataGridViewRow fila in dgvAlumnos.Rows)
+                {
+                    foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
+                    {
+                        if (columna.HeaderText == cbFechas.selectedValue)
+                        {
+                            dgvAlumnos.Rows[fila.Index].Cells[columna.Index].Value = false;
+                            ConexionBD.AgregarAsistencia(CapturarAsistencias(), fila.Cells[1].Value.ToString(), cbEscuelas.selectedValue, false);
+
+                        }
+                    }
+                }
         }
 
         
