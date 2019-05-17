@@ -44,9 +44,12 @@ namespace PiensaAjedrez
             }
 
             List<string> listaFechas = CargarFechas(unaEscuela.CursoActivo);
+            
             foreach (string Fechas in listaFechas)
             {
-                dgvAlumnos.Columns.Add(Fechas, Fechas);
+                DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
+                dgvAlumnos.Columns.Add(chk);
+                chk.HeaderText = Fechas;
             }
             
             if(dgvAlumnos.Columns.Count>10)
@@ -108,6 +111,7 @@ namespace PiensaAjedrez
                 }
         }
 
+       
         void llenarDGV(Escuela unaEscuela)
         {
             dgvAlumnos.Rows.Clear();
@@ -118,7 +122,6 @@ namespace PiensaAjedrez
                 if (unAlumno.Activo)
                 {
                 dgvAlumnos.Rows.Add(intContador, unAlumno.NumeroDeControl, unAlumno.Nombre, unAlumno.ApellidoPaterno, unAlumno.ApellidoMaterno);
-                    RellenarCheckBox(unAlumno.NumeroDeControl);
                     RellenarAsistencia(unAlumno, unaEscuela.CursoActivo.Clave);
                     intContador++;
                 }
@@ -126,19 +129,7 @@ namespace PiensaAjedrez
             }
         }
 
-        void RellenarCheckBox(string strNumeroDeControl)
-        {
-            foreach (DataGridViewRow fila in dgvAlumnos.Rows)
-            {
-                if (strNumeroDeControl.Equals(fila.Cells[1].Value.ToString()))
-                {
-                    for (int i = 5; i < dgvAlumnos.Columns.Count; i++)
-                    {
-                        //dgvAlumnos.Rows.Cells[i]
-                    }
-                }
-            }
-        }
+       
 
         void RellenarAsistencia(Alumno miAlumno, string strCurso)
         {
@@ -160,5 +151,59 @@ namespace PiensaAjedrez
             //            }
         //}
 }
+
+      
+        private void dgvAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+
+                if (e.ColumnIndex >=5)//set your checkbox column index instead of 2
+                {
+                string strFecha = "";
+                foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
+                {
+                    if (cbEscuelas.selectedValue == unaEscuela.Nombre)
+                    {
+                        unaEscuela.CursoActivo = ConexionBD.CargarCursoActivo(unaEscuela.Nombre);
+                        foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(unaEscuela.Nombre))
+                        {
+                            if (miAlumno.NumeroDeControl == dgvAlumnos.CurrentRow.Cells[1].Value.ToString())
+                            {
+                                foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
+                                {
+                                    if (columna.Index == dgvAlumnos.CurrentCell.ColumnIndex)
+                                    {
+                                        strFecha = columna.HeaderText;
+                                    }
+                                }
+                                ClaseAsistencia unaAsistencia = new ClaseAsistencia(unaEscuela.CursoActivo.Clave, DateTime.Parse(strFecha));
+                                if (Convert.ToBoolean(dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue) == true)
+                                {
+                                    dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
+                                    ConexionBD.AgregarAsistencia(unaAsistencia, miAlumno, false);
+                                }
+
+                                else
+                                {
+                                    dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
+                                    ConexionBD.AgregarAsistencia(unaAsistencia, miAlumno, true);
+                                }
+                            }
+                        }
+                    }
+                }
+
+               
+                
+
+
+                }
+            
+        }
+
+        void ModificarAsistencia()
+        {
+           
+        }
     }
 }
