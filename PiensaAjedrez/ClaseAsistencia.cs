@@ -29,6 +29,10 @@ namespace PiensaAjedrez
             IDCurso = Curso;
             Fecha = dtmFecha;
         }
+        public ClaseAsistencia()
+        {
+
+        }
 
     }
 }

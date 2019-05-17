@@ -435,15 +435,15 @@ namespace PiensaAjedrez
         }
 
         #region Asistencia
-        public static void AgregarAsistencia(ClaseAsistencia unaAsistencia, Alumno unAlumno, bool blnAsistio)
+        public static void AgregarAsistencia(ClaseAsistencia unaAsistencia, string strNumeroControl, string strEscuela, bool blnAsistio)
         {
             using (SqlConnection con = ObtenerConexion())
             {
                 SqlCommand comando;
                 if(blnAsistio)
-                comando = new SqlCommand("INSERT INTO ASISTENCIA VALUES ('" + (unAlumno.NumeroDeControl) + "', '" + unAlumno.Escuela + "', '" + unaAsistencia.IDCurso+ "', '" + FormatearFecha(unaAsistencia.Fecha)+ "')", con);
+                comando = new SqlCommand("INSERT INTO ASISTENCIA VALUES ('" + (strNumeroControl) + "', '" +strEscuela + "', '" + unaAsistencia.IDCurso+ "', '" + FormatearFecha(unaAsistencia.Fecha)+ "')", con);
                 else
-                comando = new SqlCommand("DELETE FROM ASISTENCIA WHERE NumeroControl = '"+unAlumno.NumeroDeControl+"' AND NombreEscuela = '"+unAlumno.Escuela+"' AND IDCurso = '"+unaAsistencia.IDCurso+"' AND Fecha = '"+ FormatearFecha(unaAsistencia.Fecha) + "'", con);
+                comando = new SqlCommand("DELETE FROM ASISTENCIA WHERE NumeroControl = '"+strNumeroControl+"' AND NombreEscuela = '"+strEscuela+"' AND IDCurso = '"+unaAsistencia.IDCurso+"' AND Fecha = '"+ FormatearFecha(unaAsistencia.Fecha) + "'", con);
 
                 comando.ExecuteNonQuery();
             }
