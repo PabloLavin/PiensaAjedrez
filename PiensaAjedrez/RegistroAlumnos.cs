@@ -32,17 +32,8 @@ namespace PiensaAjedrez
                 }
 
             }
-            foreach (var ctl in txtTelefono.Controls)
-            {
-
-                if (ctl.GetType() == typeof(TextBox))
-
-                {
-                    var txt = (TextBox)ctl;
-                    txt.MaxLength = 10;
-                }
-
-            }
+            
+            txtTelefono.MaxLength = 10;
             btnAgregado.Visible = false;
             imgFiltro.Enabled = false;
             dgvAlumnos.Columns.Add("No. Ctrl", "N° de ctrl");
@@ -85,6 +76,24 @@ namespace PiensaAjedrez
             if (ConexionBD.CargarEscuelas().Count > 0)
                 cbEscuelas.selectedIndex = 0;
             MostrarDatos();
+
+            InicializarAutorellenado();
+        }
+
+        void InicializarAutorellenado()
+        {
+            var srcNombre = new AutoCompleteStringCollection();
+            var srcApellidoP = new AutoCompleteStringCollection();
+            var srcApellidoM = new AutoCompleteStringCollection();
+            foreach (Alumno unAlumno in ConexionBD.CargarAlumnos())
+            {
+                srcNombre.Add(unAlumno.Nombre);
+                srcApellidoP.Add(unAlumno.ApellidoPaterno);
+                srcApellidoM.Add(unAlumno.ApellidoMaterno);
+            }
+            txtNombre.AutoCompleteCustomSource = srcNombre;
+            txtApellidoP.AutoCompleteCustomSource = srcApellidoP;
+            txtApellidoM.AutoCompleteCustomSource = srcApellidoM;
 
         }
 

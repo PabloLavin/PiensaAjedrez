@@ -38,15 +38,11 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsEliminarAlumno = new System.Windows.Forms.ToolStripMenuItem();
             this.bnfcarAgregar = new Bunifu.Framework.UI.BunifuCards();
-            this.txtGrado = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lblGrado = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnCancelar = new System.Windows.Forms.PictureBox();
             this.lblTutor = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblApellidoM = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtApellidoM = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lblApellidoP = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtApellidoP = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.txtTutor = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lblNombre = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnLimpiar = new System.Windows.Forms.PictureBox();
             this.cbEscuelas = new Bunifu.Framework.UI.BunifuDropdown();
@@ -57,9 +53,6 @@
             this.lblNocontrol = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnAgregar = new Bunifu.Framework.UI.BunifuThinButton2();
             this.dtFechaNacimiento = new Bunifu.Framework.UI.BunifuDatepicker();
-            this.txtCorreo = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.txtTelefono = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.txtNombre = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lblCorreo = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblTelefono = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblFechaNacimiento = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -83,6 +76,13 @@
             this.lblfiltrar = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.imgFiltro = new Bunifu.Framework.UI.BunifuImageButton();
             this.Cancelartt = new System.Windows.Forms.ToolTip(this.components);
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtApellidoP = new System.Windows.Forms.TextBox();
+            this.txtApellidoM = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.txtTutor = new System.Windows.Forms.TextBox();
+            this.txtGrado = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.bnfcarAgregar.SuspendLayout();
@@ -165,14 +165,17 @@
             this.bnfcarAgregar.BottomSahddow = true;
             this.bnfcarAgregar.color = System.Drawing.Color.Teal;
             this.bnfcarAgregar.Controls.Add(this.txtGrado);
+            this.bnfcarAgregar.Controls.Add(this.txtTutor);
+            this.bnfcarAgregar.Controls.Add(this.txtCorreo);
+            this.bnfcarAgregar.Controls.Add(this.txtTelefono);
+            this.bnfcarAgregar.Controls.Add(this.txtApellidoM);
+            this.bnfcarAgregar.Controls.Add(this.txtApellidoP);
+            this.bnfcarAgregar.Controls.Add(this.txtNombre);
             this.bnfcarAgregar.Controls.Add(this.lblGrado);
             this.bnfcarAgregar.Controls.Add(this.btnCancelar);
             this.bnfcarAgregar.Controls.Add(this.lblTutor);
             this.bnfcarAgregar.Controls.Add(this.lblApellidoM);
-            this.bnfcarAgregar.Controls.Add(this.txtApellidoM);
             this.bnfcarAgregar.Controls.Add(this.lblApellidoP);
-            this.bnfcarAgregar.Controls.Add(this.txtApellidoP);
-            this.bnfcarAgregar.Controls.Add(this.txtTutor);
             this.bnfcarAgregar.Controls.Add(this.lblNombre);
             this.bnfcarAgregar.Controls.Add(this.btnLimpiar);
             this.bnfcarAgregar.Controls.Add(this.cbEscuelas);
@@ -183,9 +186,6 @@
             this.bnfcarAgregar.Controls.Add(this.lblNocontrol);
             this.bnfcarAgregar.Controls.Add(this.btnAgregar);
             this.bnfcarAgregar.Controls.Add(this.dtFechaNacimiento);
-            this.bnfcarAgregar.Controls.Add(this.txtCorreo);
-            this.bnfcarAgregar.Controls.Add(this.txtTelefono);
-            this.bnfcarAgregar.Controls.Add(this.txtNombre);
             this.bnfcarAgregar.Controls.Add(this.lblCorreo);
             this.bnfcarAgregar.Controls.Add(this.lblTelefono);
             this.bnfcarAgregar.Controls.Add(this.lblFechaNacimiento);
@@ -200,25 +200,6 @@
             this.bnfcarAgregar.TabStop = true;
             this.bnfcarAgregar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             this.bnfcarAgregar.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuCards1_Paint);
-            // 
-            // txtGrado
-            // 
-            this.txtGrado.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtGrado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtGrado.HintForeColor = System.Drawing.Color.Empty;
-            this.txtGrado.HintText = "";
-            this.txtGrado.isPassword = false;
-            this.txtGrado.LineFocusedColor = System.Drawing.Color.SkyBlue;
-            this.txtGrado.LineIdleColor = System.Drawing.Color.Teal;
-            this.txtGrado.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
-            this.txtGrado.LineThickness = 3;
-            this.txtGrado.Location = new System.Drawing.Point(473, 201);
-            this.txtGrado.Margin = new System.Windows.Forms.Padding(4);
-            this.txtGrado.Name = "txtGrado";
-            this.txtGrado.Size = new System.Drawing.Size(74, 33);
-            this.txtGrado.TabIndex = 8;
-            this.txtGrado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblGrado
             // 
@@ -265,25 +246,6 @@
             this.lblApellidoM.TabIndex = 22;
             this.lblApellidoM.Text = "Apellido M.";
             // 
-            // txtApellidoM
-            // 
-            this.txtApellidoM.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtApellidoM.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellidoM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtApellidoM.HintForeColor = System.Drawing.Color.Empty;
-            this.txtApellidoM.HintText = "";
-            this.txtApellidoM.isPassword = false;
-            this.txtApellidoM.LineFocusedColor = System.Drawing.Color.SkyBlue;
-            this.txtApellidoM.LineIdleColor = System.Drawing.Color.Teal;
-            this.txtApellidoM.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
-            this.txtApellidoM.LineThickness = 4;
-            this.txtApellidoM.Location = new System.Drawing.Point(708, 53);
-            this.txtApellidoM.Margin = new System.Windows.Forms.Padding(4);
-            this.txtApellidoM.Name = "txtApellidoM";
-            this.txtApellidoM.Size = new System.Drawing.Size(169, 33);
-            this.txtApellidoM.TabIndex = 2;
-            this.txtApellidoM.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // lblApellidoP
             // 
             this.lblApellidoP.AutoSize = true;
@@ -294,45 +256,6 @@
             this.lblApellidoP.Size = new System.Drawing.Size(94, 20);
             this.lblApellidoP.TabIndex = 20;
             this.lblApellidoP.Text = "Apellido P.";
-            // 
-            // txtApellidoP
-            // 
-            this.txtApellidoP.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtApellidoP.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellidoP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtApellidoP.HintForeColor = System.Drawing.Color.Empty;
-            this.txtApellidoP.HintText = "";
-            this.txtApellidoP.isPassword = false;
-            this.txtApellidoP.LineFocusedColor = System.Drawing.Color.SkyBlue;
-            this.txtApellidoP.LineIdleColor = System.Drawing.Color.Teal;
-            this.txtApellidoP.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
-            this.txtApellidoP.LineThickness = 4;
-            this.txtApellidoP.Location = new System.Drawing.Point(434, 53);
-            this.txtApellidoP.Margin = new System.Windows.Forms.Padding(4);
-            this.txtApellidoP.Name = "txtApellidoP";
-            this.txtApellidoP.Size = new System.Drawing.Size(169, 33);
-            this.txtApellidoP.TabIndex = 1;
-            this.txtApellidoP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtTutor
-            // 
-            this.txtTutor.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTutor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTutor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtTutor.HintForeColor = System.Drawing.Color.Empty;
-            this.txtTutor.HintText = "";
-            this.txtTutor.isPassword = false;
-            this.txtTutor.LineFocusedColor = System.Drawing.Color.SkyBlue;
-            this.txtTutor.LineIdleColor = System.Drawing.Color.Teal;
-            this.txtTutor.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
-            this.txtTutor.LineThickness = 3;
-            this.txtTutor.Location = new System.Drawing.Point(133, 158);
-            this.txtTutor.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTutor.Name = "txtTutor";
-            this.txtTutor.Size = new System.Drawing.Size(269, 33);
-            this.txtTutor.TabIndex = 6;
-            this.txtTutor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtTutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             // 
             // lblNombre
             // 
@@ -495,71 +418,6 @@
             this.dtFechaNacimiento.TabIndex = 3;
             this.dtFechaNacimiento.Value = new System.DateTime(2010, 9, 2, 0, 0, 0, 0);
             this.dtFechaNacimiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCorreo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreo.ForeColor = System.Drawing.Color.Black;
-            this.txtCorreo.HintForeColor = System.Drawing.Color.Empty;
-            this.txtCorreo.HintText = "";
-            this.txtCorreo.isPassword = false;
-            this.txtCorreo.LineFocusedColor = System.Drawing.Color.SkyBlue;
-            this.txtCorreo.LineIdleColor = System.Drawing.Color.Teal;
-            this.txtCorreo.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
-            this.txtCorreo.LineThickness = 3;
-            this.txtCorreo.Location = new System.Drawing.Point(616, 96);
-            this.txtCorreo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(260, 33);
-            this.txtCorreo.TabIndex = 5;
-            this.txtCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCorreo.Enter += new System.EventHandler(this.txtCorreo_Enter);
-            this.txtCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
-            this.txtCorreo.Leave += new System.EventHandler(this.txtCorreo_Leave);
-            this.txtCorreo.MouseEnter += new System.EventHandler(this.txtCorreo_MouseEnter);
-            this.txtCorreo.MouseLeave += new System.EventHandler(this.txtCorreo_MouseLeave);
-            this.txtCorreo.MouseHover += new System.EventHandler(this.txtCorreo_MouseHover);
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTelefono.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtTelefono.HintForeColor = System.Drawing.Color.Empty;
-            this.txtTelefono.HintText = "";
-            this.txtTelefono.isPassword = false;
-            this.txtTelefono.LineFocusedColor = System.Drawing.Color.SkyBlue;
-            this.txtTelefono.LineIdleColor = System.Drawing.Color.Teal;
-            this.txtTelefono.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
-            this.txtTelefono.LineThickness = 3;
-            this.txtTelefono.Location = new System.Drawing.Point(423, 98);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(124, 33);
-            this.txtTelefono.TabIndex = 4;
-            this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombre.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtNombre.HintForeColor = System.Drawing.Color.Empty;
-            this.txtNombre.HintText = "";
-            this.txtNombre.isPassword = false;
-            this.txtNombre.LineFocusedColor = System.Drawing.Color.SkyBlue;
-            this.txtNombre.LineIdleColor = System.Drawing.Color.Teal;
-            this.txtNombre.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
-            this.txtNombre.LineThickness = 4;
-            this.txtNombre.Location = new System.Drawing.Point(107, 53);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(223, 33);
-            this.txtNombre.TabIndex = 0;
-            this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             // 
             // lblCorreo
             // 
@@ -951,6 +809,77 @@
             this.Cancelartt.InitialDelay = 250;
             this.Cancelartt.ReshowDelay = 100;
             // 
+            // txtNombre
+            // 
+            this.txtNombre.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtNombre.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(118, 62);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(212, 24);
+            this.txtNombre.TabIndex = 25;
+            // 
+            // txtApellidoP
+            // 
+            this.txtApellidoP.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtApellidoP.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtApellidoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellidoP.Location = new System.Drawing.Point(447, 60);
+            this.txtApellidoP.Name = "txtApellidoP";
+            this.txtApellidoP.Size = new System.Drawing.Size(154, 24);
+            this.txtApellidoP.TabIndex = 26;
+            // 
+            // txtApellidoM
+            // 
+            this.txtApellidoM.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtApellidoM.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtApellidoM.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellidoM.Location = new System.Drawing.Point(715, 60);
+            this.txtApellidoM.Name = "txtApellidoM";
+            this.txtApellidoM.Size = new System.Drawing.Size(161, 24);
+            this.txtApellidoM.TabIndex = 27;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(432, 109);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(115, 24);
+            this.txtTelefono.TabIndex = 28;
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.AutoCompleteCustomSource.AddRange(new string[] {
+            "@hotmail.com",
+            "@gmail.com",
+            "@outlook.com",
+            " gmail.com",
+            " hotmail.com",
+            " outlook.com"});
+            this.txtCorreo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtCorreo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreo.Location = new System.Drawing.Point(625, 109);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(251, 24);
+            this.txtCorreo.TabIndex = 29;
+            // 
+            // txtTutor
+            // 
+            this.txtTutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTutor.Location = new System.Drawing.Point(144, 167);
+            this.txtTutor.Name = "txtTutor";
+            this.txtTutor.Size = new System.Drawing.Size(259, 24);
+            this.txtTutor.TabIndex = 30;
+            // 
+            // txtGrado
+            // 
+            this.txtGrado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGrado.Location = new System.Drawing.Point(474, 212);
+            this.txtGrado.Name = "txtGrado";
+            this.txtGrado.Size = new System.Drawing.Size(73, 24);
+            this.txtGrado.TabIndex = 31;
+            // 
             // RegistroAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -982,9 +911,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblFechaNacimiento;
         private Bunifu.Framework.UI.BunifuCustomLabel lblEscuela;
         private Bunifu.Framework.UI.BunifuCustomLabel lblNombre;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtCorreo;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtTelefono;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtNombre;
         private Bunifu.Framework.UI.BunifuCustomLabel lblCorreo;
         private Bunifu.Framework.UI.BunifuCustomLabel lblTelefono;
         private Bunifu.Framework.UI.BunifuThinButton2 btnAgregar;
@@ -1013,7 +939,6 @@
         private Bunifu.Framework.UI.BunifuDropdown cboFiltroEscuela;
         private Bunifu.Framework.UI.BunifuCustomLabel lblFiltroActivo;
         private Bunifu.Framework.UI.BunifuCheckbox chkFiltroActivo;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtTutor;
         private Bunifu.Framework.UI.BunifuCustomLabel lblTutor;
         private System.Windows.Forms.ToolTip Cancelartt;
         private System.Windows.Forms.PictureBox btnCancelar;
@@ -1021,10 +946,14 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsEliminarAlumno;
         private Bunifu.Framework.UI.BunifuCustomLabel lblApellidoM;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtApellidoM;
         private Bunifu.Framework.UI.BunifuCustomLabel lblApellidoP;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtApellidoP;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtGrado;
         private Bunifu.Framework.UI.BunifuCustomLabel lblGrado;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtApellidoP;
+        private System.Windows.Forms.TextBox txtApellidoM;
+        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtGrado;
+        private System.Windows.Forms.TextBox txtTutor;
     }
 }

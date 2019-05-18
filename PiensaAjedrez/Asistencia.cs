@@ -106,6 +106,7 @@ namespace PiensaAjedrez
                         }
                         CargarDGV(miEscuela);
                         llenarDGV(miEscuela);
+                        cbFechas.Clear();
                         CargarCBFechas(miEscuela.CursoActivo);
                         if(CargarFechas(miEscuela.CursoActivo).Count>0)
                              cbFechas.selectedIndex = 0;
@@ -133,7 +134,7 @@ namespace PiensaAjedrez
                 
                 if (unAlumno.Activo)
                 {
-                dgvAlumnos.Rows.Add(intContador, unAlumno.NumeroDeControl, unAlumno.Nombre, unAlumno.ApellidoPaterno, unAlumno.ApellidoMaterno);
+                dgvAlumnos.Rows.Add(intContador, unAlumno.NumeroDeControl, unAlumno.ApellidoPaterno, unAlumno.ApellidoMaterno, unAlumno.Nombre);
                     RellenarAsistencia(unAlumno, unaEscuela.CursoActivo.Clave);
                     intContador++;
                 }
@@ -255,6 +256,92 @@ namespace PiensaAjedrez
                 }
         }
 
-        
+        private void ChkNombre_OnChange(object sender, EventArgs e)
+        {
+            if (chkNombre.Checked)
+            {
+                txtFiltroNombre.Enabled = true;
+                txtFiltroNombre.Text = "";
+            }
+            else
+            {
+                txtFiltroNombre.Enabled = false;
+                txtFiltroNombre.Text = "Nombre";
+                foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
+                {
+                    if (unaEscuela.Nombre == cbEscuelas.selectedValue)
+                    {
+                        unaEscuela.CursoActivo = ConexionBD.CargarCursoActivo(unaEscuela.Nombre);
+                        llenarDGV(unaEscuela);
+                    }
+                }
+            }
+        }
+
+        private void ChkCorreo_OnChange(object sender, EventArgs e)
+        {
+            if (chkCorreo.Checked)
+            {
+                txtFiltroNoCtrl.Enabled = true;
+                txtFiltroNoCtrl.Text = "";
+            }
+            else
+            {
+                txtFiltroNoCtrl.Enabled = false;
+                txtFiltroNoCtrl.Text = "Número de Control";
+                foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
+                {
+                    if (unaEscuela.Nombre == cbEscuelas.selectedValue)
+                    {
+                        unaEscuela.CursoActivo = ConexionBD.CargarCursoActivo(unaEscuela.Nombre);
+                        llenarDGV(unaEscuela);
+                    }
+                }
+            }
+        }
+
+        private void Filtrar()
+        {
+            Filtro unFiltro = new Filtro();
+            
+            unFiltro.NumeroControl = chkCorreo.Checked;
+            
+            unFiltro.Escuela = true;
+            
+            unFiltro.Nombre = chkNombre.Checked;
+            
+            
+            if (cbEscuelas.selectedIndex >= 0)
+                unFiltro.ValorEscuela = cbEscuelas.selectedValue;
+            
+                unFiltro.ValorFecha = DateTime.Now;
+            
+
+            
+            unFiltro.ValorNombre = txtFiltroNombre.Text;
+            unFiltro.ValorNoControl = txtFiltroNoCtrl.Text;
+            int intContador = 0;
+            dgvAlumnos.Rows.Clear();
+            foreach (Alumno miAlumno in ConexionBD.CargarAlumnosFiltrados(unFiltro))
+            {
+                if (miAlumno.Activo && miAlumno.Escuela == cbEscuelas.selectedValue)
+                {
+                    intContador++;
+                    dgvAlumnos.Rows.Add(intContador, miAlumno.NumeroDeControl, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre);
+                    RellenarAsistencia(miAlumno, ConexionBD.CargarCursoActivo(miAlumno.Escuela).Clave);
+                }
+                }
+
+        }
+
+        private void TxtFiltroNombre_TextChanged(object sender, EventArgs e)
+        {
+            Filtrar();
+        }
+
+        private void TxtFiltroNoCtrl_TextChanged(object sender, EventArgs e)
+        {
+            Filtrar();
+        }
     }
 }
