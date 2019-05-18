@@ -21,18 +21,7 @@ namespace PiensaAjedrez
             
             txtNombre.Focus();
             btnCancelar.Visible = false;
-            foreach (var ctl in txtFiltroAño.Controls)
-            {
-
-                if (ctl.GetType() == typeof(TextBox))
-
-                {
-                    var txt = (TextBox)ctl;
-                    txt.MaxLength = 4;
-                }
-
-            }
-            
+            txtFiltroAño.MaxLength = 4;
             txtTelefono.MaxLength = 10;
             btnAgregado.Visible = false;
             imgFiltro.Enabled = false;
@@ -169,7 +158,7 @@ namespace PiensaAjedrez
         {
             foreach (Control c in bnfcarAgregar.Controls)
             {
-                if (c is Bunifu.Framework.UI.BunifuMaterialTextbox)
+                if (c is TextBox)
                     c.Text = "";
             }
             txtCorreo.Text = "";
@@ -294,14 +283,14 @@ namespace PiensaAjedrez
             if (chkNombre.Checked)
             {
                 txtFiltonombre.Enabled = true;                
-                txtFiltonombre.LineIdleColor = Color.FromArgb(59, 202, 192);
+                
                 txtFiltonombre.Text = "";
             }
             else
             {
                 txtFiltonombre.Enabled = false;                
                 txtFiltonombre.Text = "Nombre";
-                txtFiltonombre.LineIdleColor = Color.SkyBlue;
+                
             }
             Filtrar();
 
@@ -332,7 +321,7 @@ namespace PiensaAjedrez
                 cbMes.Enabled = true;
                 txtFiltroAño.Enabled = true;
                 txtFiltroAño.Text = "";
-                txtFiltroAño.LineIdleColor = Color.FromArgb(59, 202, 192);                
+                            
             }
             else
             {
@@ -342,7 +331,7 @@ namespace PiensaAjedrez
                 txtFiltroAño.Text = "Año";
                 cbDia.SelectedIndex = 0;
                 cbMes.SelectedIndex = 0;
-                txtFiltroAño.LineIdleColor = Color.SkyBlue;                
+                          
             }
             Filtrar();
         }
@@ -353,13 +342,13 @@ namespace PiensaAjedrez
             {
                 txtFiltroTelefono.Enabled = true;
                 txtFiltroTelefono.Text = "";
-                txtFiltroTelefono.LineIdleColor = Color.FromArgb(59, 202, 192);
+               
             }
             else
             {
                 txtFiltroTelefono.Enabled = false;                
                 txtFiltroTelefono.Text = "Teléfono";
-                txtFiltroTelefono.LineIdleColor = Color.SkyBlue;
+               
             }
             Filtrar();
         }
@@ -369,14 +358,14 @@ namespace PiensaAjedrez
             if (chkCorreo.Checked)
             {
                 txtFiltroCorreo.Enabled = true;
-                txtFiltroCorreo.LineIdleColor = Color.FromArgb(59, 202, 192);
+                
                 txtFiltroCorreo.Text = "";
             }
             else
             {
                 txtFiltroCorreo.Enabled = false;                
                 txtFiltroCorreo.Text = "Correo";
-                txtFiltroCorreo.LineIdleColor = Color.SkyBlue;
+               
             }
             Filtrar();
         }
@@ -660,6 +649,26 @@ namespace PiensaAjedrez
         private void bunifuCards1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void TxtFiltonombre_TextChanged(object sender, EventArgs e)
+        {
+            Filtrar();
+        }
+
+        private void TxtFiltroAño_TextChanged(object sender, EventArgs e)
+        {
+            Filtrar();
+        }
+
+        private void TxtFiltroTelefono_TextChanged(object sender, EventArgs e)
+        {
+            Filtrar();
+        }
+
+        private void TxtFiltroCorreo_TextChanged(object sender, EventArgs e)
+        {
+            Filtrar();
         }
     }
 }

@@ -151,7 +151,7 @@
             this.btnAsistencia.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnAsistencia.OnHoverTextColor = System.Drawing.Color.White;
             this.btnAsistencia.selected = false;
-            this.btnAsistencia.Size = new System.Drawing.Size(204, 50);
+            this.btnAsistencia.Size = new System.Drawing.Size(209, 50);
             this.btnAsistencia.TabIndex = 5;
             this.btnAsistencia.TabStop = false;
             this.btnAsistencia.Text = "Asistencias";

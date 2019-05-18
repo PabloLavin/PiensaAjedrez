@@ -225,7 +225,7 @@ namespace PiensaAjedrez
 
         private void BunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("¿Desea marcar a todos los alumnos en la fecha " + cbFechas.selectedValue + "?", "Asistencia Alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            if (DialogResult.Yes == MessageBox.Show("¿Desea marcar a todos los alumnos del colegio "+cbEscuelas.selectedValue+" en la fecha " + cbFechas.selectedValue + "?", "Asistencia Alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
                 foreach (DataGridViewRow fila in dgvAlumnos.Rows)
                 {
                     foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
@@ -241,7 +241,7 @@ namespace PiensaAjedrez
 
         private void BtnDesmarcar_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("¿Desea retirar la marca de todos los alumnos en la fecha " + cbFechas.selectedValue + "?", "Asistencia Alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            if (DialogResult.Yes == MessageBox.Show("¿Desea retirar la marca de todos los alumnos del colegio " + cbEscuelas.selectedValue + " en la fecha " + cbFechas.selectedValue + "?", "Asistencia Alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
                 foreach (DataGridViewRow fila in dgvAlumnos.Rows)
                 {
                     foreach (DataGridViewColumn columna in dgvAlumnos.Columns)

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroAlumnos));
             this.dgvAlumnos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -62,15 +62,11 @@
             this.chkFechaNacimiento = new Bunifu.Framework.UI.BunifuCheckbox();
             this.chkTelefono = new Bunifu.Framework.UI.BunifuCheckbox();
             this.chkCorreo = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.txtFiltonombre = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.txtFiltroTelefono = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.txtFiltroCorreo = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
             this.lblFiltroActivo = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.chkFiltroActivo = new Bunifu.Framework.UI.BunifuCheckbox();
             this.lblFiltroEscuela = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.cboFiltroEscuela = new Bunifu.Framework.UI.BunifuDropdown();
-            this.txtFiltroAño = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.cbMes = new System.Windows.Forms.ComboBox();
             this.cbDia = new System.Windows.Forms.ComboBox();
             this.lblfiltrar = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -83,6 +79,10 @@
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.txtTutor = new System.Windows.Forms.TextBox();
             this.txtGrado = new System.Windows.Forms.TextBox();
+            this.txtFiltonombre = new System.Windows.Forms.TextBox();
+            this.txtFiltroTelefono = new System.Windows.Forms.TextBox();
+            this.txtFiltroCorreo = new System.Windows.Forms.TextBox();
+            this.txtFiltroAño = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.bnfcarAgregar.SuspendLayout();
@@ -98,28 +98,28 @@
             this.dgvAlumnos.AllowUserToDeleteRows = false;
             this.dgvAlumnos.AllowUserToResizeColumns = false;
             this.dgvAlumnos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvAlumnos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvAlumnos.DoubleBuffered = true;
             this.dgvAlumnos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAlumnos.EnableHeadersVisualStyles = false;
@@ -132,9 +132,9 @@
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAlumnos.RowHeadersVisible = false;
             this.dgvAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
+            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvAlumnos.RowTemplate.Height = 25;
             this.dgvAlumnos.RowTemplate.ReadOnly = true;
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -528,93 +528,27 @@
             this.chkCorreo.TabIndex = 12;
             this.chkCorreo.OnChange += new System.EventHandler(this.chkCorreo_OnChange);
             // 
-            // txtFiltonombre
-            // 
-            this.txtFiltonombre.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtFiltonombre.Enabled = false;
-            this.txtFiltonombre.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltonombre.ForeColor = System.Drawing.Color.Black;
-            this.txtFiltonombre.HintForeColor = System.Drawing.Color.Empty;
-            this.txtFiltonombre.HintText = "";
-            this.txtFiltonombre.isPassword = false;
-            this.txtFiltonombre.LineFocusedColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtFiltonombre.LineIdleColor = System.Drawing.Color.SkyBlue;
-            this.txtFiltonombre.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtFiltonombre.LineThickness = 3;
-            this.txtFiltonombre.Location = new System.Drawing.Point(38, 57);
-            this.txtFiltonombre.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFiltonombre.Name = "txtFiltonombre";
-            this.txtFiltonombre.Size = new System.Drawing.Size(279, 27);
-            this.txtFiltonombre.TabIndex = 6;
-            this.txtFiltonombre.Text = "Nombre";
-            this.txtFiltonombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtFiltonombre.OnValueChanged += new System.EventHandler(this.txtFiltonombre_OnValueChanged);
-            // 
-            // txtFiltroTelefono
-            // 
-            this.txtFiltroTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtFiltroTelefono.Enabled = false;
-            this.txtFiltroTelefono.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltroTelefono.ForeColor = System.Drawing.Color.Black;
-            this.txtFiltroTelefono.HintForeColor = System.Drawing.Color.Empty;
-            this.txtFiltroTelefono.HintText = "";
-            this.txtFiltroTelefono.isPassword = false;
-            this.txtFiltroTelefono.LineFocusedColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtFiltroTelefono.LineIdleColor = System.Drawing.Color.SkyBlue;
-            this.txtFiltroTelefono.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtFiltroTelefono.LineThickness = 3;
-            this.txtFiltroTelefono.Location = new System.Drawing.Point(204, 142);
-            this.txtFiltroTelefono.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFiltroTelefono.Name = "txtFiltroTelefono";
-            this.txtFiltroTelefono.Size = new System.Drawing.Size(113, 27);
-            this.txtFiltroTelefono.TabIndex = 15;
-            this.txtFiltroTelefono.Text = "Teléfono";
-            this.txtFiltroTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtFiltroTelefono.OnValueChanged += new System.EventHandler(this.txtFiltroTelefono_OnValueChanged);
-            // 
-            // txtFiltroCorreo
-            // 
-            this.txtFiltroCorreo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtFiltroCorreo.Enabled = false;
-            this.txtFiltroCorreo.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltroCorreo.ForeColor = System.Drawing.Color.Black;
-            this.txtFiltroCorreo.HintForeColor = System.Drawing.Color.Empty;
-            this.txtFiltroCorreo.HintText = "";
-            this.txtFiltroCorreo.isPassword = false;
-            this.txtFiltroCorreo.LineFocusedColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtFiltroCorreo.LineIdleColor = System.Drawing.Color.SkyBlue;
-            this.txtFiltroCorreo.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtFiltroCorreo.LineThickness = 3;
-            this.txtFiltroCorreo.Location = new System.Drawing.Point(38, 183);
-            this.txtFiltroCorreo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFiltroCorreo.Name = "txtFiltroCorreo";
-            this.txtFiltroCorreo.Size = new System.Drawing.Size(279, 27);
-            this.txtFiltroCorreo.TabIndex = 16;
-            this.txtFiltroCorreo.Text = "Correo";
-            this.txtFiltroCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtFiltroCorreo.OnValueChanged += new System.EventHandler(this.txtFiltroCorreo_OnValueChanged);
-            // 
             // bunifuCards2
             // 
             this.bunifuCards2.BackColor = System.Drawing.Color.White;
             this.bunifuCards2.BorderRadius = 5;
             this.bunifuCards2.BottomSahddow = true;
             this.bunifuCards2.color = System.Drawing.Color.Teal;
+            this.bunifuCards2.Controls.Add(this.txtFiltroAño);
+            this.bunifuCards2.Controls.Add(this.txtFiltroCorreo);
+            this.bunifuCards2.Controls.Add(this.txtFiltroTelefono);
+            this.bunifuCards2.Controls.Add(this.txtFiltonombre);
             this.bunifuCards2.Controls.Add(this.lblFiltroActivo);
             this.bunifuCards2.Controls.Add(this.chkFiltroActivo);
             this.bunifuCards2.Controls.Add(this.lblFiltroEscuela);
             this.bunifuCards2.Controls.Add(this.cboFiltroEscuela);
-            this.bunifuCards2.Controls.Add(this.txtFiltroAño);
             this.bunifuCards2.Controls.Add(this.cbMes);
             this.bunifuCards2.Controls.Add(this.cbDia);
             this.bunifuCards2.Controls.Add(this.lblfiltrar);
             this.bunifuCards2.Controls.Add(this.imgFiltro);
             this.bunifuCards2.Controls.Add(this.chkCorreo);
-            this.bunifuCards2.Controls.Add(this.txtFiltroCorreo);
-            this.bunifuCards2.Controls.Add(this.txtFiltroTelefono);
             this.bunifuCards2.Controls.Add(this.chkTelefono);
             this.bunifuCards2.Controls.Add(this.chkFechaNacimiento);
-            this.bunifuCards2.Controls.Add(this.txtFiltonombre);
             this.bunifuCards2.Controls.Add(this.chkNombre);
             this.bunifuCards2.Controls.Add(this.chkEscuela);
             this.bunifuCards2.LeftSahddow = false;
@@ -676,28 +610,6 @@
             this.cboFiltroEscuela.Size = new System.Drawing.Size(191, 35);
             this.cboFiltroEscuela.TabIndex = 22;
             this.cboFiltroEscuela.onItemSelected += new System.EventHandler(this.cboFiltroEscuela_OnItemSelected);
-            // 
-            // txtFiltroAño
-            // 
-            this.txtFiltroAño.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtFiltroAño.Enabled = false;
-            this.txtFiltroAño.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltroAño.ForeColor = System.Drawing.Color.Black;
-            this.txtFiltroAño.HintForeColor = System.Drawing.Color.Empty;
-            this.txtFiltroAño.HintText = "";
-            this.txtFiltroAño.isPassword = false;
-            this.txtFiltroAño.LineFocusedColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtFiltroAño.LineIdleColor = System.Drawing.Color.SkyBlue;
-            this.txtFiltroAño.LineMouseHoverColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtFiltroAño.LineThickness = 3;
-            this.txtFiltroAño.Location = new System.Drawing.Point(112, 142);
-            this.txtFiltroAño.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFiltroAño.Name = "txtFiltroAño";
-            this.txtFiltroAño.Size = new System.Drawing.Size(54, 27);
-            this.txtFiltroAño.TabIndex = 21;
-            this.txtFiltroAño.Text = "Año";
-            this.txtFiltroAño.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtFiltroAño.OnValueChanged += new System.EventHandler(this.txtFiltroAño_OnValueChanged);
             // 
             // cbMes
             // 
@@ -880,6 +792,46 @@
             this.txtGrado.Size = new System.Drawing.Size(73, 24);
             this.txtGrado.TabIndex = 31;
             // 
+            // txtFiltonombre
+            // 
+            this.txtFiltonombre.Enabled = false;
+            this.txtFiltonombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltonombre.Location = new System.Drawing.Point(38, 63);
+            this.txtFiltonombre.Name = "txtFiltonombre";
+            this.txtFiltonombre.Size = new System.Drawing.Size(273, 24);
+            this.txtFiltonombre.TabIndex = 24;
+            this.txtFiltonombre.TextChanged += new System.EventHandler(this.TxtFiltonombre_TextChanged);
+            // 
+            // txtFiltroTelefono
+            // 
+            this.txtFiltroTelefono.Enabled = false;
+            this.txtFiltroTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltroTelefono.Location = new System.Drawing.Point(204, 149);
+            this.txtFiltroTelefono.Name = "txtFiltroTelefono";
+            this.txtFiltroTelefono.Size = new System.Drawing.Size(107, 24);
+            this.txtFiltroTelefono.TabIndex = 25;
+            this.txtFiltroTelefono.TextChanged += new System.EventHandler(this.TxtFiltroTelefono_TextChanged);
+            // 
+            // txtFiltroCorreo
+            // 
+            this.txtFiltroCorreo.Enabled = false;
+            this.txtFiltroCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltroCorreo.Location = new System.Drawing.Point(38, 190);
+            this.txtFiltroCorreo.Name = "txtFiltroCorreo";
+            this.txtFiltroCorreo.Size = new System.Drawing.Size(273, 24);
+            this.txtFiltroCorreo.TabIndex = 26;
+            this.txtFiltroCorreo.TextChanged += new System.EventHandler(this.TxtFiltroCorreo_TextChanged);
+            // 
+            // txtFiltroAño
+            // 
+            this.txtFiltroAño.Enabled = false;
+            this.txtFiltroAño.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltroAño.Location = new System.Drawing.Point(111, 148);
+            this.txtFiltroAño.Name = "txtFiltroAño";
+            this.txtFiltroAño.Size = new System.Drawing.Size(52, 24);
+            this.txtFiltroAño.TabIndex = 27;
+            this.txtFiltroAño.TextChanged += new System.EventHandler(this.TxtFiltroAño_TextChanged);
+            // 
             // RegistroAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -920,9 +872,6 @@
         private Bunifu.Framework.UI.BunifuCheckbox chkFechaNacimiento;
         private Bunifu.Framework.UI.BunifuCheckbox chkTelefono;
         private Bunifu.Framework.UI.BunifuCheckbox chkCorreo;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtFiltonombre;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtFiltroTelefono;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtFiltroCorreo;
         private Bunifu.Framework.UI.BunifuCards bunifuCards2;
         private Bunifu.Framework.UI.BunifuImageButton imgFiltro;
         private Bunifu.Framework.UI.BunifuCustomLabel lblfiltrar;
@@ -934,7 +883,6 @@
         private Bunifu.Framework.UI.BunifuDropdown cbEscuelas;
         private System.Windows.Forms.ComboBox cbDia;
         private System.Windows.Forms.ComboBox cbMes;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtFiltroAño;
         private Bunifu.Framework.UI.BunifuCustomLabel lblFiltroEscuela;
         private Bunifu.Framework.UI.BunifuDropdown cboFiltroEscuela;
         private Bunifu.Framework.UI.BunifuCustomLabel lblFiltroActivo;
@@ -955,5 +903,9 @@
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtGrado;
         private System.Windows.Forms.TextBox txtTutor;
+        private System.Windows.Forms.TextBox txtFiltroAño;
+        private System.Windows.Forms.TextBox txtFiltroCorreo;
+        private System.Windows.Forms.TextBox txtFiltroTelefono;
+        private System.Windows.Forms.TextBox txtFiltonombre;
     }
 }
