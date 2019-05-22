@@ -308,7 +308,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM PAGO WHERE NumeroControl = '" + strNumeroControl + "'", con);
                 SqlDataReader pagos = comando.ExecuteReader();
                 while (pagos.Read())
-                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7) == 1 ? true : false), (pagos.GetInt16(8) == 1 ? true : false), pagos.GetString(9),(pagos.GetInt16(10)>0?true:false), (Int16)pagos.GetSqlMoney(11)));
+                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7) == 1 ? true : false), (pagos.GetInt16(8) == 1 ? true : false), pagos.GetString(9),(pagos.GetInt16(10)>0?true:false), double.Parse(pagos.GetSqlMoney(11).ToString())));
             }
             return listaPagos;
         }
@@ -321,7 +321,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM PAGO ", con);
                 SqlDataReader pagos = comando.ExecuteReader();
                 while (pagos.Read())
-                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7) == 1 ? true : false), (pagos.GetInt16(8) == 1 ? true : false),pagos.GetString(9), (pagos.GetInt16(10) > 0 ? true : false), (Int16)pagos.GetSqlMoney(11)));
+                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7) == 1 ? true : false), (pagos.GetInt16(8) == 1 ? true : false),pagos.GetString(9), (pagos.GetInt16(10) > 0 ? true : false), double.Parse(pagos.GetSqlMoney(11).ToString())));
             }
             return listaPagos;
         }

@@ -129,9 +129,24 @@ namespace PiensaAjedrez
             MontoBeca = TotalBeca(intBeca);
         }
 
+        public Pagos(string strRecibo, DateTime dtmFechaPago, double dblPago, string strNota, string strMes, string strMetodo, bool notificado, bool blnliquidado, string strCurso, bool blnBecado, double dblTotalBeca)
+        {
+            _strNumeroRecibo = strRecibo;
+            _dtFechayHora = dtmFechaPago;
+            _dblMonto = dblPago;
+            _strNota = strNota;
+            _strMesPagado = strMes;
+            MetodoPago = strMetodo;
+            Notificado = notificado;
+            Liquidado = blnliquidado;
+            IDCurso = strCurso;
+            Beca = blnBecado;
+            MontoBeca = dblTotalBeca;
+        }
+
         public override string ToString()
         {
-            return ("Numero de recibo: "+NumeroRecibo+"\nMonto: "+Monto.ToString("C")+"\nMétodo de pago: "+MetodoPago+"\nFecha: "+FechayHora.ToShortDateString()+"\nNota: "+Nota);
+            return ("Numero de recibo: "+NumeroRecibo+"\nMonto: "+Monto.ToString("C")+"\nMétodo de pago: "+MetodoPago+"\nFecha: "+FechayHora.ToShortDateString()+"\nNota: "+Nota+(this.MontoBeca>0?"\nDescuento de la beca: "+MontoBeca.ToString("C"):""));
         }
 
     }
