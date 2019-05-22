@@ -60,7 +60,7 @@ namespace PiensaAjedrez
             }
             else
             {
-                dgvAlumnos.Columns.Add("N°.", "N°");
+                dgvAlumnos.Columns.Add("N°", "N°");
                 dgvAlumnos.Columns.Add("N° de ctrl.", "N° de ctrl.");
                 dgvAlumnos.Columns.Add("ApellidoP", "Apellido P");
                 dgvAlumnos.Columns.Add("Apellido M", "Apellido M");
@@ -72,26 +72,29 @@ namespace PiensaAjedrez
                 {
                     dgvAlumnos.Columns.Add(mes, mes);
                 }
-                if (dgvAlumnos.Columns.Count <= 10)
+                if (dgvAlumnos.Columns.Count <= 8)
                 {
                      dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    //dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                     dgvAlumnos.Columns[5].Width = 120;
+
                 }
                 else
                 {
                     dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    //dgvAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dgvAlumnos.Columns[0].Width = 30;
                     dgvAlumnos.Columns[0].Frozen = true;
                     dgvAlumnos.Columns[1].Frozen = true;
                     dgvAlumnos.Columns[2].Frozen = true;
                     dgvAlumnos.Columns[3].Frozen = true;
                     dgvAlumnos.Columns[4].Frozen = true;
                 }
-                dgvAlumnos.Columns[0].Width = 25;
+                dgvAlumnos.Columns[0].Width = 34;
                 dgvAlumnos.Columns[1].Width = 110;
                 dgvAlumnos.Columns[2].Width = 115;
                 dgvAlumnos.Columns[3].Width = 125;
                 dgvAlumnos.Columns[4].Width = 150;
-
             }
         }
 
@@ -263,7 +266,6 @@ namespace PiensaAjedrez
                         btnRegistrarGasto.Visible = true;
                         txtMotivo.LineIdleColor = Color.Teal;
                         txtMontoAdicional.LineIdleColor = Color.Teal;
-                        
                     }
                     
                 }

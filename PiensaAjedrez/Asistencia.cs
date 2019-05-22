@@ -44,18 +44,30 @@ namespace PiensaAjedrez
             }
 
             List<string> listaFechas = CargarFechas(unaEscuela.CursoActivo);
-            
+
             foreach (string Fechas in listaFechas)
             {
-                DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
-                dgvAlumnos.Columns.Add(chk);
-                chk.HeaderText = Fechas;
+
+                dgvAlumnos.Columns.Add(Fechas, Fechas);
+
             }
-            
-            if(dgvAlumnos.Columns.Count>10)
+
+
+            if (dgvAlumnos.Columns.Count > 10)
                 dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             else
                 dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+
+            dgvAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgvAlumnos.ColumnHeadersHeight = 50;
+
+            dgvAlumnos.CellPainting += new DataGridViewCellPaintingEventHandler(DgvAlumnos_CellPainting);
+
+            for (int i = 5; i < dgvAlumnos.Columns.Count; i++)
+            {
+                dgvAlumnos.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            }
             for (int i = 0; i < 5; i++)
             {
                 dgvAlumnos.Columns[i].Frozen = true;
@@ -66,14 +78,14 @@ namespace PiensaAjedrez
         {
             List<string> listaFechas = new List<string>();
             DateTime dtmFecha = unCurso.InicioCursos;
-            while (dtmFecha<unCurso.FinCurso)
+            while (dtmFecha < unCurso.FinCurso)
             {
-                if (dtmFecha.DayOfWeek.ToString() ==ObtenerDia(unCurso.DiaDeClase))
+                if (dtmFecha.DayOfWeek.ToString() == ObtenerDia(unCurso.DiaDeClase))
                 {
                     listaFechas.Add(dtmFecha.Date.ToShortDateString());
-                    
+
                 }
-               dtmFecha= dtmFecha.AddDays(1);
+                dtmFecha = dtmFecha.AddDays(1);
             }
             return listaFechas;
         }
@@ -108,15 +120,15 @@ namespace PiensaAjedrez
                         llenarDGV(miEscuela);
                         cbFechas.Clear();
                         CargarCBFechas(miEscuela.CursoActivo);
-                        if(CargarFechas(miEscuela.CursoActivo).Count>0)
-                             cbFechas.selectedIndex = 0;
-                           
+                        if (CargarFechas(miEscuela.CursoActivo).Count > 0)
+                            cbFechas.selectedIndex = 0;
+
                     }
 
                 }
         }
 
-       void CargarCBFechas(Cursos unCurso)
+        void CargarCBFechas(Cursos unCurso)
         {
             List<string> listaFechas = CargarFechas(unCurso);
             foreach (string fecha in listaFechas)
@@ -131,18 +143,18 @@ namespace PiensaAjedrez
             int intContador = 1;
             foreach (Alumno unAlumno in ConexionBD.CargarAlumnos(unaEscuela.Nombre))
             {
-                
+
                 if (unAlumno.Activo)
                 {
-                dgvAlumnos.Rows.Add(intContador, unAlumno.NumeroDeControl, unAlumno.ApellidoPaterno, unAlumno.ApellidoMaterno, unAlumno.Nombre);
+                    dgvAlumnos.Rows.Add(intContador, unAlumno.NumeroDeControl, unAlumno.ApellidoPaterno, unAlumno.ApellidoMaterno, unAlumno.Nombre);
                     RellenarAsistencia(unAlumno, unaEscuela.CursoActivo.Clave);
                     intContador++;
                 }
-                
+
             }
         }
 
-       
+
 
         void RellenarAsistencia(Alumno miAlumno, string strCurso)
         {
@@ -157,55 +169,69 @@ namespace PiensaAjedrez
                             {
                                 if (miAlumno.NumeroDeControl.Equals(Fila.Cells[1].Value.ToString()))
                                 {
-                                    dgvAlumnos.Rows[Fila.Index].Cells[columna.Index].Value = true;
+                                    dgvAlumnos.Rows[Fila.Index].Cells[columna.Index].Value = 1;
                                 }
                             }
                         }
+
                     }
             }
-        }
-
-      
-        private void dgvAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-
-            if (e.ColumnIndex >= 5)
+            foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
             {
-                string strFecha = "";
-                foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
+                foreach (DataGridViewRow Fila in dgvAlumnos.Rows)
                 {
-                    if (cbEscuelas.selectedValue == unaEscuela.Nombre)
+                    if (miAlumno.NumeroDeControl.Equals(Fila.Cells[1].Value.ToString()))
                     {
-                        unaEscuela.CursoActivo = ConexionBD.CargarCursoActivo(unaEscuela.Nombre);
-                        foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(unaEscuela.Nombre))
-                        {
-                            if (miAlumno.NumeroDeControl == dgvAlumnos.CurrentRow.Cells[1].Value.ToString())
-                            {
-                                foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
-                                {
-                                    if (columna.Index == dgvAlumnos.CurrentCell.ColumnIndex)
-                                    {
-                                        strFecha = columna.HeaderText;
-                                    }
-                                }
-                                ClaseAsistencia unaAsistencia = new ClaseAsistencia(unaEscuela.CursoActivo.Clave, DateTime.Parse(strFecha));
-                                if (Convert.ToBoolean(dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue) == true)
-                                {
-                                    dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
-                                    ConexionBD.AgregarAsistencia(unaAsistencia, miAlumno.NumeroDeControl, unaEscuela.Nombre, false);
-                                }
-
-                                else
-                                {
-                                    dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
-                                    ConexionBD.AgregarAsistencia(unaAsistencia, miAlumno.NumeroDeControl, unaEscuela.Nombre, true);
-                                }
-                            }
-                        }
+                        if (dgvAlumnos.Rows[Fila.Index].Cells[columna.Index].Value == null)
+                            dgvAlumnos.Rows[Fila.Index].Cells[columna.Index].Value = 0;
                     }
                 }
             }
+        }
+
+
+        private void dgvAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if(e.RowIndex == -1)
+            //{
+            //    return;
+            //}
+            //if (e.ColumnIndex >= 5)
+            //{
+            //    string strFecha = "";
+            //    foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
+            //    {
+            //        if (cbEscuelas.selectedValue == unaEscuela.Nombre)
+            //        {
+            //            unaEscuela.CursoActivo = ConexionBD.CargarCursoActivo(unaEscuela.Nombre);
+            //            foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(unaEscuela.Nombre))
+            //            {
+            //                if (miAlumno.NumeroDeControl == dgvAlumnos.CurrentRow.Cells[1].Value.ToString())
+            //                {
+            //                    foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
+            //                    {
+            //                        if (columna.Index == dgvAlumnos.CurrentCell.ColumnIndex)
+            //                        {
+            //                            strFecha = columna.HeaderText;
+            //                        }
+            //                    }
+            //                    ClaseAsistencia unaAsistencia = new ClaseAsistencia(unaEscuela.CursoActivo.Clave, DateTime.Parse(strFecha));
+            //                    if (Convert.ToBoolean(dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue) == true)
+            //                    {
+            //                        dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
+            //                        ConexionBD.AgregarAsistencia(unaAsistencia, miAlumno.NumeroDeControl, unaEscuela.Nombre, false);
+            //                    }
+
+            //                    else
+            //                    {
+            //                        dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
+            //                        ConexionBD.AgregarAsistencia(unaAsistencia, miAlumno.NumeroDeControl, unaEscuela.Nombre, true);
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
 
         }
 
@@ -225,14 +251,14 @@ namespace PiensaAjedrez
 
         private void BunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("¿Desea marcar a todos los alumnos del colegio "+cbEscuelas.selectedValue+" en la fecha " + cbFechas.selectedValue + "?", "Asistencia Alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            if (DialogResult.Yes == MessageBox.Show("¿Desea marcar a todos los alumnos del colegio " + cbEscuelas.selectedValue + " en la fecha " + cbFechas.selectedValue + "?", "Asistencia Alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
                 foreach (DataGridViewRow fila in dgvAlumnos.Rows)
                 {
                     foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
                     {
                         if (columna.HeaderText == cbFechas.selectedValue)
                         {
-                            dgvAlumnos.Rows[fila.Index].Cells[columna.Index].Value = true;
+                            dgvAlumnos.Rows[fila.Index].Cells[columna.Index].Value = 1;
                             ConexionBD.AgregarAsistencia(CapturarAsistencias(), fila.Cells[1].Value.ToString(), cbEscuelas.selectedValue, true);
                         }
                     }
@@ -248,7 +274,7 @@ namespace PiensaAjedrez
                     {
                         if (columna.HeaderText == cbFechas.selectedValue)
                         {
-                            dgvAlumnos.Rows[fila.Index].Cells[columna.Index].Value = false;
+                            dgvAlumnos.Rows[fila.Index].Cells[columna.Index].Value = 0;
                             ConexionBD.AgregarAsistencia(CapturarAsistencias(), fila.Cells[1].Value.ToString(), cbEscuelas.selectedValue, false);
 
                         }
@@ -303,21 +329,21 @@ namespace PiensaAjedrez
         private void Filtrar()
         {
             Filtro unFiltro = new Filtro();
-            
+
             unFiltro.NumeroControl = chkCorreo.Checked;
-            
+
             unFiltro.Escuela = true;
-            
+
             unFiltro.Nombre = chkNombre.Checked;
-            
-            
+
+
             if (cbEscuelas.selectedIndex >= 0)
                 unFiltro.ValorEscuela = cbEscuelas.selectedValue;
-            
-                unFiltro.ValorFecha = DateTime.Now;
-            
 
-            
+            unFiltro.ValorFecha = DateTime.Now;
+
+
+
             unFiltro.ValorNombre = txtFiltroNombre.Text;
             unFiltro.ValorNoControl = txtFiltroNoCtrl.Text;
             int intContador = 0;
@@ -330,7 +356,7 @@ namespace PiensaAjedrez
                     dgvAlumnos.Rows.Add(intContador, miAlumno.NumeroDeControl, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre);
                     RellenarAsistencia(miAlumno, ConexionBD.CargarCursoActivo(miAlumno.Escuela).Clave);
                 }
-                }
+            }
 
         }
 
@@ -342,6 +368,74 @@ namespace PiensaAjedrez
         private void TxtFiltroNoCtrl_TextChanged(object sender, EventArgs e)
         {
             Filtrar();
+        }
+
+        private void DgvAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+            if (e.ColumnIndex >= 5)
+            {
+                string strFecha = "";
+                foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
+                {
+                    if (cbEscuelas.selectedValue == unaEscuela.Nombre)
+                    {
+                        unaEscuela.CursoActivo = ConexionBD.CargarCursoActivo(unaEscuela.Nombre);
+                        foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(unaEscuela.Nombre))
+                        {
+                            if (miAlumno.NumeroDeControl == dgvAlumnos.CurrentRow.Cells[1].Value.ToString())
+                            {
+                                foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
+                                {
+                                    if (columna.Index == dgvAlumnos.CurrentCell.ColumnIndex)
+                                    {
+                                        strFecha = columna.HeaderText;
+                                    }
+                                }
+                                ClaseAsistencia unaAsistencia = new ClaseAsistencia(unaEscuela.CursoActivo.Clave, DateTime.Parse(strFecha));
+                                if ((int)dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == 0)
+                                {
+                                    dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 1;
+                                    ConexionBD.AgregarAsistencia(unaAsistencia, miAlumno.NumeroDeControl, unaEscuela.Nombre, true);
+                                }
+
+                                else
+                                {
+                                    dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 0;
+                                    ConexionBD.AgregarAsistencia(unaAsistencia, miAlumno.NumeroDeControl, unaEscuela.Nombre, false);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void DgvAlumnos_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+
+            if (e.RowIndex == -1 && e.ColumnIndex >= 5)
+            {
+                e.PaintBackground(e.ClipBounds, true);
+                Rectangle rect = this.dgvAlumnos.GetColumnDisplayRectangle(e.ColumnIndex, true);
+                Size titleSize = TextRenderer.MeasureText(e.Value.ToString(), e.CellStyle.Font);
+                if (this.dgvAlumnos.ColumnHeadersHeight < titleSize.Width)
+                {
+                    this.dgvAlumnos.ColumnHeadersHeight = titleSize.Width;
+                }
+
+                e.Graphics.TranslateTransform(0, titleSize.Width);
+                e.Graphics.RotateTransform(-90.0F);
+
+
+                e.Graphics.DrawString(e.Value.ToString(), new Font("Century Gothic", 12.0f), Brushes.White, new PointF(rect.Y - (dgvAlumnos.ColumnHeadersHeight - titleSize.Width), rect.X ));
+                e.Graphics.RotateTransform(90.0F);
+                e.Graphics.TranslateTransform(0, -titleSize.Width);
+                e.Handled = true;
+            }
         }
     }
 }
