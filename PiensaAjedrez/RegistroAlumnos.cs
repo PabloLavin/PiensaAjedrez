@@ -109,6 +109,10 @@ namespace PiensaAjedrez
                     miAlumno.Tutor = txtTutor.Text;
                 miAlumno.ApellidoPaterno = txtApellidoP.Text;
                 miAlumno.ApellidoMaterno = txtApellidoM.Text;
+                if (chkBecado.Checked)
+                    miAlumno.PorcentajeBeca = Int16.Parse(txtPorcentajeBeca.Text);
+                else
+                    miAlumno.PorcentajeBeca = 0;
                 if (txtGrado.Text != "")
                     miAlumno.Grado = int.Parse(txtGrado.Text);
                 else
@@ -132,7 +136,8 @@ namespace PiensaAjedrez
                 ConexionBD.AgregarAlumno(miAlumno); 
                 MostrarDatos();
                 LimpiarControles();
-                btnAgregado.Visible = true;
+                lblBecado.Visible = false;
+                chkBecado.Checked = false;
                 InitializeTimer();       
                 lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count)).ToString());
                 btnAgregar.ButtonText = "Agregar";
@@ -377,7 +382,7 @@ namespace PiensaAjedrez
             tsEliminarAlumno.Visible = true;
             foreach (Alumno alumnos in ConexionBD.CargarAlumnos())
             {
-                if (alumnos.NumeroDeControl== dgvAlumnos.CurrentRow.Cells[0].Value.ToString())
+                if (alumnos.NumeroDeControl == dgvAlumnos.CurrentRow.Cells[0].Value.ToString())
                 {
                     txtNombre.Text = alumnos.Nombre;
                     cbEscuelas.Text = alumnos.Escuela;
@@ -396,6 +401,20 @@ namespace PiensaAjedrez
                     else
                     {
                         chkActivo.Checked = false;
+                    }
+                    if (alumnos.PorcentajeBeca > 0)
+                    {
+                        chkBecado.Checked = true;
+                        lblPorcentaje.Visible = true;
+                        txtPorcentajeBeca.Visible = true;
+                        txtPorcentajeBeca.Text = alumnos.PorcentajeBeca.ToString();
+                    }
+                    else
+                    {
+                        chkBecado.Checked = false;
+                        lblPorcentaje.Visible = false;
+                        txtPorcentajeBeca.Visible = false;
+                        txtPorcentajeBeca.Text = "";
                     }
                         lblnumerocontrol.Text = alumnos.NumeroDeControl;
                         btnAgregar.ButtonText = "Editar";
@@ -669,6 +688,21 @@ namespace PiensaAjedrez
         private void TxtFiltroCorreo_TextChanged(object sender, EventArgs e)
         {
             Filtrar();
+        }
+
+        private void ChkBecado_OnChange(object sender, EventArgs e)
+        {
+            if (chkBecado.Checked)
+            {
+                lblPorcentaje.Visible = true;
+                txtPorcentajeBeca.Visible = true;
+            }
+            else
+            {
+                lblPorcentaje.Visible = false;
+                txtPorcentajeBeca.Visible = false;
+            }
+
         }
     }
 }

@@ -212,7 +212,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO ALUMNO VALUES ('" + unAlumno.NumeroDeControl + "','" + unAlumno.Nombre + "','" + unAlumno.Escuela + "', '" + FormatearFecha(unAlumno.FechaNacimiento) + "', '" + unAlumno.Telefono + "', '" + unAlumno.Correo + "', '" + (unAlumno.Activo ? "1" : "0") + "', '" + unAlumno.Tutor + "',  '" + unAlumno.ApellidoPaterno + "',  '" + unAlumno.ApellidoMaterno + "',  '" + unAlumno.Grado + "')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO ALUMNO VALUES ('" + unAlumno.NumeroDeControl + "','" + unAlumno.Nombre + "','" + unAlumno.Escuela + "', '" + FormatearFecha(unAlumno.FechaNacimiento) + "', '" + unAlumno.Telefono + "', '" + unAlumno.Correo + "', '" + (unAlumno.Activo ? "1" : "0") + "', '" + unAlumno.Tutor + "',  '" + unAlumno.ApellidoPaterno + "',  '" + unAlumno.ApellidoMaterno + "',  '" + unAlumno.Grado + "','"+unAlumno.PorcentajeBeca+"')", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -225,7 +225,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO", con);
                 SqlDataReader alumnos = comando.ExecuteReader();
                 while (alumnos.Read())
-                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(8), alumnos.GetString(9), alumnos.GetInt16(10)));
+                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(8), alumnos.GetString(9), alumnos.GetInt16(10), alumnos.GetInt16(11)));
             }
             return listaAlumnos;
         }
@@ -235,7 +235,7 @@ namespace PiensaAjedrez
             using (SqlConnection con = ObtenerConexion())
             {
 
-                SqlCommand comando = new SqlCommand("UPDATE ALUMNO SET Nombre = '" + unAlumno.Nombre + "', NombreEscuela = '" + unAlumno.Escuela + "', FechaNacimiento = '" + FormatearFecha(unAlumno.FechaNacimiento) + "', Telefono = '" + unAlumno.Telefono + "', Correo = '" + unAlumno.Correo + "', Activo = '" + (unAlumno.Activo ? "1" : "0") + "', Tutor = '" + unAlumno.Tutor + "', ApellidoPaterno = '" + unAlumno.ApellidoPaterno + "', ApellidoMaterno = '" + unAlumno.ApellidoMaterno + "', Grado = '" + unAlumno.Grado + "'  WHERE NumeroControl = '" + strNroControl + "'", con);
+                SqlCommand comando = new SqlCommand("UPDATE ALUMNO SET Nombre = '" + unAlumno.Nombre + "', NombreEscuela = '" + unAlumno.Escuela + "', FechaNacimiento = '" + FormatearFecha(unAlumno.FechaNacimiento) + "', Telefono = '" + unAlumno.Telefono + "', Correo = '" + unAlumno.Correo + "', Activo = '" + (unAlumno.Activo ? "1" : "0") + "', Tutor = '" + unAlumno.Tutor + "', ApellidoPaterno = '" + unAlumno.ApellidoPaterno + "', ApellidoMaterno = '" + unAlumno.ApellidoMaterno + "', Grado = '" + unAlumno.Grado + "', Beca = '"+unAlumno.PorcentajeBeca+"'  WHERE NumeroControl = '" + strNroControl + "'", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -248,7 +248,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO " + unFiltro.ToString(), con);
                 SqlDataReader alumnos = comando.ExecuteReader();
                 while (alumnos.Read())
-                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(8), alumnos.GetString(9), alumnos.GetInt16(10)));
+                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(8), alumnos.GetString(9), alumnos.GetInt16(10), alumnos.GetInt16(11)));
             }
             return listaAlumnos;
         }
@@ -263,39 +263,39 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO where NombreEscuela = '" + strNombreEscuela + "' ORDER BY APELLIDOPATERNO, APELLIDOMATERNO, NOMBRE, NUMEROCONTROL ", con);
                 SqlDataReader alumnos = comando.ExecuteReader();
                 while (alumnos.Read())
-                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(8), alumnos.GetString(9), alumnos.GetInt16(10)));
+                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(8), alumnos.GetString(9), alumnos.GetInt16(10), alumnos.GetInt16(11)));
             }
             return listaAlumnos;
         }
 
-        public static List<Alumno> CargarAlumnosOrdenados(string strNombreEscuela)
-        {
-            List<Alumno> listaAlumnos = new List<Alumno>();
-            using (SqlConnection con = ObtenerConexion())
-            {
-                SqlCommand comando = new SqlCommand("select DISTInct Pago.NumeroControl, PAGO.NumeroRecibo, ALUMNO.* from PAGO, ALUMNO where ALUMNO.NombreEscuela='"+strNombreEscuela+"' AND ALUMNO.NumeroControl = PAGO.NumeroControl Order by PAGO.NumeroRecibo DESC", con);
-                SqlDataReader alumnos = comando.ExecuteReader();
-                while (alumnos.Read())
-                {
-                    if(!listaAlumnos.Contains(new Alumno(alumnos.GetString(0))))
-                     listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(3), alumnos.GetString(4), alumnos.GetDateTime(5), alumnos.GetString(6), alumnos.GetString(7), alumnos.GetInt16(8), alumnos.GetString(9), alumnos.GetString(10), alumnos.GetString(11), alumnos.GetInt16(12)));
-                }
-                    foreach (Alumno unAlumno in CargarAlumnos(strNombreEscuela))
-                    {
-                        if (!listaAlumnos.Contains(unAlumno))
-                            listaAlumnos.Add(unAlumno);
+        //public static List<Alumno> CargarAlumnosOrdenados(string strNombreEscuela)
+        //{
+        //    List<Alumno> listaAlumnos = new List<Alumno>();
+        //    using (SqlConnection con = ObtenerConexion())
+        //    {
+        //        SqlCommand comando = new SqlCommand("select DISTInct Pago.NumeroControl, PAGO.NumeroRecibo, ALUMNO.* from PAGO, ALUMNO where ALUMNO.NombreEscuela='"+strNombreEscuela+"' AND ALUMNO.NumeroControl = PAGO.NumeroControl Order by PAGO.NumeroRecibo DESC", con);
+        //        SqlDataReader alumnos = comando.ExecuteReader();
+        //        while (alumnos.Read())
+        //        {
+        //            if(!listaAlumnos.Contains(new Alumno(alumnos.GetString(0))))
+        //             listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(3), alumnos.GetString(4), alumnos.GetDateTime(5), alumnos.GetString(6), alumnos.GetString(7), alumnos.GetInt16(8), alumnos.GetString(9), alumnos.GetString(10), alumnos.GetString(11), alumnos.GetInt16(12)));
+        //        }
+        //            foreach (Alumno unAlumno in CargarAlumnos(strNombreEscuela))
+        //            {
+        //                if (!listaAlumnos.Contains(unAlumno))
+        //                    listaAlumnos.Add(unAlumno);
                  
-                    }
+        //            }
                 
-            }
-            return listaAlumnos;
-        }
+        //    }
+        //    return listaAlumnos;
+        //}
 
         public static void AgregarPago(Pagos unPago, Alumno unAlumno)
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO PAGO VALUES ('" + (unPago.NumeroRecibo) + "', '" + unAlumno.NumeroDeControl + "', '" + unPago.Monto + "', '" + unPago.MesPagado + "', '" + FormatearFecha(unPago.FechayHora) + "', '" + unPago.MetodoPago + "', '" + unPago.Nota + "', '" + (unPago.Notificado ? 1 : 0) + "', '" + (unPago.Liquidado ? 1 : 0) + "', '" + unPago.IDCurso + "')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO PAGO VALUES ('" + (unPago.NumeroRecibo) + "', '" + unAlumno.NumeroDeControl + "', '" + unPago.Monto + "', '" + unPago.MesPagado + "', '" + FormatearFecha(unPago.FechayHora) + "', '" + unPago.MetodoPago + "', '" + unPago.Nota + "', '" + (unPago.Notificado ? 1 : 0) + "', '" + (unPago.Liquidado ? 1 : 0) + "', '" + unPago.IDCurso + "','"+(unAlumno.PorcentajeBeca>0?1:0)+"', '"+unPago.MontoBeca+"')", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -308,7 +308,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM PAGO WHERE NumeroControl = '" + strNumeroControl + "'", con);
                 SqlDataReader pagos = comando.ExecuteReader();
                 while (pagos.Read())
-                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7) == 1 ? true : false), (pagos.GetInt16(8) == 1 ? true : false), pagos.GetString(9)));
+                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7) == 1 ? true : false), (pagos.GetInt16(8) == 1 ? true : false), pagos.GetString(9),(pagos.GetInt16(10)>0?true:false), (Int16)pagos.GetSqlMoney(11)));
             }
             return listaPagos;
         }
@@ -321,7 +321,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM PAGO ", con);
                 SqlDataReader pagos = comando.ExecuteReader();
                 while (pagos.Read())
-                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7) == 1 ? true : false), (pagos.GetInt16(8) == 1 ? true : false),pagos.GetString(9)));
+                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7) == 1 ? true : false), (pagos.GetInt16(8) == 1 ? true : false),pagos.GetString(9), (pagos.GetInt16(10) > 0 ? true : false), (Int16)pagos.GetSqlMoney(11)));
             }
             return listaPagos;
         }
@@ -342,7 +342,7 @@ namespace PiensaAjedrez
             double dblTotalMensualidades = 0;
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM PAGO, ALUMNO, CURSO  WHERE PAGO.NumeroControl = ALUMNO.NumeroControl AND ALUMNO.NombreEscuela = CURSO.NombreEscuela  AND MesPagado != 'Inscripcion' AND CURSO.Activo = 1 AND CURSO.NombreEscuela = '" + strNombreEscuela + "' AND PAGO.IDCurso='"+strClave+"' ", con);
+                SqlCommand comando = new SqlCommand("SELECT (SUM(Monto)-SUM(CantidadBeca)) FROM PAGO, ALUMNO, CURSO  WHERE PAGO.NumeroControl = ALUMNO.NumeroControl AND ALUMNO.NombreEscuela = CURSO.NombreEscuela  AND MesPagado != 'Inscripcion' AND CURSO.Activo = 1 AND CURSO.NombreEscuela = '" + strNombreEscuela + "' AND PAGO.IDCurso='"+strClave+"' AND ALUMNO.Beca = 0 ", con);
                 SqlDataReader mensualidades = comando.ExecuteReader();
                 while (mensualidades.Read())
                 {
@@ -358,7 +358,7 @@ namespace PiensaAjedrez
             double dblTotalInscripciones = 0;
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM PAGO, ALUMNO, CURSO  WHERE PAGO.NumeroControl = ALUMNO.NumeroControl AND ALUMNO.NombreEscuela = CURSO.NombreEscuela  AND MesPagado = 'Inscripcion' AND CURSO.Activo = 1 AND CURSO.NombreEscuela = '" + strNombreEscuela + "' AND PAGO.IDCurso ='"+ConexionBD.CargarCursoActivo(strNombreEscuela).Clave+"' ", con);
+                SqlCommand comando = new SqlCommand("SELECT (SUM(Monto)-SUM(CantidadBeca)) FROM PAGO, ALUMNO, CURSO  WHERE PAGO.NumeroControl = ALUMNO.NumeroControl AND ALUMNO.NombreEscuela = CURSO.NombreEscuela  AND MesPagado = 'Inscripcion' AND CURSO.Activo = 1 AND CURSO.NombreEscuela = '" + strNombreEscuela + "' AND PAGO.IDCurso ='"+ConexionBD.CargarCursoActivo(strNombreEscuela).Clave+"' ", con);
                 SqlDataReader inscripciones = comando.ExecuteReader();
                 while (inscripciones.Read())
                 {

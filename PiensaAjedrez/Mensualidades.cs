@@ -17,6 +17,7 @@ namespace PiensaAjedrez
             InitializeComponent();
             txtCorreoEnvios.Text = Correo.Usuario;
             txtPassword.Text = Correo.Contrasena;
+            VisibilidadControles(false);
         }
         
         int intCaso = 1;
@@ -34,8 +35,7 @@ namespace PiensaAjedrez
                 cbEscuelas.AddItem(miEscuela.Nombre);
             }
 
-            txtFiltroNombre.LineIdleColor = Color.SkyBlue;
-            txtFiltroNoCtrl.LineIdleColor = Color.SkyBlue;
+          
 
             cbAño.Items.Clear();
             for (int i = 2010; i <=2050 ; i++)
@@ -107,6 +107,8 @@ namespace PiensaAjedrez
                 while (unCurso.InicioCursos.Month <= unCurso.FinCurso.Month)
                 {
                     listaMeses.Add(unCurso.InicioCursos);
+                    if (unCurso.InicioCursos.Month == 12)
+                        break;
                     unCurso.InicioCursos = unCurso.InicioCursos.AddMonths(1);
                 }
             }
@@ -161,13 +163,14 @@ namespace PiensaAjedrez
             cbMetodoPago.Enabled = false;
             lblMesAPagar.Text = "Mes";
             //txtMonto.LineIdleColor = Color.SkyBlue;
-            txtNota.LineIdleColor = Color.SkyBlue;
+            
             lblNombre.Text = "Nombre(s) Apellido P. Apellido M.";
             lblNroControl.Text = "19100000";
             chkLiquidado.Enabled = false;
             chkLiquidado.Visible = false;
             lblLiquidado.Visible = false;
             chkLiquidado.Checked = false;
+            VisibilidadControles(false);
             /*
             if (cbEscuelas.selectedValue.Equals(""))
             { 
@@ -193,11 +196,12 @@ namespace PiensaAjedrez
             
             cbMetodoPago.Enabled = true;
             //txtMonto.LineIdleColor = Color.Teal;
-            txtNota.LineIdleColor = Color.Teal;
+            
             chkLiquidado.Enabled = true;
             chkLiquidado.Visible = true;
             lblLiquidado.Visible = true;
             chkLiquidado.Checked = false;
+            VisibilidadControles(false);
         }
 
         void LlenarDGV(Escuela otraEscuela)
@@ -264,8 +268,7 @@ namespace PiensaAjedrez
                         txtMontoAdicional.Enabled = true;
                         txtMotivo.Enabled = true;
                         btnRegistrarGasto.Visible = true;
-                        txtMotivo.LineIdleColor = Color.Teal;
-                        txtMontoAdicional.LineIdleColor = Color.Teal;
+                        
                     }
                     
                 }
@@ -308,6 +311,8 @@ namespace PiensaAjedrez
                                         else
                                         {
                                             btnRegistroPago.Visible = false;
+                                            VisibilidadControles(true);
+                                            lblInformacion.Text = pagos.ToString();
                                         }
                                     }
                                     
@@ -346,7 +351,7 @@ namespace PiensaAjedrez
             if (!chkNombre.Checked)
             {
                 txtFiltroNombre.Enabled = false;
-                txtFiltroNombre.LineIdleColor = Color.SkyBlue;
+              
                 txtFiltroNombre.Text = "Nombre";
                 foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
                 {
@@ -361,7 +366,7 @@ namespace PiensaAjedrez
             else
             {
                 txtFiltroNombre.Enabled = true;
-                txtFiltroNombre.LineIdleColor = Color.Teal;
+                
                 txtFiltroNombre.Text = "";
 
             }
@@ -372,7 +377,7 @@ namespace PiensaAjedrez
             if (!chkCorreo.Checked)
             {
                 txtFiltroNoCtrl.Enabled = false;
-                txtFiltroNoCtrl.LineIdleColor = Color.SkyBlue;
+               
                 txtFiltroNoCtrl.Text = "No. ctrl";
                 foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
                 {
@@ -386,7 +391,7 @@ namespace PiensaAjedrez
             else
             {
                 txtFiltroNoCtrl.Enabled = true;
-                txtFiltroNoCtrl.LineIdleColor = Color.Teal;
+               
                 txtFiltroNoCtrl.Text = "";
             }
         }
@@ -557,7 +562,7 @@ namespace PiensaAjedrez
                                 miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
                                 Correo.Usuario = txtCorreoEnvios.Text;
                                 Correo.Contrasena = txtPassword.Text;
-                                Pagos unPago = new Pagos(ObtenerClaveRecibo(dtFechaPago.Value), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(),false, (chkLiquidado.Checked?false:true), ConexionBD.CargarCursoActivo(miEscuela.Nombre).Clave);
+                                Pagos unPago = new Pagos(ObtenerClaveRecibo(dtFechaPago.Value), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(),false, (chkLiquidado.Checked?false:true), ConexionBD.CargarCursoActivo(miEscuela.Nombre).Clave,(miAlumno.PorcentajeBeca>0?true:false), miAlumno.PorcentajeBeca);
                                 if (!unPago.Liquidado)
                                 {
                                     if (dgvAlumnos.CurrentCell.Value==null)
@@ -581,7 +586,7 @@ namespace PiensaAjedrez
                                     else
                                     {
 
-                                        Pagos unPagoAuxiliar = new Pagos(unPago.NumeroRecibo,unPago.FechayHora, unPago.Monto, unPago.Nota, unPago.MesPagado, unPago.MetodoPago, unPago.Notificado, unPago.Liquidado, miEscuela.CursoActivo.Clave);                                        
+                                        Pagos unPagoAuxiliar = new Pagos(unPago.NumeroRecibo,unPago.FechayHora, unPago.Monto, unPago.Nota, unPago.MesPagado, unPago.MetodoPago, unPago.Notificado, unPago.Liquidado, miEscuela.CursoActivo.Clave, (miAlumno.PorcentajeBeca > 0 ? true : false), miAlumno.PorcentajeBeca);                                        
                                         unPagoAuxiliar.Monto += double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1));
                                         ConexionBD.EditarPago(unPago, true, miAlumno.NumeroDeControl, double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1)));
                                     }
@@ -748,9 +753,21 @@ namespace PiensaAjedrez
 
         }
 
+        void VisibilidadControles(bool blnEsconder)
+        {
+            gbEsconder.Visible = blnEsconder;
+            lblInformacion.Visible = blnEsconder;
+
+        }
+
         private void btnVerGastos_Click(object sender, EventArgs e)
         {
             new Form2().Show();
+        }
+
+        private void LblInformacion_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -56,7 +56,6 @@
             this.btnEscuela = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnAgregarColegio = new Bunifu.Framework.UI.BunifuThinButton2();
             this.lblColegios = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtNombreColegio = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lblNombreColegio = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
             this.cbDiaClase = new Bunifu.Framework.UI.BunifuDropdown();
@@ -67,7 +66,6 @@
             this.dgvListaActividades = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsEliminarActividad = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtActividad = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.btnAgregarActividad = new Bunifu.Framework.UI.BunifuImageButton();
             this.lblActividad = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
@@ -78,9 +76,9 @@
             this.lblCurso = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnAgregadoCurso = new Bunifu.Framework.UI.BunifuFlatButton();
             this.dgvEscuelas = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.dgvCursos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsDesactivarEscuela = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgvCursos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dgvCursosPasados = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.dgvEscuelasDesactivadas = new Bunifu.Framework.UI.BunifuCustomDataGrid();
@@ -88,6 +86,8 @@
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtNombreColegio = new System.Windows.Forms.TextBox();
+            this.txtActividad = new System.Windows.Forms.TextBox();
             this.bunifuCards1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).BeginInit();
@@ -98,8 +98,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregarActividad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEscuelas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursosPasados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEscuelasDesactivadas)).BeginInit();
             this.SuspendLayout();
@@ -110,12 +110,12 @@
             this.bunifuCards1.BorderRadius = 5;
             this.bunifuCards1.BottomSahddow = true;
             this.bunifuCards1.color = System.Drawing.Color.Teal;
+            this.bunifuCards1.Controls.Add(this.txtNombreColegio);
             this.bunifuCards1.Controls.Add(this.btnCancelar);
             this.bunifuCards1.Controls.Add(this.btnAgregado);
             this.bunifuCards1.Controls.Add(this.btnEscuela);
             this.bunifuCards1.Controls.Add(this.btnAgregarColegio);
             this.bunifuCards1.Controls.Add(this.lblColegios);
-            this.bunifuCards1.Controls.Add(this.txtNombreColegio);
             this.bunifuCards1.Controls.Add(this.lblNombreColegio);
             this.bunifuCards1.LeftSahddow = false;
             this.bunifuCards1.Location = new System.Drawing.Point(25, 17);
@@ -226,26 +226,6 @@
             this.lblColegios.TabIndex = 3;
             this.lblColegios.Text = "Registro de colegios";
             // 
-            // txtNombreColegio
-            // 
-            this.txtNombreColegio.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombreColegio.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.txtNombreColegio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtNombreColegio.HintForeColor = System.Drawing.Color.Empty;
-            this.txtNombreColegio.HintText = "";
-            this.txtNombreColegio.isPassword = false;
-            this.txtNombreColegio.LineFocusedColor = System.Drawing.Color.SkyBlue;
-            this.txtNombreColegio.LineIdleColor = System.Drawing.Color.Teal;
-            this.txtNombreColegio.LineMouseHoverColor = System.Drawing.Color.SkyBlue;
-            this.txtNombreColegio.LineThickness = 4;
-            this.txtNombreColegio.Location = new System.Drawing.Point(116, 158);
-            this.txtNombreColegio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtNombreColegio.Name = "txtNombreColegio";
-            this.txtNombreColegio.Size = new System.Drawing.Size(404, 27);
-            this.txtNombreColegio.TabIndex = 0;
-            this.txtNombreColegio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtNombreColegio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
-            // 
             // lblNombreColegio
             // 
             this.lblNombreColegio.AutoSize = true;
@@ -262,13 +242,13 @@
             this.bunifuCards2.BorderRadius = 5;
             this.bunifuCards2.BottomSahddow = true;
             this.bunifuCards2.color = System.Drawing.Color.Teal;
+            this.bunifuCards2.Controls.Add(this.txtActividad);
             this.bunifuCards2.Controls.Add(this.cbDiaClase);
             this.bunifuCards2.Controls.Add(this.lblDiaClase);
             this.bunifuCards2.Controls.Add(this.btnFinalizarCurso);
             this.bunifuCards2.Controls.Add(this.btnCancelarCurso);
             this.bunifuCards2.Controls.Add(this.btnAgregarCurso);
             this.bunifuCards2.Controls.Add(this.dgvListaActividades);
-            this.bunifuCards2.Controls.Add(this.txtActividad);
             this.bunifuCards2.Controls.Add(this.btnAgregarActividad);
             this.bunifuCards2.Controls.Add(this.lblActividad);
             this.bunifuCards2.Controls.Add(this.bunifuImageButton2);
@@ -453,25 +433,6 @@
             this.tsEliminarActividad.Size = new System.Drawing.Size(168, 22);
             this.tsEliminarActividad.Text = "Eliminar actividad";
             this.tsEliminarActividad.Click += new System.EventHandler(this.tsEliminarActividad_Click);
-            // 
-            // txtActividad
-            // 
-            this.txtActividad.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtActividad.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.txtActividad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtActividad.HintForeColor = System.Drawing.Color.Empty;
-            this.txtActividad.HintText = "";
-            this.txtActividad.isPassword = false;
-            this.txtActividad.LineFocusedColor = System.Drawing.Color.DarkSlateGray;
-            this.txtActividad.LineIdleColor = System.Drawing.Color.Teal;
-            this.txtActividad.LineMouseHoverColor = System.Drawing.Color.DarkSlateGray;
-            this.txtActividad.LineThickness = 4;
-            this.txtActividad.Location = new System.Drawing.Point(28, 162);
-            this.txtActividad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtActividad.Name = "txtActividad";
-            this.txtActividad.Size = new System.Drawing.Size(190, 27);
-            this.txtActividad.TabIndex = 2;
-            this.txtActividad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnAgregarActividad
             // 
@@ -659,6 +620,21 @@
             this.dgvEscuelas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEscuelas_CellClick);
             this.dgvEscuelas.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvEscuelas_CellMouseDown);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsDesactivarEscuela});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(171, 26);
+            this.contextMenuStrip1.Click += new System.EventHandler(this.contextMenuStrip1_Click);
+            // 
+            // tsDesactivarEscuela
+            // 
+            this.tsDesactivarEscuela.Name = "tsDesactivarEscuela";
+            this.tsDesactivarEscuela.Size = new System.Drawing.Size(170, 22);
+            this.tsDesactivarEscuela.Text = "Desactivar escuela";
+            this.tsDesactivarEscuela.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
             // dgvCursos
             // 
             this.dgvCursos.AllowUserToAddRows = false;
@@ -709,21 +685,6 @@
             this.dgvCursos.TabIndex = 9;
             this.dgvCursos.Visible = false;
             this.dgvCursos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCursos_CellClick);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsDesactivarEscuela});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(171, 26);
-            this.contextMenuStrip1.Click += new System.EventHandler(this.contextMenuStrip1_Click);
-            // 
-            // tsDesactivarEscuela
-            // 
-            this.tsDesactivarEscuela.Name = "tsDesactivarEscuela";
-            this.tsDesactivarEscuela.Size = new System.Drawing.Size(170, 22);
-            this.tsDesactivarEscuela.Text = "Desactivar escuela";
-            this.tsDesactivarEscuela.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolTip1
             // 
@@ -875,6 +836,22 @@
             this.bunifuCustomLabel4.TabIndex = 15;
             this.bunifuCustomLabel4.Text = "Cursos Archivados";
             // 
+            // txtNombreColegio
+            // 
+            this.txtNombreColegio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreColegio.Location = new System.Drawing.Point(106, 166);
+            this.txtNombreColegio.Name = "txtNombreColegio";
+            this.txtNombreColegio.Size = new System.Drawing.Size(421, 24);
+            this.txtNombreColegio.TabIndex = 19;
+            // 
+            // txtActividad
+            // 
+            this.txtActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtActividad.Location = new System.Drawing.Point(28, 166);
+            this.txtActividad.Name = "txtActividad";
+            this.txtActividad.Size = new System.Drawing.Size(191, 22);
+            this.txtActividad.TabIndex = 30;
+            // 
             // Escuelas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -905,8 +882,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregarActividad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEscuelas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursosPasados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEscuelasDesactivadas)).EndInit();
             this.ResumeLayout(false);
@@ -918,7 +895,6 @@
 
         private Bunifu.Framework.UI.BunifuCards bunifuCards1;
         private Bunifu.Framework.UI.BunifuCustomLabel lblNombreColegio;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtNombreColegio;
         private Bunifu.Framework.UI.BunifuCustomLabel lblColegios;
         private Bunifu.Framework.UI.BunifuThinButton2 btnAgregarColegio;
         private Bunifu.Framework.UI.BunifuCards bunifuCards2;
@@ -941,7 +917,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsDesactivarEscuela;
         private Bunifu.Framework.UI.BunifuCustomLabel lblActividad;
         private Bunifu.Framework.UI.BunifuImageButton btnAgregarActividad;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtActividad;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvListaActividades;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem tsEliminarActividad;
@@ -954,5 +929,7 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
+        private System.Windows.Forms.TextBox txtNombreColegio;
+        private System.Windows.Forms.TextBox txtActividad;
     }
 }

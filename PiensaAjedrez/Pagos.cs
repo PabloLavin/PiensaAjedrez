@@ -81,6 +81,28 @@ namespace PiensaAjedrez
             set { _strIDCurso = value; }
         }
 
+        private bool _blnBeca;
+
+        public bool Beca
+        {
+            get { return _blnBeca; }
+            set { _blnBeca = value; }
+        }
+
+        private double _dblMontoBeca;
+
+        public double MontoBeca
+        {
+            get { return _dblMontoBeca; }
+            set { _dblMontoBeca = value; }
+        }
+
+        double TotalBeca(double intPorcentaje)
+        {
+
+            return Monto * (intPorcentaje / 100);
+        }
+
 
         public Pagos(string strClave)
         {
@@ -92,7 +114,7 @@ namespace PiensaAjedrez
             return this.NumeroRecibo.Equals(otroPago.NumeroRecibo);
         }
 
-        public Pagos(string strRecibo, DateTime dtmFechaPago, double dblPago, string strNota, string strMes, string strMetodo, bool notificado, bool blnliquidado, string strCurso)
+        public Pagos(string strRecibo, DateTime dtmFechaPago, double dblPago, string strNota, string strMes, string strMetodo, bool notificado, bool blnliquidado, string strCurso, bool blnBecado, Int16 intBeca)
         {
             _strNumeroRecibo = strRecibo;
             _dtFechayHora = dtmFechaPago;
@@ -103,6 +125,13 @@ namespace PiensaAjedrez
             Notificado = notificado;
             Liquidado = blnliquidado;
             IDCurso = strCurso;
+            Beca = blnBecado;
+            MontoBeca = TotalBeca(intBeca);
+        }
+
+        public override string ToString()
+        {
+            return ("Numero de recibo: "+NumeroRecibo+"\nMonto: "+Monto.ToString("C")+"\nMétodo de pago: "+MetodoPago+"\nFecha: "+FechayHora.ToShortDateString()+"\nNota: "+Nota);
         }
 
     }

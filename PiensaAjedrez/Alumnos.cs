@@ -105,12 +105,21 @@ namespace PiensaAjedrez
             set { _strTutor = value; }
         }
 
+        private Int16 _int16PorcentajeBeca;
+
+        public Int16 PorcentajeBeca
+        {
+            get { return _int16PorcentajeBeca; }
+            set { _int16PorcentajeBeca = value; }
+        }
+
+
         public Alumno()
         {
 
         }
 
-        public Alumno(string strNroControl, string strNombre, string strEscuela, DateTime dtmFechaNacimiento, string strTelefono, string strCorreo, int intActivo, string strTutor, string strApellidoP, string strApellidoM, int intGrado)
+        public Alumno(string strNroControl, string strNombre, string strEscuela, DateTime dtmFechaNacimiento, string strTelefono, string strCorreo, int intActivo, string strTutor, string strApellidoP, string strApellidoM, int intGrado, Int16 intBeca)
         {
             NumeroDeControl = strNroControl;
             Nombre = strNombre;
@@ -123,6 +132,7 @@ namespace PiensaAjedrez
             ApellidoPaterno = strApellidoP;
             ApellidoMaterno = strApellidoM;
             Grado = intGrado;
+            PorcentajeBeca = intBeca;
         }
 
         public Alumno(string strNumeroControl, string strNombre, string strAMaterno, string strAPaterno)
