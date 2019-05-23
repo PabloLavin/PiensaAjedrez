@@ -151,7 +151,7 @@
             this.btnAsistencia.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnAsistencia.OnHoverTextColor = System.Drawing.Color.White;
             this.btnAsistencia.selected = false;
-            this.btnAsistencia.Size = new System.Drawing.Size(209, 50);
+            this.btnAsistencia.Size = new System.Drawing.Size(232, 50);
             this.btnAsistencia.TabIndex = 5;
             this.btnAsistencia.TabStop = false;
             this.btnAsistencia.Text = "Asistencias";
@@ -280,6 +280,7 @@
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnReportes.Textcolor = System.Drawing.Color.White;
             this.btnReportes.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.btnReportes.Visible = false;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnRegistrar

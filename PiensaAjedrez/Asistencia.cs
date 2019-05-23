@@ -376,9 +376,10 @@ namespace PiensaAjedrez
             {
                 //if (DialogResult.Yes == MessageBox.Show("¿Desea cerrar la asistencia al colegio " + cbEscuelas.selectedValue + " en la fecha " + cbFechas.selectedValue + "?", "Asistencia Alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
                 //{
-                //    dgvAlumnos.Columns[e.ColumnIndex].ReadOnly = true;
-                //    dgvAlumnos.Columns[e.ColumnIndex].
+                //    dgvAlumnos.Columns[e.ColumnIndex].Visible = false;
+                    
                     return;
+                //}
                 }
 
 

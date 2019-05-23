@@ -77,7 +77,6 @@ namespace PiensaAjedrez
                      dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     //dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                     dgvAlumnos.Columns[5].Width = 120;
-
                 }
                 else
                 {
@@ -90,7 +89,7 @@ namespace PiensaAjedrez
                     dgvAlumnos.Columns[3].Frozen = true;
                     dgvAlumnos.Columns[4].Frozen = true;
                 }
-                dgvAlumnos.Columns[0].Width = 34;
+                dgvAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 dgvAlumnos.Columns[1].Width = 110;
                 dgvAlumnos.Columns[2].Width = 115;
                 dgvAlumnos.Columns[3].Width = 125;

@@ -319,11 +319,12 @@ namespace PiensaAjedrez
             {
                 miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
                 miEscuela.listaCursos = ConexionBD.CargarCursos(miEscuela.Nombre);
-                cbDiaClase.selectedIndex = ObtenerIndex(miEscuela.CursoActivo.DiaDeClase);
+               
                 if (miEscuela.Nombre == dgvEscuelas.CurrentRow.Cells[0].Value.ToString())
                 {
                     foreach (Cursos miCursos in miEscuela.listaCursos)
                     {
+                        cbDiaClase.selectedIndex = ObtenerIndex(miEscuela.CursoActivo.DiaDeClase);
                         miCursos.listaActividades = ConexionBD.CargarActividades(miCursos.Clave);
 
                         if (miCursos.Equals(new Cursos(dgvCursos.CurrentRow.Cells[0].Value.ToString())))

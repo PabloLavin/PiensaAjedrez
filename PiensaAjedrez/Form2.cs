@@ -36,6 +36,7 @@ namespace PiensaAjedrez
             dgvGastos.Columns[1].Width = 25;
             dgvGastos.Columns[2].Width = 65;
             dgvGastos.Columns[4].Width = 100;
+            
 
             RellenarDGV(Escuela);
         }

@@ -406,6 +406,7 @@ namespace PiensaAjedrez
                     {
                         chkBecado.Checked = true;
                         lblPorcentaje.Visible = true;
+                        lblPorcientoSimbolo.Visible = true;
                         txtPorcentajeBeca.Visible = true;
                         txtPorcentajeBeca.Text = alumnos.PorcentajeBeca.ToString();
                     }
@@ -415,6 +416,7 @@ namespace PiensaAjedrez
                         lblPorcentaje.Visible = false;
                         txtPorcentajeBeca.Visible = false;
                         txtPorcentajeBeca.Text = "";
+                        lblPorcientoSimbolo.Visible = false;
                     }
                         lblnumerocontrol.Text = alumnos.NumeroDeControl;
                         btnAgregar.ButtonText = "Editar";

@@ -38,6 +38,10 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsEliminarAlumno = new System.Windows.Forms.ToolStripMenuItem();
             this.bnfcarAgregar = new Bunifu.Framework.UI.BunifuCards();
+            this.lblPorcentaje = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtPorcentajeBeca = new System.Windows.Forms.TextBox();
+            this.lblBecado = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.chkBecado = new Bunifu.Framework.UI.BunifuCheckbox();
             this.txtGrado = new System.Windows.Forms.TextBox();
             this.txtTutor = new System.Windows.Forms.TextBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
@@ -83,10 +87,7 @@
             this.lblfiltrar = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.imgFiltro = new Bunifu.Framework.UI.BunifuImageButton();
             this.Cancelartt = new System.Windows.Forms.ToolTip(this.components);
-            this.lblBecado = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.chkBecado = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.txtPorcentajeBeca = new System.Windows.Forms.TextBox();
-            this.lblPorcentaje = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lblPorcientoSimbolo = new Bunifu.Framework.UI.BunifuCustomLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.bnfcarAgregar.SuspendLayout();
@@ -168,6 +169,7 @@
             this.bnfcarAgregar.BorderRadius = 5;
             this.bnfcarAgregar.BottomSahddow = true;
             this.bnfcarAgregar.color = System.Drawing.Color.Teal;
+            this.bnfcarAgregar.Controls.Add(this.lblPorcientoSimbolo);
             this.bnfcarAgregar.Controls.Add(this.lblPorcentaje);
             this.bnfcarAgregar.Controls.Add(this.txtPorcentajeBeca);
             this.bnfcarAgregar.Controls.Add(this.lblBecado);
@@ -208,6 +210,52 @@
             this.bnfcarAgregar.TabStop = true;
             this.bnfcarAgregar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             this.bnfcarAgregar.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuCards1_Paint);
+            // 
+            // lblPorcentaje
+            // 
+            this.lblPorcentaje.AutoSize = true;
+            this.lblPorcentaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPorcentaje.ForeColor = System.Drawing.Color.Black;
+            this.lblPorcentaje.Location = new System.Drawing.Point(140, 212);
+            this.lblPorcentaje.Name = "lblPorcentaje";
+            this.lblPorcentaje.Size = new System.Drawing.Size(95, 20);
+            this.lblPorcentaje.TabIndex = 35;
+            this.lblPorcentaje.Text = "Porcentaje";
+            this.lblPorcentaje.Visible = false;
+            // 
+            // txtPorcentajeBeca
+            // 
+            this.txtPorcentajeBeca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPorcentajeBeca.Location = new System.Drawing.Point(236, 210);
+            this.txtPorcentajeBeca.Name = "txtPorcentajeBeca";
+            this.txtPorcentajeBeca.Size = new System.Drawing.Size(60, 24);
+            this.txtPorcentajeBeca.TabIndex = 34;
+            this.txtPorcentajeBeca.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorcentajeBeca.Visible = false;
+            // 
+            // lblBecado
+            // 
+            this.lblBecado.AutoSize = true;
+            this.lblBecado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBecado.ForeColor = System.Drawing.Color.Black;
+            this.lblBecado.Location = new System.Drawing.Point(50, 212);
+            this.lblBecado.Name = "lblBecado";
+            this.lblBecado.Size = new System.Drawing.Size(70, 20);
+            this.lblBecado.TabIndex = 33;
+            this.lblBecado.Text = "Becado";
+            // 
+            // chkBecado
+            // 
+            this.chkBecado.BackColor = System.Drawing.Color.SkyBlue;
+            this.chkBecado.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkBecado.Checked = false;
+            this.chkBecado.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
+            this.chkBecado.ForeColor = System.Drawing.Color.White;
+            this.chkBecado.Location = new System.Drawing.Point(24, 212);
+            this.chkBecado.Name = "chkBecado";
+            this.chkBecado.Size = new System.Drawing.Size(20, 20);
+            this.chkBecado.TabIndex = 32;
+            this.chkBecado.OnChange += new System.EventHandler(this.ChkBecado_OnChange);
             // 
             // txtGrado
             // 
@@ -840,50 +888,17 @@
             this.Cancelartt.InitialDelay = 250;
             this.Cancelartt.ReshowDelay = 100;
             // 
-            // lblBecado
+            // lblPorcientoSimbolo
             // 
-            this.lblBecado.AutoSize = true;
-            this.lblBecado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBecado.ForeColor = System.Drawing.Color.Black;
-            this.lblBecado.Location = new System.Drawing.Point(50, 212);
-            this.lblBecado.Name = "lblBecado";
-            this.lblBecado.Size = new System.Drawing.Size(70, 20);
-            this.lblBecado.TabIndex = 33;
-            this.lblBecado.Text = "Becado";
-            // 
-            // chkBecado
-            // 
-            this.chkBecado.BackColor = System.Drawing.Color.SkyBlue;
-            this.chkBecado.ChechedOffColor = System.Drawing.Color.SkyBlue;
-            this.chkBecado.Checked = false;
-            this.chkBecado.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
-            this.chkBecado.ForeColor = System.Drawing.Color.White;
-            this.chkBecado.Location = new System.Drawing.Point(24, 212);
-            this.chkBecado.Name = "chkBecado";
-            this.chkBecado.Size = new System.Drawing.Size(20, 20);
-            this.chkBecado.TabIndex = 32;
-            this.chkBecado.OnChange += new System.EventHandler(this.ChkBecado_OnChange);
-            // 
-            // txtPorcentajeBeca
-            // 
-            this.txtPorcentajeBeca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPorcentajeBeca.Location = new System.Drawing.Point(250, 210);
-            this.txtPorcentajeBeca.Name = "txtPorcentajeBeca";
-            this.txtPorcentajeBeca.Size = new System.Drawing.Size(73, 24);
-            this.txtPorcentajeBeca.TabIndex = 34;
-            this.txtPorcentajeBeca.Visible = false;
-            // 
-            // lblPorcentaje
-            // 
-            this.lblPorcentaje.AutoSize = true;
-            this.lblPorcentaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPorcentaje.ForeColor = System.Drawing.Color.Black;
-            this.lblPorcentaje.Location = new System.Drawing.Point(140, 212);
-            this.lblPorcentaje.Name = "lblPorcentaje";
-            this.lblPorcentaje.Size = new System.Drawing.Size(110, 20);
-            this.lblPorcentaje.TabIndex = 35;
-            this.lblPorcentaje.Text = "Porcentaje $";
-            this.lblPorcentaje.Visible = false;
+            this.lblPorcientoSimbolo.AutoSize = true;
+            this.lblPorcientoSimbolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPorcientoSimbolo.ForeColor = System.Drawing.Color.Black;
+            this.lblPorcientoSimbolo.Location = new System.Drawing.Point(297, 212);
+            this.lblPorcientoSimbolo.Name = "lblPorcientoSimbolo";
+            this.lblPorcientoSimbolo.Size = new System.Drawing.Size(24, 20);
+            this.lblPorcientoSimbolo.TabIndex = 36;
+            this.lblPorcientoSimbolo.Text = "%";
+            this.lblPorcientoSimbolo.Visible = false;
             // 
             // RegistroAlumnos
             // 
@@ -964,5 +979,6 @@
         private System.Windows.Forms.TextBox txtPorcentajeBeca;
         private Bunifu.Framework.UI.BunifuCustomLabel lblBecado;
         private Bunifu.Framework.UI.BunifuCheckbox chkBecado;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblPorcientoSimbolo;
     }
 }
