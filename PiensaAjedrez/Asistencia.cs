@@ -372,10 +372,17 @@ namespace PiensaAjedrez
 
         private void DgvAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex == -1)
+            if (e.RowIndex == -1&&e.ColumnIndex>=5)
             {
-                return;
-            }
+                //if (DialogResult.Yes == MessageBox.Show("¿Desea cerrar la asistencia al colegio " + cbEscuelas.selectedValue + " en la fecha " + cbFechas.selectedValue + "?", "Asistencia Alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+                //{
+                //    dgvAlumnos.Columns[e.ColumnIndex].ReadOnly = true;
+                //    dgvAlumnos.Columns[e.ColumnIndex].
+                    return;
+                }
+
+
+            
             if (e.ColumnIndex >= 5)
             {
                 string strFecha = "";
