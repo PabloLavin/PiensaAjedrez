@@ -53,10 +53,10 @@ namespace PiensaAjedrez
             }
 
 
-            if (dgvAlumnos.Columns.Count > 10)
+            //if (dgvAlumnos.Columns.Count > 10)
                 dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            else
-                dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //else
+            //    dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 
             dgvAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
@@ -444,6 +444,7 @@ namespace PiensaAjedrez
                 e.Graphics.TranslateTransform(0, -titleSize.Width);
                 e.Handled = true;
             }
+           
         }
     }
 }

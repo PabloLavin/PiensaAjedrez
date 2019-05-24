@@ -144,19 +144,25 @@
             // 
             // txtFiltroNoCtrl
             // 
+            this.txtFiltroNoCtrl.Enabled = false;
             this.txtFiltroNoCtrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFiltroNoCtrl.Location = new System.Drawing.Point(35, 105);
             this.txtFiltroNoCtrl.Name = "txtFiltroNoCtrl";
             this.txtFiltroNoCtrl.Size = new System.Drawing.Size(136, 22);
             this.txtFiltroNoCtrl.TabIndex = 27;
+            this.txtFiltroNoCtrl.Text = "Numero De Control";
+            this.txtFiltroNoCtrl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtFiltroNombre
             // 
+            this.txtFiltroNombre.Enabled = false;
             this.txtFiltroNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFiltroNombre.Location = new System.Drawing.Point(34, 65);
             this.txtFiltroNombre.Name = "txtFiltroNombre";
             this.txtFiltroNombre.Size = new System.Drawing.Size(278, 22);
             this.txtFiltroNombre.TabIndex = 26;
+            this.txtFiltroNombre.Text = "Nombre";
+            this.txtFiltroNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cbAño
             // 

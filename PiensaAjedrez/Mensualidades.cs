@@ -537,12 +537,50 @@ namespace PiensaAjedrez
                 Habilitar();
                 intCaso = 0;
             }
+            else if(EsActividad(dgvAlumnos.Columns[intMes].HeaderText))
+            {
+                Habilitar();
+                intCaso = 0;
+            }
             else
             {
                 Habilitar();
                 intCaso = 1;
             }
             
+        }
+
+        bool EsActividad(string strMes)
+        {
+            switch (strMes)
+            {
+                case "Enero":
+                    return false;
+                case "Febrero":
+                    return false;
+                case "Marzo":
+                    return false;
+                case "Abril":
+                    return false;
+                case "Mayo":
+                    return false;
+                case "Junio":
+                    return false;
+                case "Julio":
+                    return false;
+                case "Agosto":
+                    return false;
+                case "Septiembre":
+                    return false;
+                case "Octubre":
+                    return false;
+                case "Noviembre":
+                    return false;
+                case "Diciembre":
+                    return false;
+                default:
+                    return true;
+            }
         }
         
 
