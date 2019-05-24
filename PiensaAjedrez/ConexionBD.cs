@@ -342,7 +342,7 @@ namespace PiensaAjedrez
             double dblTotalMensualidades = 0;
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT (SUM(Monto)-SUM(CantidadBeca)) FROM PAGO, ALUMNO, CURSO  WHERE PAGO.NumeroControl = ALUMNO.NumeroControl AND ALUMNO.NombreEscuela = CURSO.NombreEscuela  AND MesPagado != 'Inscripcion' AND CURSO.Activo = 1 AND CURSO.NombreEscuela = '" + strNombreEscuela + "' AND PAGO.IDCurso='"+strClave+"' AND ALUMNO.Beca = 0 ", con);
+                SqlCommand comando = new SqlCommand("SELECT sum(monto-CantidadBeca) FROM PAGO, ALUMNO, CURSO  WHERE PAGO.NumeroControl = ALUMNO.NumeroControl AND ALUMNO.NombreEscuela = CURSO.NombreEscuela  AND MesPagado != 'Inscripcion' AND CURSO.Activo = 1 AND CURSO.NombreEscuela = '" + strNombreEscuela + "' AND PAGO.IDCurso='"+strClave+"'", con);
                 SqlDataReader mensualidades = comando.ExecuteReader();
                 while (mensualidades.Read())
                 {
@@ -358,7 +358,7 @@ namespace PiensaAjedrez
             double dblTotalInscripciones = 0;
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT (SUM(Monto)-SUM(CantidadBeca)) FROM PAGO, ALUMNO, CURSO  WHERE PAGO.NumeroControl = ALUMNO.NumeroControl AND ALUMNO.NombreEscuela = CURSO.NombreEscuela  AND MesPagado = 'Inscripcion' AND CURSO.Activo = 1 AND CURSO.NombreEscuela = '" + strNombreEscuela + "' AND PAGO.IDCurso ='"+ConexionBD.CargarCursoActivo(strNombreEscuela).Clave+"' ", con);
+                SqlCommand comando = new SqlCommand("SELECT sum(monto-CantidadBeca) FROM PAGO, ALUMNO, CURSO  WHERE PAGO.NumeroControl = ALUMNO.NumeroControl AND ALUMNO.NombreEscuela = CURSO.NombreEscuela  AND MesPagado = 'Inscripcion' AND CURSO.Activo = 1 AND CURSO.NombreEscuela = '" + strNombreEscuela + "' AND PAGO.IDCurso ='"+ConexionBD.CargarCursoActivo(strNombreEscuela).Clave+"' ", con);
                 SqlDataReader inscripciones = comando.ExecuteReader();
                 while (inscripciones.Read())
                 {
@@ -399,7 +399,7 @@ namespace PiensaAjedrez
             double dblTotalMensualidades = 0;
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM PAGO", con);
+                SqlCommand comando = new SqlCommand("SELECT sum(monto-CantidadBeca) FROM PAGO", con);
                 SqlDataReader gastos = comando.ExecuteReader();
                 while (gastos.Read())
                 {

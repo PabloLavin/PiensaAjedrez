@@ -324,25 +324,7 @@ namespace PiensaAjedrez
         #region Filtro
         private void txtFiltroNombre_OnValueChanged(object sender, EventArgs e)
         {
-            dgvAlumnos.Rows.Clear();
-            if(cbEscuelas.selectedIndex!=-1)
-            foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
-            {
-                    if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
-                    {
-                        miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
-
-                        foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
-                            if (ObtenerNombreCompleto(miAlumno).ToLower().Contains(txtFiltroNombre.Text)|| ObtenerNombreCompleto(miAlumno).Contains(txtFiltroNombre.Text)|| ObtenerNombreCompleto(miAlumno).ToUpper().Contains(txtFiltroNombre.Text))
-                            {
-                                if (miAlumno.Activo)
-                                {
-                                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre);
-                                RellenarPagos(miAlumno, miEscuela.CursoActivo.Clave);
-                                }
-                            }
-                    }
-            }
+           
         }
 
         private void chkNombre_OnChange(object sender, EventArgs e)
@@ -397,28 +379,7 @@ namespace PiensaAjedrez
 
         private void txtFiltroNoCtrl_OnValueChanged(object sender, EventArgs e)
         {
-            dgvAlumnos.Rows.Clear();
-            foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
-            {
-                if (cbEscuelas.selectedIndex != -1)
-                    if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
-                    {
-                        miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
-
-                        foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
-                        {
-
-                            if (miAlumno.NumeroDeControl.Contains(txtFiltroNoCtrl.Text))
-                            {
-                                if (miAlumno.Activo)
-                                {
-                                    dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre);
-                                    RellenarPagos(miAlumno, miEscuela.CursoActivo.Clave);
-                                }
-                            }
-                        }
-                    }
-            }
+           
         }
 
         private void cbAño_TextChanged(object sender, EventArgs e)
@@ -804,6 +765,50 @@ namespace PiensaAjedrez
 
         private void LblInformacion_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void TxtFiltroNombre_TextChanged(object sender, EventArgs e)
+        {
+            Filtrar();
+        }
+
+        private void TxtFiltroNoCtrl_TextChanged(object sender, EventArgs e)
+        {
+            Filtrar();
+        }
+
+        private void Filtrar()
+        {
+            Filtro unFiltro = new Filtro();
+
+            unFiltro.NumeroControl = chkCorreo.Checked;
+
+            unFiltro.Escuela = true;
+
+            unFiltro.Nombre = chkNombre.Checked;
+
+
+            if (cbEscuelas.selectedIndex >= 0)
+                unFiltro.ValorEscuela = cbEscuelas.selectedValue;
+
+            unFiltro.ValorFecha = DateTime.Now;
+
+
+
+            unFiltro.ValorNombre = txtFiltroNombre.Text;
+            unFiltro.ValorNoControl = txtFiltroNoCtrl.Text;
+            int intContador = 0;
+            dgvAlumnos.Rows.Clear();
+            foreach (Alumno miAlumno in ConexionBD.CargarAlumnosFiltrados(unFiltro))
+            {
+                if (miAlumno.Activo && miAlumno.Escuela == cbEscuelas.selectedValue)
+                {
+                    intContador++;
+                    dgvAlumnos.Rows.Add(intContador, miAlumno.NumeroDeControl, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre);
+                    RellenarPagos(miAlumno, ConexionBD.CargarCursoActivo(miAlumno.Escuela).Clave);
+                }
+            }
 
         }
     }

@@ -152,6 +152,7 @@
             this.txtFiltroNoCtrl.TabIndex = 27;
             this.txtFiltroNoCtrl.Text = "Numero De Control";
             this.txtFiltroNoCtrl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFiltroNoCtrl.TextChanged += new System.EventHandler(this.TxtFiltroNoCtrl_TextChanged);
             // 
             // txtFiltroNombre
             // 
@@ -163,6 +164,7 @@
             this.txtFiltroNombre.TabIndex = 26;
             this.txtFiltroNombre.Text = "Nombre";
             this.txtFiltroNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFiltroNombre.TextChanged += new System.EventHandler(this.TxtFiltroNombre_TextChanged);
             // 
             // cbAño
             // 
@@ -311,7 +313,7 @@
             // lblInformacion
             // 
             this.lblInformacion.AutoSize = true;
-            this.lblInformacion.Location = new System.Drawing.Point(63, 62);
+            this.lblInformacion.Location = new System.Drawing.Point(63, 30);
             this.lblInformacion.Name = "lblInformacion";
             this.lblInformacion.Size = new System.Drawing.Size(46, 18);
             this.lblInformacion.TabIndex = 0;
