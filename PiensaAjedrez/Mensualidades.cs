@@ -311,7 +311,7 @@ namespace PiensaAjedrez
                                         {
                                             btnRegistroPago.Visible = false;
                                             VisibilidadControles(true);
-                                            lblInformacion.Text = pagos.ToString();
+                                            MostrarPago(pagos, miAlumno.NumeroDeControl);
                                         }
                                     }
                                     
@@ -753,9 +753,12 @@ namespace PiensaAjedrez
 
         void VisibilidadControles(bool blnEsconder)
         {
+            foreach (Control control in gbEsconder.Controls)
+            {
+                if (control is Label)
+                    control.Visible = blnEsconder;
+            }
             gbEsconder.Visible = blnEsconder;
-            lblInformacion.Visible = blnEsconder;
-
         }
 
         private void btnVerGastos_Click(object sender, EventArgs e)
@@ -777,6 +780,18 @@ namespace PiensaAjedrez
         {
             Filtrar();
         }
+
+        void MostrarPago(Pagos unPago, string strControl)
+        {
+            lblInfo1.Text = unPago.NumeroRecibo;
+            lblInfo2.Text = strControl;
+            lblInfo3.Text = unPago.Monto.ToString("C");
+            lblInfo4.Text = unPago.MetodoPago;
+            lblInfo5.Text = unPago.FechayHora.ToShortDateString();
+            lblInfo6.Text = unPago.Nota;
+            lblInfo7.Text = unPago.MontoBeca.ToString("C");
+        }
+
 
         private void Filtrar()
         {

@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mensualidades));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
             this.txtFiltroNoCtrl = new System.Windows.Forms.TextBox();
             this.txtFiltroNombre = new System.Windows.Forms.TextBox();
@@ -45,7 +45,7 @@
             this.chkNombre = new Bunifu.Framework.UI.BunifuCheckbox();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
             this.gbEsconder = new System.Windows.Forms.GroupBox();
-            this.lblInformacion = new System.Windows.Forms.Label();
+            this.lblPRecibo = new System.Windows.Forms.Label();
             this.txtNota = new System.Windows.Forms.TextBox();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.bunifuImageButton6 = new Bunifu.Framework.UI.BunifuImageButton();
@@ -102,6 +102,20 @@
             this.txtPassword = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuCards5 = new Bunifu.Framework.UI.BunifuCards();
             this.bunifuImageButton4 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.lblInfo1 = new System.Windows.Forms.Label();
+            this.lblInfo2 = new System.Windows.Forms.Label();
+            this.lblPControl = new System.Windows.Forms.Label();
+            this.lblInfo3 = new System.Windows.Forms.Label();
+            this.lblPMonto = new System.Windows.Forms.Label();
+            this.lblInfo4 = new System.Windows.Forms.Label();
+            this.lblPMetodo = new System.Windows.Forms.Label();
+            this.lblInfo5 = new System.Windows.Forms.Label();
+            this.lblPFecha = new System.Windows.Forms.Label();
+            this.lblInfo6 = new System.Windows.Forms.Label();
+            this.lblPNota = new System.Windows.Forms.Label();
+            this.lblInfo7 = new System.Windows.Forms.Label();
+            this.lblPDescuento = new System.Windows.Forms.Label();
+            this.imgAjedrezRecibo = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuCards2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).BeginInit();
             this.bunifuCards1.SuspendLayout();
@@ -118,6 +132,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).BeginInit();
             this.bunifuCards5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAjedrezRecibo)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuCards2
@@ -302,22 +317,38 @@
             // 
             // gbEsconder
             // 
-            this.gbEsconder.Controls.Add(this.lblInformacion);
+            this.gbEsconder.Controls.Add(this.imgAjedrezRecibo);
+            this.gbEsconder.Controls.Add(this.lblInfo7);
+            this.gbEsconder.Controls.Add(this.lblPDescuento);
+            this.gbEsconder.Controls.Add(this.lblInfo6);
+            this.gbEsconder.Controls.Add(this.lblPNota);
+            this.gbEsconder.Controls.Add(this.lblInfo5);
+            this.gbEsconder.Controls.Add(this.lblPFecha);
+            this.gbEsconder.Controls.Add(this.lblInfo4);
+            this.gbEsconder.Controls.Add(this.lblPMetodo);
+            this.gbEsconder.Controls.Add(this.lblInfo3);
+            this.gbEsconder.Controls.Add(this.lblPMonto);
+            this.gbEsconder.Controls.Add(this.lblInfo2);
+            this.gbEsconder.Controls.Add(this.lblPControl);
+            this.gbEsconder.Controls.Add(this.lblInfo1);
+            this.gbEsconder.Controls.Add(this.lblPRecibo);
             this.gbEsconder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbEsconder.Location = new System.Drawing.Point(444, 26);
+            this.gbEsconder.MaximumSize = new System.Drawing.Size(473, 217);
             this.gbEsconder.Name = "gbEsconder";
             this.gbEsconder.Size = new System.Drawing.Size(473, 217);
             this.gbEsconder.TabIndex = 46;
             this.gbEsconder.TabStop = false;
             // 
-            // lblInformacion
+            // lblPRecibo
             // 
-            this.lblInformacion.AutoSize = true;
-            this.lblInformacion.Location = new System.Drawing.Point(63, 30);
-            this.lblInformacion.Name = "lblInformacion";
-            this.lblInformacion.Size = new System.Drawing.Size(46, 18);
-            this.lblInformacion.TabIndex = 0;
-            this.lblInformacion.Text = "label1";
+            this.lblPRecibo.AutoSize = true;
+            this.lblPRecibo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPRecibo.Location = new System.Drawing.Point(6, 17);
+            this.lblPRecibo.Name = "lblPRecibo";
+            this.lblPRecibo.Size = new System.Drawing.Size(157, 18);
+            this.lblPRecibo.TabIndex = 0;
+            this.lblPRecibo.Text = "Número De Recibo:";
             // 
             // txtNota
             // 
@@ -565,7 +596,8 @@
             this.cbMetodoPago.ForeColor = System.Drawing.Color.White;
             this.cbMetodoPago.Items = new string[] {
         "Efectivo",
-        "Deposito"};
+        "Deposito",
+        "Beca"};
             this.cbMetodoPago.Location = new System.Drawing.Point(733, 104);
             this.cbMetodoPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbMetodoPago.Name = "cbMetodoPago";
@@ -679,29 +711,29 @@
             this.dgvAlumnos.AllowUserToDeleteRows = false;
             this.dgvAlumnos.AllowUserToResizeColumns = false;
             this.dgvAlumnos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle45;
             this.dgvAlumnos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle46.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle46.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle47.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle47;
             this.dgvAlumnos.DoubleBuffered = true;
             this.dgvAlumnos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAlumnos.EnableHeadersVisualStyles = false;
@@ -714,9 +746,9 @@
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAlumnos.RowHeadersVisible = false;
             this.dgvAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.Black;
+            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle48;
             this.dgvAlumnos.RowTemplate.Height = 25;
             this.dgvAlumnos.RowTemplate.ReadOnly = true;
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -1128,6 +1160,145 @@
             this.bunifuImageButton4.TabStop = false;
             this.bunifuImageButton4.Zoom = 10;
             // 
+            // lblInfo1
+            // 
+            this.lblInfo1.AutoSize = true;
+            this.lblInfo1.Location = new System.Drawing.Point(162, 17);
+            this.lblInfo1.Name = "lblInfo1";
+            this.lblInfo1.Size = new System.Drawing.Size(46, 18);
+            this.lblInfo1.TabIndex = 1;
+            this.lblInfo1.Text = "label1";
+            // 
+            // lblInfo2
+            // 
+            this.lblInfo2.AutoSize = true;
+            this.lblInfo2.Location = new System.Drawing.Point(198, 63);
+            this.lblInfo2.Name = "lblInfo2";
+            this.lblInfo2.Size = new System.Drawing.Size(46, 18);
+            this.lblInfo2.TabIndex = 3;
+            this.lblInfo2.Text = "label1";
+            // 
+            // lblPControl
+            // 
+            this.lblPControl.AutoSize = true;
+            this.lblPControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPControl.Location = new System.Drawing.Point(42, 63);
+            this.lblPControl.Name = "lblPControl";
+            this.lblPControl.Size = new System.Drawing.Size(160, 18);
+            this.lblPControl.TabIndex = 2;
+            this.lblPControl.Text = "Número De Control:";
+            // 
+            // lblInfo3
+            // 
+            this.lblInfo3.AutoSize = true;
+            this.lblInfo3.Location = new System.Drawing.Point(198, 86);
+            this.lblInfo3.Name = "lblInfo3";
+            this.lblInfo3.Size = new System.Drawing.Size(46, 18);
+            this.lblInfo3.TabIndex = 5;
+            this.lblInfo3.Text = "label1";
+            // 
+            // lblPMonto
+            // 
+            this.lblPMonto.AutoSize = true;
+            this.lblPMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPMonto.Location = new System.Drawing.Point(141, 86);
+            this.lblPMonto.Name = "lblPMonto";
+            this.lblPMonto.Size = new System.Drawing.Size(61, 18);
+            this.lblPMonto.TabIndex = 4;
+            this.lblPMonto.Text = "Monto:";
+            // 
+            // lblInfo4
+            // 
+            this.lblInfo4.AutoSize = true;
+            this.lblInfo4.Location = new System.Drawing.Point(198, 109);
+            this.lblInfo4.Name = "lblInfo4";
+            this.lblInfo4.Size = new System.Drawing.Size(46, 18);
+            this.lblInfo4.TabIndex = 7;
+            this.lblInfo4.Text = "label1";
+            // 
+            // lblPMetodo
+            // 
+            this.lblPMetodo.AutoSize = true;
+            this.lblPMetodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPMetodo.Location = new System.Drawing.Point(70, 109);
+            this.lblPMetodo.Name = "lblPMetodo";
+            this.lblPMetodo.Size = new System.Drawing.Size(132, 18);
+            this.lblPMetodo.TabIndex = 6;
+            this.lblPMetodo.Text = "Forma De Pago:";
+            // 
+            // lblInfo5
+            // 
+            this.lblInfo5.AutoSize = true;
+            this.lblInfo5.Location = new System.Drawing.Point(375, 17);
+            this.lblInfo5.Name = "lblInfo5";
+            this.lblInfo5.Size = new System.Drawing.Size(46, 18);
+            this.lblInfo5.TabIndex = 9;
+            this.lblInfo5.Text = "label1";
+            // 
+            // lblPFecha
+            // 
+            this.lblPFecha.AutoSize = true;
+            this.lblPFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPFecha.Location = new System.Drawing.Point(318, 17);
+            this.lblPFecha.Name = "lblPFecha";
+            this.lblPFecha.Size = new System.Drawing.Size(59, 18);
+            this.lblPFecha.TabIndex = 8;
+            this.lblPFecha.Text = "Fecha:";
+            // 
+            // lblInfo6
+            // 
+            this.lblInfo6.AutoSize = true;
+            this.lblInfo6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo6.Location = new System.Drawing.Point(57, 140);
+            this.lblInfo6.MaximumSize = new System.Drawing.Size(250, 217);
+            this.lblInfo6.Name = "lblInfo6";
+            this.lblInfo6.Size = new System.Drawing.Size(45, 64);
+            this.lblInfo6.TabIndex = 11;
+            this.lblInfo6.Text = "label1\r\n-\r\n-\r\n-";
+            // 
+            // lblPNota
+            // 
+            this.lblPNota.AutoSize = true;
+            this.lblPNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPNota.Location = new System.Drawing.Point(12, 137);
+            this.lblPNota.Name = "lblPNota";
+            this.lblPNota.Size = new System.Drawing.Size(49, 18);
+            this.lblPNota.TabIndex = 10;
+            this.lblPNota.Text = "Nota:";
+            // 
+            // lblInfo7
+            // 
+            this.lblInfo7.AutoSize = true;
+            this.lblInfo7.Location = new System.Drawing.Point(393, 86);
+            this.lblInfo7.Name = "lblInfo7";
+            this.lblInfo7.Size = new System.Drawing.Size(46, 18);
+            this.lblInfo7.TabIndex = 13;
+            this.lblInfo7.Text = "label1";
+            // 
+            // lblPDescuento
+            // 
+            this.lblPDescuento.AutoSize = true;
+            this.lblPDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPDescuento.Location = new System.Drawing.Point(285, 66);
+            this.lblPDescuento.Name = "lblPDescuento";
+            this.lblPDescuento.Size = new System.Drawing.Size(186, 18);
+            this.lblPDescuento.TabIndex = 12;
+            this.lblPDescuento.Text = "Descuento De La Beca:";
+            // 
+            // imgAjedrezRecibo
+            // 
+            this.imgAjedrezRecibo.BackColor = System.Drawing.Color.Transparent;
+            this.imgAjedrezRecibo.Enabled = false;
+            this.imgAjedrezRecibo.Image = ((System.Drawing.Image)(resources.GetObject("imgAjedrezRecibo.Image")));
+            this.imgAjedrezRecibo.ImageActive = ((System.Drawing.Image)(resources.GetObject("imgAjedrezRecibo.ImageActive")));
+            this.imgAjedrezRecibo.Location = new System.Drawing.Point(310, 150);
+            this.imgAjedrezRecibo.Name = "imgAjedrezRecibo";
+            this.imgAjedrezRecibo.Size = new System.Drawing.Size(163, 62);
+            this.imgAjedrezRecibo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgAjedrezRecibo.TabIndex = 22;
+            this.imgAjedrezRecibo.TabStop = false;
+            this.imgAjedrezRecibo.Zoom = 10;
+            // 
             // Mensualidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1163,6 +1334,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).EndInit();
             this.bunifuCards5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAjedrezRecibo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1235,6 +1407,20 @@
         private System.Windows.Forms.TextBox txtMontoAdicional;
         private System.Windows.Forms.TextBox txtMotivo;
         private System.Windows.Forms.GroupBox gbEsconder;
-        private System.Windows.Forms.Label lblInformacion;
+        private System.Windows.Forms.Label lblPRecibo;
+        private Bunifu.Framework.UI.BunifuImageButton imgAjedrezRecibo;
+        private System.Windows.Forms.Label lblInfo7;
+        private System.Windows.Forms.Label lblPDescuento;
+        private System.Windows.Forms.Label lblInfo6;
+        private System.Windows.Forms.Label lblPNota;
+        private System.Windows.Forms.Label lblInfo5;
+        private System.Windows.Forms.Label lblPFecha;
+        private System.Windows.Forms.Label lblInfo4;
+        private System.Windows.Forms.Label lblPMetodo;
+        private System.Windows.Forms.Label lblInfo3;
+        private System.Windows.Forms.Label lblPMonto;
+        private System.Windows.Forms.Label lblInfo2;
+        private System.Windows.Forms.Label lblPControl;
+        private System.Windows.Forms.Label lblInfo1;
     }
 }
