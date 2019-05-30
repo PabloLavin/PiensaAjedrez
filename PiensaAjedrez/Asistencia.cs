@@ -77,15 +77,20 @@ namespace PiensaAjedrez
         List<string> CargarFechas(Cursos unCurso)
         {
             List<string> listaFechas = new List<string>();
-            DateTime dtmFecha = unCurso.InicioCursos;
-            while (dtmFecha < unCurso.FinCurso)
+            if (unCurso != null)
             {
-                if (dtmFecha.DayOfWeek.ToString() == ObtenerDia(unCurso.DiaDeClase))
-                {
-                    listaFechas.Add(dtmFecha.Date.ToShortDateString());
 
+
+                DateTime dtmFecha = unCurso.InicioCursos;
+                while (dtmFecha < unCurso.FinCurso)
+                {
+                    if (dtmFecha.DayOfWeek.ToString() == ObtenerDia(unCurso.DiaDeClase))
+                    {
+                        listaFechas.Add(dtmFecha.Date.ToShortDateString());
+
+                    }
+                    dtmFecha = dtmFecha.AddDays(1);
                 }
-                dtmFecha = dtmFecha.AddDays(1);
             }
             return listaFechas;
         }
@@ -139,18 +144,21 @@ namespace PiensaAjedrez
 
         void llenarDGV(Escuela unaEscuela)
         {
-            dgvAlumnos.Rows.Clear();
-            int intContador = 1;
-            foreach (Alumno unAlumno in ConexionBD.CargarAlumnos(unaEscuela.Nombre))
+            if (unaEscuela.CursoActivo != null)
             {
-
-                if (unAlumno.Activo)
+                dgvAlumnos.Rows.Clear();
+                int intContador = 1;
+                foreach (Alumno unAlumno in ConexionBD.CargarAlumnos(unaEscuela.Nombre))
                 {
-                    dgvAlumnos.Rows.Add(intContador, unAlumno.NumeroDeControl, unAlumno.ApellidoPaterno, unAlumno.ApellidoMaterno, unAlumno.Nombre);
-                    RellenarAsistencia(unAlumno, unaEscuela.CursoActivo.Clave);
-                    intContador++;
-                }
 
+                    if (unAlumno.Activo)
+                    {
+                        dgvAlumnos.Rows.Add(intContador, unAlumno.NumeroDeControl, unAlumno.ApellidoPaterno, unAlumno.ApellidoMaterno, unAlumno.Nombre);
+                        RellenarAsistencia(unAlumno, unaEscuela.CursoActivo.Clave);
+                        intContador++;
+                    }
+
+                }
             }
         }
 
@@ -251,6 +259,11 @@ namespace PiensaAjedrez
 
         private void BunifuFlatButton1_Click(object sender, EventArgs e)
         {
+            if (cbFechas.selectedIndex == -1)
+            {
+                MessageBox.Show("No hay fecha seleccionada.\nSeleccione una para continuar");
+                return;
+            }
             if (DialogResult.Yes == MessageBox.Show("¿Desea marcar a todos los alumnos del colegio " + cbEscuelas.selectedValue + " en la fecha " + cbFechas.selectedValue + "?", "Asistencia Alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
                 foreach (DataGridViewRow fila in dgvAlumnos.Rows)
                 {
@@ -267,6 +280,11 @@ namespace PiensaAjedrez
 
         private void BtnDesmarcar_Click(object sender, EventArgs e)
         {
+            if (cbFechas.selectedIndex == -1)
+            {
+                MessageBox.Show("No hay fecha seleccionada.\nSeleccione una para continuar");
+                return;
+            }
             if (DialogResult.Yes == MessageBox.Show("¿Desea retirar la marca de todos los alumnos del colegio " + cbEscuelas.selectedValue + " en la fecha " + cbFechas.selectedValue + "?", "Asistencia Alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
                 foreach (DataGridViewRow fila in dgvAlumnos.Rows)
                 {
@@ -284,6 +302,8 @@ namespace PiensaAjedrez
 
         private void ChkNombre_OnChange(object sender, EventArgs e)
         {
+            if (ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue) == null)
+                return;
             if (chkNombre.Checked)
             {
                 txtFiltroNombre.Enabled = true;
@@ -306,6 +326,8 @@ namespace PiensaAjedrez
 
         private void ChkCorreo_OnChange(object sender, EventArgs e)
         {
+            if (ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue) == null)
+                return;
             if (chkCorreo.Checked)
             {
                 txtFiltroNoCtrl.Enabled = true;
@@ -444,29 +466,7 @@ namespace PiensaAjedrez
                 e.Graphics.TranslateTransform(0, -titleSize.Width);
                 e.Handled = true;
             }
-            if (e.RowIndex == -1 && e.ColumnIndex <= 4)
-            {
-                //Subir encabezados!!
-
-                //e.PaintBackground(e.ClipBounds, true);
-                //Rectangle rect = this.dgvAlumnos.GetColumnDisplayRectangle(e.ColumnIndex, true);
-                //Size titleSize = TextRenderer.MeasureText(e.Value.ToString(), e.CellStyle.Font);
-                //if (this.dgvAlumnos.ColumnHeadersHeight < titleSize.Width)
-                //{
-                //    this.dgvAlumnos.ColumnHeadersHeight = titleSize.Width;
-                //}
-
-                //e.Graphics.TranslateTransform(0, titleSize.Width);
-                //e.Graphics.RotateTransform(-360.0F);
-
-
-                //e.Graphics.DrawString(e.Value.ToString(), new Font("Century Gothic", 12.0f), Brushes.White, new PointF(rect.Y + 10, rect.X + 10));
-                //e.Graphics.RotateTransform(360.0F);
-                //e.Graphics.TranslateTransform(0, -titleSize.Width);
-                //e.Handled = true;
-            }
-
-
+           
         }
     }
 }

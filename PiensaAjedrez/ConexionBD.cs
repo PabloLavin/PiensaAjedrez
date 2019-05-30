@@ -399,12 +399,18 @@ namespace PiensaAjedrez
             double dblTotalMensualidades = 0;
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT sum(monto-CantidadBeca) FROM PAGO", con);
-                SqlDataReader gastos = comando.ExecuteReader();
-                while (gastos.Read())
+                foreach (Escuela unaEscuela in CargarEscuelas())
                 {
-                    if (!gastos.IsDBNull(0))
-                        dblTotalMensualidades = double.Parse(Convert.ToString(gastos.GetSqlMoney(0)));
+                    if (CargarCursoActivo(unaEscuela.Nombre) != null)
+                    {
+                        SqlCommand comando = new SqlCommand("SELECT sum(monto-CantidadBeca) FROM PAGO WHERE IDCurso= '" + CargarCursoActivo(unaEscuela.Nombre).Clave + "'", con);
+                        SqlDataReader gastos = comando.ExecuteReader();
+                        while (gastos.Read())
+                        {
+                            if (!gastos.IsDBNull(0))
+                                dblTotalMensualidades = double.Parse(Convert.ToString(gastos.GetSqlMoney(0)));
+                        }
+                    }
                 }
             }
             return dblTotalMensualidades;
@@ -449,7 +455,16 @@ namespace PiensaAjedrez
             }
         }
 
-       
+
+        public static void AgregarFondos(double dblDinero, string strIDCurso)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("INSERT INTO FONDOS VALUES('"+dblDinero+"', '"+strIDCurso+"')", con);
+                comando.ExecuteNonQuery();
+            }
+        }
+
 
 
         public static List<ClaseAsistencia> CargarAsistencia(Alumno unAlumno, string strIDCurso)

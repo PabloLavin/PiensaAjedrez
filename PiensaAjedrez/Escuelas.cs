@@ -468,6 +468,7 @@ namespace PiensaAjedrez
             if (DialogResult.Yes == MessageBox.Show("¿Desea finalizar el curso que comprende del " + dgvCursos.CurrentRow.Cells[1].Value.ToString() + " al " + dgvCursos.CurrentRow.Cells[2].Value.ToString() + " con clave " + dgvCursos.CurrentRow.Cells[0].Value.ToString() + "?", "Finalizar curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
             {
                 Escuela unaEscuela = new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString());
+                ConexionBD.AgregarFondos((ConexionBD.TotalInscripciones(txtNombreColegio.Text) + ConexionBD.TotalMensualidades(txtNombreColegio.Text, dgvCursos.CurrentRow.Cells[0].Value.ToString())), dgvCursos.CurrentRow.Cells[0].Value.ToString());
                 ConexionBD.FinalizarCurso(unaEscuela.Nombre);
                 unaEscuela.listaCursos = ConexionBD.CargarCursos(unaEscuela.Nombre);
                 FillDgv(unaEscuela);

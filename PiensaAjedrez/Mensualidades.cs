@@ -329,6 +329,8 @@ namespace PiensaAjedrez
 
         private void chkNombre_OnChange(object sender, EventArgs e)
         {
+            if (ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue) == null)
+                return;
             if (!chkNombre.Checked)
             {
                 txtFiltroNombre.Enabled = false;
@@ -355,6 +357,8 @@ namespace PiensaAjedrez
 
         private void chkCorreo_OnChange(object sender, EventArgs e)
         {
+            if (ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue) == null)
+                return;
             if (!chkCorreo.Checked)
             {
                 txtFiltroNoCtrl.Enabled = false;
@@ -415,6 +419,8 @@ namespace PiensaAjedrez
 
         private void chkAño_OnChange(object sender, EventArgs e)
         {
+            if (ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue) == null)
+                return;
             if (chkAño.Checked)
             {
                 cbAño.Enabled = true;
@@ -795,33 +801,38 @@ namespace PiensaAjedrez
 
         private void Filtrar()
         {
-            Filtro unFiltro = new Filtro();
-
-            unFiltro.NumeroControl = chkCorreo.Checked;
-
-            unFiltro.Escuela = true;
-
-            unFiltro.Nombre = chkNombre.Checked;
-
-
-            if (cbEscuelas.selectedIndex >= 0)
-                unFiltro.ValorEscuela = cbEscuelas.selectedValue;
-
-            unFiltro.ValorFecha = DateTime.Now;
-
-
-
-            unFiltro.ValorNombre = txtFiltroNombre.Text;
-            unFiltro.ValorNoControl = txtFiltroNoCtrl.Text;
-            int intContador = 0;
-            dgvAlumnos.Rows.Clear();
-            foreach (Alumno miAlumno in ConexionBD.CargarAlumnosFiltrados(unFiltro))
+            if (ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue) != null)
             {
-                if (miAlumno.Activo && miAlumno.Escuela == cbEscuelas.selectedValue)
+
+
+                Filtro unFiltro = new Filtro();
+
+                unFiltro.NumeroControl = chkCorreo.Checked;
+
+                unFiltro.Escuela = true;
+
+                unFiltro.Nombre = chkNombre.Checked;
+
+
+                if (cbEscuelas.selectedIndex >= 0)
+                    unFiltro.ValorEscuela = cbEscuelas.selectedValue;
+
+                unFiltro.ValorFecha = DateTime.Now;
+
+
+
+                unFiltro.ValorNombre = txtFiltroNombre.Text;
+                unFiltro.ValorNoControl = txtFiltroNoCtrl.Text;
+                int intContador = 0;
+                dgvAlumnos.Rows.Clear();
+                foreach (Alumno miAlumno in ConexionBD.CargarAlumnosFiltrados(unFiltro))
                 {
-                    intContador++;
-                    dgvAlumnos.Rows.Add(intContador, miAlumno.NumeroDeControl, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre);
-                    RellenarPagos(miAlumno, ConexionBD.CargarCursoActivo(miAlumno.Escuela).Clave);
+                    if (miAlumno.Activo && miAlumno.Escuela == cbEscuelas.selectedValue)
+                    {
+                        intContador++;
+                        dgvAlumnos.Rows.Add(intContador, miAlumno.NumeroDeControl, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre);
+                        RellenarPagos(miAlumno, ConexionBD.CargarCursoActivo(miAlumno.Escuela).Clave);
+                    }
                 }
             }
 
