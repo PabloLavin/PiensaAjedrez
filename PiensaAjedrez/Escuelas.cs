@@ -66,6 +66,8 @@ namespace PiensaAjedrez
         }
 
         public static List<Escuela> listaEscuela = ConexionBD.CargarEscuelas();
+        public FormMensaje unaForma = new FormMensaje();
+        public bool blnAceptar;
 
         private void btnAgregarColegio_Click(object sender, EventArgs e)
         {
@@ -85,7 +87,7 @@ namespace PiensaAjedrez
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        unaForma.Mostrar("Error",ex.Message,1, this);
                     }
                 }
                 else
@@ -101,14 +103,16 @@ namespace PiensaAjedrez
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Escuela duplicada.");
+                        unaForma.Mostrar("Error", "Escuela duplicada.", 1, this);
+                        
                     }
                     txtNombreColegio.Focus();
                 }
             }
             else
             {
-                MessageBox.Show("Introduzca un nombre de colegio.");
+                unaForma.Mostrar("Error", "Introduzca un nombre de colegio.", 1, this);
+                
                 return;
             }
         }
@@ -231,7 +235,7 @@ namespace PiensaAjedrez
             }
             catch (Exception x)
             {
-                MessageBox.Show(x.Message);
+                unaForma.Mostrar("Error", x.Message, 1, this);
             }
         }
 
@@ -239,7 +243,8 @@ namespace PiensaAjedrez
         {
             if (dgvEscuelas.CurrentRow == null)
             {
-                MessageBox.Show("Seleccione una escuela de la lista.");
+                unaForma.Mostrar("Error", "Seleccione una escuela de la lista.", 1, this);
+                
                 MostrarCursos(false);
                 return;
             }
@@ -299,7 +304,8 @@ namespace PiensaAjedrez
         {
             if (dgvCursos.CurrentRow == null)
             {
-                MessageBox.Show("Seleccione un curso de la lista.");
+                unaForma.Mostrar("Error", "Seleccione un curso de la lista.", 2, this);
+                
                 return;
             }
             dtmInicioCurso.Value = DateTime.Parse(dgvCursos.CurrentRow.Cells[1].Value.ToString());
@@ -386,12 +392,14 @@ namespace PiensaAjedrez
             tsEliminarActividad.Visible = true;
             if (dgvListaActividades.Rows.Count == 5)
             {
-                MessageBox.Show("Limite de actividades alcanzado.");
+                unaForma.Mostrar("Error", "Limite de actividades alcanzado.", 1, this);
+                
                 return;
             }
             if (txtActividad.Text == "")
             {
-                MessageBox.Show("Introduzca una actividad primero.");
+                unaForma.Mostrar("Error", "Introduzca una actividad primero.", 1, this);
+               
                 return;
             }
 
@@ -440,7 +448,8 @@ namespace PiensaAjedrez
             {
                 if (dgvListaActividades.CurrentRow == null)
                 {
-                    MessageBox.Show("Seleccione una actividad de la lista.");
+                    unaForma.Mostrar("Error", "Seleccione una actividad de la lista.",1,this);
+                    
                     return;
                 }
                 tsEliminarActividad.Enabled = true;
@@ -457,7 +466,8 @@ namespace PiensaAjedrez
         {
             if (dgvListaActividades.CurrentRow == null)
             {
-                MessageBox.Show("Seleccione una actividad de la lista.");
+                unaForma.Mostrar("Error", "Seleccione una actividad de la lista.", 1, this);
+               
                 return;
             }
             txtActividad.Text = dgvListaActividades.CurrentRow.Cells[0].Value.ToString();
@@ -487,7 +497,8 @@ namespace PiensaAjedrez
             if (miEscuela.CursoActivo != null)
                 if (miEscuela.CursoActivo.CompareTo(new Cursos(DateTime.Today, DateTime.Today)) <= 0)
                 {
-                    MessageBox.Show("El curso activo de " + miEscuela.Nombre + " expira hoy o ya expiró.","Curso expirado",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    unaForma.Mostrar("Curso expirado", "El curso activo de " + miEscuela.Nombre + " expira hoy o ya expiró.", 1, this);
+            
                     //    bool blnBandera = true;
                     //    do
                     //    {
@@ -618,7 +629,8 @@ namespace PiensaAjedrez
         {
             if (dgvEscuelas.CurrentRow == null)
             {
-                MessageBox.Show("Seleccione una escuela de la lista.");
+                unaForma.Mostrar("Error", "Seleccione una escuela de la lista.",1,this);
+               
                 return;
             }
             if (e.Button == MouseButtons.Right)
@@ -633,7 +645,8 @@ namespace PiensaAjedrez
         {
             if (dgvEscuelas.CurrentRow == null)
             {
-                MessageBox.Show("No hay escuelas.\nAgregue una para continuar.");
+                unaForma.Mostrar("Error", "No hay escuelas.\nAgregue una para continuar.",1,this);
+               
                 return;
             }
             if (DialogResult.Yes == MessageBox.Show("¿Desea desactivar el colegio " + dgvEscuelas.CurrentRow.Cells[0].Value.ToString() + "?", "Desactivar colegio", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
@@ -654,7 +667,8 @@ namespace PiensaAjedrez
         {
             if (dgvEscuelasDesactivadas.CurrentRow == null)
             {
-                MessageBox.Show("Seleccione una escuela");
+                unaForma.Mostrar("Error", "No hay escuelas.\nAgregue una para continuar.",1,this);
+                
                 return;
             }
             if (DialogResult.Yes == MessageBox.Show("¿Desea activar el colegio " + dgvEscuelasDesactivadas.CurrentRow.Cells[0].Value.ToString() + "?", "Activar colegio", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))

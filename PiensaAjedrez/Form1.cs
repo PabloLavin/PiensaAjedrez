@@ -19,6 +19,9 @@ namespace PiensaAjedrez
             ReemplazarPantalla(new Mensualidades());
         }
 
+        public static bool blnActivado = true;
+        
+
         private void Cerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -85,5 +88,12 @@ namespace PiensaAjedrez
         {
             ReemplazarPantalla(new Asistencia());
         }
+
+        private void Form1_EnabledChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+      
     }
 }

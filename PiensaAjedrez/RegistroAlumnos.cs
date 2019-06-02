@@ -14,10 +14,14 @@ namespace PiensaAjedrez
     {
 
         public static List<Alumno> listaAlumnos = ConexionBD.CargarAlumnos();
+        public FormMensaje unaForma = new FormMensaje();
+        public bool blnAceptar;
+        
         public RegistroAlumnos()
         {
             
             InitializeComponent();
+            
             
             txtNombre.Focus();
             btnCancelar.Visible = false;
@@ -69,6 +73,7 @@ namespace PiensaAjedrez
             InicializarAutorellenado();
         }
 
+        
         void InicializarAutorellenado()
         {
             var srcNombre = new AutoCompleteStringCollection();
@@ -97,7 +102,7 @@ namespace PiensaAjedrez
                         miAlumno.Activo = false;
                 if (txtNombre.Text == "")
                 {
-                    MessageBox.Show("No ha introducido ningún nombre.");
+                   unaForma.Mostrar("Advertencia", "No ha introducido ningún nombre.", 1, this);
                     return;
                 }
 
@@ -146,7 +151,7 @@ namespace PiensaAjedrez
             }
             catch (Exception)
             {
-                MessageBox.Show("Compruebe que los datos ingresados sean correctos.", "Error al agregar un alumno",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                unaForma.Mostrar("Error al agregar un alumno", "Compruebe que los datos ingresados sean correctos.", 1, this);
             }
         }
 
@@ -555,20 +560,23 @@ namespace PiensaAjedrez
 
         private void tsEliminarAlumno_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("¿Desea eliminar al alumno "+dgvAlumnos.CurrentRow.Cells[0].Value.ToString()+"?", "Eliminar alumno", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
-            {
-                    listaAlumnos.Remove(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString()));
-                foreach (Escuela miEscuela in Escuelas.listaEscuela)
-                    if (miEscuela.Equals(new Escuela(dgvAlumnos.CurrentRow.Cells[2].Value.ToString())))
-                        miEscuela.listaAlumno.Remove(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString()));
-            }
-            MostrarDatos();
-            LimpiarControles();
-            if (btnAgregar.ButtonText == "Editar")
-            {
-                btnAgregar.ButtonText = "Agregar";
-                btnCancelar.Visible = false;
-            }
+            //unaForma.Mostrar("Eliminar alumno", "¿Desea eliminar al alumno " + dgvAlumnos.CurrentRow.Cells[0].Value.ToString() + "?",2,this);
+            //    if (blnAceptar)
+            //    {
+            //        listaAlumnos.Remove(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString()));
+            //    foreach (Escuela miEscuela in Escuelas.listaEscuela)
+            //        if (miEscuela.Equals(new Escuela(dgvAlumnos.CurrentRow.Cells[2].Value.ToString())))
+            //            miEscuela.listaAlumno.Remove(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString()));
+
+            //    }
+            
+            //MostrarDatos();
+            //LimpiarControles();
+            //if (btnAgregar.ButtonText == "Editar")
+            //{
+            //    btnAgregar.ButtonText = "Agregar";
+            //    btnCancelar.Visible = false;
+            //}
             
         }
 

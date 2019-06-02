@@ -385,6 +385,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.EnabledChanged += new System.EventHandler(this.Form1_EnabledChanged);
             this.panelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnPiensaAjedrez)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPiensaAjedrezEstetico)).EndInit();
