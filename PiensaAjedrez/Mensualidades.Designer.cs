@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mensualidades));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
             this.txtFiltroNoCtrl = new System.Windows.Forms.TextBox();
             this.txtFiltroNombre = new System.Windows.Forms.TextBox();
@@ -44,8 +44,6 @@
             this.chkCorreo = new Bunifu.Framework.UI.BunifuCheckbox();
             this.chkNombre = new Bunifu.Framework.UI.BunifuCheckbox();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
-            this.gbEsconder = new System.Windows.Forms.GroupBox();
-            this.lblPRecibo = new System.Windows.Forms.Label();
             this.txtNota = new System.Windows.Forms.TextBox();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.bunifuImageButton6 = new Bunifu.Framework.UI.BunifuImageButton();
@@ -102,24 +100,28 @@
             this.txtPassword = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuCards5 = new Bunifu.Framework.UI.BunifuCards();
             this.bunifuImageButton4 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.lblInfo1 = new System.Windows.Forms.Label();
-            this.lblInfo2 = new System.Windows.Forms.Label();
-            this.lblPControl = new System.Windows.Forms.Label();
-            this.lblInfo3 = new System.Windows.Forms.Label();
-            this.lblPMonto = new System.Windows.Forms.Label();
-            this.lblInfo4 = new System.Windows.Forms.Label();
-            this.lblPMetodo = new System.Windows.Forms.Label();
-            this.lblInfo5 = new System.Windows.Forms.Label();
-            this.lblPFecha = new System.Windows.Forms.Label();
-            this.lblInfo6 = new System.Windows.Forms.Label();
-            this.lblPNota = new System.Windows.Forms.Label();
+            this.lblBeca = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.chkBeca = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.txtBeca = new System.Windows.Forms.TextBox();
+            this.gbEsconder = new System.Windows.Forms.GroupBox();
+            this.imgAjedrezRecibo = new Bunifu.Framework.UI.BunifuImageButton();
             this.lblInfo7 = new System.Windows.Forms.Label();
             this.lblPDescuento = new System.Windows.Forms.Label();
-            this.imgAjedrezRecibo = new Bunifu.Framework.UI.BunifuImageButton();
+            this.lblInfo6 = new System.Windows.Forms.Label();
+            this.lblPNota = new System.Windows.Forms.Label();
+            this.lblInfo5 = new System.Windows.Forms.Label();
+            this.lblPFecha = new System.Windows.Forms.Label();
+            this.lblInfo4 = new System.Windows.Forms.Label();
+            this.lblPMetodo = new System.Windows.Forms.Label();
+            this.lblInfo3 = new System.Windows.Forms.Label();
+            this.lblPMonto = new System.Windows.Forms.Label();
+            this.lblInfo2 = new System.Windows.Forms.Label();
+            this.lblPControl = new System.Windows.Forms.Label();
+            this.lblInfo1 = new System.Windows.Forms.Label();
+            this.lblPRecibo = new System.Windows.Forms.Label();
             this.bunifuCards2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).BeginInit();
             this.bunifuCards1.SuspendLayout();
-            this.gbEsconder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
@@ -132,6 +134,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).BeginInit();
             this.bunifuCards5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton4)).BeginInit();
+            this.gbEsconder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAjedrezRecibo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -278,6 +281,8 @@
             this.bunifuCards1.BottomSahddow = true;
             this.bunifuCards1.color = System.Drawing.Color.Teal;
             this.bunifuCards1.Controls.Add(this.gbEsconder);
+            this.bunifuCards1.Controls.Add(this.lblBeca);
+            this.bunifuCards1.Controls.Add(this.chkBeca);
             this.bunifuCards1.Controls.Add(this.txtNota);
             this.bunifuCards1.Controls.Add(this.txtMonto);
             this.bunifuCards1.Controls.Add(this.bunifuImageButton6);
@@ -286,6 +291,7 @@
             this.bunifuCards1.Controls.Add(this.lblLiquidado);
             this.bunifuCards1.Controls.Add(this.chkLiquidado);
             this.bunifuCards1.Controls.Add(this.lbltotalMensualidades);
+            this.bunifuCards1.Controls.Add(this.txtBeca);
             this.bunifuCards1.Controls.Add(this.lblMensualidadestl);
             this.bunifuCards1.Controls.Add(this.lblcantidadinscripcion);
             this.bunifuCards1.Controls.Add(this.lblinscripcionestotal);
@@ -314,41 +320,6 @@
             this.bunifuCards1.Size = new System.Drawing.Size(943, 257);
             this.bunifuCards1.TabIndex = 0;
             this.bunifuCards1.TabStop = true;
-            // 
-            // gbEsconder
-            // 
-            this.gbEsconder.Controls.Add(this.imgAjedrezRecibo);
-            this.gbEsconder.Controls.Add(this.lblInfo7);
-            this.gbEsconder.Controls.Add(this.lblPDescuento);
-            this.gbEsconder.Controls.Add(this.lblInfo6);
-            this.gbEsconder.Controls.Add(this.lblPNota);
-            this.gbEsconder.Controls.Add(this.lblInfo5);
-            this.gbEsconder.Controls.Add(this.lblPFecha);
-            this.gbEsconder.Controls.Add(this.lblInfo4);
-            this.gbEsconder.Controls.Add(this.lblPMetodo);
-            this.gbEsconder.Controls.Add(this.lblInfo3);
-            this.gbEsconder.Controls.Add(this.lblPMonto);
-            this.gbEsconder.Controls.Add(this.lblInfo2);
-            this.gbEsconder.Controls.Add(this.lblPControl);
-            this.gbEsconder.Controls.Add(this.lblInfo1);
-            this.gbEsconder.Controls.Add(this.lblPRecibo);
-            this.gbEsconder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbEsconder.Location = new System.Drawing.Point(444, 26);
-            this.gbEsconder.MaximumSize = new System.Drawing.Size(473, 217);
-            this.gbEsconder.Name = "gbEsconder";
-            this.gbEsconder.Size = new System.Drawing.Size(473, 217);
-            this.gbEsconder.TabIndex = 46;
-            this.gbEsconder.TabStop = false;
-            // 
-            // lblPRecibo
-            // 
-            this.lblPRecibo.AutoSize = true;
-            this.lblPRecibo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPRecibo.Location = new System.Drawing.Point(6, 17);
-            this.lblPRecibo.Name = "lblPRecibo";
-            this.lblPRecibo.Size = new System.Drawing.Size(157, 18);
-            this.lblPRecibo.TabIndex = 0;
-            this.lblPRecibo.Text = "Número De Recibo:";
             // 
             // txtNota
             // 
@@ -405,7 +376,7 @@
             this.lblLiquidado.AutoSize = true;
             this.lblLiquidado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLiquidado.ForeColor = System.Drawing.Color.Black;
-            this.lblLiquidado.Location = new System.Drawing.Point(485, 211);
+            this.lblLiquidado.Location = new System.Drawing.Point(485, 202);
             this.lblLiquidado.Name = "lblLiquidado";
             this.lblLiquidado.Size = new System.Drawing.Size(56, 20);
             this.lblLiquidado.TabIndex = 38;
@@ -419,7 +390,7 @@
             this.chkLiquidado.Checked = false;
             this.chkLiquidado.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkLiquidado.ForeColor = System.Drawing.Color.White;
-            this.chkLiquidado.Location = new System.Drawing.Point(459, 210);
+            this.chkLiquidado.Location = new System.Drawing.Point(459, 201);
             this.chkLiquidado.Name = "chkLiquidado";
             this.chkLiquidado.Size = new System.Drawing.Size(20, 20);
             this.chkLiquidado.TabIndex = 5;
@@ -711,29 +682,29 @@
             this.dgvAlumnos.AllowUserToDeleteRows = false;
             this.dgvAlumnos.AllowUserToResizeColumns = false;
             this.dgvAlumnos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvAlumnos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvAlumnos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle46.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle47.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvAlumnos.DoubleBuffered = true;
             this.dgvAlumnos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAlumnos.EnableHeadersVisualStyles = false;
@@ -746,9 +717,9 @@
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAlumnos.RowHeadersVisible = false;
             this.dgvAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.Black;
-            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            this.dgvAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvAlumnos.RowTemplate.Height = 25;
             this.dgvAlumnos.RowTemplate.ReadOnly = true;
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -1160,90 +1131,100 @@
             this.bunifuImageButton4.TabStop = false;
             this.bunifuImageButton4.Zoom = 10;
             // 
-            // lblInfo1
+            // lblBeca
             // 
-            this.lblInfo1.AutoSize = true;
-            this.lblInfo1.Location = new System.Drawing.Point(162, 17);
-            this.lblInfo1.Name = "lblInfo1";
-            this.lblInfo1.Size = new System.Drawing.Size(46, 18);
-            this.lblInfo1.TabIndex = 1;
-            this.lblInfo1.Text = "label1";
+            this.lblBeca.AutoSize = true;
+            this.lblBeca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBeca.ForeColor = System.Drawing.Color.Black;
+            this.lblBeca.Location = new System.Drawing.Point(485, 225);
+            this.lblBeca.Name = "lblBeca";
+            this.lblBeca.Size = new System.Drawing.Size(46, 20);
+            this.lblBeca.TabIndex = 47;
+            this.lblBeca.Text = "Beca";
+            this.lblBeca.Visible = false;
             // 
-            // lblInfo2
+            // chkBeca
             // 
-            this.lblInfo2.AutoSize = true;
-            this.lblInfo2.Location = new System.Drawing.Point(198, 63);
-            this.lblInfo2.Name = "lblInfo2";
-            this.lblInfo2.Size = new System.Drawing.Size(46, 18);
-            this.lblInfo2.TabIndex = 3;
-            this.lblInfo2.Text = "label1";
+            this.chkBeca.BackColor = System.Drawing.Color.SkyBlue;
+            this.chkBeca.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkBeca.Checked = false;
+            this.chkBeca.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
+            this.chkBeca.ForeColor = System.Drawing.Color.White;
+            this.chkBeca.Location = new System.Drawing.Point(459, 225);
+            this.chkBeca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkBeca.Name = "chkBeca";
+            this.chkBeca.Size = new System.Drawing.Size(20, 20);
+            this.chkBeca.TabIndex = 46;
+            this.chkBeca.Visible = false;
+            this.chkBeca.OnChange += new System.EventHandler(this.ChkBeca_OnChange);
             // 
-            // lblPControl
+            // txtBeca
             // 
-            this.lblPControl.AutoSize = true;
-            this.lblPControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPControl.Location = new System.Drawing.Point(42, 63);
-            this.lblPControl.Name = "lblPControl";
-            this.lblPControl.Size = new System.Drawing.Size(160, 18);
-            this.lblPControl.TabIndex = 2;
-            this.lblPControl.Text = "Número De Control:";
+            this.txtBeca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBeca.Enabled = false;
+            this.txtBeca.Location = new System.Drawing.Point(537, 224);
+            this.txtBeca.Name = "txtBeca";
+            this.txtBeca.Size = new System.Drawing.Size(70, 24);
+            this.txtBeca.TabIndex = 48;
+            this.txtBeca.Visible = false;
             // 
-            // lblInfo3
+            // gbEsconder
             // 
-            this.lblInfo3.AutoSize = true;
-            this.lblInfo3.Location = new System.Drawing.Point(198, 86);
-            this.lblInfo3.Name = "lblInfo3";
-            this.lblInfo3.Size = new System.Drawing.Size(46, 18);
-            this.lblInfo3.TabIndex = 5;
-            this.lblInfo3.Text = "label1";
+            this.gbEsconder.Controls.Add(this.imgAjedrezRecibo);
+            this.gbEsconder.Controls.Add(this.lblInfo7);
+            this.gbEsconder.Controls.Add(this.lblPDescuento);
+            this.gbEsconder.Controls.Add(this.lblInfo6);
+            this.gbEsconder.Controls.Add(this.lblPNota);
+            this.gbEsconder.Controls.Add(this.lblInfo5);
+            this.gbEsconder.Controls.Add(this.lblPFecha);
+            this.gbEsconder.Controls.Add(this.lblInfo4);
+            this.gbEsconder.Controls.Add(this.lblPMetodo);
+            this.gbEsconder.Controls.Add(this.lblInfo3);
+            this.gbEsconder.Controls.Add(this.lblPMonto);
+            this.gbEsconder.Controls.Add(this.lblInfo2);
+            this.gbEsconder.Controls.Add(this.lblPControl);
+            this.gbEsconder.Controls.Add(this.lblInfo1);
+            this.gbEsconder.Controls.Add(this.lblPRecibo);
+            this.gbEsconder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbEsconder.Location = new System.Drawing.Point(447, 18);
+            this.gbEsconder.MaximumSize = new System.Drawing.Size(473, 217);
+            this.gbEsconder.Name = "gbEsconder";
+            this.gbEsconder.Size = new System.Drawing.Size(473, 217);
+            this.gbEsconder.TabIndex = 49;
+            this.gbEsconder.TabStop = false;
             // 
-            // lblPMonto
+            // imgAjedrezRecibo
             // 
-            this.lblPMonto.AutoSize = true;
-            this.lblPMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPMonto.Location = new System.Drawing.Point(141, 86);
-            this.lblPMonto.Name = "lblPMonto";
-            this.lblPMonto.Size = new System.Drawing.Size(61, 18);
-            this.lblPMonto.TabIndex = 4;
-            this.lblPMonto.Text = "Monto:";
+            this.imgAjedrezRecibo.BackColor = System.Drawing.Color.Transparent;
+            this.imgAjedrezRecibo.Enabled = false;
+            this.imgAjedrezRecibo.Image = ((System.Drawing.Image)(resources.GetObject("imgAjedrezRecibo.Image")));
+            this.imgAjedrezRecibo.ImageActive = ((System.Drawing.Image)(resources.GetObject("imgAjedrezRecibo.ImageActive")));
+            this.imgAjedrezRecibo.Location = new System.Drawing.Point(310, 150);
+            this.imgAjedrezRecibo.Name = "imgAjedrezRecibo";
+            this.imgAjedrezRecibo.Size = new System.Drawing.Size(163, 62);
+            this.imgAjedrezRecibo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgAjedrezRecibo.TabIndex = 22;
+            this.imgAjedrezRecibo.TabStop = false;
+            this.imgAjedrezRecibo.Zoom = 10;
             // 
-            // lblInfo4
+            // lblInfo7
             // 
-            this.lblInfo4.AutoSize = true;
-            this.lblInfo4.Location = new System.Drawing.Point(198, 109);
-            this.lblInfo4.Name = "lblInfo4";
-            this.lblInfo4.Size = new System.Drawing.Size(46, 18);
-            this.lblInfo4.TabIndex = 7;
-            this.lblInfo4.Text = "label1";
+            this.lblInfo7.AutoSize = true;
+            this.lblInfo7.Location = new System.Drawing.Point(393, 86);
+            this.lblInfo7.Name = "lblInfo7";
+            this.lblInfo7.Size = new System.Drawing.Size(46, 18);
+            this.lblInfo7.TabIndex = 13;
+            this.lblInfo7.Text = "label1";
             // 
-            // lblPMetodo
+            // lblPDescuento
             // 
-            this.lblPMetodo.AutoSize = true;
-            this.lblPMetodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPMetodo.Location = new System.Drawing.Point(70, 109);
-            this.lblPMetodo.Name = "lblPMetodo";
-            this.lblPMetodo.Size = new System.Drawing.Size(132, 18);
-            this.lblPMetodo.TabIndex = 6;
-            this.lblPMetodo.Text = "Forma De Pago:";
-            // 
-            // lblInfo5
-            // 
-            this.lblInfo5.AutoSize = true;
-            this.lblInfo5.Location = new System.Drawing.Point(375, 17);
-            this.lblInfo5.Name = "lblInfo5";
-            this.lblInfo5.Size = new System.Drawing.Size(46, 18);
-            this.lblInfo5.TabIndex = 9;
-            this.lblInfo5.Text = "label1";
-            // 
-            // lblPFecha
-            // 
-            this.lblPFecha.AutoSize = true;
-            this.lblPFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPFecha.Location = new System.Drawing.Point(318, 17);
-            this.lblPFecha.Name = "lblPFecha";
-            this.lblPFecha.Size = new System.Drawing.Size(59, 18);
-            this.lblPFecha.TabIndex = 8;
-            this.lblPFecha.Text = "Fecha:";
+            this.lblPDescuento.AutoSize = true;
+            this.lblPDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPDescuento.Location = new System.Drawing.Point(285, 66);
+            this.lblPDescuento.Name = "lblPDescuento";
+            this.lblPDescuento.Size = new System.Drawing.Size(186, 18);
+            this.lblPDescuento.TabIndex = 12;
+            this.lblPDescuento.Text = "Descuento De La Beca:";
             // 
             // lblInfo6
             // 
@@ -1266,38 +1247,100 @@
             this.lblPNota.TabIndex = 10;
             this.lblPNota.Text = "Nota:";
             // 
-            // lblInfo7
+            // lblInfo5
             // 
-            this.lblInfo7.AutoSize = true;
-            this.lblInfo7.Location = new System.Drawing.Point(393, 86);
-            this.lblInfo7.Name = "lblInfo7";
-            this.lblInfo7.Size = new System.Drawing.Size(46, 18);
-            this.lblInfo7.TabIndex = 13;
-            this.lblInfo7.Text = "label1";
+            this.lblInfo5.AutoSize = true;
+            this.lblInfo5.Location = new System.Drawing.Point(375, 17);
+            this.lblInfo5.Name = "lblInfo5";
+            this.lblInfo5.Size = new System.Drawing.Size(46, 18);
+            this.lblInfo5.TabIndex = 9;
+            this.lblInfo5.Text = "label1";
             // 
-            // lblPDescuento
+            // lblPFecha
             // 
-            this.lblPDescuento.AutoSize = true;
-            this.lblPDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPDescuento.Location = new System.Drawing.Point(285, 66);
-            this.lblPDescuento.Name = "lblPDescuento";
-            this.lblPDescuento.Size = new System.Drawing.Size(186, 18);
-            this.lblPDescuento.TabIndex = 12;
-            this.lblPDescuento.Text = "Descuento De La Beca:";
+            this.lblPFecha.AutoSize = true;
+            this.lblPFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPFecha.Location = new System.Drawing.Point(318, 17);
+            this.lblPFecha.Name = "lblPFecha";
+            this.lblPFecha.Size = new System.Drawing.Size(59, 18);
+            this.lblPFecha.TabIndex = 8;
+            this.lblPFecha.Text = "Fecha:";
             // 
-            // imgAjedrezRecibo
+            // lblInfo4
             // 
-            this.imgAjedrezRecibo.BackColor = System.Drawing.Color.Transparent;
-            this.imgAjedrezRecibo.Enabled = false;
-            this.imgAjedrezRecibo.Image = ((System.Drawing.Image)(resources.GetObject("imgAjedrezRecibo.Image")));
-            this.imgAjedrezRecibo.ImageActive = ((System.Drawing.Image)(resources.GetObject("imgAjedrezRecibo.ImageActive")));
-            this.imgAjedrezRecibo.Location = new System.Drawing.Point(310, 150);
-            this.imgAjedrezRecibo.Name = "imgAjedrezRecibo";
-            this.imgAjedrezRecibo.Size = new System.Drawing.Size(163, 62);
-            this.imgAjedrezRecibo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgAjedrezRecibo.TabIndex = 22;
-            this.imgAjedrezRecibo.TabStop = false;
-            this.imgAjedrezRecibo.Zoom = 10;
+            this.lblInfo4.AutoSize = true;
+            this.lblInfo4.Location = new System.Drawing.Point(198, 109);
+            this.lblInfo4.Name = "lblInfo4";
+            this.lblInfo4.Size = new System.Drawing.Size(46, 18);
+            this.lblInfo4.TabIndex = 7;
+            this.lblInfo4.Text = "label1";
+            // 
+            // lblPMetodo
+            // 
+            this.lblPMetodo.AutoSize = true;
+            this.lblPMetodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPMetodo.Location = new System.Drawing.Point(70, 109);
+            this.lblPMetodo.Name = "lblPMetodo";
+            this.lblPMetodo.Size = new System.Drawing.Size(132, 18);
+            this.lblPMetodo.TabIndex = 6;
+            this.lblPMetodo.Text = "Forma De Pago:";
+            // 
+            // lblInfo3
+            // 
+            this.lblInfo3.AutoSize = true;
+            this.lblInfo3.Location = new System.Drawing.Point(198, 86);
+            this.lblInfo3.Name = "lblInfo3";
+            this.lblInfo3.Size = new System.Drawing.Size(46, 18);
+            this.lblInfo3.TabIndex = 5;
+            this.lblInfo3.Text = "label1";
+            // 
+            // lblPMonto
+            // 
+            this.lblPMonto.AutoSize = true;
+            this.lblPMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPMonto.Location = new System.Drawing.Point(141, 86);
+            this.lblPMonto.Name = "lblPMonto";
+            this.lblPMonto.Size = new System.Drawing.Size(61, 18);
+            this.lblPMonto.TabIndex = 4;
+            this.lblPMonto.Text = "Monto:";
+            // 
+            // lblInfo2
+            // 
+            this.lblInfo2.AutoSize = true;
+            this.lblInfo2.Location = new System.Drawing.Point(198, 63);
+            this.lblInfo2.Name = "lblInfo2";
+            this.lblInfo2.Size = new System.Drawing.Size(46, 18);
+            this.lblInfo2.TabIndex = 3;
+            this.lblInfo2.Text = "label1";
+            // 
+            // lblPControl
+            // 
+            this.lblPControl.AutoSize = true;
+            this.lblPControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPControl.Location = new System.Drawing.Point(42, 63);
+            this.lblPControl.Name = "lblPControl";
+            this.lblPControl.Size = new System.Drawing.Size(160, 18);
+            this.lblPControl.TabIndex = 2;
+            this.lblPControl.Text = "Número De Control:";
+            // 
+            // lblInfo1
+            // 
+            this.lblInfo1.AutoSize = true;
+            this.lblInfo1.Location = new System.Drawing.Point(162, 17);
+            this.lblInfo1.Name = "lblInfo1";
+            this.lblInfo1.Size = new System.Drawing.Size(46, 18);
+            this.lblInfo1.TabIndex = 1;
+            this.lblInfo1.Text = "label1";
+            // 
+            // lblPRecibo
+            // 
+            this.lblPRecibo.AutoSize = true;
+            this.lblPRecibo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPRecibo.Location = new System.Drawing.Point(6, 17);
+            this.lblPRecibo.Name = "lblPRecibo";
+            this.lblPRecibo.Size = new System.Drawing.Size(157, 18);
+            this.lblPRecibo.TabIndex = 0;
+            this.lblPRecibo.Text = "Número De Recibo:";
             // 
             // Mensualidades
             // 
@@ -1318,8 +1361,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).EndInit();
             this.bunifuCards1.ResumeLayout(false);
             this.bunifuCards1.PerformLayout();
-            this.gbEsconder.ResumeLayout(false);
-            this.gbEsconder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
@@ -1334,6 +1375,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).EndInit();
             this.bunifuCards5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton4)).EndInit();
+            this.gbEsconder.ResumeLayout(false);
+            this.gbEsconder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAjedrezRecibo)).EndInit();
             this.ResumeLayout(false);
 
@@ -1406,8 +1449,10 @@
         private System.Windows.Forms.TextBox txtNota;
         private System.Windows.Forms.TextBox txtMontoAdicional;
         private System.Windows.Forms.TextBox txtMotivo;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblBeca;
+        private Bunifu.Framework.UI.BunifuCheckbox chkBeca;
+        private System.Windows.Forms.TextBox txtBeca;
         private System.Windows.Forms.GroupBox gbEsconder;
-        private System.Windows.Forms.Label lblPRecibo;
         private Bunifu.Framework.UI.BunifuImageButton imgAjedrezRecibo;
         private System.Windows.Forms.Label lblInfo7;
         private System.Windows.Forms.Label lblPDescuento;
@@ -1422,5 +1467,6 @@
         private System.Windows.Forms.Label lblInfo2;
         private System.Windows.Forms.Label lblPControl;
         private System.Windows.Forms.Label lblInfo1;
+        private System.Windows.Forms.Label lblPRecibo;
     }
 }

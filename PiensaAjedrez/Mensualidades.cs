@@ -170,9 +170,13 @@ namespace PiensaAjedrez
             lblNroControl.Text = "19100000";
             chkLiquidado.Enabled = false;
             chkLiquidado.Visible = false;
+            chkBeca.Visible = false;
+            txtBeca.Visible = false;
+            lblBeca.Visible = false;
             lblLiquidado.Visible = false;
             chkLiquidado.Checked = false;
             VisibilidadControles(false);
+           
             /*
             if (cbEscuelas.selectedValue.Equals(""))
             { 
@@ -201,9 +205,14 @@ namespace PiensaAjedrez
             
             chkLiquidado.Enabled = true;
             chkLiquidado.Visible = true;
+           
             lblLiquidado.Visible = true;
             chkLiquidado.Checked = false;
             VisibilidadControles(false);
+            chkBeca.Visible = true;
+            //txtBeca.Visible = true;
+            lblBeca.Visible = true;
+
         }
 
         void LlenarDGV(Escuela otraEscuela)
@@ -569,7 +578,7 @@ namespace PiensaAjedrez
                                 miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
                                 Correo.Usuario = txtCorreoEnvios.Text;
                                 Correo.Contrasena = txtPassword.Text;
-                                Pagos unPago = new Pagos(ObtenerClaveRecibo(dtFechaPago.Value), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(),false, (chkLiquidado.Checked?false:true), ConexionBD.CargarCursoActivo(miEscuela.Nombre).Clave,(miAlumno.PorcentajeBeca>0?true:false), miAlumno.PorcentajeBeca);
+                                Pagos unPago = new Pagos(ObtenerClaveRecibo(dtFechaPago.Value), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(),false, (chkLiquidado.Checked?false:true), ConexionBD.CargarCursoActivo(miEscuela.Nombre).Clave,(chkBeca.Checked?true:false), (chkBeca.Checked?ObtenerBeca(double.Parse(txtMonto.Text),double.Parse(txtBeca.Text)):0));
                                 if (!unPago.Liquidado)
                                 {
                                     if (dgvAlumnos.CurrentCell.Value==null)
@@ -593,7 +602,7 @@ namespace PiensaAjedrez
                                     else
                                     {
 
-                                        Pagos unPagoAuxiliar = new Pagos(unPago.NumeroRecibo,unPago.FechayHora, unPago.Monto, unPago.Nota, unPago.MesPagado, unPago.MetodoPago, unPago.Notificado, unPago.Liquidado, miEscuela.CursoActivo.Clave, (miAlumno.PorcentajeBeca > 0 ? true : false), miAlumno.PorcentajeBeca);                                        
+                                        Pagos unPagoAuxiliar = new Pagos(unPago.NumeroRecibo,unPago.FechayHora, unPago.Monto, unPago.Nota, unPago.MesPagado, unPago.MetodoPago, unPago.Notificado, unPago.Liquidado, miEscuela.CursoActivo.Clave, (chkBeca.Checked ? true : false), (chkBeca.Checked ? ObtenerBeca(double.Parse(txtMonto.Text), double.Parse(txtBeca.Text)) : 0));                                        
                                         unPagoAuxiliar.Monto += double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1));
                                         ConexionBD.EditarPago(unPago, true, miAlumno.NumeroDeControl, double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1)));
                                     }
@@ -768,6 +777,9 @@ namespace PiensaAjedrez
                     control.Visible = blnEsconder;
             }
             gbEsconder.Visible = blnEsconder;
+            txtBeca.Visible = false;
+            lblBeca.Visible = false;
+            chkBeca.Visible = false;
         }
 
         private void btnVerGastos_Click(object sender, EventArgs e)
@@ -849,6 +861,23 @@ namespace PiensaAjedrez
             unaForma.Mostrar(strEncabezado, strMensaje, 3, this);
             blnAceptarPago = unaForma.Aceptar();
             return blnAceptarPago;
+        }
+
+        double ObtenerBeca(double dblMonto, double dblPorcentaje)
+        {
+            return (dblMonto * (dblPorcentaje / 100));
+        }
+
+        private void ChkBeca_OnChange(object sender, EventArgs e)
+        {
+            if (chkBeca.Checked)
+            {
+                txtBeca.Visible = true;
+            }
+            else
+            {
+                txtBeca.Visible = false;
+            }
         }
     }
 }

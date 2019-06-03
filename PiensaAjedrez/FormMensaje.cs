@@ -74,7 +74,7 @@ namespace PiensaAjedrez
             if (intCaso == 2)
             {
                 btnDeclinar.Visible = true;
-                btnImagen.ImageLocation = System.IO.Directory.GetCurrentDirectory() + @"\Question.png";
+                btnImagen.ImageLocation = System.IO.Directory.GetCurrentDirectory() + @"\Question1.png";
                
             }
             if (intCaso == 3|| intCaso==4)

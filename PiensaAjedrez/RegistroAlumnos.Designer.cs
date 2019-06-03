@@ -255,6 +255,7 @@
             this.lblBecado.Size = new System.Drawing.Size(70, 20);
             this.lblBecado.TabIndex = 33;
             this.lblBecado.Text = "Becado";
+            this.lblBecado.Visible = false;
             // 
             // chkBecado
             // 
@@ -267,6 +268,7 @@
             this.chkBecado.Name = "chkBecado";
             this.chkBecado.Size = new System.Drawing.Size(20, 20);
             this.chkBecado.TabIndex = 32;
+            this.chkBecado.Visible = false;
             this.chkBecado.OnChange += new System.EventHandler(this.ChkBecado_OnChange);
             // 
             // txtGrado

@@ -65,7 +65,7 @@
             this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMensaje.ForeColor = System.Drawing.SystemColors.Control;
             this.lblMensaje.Location = new System.Drawing.Point(41, 59);
-            this.lblMensaje.MaximumSize = new System.Drawing.Size(250, 217);
+            this.lblMensaje.MaximumSize = new System.Drawing.Size(240, 217);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(45, 64);
             this.lblMensaje.TabIndex = 12;

@@ -428,9 +428,13 @@ namespace PiensaAjedrez
                                 {
                                     if (miCurso.Equals(new Cursos(dgvCursos.CurrentRow.Cells[0].Value.ToString())))
                                     {
+                                    try
+                                    {
                                         string strNombreActividad = dgvListaActividades.CurrentRow.Cells[0].Value.ToString();
                                         miCurso.listaActividades.Remove(strNombreActividad);
                                         ConexionBD.EliminarActividad(miEscuela.Nombre, strNombreActividad);
+                                    }
+                                    catch (Exception x) { }
                                         dgvListaActividades.Rows.Clear();
                                         foreach (string actividad in miCurso.listaActividades)
                                         {
@@ -444,7 +448,15 @@ namespace PiensaAjedrez
                 
                 else
                 {
+                    try
+                    {
+
                     dgvListaActividades.Rows.Remove(dgvListaActividades.CurrentRow);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
                 }
             }
         }
