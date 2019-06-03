@@ -27,6 +27,8 @@ namespace PiensaAjedrez
                 cbEscuelas.selectedIndex = 0;
         }
 
+        bool blnAceptar;
+
         void CargarDGV(Escuela unaEscuela)
         {
             dgvAlumnos.Columns.Clear();
@@ -42,7 +44,7 @@ namespace PiensaAjedrez
             dgvAlumnos.CellPainting += new DataGridViewCellPaintingEventHandler(DgvAlumnos_CellPainting);
             if (unaEscuela.CursoActivo == null)
             {
-                MessageBox.Show(unaEscuela.Nombre + " no contiene ningún curso actualmente.\nAgregue uno para continuar.");
+              unaForma.Mostrar("Error",unaEscuela.Nombre + " no contiene ningún curso actualmente.\nAgregue uno para continuar.",1,this);
                 return;
             }
 
@@ -261,10 +263,10 @@ namespace PiensaAjedrez
         {
             if (cbFechas.selectedIndex == -1)
             {
-                MessageBox.Show("No hay fecha seleccionada.\nSeleccione una para continuar");
+                unaForma.Mostrar("Error","No hay fecha seleccionada.\nSeleccione una para continuar",1,this);
                 return;
             }
-            if (DialogResult.Yes == MessageBox.Show("¿Desea marcar a todos los alumnos del colegio " + cbEscuelas.selectedValue + " en la fecha " + cbFechas.selectedValue + "?", "Asistencia Alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            if (Preguntar("Asistencia Alumnos", "¿Desea marcar a todos los alumnos del colegio " + cbEscuelas.selectedValue + " en la fecha " + cbFechas.selectedValue + "?"))
                 foreach (DataGridViewRow fila in dgvAlumnos.Rows)
                 {
                     foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
@@ -282,10 +284,10 @@ namespace PiensaAjedrez
         {
             if (cbFechas.selectedIndex == -1)
             {
-                MessageBox.Show("No hay fecha seleccionada.\nSeleccione una para continuar");
+                unaForma.Mostrar("Error","No hay fecha seleccionada.\nSeleccione una para continuar",1,this);
                 return;
             }
-            if (DialogResult.Yes == MessageBox.Show("¿Desea retirar la marca de todos los alumnos del colegio " + cbEscuelas.selectedValue + " en la fecha " + cbFechas.selectedValue + "?", "Asistencia Alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            if (Preguntar("Asistencia Alumnos", "¿Desea retirar la marca de todos los alumnos del colegio " + cbEscuelas.selectedValue + " en la fecha " + cbFechas.selectedValue + "?"))
                 foreach (DataGridViewRow fila in dgvAlumnos.Rows)
                 {
                     foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
@@ -467,6 +469,16 @@ namespace PiensaAjedrez
                 e.Handled = true;
             }
            
+        }
+
+        FormMensaje unaForma = new FormMensaje();
+
+        bool Preguntar(string strEncabezado, string strMensaje)
+        {
+            blnAceptar = false;
+            unaForma.Mostrar(strEncabezado, strMensaje, 2, this);
+            blnAceptar = unaForma.Aceptar();
+            return blnAceptar;
         }
     }
 }

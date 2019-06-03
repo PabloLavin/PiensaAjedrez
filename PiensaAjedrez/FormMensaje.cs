@@ -18,6 +18,8 @@ namespace PiensaAjedrez
         }
 
         UserControl unUserControl;
+        int intCasos;
+        bool blnAceptar=false;
 
         private void FormMensaje_Load(object sender, EventArgs e)
         {
@@ -26,41 +28,87 @@ namespace PiensaAjedrez
 
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            unUserControl.Enabled = true;
-            
+           Cerrar(true);
         }
 
         private void BtnDeclinar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            unUserControl.Enabled = true;
+            Cerrar(false);
+        }
+
+        void Cerrar(bool blnOpcion)
+        {
+            this.Close();
+            blnAceptar=blnOpcion;
+            //return blnOpcion;
+            //if (unUserControl.GetType().Equals(new Escuelas().GetType())&&intCasos==2)
+            //{
+            //    //= blnOpcion;
+            //}
+           
         }
 
 
         /*Casos
          * Caso 1: Advertencia
-         * Caso 2: Pregunta
+         * Caso 2: Pregunta Escuela
         */
         
         public void Mostrar(string strEncabezado, string strMensaje, int intCaso, UserControl otroUserControl)
         {
-            this.Show();
+
             unUserControl = otroUserControl;
-            unUserControl.Enabled = false;
+            //unUserControl.Enabled = false;
+            intCasos = intCaso;
             lblEncabezado.Text = strEncabezado;
             lblMensaje.Text = strMensaje;
-            if (intCaso==1)
+            btnAceptar.Location = new Point(44, 119);
+            btnDeclinar.Location = new Point(164, 119);
+            this.Height = 163;
+            if (intCaso == 1)
             {
                 btnDeclinar.Visible = false;
                 btnImagen.ImageLocation = System.IO.Directory.GetCurrentDirectory() + @"\Advertencia.png";
+               
             }
             if (intCaso == 2)
             {
+                btnDeclinar.Visible = true;
                 btnImagen.ImageLocation = System.IO.Directory.GetCurrentDirectory() + @"\Question.png";
+               
             }
-            
+            if (intCaso == 3|| intCaso==4)
+            {
+
+                if (intCaso == 3)
+                {
+                btnImagen.ImageLocation= System.IO.Directory.GetCurrentDirectory() + @"\Dineros.png";
+                    btnDeclinar.Visible = true;
+                }
+                else
+                {
+                    btnDeclinar.Visible = false;
+                    btnImagen.ImageLocation = System.IO.Directory.GetCurrentDirectory() + @"\Advertencia.png";
+
+                }
+                this.Height = 220;
+                btnAceptar.Location=new Point(44,178);
+                btnDeclinar.Location=new Point(164, 178);
+            }
+            if (intCaso == 5)
+            {
+                btnDeclinar.Visible = false;
+                btnImagen.ImageLocation = System.IO.Directory.GetCurrentDirectory() + @"\check.png";
+
+            }
+            this.ShowDialog();
+
         }
-      
-    }
+
+        public bool Aceptar()
+        {
+            return blnAceptar;
+        }
+
+       }
 }

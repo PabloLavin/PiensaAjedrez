@@ -67,7 +67,7 @@ namespace PiensaAjedrez
 
         public static List<Escuela> listaEscuela = ConexionBD.CargarEscuelas();
         public FormMensaje unaForma = new FormMensaje();
-        public bool blnAceptar;
+        public bool blnAceptarEscuela;
 
         private void btnAgregarColegio_Click(object sender, EventArgs e)
         {
@@ -134,20 +134,24 @@ namespace PiensaAjedrez
                 {
                     if (DateTime.Today.Month >=8 && !unaEscuela.GradoActualizado)
                     {
-                        if (DialogResult.Yes == MessageBox.Show("¿Desea actualizar grados de los alumnos?", "Actualizar grados de alumnos", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-                        {
-                            blnBandera = true;
-                            foreach (Alumno unAlumno in ConexionBD.CargarAlumnos(unaEscuela.Nombre))
+                       
+                  
+                        
+                            if (Preguntar("Actualizar grados de alumnos", "¿Desea actualizar grados de los alumnos?"))
                             {
-                                if (unAlumno.Grado <= 7)
+                                blnBandera = true;
+                                foreach (Alumno unAlumno in ConexionBD.CargarAlumnos(unaEscuela.Nombre))
                                 {
-                                    unAlumno.Grado++;
-                                    ConexionBD.EditarAlumno(unAlumno.NumeroDeControl, unAlumno);
+                                    if (unAlumno.Grado <= 7)
+                                    {
+                                        unAlumno.Grado++;
+                                        ConexionBD.EditarAlumno(unAlumno.NumeroDeControl, unAlumno);
+                                    }
                                 }
+                                if (blnBandera)
+                                    ConexionBD.ActualizarGrado(unaEscuela.Nombre, true);
                             }
-                            if (blnBandera)
-                                ConexionBD.ActualizarGrado(unaEscuela.Nombre, true);
-                        }
+                            
                     }
                 }
             }
@@ -410,31 +414,34 @@ namespace PiensaAjedrez
 
         private void tsEliminarActividad_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("¿Desea eliminar la actividad seleccionada?", "Eliminar actividad", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
-            {
-                if (btnAgregarCurso.ButtonText == "Editar")
+           
+                
+                if (Preguntar("Eliminar actividad", "¿Desea eliminar la actividad seleccionada?"))
                 {
-                    foreach (Escuela miEscuela in listaEscuela)
+                    if (btnAgregarCurso.ButtonText == "Editar")
                     {
-                        if (miEscuela.Equals(new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString())))
+                        foreach (Escuela miEscuela in listaEscuela)
                         {
-                            foreach (Cursos miCurso in miEscuela.listaCursos)
+                            if (miEscuela.Equals(new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString())))
                             {
-                                if (miCurso.Equals(new Cursos(dgvCursos.CurrentRow.Cells[0].Value.ToString())))
+                                foreach (Cursos miCurso in miEscuela.listaCursos)
                                 {
-                                    string strNombreActividad = dgvListaActividades.CurrentRow.Cells[0].Value.ToString();
-                                    miCurso.listaActividades.Remove(strNombreActividad);
-                                    ConexionBD.EliminarActividad(miEscuela.Nombre, strNombreActividad);
-                                    dgvListaActividades.Rows.Clear();
-                                    foreach (string actividad in miCurso.listaActividades)
+                                    if (miCurso.Equals(new Cursos(dgvCursos.CurrentRow.Cells[0].Value.ToString())))
                                     {
-                                        dgvListaActividades.Rows.Add(actividad);
+                                        string strNombreActividad = dgvListaActividades.CurrentRow.Cells[0].Value.ToString();
+                                        miCurso.listaActividades.Remove(strNombreActividad);
+                                        ConexionBD.EliminarActividad(miEscuela.Nombre, strNombreActividad);
+                                        dgvListaActividades.Rows.Clear();
+                                        foreach (string actividad in miCurso.listaActividades)
+                                        {
+                                            dgvListaActividades.Rows.Add(actividad);
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                }
+                
                 else
                 {
                     dgvListaActividades.Rows.Remove(dgvListaActividades.CurrentRow);
@@ -475,7 +482,7 @@ namespace PiensaAjedrez
 
         private void btnFinalizarCurso_Click_1(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("¿Desea finalizar el curso que comprende del " + dgvCursos.CurrentRow.Cells[1].Value.ToString() + " al " + dgvCursos.CurrentRow.Cells[2].Value.ToString() + " con clave " + dgvCursos.CurrentRow.Cells[0].Value.ToString() + "?", "Finalizar curso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            if (Preguntar("Finalizar curso", "¿Desea finalizar el curso que comprende del " + dgvCursos.CurrentRow.Cells[1].Value.ToString() + " al " + dgvCursos.CurrentRow.Cells[2].Value.ToString() + " con clave " + dgvCursos.CurrentRow.Cells[0].Value.ToString() + "?"))
             {
                 Escuela unaEscuela = new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString());
                 ConexionBD.AgregarFondos((ConexionBD.TotalInscripciones(txtNombreColegio.Text) + ConexionBD.TotalMensualidades(txtNombreColegio.Text, dgvCursos.CurrentRow.Cells[0].Value.ToString())), dgvCursos.CurrentRow.Cells[0].Value.ToString());
@@ -649,7 +656,7 @@ namespace PiensaAjedrez
                
                 return;
             }
-            if (DialogResult.Yes == MessageBox.Show("¿Desea desactivar el colegio " + dgvEscuelas.CurrentRow.Cells[0].Value.ToString() + "?", "Desactivar colegio", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            if (Preguntar("Desactivar colegio", "¿Desea desactivar el colegio " + dgvEscuelas.CurrentRow.Cells[0].Value.ToString() + "?"))
             {
                 ConexionBD.ModificarEscuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString(), false);
                 txtNombreColegio.Text = "";
@@ -671,7 +678,7 @@ namespace PiensaAjedrez
                 
                 return;
             }
-            if (DialogResult.Yes == MessageBox.Show("¿Desea activar el colegio " + dgvEscuelasDesactivadas.CurrentRow.Cells[0].Value.ToString() + "?", "Activar colegio", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            if (Preguntar("Activar colegio", "¿Desea activar el colegio " + dgvEscuelasDesactivadas.CurrentRow.Cells[0].Value.ToString() + "?"))
             {
                 ConexionBD.ModificarEscuela(dgvEscuelasDesactivadas.CurrentRow.Cells[0].Value.ToString(), true);
                 MostrarDatos();
@@ -679,6 +686,14 @@ namespace PiensaAjedrez
                 btnCancelar.Visible = false;
                 MostrarCursos(false);
             }
+        }
+
+        bool Preguntar(string strEncabezado, string strMensaje)
+        {
+            blnAceptarEscuela = false;
+            unaForma.Mostrar(strEncabezado,strMensaje,2,this);
+            blnAceptarEscuela= unaForma.Aceptar();
+            return blnAceptarEscuela;
         }
     }
 }
