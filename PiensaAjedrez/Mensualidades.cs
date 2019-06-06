@@ -565,61 +565,71 @@ namespace PiensaAjedrez
 
         private void btnRegistroPago_Click(object sender, EventArgs e)
         {
-
-            foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
+            try
             {
-                if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
-                    foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
-                        if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[1].Value.ToString())))
-                        {
-
-                            if (Preguntar("Confirmar pago", "Confirmar pago de: " + ObtenerNombreCompleto(miAlumno) + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nAsunto: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString()+"\nNota: "+txtNota.Text))
-                            {
-                                miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
-                                Correo.Usuario = txtCorreoEnvios.Text;
-                                Correo.Contrasena = txtPassword.Text;
-                                Pagos unPago = new Pagos(ObtenerClaveRecibo(dtFechaPago.Value), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(),false, (chkLiquidado.Checked?false:true), ConexionBD.CargarCursoActivo(miEscuela.Nombre).Clave,(chkBeca.Checked?true:false), (chkBeca.Checked?ObtenerBeca(double.Parse(txtMonto.Text),double.Parse(txtBeca.Text)):0));
-                                if (!unPago.Liquidado)
+                if (txtMonto.Text != "" || double.Parse(txtMonto.Text) > 0)
+                    foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
+                    {
+                        if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
+                            foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
+                                if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[1].Value.ToString())))
                                 {
-                                    if (dgvAlumnos.CurrentCell.Value==null)
-                                    {
-                                        ConexionBD.AgregarPago(unPago, miAlumno);
 
-                                    }
-                                    else
+                                    if (Preguntar("Confirmar pago", "Confirmar pago de: " + ObtenerNombreCompleto(miAlumno) + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nAsunto: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString() + "\nNota: " + txtNota.Text))
                                     {
-                                        ConexionBD.EditarPago(unPago, false, miAlumno.NumeroDeControl, double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1)));
-                                    }                                    
+                                        miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
+                                        Correo.Usuario = txtCorreoEnvios.Text;
+                                        Correo.Contrasena = txtPassword.Text;
+                                        Pagos unPago = new Pagos(ObtenerClaveRecibo(dtFechaPago.Value), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), false, (chkLiquidado.Checked ? false : true), ConexionBD.CargarCursoActivo(miEscuela.Nombre).Clave, (chkBeca.Checked ? true : false), (chkBeca.Checked ? ObtenerBeca(double.Parse(txtMonto.Text), double.Parse(txtBeca.Text)) : 0),(chkBeca.Checked? Int16.Parse(txtBeca.Text):(Int16)0));
+                                        if (!unPago.Liquidado)
+                                        {
+                                            if (dgvAlumnos.CurrentCell.Value == null)
+                                            {
+
+                                                ConexionBD.AgregarPago(unPago, miAlumno);
+
+                                            }
+                                            else
+                                            {
+                                                ConexionBD.EditarPago(unPago, false, miAlumno.NumeroDeControl, double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1)));
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (dgvAlumnos.CurrentCell.Value == null)
+                                            {
+                                                miAlumno.PorcentajeBeca = (txtBeca.Text != "") ? Int16.Parse(txtBeca.Text) : (short)0;
+                                                unPago.Liquidado = true;
+                                                ConexionBD.AgregarPago(unPago, miAlumno);
+                                                EnviarCorreo(miAlumno, unPago);
+                                            }
+                                            else
+                                            {
+
+                                                Pagos unPagoAuxiliar = new Pagos(unPago.NumeroRecibo, unPago.FechayHora, unPago.Monto, unPago.Nota, unPago.MesPagado, unPago.MetodoPago, unPago.Notificado, unPago.Liquidado, miEscuela.CursoActivo.Clave, (chkBeca.Checked ? true : false), (chkBeca.Checked ? ObtenerBeca(double.Parse(txtMonto.Text), double.Parse(txtBeca.Text)) : 0), (chkBeca.Checked ? Int16.Parse(txtBeca.Text) : (Int16)0));
+                                                unPagoAuxiliar.Monto += double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1));
+                                                ConexionBD.EditarPago(unPago, true, miAlumno.NumeroDeControl, double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1)));
+                                            }
+
+                                        }
+                                        miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
+                                        if (miEscuela.CursoActivo != null)
+                                            if (lblMesAPagar.Text.Equals("Inscripcion"))
+                                                miEscuela.CursoActivo.TotalInscripcion += double.Parse(txtMonto.Text);
+                                            else
+                                                miEscuela.CursoActivo.TotalMensualidad += double.Parse(txtMonto.Text);
+
+                                        miEscuela.CursoActivo.TotalIngresos += double.Parse(txtMonto.Text);
+                                        LlenarDGV(miEscuela);
+                                        Deshabilitar();
+                                    }
                                 }
-                                else
-                                {
-                                    if (dgvAlumnos.CurrentCell.Value==null)
-                                    {
-                                        unPago.Liquidado = true;
-                                        ConexionBD.AgregarPago(unPago, miAlumno);
-                                            EnviarCorreo(miAlumno, unPago);
-                                    }
-                                    else
-                                    {
+                    }
+            }
+            catch (Exception x)
+            {
 
-                                        Pagos unPagoAuxiliar = new Pagos(unPago.NumeroRecibo,unPago.FechayHora, unPago.Monto, unPago.Nota, unPago.MesPagado, unPago.MetodoPago, unPago.Notificado, unPago.Liquidado, miEscuela.CursoActivo.Clave, (chkBeca.Checked ? true : false), (chkBeca.Checked ? ObtenerBeca(double.Parse(txtMonto.Text), double.Parse(txtBeca.Text)) : 0));                                        
-                                        unPagoAuxiliar.Monto += double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1));
-                                        ConexionBD.EditarPago(unPago, true, miAlumno.NumeroDeControl, double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1)));
-                                    }
-                                        
-                                }                                
-                                miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre); 
-                                if(miEscuela.CursoActivo!=null)
-                                if (lblMesAPagar.Text.Equals("Inscripcion"))
-                                    miEscuela.CursoActivo.TotalInscripcion += double.Parse(txtMonto.Text);
-                                else
-                                    miEscuela.CursoActivo.TotalMensualidad += double.Parse(txtMonto.Text);
-
-                                miEscuela.CursoActivo.TotalIngresos += double.Parse(txtMonto.Text);
-                                LlenarDGV(miEscuela);
-                                Deshabilitar();
-                            }
-                        }
+                unaForma.Mostrar("Error", "Introduzca únicamente valores válidos", 1,this);
             }
         }
 
@@ -760,6 +770,8 @@ namespace PiensaAjedrez
                                             LlenarDGV(miEscuela);
                                             Deshabilitar();
                                         }
+                                        VisibilidadControles(true);
+                                        MostrarPago(miPago, miAlumno.NumeroDeControl);
                                     }
 
                                 }
@@ -873,6 +885,7 @@ namespace PiensaAjedrez
             if (chkBeca.Checked)
             {
                 txtBeca.Visible = true;
+                cbMetodoPago.selectedIndex = 2;
             }
             else
             {

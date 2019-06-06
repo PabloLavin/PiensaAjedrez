@@ -35,6 +35,7 @@
             this.btnImagen = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnAceptar = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnDeclinar = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnImagen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,7 +121,7 @@
             this.btnDeclinar.ActiveLineColor = System.Drawing.Color.Firebrick;
             this.btnDeclinar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.btnDeclinar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDeclinar.BackgroundImage")));
-            this.btnDeclinar.ButtonText = "Declinar";
+            this.btnDeclinar.ButtonText = "No";
             this.btnDeclinar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeclinar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeclinar.ForeColor = System.Drawing.SystemColors.Control;
@@ -137,6 +138,14 @@
             this.btnDeclinar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnDeclinar.Click += new System.EventHandler(this.BtnDeclinar_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(0, -4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(382, 168);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            // 
             // FormMensaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,6 +158,7 @@
             this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.lblEncabezado);
             this.Controls.Add(this.bunifuCustomLabel1);
+            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(691, 235);
@@ -157,7 +167,6 @@
             this.Name = "FormMensaje";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormMensaje";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.FormMensaje_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnImagen)).EndInit();
@@ -174,5 +183,6 @@
         private Bunifu.Framework.UI.BunifuImageButton btnImagen;
         private Bunifu.Framework.UI.BunifuThinButton2 btnAceptar;
         private Bunifu.Framework.UI.BunifuThinButton2 btnDeclinar;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

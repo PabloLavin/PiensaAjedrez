@@ -97,6 +97,14 @@ namespace PiensaAjedrez
             set { _dblMontoBeca = value; }
         }
 
+        private Int16 _int16Porcentaje;
+
+        public Int16 PorcentajeBeca
+        {
+            get { return _int16Porcentaje; }
+            set { _int16Porcentaje = value; }
+        }
+
         double TotalBeca(double intPorcentaje)
         {
 
@@ -129,7 +137,7 @@ namespace PiensaAjedrez
             MontoBeca = TotalBeca(intBeca);
         }
 
-        public Pagos(string strRecibo, DateTime dtmFechaPago, double dblPago, string strNota, string strMes, string strMetodo, bool notificado, bool blnliquidado, string strCurso, bool blnBecado, double dblTotalBeca)
+        public Pagos(string strRecibo, DateTime dtmFechaPago, double dblPago, string strNota, string strMes, string strMetodo, bool notificado, bool blnliquidado, string strCurso, bool blnBecado, double dblTotalBeca, Int16 int16Porcentaje)
         {
             _strNumeroRecibo = strRecibo;
             _dtFechayHora = dtmFechaPago;
@@ -142,6 +150,7 @@ namespace PiensaAjedrez
             IDCurso = strCurso;
             Beca = blnBecado;
             MontoBeca = dblTotalBeca;
+            PorcentajeBeca = int16Porcentaje;
         }
 
         public override string ToString()

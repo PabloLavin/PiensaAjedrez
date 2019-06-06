@@ -18,9 +18,10 @@ namespace PiensaAjedrez
             btnMensualidades.selected = true;
             ReemplazarPantalla(new Mensualidades());
         }
+        FormMensaje unaForma = new FormMensaje();
+        bool blnAceptar;
 
-        public static bool blnActivado = true;
-        
+       
 
         private void Cerrar_Click(object sender, EventArgs e)
         {
@@ -57,7 +58,7 @@ namespace PiensaAjedrez
 
         private void btnDesconectar_Click(object sender, EventArgs e)
         {
-            if(DialogResult.Yes == MessageBox.Show("¿Desea cerrar la conexión y salir del sistema de Piensa Ajedrez?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question))            
+            if(Preguntar("Salir", "¿Desea cerrar la conexión y salir del sistema de Piensa Ajedrez?"))            
                 Application.Exit();            
         }
 
@@ -94,6 +95,13 @@ namespace PiensaAjedrez
             
         }
 
-      
+        bool Preguntar(string strEncabezado, string strMensaje)
+        {
+            blnAceptar = false;
+            unaForma.Mostrar(strEncabezado, strMensaje, 2, new UserControl());
+            blnAceptar = unaForma.Aceptar();
+            return blnAceptar;
+        }
+
     }
 }

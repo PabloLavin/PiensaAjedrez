@@ -136,6 +136,7 @@ namespace PiensaAjedrez
                     btnAgregar.IdleFillColor = Color.FromArgb(59, 202, 192);
                     LimpiarControles();
                     MostrarDatos();
+                    unaForma.Mostrar("Éxito", "Alumno editado correctamente", 5, this);
                     return;
                 }
                 ConexionBD.AgregarAlumno(miAlumno); 
@@ -148,6 +149,7 @@ namespace PiensaAjedrez
                 btnAgregar.ButtonText = "Agregar";
                 contextMenuStrip1.Enabled = true;
                 tsEliminarAlumno.Visible = true;
+                unaForma.Mostrar("Éxito", "Alumno añadido correctamente", 5, this);
             }
             catch (Exception)
             {

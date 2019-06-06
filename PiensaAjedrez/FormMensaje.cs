@@ -15,6 +15,7 @@ namespace PiensaAjedrez
         public FormMensaje()
         {
             InitializeComponent();   
+            
         }
 
         UserControl unUserControl;
@@ -65,15 +66,19 @@ namespace PiensaAjedrez
             btnAceptar.Location = new Point(44, 119);
             btnDeclinar.Location = new Point(164, 119);
             this.Height = 163;
+            btnAceptar.ButtonText = "Aceptar";
+            groupBox1.Visible = false;
             if (intCaso == 1)
             {
                 btnDeclinar.Visible = false;
                 btnImagen.ImageLocation = System.IO.Directory.GetCurrentDirectory() + @"\Advertencia.png";
-               
+                groupBox1.Visible = true;
             }
             if (intCaso == 2)
             {
                 btnDeclinar.Visible = true;
+                btnAceptar.ButtonText = "Sí";
+                btnDeclinar.ButtonText = "No";
                 btnImagen.ImageLocation = System.IO.Directory.GetCurrentDirectory() + @"\Question1.png";
                
             }
@@ -82,7 +87,7 @@ namespace PiensaAjedrez
 
                 if (intCaso == 3)
                 {
-                btnImagen.ImageLocation= System.IO.Directory.GetCurrentDirectory() + @"\Dineros.png";
+                btnImagen.ImageLocation= System.IO.Directory.GetCurrentDirectory() + @"\Moneys.png";
                     btnDeclinar.Visible = true;
                 }
                 else

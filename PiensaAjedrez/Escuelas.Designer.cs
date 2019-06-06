@@ -51,6 +51,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
+            this.txtNombreColegio = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.PictureBox();
             this.btnAgregado = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnEscuela = new Bunifu.Framework.UI.BunifuImageButton();
@@ -58,6 +59,7 @@
             this.lblColegios = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblNombreColegio = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
+            this.txtActividad = new System.Windows.Forms.TextBox();
             this.cbDiaClase = new Bunifu.Framework.UI.BunifuDropdown();
             this.lblDiaClase = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnFinalizarCurso = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -86,8 +88,6 @@
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtNombreColegio = new System.Windows.Forms.TextBox();
-            this.txtActividad = new System.Windows.Forms.TextBox();
             this.bunifuCards1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).BeginInit();
@@ -125,6 +125,14 @@
             this.bunifuCards1.Size = new System.Drawing.Size(631, 252);
             this.bunifuCards1.TabIndex = 0;
             this.bunifuCards1.TabStop = true;
+            // 
+            // txtNombreColegio
+            // 
+            this.txtNombreColegio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreColegio.Location = new System.Drawing.Point(106, 166);
+            this.txtNombreColegio.Name = "txtNombreColegio";
+            this.txtNombreColegio.Size = new System.Drawing.Size(421, 24);
+            this.txtNombreColegio.TabIndex = 19;
             // 
             // btnCancelar
             // 
@@ -267,6 +275,16 @@
             this.bunifuCards2.TabIndex = 1;
             this.bunifuCards2.TabStop = true;
             this.bunifuCards2.Enter += new System.EventHandler(this.bunifuCards2_Enter);
+            // 
+            // txtActividad
+            // 
+            this.txtActividad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtActividad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtActividad.Location = new System.Drawing.Point(28, 166);
+            this.txtActividad.Name = "txtActividad";
+            this.txtActividad.Size = new System.Drawing.Size(191, 22);
+            this.txtActividad.TabIndex = 30;
             // 
             // cbDiaClase
             // 
@@ -835,22 +853,6 @@
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(193, 25);
             this.bunifuCustomLabel4.TabIndex = 15;
             this.bunifuCustomLabel4.Text = "Cursos Archivados";
-            // 
-            // txtNombreColegio
-            // 
-            this.txtNombreColegio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreColegio.Location = new System.Drawing.Point(106, 166);
-            this.txtNombreColegio.Name = "txtNombreColegio";
-            this.txtNombreColegio.Size = new System.Drawing.Size(421, 24);
-            this.txtNombreColegio.TabIndex = 19;
-            // 
-            // txtActividad
-            // 
-            this.txtActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtActividad.Location = new System.Drawing.Point(28, 166);
-            this.txtActividad.Name = "txtActividad";
-            this.txtActividad.Size = new System.Drawing.Size(191, 22);
-            this.txtActividad.TabIndex = 30;
             // 
             // Escuelas
             // 

@@ -60,9 +60,25 @@ namespace PiensaAjedrez
             dtmInicioCurso.Value = DateTime.Today;
             bunifuCards2.Visible = false;
             //btnActualizarGrados.Visible = false;
+
+            InicializarAutorellenado();
            
             if (DateTime.Today.Month >= 1 && DateTime.Today.Month <= 7)
                 ReiniciarGrados();
+        }
+
+        void InicializarAutorellenado()
+        {
+            var srcActividades = new AutoCompleteStringCollection();
+           
+            foreach (string actividad in ConexionBD.CargarActividades())
+            {
+                srcActividades.Add(actividad);
+                
+            }
+            txtActividad.AutoCompleteCustomSource = srcActividades;
+           
+
         }
 
         public static List<Escuela> listaEscuela = ConexionBD.CargarEscuelas();
