@@ -892,5 +892,10 @@ namespace PiensaAjedrez
                 txtBeca.Visible = false;
             }
         }
+
+        private void BtnVerIngresos_Click(object sender, EventArgs e)
+        {
+            new IngresosForma().Show();
+        }
     }
 }

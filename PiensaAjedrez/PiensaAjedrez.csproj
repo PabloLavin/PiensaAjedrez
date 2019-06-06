@@ -96,6 +96,12 @@
       <DependentUpon>FormMensaje.cs</DependentUpon>
     </Compile>
     <Compile Include="Gastos.cs" />
+    <Compile Include="IngresosForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IngresosForma.Designer.cs">
+      <DependentUpon>IngresosForma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mensualidades.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMensaje.resx">
       <DependentUpon>FormMensaje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IngresosForma.resx">
+      <DependentUpon>IngresosForma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mensualidades.resx">
       <DependentUpon>Mensualidades.cs</DependentUpon>
