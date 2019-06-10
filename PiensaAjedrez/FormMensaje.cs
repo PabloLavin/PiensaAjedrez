@@ -106,6 +106,10 @@ namespace PiensaAjedrez
                 btnImagen.ImageLocation = System.IO.Directory.GetCurrentDirectory() + @"\check.png";
 
             }
+            if (intCaso == 6)
+            {
+
+            }
             this.ShowDialog();
 
         }

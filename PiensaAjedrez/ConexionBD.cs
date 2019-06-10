@@ -419,7 +419,7 @@ namespace PiensaAjedrez
                 {
                     if (CargarCursoActivo(unaEscuela.Nombre) != null)
                     {
-                        SqlCommand comando = new SqlCommand("SELECT sum(monto-CantidadBeca) FROM PAGO WHERE IDCurso= '" + CargarCursoActivo(unaEscuela.Nombre).Clave + "'", con);
+                        SqlCommand comando = new SqlCommand("SELECT sum(monto-CantidadBeca) FROM PAGO", con);
                         SqlDataReader gastos = comando.ExecuteReader();
                         while (gastos.Read())
                         {
@@ -497,5 +497,7 @@ namespace PiensaAjedrez
         }
 
         #endregion
+
+       
     }
 }

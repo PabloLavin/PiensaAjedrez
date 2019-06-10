@@ -48,6 +48,7 @@ namespace PiensaAjedrez
             bnfdtpFechaGasto.Value = DateTime.Now;
             if (ConexionBD.CargarEscuelas().Count > 0)
                 cbEscuelas.selectedIndex = 0;
+            //NotificarRetardos(3);
         }
 
         FormMensaje unaForma = new FormMensaje();
@@ -575,7 +576,7 @@ namespace PiensaAjedrez
                                 if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[1].Value.ToString())))
                                 {
 
-                                    if (Preguntar("Confirmar pago", "Confirmar pago de: " + ObtenerNombreCompleto(miAlumno) + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nAsunto: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString() + "\nNota: " + txtNota.Text))
+                                    if (Preguntar("Confirmación", "Confirmar pago de: " + ObtenerNombreCompleto(miAlumno) + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nAsunto: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString() + "\nNota: " + txtNota.Text))
                                     {
                                         miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
                                         Correo.Usuario = txtCorreoEnvios.Text;
@@ -706,7 +707,7 @@ namespace PiensaAjedrez
             {
                 try
                 {
-                    if (Preguntar("Confirmar gasto", "Confirmar gasto:\nRazón: " + cbGastos.selectedValue.ToString() + "\nMonto: " + double.Parse(txtMontoAdicional.Text).ToString("c") + "\nEscuela: " + cbEscuelas.selectedValue.ToString() + "\nFecha: " + bnfdtpFechaGasto.Value + "\nNota: " + txtMotivo.Text))
+                    if (Preguntar("Confirmar gasto", "Confirmar gasto:\nRazón: " + cbGastos.selectedValue.ToString() + "\nMonto: " + double.Parse(txtMontoAdicional.Text).ToString("c") +"\nFecha: " + bnfdtpFechaGasto.Value + "\nNota: " + txtMotivo.Text))
                     {
                         ConexionBD.RegistrarGasto(cbGastos.selectedValue.ToString(), double.Parse(txtMontoAdicional.Text), txtMotivo.Text, cbEscuelas.selectedValue.ToString(), bnfdtpFechaGasto.Value, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue.ToString()).Clave);
                         unaForma.Mostrar("Registro de gasto", "Gasto registrado con éxito.",5,this);
@@ -796,7 +797,7 @@ namespace PiensaAjedrez
 
         private void btnVerGastos_Click(object sender, EventArgs e)
         {
-            new Form2().Show();
+            new Form2().ShowDialog();
         }
 
         private void LblInformacion_Click(object sender, EventArgs e)
@@ -875,6 +876,14 @@ namespace PiensaAjedrez
             return blnAceptarPago;
         }
 
+        bool PreguntarRetardo(string strEncabezado, string strMensaje)
+        {
+            blnAceptarPago = false;
+            unaForma.Mostrar(strEncabezado, strMensaje, 3, this);
+            blnAceptarPago = unaForma.Aceptar();
+            return blnAceptarPago;
+        }
+
         double ObtenerBeca(double dblMonto, double dblPorcentaje)
         {
             return (dblMonto * (dblPorcentaje / 100));
@@ -890,12 +899,59 @@ namespace PiensaAjedrez
             else
             {
                 txtBeca.Visible = false;
+                cbMetodoPago.selectedIndex = 0;
             }
         }
 
         private void BtnVerIngresos_Click(object sender, EventArgs e)
         {
-            new IngresosForma().Show();
+            new IngresosForma().ShowDialog();
         }
+
+        #region Retardos
+        //void NotificarRetardos(int intCaso)
+        //{
+        //    if(intCaso==1)
+        //        if (DateTime.Today.Day == 8)
+        //        {
+        //            if(PreguntarRetardo("Retardos en pago", "¿Desea enviar un correo a todos los deudores?"))
+        //            {
+
+        //            }
+        //        }
+        //    if (intCaso == 2)
+        //        return;
+        //    if (intCaso == 3)
+        //    {
+        //        InitializeTimer();
+        //    }  
+        //}
+
+        //private int counter;
+        //Timer timer1 = new Timer();
+
+        //public void InitializeTimer()
+        //{
+        //    counter = 0;
+        //    timer1.Interval = 300;
+        //    timer1.Enabled = true;
+        //    timer1.Tick += new System.EventHandler(timer1_Tick);
+        //}
+
+        //private void timer1_Tick(object sender, System.EventArgs e)
+        //{
+        //    if (counter >= 10)
+        //    {
+        //        timer1.Enabled = false;
+        //        counter = 0;
+        //        NotificarRetardos(1);
+        //    }
+        //    else
+        //    {
+        //        counter += 1;
+        //    }
+        //}
+
+        #endregion
     }
 }
