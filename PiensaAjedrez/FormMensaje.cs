@@ -34,6 +34,16 @@ namespace PiensaAjedrez
 
         private void BtnDeclinar_Click(object sender, EventArgs e)
         {
+            if (intCasos == 7)
+            {
+                Recordatorios.dtmHoraRecordatorio = dtmHora.Value;
+                Recordatorios.GuardarConfiguracion(Recordatorios.dtmHoraRecordatorio);
+                Recordatorios.intCaso = 1;
+            }
+            else
+            {
+                Recordatorios.intCaso = 2;
+            }
             Cerrar(false);
         }
 
@@ -57,7 +67,6 @@ namespace PiensaAjedrez
         
         public void Mostrar(string strEncabezado, string strMensaje, int intCaso, UserControl otroUserControl)
         {
-
             unUserControl = otroUserControl;
             //unUserControl.Enabled = false;
             intCasos = intCaso;
@@ -67,6 +76,7 @@ namespace PiensaAjedrez
             btnDeclinar.Location = new Point(164, 119);
             this.Height = 163;
             btnAceptar.ButtonText = "Aceptar";
+            btnRecordar.Visible = false;
             groupBox1.Visible = false;
             if (intCaso == 1)
             {
@@ -108,7 +118,12 @@ namespace PiensaAjedrez
             }
             if (intCaso == 6)
             {
-
+                btnRecordar.Visible = true;
+                this.Height = 190;
+                btnDeclinar.Visible = true;
+                btnAceptar.ButtonText = "Sí";
+                btnDeclinar.ButtonText = "No";
+                btnImagen.ImageLocation = System.IO.Directory.GetCurrentDirectory() + @"\Question1.png";
             }
             this.ShowDialog();
 
@@ -119,5 +134,22 @@ namespace PiensaAjedrez
             return blnAceptar;
         }
 
-       }
+        private void BtnRecordar_Click(object sender, EventArgs e)
+        {
+            foreach (Control unBoton in this.Controls)
+            {
+                if (unBoton is Bunifu.Framework.UI.BunifuThinButton2)
+                    unBoton.Visible = false;
+            }
+            btnDeclinar.Location = new Point(btnDeclinar.Location.X-110, btnDeclinar.Location.Y);
+            intCasos = 7;
+            btnDeclinar.Visible = true;
+            dtmHora.Visible = true;
+            this.Height = 163;
+            btnDeclinar.ButtonText = "Aceptar";
+            lblEncabezado.Text = "Recordar mas tarde";
+            lblMensaje.Text = "Seleccione una hora.";
+            groupBox1.Visible = true;
+        }
+    }
 }

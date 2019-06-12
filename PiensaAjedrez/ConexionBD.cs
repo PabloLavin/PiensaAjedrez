@@ -13,7 +13,7 @@ namespace PiensaAjedrez
         {
             //SqlConnection con = new SqlConnection(@"Data Source=LAVINW8; Initial Catalog = PIENSAJEDREZ; Server=LAVINW8\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
             SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
-            //SqlConnection con = new SqlConnection(@"Data Source=ANCIRALAPTOP; Initial Catalog = PIENSAJEDREZ; Server=ANCIRALAPTOP\TEW_SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
+            //SqlConnection con = new SqlConnection(@"Data Source=ANCIRALAPTOP; Initial Catalog = PIENSAJEDREZ; Server=ANCIRALAPTOP\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
 
             con.Open();
             return (con);
@@ -329,6 +329,19 @@ namespace PiensaAjedrez
             return listaPagos;
         }
 
+        public static List<Pagos> CargarPagosAlumnoCurso(Alumno unAlumno, string strIDCurso)
+        {
+            List<Pagos> listaPagos = new List<Pagos>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM PAGO WHERE NumeroControl = '" + unAlumno.NumeroDeControl + "' AND IDCURSO = '"+strIDCurso+"'", con);
+                SqlDataReader pagos = comando.ExecuteReader();
+                while (pagos.Read())
+                    listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7) == 1 ? true : false), (pagos.GetInt16(8) == 1 ? true : false), pagos.GetString(9), (pagos.GetInt16(10) > 0 ? true : false), double.Parse(pagos.GetSqlMoney(11).ToString()), pagos.GetInt16(12)));
+            }
+            return listaPagos;
+        }
+
         public static List<Pagos> CargarPagos()
         {
             List<Pagos> listaPagos = new List<Pagos>();
@@ -498,6 +511,28 @@ namespace PiensaAjedrez
 
         #endregion
 
-       
+        #region ADEUDO
+        public static void AgregarDeudor(string strNumeroControl, Pagos unPago)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("INSERT INTO ADEUDO VALUES('"+unPago.MesPagado+"', '"+unPago.IDCurso+"','"+50+"','"+strNumeroControl+"')", con);
+                comando.ExecuteNonQuery();
+            }
+        }
+
+        public static List<Alumno> CargarDeudores(string strIDCurso)
+        {
+            List<Alumno> listaAlumno = new List<Alumno>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM Alumno where NumeroControl in(select DISTINCT(NumeroControl) from ADEUDO where IDCurso = '" + strIDCurso + "')", con);
+                SqlDataReader alumnos= comando.ExecuteReader();
+                while (alumnos.Read())
+                    listaAlumno.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(8), alumnos.GetString(9), alumnos.GetInt16(10), alumnos.GetInt16(11)));
+            }
+            return listaAlumno;
+        }
+        #endregion
     }
 }

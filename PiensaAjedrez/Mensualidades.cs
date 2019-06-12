@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SerializacionLibreria;
 
 namespace PiensaAjedrez
 {
@@ -25,6 +26,7 @@ namespace PiensaAjedrez
 
         private void Mensualidades_Load(object sender, EventArgs e)
         {
+            //Recordatorios.unEvento += MetodoGestor;
             btnAgregado.Visible = false;
             dtFechaPago.Value = DateTime.Today;
             btnAgregadoGasto.Visible = false;
@@ -48,7 +50,11 @@ namespace PiensaAjedrez
             bnfdtpFechaGasto.Value = DateTime.Now;
             if (ConexionBD.CargarEscuelas().Count > 0)
                 cbEscuelas.selectedIndex = 0;
-            //NotificarRetardos(3);
+         
+            Recordatorios.CargarConfiguracion();
+            NotificarRetardos(Recordatorios.intCaso);
+          
+           
         }
 
         FormMensaje unaForma = new FormMensaje();
@@ -876,14 +882,7 @@ namespace PiensaAjedrez
             return blnAceptarPago;
         }
 
-        bool PreguntarRetardo(string strEncabezado, string strMensaje)
-        {
-            blnAceptarPago = false;
-            unaForma.Mostrar(strEncabezado, strMensaje, 3, this);
-            blnAceptarPago = unaForma.Aceptar();
-            return blnAceptarPago;
-        }
-
+       
         double ObtenerBeca(double dblMonto, double dblPorcentaje)
         {
             return (dblMonto * (dblPorcentaje / 100));
@@ -909,49 +908,98 @@ namespace PiensaAjedrez
         }
 
         #region Retardos
-        //void NotificarRetardos(int intCaso)
+       public bool PreguntarRetardo(string strEncabezado, string strMensaje)
+        {
+            blnAceptarPago = false;
+            unaForma.Mostrar(strEncabezado, strMensaje, 6, this);
+            blnAceptarPago = unaForma.Aceptar();
+            return blnAceptarPago;
+        }
+
+       public void NotificarRetardos(int intCaso)
+        {
+            if (intCaso == 0)
+                if (DateTime.Today.Day == 10|| DateTime.Today.Day == 20||EsUltimoDia())
+                {
+                    if (PreguntarRetardo("Retardos en pago", "¿Desea enviar un correo a todos los deudores?"))
+                    {
+                        MessageBox.Show("No debes llegar aquí.");
+                    }
+                    else if (Recordatorios.intCaso == 1)
+                        NotificarRetardos(1);
+                    else if(Recordatorios.intCaso==2)
+                        return;
+                }
+            if (intCaso == 1)
+            {
+                if (DateTime.Today.Day == 10 || DateTime.Today.Day == 20 || EsUltimoDia())
+                    if (DateTime.Now.TimeOfDay.Hours>=Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours && DateTime.Now.TimeOfDay.Minutes >= Recordatorios.dtmHoraRecordatorio.TimeOfDay.Minutes)
+                    {
+                        NotificarRetardos(0);
+                    }
+            }
+        }
+
+        bool EsUltimoDia()
+        {
+            if(DateTime.Now.Month==1|| DateTime.Now.Month == 3|| DateTime.Now.Month == 5 || DateTime.Now.Month == 7 || DateTime.Now.Month == 8 || DateTime.Now.Month == 10|| DateTime.Now.Month == 12)
+            {
+                if (DateTime.Now.Day == 31)
+                    return true;
+                else
+                    return false;
+            }
+            if (DateTime.Now.Month == 4 || DateTime.Now.Month == 6 || DateTime.Now.Month == 9 || DateTime.Now.Month == 11 )
+            {
+                if (DateTime.Now.Day == 30)
+                    return true;
+                else
+                    return false;
+            }
+            if (DateTime.Now.Month == 2)
+                if (DateTime.Now.Day == 28)
+                    return true;
+                else
+                    return false;
+            return false;
+        }
+
+        //public void MetodoGestor()
         //{
-        //    if(intCaso==1)
-        //        if (DateTime.Today.Day == 8)
-        //        {
-        //            if(PreguntarRetardo("Retardos en pago", "¿Desea enviar un correo a todos los deudores?"))
-        //            {
-
-        //            }
-        //        }
-        //    if (intCaso == 2)
-        //        return;
-        //    if (intCaso == 3)
-        //    {
-        //        InitializeTimer();
-        //    }  
+        //    //NotificarRetardos(Recordatorios.intCaso);
+        //    MessageBox.Show("Probando");
         //}
+        #endregion
 
-        //private int counter;
-        //Timer timer1 = new Timer();
+        #region ADEUDO
+        void AñadirDeuda(Alumno unAlumno)
+        {
 
-        //public void InitializeTimer()
-        //{
-        //    counter = 0;
-        //    timer1.Interval = 300;
-        //    timer1.Enabled = true;
-        //    timer1.Tick += new System.EventHandler(timer1_Tick);
-        //}
+        }
 
-        //private void timer1_Tick(object sender, System.EventArgs e)
-        //{
-        //    if (counter >= 10)
-        //    {
-        //        timer1.Enabled = false;
-        //        counter = 0;
-        //        NotificarRetardos(1);
-        //    }
-        //    else
-        //    {
-        //        counter += 1;
-        //    }
-        //}
+        List<string> ObtenerMesesDelCurso()
+        {
+            List<string> listaMeses = new List<string>();
+            foreach (DataGridViewColumnHeaderCell encabezado in dgvAlumnos.Columns)
+            {
+                listaMeses.Add(encabezado.Value.ToString());
+            }
+            return listaMeses;
+        }
 
+        List<string> ObtenerMesesDeuda(Alumno unAlumno)
+        {
+            List<string> listaMeses = new List<string>();
+            foreach (Pagos unPago in ConexionBD.CargarPagosAlumnoCurso(unAlumno,ConexionBD.CargarCursoActivo(unAlumno.Escuela).Clave))
+            {
+                foreach (string mes in ObtenerMesesDelCurso())
+                {
+                    if (unPago.MesPagado != mes&&)
+                        listaMeses.Add(mes);
+                }
+            }
+            return listaMeses;
+        }
         #endregion
     }
 }
