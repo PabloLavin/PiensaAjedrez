@@ -52,6 +52,7 @@ namespace PiensaAjedrez
                 cbEscuelas.selectedIndex = 0;
          
             Recordatorios.CargarConfiguracion();
+            //MessageBox.Show(Recordatorios.dtmHoraRecordatorio.ToShortTimeString());
             NotificarRetardos(Recordatorios.intCaso);
           
            
@@ -919,11 +920,34 @@ namespace PiensaAjedrez
        public void NotificarRetardos(int intCaso)
         {
             if (intCaso == 0)
-                if (DateTime.Today.Day == 10|| DateTime.Today.Day == 20||EsUltimoDia())
+                if (DateTime.Today.Day == 10|| DateTime.Today.Day == 20||EsUltimoDia() || DateTime.Today.Day == 17)
                 {
                     if (PreguntarRetardo("Retardos en pago", "¿Desea enviar un correo a todos los deudores?"))
                     {
-                        MessageBox.Show("No debes llegar aquí.");
+                        int i = 0;
+                        foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
+                        {
+                            cbEscuelas.selectedIndex = i;
+                            ConexionBD.BorrarDeudas(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave);
+
+                            foreach (Alumno alumno in ObtenerAlumnosDeudores(cbEscuelas.selectedValue))
+                            {
+                                AñadirDeuda(alumno);
+                                
+                            }
+                            i++;
+                        }
+                            try
+                            {
+                                Correo.Usuario = txtCorreoEnvios.Text;
+                                Correo.Contrasena = txtPassword.Text;
+                                EnviarCorreos();
+                            }
+                            catch (Exception x)
+                            {
+                                unaForma.Mostrar("Error de conexión", "Ocurrió un error al intentar enviar un correo.\nCompruebe sus credenciales y la conexión a internet.\nSi el error persiste, intente más tarde.", 4, this);
+                            }
+
                     }
                     else if (Recordatorios.intCaso == 1)
                         NotificarRetardos(1);
@@ -932,7 +956,7 @@ namespace PiensaAjedrez
                 }
             if (intCaso == 1)
             {
-                if (DateTime.Today.Day == 10 || DateTime.Today.Day == 20 || EsUltimoDia())
+                if (DateTime.Today.Day == 10 || DateTime.Today.Day == 20 || EsUltimoDia() || DateTime.Today.Day == 17)
                     if (DateTime.Now.TimeOfDay.Hours>=Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours && DateTime.Now.TimeOfDay.Minutes >= Recordatorios.dtmHoraRecordatorio.TimeOfDay.Minutes)
                     {
                         NotificarRetardos(0);
@@ -963,26 +987,26 @@ namespace PiensaAjedrez
                     return false;
             return false;
         }
-
-        //public void MetodoGestor()
-        //{
-        //    //NotificarRetardos(Recordatorios.intCaso);
-        //    MessageBox.Show("Probando");
-        //}
         #endregion
 
         #region ADEUDO
         void AñadirDeuda(Alumno unAlumno)
         {
-
+            foreach (string unMes in ObtenerMesesDeuda(unAlumno))
+            {
+                ConexionBD.AgregarDeudor(unAlumno.NumeroDeControl, unMes, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave);
+            }
         }
 
         List<string> ObtenerMesesDelCurso()
         {
             List<string> listaMeses = new List<string>();
-            foreach (DataGridViewColumnHeaderCell encabezado in dgvAlumnos.Columns)
+            //foreach (DataGridViewColumn encabezado in dgvAlumnos.Columns)
+            for (int i = 6; i < dgvAlumnos.Columns.Count; i++)
             {
-                listaMeses.Add(encabezado.Value.ToString());
+                listaMeses.Add(dgvAlumnos.Columns[i].HeaderText);
+                if (DateTime.Now.ToString("MMMM") == dgvAlumnos.Columns[i].HeaderText.ToLower())
+                    break;
             }
             return listaMeses;
         }
@@ -990,16 +1014,50 @@ namespace PiensaAjedrez
         List<string> ObtenerMesesDeuda(Alumno unAlumno)
         {
             List<string> listaMeses = new List<string>();
-            foreach (Pagos unPago in ConexionBD.CargarPagosAlumnoCurso(unAlumno,ConexionBD.CargarCursoActivo(unAlumno.Escuela).Clave))
+            if(ConexionBD.CargarPagosAlumnoCurso(unAlumno, ConexionBD.CargarCursoActivo(unAlumno.Escuela).Clave).Count > 0)
+            {
+            foreach (Pagos unPago in ConexionBD.CargarPagosAlumnoCurso(unAlumno, ConexionBD.CargarCursoActivo(unAlumno.Escuela).Clave))
             {
                 foreach (string mes in ObtenerMesesDelCurso())
                 {
-                    if (unPago.MesPagado != mes&&)
+                    if (mes!=unPago.MesPagado /*&& !ObtenerMesesDelCurso().Contains(unPago.MesPagado)*/)
                         listaMeses.Add(mes);
+                }
+            }
+            }
+            else
+            {
+                foreach (string unMes in ObtenerMesesDelCurso())
+                {
+                    listaMeses.Add(unMes);
                 }
             }
             return listaMeses;
         }
+
+        List<Alumno> ObtenerAlumnosDeudores(string strNombreEscuela)
+        {
+            List<Alumno> listaAlumnos = new List<Alumno>();
+           
+                foreach (Alumno unAlumno in ConexionBD.CargarAlumnos(strNombreEscuela))
+                {
+                    if (ObtenerMesesDeuda(unAlumno).Count > 0)
+                        listaAlumnos.Add(unAlumno);
+                }
+            
+            return listaAlumnos;
+        }
         #endregion
+
+        void EnviarCorreos()
+        {
+            foreach (Escuela escuela in ConexionBD.CargarEscuelas())
+            {
+            foreach (Alumno unAlumno in ConexionBD.CargarDeudores(ConexionBD.CargarCursoActivo(escuela.Nombre).Clave))
+            {
+                    Correo.EnviarCorreo(Correo.CrearRecordatorio(unAlumno));
+            }
+            }
+        }
     }
 }

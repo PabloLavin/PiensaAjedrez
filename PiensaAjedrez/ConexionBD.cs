@@ -512,11 +512,20 @@ namespace PiensaAjedrez
         #endregion
 
         #region ADEUDO
-        public static void AgregarDeudor(string strNumeroControl, Pagos unPago)
+        public static void AgregarDeudor(string strNumeroControl, string strMes, string strIDCurso)
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO ADEUDO VALUES('"+unPago.MesPagado+"', '"+unPago.IDCurso+"','"+50+"','"+strNumeroControl+"')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO ADEUDO VALUES('"+strMes+"', '"+strIDCurso+"','"+50+"','"+strNumeroControl+"')", con);
+                comando.ExecuteNonQuery();
+            }
+        }
+
+        public static void BorrarDeudas(string strIDCurso)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("DELETE FROM ADEUDO WHERE IDCurso ='"+strIDCurso+"'", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -533,6 +542,20 @@ namespace PiensaAjedrez
             }
             return listaAlumno;
         }
+
+        public static List<Deuda> CargarDeudas(string strNumeroControl)
+        {
+            List<Deuda> listaDeudas = new List<Deuda>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM ADEUDO WHERE NumeroControl = '"+strNumeroControl+"'", con);
+                SqlDataReader deudas = comando.ExecuteReader();
+                while (deudas.Read())
+                    listaDeudas.Add(new Deuda(deudas.GetString(0), double.Parse(Convert.ToString(deudas.GetSqlMoney(2)))));
+            }
+            return listaDeudas;
+        }
+
         #endregion
     }
 }

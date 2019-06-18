@@ -67,6 +67,7 @@
     <Compile Include="ConexionBD.cs" />
     <Compile Include="Correo.cs" />
     <Compile Include="Cursos.cs" />
+    <Compile Include="Deuda.cs" />
     <Compile Include="Escuela.cs" />
     <Compile Include="Escuelas.cs">
       <SubType>UserControl</SubType>
