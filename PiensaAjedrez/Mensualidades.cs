@@ -634,7 +634,7 @@ namespace PiensaAjedrez
                                 }
                     }
             }
-            catch (Exception x)
+            catch (Exception)
             {
 
                 unaForma.Mostrar("Error", "Introduzca únicamente valores válidos", 1,this);
@@ -943,7 +943,7 @@ namespace PiensaAjedrez
                                 Correo.Contrasena = txtPassword.Text;
                                 EnviarCorreos();
                             }
-                            catch (Exception x)
+                            catch (Exception)
                             {
                                 unaForma.Mostrar("Error de conexión", "Ocurrió un error al intentar enviar un correo.\nCompruebe sus credenciales y la conexión a internet.\nSi el error persiste, intente más tarde.", 4, this);
                             }

@@ -151,7 +151,7 @@
             this.btnAsistencia.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnAsistencia.OnHoverTextColor = System.Drawing.Color.White;
             this.btnAsistencia.selected = false;
-            this.btnAsistencia.Size = new System.Drawing.Size(232, 50);
+            this.btnAsistencia.Size = new System.Drawing.Size(213, 50);
             this.btnAsistencia.TabIndex = 5;
             this.btnAsistencia.TabStop = false;
             this.btnAsistencia.Text = "Asistencias";
@@ -252,7 +252,7 @@
             this.btnReportes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnReportes.BorderRadius = 0;
             this.btnReportes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btnReportes.ButtonText = "Estadisticas";
+            this.btnReportes.ButtonText = "Reportes";
             this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReportes.DisabledColor = System.Drawing.Color.Gray;
             this.btnReportes.Iconcolor = System.Drawing.Color.Transparent;
@@ -267,20 +267,19 @@
             this.btnReportes.IconVisible = false;
             this.btnReportes.IconZoom = 90D;
             this.btnReportes.IsTab = true;
-            this.btnReportes.Location = new System.Drawing.Point(1031, 0);
+            this.btnReportes.Location = new System.Drawing.Point(1033, 0);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Normalcolor = System.Drawing.Color.Transparent;
             this.btnReportes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnReportes.OnHoverTextColor = System.Drawing.Color.White;
             this.btnReportes.selected = false;
-            this.btnReportes.Size = new System.Drawing.Size(178, 50);
+            this.btnReportes.Size = new System.Drawing.Size(176, 50);
             this.btnReportes.TabIndex = 4;
             this.btnReportes.TabStop = false;
-            this.btnReportes.Text = "Estadisticas";
+            this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnReportes.Textcolor = System.Drawing.Color.White;
             this.btnReportes.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.btnReportes.Visible = false;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnRegistrar
@@ -348,7 +347,7 @@
             this.btnMensualidades.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnMensualidades.OnHoverTextColor = System.Drawing.Color.White;
             this.btnMensualidades.selected = true;
-            this.btnMensualidades.Size = new System.Drawing.Size(219, 50);
+            this.btnMensualidades.Size = new System.Drawing.Size(223, 50);
             this.btnMensualidades.TabIndex = 1;
             this.btnMensualidades.TabStop = false;
             this.btnMensualidades.Text = "Registro de pago";

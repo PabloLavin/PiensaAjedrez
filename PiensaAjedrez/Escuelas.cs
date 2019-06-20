@@ -450,7 +450,7 @@ namespace PiensaAjedrez
                                         miCurso.listaActividades.Remove(strNombreActividad);
                                         ConexionBD.EliminarActividad(miEscuela.Nombre, strNombreActividad);
                                     }
-                                    catch (Exception x) { }
+                                    catch (Exception) { }
                                         dgvListaActividades.Rows.Clear();
                                         foreach (string actividad in miCurso.listaActividades)
                                         {

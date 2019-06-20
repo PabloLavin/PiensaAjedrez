@@ -12,8 +12,7 @@ namespace PiensaAjedrez
 {
    public partial class Form2 : Form
     {
-        string Escuela="";
-        Cursos Curso;
+        string Escuela="";        
         public Form2()
         {
             InitializeComponent();

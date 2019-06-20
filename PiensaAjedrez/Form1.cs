@@ -53,7 +53,7 @@ namespace PiensaAjedrez
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            ReemplazarPantalla(new UserControl());           
+            ReemplazarPantalla(new Reportes());           
         }
 
         private void btnDesconectar_Click(object sender, EventArgs e)

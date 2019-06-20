@@ -21,8 +21,8 @@ namespace PiensaAjedrez
 
         public static string FormatearFecha(DateTime unaFecha)
         {
-            //return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month;//Formato de Pablo
-            return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day;   //Formato de los WWEYES
+            return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month;//Formato de Pablo
+            //return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day;   //Formato de los WWEYES
         }
 
         public static void AgregarEscuela(string strEscuela)
