@@ -46,5 +46,10 @@ namespace PiensaAjedrez
         {
             visorReportes.ReportSource = AdministradorReportes.CargarReporteEgresos(FechaInicio.Value, FechaFinal.Value);
         }
+
+        private void CargarAsistencias_Click(object sender, EventArgs e)
+        {
+            visorReportes.ReportSource = AdministradorReportes.CargarReporteAsistencias(cbEscuelas.selectedValue,FechaInicio.Value, FechaFinal.Value);
+        }
     }
 }

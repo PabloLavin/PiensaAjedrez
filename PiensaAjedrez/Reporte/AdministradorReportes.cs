@@ -30,5 +30,18 @@ namespace PiensaAjedrez
             nuevoReporte.SetParameterValue("@FIN", fechaFinal);            
             return nuevoReporte;
         }
+
+        public static Reporte.ReporteAsistencias CargarReporteAsistencias(string NombreEscuela, DateTime fechaInicial, DateTime fechaFinal)
+        {
+            Reporte.Datasets.DatosAsistencias datos = ConexionBD.ObtenerAsistencias(NombreEscuela, fechaInicial, fechaFinal);
+            Reporte.ReporteAsistencias nuevoReporte = new Reporte.ReporteAsistencias();
+            nuevoReporte.SetDataSource(datos);
+            nuevoReporte.SetParameterValue("@INICIO", fechaInicial);
+            nuevoReporte.SetParameterValue("@FIN", fechaFinal);
+            nuevoReporte.SetParameterValue("@ESCUELA", NombreEscuela);
+            return nuevoReporte;
+        }
+
+
     }
 }

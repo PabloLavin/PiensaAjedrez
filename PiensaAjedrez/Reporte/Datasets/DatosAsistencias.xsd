@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DatosAsistencias" targetNamespace="http://tempuri.org/DatosAsistencias.xsd" xmlns:mstns="http://tempuri.org/DatosAsistencias.xsd" xmlns="http://tempuri.org/DatosAsistencias.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DatosAsistencias" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DatosAsistencias" msprop:Generator_UserDSName="DatosAsistencias">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AsistenciaProcedimiento" msprop:Generator_TableClassName="AsistenciaProcedimientoDataTable" msprop:Generator_TableVarName="tableAsistenciaProcedimiento" msprop:Generator_TablePropName="AsistenciaProcedimiento" msprop:Generator_RowDeletingName="AsistenciaProcedimientoRowDeleting" msprop:Generator_RowChangingName="AsistenciaProcedimientoRowChanging" msprop:Generator_RowEvHandlerName="AsistenciaProcedimientoRowChangeEventHandler" msprop:Generator_RowDeletedName="AsistenciaProcedimientoRowDeleted" msprop:Generator_UserTableName="AsistenciaProcedimiento" msprop:Generator_RowChangedName="AsistenciaProcedimientoRowChanged" msprop:Generator_RowEvArgName="AsistenciaProcedimientoRowChangeEvent" msprop:Generator_RowClassName="AsistenciaProcedimientoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="NumeroControl" msprop:Generator_ColumnVarNameInTable="columnNumeroControl" msprop:Generator_ColumnPropNameInRow="NumeroControl" msprop:Generator_ColumnPropNameInTable="NumeroControlColumn" msprop:Generator_UserColumnName="NumeroControl" type="xs:string" minOccurs="0" />
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

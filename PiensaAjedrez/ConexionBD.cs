@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace PiensaAjedrez
 {
@@ -27,6 +28,7 @@ namespace PiensaAjedrez
 
         public static Reporte.Datasets.DatosIngresos ObtenerIngresosGlobales(string NombreEscuela, DateTime fechaInicial, DateTime fechaFinal)
         {
+            
             Reporte.Datasets.DatosIngresos datos = new Reporte.Datasets.DatosIngresos();
             using (SqlConnection con = ObtenerConexion())
             {
@@ -51,6 +53,19 @@ namespace PiensaAjedrez
             return datosEgresos;
         }
 
+        public static Reporte.Datasets.DatosAsistencias ObtenerAsistencias(string Escuela, DateTime fechaInicial, DateTime fechaFinal)
+        {
+            Reporte.Datasets.DatosAsistencias datos = new Reporte.Datasets.DatosAsistencias();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("EXEC AsistenciaProcedimiento '"+Escuela+"', '" + FormatearFecha(fechaInicial) + "', '" + FormatearFecha(fechaFinal) + "'", con);
+                SqlDataAdapter adaptador = new SqlDataAdapter();
+                adaptador.SelectCommand = comando;
+                adaptador.Fill(datos);
+            }
+            return datos;
+        }
+
         public static void AgregarEscuela(string strEscuela)
         {
             using (SqlConnection con = ObtenerConexion())
@@ -59,9 +74,7 @@ namespace PiensaAjedrez
                 comando.ExecuteNonQuery();
             }
         }
-
-
-
+        
         public static List<Escuela> CargarEscuelas()
         {
             List<Escuela> listaEscuelas = new List<Escuela>();

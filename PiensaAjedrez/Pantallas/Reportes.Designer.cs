@@ -359,7 +359,6 @@
             this.CargarAsistencias.ButtonText = "Cargar reporte de asistencias";
             this.CargarAsistencias.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CargarAsistencias.DisabledColor = System.Drawing.Color.Gray;
-            this.CargarAsistencias.Enabled = false;
             this.CargarAsistencias.Iconcolor = System.Drawing.Color.Transparent;
             this.CargarAsistencias.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarAsistencias.Iconimage")));
             this.CargarAsistencias.Iconimage_right = null;
@@ -384,6 +383,7 @@
             this.CargarAsistencias.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.CargarAsistencias.Textcolor = System.Drawing.Color.White;
             this.CargarAsistencias.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CargarAsistencias.Click += new System.EventHandler(this.CargarAsistencias_Click);
             // 
             // CargarEgresos
             // 

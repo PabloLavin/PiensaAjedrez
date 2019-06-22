@@ -63,6 +63,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Reporte\ReporteAsistencias.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteAsistencias.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\Datasets\DatosAsistencias.cs">
+      <DependentUpon>DatosAsistencias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Datasets\DatosAsistencias.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatosAsistencias.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\ReporteEgresos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -202,6 +216,10 @@
     <EmbeddedResource Include="Pantallas\Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\ReporteAsistencias.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteAsistencias.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\ReporteEgresos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteEgresos.cs</LastGenOutput>
@@ -210,6 +228,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteIngresos.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Reporte\Datasets\DatosAsistencias.xsc">
+      <DependentUpon>DatosAsistencias.xsd</DependentUpon>
+    </None>
+    <None Include="Reporte\Datasets\DatosAsistencias.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatosAsistencias.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reporte\Datasets\DatosAsistencias.xss">
+      <DependentUpon>DatosAsistencias.xsd</DependentUpon>
+    </None>
     <None Include="Reporte\Datasets\DatosEgresos.xsc">
       <DependentUpon>DatosEgresos.xsd</DependentUpon>
     </None>
