@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DatosIngresos" targetNamespace="http://tempuri.org/DatosIngresos.xsd" xmlns:mstns="http://tempuri.org/DatosIngresos.xsd" xmlns="http://tempuri.org/DatosIngresos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DatosIngresos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DatosIngresos" msprop:Generator_UserDSName="DatosIngresos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Ingresos" msprop:Generator_TableClassName="IngresosDataTable" msprop:Generator_TableVarName="tableIngresos" msprop:Generator_RowChangedName="IngresosRowChanged" msprop:Generator_TablePropName="Ingresos" msprop:Generator_RowDeletingName="IngresosRowDeleting" msprop:Generator_RowChangingName="IngresosRowChanging" msprop:Generator_RowEvHandlerName="IngresosRowChangeEventHandler" msprop:Generator_RowDeletedName="IngresosRowDeleted" msprop:Generator_RowClassName="IngresosRow" msprop:Generator_UserTableName="Ingresos" msprop:Generator_RowEvArgName="IngresosRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NumeroRecibo" msprop:Generator_ColumnVarNameInTable="columnNumeroRecibo" msprop:Generator_ColumnPropNameInRow="NumeroRecibo" msprop:Generator_ColumnPropNameInTable="NumeroReciboColumn" msprop:Generator_UserColumnName="NumeroRecibo" type="xs:string" minOccurs="0" />
+              <xs:element name="No._x0020_Control" msprop:Generator_ColumnVarNameInTable="_columnNo__Control" msprop:Generator_ColumnPropNameInRow="_No__Control" msprop:Generator_ColumnPropNameInTable="_No__ControlColumn" msprop:Generator_UserColumnName="No. Control" type="xs:string" minOccurs="0" />
+              <xs:element name="Alumno" msprop:Generator_ColumnVarNameInTable="columnAlumno" msprop:Generator_ColumnPropNameInRow="Alumno" msprop:Generator_ColumnPropNameInTable="AlumnoColumn" msprop:Generator_UserColumnName="Alumno" type="xs:string" minOccurs="0" />
+              <xs:element name="Concepto" msprop:Generator_ColumnVarNameInTable="columnConcepto" msprop:Generator_ColumnPropNameInRow="Concepto" msprop:Generator_ColumnPropNameInTable="ConceptoColumn" msprop:Generator_UserColumnName="Concepto" type="xs:string" minOccurs="0" />
+              <xs:element name="Método" msprop:Generator_ColumnVarNameInTable="columnMétodo" msprop:Generator_ColumnPropNameInRow="Método" msprop:Generator_ColumnPropNameInTable="MétodoColumn" msprop:Generator_UserColumnName="Método" type="xs:string" minOccurs="0" />
+              <xs:element name="Monto" msprop:Generator_ColumnVarNameInTable="columnMonto" msprop:Generator_ColumnPropNameInRow="Monto" msprop:Generator_ColumnPropNameInTable="MontoColumn" msprop:Generator_UserColumnName="Monto" type="xs:double" minOccurs="0" />
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

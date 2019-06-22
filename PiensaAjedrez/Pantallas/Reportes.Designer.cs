@@ -42,15 +42,15 @@
             this.FechaInicio = new Bunifu.Framework.UI.BunifuDatepicker();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCards3 = new Bunifu.Framework.UI.BunifuCards();
+            this.CargarReporteActividades = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.CargarReporteInscripciones = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.CargarReporteMensualidades = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.CargarAsistencias = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.CargarEgresos = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.CargarTodosIngresos = new Bunifu.Framework.UI.BunifuFlatButton();
             this.lblTipoReporte = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCards4 = new Bunifu.Framework.UI.BunifuCards();
             this.lblEstadisticas = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.CargarTodosIngresos = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.CargarEgresos = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.CargarAsistencias = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.CargarReporteMensualidades = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.CargarReporteInscripciones = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.CargarReporteActividades = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panelReportes.SuspendLayout();
             this.bunifuCards1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).BeginInit();
@@ -63,9 +63,9 @@
             // 
             this.panelReportes.BackColor = System.Drawing.SystemColors.Control;
             this.panelReportes.Controls.Add(this.visorReportes);
-            this.panelReportes.Location = new System.Drawing.Point(854, 23);
+            this.panelReportes.Location = new System.Drawing.Point(832, 23);
             this.panelReportes.Name = "panelReportes";
-            this.panelReportes.Size = new System.Drawing.Size(439, 607);
+            this.panelReportes.Size = new System.Drawing.Size(494, 607);
             this.panelReportes.TabIndex = 0;
             // 
             // visorReportes
@@ -81,7 +81,7 @@
             this.visorReportes.ShowCloseButton = false;
             this.visorReportes.ShowCopyButton = false;
             this.visorReportes.ShowLogo = false;
-            this.visorReportes.Size = new System.Drawing.Size(439, 607);
+            this.visorReportes.Size = new System.Drawing.Size(494, 607);
             this.visorReportes.TabIndex = 0;
             this.visorReportes.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
@@ -117,6 +117,7 @@
             this.cbEscuelas.selectedIndex = -1;
             this.cbEscuelas.Size = new System.Drawing.Size(285, 35);
             this.cbEscuelas.TabIndex = 8;
+            this.cbEscuelas.Load += new System.EventHandler(this.cbEscuelas_Load);
             // 
             // btnEscuela
             // 
@@ -196,6 +197,7 @@
             this.FechaFinal.Size = new System.Drawing.Size(221, 36);
             this.FechaFinal.TabIndex = 5;
             this.FechaFinal.Value = new System.DateTime(2019, 6, 20, 0, 30, 5, 136);
+            this.FechaFinal.Load += new System.EventHandler(this.FechaFinal_Load);
             // 
             // FechaInicio
             // 
@@ -209,6 +211,7 @@
             this.FechaInicio.Size = new System.Drawing.Size(221, 36);
             this.FechaInicio.TabIndex = 4;
             this.FechaInicio.Value = new System.DateTime(2019, 6, 20, 0, 30, 1, 166);
+            this.FechaInicio.Load += new System.EventHandler(this.FechaInicio_Load);
             // 
             // bunifuCustomLabel1
             // 
@@ -241,6 +244,211 @@
             this.bunifuCards3.ShadowDepth = 20;
             this.bunifuCards3.Size = new System.Drawing.Size(332, 408);
             this.bunifuCards3.TabIndex = 10;
+            // 
+            // CargarReporteActividades
+            // 
+            this.CargarReporteActividades.Activecolor = System.Drawing.Color.DarkSlateGray;
+            this.CargarReporteActividades.BackColor = System.Drawing.Color.Teal;
+            this.CargarReporteActividades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CargarReporteActividades.BorderRadius = 5;
+            this.CargarReporteActividades.ButtonText = "Cargar reporte de Actividades";
+            this.CargarReporteActividades.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CargarReporteActividades.DisabledColor = System.Drawing.Color.Gray;
+            this.CargarReporteActividades.Iconcolor = System.Drawing.Color.Transparent;
+            this.CargarReporteActividades.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarReporteActividades.Iconimage")));
+            this.CargarReporteActividades.Iconimage_right = null;
+            this.CargarReporteActividades.Iconimage_right_Selected = null;
+            this.CargarReporteActividades.Iconimage_Selected = null;
+            this.CargarReporteActividades.IconMarginLeft = 0;
+            this.CargarReporteActividades.IconMarginRight = 0;
+            this.CargarReporteActividades.IconRightVisible = false;
+            this.CargarReporteActividades.IconRightZoom = 0D;
+            this.CargarReporteActividades.IconVisible = false;
+            this.CargarReporteActividades.IconZoom = 90D;
+            this.CargarReporteActividades.IsTab = true;
+            this.CargarReporteActividades.Location = new System.Drawing.Point(43, 274);
+            this.CargarReporteActividades.Name = "CargarReporteActividades";
+            this.CargarReporteActividades.Normalcolor = System.Drawing.Color.Teal;
+            this.CargarReporteActividades.OnHovercolor = System.Drawing.Color.LightSeaGreen;
+            this.CargarReporteActividades.OnHoverTextColor = System.Drawing.Color.White;
+            this.CargarReporteActividades.selected = false;
+            this.CargarReporteActividades.Size = new System.Drawing.Size(241, 48);
+            this.CargarReporteActividades.TabIndex = 15;
+            this.CargarReporteActividades.Text = "Cargar reporte de Actividades";
+            this.CargarReporteActividades.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CargarReporteActividades.Textcolor = System.Drawing.Color.White;
+            this.CargarReporteActividades.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // CargarReporteInscripciones
+            // 
+            this.CargarReporteInscripciones.Activecolor = System.Drawing.Color.DarkSlateGray;
+            this.CargarReporteInscripciones.BackColor = System.Drawing.Color.Teal;
+            this.CargarReporteInscripciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CargarReporteInscripciones.BorderRadius = 5;
+            this.CargarReporteInscripciones.ButtonText = "Cargar reporte de Inscripciones";
+            this.CargarReporteInscripciones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CargarReporteInscripciones.DisabledColor = System.Drawing.Color.Gray;
+            this.CargarReporteInscripciones.Iconcolor = System.Drawing.Color.Transparent;
+            this.CargarReporteInscripciones.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarReporteInscripciones.Iconimage")));
+            this.CargarReporteInscripciones.Iconimage_right = null;
+            this.CargarReporteInscripciones.Iconimage_right_Selected = null;
+            this.CargarReporteInscripciones.Iconimage_Selected = null;
+            this.CargarReporteInscripciones.IconMarginLeft = 0;
+            this.CargarReporteInscripciones.IconMarginRight = 0;
+            this.CargarReporteInscripciones.IconRightVisible = false;
+            this.CargarReporteInscripciones.IconRightZoom = 0D;
+            this.CargarReporteInscripciones.IconVisible = false;
+            this.CargarReporteInscripciones.IconZoom = 90D;
+            this.CargarReporteInscripciones.IsTab = true;
+            this.CargarReporteInscripciones.Location = new System.Drawing.Point(43, 176);
+            this.CargarReporteInscripciones.Name = "CargarReporteInscripciones";
+            this.CargarReporteInscripciones.Normalcolor = System.Drawing.Color.Teal;
+            this.CargarReporteInscripciones.OnHovercolor = System.Drawing.Color.LightSeaGreen;
+            this.CargarReporteInscripciones.OnHoverTextColor = System.Drawing.Color.White;
+            this.CargarReporteInscripciones.selected = false;
+            this.CargarReporteInscripciones.Size = new System.Drawing.Size(241, 48);
+            this.CargarReporteInscripciones.TabIndex = 14;
+            this.CargarReporteInscripciones.Text = "Cargar reporte de Inscripciones";
+            this.CargarReporteInscripciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CargarReporteInscripciones.Textcolor = System.Drawing.Color.White;
+            this.CargarReporteInscripciones.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // CargarReporteMensualidades
+            // 
+            this.CargarReporteMensualidades.Activecolor = System.Drawing.Color.DarkSlateGray;
+            this.CargarReporteMensualidades.BackColor = System.Drawing.Color.Teal;
+            this.CargarReporteMensualidades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CargarReporteMensualidades.BorderRadius = 5;
+            this.CargarReporteMensualidades.ButtonText = "Cargar reporte de Mensualidades";
+            this.CargarReporteMensualidades.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CargarReporteMensualidades.DisabledColor = System.Drawing.Color.Gray;
+            this.CargarReporteMensualidades.Iconcolor = System.Drawing.Color.Transparent;
+            this.CargarReporteMensualidades.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarReporteMensualidades.Iconimage")));
+            this.CargarReporteMensualidades.Iconimage_right = null;
+            this.CargarReporteMensualidades.Iconimage_right_Selected = null;
+            this.CargarReporteMensualidades.Iconimage_Selected = null;
+            this.CargarReporteMensualidades.IconMarginLeft = 0;
+            this.CargarReporteMensualidades.IconMarginRight = 0;
+            this.CargarReporteMensualidades.IconRightVisible = false;
+            this.CargarReporteMensualidades.IconRightZoom = 0D;
+            this.CargarReporteMensualidades.IconVisible = false;
+            this.CargarReporteMensualidades.IconZoom = 90D;
+            this.CargarReporteMensualidades.IsTab = true;
+            this.CargarReporteMensualidades.Location = new System.Drawing.Point(43, 225);
+            this.CargarReporteMensualidades.Name = "CargarReporteMensualidades";
+            this.CargarReporteMensualidades.Normalcolor = System.Drawing.Color.Teal;
+            this.CargarReporteMensualidades.OnHovercolor = System.Drawing.Color.LightSeaGreen;
+            this.CargarReporteMensualidades.OnHoverTextColor = System.Drawing.Color.White;
+            this.CargarReporteMensualidades.selected = false;
+            this.CargarReporteMensualidades.Size = new System.Drawing.Size(241, 48);
+            this.CargarReporteMensualidades.TabIndex = 13;
+            this.CargarReporteMensualidades.Text = "Cargar reporte de Mensualidades";
+            this.CargarReporteMensualidades.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CargarReporteMensualidades.Textcolor = System.Drawing.Color.White;
+            this.CargarReporteMensualidades.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // CargarAsistencias
+            // 
+            this.CargarAsistencias.Activecolor = System.Drawing.Color.DarkSlateGray;
+            this.CargarAsistencias.BackColor = System.Drawing.Color.Teal;
+            this.CargarAsistencias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CargarAsistencias.BorderRadius = 5;
+            this.CargarAsistencias.ButtonText = "Cargar reporte de asistencias";
+            this.CargarAsistencias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CargarAsistencias.DisabledColor = System.Drawing.Color.Gray;
+            this.CargarAsistencias.Iconcolor = System.Drawing.Color.Transparent;
+            this.CargarAsistencias.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarAsistencias.Iconimage")));
+            this.CargarAsistencias.Iconimage_right = null;
+            this.CargarAsistencias.Iconimage_right_Selected = null;
+            this.CargarAsistencias.Iconimage_Selected = null;
+            this.CargarAsistencias.IconMarginLeft = 0;
+            this.CargarAsistencias.IconMarginRight = 0;
+            this.CargarAsistencias.IconRightVisible = false;
+            this.CargarAsistencias.IconRightZoom = 0D;
+            this.CargarAsistencias.IconVisible = false;
+            this.CargarAsistencias.IconZoom = 90D;
+            this.CargarAsistencias.IsTab = true;
+            this.CargarAsistencias.Location = new System.Drawing.Point(43, 336);
+            this.CargarAsistencias.Name = "CargarAsistencias";
+            this.CargarAsistencias.Normalcolor = System.Drawing.Color.Teal;
+            this.CargarAsistencias.OnHovercolor = System.Drawing.Color.LightSeaGreen;
+            this.CargarAsistencias.OnHoverTextColor = System.Drawing.Color.White;
+            this.CargarAsistencias.selected = false;
+            this.CargarAsistencias.Size = new System.Drawing.Size(241, 48);
+            this.CargarAsistencias.TabIndex = 12;
+            this.CargarAsistencias.Text = "Cargar reporte de asistencias";
+            this.CargarAsistencias.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CargarAsistencias.Textcolor = System.Drawing.Color.White;
+            this.CargarAsistencias.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // CargarEgresos
+            // 
+            this.CargarEgresos.Activecolor = System.Drawing.Color.DarkSlateGray;
+            this.CargarEgresos.BackColor = System.Drawing.Color.Teal;
+            this.CargarEgresos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CargarEgresos.BorderRadius = 5;
+            this.CargarEgresos.ButtonText = "Cargar reporte de egresos";
+            this.CargarEgresos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CargarEgresos.DisabledColor = System.Drawing.Color.Gray;
+            this.CargarEgresos.Iconcolor = System.Drawing.Color.Transparent;
+            this.CargarEgresos.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarEgresos.Iconimage")));
+            this.CargarEgresos.Iconimage_right = null;
+            this.CargarEgresos.Iconimage_right_Selected = null;
+            this.CargarEgresos.Iconimage_Selected = null;
+            this.CargarEgresos.IconMarginLeft = 0;
+            this.CargarEgresos.IconMarginRight = 0;
+            this.CargarEgresos.IconRightVisible = false;
+            this.CargarEgresos.IconRightZoom = 0D;
+            this.CargarEgresos.IconVisible = false;
+            this.CargarEgresos.IconZoom = 90D;
+            this.CargarEgresos.IsTab = true;
+            this.CargarEgresos.Location = new System.Drawing.Point(43, 111);
+            this.CargarEgresos.Name = "CargarEgresos";
+            this.CargarEgresos.Normalcolor = System.Drawing.Color.Teal;
+            this.CargarEgresos.OnHovercolor = System.Drawing.Color.LightSeaGreen;
+            this.CargarEgresos.OnHoverTextColor = System.Drawing.Color.White;
+            this.CargarEgresos.selected = false;
+            this.CargarEgresos.Size = new System.Drawing.Size(241, 48);
+            this.CargarEgresos.TabIndex = 11;
+            this.CargarEgresos.Text = "Cargar reporte de egresos";
+            this.CargarEgresos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CargarEgresos.Textcolor = System.Drawing.Color.White;
+            this.CargarEgresos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // CargarTodosIngresos
+            // 
+            this.CargarTodosIngresos.Activecolor = System.Drawing.Color.DarkSlateGray;
+            this.CargarTodosIngresos.BackColor = System.Drawing.Color.Teal;
+            this.CargarTodosIngresos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CargarTodosIngresos.BorderRadius = 5;
+            this.CargarTodosIngresos.ButtonText = "Cargar reporte de ingresos";
+            this.CargarTodosIngresos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CargarTodosIngresos.DisabledColor = System.Drawing.Color.Gray;
+            this.CargarTodosIngresos.Iconcolor = System.Drawing.Color.Transparent;
+            this.CargarTodosIngresos.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarTodosIngresos.Iconimage")));
+            this.CargarTodosIngresos.Iconimage_right = null;
+            this.CargarTodosIngresos.Iconimage_right_Selected = null;
+            this.CargarTodosIngresos.Iconimage_Selected = null;
+            this.CargarTodosIngresos.IconMarginLeft = 0;
+            this.CargarTodosIngresos.IconMarginRight = 0;
+            this.CargarTodosIngresos.IconRightVisible = false;
+            this.CargarTodosIngresos.IconRightZoom = 0D;
+            this.CargarTodosIngresos.IconVisible = false;
+            this.CargarTodosIngresos.IconZoom = 90D;
+            this.CargarTodosIngresos.IsTab = true;
+            this.CargarTodosIngresos.Location = new System.Drawing.Point(43, 61);
+            this.CargarTodosIngresos.Name = "CargarTodosIngresos";
+            this.CargarTodosIngresos.Normalcolor = System.Drawing.Color.Teal;
+            this.CargarTodosIngresos.OnHovercolor = System.Drawing.Color.LightSeaGreen;
+            this.CargarTodosIngresos.OnHoverTextColor = System.Drawing.Color.White;
+            this.CargarTodosIngresos.selected = false;
+            this.CargarTodosIngresos.Size = new System.Drawing.Size(241, 48);
+            this.CargarTodosIngresos.TabIndex = 10;
+            this.CargarTodosIngresos.Text = "Cargar reporte de ingresos";
+            this.CargarTodosIngresos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CargarTodosIngresos.Textcolor = System.Drawing.Color.White;
+            this.CargarTodosIngresos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CargarTodosIngresos.Click += new System.EventHandler(this.CargarTodosIngresos_Click);
             // 
             // lblTipoReporte
             // 
@@ -278,210 +486,6 @@
             this.lblEstadisticas.Size = new System.Drawing.Size(128, 25);
             this.lblEstadisticas.TabIndex = 9;
             this.lblEstadisticas.Text = "Estadísticas";
-            // 
-            // CargarTodosIngresos
-            // 
-            this.CargarTodosIngresos.Activecolor = System.Drawing.Color.DarkSlateGray;
-            this.CargarTodosIngresos.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.CargarTodosIngresos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CargarTodosIngresos.BorderRadius = 5;
-            this.CargarTodosIngresos.ButtonText = "Cargar reporte de ingresos";
-            this.CargarTodosIngresos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CargarTodosIngresos.DisabledColor = System.Drawing.Color.Gray;
-            this.CargarTodosIngresos.Iconcolor = System.Drawing.Color.Transparent;
-            this.CargarTodosIngresos.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarTodosIngresos.Iconimage")));
-            this.CargarTodosIngresos.Iconimage_right = null;
-            this.CargarTodosIngresos.Iconimage_right_Selected = null;
-            this.CargarTodosIngresos.Iconimage_Selected = null;
-            this.CargarTodosIngresos.IconMarginLeft = 0;
-            this.CargarTodosIngresos.IconMarginRight = 0;
-            this.CargarTodosIngresos.IconRightVisible = false;
-            this.CargarTodosIngresos.IconRightZoom = 0D;
-            this.CargarTodosIngresos.IconVisible = false;
-            this.CargarTodosIngresos.IconZoom = 90D;
-            this.CargarTodosIngresos.IsTab = true;
-            this.CargarTodosIngresos.Location = new System.Drawing.Point(43, 61);
-            this.CargarTodosIngresos.Name = "CargarTodosIngresos";
-            this.CargarTodosIngresos.Normalcolor = System.Drawing.Color.Teal;
-            this.CargarTodosIngresos.OnHovercolor = System.Drawing.Color.LightSeaGreen;
-            this.CargarTodosIngresos.OnHoverTextColor = System.Drawing.Color.White;
-            this.CargarTodosIngresos.selected = true;
-            this.CargarTodosIngresos.Size = new System.Drawing.Size(241, 48);
-            this.CargarTodosIngresos.TabIndex = 10;
-            this.CargarTodosIngresos.Text = "Cargar reporte de ingresos";
-            this.CargarTodosIngresos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CargarTodosIngresos.Textcolor = System.Drawing.Color.White;
-            this.CargarTodosIngresos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // CargarEgresos
-            // 
-            this.CargarEgresos.Activecolor = System.Drawing.Color.DarkSlateGray;
-            this.CargarEgresos.BackColor = System.Drawing.Color.Teal;
-            this.CargarEgresos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CargarEgresos.BorderRadius = 5;
-            this.CargarEgresos.ButtonText = "Cargar reporte de egresos";
-            this.CargarEgresos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CargarEgresos.DisabledColor = System.Drawing.Color.Gray;
-            this.CargarEgresos.Iconcolor = System.Drawing.Color.Transparent;
-            this.CargarEgresos.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarEgresos.Iconimage")));
-            this.CargarEgresos.Iconimage_right = null;
-            this.CargarEgresos.Iconimage_right_Selected = null;
-            this.CargarEgresos.Iconimage_Selected = null;
-            this.CargarEgresos.IconMarginLeft = 0;
-            this.CargarEgresos.IconMarginRight = 0;
-            this.CargarEgresos.IconRightVisible = false;
-            this.CargarEgresos.IconRightZoom = 0D;
-            this.CargarEgresos.IconVisible = false;
-            this.CargarEgresos.IconZoom = 90D;
-            this.CargarEgresos.IsTab = true;
-            this.CargarEgresos.Location = new System.Drawing.Point(43, 111);
-            this.CargarEgresos.Name = "CargarEgresos";
-            this.CargarEgresos.Normalcolor = System.Drawing.Color.Teal;
-            this.CargarEgresos.OnHovercolor = System.Drawing.Color.LightSeaGreen;
-            this.CargarEgresos.OnHoverTextColor = System.Drawing.Color.White;
-            this.CargarEgresos.selected = false;
-            this.CargarEgresos.Size = new System.Drawing.Size(241, 48);
-            this.CargarEgresos.TabIndex = 11;
-            this.CargarEgresos.Text = "Cargar reporte de egresos";
-            this.CargarEgresos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CargarEgresos.Textcolor = System.Drawing.Color.White;
-            this.CargarEgresos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // CargarAsistencias
-            // 
-            this.CargarAsistencias.Activecolor = System.Drawing.Color.DarkSlateGray;
-            this.CargarAsistencias.BackColor = System.Drawing.Color.Teal;
-            this.CargarAsistencias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CargarAsistencias.BorderRadius = 5;
-            this.CargarAsistencias.ButtonText = "Cargar reporte de asistencias";
-            this.CargarAsistencias.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CargarAsistencias.DisabledColor = System.Drawing.Color.Gray;
-            this.CargarAsistencias.Iconcolor = System.Drawing.Color.Transparent;
-            this.CargarAsistencias.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarAsistencias.Iconimage")));
-            this.CargarAsistencias.Iconimage_right = null;
-            this.CargarAsistencias.Iconimage_right_Selected = null;
-            this.CargarAsistencias.Iconimage_Selected = null;
-            this.CargarAsistencias.IconMarginLeft = 0;
-            this.CargarAsistencias.IconMarginRight = 0;
-            this.CargarAsistencias.IconRightVisible = false;
-            this.CargarAsistencias.IconRightZoom = 0D;
-            this.CargarAsistencias.IconVisible = false;
-            this.CargarAsistencias.IconZoom = 90D;
-            this.CargarAsistencias.IsTab = true;
-            this.CargarAsistencias.Location = new System.Drawing.Point(43, 336);
-            this.CargarAsistencias.Name = "CargarAsistencias";
-            this.CargarAsistencias.Normalcolor = System.Drawing.Color.Teal;
-            this.CargarAsistencias.OnHovercolor = System.Drawing.Color.LightSeaGreen;
-            this.CargarAsistencias.OnHoverTextColor = System.Drawing.Color.White;
-            this.CargarAsistencias.selected = false;
-            this.CargarAsistencias.Size = new System.Drawing.Size(241, 48);
-            this.CargarAsistencias.TabIndex = 12;
-            this.CargarAsistencias.Text = "Cargar reporte de asistencias";
-            this.CargarAsistencias.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CargarAsistencias.Textcolor = System.Drawing.Color.White;
-            this.CargarAsistencias.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // CargarReporteMensualidades
-            // 
-            this.CargarReporteMensualidades.Activecolor = System.Drawing.Color.DarkSlateGray;
-            this.CargarReporteMensualidades.BackColor = System.Drawing.Color.Teal;
-            this.CargarReporteMensualidades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CargarReporteMensualidades.BorderRadius = 5;
-            this.CargarReporteMensualidades.ButtonText = "Cargar reporte de Mensualidades";
-            this.CargarReporteMensualidades.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CargarReporteMensualidades.DisabledColor = System.Drawing.Color.Gray;
-            this.CargarReporteMensualidades.Iconcolor = System.Drawing.Color.Transparent;
-            this.CargarReporteMensualidades.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarReporteMensualidades.Iconimage")));
-            this.CargarReporteMensualidades.Iconimage_right = null;
-            this.CargarReporteMensualidades.Iconimage_right_Selected = null;
-            this.CargarReporteMensualidades.Iconimage_Selected = null;
-            this.CargarReporteMensualidades.IconMarginLeft = 0;
-            this.CargarReporteMensualidades.IconMarginRight = 0;
-            this.CargarReporteMensualidades.IconRightVisible = false;
-            this.CargarReporteMensualidades.IconRightZoom = 0D;
-            this.CargarReporteMensualidades.IconVisible = false;
-            this.CargarReporteMensualidades.IconZoom = 90D;
-            this.CargarReporteMensualidades.IsTab = true;
-            this.CargarReporteMensualidades.Location = new System.Drawing.Point(43, 225);
-            this.CargarReporteMensualidades.Name = "CargarReporteMensualidades";
-            this.CargarReporteMensualidades.Normalcolor = System.Drawing.Color.Teal;
-            this.CargarReporteMensualidades.OnHovercolor = System.Drawing.Color.LightSeaGreen;
-            this.CargarReporteMensualidades.OnHoverTextColor = System.Drawing.Color.White;
-            this.CargarReporteMensualidades.selected = false;
-            this.CargarReporteMensualidades.Size = new System.Drawing.Size(241, 48);
-            this.CargarReporteMensualidades.TabIndex = 13;
-            this.CargarReporteMensualidades.Text = "Cargar reporte de Mensualidades";
-            this.CargarReporteMensualidades.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CargarReporteMensualidades.Textcolor = System.Drawing.Color.White;
-            this.CargarReporteMensualidades.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // CargarReporteInscripciones
-            // 
-            this.CargarReporteInscripciones.Activecolor = System.Drawing.Color.DarkSlateGray;
-            this.CargarReporteInscripciones.BackColor = System.Drawing.Color.Teal;
-            this.CargarReporteInscripciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CargarReporteInscripciones.BorderRadius = 5;
-            this.CargarReporteInscripciones.ButtonText = "Cargar reporte de Inscripciones";
-            this.CargarReporteInscripciones.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CargarReporteInscripciones.DisabledColor = System.Drawing.Color.Gray;
-            this.CargarReporteInscripciones.Iconcolor = System.Drawing.Color.Transparent;
-            this.CargarReporteInscripciones.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarReporteInscripciones.Iconimage")));
-            this.CargarReporteInscripciones.Iconimage_right = null;
-            this.CargarReporteInscripciones.Iconimage_right_Selected = null;
-            this.CargarReporteInscripciones.Iconimage_Selected = null;
-            this.CargarReporteInscripciones.IconMarginLeft = 0;
-            this.CargarReporteInscripciones.IconMarginRight = 0;
-            this.CargarReporteInscripciones.IconRightVisible = false;
-            this.CargarReporteInscripciones.IconRightZoom = 0D;
-            this.CargarReporteInscripciones.IconVisible = false;
-            this.CargarReporteInscripciones.IconZoom = 90D;
-            this.CargarReporteInscripciones.IsTab = true;
-            this.CargarReporteInscripciones.Location = new System.Drawing.Point(43, 176);
-            this.CargarReporteInscripciones.Name = "CargarReporteInscripciones";
-            this.CargarReporteInscripciones.Normalcolor = System.Drawing.Color.Teal;
-            this.CargarReporteInscripciones.OnHovercolor = System.Drawing.Color.LightSeaGreen;
-            this.CargarReporteInscripciones.OnHoverTextColor = System.Drawing.Color.White;
-            this.CargarReporteInscripciones.selected = false;
-            this.CargarReporteInscripciones.Size = new System.Drawing.Size(241, 48);
-            this.CargarReporteInscripciones.TabIndex = 14;
-            this.CargarReporteInscripciones.Text = "Cargar reporte de Inscripciones";
-            this.CargarReporteInscripciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CargarReporteInscripciones.Textcolor = System.Drawing.Color.White;
-            this.CargarReporteInscripciones.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // CargarReporteActividades
-            // 
-            this.CargarReporteActividades.Activecolor = System.Drawing.Color.DarkSlateGray;
-            this.CargarReporteActividades.BackColor = System.Drawing.Color.Teal;
-            this.CargarReporteActividades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CargarReporteActividades.BorderRadius = 5;
-            this.CargarReporteActividades.ButtonText = "Cargar reporte de Actividades";
-            this.CargarReporteActividades.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CargarReporteActividades.DisabledColor = System.Drawing.Color.Gray;
-            this.CargarReporteActividades.Iconcolor = System.Drawing.Color.Transparent;
-            this.CargarReporteActividades.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarReporteActividades.Iconimage")));
-            this.CargarReporteActividades.Iconimage_right = null;
-            this.CargarReporteActividades.Iconimage_right_Selected = null;
-            this.CargarReporteActividades.Iconimage_Selected = null;
-            this.CargarReporteActividades.IconMarginLeft = 0;
-            this.CargarReporteActividades.IconMarginRight = 0;
-            this.CargarReporteActividades.IconRightVisible = false;
-            this.CargarReporteActividades.IconRightZoom = 0D;
-            this.CargarReporteActividades.IconVisible = false;
-            this.CargarReporteActividades.IconZoom = 90D;
-            this.CargarReporteActividades.IsTab = true;
-            this.CargarReporteActividades.Location = new System.Drawing.Point(43, 274);
-            this.CargarReporteActividades.Name = "CargarReporteActividades";
-            this.CargarReporteActividades.Normalcolor = System.Drawing.Color.Teal;
-            this.CargarReporteActividades.OnHovercolor = System.Drawing.Color.LightSeaGreen;
-            this.CargarReporteActividades.OnHoverTextColor = System.Drawing.Color.White;
-            this.CargarReporteActividades.selected = false;
-            this.CargarReporteActividades.Size = new System.Drawing.Size(241, 48);
-            this.CargarReporteActividades.TabIndex = 15;
-            this.CargarReporteActividades.Text = "Cargar reporte de Actividades";
-            this.CargarReporteActividades.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CargarReporteActividades.Textcolor = System.Drawing.Color.White;
-            this.CargarReporteActividades.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // Reportes
             // 

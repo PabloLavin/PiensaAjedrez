@@ -25,6 +25,19 @@ namespace PiensaAjedrez
             //return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day;   //Formato de los WWEYES
         }
 
+        public static Reporte.Datasets.DatosIngresos ObtenerIngresosGlobales(string NombreEscuela, DateTime fechaInicial, DateTime fechaFinal)
+        {
+            Reporte.Datasets.DatosIngresos datos = new Reporte.Datasets.DatosIngresos();
+            using (SqlConnection con = ConexionBD.ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("EXEC INGRESOSTOTALES '" + NombreEscuela + "', '" + ConexionBD.FormatearFecha(fechaInicial) + "', '" + ConexionBD.FormatearFecha(fechaFinal) + "'", con);
+                SqlDataAdapter adaptador = new SqlDataAdapter();
+                adaptador.SelectCommand = comando;
+                adaptador.Fill(datos);
+            }
+            return datos;
+        }
+
         public static void AgregarEscuela(string strEscuela)
         {
             using (SqlConnection con = ObtenerConexion())

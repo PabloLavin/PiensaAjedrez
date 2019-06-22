@@ -83,6 +83,8 @@ namespace PiensaAjedrez
                 ReemplazarPantalla(new Escuelas());
             if (btnAsistencia.selected)
                 ReemplazarPantalla(new Asistencia());
+            if (btnReportes.selected)
+                ReemplazarPantalla(new Reportes());
         }
 
         private void btnAsistencia_Click(object sender, EventArgs e)
