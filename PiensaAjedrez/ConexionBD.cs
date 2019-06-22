@@ -28,14 +28,27 @@ namespace PiensaAjedrez
         public static Reporte.Datasets.DatosIngresos ObtenerIngresosGlobales(string NombreEscuela, DateTime fechaInicial, DateTime fechaFinal)
         {
             Reporte.Datasets.DatosIngresos datos = new Reporte.Datasets.DatosIngresos();
-            using (SqlConnection con = ConexionBD.ObtenerConexion())
+            using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("EXEC INGRESOSTOTALES '" + NombreEscuela + "', '" + ConexionBD.FormatearFecha(fechaInicial) + "', '" + ConexionBD.FormatearFecha(fechaFinal) + "'", con);
+                SqlCommand comando = new SqlCommand("EXEC INGRESOSTOTALES '" + NombreEscuela + "', '" + FormatearFecha(fechaInicial) + "', '" + FormatearFecha(fechaFinal) + "'", con);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(datos);
             }
             return datos;
+        }
+
+        public static Reporte.Datasets.DatosEgresos ObtenerEgresos(DateTime fechaInicial, DateTime fechaFinal)
+        {
+            Reporte.Datasets.DatosEgresos datosEgresos = new Reporte.Datasets.DatosEgresos();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("EXEC EGRESOS '" + FormatearFecha(fechaInicial) + "', '" + FormatearFecha(fechaFinal) + "'", con);
+                SqlDataAdapter adaptador = new SqlDataAdapter();
+                adaptador.SelectCommand = comando;
+                adaptador.Fill(datosEgresos);
+            }
+            return datosEgresos;
         }
 
         public static void AgregarEscuela(string strEscuela)

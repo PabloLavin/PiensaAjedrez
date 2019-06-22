@@ -254,6 +254,7 @@
             this.CargarReporteActividades.ButtonText = "Cargar reporte de Actividades";
             this.CargarReporteActividades.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CargarReporteActividades.DisabledColor = System.Drawing.Color.Gray;
+            this.CargarReporteActividades.Enabled = false;
             this.CargarReporteActividades.Iconcolor = System.Drawing.Color.Transparent;
             this.CargarReporteActividades.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarReporteActividades.Iconimage")));
             this.CargarReporteActividades.Iconimage_right = null;
@@ -288,6 +289,7 @@
             this.CargarReporteInscripciones.ButtonText = "Cargar reporte de Inscripciones";
             this.CargarReporteInscripciones.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CargarReporteInscripciones.DisabledColor = System.Drawing.Color.Gray;
+            this.CargarReporteInscripciones.Enabled = false;
             this.CargarReporteInscripciones.Iconcolor = System.Drawing.Color.Transparent;
             this.CargarReporteInscripciones.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarReporteInscripciones.Iconimage")));
             this.CargarReporteInscripciones.Iconimage_right = null;
@@ -322,6 +324,7 @@
             this.CargarReporteMensualidades.ButtonText = "Cargar reporte de Mensualidades";
             this.CargarReporteMensualidades.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CargarReporteMensualidades.DisabledColor = System.Drawing.Color.Gray;
+            this.CargarReporteMensualidades.Enabled = false;
             this.CargarReporteMensualidades.Iconcolor = System.Drawing.Color.Transparent;
             this.CargarReporteMensualidades.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarReporteMensualidades.Iconimage")));
             this.CargarReporteMensualidades.Iconimage_right = null;
@@ -356,6 +359,7 @@
             this.CargarAsistencias.ButtonText = "Cargar reporte de asistencias";
             this.CargarAsistencias.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CargarAsistencias.DisabledColor = System.Drawing.Color.Gray;
+            this.CargarAsistencias.Enabled = false;
             this.CargarAsistencias.Iconcolor = System.Drawing.Color.Transparent;
             this.CargarAsistencias.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarAsistencias.Iconimage")));
             this.CargarAsistencias.Iconimage_right = null;
@@ -414,6 +418,7 @@
             this.CargarEgresos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.CargarEgresos.Textcolor = System.Drawing.Color.White;
             this.CargarEgresos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CargarEgresos.Click += new System.EventHandler(this.CargarEgresos_Click);
             // 
             // CargarTodosIngresos
             // 

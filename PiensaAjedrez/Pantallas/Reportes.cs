@@ -16,12 +16,7 @@ namespace PiensaAjedrez
         {
             InitializeComponent();
         }
-
-        private void CargarTodosIngresos_Click(object sender, EventArgs e)
-        {
-            visorReportes.ReportSource = AdministradorReportes.CargarReporteIngresos(FechaInicio.Value, FechaFinal.Value, cbEscuelas.selectedValue);
-        }
-        
+      
         private void cbEscuelas_Load(object sender, EventArgs e)
         {
             foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
@@ -40,6 +35,16 @@ namespace PiensaAjedrez
         private void FechaFinal_Load(object sender, EventArgs e)
         {
             FechaFinal.Value = DateTime.Now.AddDays(1);
+        }
+
+        private void CargarTodosIngresos_Click(object sender, EventArgs e)
+        {
+            visorReportes.ReportSource = AdministradorReportes.CargarReporteIngresos(FechaInicio.Value, FechaFinal.Value, cbEscuelas.selectedValue);
+        }
+        
+        private void CargarEgresos_Click(object sender, EventArgs e)
+        {
+            visorReportes.ReportSource = AdministradorReportes.CargarReporteEgresos(FechaInicio.Value, FechaFinal.Value);
         }
     }
 }

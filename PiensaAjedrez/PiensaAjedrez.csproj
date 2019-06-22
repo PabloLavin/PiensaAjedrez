@@ -63,6 +63,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Reporte\ReporteEgresos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteEgresos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\Datasets\DatosEgresos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatosEgresos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\AdministradorReportes.cs" />
     <Compile Include="Alumnos.cs" />
     <Compile Include="Reporte\Datasets\DatosIngresos.cs">
@@ -191,10 +202,25 @@
     <EmbeddedResource Include="Pantallas\Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\ReporteEgresos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteEgresos.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\ReporteIngresos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteIngresos.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Reporte\Datasets\DatosEgresos.xsc">
+      <DependentUpon>DatosEgresos.xsd</DependentUpon>
+    </None>
+    <None Include="Reporte\Datasets\DatosEgresos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatosEgresos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reporte\Datasets\DatosEgresos.xss">
+      <DependentUpon>DatosEgresos.xsd</DependentUpon>
+    </None>
     <None Include="Reporte\Datasets\DatosIngresos.xsc">
       <DependentUpon>DatosIngresos.xsd</DependentUpon>
     </None>

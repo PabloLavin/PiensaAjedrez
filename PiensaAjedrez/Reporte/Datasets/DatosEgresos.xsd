@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DatosEgresos" targetNamespace="http://tempuri.org/DatosEgresos.xsd" xmlns:mstns="http://tempuri.org/DatosEgresos.xsd" xmlns="http://tempuri.org/DatosEgresos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DatosEgresos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DatosEgresos" msprop:Generator_UserDSName="DatosEgresos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Egresos" msprop:Generator_TableClassName="EgresosDataTable" msprop:Generator_TableVarName="tableEgresos" msprop:Generator_TablePropName="Egresos" msprop:Generator_RowDeletingName="EgresosRowDeleting" msprop:Generator_RowChangingName="EgresosRowChanging" msprop:Generator_RowEvHandlerName="EgresosRowChangeEventHandler" msprop:Generator_RowDeletedName="EgresosRowDeleted" msprop:Generator_UserTableName="Egresos" msprop:Generator_RowChangedName="EgresosRowChanged" msprop:Generator_RowEvArgName="EgresosRowChangeEvent" msprop:Generator_RowClassName="EgresosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GastoID" msprop:Generator_ColumnVarNameInTable="columnGastoID" msprop:Generator_ColumnPropNameInRow="GastoID" msprop:Generator_ColumnPropNameInTable="GastoIDColumn" msprop:Generator_UserColumnName="GastoID" type="xs:string" minOccurs="0" />
+              <xs:element name="Razon" msprop:Generator_ColumnVarNameInTable="columnRazon" msprop:Generator_ColumnPropNameInRow="Razon" msprop:Generator_ColumnPropNameInTable="RazonColumn" msprop:Generator_UserColumnName="Razon" type="xs:string" minOccurs="0" />
+              <xs:element name="Monto" msprop:Generator_ColumnVarNameInTable="columnMonto" msprop:Generator_ColumnPropNameInRow="Monto" msprop:Generator_ColumnPropNameInTable="MontoColumn" msprop:Generator_UserColumnName="Monto" type="xs:double" minOccurs="0" />
+              <xs:element name="Nota" msprop:Generator_ColumnVarNameInTable="columnNota" msprop:Generator_ColumnPropNameInRow="Nota" msprop:Generator_ColumnPropNameInTable="NotaColumn" msprop:Generator_UserColumnName="Nota" type="xs:string" minOccurs="0" />
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
