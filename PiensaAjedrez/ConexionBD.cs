@@ -12,8 +12,8 @@ namespace PiensaAjedrez
     {
         public static SqlConnection ObtenerConexion()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=LAVINW8; Initial Catalog = PIENSAJEDREZ; Server=LAVINW8\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
-            //SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
+            //SqlConnection con = new SqlConnection(@"Data Source=LAVINW8; Initial Catalog = PIENSAJEDREZ; Server=LAVINW8\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
+            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
             //SqlConnection con = new SqlConnection(@"Data Source=ANCIRALAPTOP; Initial Catalog = PIENSAJEDREZ; Server=ANCIRALAPTOP\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
 
             con.Open();
@@ -22,8 +22,8 @@ namespace PiensaAjedrez
 
         public static string FormatearFecha(DateTime unaFecha)
         {
-            return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month;//Formato de Pablo
-            //return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day;   //Formato de los WWEYES
+//            return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month;//Formato de Pablo
+            return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day;   //Formato de los WWEYES
         }
 
         public static Reporte.Datasets.DatosIngresos ObtenerIngresosGlobales(string NombreEscuela, DateTime fechaInicial, DateTime fechaFinal)
@@ -59,6 +59,19 @@ namespace PiensaAjedrez
             using (SqlConnection con = ObtenerConexion())
             {
                 SqlCommand comando = new SqlCommand("EXEC AsistenciaProcedimiento '"+Escuela+"', '" + FormatearFecha(fechaInicial) + "', '" + FormatearFecha(fechaFinal) + "'", con);
+                SqlDataAdapter adaptador = new SqlDataAdapter();
+                adaptador.SelectCommand = comando;
+                adaptador.Fill(datos);
+            }
+            return datos;
+        }
+
+        public static Reporte.Datasets.DatosInscripcion ObtenerInscripciones(string Escuela)
+        {
+            Reporte.Datasets.DatosInscripcion datos = new Reporte.Datasets.DatosInscripcion();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("EXEC Inscripcion '" + Escuela + "'", con);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(datos);

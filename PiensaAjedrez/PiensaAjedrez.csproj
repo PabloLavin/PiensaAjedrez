@@ -63,6 +63,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Reporte\ReporteInscripcion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteInscripcion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\Datasets\DatosInscripcion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatosInscripcion.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\ReporteAsistencias.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -216,6 +227,10 @@
     <EmbeddedResource Include="Pantallas\Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\ReporteInscripcion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteInscripcion.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\ReporteAsistencias.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteAsistencias.cs</LastGenOutput>
@@ -228,6 +243,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteIngresos.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Reporte\Datasets\DatosInscripcion.xsc">
+      <DependentUpon>DatosInscripcion.xsd</DependentUpon>
+    </None>
+    <None Include="Reporte\Datasets\DatosInscripcion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatosInscripcion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reporte\Datasets\DatosInscripcion.xss">
+      <DependentUpon>DatosInscripcion.xsd</DependentUpon>
+    </None>
     <None Include="Reporte\Datasets\DatosAsistencias.xsc">
       <DependentUpon>DatosAsistencias.xsd</DependentUpon>
     </None>

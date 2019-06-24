@@ -51,6 +51,7 @@
             this.lblTipoReporte = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCards4 = new Bunifu.Framework.UI.BunifuCards();
             this.lblEstadisticas = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.PreparandoDatos = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panelReportes.SuspendLayout();
             this.bunifuCards1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).BeginInit();
@@ -63,9 +64,9 @@
             // 
             this.panelReportes.BackColor = System.Drawing.SystemColors.Control;
             this.panelReportes.Controls.Add(this.visorReportes);
-            this.panelReportes.Location = new System.Drawing.Point(832, 23);
+            this.panelReportes.Location = new System.Drawing.Point(832, 58);
             this.panelReportes.Name = "panelReportes";
-            this.panelReportes.Size = new System.Drawing.Size(494, 607);
+            this.panelReportes.Size = new System.Drawing.Size(494, 572);
             this.panelReportes.TabIndex = 0;
             // 
             // visorReportes
@@ -81,7 +82,7 @@
             this.visorReportes.ShowCloseButton = false;
             this.visorReportes.ShowCopyButton = false;
             this.visorReportes.ShowLogo = false;
-            this.visorReportes.Size = new System.Drawing.Size(494, 607);
+            this.visorReportes.Size = new System.Drawing.Size(494, 572);
             this.visorReportes.TabIndex = 0;
             this.visorReportes.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
@@ -267,13 +268,13 @@
             this.CargarReporteActividades.IconVisible = false;
             this.CargarReporteActividades.IconZoom = 90D;
             this.CargarReporteActividades.IsTab = true;
-            this.CargarReporteActividades.Location = new System.Drawing.Point(43, 274);
+            this.CargarReporteActividades.Location = new System.Drawing.Point(19, 274);
             this.CargarReporteActividades.Name = "CargarReporteActividades";
             this.CargarReporteActividades.Normalcolor = System.Drawing.Color.Teal;
             this.CargarReporteActividades.OnHovercolor = System.Drawing.Color.LightSeaGreen;
             this.CargarReporteActividades.OnHoverTextColor = System.Drawing.Color.White;
             this.CargarReporteActividades.selected = false;
-            this.CargarReporteActividades.Size = new System.Drawing.Size(241, 48);
+            this.CargarReporteActividades.Size = new System.Drawing.Size(296, 48);
             this.CargarReporteActividades.TabIndex = 15;
             this.CargarReporteActividades.Text = "Cargar reporte de Actividades";
             this.CargarReporteActividades.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -286,10 +287,9 @@
             this.CargarReporteInscripciones.BackColor = System.Drawing.Color.Teal;
             this.CargarReporteInscripciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CargarReporteInscripciones.BorderRadius = 5;
-            this.CargarReporteInscripciones.ButtonText = "Cargar reporte de Inscripciones";
+            this.CargarReporteInscripciones.ButtonText = "Cargar reporte de inscripciones del curso activo";
             this.CargarReporteInscripciones.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CargarReporteInscripciones.DisabledColor = System.Drawing.Color.Gray;
-            this.CargarReporteInscripciones.Enabled = false;
             this.CargarReporteInscripciones.Iconcolor = System.Drawing.Color.Transparent;
             this.CargarReporteInscripciones.Iconimage = ((System.Drawing.Image)(resources.GetObject("CargarReporteInscripciones.Iconimage")));
             this.CargarReporteInscripciones.Iconimage_right = null;
@@ -302,18 +302,19 @@
             this.CargarReporteInscripciones.IconVisible = false;
             this.CargarReporteInscripciones.IconZoom = 90D;
             this.CargarReporteInscripciones.IsTab = true;
-            this.CargarReporteInscripciones.Location = new System.Drawing.Point(43, 176);
+            this.CargarReporteInscripciones.Location = new System.Drawing.Point(18, 176);
             this.CargarReporteInscripciones.Name = "CargarReporteInscripciones";
             this.CargarReporteInscripciones.Normalcolor = System.Drawing.Color.Teal;
             this.CargarReporteInscripciones.OnHovercolor = System.Drawing.Color.LightSeaGreen;
             this.CargarReporteInscripciones.OnHoverTextColor = System.Drawing.Color.White;
             this.CargarReporteInscripciones.selected = false;
-            this.CargarReporteInscripciones.Size = new System.Drawing.Size(241, 48);
+            this.CargarReporteInscripciones.Size = new System.Drawing.Size(297, 48);
             this.CargarReporteInscripciones.TabIndex = 14;
-            this.CargarReporteInscripciones.Text = "Cargar reporte de Inscripciones";
+            this.CargarReporteInscripciones.Text = "Cargar reporte de inscripciones del curso activo";
             this.CargarReporteInscripciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.CargarReporteInscripciones.Textcolor = System.Drawing.Color.White;
             this.CargarReporteInscripciones.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CargarReporteInscripciones.Click += new System.EventHandler(this.CargarReporteInscripciones_Click);
             // 
             // CargarReporteMensualidades
             // 
@@ -337,13 +338,13 @@
             this.CargarReporteMensualidades.IconVisible = false;
             this.CargarReporteMensualidades.IconZoom = 90D;
             this.CargarReporteMensualidades.IsTab = true;
-            this.CargarReporteMensualidades.Location = new System.Drawing.Point(43, 225);
+            this.CargarReporteMensualidades.Location = new System.Drawing.Point(19, 225);
             this.CargarReporteMensualidades.Name = "CargarReporteMensualidades";
             this.CargarReporteMensualidades.Normalcolor = System.Drawing.Color.Teal;
             this.CargarReporteMensualidades.OnHovercolor = System.Drawing.Color.LightSeaGreen;
             this.CargarReporteMensualidades.OnHoverTextColor = System.Drawing.Color.White;
             this.CargarReporteMensualidades.selected = false;
-            this.CargarReporteMensualidades.Size = new System.Drawing.Size(241, 48);
+            this.CargarReporteMensualidades.Size = new System.Drawing.Size(296, 48);
             this.CargarReporteMensualidades.TabIndex = 13;
             this.CargarReporteMensualidades.Text = "Cargar reporte de Mensualidades";
             this.CargarReporteMensualidades.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -371,13 +372,13 @@
             this.CargarAsistencias.IconVisible = false;
             this.CargarAsistencias.IconZoom = 90D;
             this.CargarAsistencias.IsTab = true;
-            this.CargarAsistencias.Location = new System.Drawing.Point(43, 336);
+            this.CargarAsistencias.Location = new System.Drawing.Point(19, 336);
             this.CargarAsistencias.Name = "CargarAsistencias";
             this.CargarAsistencias.Normalcolor = System.Drawing.Color.Teal;
             this.CargarAsistencias.OnHovercolor = System.Drawing.Color.LightSeaGreen;
             this.CargarAsistencias.OnHoverTextColor = System.Drawing.Color.White;
             this.CargarAsistencias.selected = false;
-            this.CargarAsistencias.Size = new System.Drawing.Size(241, 48);
+            this.CargarAsistencias.Size = new System.Drawing.Size(296, 48);
             this.CargarAsistencias.TabIndex = 12;
             this.CargarAsistencias.Text = "Cargar reporte de asistencias";
             this.CargarAsistencias.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -406,13 +407,13 @@
             this.CargarEgresos.IconVisible = false;
             this.CargarEgresos.IconZoom = 90D;
             this.CargarEgresos.IsTab = true;
-            this.CargarEgresos.Location = new System.Drawing.Point(43, 111);
+            this.CargarEgresos.Location = new System.Drawing.Point(18, 111);
             this.CargarEgresos.Name = "CargarEgresos";
             this.CargarEgresos.Normalcolor = System.Drawing.Color.Teal;
             this.CargarEgresos.OnHovercolor = System.Drawing.Color.LightSeaGreen;
             this.CargarEgresos.OnHoverTextColor = System.Drawing.Color.White;
             this.CargarEgresos.selected = false;
-            this.CargarEgresos.Size = new System.Drawing.Size(241, 48);
+            this.CargarEgresos.Size = new System.Drawing.Size(297, 48);
             this.CargarEgresos.TabIndex = 11;
             this.CargarEgresos.Text = "Cargar reporte de egresos";
             this.CargarEgresos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -441,13 +442,13 @@
             this.CargarTodosIngresos.IconVisible = false;
             this.CargarTodosIngresos.IconZoom = 90D;
             this.CargarTodosIngresos.IsTab = true;
-            this.CargarTodosIngresos.Location = new System.Drawing.Point(43, 61);
+            this.CargarTodosIngresos.Location = new System.Drawing.Point(19, 61);
             this.CargarTodosIngresos.Name = "CargarTodosIngresos";
             this.CargarTodosIngresos.Normalcolor = System.Drawing.Color.Teal;
             this.CargarTodosIngresos.OnHovercolor = System.Drawing.Color.LightSeaGreen;
             this.CargarTodosIngresos.OnHoverTextColor = System.Drawing.Color.White;
             this.CargarTodosIngresos.selected = false;
-            this.CargarTodosIngresos.Size = new System.Drawing.Size(241, 48);
+            this.CargarTodosIngresos.Size = new System.Drawing.Size(296, 48);
             this.CargarTodosIngresos.TabIndex = 10;
             this.CargarTodosIngresos.Text = "Cargar reporte de ingresos";
             this.CargarTodosIngresos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -492,11 +493,23 @@
             this.lblEstadisticas.TabIndex = 9;
             this.lblEstadisticas.Text = "Estadísticas";
             // 
+            // PreparandoDatos
+            // 
+            this.PreparandoDatos.AutoSize = true;
+            this.PreparandoDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.PreparandoDatos.ForeColor = System.Drawing.Color.White;
+            this.PreparandoDatos.Location = new System.Drawing.Point(831, 29);
+            this.PreparandoDatos.Name = "PreparandoDatos";
+            this.PreparandoDatos.Size = new System.Drawing.Size(444, 20);
+            this.PreparandoDatos.TabIndex = 12;
+            this.PreparandoDatos.Text = "Para mostrar un reporte, elija colegio, fechas y tipo de reporte.";
+            // 
             // Reportes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.Controls.Add(this.PreparandoDatos);
             this.Controls.Add(this.bunifuCards4);
             this.Controls.Add(this.bunifuCards3);
             this.Controls.Add(this.bunifuCards2);
@@ -515,6 +528,7 @@
             this.bunifuCards4.ResumeLayout(false);
             this.bunifuCards4.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -542,5 +556,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton CargarReporteMensualidades;
         private Bunifu.Framework.UI.BunifuFlatButton CargarAsistencias;
         private Bunifu.Framework.UI.BunifuFlatButton CargarEgresos;
+        private Bunifu.Framework.UI.BunifuCustomLabel PreparandoDatos;
     }
 }

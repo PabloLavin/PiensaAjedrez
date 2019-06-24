@@ -41,7 +41,14 @@ namespace PiensaAjedrez
             nuevoReporte.SetParameterValue("@ESCUELA", NombreEscuela);
             return nuevoReporte;
         }
-
+        public static Reporte.ReporteInscripcion CargarReporteInscripciones(string NombreEscuela)
+        {
+            Reporte.Datasets.DatosInscripcion datos = ConexionBD.ObtenerInscripciones(NombreEscuela);
+            Reporte.ReporteInscripcion nuevoReporte = new Reporte.ReporteInscripcion();
+            nuevoReporte.SetDataSource(datos);            
+            nuevoReporte.SetParameterValue("@ESCUELA", NombreEscuela);
+            return nuevoReporte;
+        }
 
     }
 }
