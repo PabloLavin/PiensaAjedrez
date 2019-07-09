@@ -63,6 +63,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Reporte\ReporteActividades.cs">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteActividades.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Datasets\DatosActividades.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatosActividades.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Datasets\DatosMensualidades.cs">
+      <DependentUpon>DatosMensualidades.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\Datasets\DatosMensualidades.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatosMensualidades.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\ReporteInscripcion.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -187,6 +206,12 @@
     <Compile Include="Pantallas\Reportes.Designer.cs">
       <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte\ReporteMensualidades.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteMensualidades.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Pantallas\Asistencia.resx">
       <DependentUpon>Asistencia.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +252,10 @@
     <EmbeddedResource Include="Pantallas\Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\ReporteActividades.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteActividades.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\ReporteInscripcion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteInscripcion.cs</LastGenOutput>
@@ -243,6 +272,32 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteIngresos.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\ReporteMensualidades.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteMensualidades.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Reporte\Datasets\DatosActividades.xsc">
+      <DependentUpon>DatosActividades.xsd</DependentUpon>
+    </None>
+    <None Include="Reporte\Datasets\DatosActividades.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatosActividades.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reporte\Datasets\DatosActividades.xss">
+      <DependentUpon>DatosActividades.xsd</DependentUpon>
+    </None>
+    <None Include="Reporte\Datasets\DatosMensualidades.xsc">
+      <DependentUpon>DatosMensualidades.xsd</DependentUpon>
+    </None>
+    <None Include="Reporte\Datasets\DatosMensualidades.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatosMensualidades.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reporte\Datasets\DatosMensualidades.xss">
+      <DependentUpon>DatosMensualidades.xsd</DependentUpon>
+    </None>
     <None Include="Reporte\Datasets\DatosInscripcion.xsc">
       <DependentUpon>DatosInscripcion.xsd</DependentUpon>
     </None>

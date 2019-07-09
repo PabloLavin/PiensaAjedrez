@@ -50,5 +50,24 @@ namespace PiensaAjedrez
             return nuevoReporte;
         }
 
+        public static Reporte.ReporteMensualidades CargarReporteMensualidades(string NombreEscuela)
+        {
+            Reporte.Datasets.DatosMensualidades datos = ConexionBD.ObtenerMensualidades(NombreEscuela);
+            Reporte.ReporteMensualidades nuevoReporte = new Reporte.ReporteMensualidades();
+            nuevoReporte.SetDataSource(datos);
+            nuevoReporte.SetParameterValue("@ESCUELA", NombreEscuela);
+            return nuevoReporte;
+        }
+
+        public static Reporte.ReporteActividades CargarReporteActividades(string NombreEscuela, DateTime fechaInicial, DateTime fechaFinal)
+        {
+            Reporte.Datasets.DatosActividades datos = ConexionBD.ObtenerActividades(NombreEscuela, fechaInicial, fechaFinal);
+            Reporte.ReporteActividades nuevoReporte = new Reporte.ReporteActividades();
+            nuevoReporte.SetDataSource(datos);
+            nuevoReporte.SetParameterValue("@INICIO", fechaInicial);
+            nuevoReporte.SetParameterValue("@FIN", fechaFinal);
+            nuevoReporte.SetParameterValue("@ESCUELA", NombreEscuela);
+            return nuevoReporte;
+        }
     }
 }
