@@ -79,7 +79,7 @@ namespace PiensaAjedrez
             mail.AlternateViews.Add(ObtenerImagenRecordatorio(System.IO.Directory.GetCurrentDirectory() + @"\PiensaAjedrezLogo.jpg", miAlumno));
             mail.From = new MailAddress(Usuario);
             mail.To.Add(miAlumno.Correo);
-            mail.Subject = "Piensa Ajedrez | Pago(s) atrasado(s)";
+            mail.Subject = "Piensa Ajedrez | Pago(s) Atrasado(s)";
             return mail;
         }
 

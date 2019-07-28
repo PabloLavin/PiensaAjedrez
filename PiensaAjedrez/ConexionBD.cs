@@ -13,8 +13,8 @@ namespace PiensaAjedrez
         public static SqlConnection ObtenerConexion()
         {
             //SqlConnection con = new SqlConnection(@"Data Source=LAVINW8; Initial Catalog = PIENSAJEDREZ; Server=LAVINW8\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
-            //SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
-            SqlConnection con = new SqlConnection(@"Data Source=ANCIRALAPTOP; Initial Catalog = PIENSAJEDREZ; Server=ANCIRALAPTOP\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
+            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
+            //SqlConnection con = new SqlConnection(@"Data Source=ANCIRALAPTOP; Initial Catalog = PIENSAJEDREZ; Server=ANCIRALAPTOP\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
             con.Open();
             return (con);
         }
@@ -479,7 +479,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO GASTO VALUES ((SELECT COUNT(*) + 1 FROM GASTO), '" + strRazon + "', " + dblMonto + ", '" + strNota + "', '" + strNombreEscuela + "','" + FormatearFecha(dtpFecha) + "', '"+strIDCurso+"')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO GASTO VALUES ((SELECT COUNT(*) + 1 FROM GASTO), '" + strRazon + "', " + dblMonto + ", '" + strNota + "', '" + strNombreEscuela + "','" + FormatearFecha(dtpFecha) + "', '"+strIDCurso+"','"+""+"')", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -489,7 +489,7 @@ namespace PiensaAjedrez
             double dblTotalMensualidades = 0;
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM GASTO", con);
+                SqlCommand comando = new SqlCommand("SELECT SUM(Monto)FROM GASTO WHERE Grupo = '"+""+"'", con);
                 SqlDataReader gastos = comando.ExecuteReader();
                 while (gastos.Read())
                 {
@@ -537,7 +537,7 @@ namespace PiensaAjedrez
             List<Gastos> listaPagos = new List<Gastos>();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT * FROM GASTO ORDER BY FECHAHORA DESC, MONTO DESC ", con);
+                SqlCommand comando = new SqlCommand("SELECT * FROM GASTO WHERE Grupo = '"+""+"' ORDER BY FECHAHORA DESC, MONTO DESC ", con);
                 SqlDataReader pagos = comando.ExecuteReader();
                 while (pagos.Read())
                     listaPagos.Add(new Gastos(pagos.GetString(1), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(3), pagos.GetDateTime(5), pagos.GetString(6)));
@@ -546,6 +546,15 @@ namespace PiensaAjedrez
 
         }
 
+        public static void ArchivarGastos(string strNombreGrupo)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+
+                SqlCommand comando = new SqlCommand("UPDATE GASTO SET Grupo = '"+strNombreGrupo+"' WHERE Grupo = '"+""+"'", con);
+                comando.ExecuteNonQuery();
+            }
+        }
         #region Asistencia
         public static void AgregarAsistencia(ClaseAsistencia unaAsistencia, string strNumeroControl, string strEscuela, bool blnAsistio)
         {

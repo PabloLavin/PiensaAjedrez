@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SerializacionLibreria;
+using PiensaAjedrez.Pantallas;
 
 namespace PiensaAjedrez
 {
@@ -920,7 +921,7 @@ namespace PiensaAjedrez
        public void NotificarRetardos(int intCaso)
         {
             if (intCaso == 0)
-                if (DateTime.Today.Day == 10|| DateTime.Today.Day == 20||EsUltimoDia() || DateTime.Today.Day == 17)
+                if (DateTime.Today.Day == 10|| DateTime.Today.Day == 20||EsUltimoDia() || DateTime.Today.Day == 26)
                 {
                     if (PreguntarRetardo("Retardos en pago", "¿Desea enviar un correo a todos los deudores?"))
                     {
@@ -956,7 +957,7 @@ namespace PiensaAjedrez
                 }
             if (intCaso == 1)
             {
-                if (DateTime.Today.Day == 10 || DateTime.Today.Day == 20 || EsUltimoDia() || DateTime.Today.Day == 17)
+                if (DateTime.Today.Day == 10 || DateTime.Today.Day == 20 || EsUltimoDia() || DateTime.Today.Day == 26)
                     if (DateTime.Now.TimeOfDay.Hours>=Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours && DateTime.Now.TimeOfDay.Minutes >= Recordatorios.dtmHoraRecordatorio.TimeOfDay.Minutes)
                     {
                         NotificarRetardos(0);
@@ -1058,6 +1059,11 @@ namespace PiensaAjedrez
                     Correo.EnviarCorreo(Correo.CrearRecordatorio(unAlumno));
             }
             }
+        }
+
+        private void BtnArchivar_Click(object sender, EventArgs e)
+        {
+            new ArchivarForma().ShowDialog();
         }
     }
 }

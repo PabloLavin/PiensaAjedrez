@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pantallas\ArchivarForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\ArchivarForma.Designer.cs">
+      <DependentUpon>ArchivarForma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\ReporteActividades.cs">
       <SubType>Component</SubType>
       <AutoGen>True</AutoGen>
@@ -212,6 +218,9 @@
       <DependentUpon>ReporteMensualidades.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="Pantallas\ArchivarForma.resx">
+      <DependentUpon>ArchivarForma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Asistencia.resx">
       <DependentUpon>Asistencia.cs</DependentUpon>
     </EmbeddedResource>
