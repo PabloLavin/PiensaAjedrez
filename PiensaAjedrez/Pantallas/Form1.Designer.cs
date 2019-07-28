@@ -45,6 +45,7 @@
             this.btnRegistrar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnMensualidades = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnPiensaAjedrezEstetico = new System.Windows.Forms.PictureBox();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnPiensaAjedrez)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPiensaAjedrezEstetico)).BeginInit();
@@ -367,6 +368,17 @@
             this.btnPiensaAjedrezEstetico.TabIndex = 3;
             this.btnPiensaAjedrezEstetico.TabStop = false;
             // 
+            // lblVersion
+            // 
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblVersion.ForeColor = System.Drawing.Color.Gray;
+            this.lblVersion.Location = new System.Drawing.Point(759, 8);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(80, 17);
+            this.lblVersion.TabIndex = 4;
+            this.lblVersion.Text = "Versión 1.1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,6 +386,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.PiensaAjedrez);
             this.Controls.Add(this.Cerrar);
             this.Controls.Add(this.panelMenu);
@@ -410,6 +423,7 @@
         private System.Windows.Forms.PictureBox btnPiensaAjedrez;
         private System.Windows.Forms.PictureBox btnPiensaAjedrezEstetico;
         private Bunifu.Framework.UI.BunifuFlatButton btnAsistencia;
+        private System.Windows.Forms.Label lblVersion;
     }
 }
 

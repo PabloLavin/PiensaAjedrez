@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PiensaAjedrez
-{
+{-
     public partial class Form1 : Form
     {
         public Form1()
@@ -104,6 +104,5 @@ namespace PiensaAjedrez
             blnAceptar = unaForma.Aceptar();
             return blnAceptar;
         }
-
     }
 }
