@@ -717,7 +717,7 @@ namespace PiensaAjedrez
                 {
                     if (Preguntar("Confirmar gasto", "Confirmar gasto:\nRazón: " + cbGastos.selectedValue.ToString() + "\nMonto: " + double.Parse(txtMontoAdicional.Text).ToString("c") +"\nFecha: " + bnfdtpFechaGasto.Value + "\nNota: " + txtMotivo.Text))
                     {
-                        ConexionBD.RegistrarGasto(cbGastos.selectedValue.ToString(), double.Parse(txtMontoAdicional.Text), txtMotivo.Text, cbEscuelas.selectedValue.ToString(), bnfdtpFechaGasto.Value, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue.ToString()).Clave);
+                        ConexionBD.RegistrarGasto(cbGastos.selectedValue.ToString(), double.Parse(txtMontoAdicional.Text), txtMotivo.Text, bnfdtpFechaGasto.Value);
                         unaForma.Mostrar("Registro de gasto", "Gasto registrado con éxito.",5,this);
                     }
                 }
