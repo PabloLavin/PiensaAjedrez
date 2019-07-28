@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SerializacionLibreria;
+using PiensaAjedrez.Pantallas;
 
 namespace PiensaAjedrez
 {
@@ -1058,6 +1059,11 @@ namespace PiensaAjedrez
                     Correo.EnviarCorreo(Correo.CrearRecordatorio(unAlumno));
             }
             }
+        }
+
+        private void BtnArchivar_Click(object sender, EventArgs e)
+        {
+            new ArchivarForma().ShowDialog();
         }
     }
 }
