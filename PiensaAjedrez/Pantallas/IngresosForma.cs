@@ -32,19 +32,37 @@ namespace PiensaAjedrez
 
         void CargarDGV(Escuela unaEscuela)
         {
-            unaEscuela.CursoActivo = ConexionBD.CargarCursoActivo(unaEscuela.Nombre);
-            dgvIngresos.Columns.Clear();
-            dgvIngresos.Rows.Clear();
-            dgvIngresos.Columns.Add("Mes","Mes");
-            dgvIngresos.Columns.Add("Inscripción", "Inscripción");
-            if (unaEscuela.CursoActivo.listaActividades.Count > 0)
-                dgvIngresos.Columns.Add("Actividad", "Actividad");
-            dgvIngresos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            try
+            {
+                unaEscuela.CursoActivo = ConexionBD.CargarCursoActivo(unaEscuela.Nombre);
+                dgvIngresos.Columns.Clear();
+                dgvIngresos.Rows.Clear();
+                dgvIngresos.Columns.Add("Alumno", "Alumno");
+                dgvIngresos.Columns.Add("Razon", "Razon");
+                dgvIngresos.Columns.Add("Monto", "Monto");
+                dgvIngresos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                RellenarDGV(unaEscuela);
+            }
+            catch (Exception)
+            {
+                new FormMensaje().Mostrar("Error", "Ocurrió un error, revise que la escuela tenga un curso actualmente.",1,new Mensualidades());
+            }
+           
 
         }
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        void RellenarDGV(Escuela unaEscuela)
+        {
+            foreach (Alumno unAlumno in ConexionBD.CargarAlumnos(unaEscuela.Nombre))
+            {
+            foreach (Pagos unPago in ConexionBD.CargarPagosAlumno(unAlumno.NumeroDeControl))
+            {
+                    dgvIngresos.Rows.Add(unAlumno.NumeroDeControl, unPago.MesPagado, unPago.Monto.ToString("C"));
+            }
+            }
         }
 
         private void CbEscuelas_onItemSelected(object sender, EventArgs e)
