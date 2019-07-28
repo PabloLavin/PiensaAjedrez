@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PiensaAjedrez.Pantallas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace PiensaAjedrez
         public Form1()
         {
             InitializeComponent();
+            new Login().ShowDialog();
             btnMensualidades.selected = true;
             ReemplazarPantalla(new Mensualidades());
         }
