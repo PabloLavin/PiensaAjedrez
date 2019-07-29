@@ -643,5 +643,34 @@ namespace PiensaAjedrez
         }
 
         #endregion
+
+        #region RegistroUsuario
+
+        public static void RegistrarUsuario(string strUsuario, string strPassword)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("INSERT INTO USUARIO VALUES ('"+strUsuario+"','"+strPassword+"')", con);
+                comando.ExecuteNonQuery();
+            }
+        }
+
+        public static bool IniciarSesion(string strUsuario, string strPassword)
+        {
+            bool blnIniciar = false;
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM USUARIO", con);
+                SqlDataReader Usuarios = comando.ExecuteReader();
+                while (Usuarios.Read())
+                {
+                    if (strUsuario == Usuarios.GetString(0) && strPassword == Usuarios.GetString(1))
+                        blnIniciar = true;
+                }
+            }
+            return blnIniciar;
+        }
+
+        #endregion
     }
 }

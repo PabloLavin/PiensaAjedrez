@@ -58,7 +58,6 @@
             this.txtUsuario.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtUsuario.Location = new System.Drawing.Point(258, 244);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.ReadOnly = true;
             this.txtUsuario.Size = new System.Drawing.Size(264, 26);
             this.txtUsuario.TabIndex = 49;
             this.txtUsuario.TabStop = false;
@@ -131,6 +130,7 @@
             this.btnIniciarSesion.Size = new System.Drawing.Size(143, 51);
             this.btnIniciarSesion.TabIndex = 53;
             this.btnIniciarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnIniciarSesion.Click += new System.EventHandler(this.BtnIniciarSesion_Click);
             // 
             // btnRegistrar
             // 
@@ -156,6 +156,7 @@
             this.btnRegistrar.Size = new System.Drawing.Size(256, 32);
             this.btnRegistrar.TabIndex = 54;
             this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnRegistrar.Click += new System.EventHandler(this.BtnRegistrar_Click);
             // 
             // Login
             // 

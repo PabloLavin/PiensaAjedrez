@@ -33,6 +33,7 @@ namespace PiensaAjedrez.Pantallas
             txtUsuario.Enabled = true;
             txtUsuario.Enabled = true;
             txtUsuario.Clear();
+            txtUsuario.ForeColor = Color.Black;
             
         }
 
@@ -72,6 +73,27 @@ namespace PiensaAjedrez.Pantallas
         {
             txtPassword.Enabled = true;
             txtPassword.Clear();
+        }
+
+        private void BtnRegistrar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Registro().ShowDialog();
+        }
+
+        private void BtnIniciarSesion_Click(object sender, EventArgs e)
+        {
+            if (ConexionBD.IniciarSesion(txtUsuario.Text,Encrypt.EncryptString(txtPassword.Text)))
+            {
+                this.Hide();
+                new FormMensaje().Mostrar("Inicio de Sesión", "¡Bienvenido! Has iniciado sesón correctamente.",5,new Mensualidades());
+                this.Close();
+            }
+            else
+            {
+                new FormMensaje().Mostrar("Error","El usuario y/o contraseña son incorrectas. Inténtalo de nuevo.",1,new Mensualidades());
+                txtUsuario.Focus();
+            }
         }
     }
 }
