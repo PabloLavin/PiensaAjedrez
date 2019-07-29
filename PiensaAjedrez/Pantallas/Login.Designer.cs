@@ -47,7 +47,7 @@
             this.btnLogo.Location = new System.Drawing.Point(148, 12);
             this.btnLogo.Name = "btnLogo";
             this.btnLogo.Size = new System.Drawing.Size(495, 197);
-            this.btnLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnLogo.TabIndex = 48;
             this.btnLogo.TabStop = false;
             this.btnLogo.Zoom = 10;
