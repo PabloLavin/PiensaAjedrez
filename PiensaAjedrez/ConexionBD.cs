@@ -479,7 +479,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO GASTO VALUES ((SELECT COUNT(*) + 1 FROM GASTO), '" + strRazon + "', " + dblMonto + ", '" + strNota + "','" + FormatearFecha(dtpFecha) + "')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO GASTO VALUES ((SELECT COUNT(*) + 1 FROM GASTO), '" + strRazon + "', " + dblMonto + ", '" + strNota + "','" + FormatearFecha(dtpFecha) + "',NULL,NULL,'')", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -540,7 +540,7 @@ namespace PiensaAjedrez
                 SqlCommand comando = new SqlCommand("SELECT * FROM GASTO WHERE Grupo = '"+""+"' ORDER BY FECHAHORA DESC, MONTO DESC ", con);
                 SqlDataReader pagos = comando.ExecuteReader();
                 while (pagos.Read())
-                    listaPagos.Add(new Gastos(pagos.GetString(1), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(3), pagos.GetDateTime(5), pagos.GetString(6)));
+                    listaPagos.Add(new Gastos(pagos.GetString(1), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(3), pagos.GetDateTime(4), ""));
             }
             return listaPagos;
 

@@ -1055,15 +1055,19 @@ namespace PiensaAjedrez
             foreach (Escuela escuela in ConexionBD.CargarEscuelas())
             {
             foreach (Alumno unAlumno in ConexionBD.CargarDeudores(ConexionBD.CargarCursoActivo(escuela.Nombre).Clave))
-            {
-                    Correo.EnviarCorreo(Correo.CrearRecordatorio(unAlumno));
-            }
+                Correo.EnviarCorreo(Correo.CrearRecordatorio(unAlumno));            
             }
         }
 
         private void BtnArchivar_Click(object sender, EventArgs e)
         {
             new ArchivarForma().ShowDialog();
+            LlenarDGV(new Escuela(cbEscuelas.selectedValue));
+        }
+
+        private void Mensualidades_Enter(object sender, EventArgs e)
+        {
+            LlenarDGV(new Escuela(cbEscuelas.selectedValue));
         }
     }
 }
