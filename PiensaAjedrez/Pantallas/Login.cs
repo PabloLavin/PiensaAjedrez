@@ -59,7 +59,14 @@ namespace PiensaAjedrez.Pantallas
             
             txtPassword.Enabled = true;
             txtUsuario.ForeColor = Color.Gray;
-           
+            cbCorreos.Clear();
+            foreach (string correo in ConexionBD.CargarCorreos())
+            {
+                cbCorreos.AddItem(correo);
+                cbCorreos.selectedIndex = 0;
+            }
+            if(cbCorreos.selectedIndex==-1)
+                IniciarCBCorreos();
             
         }
 
@@ -83,17 +90,66 @@ namespace PiensaAjedrez.Pantallas
 
         private void BtnIniciarSesion_Click(object sender, EventArgs e)
         {
-            if (ConexionBD.IniciarSesion(txtUsuario.Text,Encrypt.EncryptString(txtPassword.Text)))
+            if (cbCorreos.selectedIndex == -1)
+                IniciarCBCorreos();
+            bool blnIniciarSesion = true;
+            if (cbCorreos.selectedValue == "Registre un correo" || cbCorreos.selectedValue=="")
             {
-                this.Hide();
-                new FormMensaje().Mostrar("Inicio de Sesión", "¡Bienvenido! Has iniciado sesón correctamente.",5,new Mensualidades());
-                this.Close();
+                blnIniciarSesion = false;
+                if (Preguntar("Advertencia","No ha elegido ninguna cuenta de correo. Tenga en cuenta que podrá registrar los pagos pero no se enviarán los correos de confirmación. ¿Desea continuar?"))
+                {
+                    blnIniciarSesion = true;
+                }
             }
-            else
+            if (blnIniciarSesion)
             {
-                new FormMensaje().Mostrar("Error","El usuario y/o contraseña son incorrectas. Inténtalo de nuevo.",1,new Mensualidades());
-                txtUsuario.Focus();
+                if (ConexionBD.IniciarSesion(txtUsuario.Text, Encrypt.EncryptString(txtPassword.Text)))
+                {
+                    this.Hide();
+                    if(cbCorreos.selectedValue!= "Registre un correo" && cbCorreos.selectedIndex>=0)
+                    {
+                        string[] cuenta = ConexionBD.CargarCorreos(cbCorreos.selectedValue);
+                        Correo.Usuario = cuenta[0];
+                        Correo.Contrasena = Encrypt.DecryptString(cuenta[1]);
+                    }
+                   
+                    new FormMensaje().Mostrar("Inicio de Sesión", "¡Bienvenido! Has iniciado sesón correctamente.", 5, new Mensualidades());
+                    this.Close();
+                }
+                else
+                {
+                    new FormMensaje().Mostrar("Error", "El usuario y/o contraseña son incorrectas. Inténtalo de nuevo.", 1, new Mensualidades());
+                    txtUsuario.Focus();
+                }
             }
+        }
+
+        private void CbCorreos_Enter(object sender, EventArgs e)
+        {
+            if(cbCorreos.Items.Length<0||cbCorreos.selectedValue== "Registre un correo")
+                cbCorreos.Clear();
+        }
+
+        void IniciarCBCorreos()
+        {
+            cbCorreos.Clear();
+            cbCorreos.AddItem("Registre un correo");
+            cbCorreos.selectedIndex = 0;
+            btnIniciarSesion.Focus();
+        }
+        private void CbCorreos_Leave(object sender, EventArgs e)
+        {
+            if (cbCorreos.Items.Length <= 0)
+                IniciarCBCorreos();
+        }
+
+        bool Preguntar(string strEncabezado, string strMensaje)
+        {
+            FormMensaje unaForma = new FormMensaje();
+            bool blnAceptarPago = false;
+            unaForma.Mostrar(strEncabezado, strMensaje, 3, new Mensualidades());
+            blnAceptarPago = unaForma.Aceptar();
+            return blnAceptarPago;
         }
     }
 }

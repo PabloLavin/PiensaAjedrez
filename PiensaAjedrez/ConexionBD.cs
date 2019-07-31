@@ -664,13 +664,53 @@ namespace PiensaAjedrez
                 SqlDataReader Usuarios = comando.ExecuteReader();
                 while (Usuarios.Read())
                 {
-                    if (strUsuario == Usuarios.GetString(0) && strPassword == Usuarios.GetString(1))
+                    if (strUsuario.ToLower() == Usuarios.GetString(0).ToLower() && strPassword == Usuarios.GetString(1))
                         blnIniciar = true;
                 }
             }
             return blnIniciar;
         }
 
+
+        public static void RegistrarCorreo(string strUsuario, string strPassword)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("INSERT INTO CORREO VALUES ('" + strUsuario + "','" + strPassword + "')", con);
+                comando.ExecuteNonQuery();
+            }
+        }
+
+        public static List<string> CargarCorreos()
+        {
+            List<string> listaCorreos = new List<string>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM CORREO", con);
+                SqlDataReader Correos = comando.ExecuteReader();
+                while (Correos.Read())
+                {
+                    listaCorreos.Add(Correos.GetString(0));
+                }
+            }
+            return listaCorreos;
+        }
+
+        public static string[] CargarCorreos(string strCorreo)
+        {
+            string[] CuentaCorreo = new string[2];
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM CORREO WHERE Cuenta = '"+strCorreo+"'", con);
+                SqlDataReader Correos = comando.ExecuteReader();
+                while (Correos.Read())
+                {
+                    CuentaCorreo[0]=Correos.GetString(0);
+                    CuentaCorreo[1]=Correos.GetString(1);
+                }
+            }
+            return CuentaCorreo;
+        }
         #endregion
     }
 }

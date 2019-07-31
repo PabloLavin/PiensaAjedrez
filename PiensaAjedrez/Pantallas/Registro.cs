@@ -22,13 +22,14 @@ namespace PiensaAjedrez.Pantallas
         {
         }
 
-        private void BtnSalir_Click(object sender, EventArgs e)
+      
+        private void BtnSalir_Click_1(object sender, EventArgs e)
         {
             this.Close();
             new Login().ShowDialog();
         }
 
-        private void BtnRegistrar_Click(object sender, EventArgs e)
+        private void BtnRegistrar_Click_1(object sender, EventArgs e)
         {
             if (txtNombreUsuario.Text != "" && txtContrasena.Text != "" && txtContrasenaConfirmar.Text != "")
             {
@@ -41,18 +42,52 @@ namespace PiensaAjedrez.Pantallas
                 }
                 else
                 {
-                    new FormMensaje().Mostrar("Error","Las contraseñas introducidas no coinciden. Vuelve a intentarlo.",1,new Mensualidades());
+                    new FormMensaje().Mostrar("Error", "Las contraseñas introducidas no coinciden. Vuelve a intentarlo.", 1, new Mensualidades());
                     txtContrasenaConfirmar.Clear();
                     txtContrasena.Focus();
                 }
             }
             else
-                new FormMensaje().Mostrar("Error", "No deje campos vacíos.",1, new Mensualidades());
+                new FormMensaje().Mostrar("Error", "No deje campos vacíos.", 1, new Mensualidades());
         }
 
-        private void GroupBox1_Enter(object sender, EventArgs e)
-        {
+       
 
+        private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tabControl1.SelectedIndex==0)
+                lblTopico.Text = "Registro de Usuario";
+            if(tabControl1.SelectedIndex==1)
+                lblTopico.Text = "Registro de Correo";
+
+        }
+
+        private void BunifuThinButton22_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new Login().ShowDialog();
+        }
+
+        private void BtnRegistrarCorreo_Click(object sender, EventArgs e)
+        {
+            if (txtCorreoCuenta.Text != "" && txtPassCuenta.Text != "" && txtConfirmarPassCuenta.Text != "")
+            {
+                if (txtPassCuenta.Text.Equals(txtConfirmarPassCuenta.Text))
+                {
+                    ConexionBD.RegistrarCorreo(txtCorreoCuenta.Text, Encrypt.EncryptString(txtConfirmarPassCuenta.Text));
+                    this.Hide();
+                    new FormMensaje().Mostrar("Registro Completado", "¡Has registrado una cuenta de correo correctamente!", 5, new Mensualidades());
+                    new Login().ShowDialog();
+                }
+                else
+                {
+                    new FormMensaje().Mostrar("Error", "Las contraseñas introducidas no coinciden. Vuelve a intentarlo.", 1, new Mensualidades());
+                    txtContrasenaConfirmar.Clear();
+                    txtContrasena.Focus();
+                }
+            }
+            else
+                new FormMensaje().Mostrar("Error", "No deje campos vacíos.", 1, new Mensualidades());
         }
     }
 }

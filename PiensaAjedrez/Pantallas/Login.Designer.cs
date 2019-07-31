@@ -35,6 +35,7 @@
             this.btnSalir = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnIniciarSesion = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnRegistrar = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.cbCorreos = new Bunifu.Framework.UI.BunifuDropdown();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -158,12 +159,31 @@
             this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnRegistrar.Click += new System.EventHandler(this.BtnRegistrar_Click);
             // 
+            // cbCorreos
+            // 
+            this.cbCorreos.BackColor = System.Drawing.Color.Transparent;
+            this.cbCorreos.BorderRadius = 3;
+            this.cbCorreos.DisabledColor = System.Drawing.Color.Gray;
+            this.cbCorreos.ForeColor = System.Drawing.Color.White;
+            this.cbCorreos.Items = new string[] {
+        ""};
+            this.cbCorreos.Location = new System.Drawing.Point(561, 12);
+            this.cbCorreos.Name = "cbCorreos";
+            this.cbCorreos.NomalColor = System.Drawing.Color.Teal;
+            this.cbCorreos.onHoverColor = System.Drawing.Color.DarkSlateGray;
+            this.cbCorreos.selectedIndex = -1;
+            this.cbCorreos.Size = new System.Drawing.Size(227, 35);
+            this.cbCorreos.TabIndex = 55;
+            this.cbCorreos.Enter += new System.EventHandler(this.CbCorreos_Enter);
+            this.cbCorreos.Leave += new System.EventHandler(this.CbCorreos_Leave);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbCorreos);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.btnIniciarSesion);
             this.Controls.Add(this.btnSalir);
@@ -190,5 +210,6 @@
         private Bunifu.Framework.UI.BunifuThinButton2 btnSalir;
         private Bunifu.Framework.UI.BunifuThinButton2 btnIniciarSesion;
         private Bunifu.Framework.UI.BunifuThinButton2 btnRegistrar;
+        private Bunifu.Framework.UI.BunifuDropdown cbCorreos;
     }
 }
