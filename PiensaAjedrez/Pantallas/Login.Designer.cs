@@ -174,8 +174,7 @@
             this.cbCorreos.selectedIndex = -1;
             this.cbCorreos.Size = new System.Drawing.Size(227, 35);
             this.cbCorreos.TabIndex = 55;
-            this.cbCorreos.Enter += new System.EventHandler(this.CbCorreos_Enter);
-            this.cbCorreos.Leave += new System.EventHandler(this.CbCorreos_Leave);
+    
             // 
             // Login
             // 

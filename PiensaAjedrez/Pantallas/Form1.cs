@@ -59,8 +59,11 @@ namespace PiensaAjedrez
 
         private void btnDesconectar_Click(object sender, EventArgs e)
         {
-            if(Preguntar("Salir", "¿Desea cerrar la conexión y salir del sistema de Piensa Ajedrez?"))            
-                Application.Exit();            
+            if (Preguntar("Salir", "¿Desea cerrar la sesión?"))
+            {
+                this.Hide();
+                new Login().ShowDialog();
+            }
         }
 
         private void ReemplazarPantalla(UserControl unUserControl)

@@ -12,8 +12,8 @@ namespace PiensaAjedrez
     {
         public static SqlConnection ObtenerConexion()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=LAVINW8; Initial Catalog = PIENSAJEDREZ; Server=LAVINW8\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");            
-            //SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
+            //SqlConnection con = new SqlConnection(@"Data Source=LAVINW8; Initial Catalog = PIENSAJEDREZ; Server=LAVINW8\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
+            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
             //SqlConnection con = new SqlConnection(@"Data Source=ANCIRALAPTOP; Initial Catalog = PIENSAJEDREZ; Server=ANCIRALAPTOP\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
             con.Open();
             return (con);
@@ -21,8 +21,8 @@ namespace PiensaAjedrez
 
         public static string FormatearFecha(DateTime unaFecha)
         {
-            return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month;//Formato de Pablo
-            //return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day;   //Formato de los AEWWEYES
+            //return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month;//Formato de Pablo
+            return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day;   //Formato de los AEWWEYES
         }
 
         public static Reporte.Datasets.DatosIngresos ObtenerIngresosGlobales(string NombreEscuela, DateTime fechaInicial, DateTime fechaFinal)
