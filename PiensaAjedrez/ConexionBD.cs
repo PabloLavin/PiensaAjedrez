@@ -39,12 +39,12 @@ namespace PiensaAjedrez
             return datos;
         }
 
-        public static Reporte.Datasets.DatosEgresos ObtenerEgresos(DateTime fechaInicial, DateTime fechaFinal)
+        public static Reporte.Datasets.DatosEgresos ObtenerEgresos(string strGrupo)
         {
             Reporte.Datasets.DatosEgresos datosEgresos = new Reporte.Datasets.DatosEgresos();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("EXEC EGRESOS '" + FormatearFecha(fechaInicial) + "', '" + FormatearFecha(fechaFinal) + "'", con);
+                SqlCommand comando = new SqlCommand("EXEC EGRESOS '" + strGrupo+ "'", con);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(datosEgresos);
@@ -285,6 +285,21 @@ namespace PiensaAjedrez
                 }
             }
             return listaCursos;
+        }
+
+        public static List<string> CargarGruposGastos()
+        {
+            List<string> listaGrupos = new List<string>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT Grupo FROM GASTO GROUP BY Grupo ORDER BY MIN(FechaHora) ASC", con);
+                SqlDataReader grupo = comando.ExecuteReader();
+                while (grupo.Read())
+                {                   
+                    listaGrupos.Add(grupo.GetString(0));
+                }
+            }
+            return listaGrupos;
         }
 
         public static List<string> CargarActividades(string IDCurso)

@@ -289,6 +289,8 @@ namespace PiensaAjedrez.Reporte.Datasets {
             
             private global::System.Data.DataColumn columnFecha;
             
+            private global::System.Data.DataColumn columnGrupo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public EgresosDataTable() {
@@ -364,6 +366,14 @@ namespace PiensaAjedrez.Reporte.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GrupoColumn {
+                get {
+                    return this.columnGrupo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -399,14 +409,15 @@ namespace PiensaAjedrez.Reporte.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public EgresosRow AddEgresosRow(string GastoID, string Razon, double Monto, string Nota, System.DateTime Fecha) {
+            public EgresosRow AddEgresosRow(string GastoID, string Razon, double Monto, string Nota, System.DateTime Fecha, string Grupo) {
                 EgresosRow rowEgresosRow = ((EgresosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         GastoID,
                         Razon,
                         Monto,
                         Nota,
-                        Fecha};
+                        Fecha,
+                        Grupo};
                 rowEgresosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEgresosRow);
                 return rowEgresosRow;
@@ -434,6 +445,7 @@ namespace PiensaAjedrez.Reporte.Datasets {
                 this.columnMonto = base.Columns["Monto"];
                 this.columnNota = base.Columns["Nota"];
                 this.columnFecha = base.Columns["Fecha"];
+                this.columnGrupo = base.Columns["Grupo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -449,6 +461,8 @@ namespace PiensaAjedrez.Reporte.Datasets {
                 base.Columns.Add(this.columnNota);
                 this.columnFecha = new global::System.Data.DataColumn("Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFecha);
+                this.columnGrupo = new global::System.Data.DataColumn("Grupo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGrupo);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -671,6 +685,22 @@ namespace PiensaAjedrez.Reporte.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Grupo {
+                get {
+                    try {
+                        return ((string)(this[this.tableEgresos.GrupoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Grupo\' de la tabla \'Egresos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEgresos.GrupoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsGastoIDNull() {
                 return this.IsNull(this.tableEgresos.GastoIDColumn);
             }
@@ -727,6 +757,18 @@ namespace PiensaAjedrez.Reporte.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFechaNull() {
                 this[this.tableEgresos.FechaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGrupoNull() {
+                return this.IsNull(this.tableEgresos.GrupoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGrupoNull() {
+                this[this.tableEgresos.GrupoColumn] = global::System.Convert.DBNull;
             }
         }
         

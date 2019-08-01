@@ -688,8 +688,6 @@ namespace PiensaAjedrez
                 Correo.EnviarCorreo(Correo.CrearCorreo(miAlumno, miPago, intCaso));
                 miPago.Notificado = true;
                 ConexionBD.ConfirmarEnvioCorreo(miPago);
-                  
-               
             }
             catch (Exception)
             {

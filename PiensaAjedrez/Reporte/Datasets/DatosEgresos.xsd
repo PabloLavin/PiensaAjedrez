@@ -12,7 +12,7 @@
   <xs:element name="DatosEgresos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DatosEgresos" msprop:Generator_UserDSName="DatosEgresos">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Egresos" msprop:Generator_TableClassName="EgresosDataTable" msprop:Generator_TableVarName="tableEgresos" msprop:Generator_TablePropName="Egresos" msprop:Generator_RowDeletingName="EgresosRowDeleting" msprop:Generator_RowChangingName="EgresosRowChanging" msprop:Generator_RowEvHandlerName="EgresosRowChangeEventHandler" msprop:Generator_RowDeletedName="EgresosRowDeleted" msprop:Generator_UserTableName="Egresos" msprop:Generator_RowChangedName="EgresosRowChanged" msprop:Generator_RowEvArgName="EgresosRowChangeEvent" msprop:Generator_RowClassName="EgresosRow">
+        <xs:element name="Egresos" msprop:Generator_TableClassName="EgresosDataTable" msprop:Generator_TableVarName="tableEgresos" msprop:Generator_RowChangedName="EgresosRowChanged" msprop:Generator_TablePropName="Egresos" msprop:Generator_RowDeletingName="EgresosRowDeleting" msprop:Generator_RowChangingName="EgresosRowChanging" msprop:Generator_RowEvHandlerName="EgresosRowChangeEventHandler" msprop:Generator_RowDeletedName="EgresosRowDeleted" msprop:Generator_RowClassName="EgresosRow" msprop:Generator_UserTableName="Egresos" msprop:Generator_RowEvArgName="EgresosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="GastoID" msprop:Generator_ColumnVarNameInTable="columnGastoID" msprop:Generator_ColumnPropNameInRow="GastoID" msprop:Generator_ColumnPropNameInTable="GastoIDColumn" msprop:Generator_UserColumnName="GastoID" type="xs:string" minOccurs="0" />
@@ -20,6 +20,7 @@
               <xs:element name="Monto" msprop:Generator_ColumnVarNameInTable="columnMonto" msprop:Generator_ColumnPropNameInRow="Monto" msprop:Generator_ColumnPropNameInTable="MontoColumn" msprop:Generator_UserColumnName="Monto" type="xs:double" minOccurs="0" />
               <xs:element name="Nota" msprop:Generator_ColumnVarNameInTable="columnNota" msprop:Generator_ColumnPropNameInRow="Nota" msprop:Generator_ColumnPropNameInTable="NotaColumn" msprop:Generator_UserColumnName="Nota" type="xs:string" minOccurs="0" />
               <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Grupo" msprop:Generator_ColumnVarNameInTable="columnGrupo" msprop:Generator_ColumnPropNameInRow="Grupo" msprop:Generator_ColumnPropNameInTable="GrupoColumn" msprop:Generator_UserColumnName="Grupo" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

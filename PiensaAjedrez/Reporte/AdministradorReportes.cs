@@ -21,13 +21,12 @@ namespace PiensaAjedrez
             return nuevoReporte;
         }
 
-        public static Reporte.ReporteEgresos CargarReporteEgresos(DateTime fechaInicial, DateTime fechaFinal)
+        public static Reporte.ReporteEgresos CargarReporteEgresos(string strGrupo)
         {
-            Reporte.Datasets.DatosEgresos datos = ConexionBD.ObtenerEgresos(fechaInicial, fechaFinal);
+            Reporte.Datasets.DatosEgresos datos = ConexionBD.ObtenerEgresos(strGrupo);
             Reporte.ReporteEgresos nuevoReporte = new Reporte.ReporteEgresos();
             nuevoReporte.SetDataSource(datos);
-            nuevoReporte.SetParameterValue("@INICIO", fechaInicial);
-            nuevoReporte.SetParameterValue("@FIN", fechaFinal);            
+            nuevoReporte.SetParameterValue("@GRUPO", strGrupo);            
             return nuevoReporte;
         }
 

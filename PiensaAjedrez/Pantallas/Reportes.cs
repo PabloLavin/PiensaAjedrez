@@ -15,6 +15,7 @@ namespace PiensaAjedrez
         public Reportes()
         {
             InitializeComponent();
+            CargarListaCursos();
         }
       
         private void cbEscuelas_Load(object sender, EventArgs e)
@@ -26,16 +27,20 @@ namespace PiensaAjedrez
             if (ConexionBD.CargarEscuelas().Count > 0)
                 cbEscuelas.selectedIndex = 0;
         }
-
-        private void FechaInicio_Load(object sender, EventArgs e)
+        
+        private void CargarListaCursos()
         {
-            FechaInicio.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            /*            
+            if (ConexionBD.CargarEscuelas().Count > 0)
+                foreach (Cursos unCurso in ConexionBD.CargarCursos(cbEscuelas.selectedValue))
+                {
+                    cboCursos.AddItem(unCurso.Clave + " - " + unCurso.InicioCursos.ToShortDateString() + " - " + unCurso.FinCurso.ToShortDateString());
+                }
+                if (ConexionBD.CargarCursos(cbEscuelas.selectedValue).Count > 0)
+                    cboCursos.selectedIndex = 0;            
+           */
         }
 
-        private void FechaFinal_Load(object sender, EventArgs e)
-        {
-            FechaFinal.Value = DateTime.Now.AddDays(1);
-        }
 
         private void CargarReporte(CrystalDecisions.CrystalReports.Engine.ReportClass unReporte)
         {                       
@@ -48,12 +53,12 @@ namespace PiensaAjedrez
             PreparandoDatos.Text = "Preparando datos...";
             try
             {
-                CargarReporte(AdministradorReportes.CargarReporteIngresos(FechaInicio.Value, FechaFinal.Value, cbEscuelas.selectedValue));
+                //CargarReporte(AdministradorReportes.CargarReporteIngresos(FechaInicio.Value, FechaFinal.Value, cbEscuelas.selectedValue));
             }
             catch (Exception)
             {
                 FormMensaje unaForma = new FormMensaje();
-                unaForma.Mostrar("Error de generación de reporte", "Verifique el colegio y el intervalo de fecha seleccionado. Si el error sigue, comuníquese con los desarrolladores.", 1, this);
+                unaForma.Mostrar("Error de generación de reporte", "Verifique los datos seleccionados. Si el error sigue, comuníquese con los desarrolladores.", 1, this);
             }            
         }
         
@@ -62,12 +67,12 @@ namespace PiensaAjedrez
             PreparandoDatos.Text = "Preparando datos...";
             try
             {
-                CargarReporte(AdministradorReportes.CargarReporteEgresos(FechaInicio.Value, FechaFinal.Value));
+                CargarReporte(AdministradorReportes.CargarReporteEgresos(cboGrupoGastos.selectedValue));
             }
             catch (Exception)
             {
                 FormMensaje unaForma = new FormMensaje();
-                unaForma.Mostrar("Error de generación de reporte", "Verifique el intervalo de fecha seleccionado. Si el error sigue, comuníquese con los desarrolladores.", 1, this);
+                unaForma.Mostrar("Error de generación de reporte", "Verifique los datos seleccionados. Si el error sigue, comuníquese con los desarrolladores.", 1, this);
             }
         }
 
@@ -76,12 +81,12 @@ namespace PiensaAjedrez
             PreparandoDatos.Text = "Preparando datos...";
             try
             {
-                CargarReporte(AdministradorReportes.CargarReporteAsistencias(cbEscuelas.selectedValue, FechaInicio.Value, FechaFinal.Value));
+                //CargarReporte(AdministradorReportes.CargarReporteAsistencias(cbEscuelas.selectedValue, FechaInicio.Value, FechaFinal.Value));
             }
             catch (Exception)
             {
                 FormMensaje unaForma = new FormMensaje();
-                unaForma.Mostrar("Error de generación de reporte", "Verifique el colegio y el intervalo de fecha seleccionado. Si el error sigue, comuníquese con los desarrolladores.", 1, this);
+                unaForma.Mostrar("Error de generación de reporte", "Verifique los datos seleccionados. Si el error sigue, comuníquese con los desarrolladores.", 1, this);
             }            
         }
 
@@ -90,12 +95,12 @@ namespace PiensaAjedrez
             PreparandoDatos.Text = "Preparando datos...";
             try
             {
-                CargarReporte(AdministradorReportes.CargarReporteInscripciones(cbEscuelas.selectedValue));
+                //CargarReporte(AdministradorReportes.CargarReporteInscripciones(cbEscuelas.selectedValue));
             }
             catch (Exception)
             {
                 FormMensaje unaForma = new FormMensaje();
-                unaForma.Mostrar("Error de generación de reporte", "Verifique el colegio seleccionado. Si el error sigue, comuníquese con los desarrolladores.", 1, this);
+                unaForma.Mostrar("Error de generación de reporte", "Verifique los datos seleccionados. Si el error sigue, comuníquese con los desarrolladores.", 1, this);
             }            
         }
 
@@ -109,7 +114,7 @@ namespace PiensaAjedrez
             catch (Exception)
             {
                 FormMensaje unaForma = new FormMensaje();
-                unaForma.Mostrar("Error de generación de reporte", "Verifique el colegio seleccionado. Si el error sigue, comuníquese con los desarrolladores.", 1, this);
+                unaForma.Mostrar("Error de generación de reporte", "Verifique los datos seleccionados. Si el error sigue, comuníquese con los desarrolladores.", 1, this);
             }
         }
 
@@ -118,13 +123,23 @@ namespace PiensaAjedrez
             PreparandoDatos.Text = "Preparando datos...";
             try
             {
-                CargarReporte(AdministradorReportes.CargarReporteActividades(cbEscuelas.selectedValue, FechaInicio.Value, FechaFinal.Value));
+                //CargarReporte(AdministradorReportes.CargarReporteActividades(cbEscuelas.selectedValue, FechaInicio.Value, FechaFinal.Value));
             }
             catch (Exception)
             {
                 FormMensaje unaForma = new FormMensaje();
-                unaForma.Mostrar("Error de generación de reporte", "Verifique el colegio seleccionado. Si el error sigue, comuníquese con los desarrolladores.", 1, this);
+                unaForma.Mostrar("Error de generación de reporte", "Verifique los datos seleccionados. Si el error sigue, comuníquese con los desarrolladores.", 1, this);
             }
+        }
+
+        private void cboGrupoGastos_Load(object sender, EventArgs e)
+        {
+            foreach (string unGrupo in ConexionBD.CargarGruposGastos())
+            {
+                cboGrupoGastos.AddItem(unGrupo);
+            }
+            if (ConexionBD.CargarGruposGastos().Count > 0)
+                cboGrupoGastos.selectedIndex = 0;
         }
     }
 }
