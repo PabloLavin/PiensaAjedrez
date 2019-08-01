@@ -279,11 +279,11 @@ namespace PiensaAjedrez.Reporte.Datasets {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class AsistenciaProcedimientoDataTable : global::System.Data.TypedTableBase<AsistenciaProcedimientoRow> {
             
-            private global::System.Data.DataColumn columnNombre;
-            
             private global::System.Data.DataColumn columnNumeroControl;
             
-            private global::System.Data.DataColumn columnFecha;
+            private global::System.Data.DataColumn columnNombre;
+            
+            private global::System.Data.DataColumn columnAsistencias;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -320,14 +320,6 @@ namespace PiensaAjedrez.Reporte.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NombreColumn {
-                get {
-                    return this.columnNombre;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn NumeroControlColumn {
                 get {
                     return this.columnNumeroControl;
@@ -336,9 +328,17 @@ namespace PiensaAjedrez.Reporte.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FechaColumn {
+            public global::System.Data.DataColumn NombreColumn {
                 get {
-                    return this.columnFecha;
+                    return this.columnNombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AsistenciasColumn {
+                get {
+                    return this.columnAsistencias;
                 }
             }
             
@@ -379,12 +379,12 @@ namespace PiensaAjedrez.Reporte.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AsistenciaProcedimientoRow AddAsistenciaProcedimientoRow(string Nombre, string NumeroControl, System.DateTime Fecha) {
+            public AsistenciaProcedimientoRow AddAsistenciaProcedimientoRow(string NumeroControl, string Nombre, string Asistencias) {
                 AsistenciaProcedimientoRow rowAsistenciaProcedimientoRow = ((AsistenciaProcedimientoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Nombre,
                         NumeroControl,
-                        Fecha};
+                        Nombre,
+                        Asistencias};
                 rowAsistenciaProcedimientoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAsistenciaProcedimientoRow);
                 return rowAsistenciaProcedimientoRow;
@@ -407,20 +407,20 @@ namespace PiensaAjedrez.Reporte.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnNombre = base.Columns["Nombre"];
                 this.columnNumeroControl = base.Columns["NumeroControl"];
-                this.columnFecha = base.Columns["Fecha"];
+                this.columnNombre = base.Columns["Nombre"];
+                this.columnAsistencias = base.Columns["Asistencias"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombre);
                 this.columnNumeroControl = new global::System.Data.DataColumn("NumeroControl", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNumeroControl);
-                this.columnFecha = new global::System.Data.DataColumn("Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFecha);
+                this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombre);
+                this.columnAsistencias = new global::System.Data.DataColumn("Asistencias", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAsistencias);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -563,22 +563,6 @@ namespace PiensaAjedrez.Reporte.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Nombre {
-                get {
-                    try {
-                        return ((string)(this[this.tableAsistenciaProcedimiento.NombreColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nombre\' de la tabla \'AsistenciaProcedimiento\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAsistenciaProcedimiento.NombreColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string NumeroControl {
                 get {
                     try {
@@ -596,30 +580,35 @@ namespace PiensaAjedrez.Reporte.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Fecha {
+            public string Nombre {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableAsistenciaProcedimiento.FechaColumn]));
+                        return ((string)(this[this.tableAsistenciaProcedimiento.NombreColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha\' de la tabla \'AsistenciaProcedimiento\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nombre\' de la tabla \'AsistenciaProcedimiento\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAsistenciaProcedimiento.FechaColumn] = value;
+                    this[this.tableAsistenciaProcedimiento.NombreColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNombreNull() {
-                return this.IsNull(this.tableAsistenciaProcedimiento.NombreColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNombreNull() {
-                this[this.tableAsistenciaProcedimiento.NombreColumn] = global::System.Convert.DBNull;
+            public string Asistencias {
+                get {
+                    try {
+                        return ((string)(this[this.tableAsistenciaProcedimiento.AsistenciasColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Asistencias\' de la tabla \'AsistenciaProcedimiento\' es DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAsistenciaProcedimiento.AsistenciasColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -636,14 +625,26 @@ namespace PiensaAjedrez.Reporte.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFechaNull() {
-                return this.IsNull(this.tableAsistenciaProcedimiento.FechaColumn);
+            public bool IsNombreNull() {
+                return this.IsNull(this.tableAsistenciaProcedimiento.NombreColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFechaNull() {
-                this[this.tableAsistenciaProcedimiento.FechaColumn] = global::System.Convert.DBNull;
+            public void SetNombreNull() {
+                this[this.tableAsistenciaProcedimiento.NombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAsistenciasNull() {
+                return this.IsNull(this.tableAsistenciaProcedimiento.AsistenciasColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAsistenciasNull() {
+                this[this.tableAsistenciaProcedimiento.AsistenciasColumn] = global::System.Convert.DBNull;
             }
         }
         

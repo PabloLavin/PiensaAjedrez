@@ -20,6 +20,7 @@ namespace PiensaAjedrez
       
         private void cbEscuelas_Load(object sender, EventArgs e)
         {
+            cbEscuelas.Clear();
             foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
             {
                 cbEscuelas.AddItem(unaEscuela.Nombre);
@@ -31,7 +32,7 @@ namespace PiensaAjedrez
         
         private void CargarListaCursos()
         {
-
+            cboCursos.Clear();            
             if (ConexionBD.CargarEscuelas().Count > 0)
                 foreach (Cursos unCurso in ConexionBD.CargarCursos(cbEscuelas.selectedValue))
                 {
@@ -54,7 +55,7 @@ namespace PiensaAjedrez
             PreparandoDatos.Text = "Preparando datos...";
             try
             {
-                //CargarReporte(AdministradorReportes.CargarReporteIngresos(FechaInicio.Value, FechaFinal.Value, cbEscuelas.selectedValue));
+                CargarReporte(AdministradorReportes.CargarReporteIngresos(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1), cbEscuelas.selectedValue + "\nCurso " + cboCursos.selectedValue));
             }
             catch (Exception)
             {
@@ -82,7 +83,7 @@ namespace PiensaAjedrez
             PreparandoDatos.Text = "Preparando datos...";
             try
             {
-                //CargarReporte(AdministradorReportes.CargarReporteAsistencias(cbEscuelas.selectedValue, FechaInicio.Value, FechaFinal.Value));
+                CargarReporte(AdministradorReportes.CargarReporteAsistencias(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ")+1), cbEscuelas.selectedValue + "\nCurso " + cboCursos.selectedValue));
             }
             catch (Exception)
             {
@@ -96,7 +97,7 @@ namespace PiensaAjedrez
             PreparandoDatos.Text = "Preparando datos...";
             try
             {
-                //CargarReporte(AdministradorReportes.CargarReporteInscripciones(cbEscuelas.selectedValue));
+                CargarReporte(AdministradorReportes.CargarReporteInscripciones(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1), cbEscuelas.selectedValue + "\nCurso " + cboCursos.selectedValue));
             }
             catch (Exception)
             {
@@ -110,7 +111,7 @@ namespace PiensaAjedrez
             PreparandoDatos.Text = "Preparando datos...";
             try
             {
-                CargarReporte(AdministradorReportes.CargarReporteMensualidades(cbEscuelas.selectedValue));
+                CargarReporte(AdministradorReportes.CargarReporteMensualidades(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1), cbEscuelas.selectedValue + "\nCurso " + cboCursos.selectedValue));
             }
             catch (Exception)
             {
@@ -124,7 +125,7 @@ namespace PiensaAjedrez
             PreparandoDatos.Text = "Preparando datos...";
             try
             {
-                //CargarReporte(AdministradorReportes.CargarReporteActividades(cbEscuelas.selectedValue, FechaInicio.Value, FechaFinal.Value));
+                CargarReporte(AdministradorReportes.CargarReporteActividades(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1), cbEscuelas.selectedValue + "\nCurso " + cboCursos.selectedValue));
             }
             catch (Exception)
             {
@@ -135,12 +136,18 @@ namespace PiensaAjedrez
 
         private void cboGrupoGastos_Load(object sender, EventArgs e)
         {
+            cboGrupoGastos.Clear();
             foreach (string unGrupo in ConexionBD.CargarGruposGastos())
             {
                 cboGrupoGastos.AddItem(unGrupo);
             }
             if (ConexionBD.CargarGruposGastos().Count > 0)
                 cboGrupoGastos.selectedIndex = 0;
+        }
+
+        private void cbEscuelas_onItemSelected(object sender, EventArgs e)
+        {
+            CargarListaCursos();
         }
     }
 }

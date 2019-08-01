@@ -144,7 +144,7 @@
             this.CargarReporteActividades.IconRightZoom = 0D;
             this.CargarReporteActividades.IconVisible = false;
             this.CargarReporteActividades.IconZoom = 90D;
-            this.CargarReporteActividades.IsTab = true;
+            this.CargarReporteActividades.IsTab = false;
             this.CargarReporteActividades.Location = new System.Drawing.Point(268, 320);
             this.CargarReporteActividades.Name = "CargarReporteActividades";
             this.CargarReporteActividades.Normalcolor = System.Drawing.Color.Teal;
@@ -179,7 +179,7 @@
             this.CargarAsistencias.IconRightZoom = 0D;
             this.CargarAsistencias.IconVisible = false;
             this.CargarAsistencias.IconZoom = 90D;
-            this.CargarAsistencias.IsTab = true;
+            this.CargarAsistencias.IsTab = false;
             this.CargarAsistencias.Location = new System.Drawing.Point(18, 366);
             this.CargarAsistencias.Name = "CargarAsistencias";
             this.CargarAsistencias.Normalcolor = System.Drawing.Color.Teal;
@@ -214,7 +214,7 @@
             this.CargarReporteMensualidades.IconRightZoom = 0D;
             this.CargarReporteMensualidades.IconVisible = false;
             this.CargarReporteMensualidades.IconZoom = 90D;
-            this.CargarReporteMensualidades.IsTab = true;
+            this.CargarReporteMensualidades.IsTab = false;
             this.CargarReporteMensualidades.Location = new System.Drawing.Point(142, 320);
             this.CargarReporteMensualidades.Name = "CargarReporteMensualidades";
             this.CargarReporteMensualidades.Normalcolor = System.Drawing.Color.Teal;
@@ -249,7 +249,7 @@
             this.CargarReporteInscripciones.IconRightZoom = 0D;
             this.CargarReporteInscripciones.IconVisible = false;
             this.CargarReporteInscripciones.IconZoom = 90D;
-            this.CargarReporteInscripciones.IsTab = true;
+            this.CargarReporteInscripciones.IsTab = false;
             this.CargarReporteInscripciones.Location = new System.Drawing.Point(18, 320);
             this.CargarReporteInscripciones.Name = "CargarReporteInscripciones";
             this.CargarReporteInscripciones.Normalcolor = System.Drawing.Color.Teal;
@@ -278,6 +278,7 @@
             this.cbEscuelas.selectedIndex = -1;
             this.cbEscuelas.Size = new System.Drawing.Size(362, 35);
             this.cbEscuelas.TabIndex = 8;
+            this.cbEscuelas.onItemSelected += new System.EventHandler(this.cbEscuelas_onItemSelected);
             this.cbEscuelas.Load += new System.EventHandler(this.cbEscuelas_Load);
             // 
             // lblCurso
@@ -335,7 +336,7 @@
             this.CargarTodosIngresos.IconRightZoom = 0D;
             this.CargarTodosIngresos.IconVisible = false;
             this.CargarTodosIngresos.IconZoom = 90D;
-            this.CargarTodosIngresos.IsTab = true;
+            this.CargarTodosIngresos.IsTab = false;
             this.CargarTodosIngresos.Location = new System.Drawing.Point(19, 276);
             this.CargarTodosIngresos.Name = "CargarTodosIngresos";
             this.CargarTodosIngresos.Normalcolor = System.Drawing.Color.Teal;
@@ -452,7 +453,7 @@
             this.CargarEgresos.IconRightZoom = 0D;
             this.CargarEgresos.IconVisible = false;
             this.CargarEgresos.IconZoom = 90D;
-            this.CargarEgresos.IsTab = true;
+            this.CargarEgresos.IsTab = false;
             this.CargarEgresos.Location = new System.Drawing.Point(22, 162);
             this.CargarEgresos.Name = "CargarEgresos";
             this.CargarEgresos.Normalcolor = System.Drawing.Color.Teal;

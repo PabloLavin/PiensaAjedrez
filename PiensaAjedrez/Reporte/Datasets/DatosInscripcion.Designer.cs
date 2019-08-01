@@ -289,10 +289,6 @@ namespace PiensaAjedrez.Reporte.Datasets {
             
             private global::System.Data.DataColumn columnFecha;
             
-            private global::System.Data.DataColumn columnInicioCurso;
-            
-            private global::System.Data.DataColumn columnFinCurso;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public InscripcionDataTable() {
@@ -368,22 +364,6 @@ namespace PiensaAjedrez.Reporte.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn InicioCursoColumn {
-                get {
-                    return this.columnInicioCurso;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FinCursoColumn {
-                get {
-                    return this.columnFinCurso;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -419,16 +399,14 @@ namespace PiensaAjedrez.Reporte.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InscripcionRow AddInscripcionRow(string NumeroRecibo, string _No__Control, string Nombre, double Monto, System.DateTime Fecha, System.DateTime InicioCurso, System.DateTime FinCurso) {
+            public InscripcionRow AddInscripcionRow(string NumeroRecibo, string _No__Control, string Nombre, double Monto, System.DateTime Fecha) {
                 InscripcionRow rowInscripcionRow = ((InscripcionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NumeroRecibo,
                         _No__Control,
                         Nombre,
                         Monto,
-                        Fecha,
-                        InicioCurso,
-                        FinCurso};
+                        Fecha};
                 rowInscripcionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowInscripcionRow);
                 return rowInscripcionRow;
@@ -456,8 +434,6 @@ namespace PiensaAjedrez.Reporte.Datasets {
                 this.columnNombre = base.Columns["Nombre"];
                 this.columnMonto = base.Columns["Monto"];
                 this.columnFecha = base.Columns["Fecha"];
-                this.columnInicioCurso = base.Columns["InicioCurso"];
-                this.columnFinCurso = base.Columns["FinCurso"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -475,10 +451,6 @@ namespace PiensaAjedrez.Reporte.Datasets {
                 base.Columns.Add(this.columnMonto);
                 this.columnFecha = new global::System.Data.DataColumn("Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFecha);
-                this.columnInicioCurso = new global::System.Data.DataColumn("InicioCurso", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInicioCurso);
-                this.columnFinCurso = new global::System.Data.DataColumn("FinCurso", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFinCurso);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -701,38 +673,6 @@ namespace PiensaAjedrez.Reporte.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime InicioCurso {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableInscripcion.InicioCursoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'InicioCurso\' de la tabla \'Inscripcion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInscripcion.InicioCursoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime FinCurso {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableInscripcion.FinCursoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FinCurso\' de la tabla \'Inscripcion\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInscripcion.FinCursoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNumeroReciboNull() {
                 return this.IsNull(this.tableInscripcion.NumeroReciboColumn);
             }
@@ -789,30 +729,6 @@ namespace PiensaAjedrez.Reporte.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFechaNull() {
                 this[this.tableInscripcion.FechaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsInicioCursoNull() {
-                return this.IsNull(this.tableInscripcion.InicioCursoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetInicioCursoNull() {
-                this[this.tableInscripcion.InicioCursoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFinCursoNull() {
-                return this.IsNull(this.tableInscripcion.FinCursoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFinCursoNull() {
-                this[this.tableInscripcion.FinCursoColumn] = global::System.Convert.DBNull;
             }
         }
         

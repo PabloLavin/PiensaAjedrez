@@ -90,7 +90,7 @@ namespace PiensaAjedrez.Reporte {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_ESCUELA {
+        public CrystalDecisions.Shared.IParameterField Parameter_CURSO {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }

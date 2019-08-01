@@ -12,7 +12,7 @@
   <xs:element name="DatosInscripcion" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DatosInscripcion" msprop:Generator_UserDSName="DatosInscripcion">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Inscripcion" msprop:Generator_TableClassName="InscripcionDataTable" msprop:Generator_TableVarName="tableInscripcion" msprop:Generator_TablePropName="Inscripcion" msprop:Generator_RowDeletingName="InscripcionRowDeleting" msprop:Generator_RowChangingName="InscripcionRowChanging" msprop:Generator_RowEvHandlerName="InscripcionRowChangeEventHandler" msprop:Generator_RowDeletedName="InscripcionRowDeleted" msprop:Generator_UserTableName="Inscripcion" msprop:Generator_RowChangedName="InscripcionRowChanged" msprop:Generator_RowEvArgName="InscripcionRowChangeEvent" msprop:Generator_RowClassName="InscripcionRow">
+        <xs:element name="Inscripcion" msprop:Generator_TableClassName="InscripcionDataTable" msprop:Generator_TableVarName="tableInscripcion" msprop:Generator_RowChangedName="InscripcionRowChanged" msprop:Generator_TablePropName="Inscripcion" msprop:Generator_RowDeletingName="InscripcionRowDeleting" msprop:Generator_RowChangingName="InscripcionRowChanging" msprop:Generator_RowEvHandlerName="InscripcionRowChangeEventHandler" msprop:Generator_RowDeletedName="InscripcionRowDeleted" msprop:Generator_RowClassName="InscripcionRow" msprop:Generator_UserTableName="Inscripcion" msprop:Generator_RowEvArgName="InscripcionRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NumeroRecibo" msprop:Generator_ColumnVarNameInTable="columnNumeroRecibo" msprop:Generator_ColumnPropNameInRow="NumeroRecibo" msprop:Generator_ColumnPropNameInTable="NumeroReciboColumn" msprop:Generator_UserColumnName="NumeroRecibo" type="xs:string" minOccurs="0" />
@@ -20,8 +20,6 @@
               <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre" type="xs:string" minOccurs="0" />
               <xs:element name="Monto" msprop:Generator_ColumnVarNameInTable="columnMonto" msprop:Generator_ColumnPropNameInRow="Monto" msprop:Generator_ColumnPropNameInTable="MontoColumn" msprop:Generator_UserColumnName="Monto" type="xs:double" minOccurs="0" />
               <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="InicioCurso" msprop:Generator_ColumnVarNameInTable="columnInicioCurso" msprop:Generator_ColumnPropNameInRow="InicioCurso" msprop:Generator_ColumnPropNameInTable="InicioCursoColumn" msprop:Generator_UserColumnName="InicioCurso" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="FinCurso" msprop:Generator_ColumnVarNameInTable="columnFinCurso" msprop:Generator_ColumnPropNameInRow="FinCurso" msprop:Generator_ColumnPropNameInTable="FinCursoColumn" msprop:Generator_UserColumnName="FinCurso" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
