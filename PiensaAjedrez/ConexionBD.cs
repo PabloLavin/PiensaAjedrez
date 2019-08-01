@@ -25,13 +25,13 @@ namespace PiensaAjedrez
             return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day;   //Formato de los AEWWEYES
         }
 
-        public static Reporte.Datasets.DatosIngresos ObtenerIngresosGlobales(string NombreEscuela, DateTime fechaInicial, DateTime fechaFinal)
+        public static Reporte.Datasets.DatosIngresos ObtenerIngresosGlobales(string strCurso)
         {
             
             Reporte.Datasets.DatosIngresos datos = new Reporte.Datasets.DatosIngresos();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("EXEC INGRESOSTOTALES '" + NombreEscuela + "', '" + FormatearFecha(fechaInicial) + "', '" + FormatearFecha(fechaFinal) + "'", con);
+                SqlCommand comando = new SqlCommand("EXEC INGRESOSTOTALES '" + strCurso + "'", con);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(datos);
@@ -52,12 +52,12 @@ namespace PiensaAjedrez
             return datosEgresos;
         }
 
-        public static Reporte.Datasets.DatosAsistencias ObtenerAsistencias(string Escuela, DateTime fechaInicial, DateTime fechaFinal)
+        public static Reporte.Datasets.DatosAsistencias ObtenerAsistencias(string strCurso)
         {
             Reporte.Datasets.DatosAsistencias datos = new Reporte.Datasets.DatosAsistencias();
             using (SqlConnection con = ObtenerConexion())
-            {
-                SqlCommand comando = new SqlCommand("EXEC AsistenciaProcedimiento '"+Escuela+"', '" + FormatearFecha(fechaInicial) + "', '" + FormatearFecha(fechaFinal) + "'", con);
+            {   
+                SqlCommand comando = new SqlCommand("EXEC AsistenciaProcedimiento '"+strCurso+"'", con);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(datos);
@@ -65,12 +65,12 @@ namespace PiensaAjedrez
             return datos;
         }
 
-        public static Reporte.Datasets.DatosInscripcion ObtenerInscripciones(string Escuela)
+        public static Reporte.Datasets.DatosInscripcion ObtenerInscripciones(string strCurso)
         {
             Reporte.Datasets.DatosInscripcion datos = new Reporte.Datasets.DatosInscripcion();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("EXEC Inscripcion '" + Escuela + "'", con);
+                SqlCommand comando = new SqlCommand("EXEC Inscripcion '" + strCurso + "'", con);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(datos);
@@ -78,12 +78,12 @@ namespace PiensaAjedrez
             return datos;
         }
 
-        public static Reporte.Datasets.DatosMensualidades ObtenerMensualidades(string Escuela)
+        public static Reporte.Datasets.DatosMensualidades ObtenerMensualidades(string strCurso)
         {
             Reporte.Datasets.DatosMensualidades datos = new Reporte.Datasets.DatosMensualidades();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("EXEC Mensualidades '" + Escuela + "'", con);
+                SqlCommand comando = new SqlCommand("EXEC Mensualidades '" + strCurso + "'", con);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(datos);
@@ -91,12 +91,12 @@ namespace PiensaAjedrez
             return datos;
         }
 
-        public static Reporte.Datasets.DatosActividades ObtenerActividades(string Escuela, DateTime fechaInicial, DateTime fechaFinal)
+        public static Reporte.Datasets.DatosActividades ObtenerActividades(string strCurso)
         {
             Reporte.Datasets.DatosActividades datos = new Reporte.Datasets.DatosActividades();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("EXEC Actividades '" + Escuela + "', '"+FormatearFecha(fechaInicial)+"', '"+FormatearFecha(fechaFinal)+"'", con);
+                SqlCommand comando = new SqlCommand("EXEC Actividades '" + strCurso+ "' ", con);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(datos);
@@ -274,7 +274,7 @@ namespace PiensaAjedrez
             List<Cursos> listaCursos = new List<Cursos>();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT * FROM CURSO WHERE NombreEscuela ='" + strNombreEscuela + "'", con);
+                SqlCommand comando = new SqlCommand("SELECT * FROM CURSO WHERE NombreEscuela ='" + strNombreEscuela + "' ORDER BY InicioCurso,FinCurso,IDCurso", con);
                 SqlDataReader curso = comando.ExecuteReader();
                 while (curso.Read())
                 {

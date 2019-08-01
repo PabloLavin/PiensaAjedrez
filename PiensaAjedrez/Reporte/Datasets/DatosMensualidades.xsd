@@ -12,7 +12,7 @@
   <xs:element name="DatosMensualidades" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DatosMensualidades" msprop:Generator_UserDSName="DatosMensualidades">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Mensualidades" msprop:Generator_TableClassName="MensualidadesDataTable" msprop:Generator_TableVarName="tableMensualidades" msprop:Generator_RowChangedName="MensualidadesRowChanged" msprop:Generator_TablePropName="Mensualidades" msprop:Generator_RowDeletingName="MensualidadesRowDeleting" msprop:Generator_RowChangingName="MensualidadesRowChanging" msprop:Generator_RowEvHandlerName="MensualidadesRowChangeEventHandler" msprop:Generator_RowDeletedName="MensualidadesRowDeleted" msprop:Generator_RowClassName="MensualidadesRow" msprop:Generator_UserTableName="Mensualidades" msprop:Generator_RowEvArgName="MensualidadesRowChangeEvent">
+        <xs:element name="Mensualidades" msprop:Generator_TableClassName="MensualidadesDataTable" msprop:Generator_TableVarName="tableMensualidades" msprop:Generator_TablePropName="Mensualidades" msprop:Generator_RowDeletingName="MensualidadesRowDeleting" msprop:Generator_RowChangingName="MensualidadesRowChanging" msprop:Generator_RowEvHandlerName="MensualidadesRowChangeEventHandler" msprop:Generator_RowDeletedName="MensualidadesRowDeleted" msprop:Generator_UserTableName="Mensualidades" msprop:Generator_RowChangedName="MensualidadesRowChanged" msprop:Generator_RowEvArgName="MensualidadesRowChangeEvent" msprop:Generator_RowClassName="MensualidadesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NumeroRecibo" msprop:Generator_ColumnVarNameInTable="columnNumeroRecibo" msprop:Generator_ColumnPropNameInRow="NumeroRecibo" msprop:Generator_ColumnPropNameInTable="NumeroReciboColumn" msprop:Generator_UserColumnName="NumeroRecibo" type="xs:string" minOccurs="0" />
@@ -21,8 +21,6 @@
               <xs:element name="Monto" msprop:Generator_ColumnVarNameInTable="columnMonto" msprop:Generator_ColumnPropNameInRow="Monto" msprop:Generator_ColumnPropNameInTable="MontoColumn" msprop:Generator_UserColumnName="Monto" type="xs:double" minOccurs="0" />
               <xs:element name="MesPagado" msprop:Generator_ColumnVarNameInTable="columnMesPagado" msprop:Generator_ColumnPropNameInRow="MesPagado" msprop:Generator_ColumnPropNameInTable="MesPagadoColumn" msprop:Generator_UserColumnName="MesPagado" type="xs:string" minOccurs="0" />
               <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="InicioCurso" msprop:Generator_ColumnVarNameInTable="columnInicioCurso" msprop:Generator_ColumnPropNameInRow="InicioCurso" msprop:Generator_ColumnPropNameInTable="InicioCursoColumn" msprop:Generator_UserColumnName="InicioCurso" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="FinCurso" msprop:Generator_ColumnVarNameInTable="columnFinCurso" msprop:Generator_ColumnPropNameInRow="FinCurso" msprop:Generator_ColumnPropNameInTable="FinCursoColumn" msprop:Generator_UserColumnName="FinCurso" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
