@@ -15,7 +15,7 @@ namespace PiensaAjedrez
         public Reportes()
         {
             InitializeComponent();
-            CargarListaCursos();
+            
         }
       
         private void cbEscuelas_Load(object sender, EventArgs e)
@@ -26,19 +26,20 @@ namespace PiensaAjedrez
             }
             if (ConexionBD.CargarEscuelas().Count > 0)
                 cbEscuelas.selectedIndex = 0;
+            CargarListaCursos();
         }
         
         private void CargarListaCursos()
         {
-            /*            
+
             if (ConexionBD.CargarEscuelas().Count > 0)
                 foreach (Cursos unCurso in ConexionBD.CargarCursos(cbEscuelas.selectedValue))
                 {
                     cboCursos.AddItem(unCurso.Clave + " - " + unCurso.InicioCursos.ToShortDateString() + " - " + unCurso.FinCurso.ToShortDateString());
                 }
-                if (ConexionBD.CargarCursos(cbEscuelas.selectedValue).Count > 0)
-                    cboCursos.selectedIndex = 0;            
-           */
+            if (ConexionBD.CargarCursos(cbEscuelas.selectedValue).Count > 0)
+                cboCursos.selectedIndex = 0;
+
         }
 
 
