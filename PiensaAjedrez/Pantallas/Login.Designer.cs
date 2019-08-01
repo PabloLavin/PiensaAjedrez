@@ -74,7 +74,6 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(264, 26);
             this.txtPassword.TabIndex = 50;
-            this.txtPassword.TabStop = false;
             this.txtPassword.Text = "Contrasena";
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPassword.UseSystemPasswordChar = true;
@@ -174,7 +173,6 @@
             this.cbCorreos.selectedIndex = -1;
             this.cbCorreos.Size = new System.Drawing.Size(227, 35);
             this.cbCorreos.TabIndex = 55;
-    
             // 
             // Login
             // 
