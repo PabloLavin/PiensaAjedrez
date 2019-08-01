@@ -105,10 +105,10 @@ namespace PiensaAjedrez.Pantallas
                 }
             }
             if (blnIniciarSesion)
-            {
+            {                
                 if (ConexionBD.IniciarSesion(txtUsuario.Text, Encrypt.EncryptString(txtPassword.Text)))
                 {
-                    this.Hide();
+                    Hide();
                     if(cbCorreos.Visible)
                     {
                         string[] cuenta = ConexionBD.CargarCorreos(cbCorreos.selectedValue);
@@ -117,7 +117,7 @@ namespace PiensaAjedrez.Pantallas
                     }
                    
                     new FormMensaje().Mostrar("Inicio de Sesión", "¡Bienvenido! Has iniciado sesón correctamente.", 5, new Mensualidades());
-                    this.Close();
+                    Close();
                 }
                 else
                 {
