@@ -17,8 +17,7 @@ namespace PiensaAjedrez
         public Mensualidades()
         {
             InitializeComponent();
-            txtCorreoEnvios.Text = Correo.Usuario;
-            txtPassword.Text = Correo.Contrasena;
+          
             VisibilidadControles(false);
         }
         
@@ -587,8 +586,7 @@ namespace PiensaAjedrez
                                     if (Preguntar("Confirmación", "Confirmar pago de: " + ObtenerNombreCompleto(miAlumno) + "\nNúmero de control: " + miAlumno.NumeroDeControl + "\nAsunto: " + lblMesAPagar.Text + "\nPor el monto de: $" + txtMonto.Text + "\nMétodo de pago: " + cbMetodoPago.selectedValue.ToString() + "\nNota: " + txtNota.Text))
                                     {
                                         miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
-                                        Correo.Usuario = txtCorreoEnvios.Text;
-                                        Correo.Contrasena = txtPassword.Text;
+                                        
                                         Pagos unPago = new Pagos(ObtenerClaveRecibo(dtFechaPago.Value), dtFechaPago.Value, double.Parse(txtMonto.Text), txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), false, (chkLiquidado.Checked ? false : true), ConexionBD.CargarCursoActivo(miEscuela.Nombre).Clave, (chkBeca.Checked ? true : false), (chkBeca.Checked ? ObtenerBeca(double.Parse(txtMonto.Text), double.Parse(txtBeca.Text)) : 0),(chkBeca.Checked? Int16.Parse(txtBeca.Text):(Int16)0));
                                         if (!unPago.Liquidado)
                                         {
@@ -683,8 +681,7 @@ namespace PiensaAjedrez
         {
             try
             {
-                Correo.Usuario = txtCorreoEnvios.Text;
-                Correo.Contrasena = txtPassword.Text;
+                
                 Correo.EnviarCorreo(Correo.CrearCorreo(miAlumno, miPago, intCaso));
                 miPago.Notificado = true;
                 ConexionBD.ConfirmarEnvioCorreo(miPago);
@@ -938,8 +935,7 @@ namespace PiensaAjedrez
                         }
                             try
                             {
-                                Correo.Usuario = txtCorreoEnvios.Text;
-                                Correo.Contrasena = txtPassword.Text;
+                               
                                 EnviarCorreos();
                             }
                             catch (Exception)

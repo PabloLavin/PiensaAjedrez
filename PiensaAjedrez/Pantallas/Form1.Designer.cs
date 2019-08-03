@@ -107,11 +107,11 @@
             // 
             this.panelMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelMenu.BackgroundImage")));
             this.panelMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelMenu.Controls.Add(this.btnReportes);
             this.panelMenu.Controls.Add(this.btnAsistencia);
             this.panelMenu.Controls.Add(this.btnPiensaAjedrez);
             this.panelMenu.Controls.Add(this.btnColegios);
             this.panelMenu.Controls.Add(this.btnDesconectar);
-            this.panelMenu.Controls.Add(this.btnReportes);
             this.panelMenu.Controls.Add(this.btnRegistrar);
             this.panelMenu.Controls.Add(this.btnMensualidades);
             this.panelMenu.GradientBottomLeft = System.Drawing.Color.DarkCyan;
