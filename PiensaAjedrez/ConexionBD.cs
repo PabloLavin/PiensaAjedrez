@@ -727,5 +727,65 @@ namespace PiensaAjedrez
             return CuentaCorreo;
         }
         #endregion
+
+        public static int CantidadAlumnosActivos(string strNombreEscuela)
+        {
+            int intAlumnosActivos = 0;
+            using (SqlConnection con = ObtenerConexion())
+            {
+                        SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO WHERE Activo = 1 AND NombreEscuela='"+strNombreEscuela+"'", con);
+                        SqlDataReader alumnos = comando.ExecuteReader();
+                        while (alumnos.Read())
+                        {
+                                intAlumnosActivos++;
+                        }
+            }  
+            return intAlumnosActivos;
+        }
+
+        public static int CantidadAlumnosActivos()
+        {
+            int intAlumnosActivos = 0;
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO WHERE Activo = 1", con);
+                SqlDataReader alumnos = comando.ExecuteReader();
+                while (alumnos.Read())
+                {
+                    intAlumnosActivos++;
+                }
+            }
+            return intAlumnosActivos;
+        }
+
+        public static int CantidadAlumnos(string strNombreEscuela)
+        {
+            int intAlumnosActivos = 0;
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO WHERE NombreEscuela='" + strNombreEscuela + "'", con);
+                SqlDataReader alumnos = comando.ExecuteReader();
+                while (alumnos.Read())
+                {
+                    intAlumnosActivos++;
+                }
+            }
+            return intAlumnosActivos;
+        }
+
+        public static int CantidadAlumnos()
+        {
+            int intAlumnosActivos = 0;
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO", con);
+                SqlDataReader alumnos = comando.ExecuteReader();
+                while (alumnos.Read())
+                {
+                    intAlumnosActivos++;
+                }
+            }
+            return intAlumnosActivos;
+        }
     }
 }

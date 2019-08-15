@@ -17,10 +17,10 @@ namespace PiensaAjedrez
         public Mensualidades()
         {
             InitializeComponent();
-          
+
             VisibilidadControles(false);
         }
-        
+
         int intCaso = 1;
         public bool blnAceptarPago;
 
@@ -38,10 +38,10 @@ namespace PiensaAjedrez
                 cbEscuelas.AddItem(miEscuela.Nombre);
             }
 
-          
+
 
             cbAño.Items.Clear();
-            for (int i = 2010; i <=2050 ; i++)
+            for (int i = 2010; i <= 2050; i++)
             {
                 cbAño.Items.Add(Convert.ToString(i));
             }
@@ -50,12 +50,34 @@ namespace PiensaAjedrez
             bnfdtpFechaGasto.Value = DateTime.Now;
             if (ConexionBD.CargarEscuelas().Count > 0)
                 cbEscuelas.selectedIndex = 0;
-         
+
             Recordatorios.CargarConfiguracion();
             //MessageBox.Show(Recordatorios.dtmHoraRecordatorio.ToShortTimeString());
             NotificarRetardos(Recordatorios.intCaso);
-          
-           
+
+            InicializarDGVEstadisticas();
+        }
+
+        void InicializarDGVEstadisticas()
+        {
+            dgvEstadisticas.Rows.Clear();
+            dgvEstadisticas.Columns.Clear();
+            DgvEstadisticasEscuela.Rows.Clear();
+            DgvEstadisticasEscuela.Columns.Clear();
+
+            dgvEstadisticas.Columns.Add("labels", "");
+            dgvEstadisticas.Columns.Add("datos", "");
+
+            DgvEstadisticasEscuela.Columns.Add("labels", "");
+            DgvEstadisticasEscuela.Columns.Add("datos", "");
+
+            dgvEstadisticas.Rows.Add("Ingresos", ConexionBD.TotalIngresos().ToString("c"));
+            dgvEstadisticas.Rows.Add("Egresos", ConexionBD.TotalGastos().ToString("c"));
+            dgvEstadisticas.Rows.Add("Balance Total", (ConexionBD.TotalIngresos()-ConexionBD.TotalGastos()).ToString("c"));
+
+            DgvEstadisticasEscuela.Rows.Add("Inscripciones", ConexionBD.TotalInscripciones(cbEscuelas.selectedValue).ToString("c"));
+            DgvEstadisticasEscuela.Rows.Add("Mensualidades", ConexionBD.TotalMensualidades(cbEscuelas.selectedValue,ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave).ToString("c"));
+            DgvEstadisticasEscuela.Rows.Add("Total Ingresos", (ConexionBD.TotalInscripciones(cbEscuelas.selectedValue)+ ConexionBD.TotalMensualidades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave)).ToString("c"));
         }
 
         FormMensaje unaForma = new FormMensaje();
@@ -254,10 +276,7 @@ namespace PiensaAjedrez
             lblcantidadinscripcion.Text = ConexionBD.TotalInscripciones(otraEscuela.Nombre).ToString("c");
             lbltotalMensualidades.Text = ConexionBD.TotalMensualidades(otraEscuela.Nombre, otraEscuela.CursoActivo.Clave).ToString("c");
             lblIngresosCantidad.Text= (ConexionBD.TotalInscripciones(otraEscuela.Nombre) + ConexionBD.TotalMensualidades(otraEscuela.Nombre,otraEscuela.CursoActivo.Clave)).ToString("c");
-            lblEgresos.Text = ConexionBD.TotalGastos().ToString("c");
-                lblIngresos.Text = ConexionBD.TotalIngresos().ToString("c");
-                lblBalance.Text = ((double.Parse(lblIngresos.Text.Substring(1))-double.Parse(lblEgresos.Text.Substring(1))).ToString("c"));
-                   
+           
             }
 
         }
@@ -277,16 +296,18 @@ namespace PiensaAjedrez
                         try
                         {
                             LlenarDGV(miEscuela);
+                            InicializarDGVEstadisticas();
                         }
                         catch (Exception)
                         {
-                           
+                            new FormMensaje().Mostrar("Error", "Ocurrió un error. Comprueba los cursos activos.", 1, this);
                         } 
                         Deshabilitar();
                         cbGastos.Enabled = true;
                         txtMontoAdicional.Enabled = true;
                         txtMotivo.Enabled = true;
                         btnRegistrarGasto.Visible = true;
+
                         
                     }
                     
