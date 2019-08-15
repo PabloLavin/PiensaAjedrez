@@ -49,7 +49,12 @@ namespace PiensaAjedrez
             dtFechaPago.Value = DateTime.Now;
             bnfdtpFechaGasto.Value = DateTime.Now;
             if (ConexionBD.CargarEscuelas().Count > 0)
+            {
                 cbEscuelas.selectedIndex = 0;
+                lblNombreEscuela.Text = cbEscuelas.selectedValue;
+            }
+            else
+                lblNombreEscuela.Text = "";
 
             Recordatorios.CargarConfiguracion();
             //MessageBox.Show(Recordatorios.dtmHoraRecordatorio.ToShortTimeString());
@@ -75,9 +80,26 @@ namespace PiensaAjedrez
             dgvEstadisticas.Rows.Add("Egresos", ConexionBD.TotalGastos().ToString("c"));
             dgvEstadisticas.Rows.Add("Balance Total", (ConexionBD.TotalIngresos()-ConexionBD.TotalGastos()).ToString("c"));
 
-            DgvEstadisticasEscuela.Rows.Add("Inscripciones", ConexionBD.TotalInscripciones(cbEscuelas.selectedValue).ToString("c"));
-            DgvEstadisticasEscuela.Rows.Add("Mensualidades", ConexionBD.TotalMensualidades(cbEscuelas.selectedValue,ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave).ToString("c"));
-            DgvEstadisticasEscuela.Rows.Add("Total Ingresos", (ConexionBD.TotalInscripciones(cbEscuelas.selectedValue)+ ConexionBD.TotalMensualidades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave)).ToString("c"));
+            DgvEstadisticasEscuela.Rows.Add("Inscripciones","$0.00");
+            DgvEstadisticasEscuela.Rows.Add("Mensualidades", "$0.00");
+            DgvEstadisticasEscuela.Rows.Add("Total Ingresos", "$0.00");
+
+            if (ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue) != null)
+            {
+                 DgvEstadisticasEscuela.Rows.Clear();
+                 DgvEstadisticasEscuela.Rows.Add("Inscripciones", ConexionBD.TotalInscripciones(cbEscuelas.selectedValue).ToString("c"));
+                 DgvEstadisticasEscuela.Rows.Add("Mensualidades", ConexionBD.TotalMensualidades(cbEscuelas.selectedValue,ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave).ToString("c"));
+                 DgvEstadisticasEscuela.Rows.Add("Total Ingresos", (ConexionBD.TotalInscripciones(cbEscuelas.selectedValue)+ ConexionBD.TotalMensualidades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave)).ToString("c"));
+            }
+        }
+
+        void CargarDatosEscuela(string strNombreEscuela)
+        {
+            lblNombreEscuela.Text = strNombreEscuela;
+            lblAlumnosTotal.Text = Convert.ToString(ConexionBD.CantidadAlumnos());
+            lblAlumnosActivos.Text = Convert.ToString(ConexionBD.CantidadAlumnosActivos());
+            lblEscuelaAlumnos.Text = Convert.ToString(ConexionBD.CantidadAlumnos(strNombreEscuela));
+            lblEscuelaActivos.Text = Convert.ToString(ConexionBD.CantidadAlumnosActivos(strNombreEscuela));
         }
 
         FormMensaje unaForma = new FormMensaje();
@@ -247,38 +269,38 @@ namespace PiensaAjedrez
 
         void LlenarDGV(Escuela otraEscuela)
         {
-            dgvAlumnos.Columns.Clear();
-            otraEscuela.CursoActivo = ConexionBD.CargarCursoActivo(otraEscuela.Nombre);
-            CargarDGV(otraEscuela);
-            dgvAlumnos.Rows.Clear();
-            if (otraEscuela.CursoActivo.listaActividades.Count > 0)
+            try
             {
-                foreach (string miActividad in otraEscuela.CursoActivo.listaActividades)
+                dgvAlumnos.Columns.Clear();
+                otraEscuela.CursoActivo = ConexionBD.CargarCursoActivo(otraEscuela.Nombre);
+                CargarDGV(otraEscuela);
+                dgvAlumnos.Rows.Clear();
+                if (otraEscuela.CursoActivo.listaActividades.Count > 0)
                 {
-                    dgvAlumnos.Columns.Add(miActividad, miActividad);
+                    foreach (string miActividad in otraEscuela.CursoActivo.listaActividades)
+                    {
+                        dgvAlumnos.Columns.Add(miActividad, miActividad);
+                    }
+
+                }
+                int numero = 1;
+
+                foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(otraEscuela.Nombre))
+                {
+                    if (miAlumno.Activo)
+                    {
+                        dgvAlumnos.Rows.Add(numero, miAlumno.NumeroDeControl, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre);
+                        RellenarPagos(miAlumno, otraEscuela.CursoActivo.Clave);
+                        numero++;
+                    }
                 }
 
             }
-            int numero = 1;
-
-            foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(otraEscuela.Nombre))
+            catch (Exception)
             {
-                if (miAlumno.Activo)
-                {
-                    dgvAlumnos.Rows.Add(numero,miAlumno.NumeroDeControl,miAlumno.ApellidoPaterno,miAlumno.ApellidoMaterno, miAlumno.Nombre);
-                    RellenarPagos(miAlumno, otraEscuela.CursoActivo.Clave);
-                    numero++;
-                }
+               
             }
-
-            if (otraEscuela.CursoActivo != null)
-            {
-            lblcantidadinscripcion.Text = ConexionBD.TotalInscripciones(otraEscuela.Nombre).ToString("c");
-            lbltotalMensualidades.Text = ConexionBD.TotalMensualidades(otraEscuela.Nombre, otraEscuela.CursoActivo.Clave).ToString("c");
-            lblIngresosCantidad.Text= (ConexionBD.TotalInscripciones(otraEscuela.Nombre) + ConexionBD.TotalMensualidades(otraEscuela.Nombre,otraEscuela.CursoActivo.Clave)).ToString("c");
-           
-            }
-
+            
         }
 
         private void cbEscuelas_onItemSelected(object sender, EventArgs e)
@@ -296,12 +318,28 @@ namespace PiensaAjedrez
                         try
                         {
                             LlenarDGV(miEscuela);
-                            InicializarDGVEstadisticas();
+                            
                         }
                         catch (Exception)
                         {
-                            new FormMensaje().Mostrar("Error", "Ocurrió un error. Comprueba los cursos activos.", 1, this);
-                        } 
+                            //new FormMensaje().Mostrar("Error", "Ocurrió un error. Comprueba los cursos activos.", 1, this);
+                           
+                        }
+
+                        try
+                        {
+                            
+                            InicializarDGVEstadisticas();
+                            CargarDatosEscuela(cbEscuelas.selectedValue);
+                        }
+                        catch (Exception)
+                        {
+                            lblEscuelaActivos.Text = "0";
+                            lblEscuelaAlumnos.Text = "0";
+                            DgvEstadisticasEscuela.Rows[1].Cells[1].Value = "$0.00";
+                            DgvEstadisticasEscuela.Rows[2].Cells[1].Value = "$0.00";
+                            DgvEstadisticasEscuela.Rows[0].Cells[1].Value = "$0.00";
+                        }
                         Deshabilitar();
                         cbGastos.Enabled = true;
                         txtMontoAdicional.Enabled = true;

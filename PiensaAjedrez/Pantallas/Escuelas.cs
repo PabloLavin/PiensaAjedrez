@@ -510,7 +510,7 @@ namespace PiensaAjedrez
 
         private void btnFinalizarCurso_Click_1(object sender, EventArgs e)
         {
-            if (Preguntar("Finalizar curso", "¿Desea finalizar el curso que comprende del " + dgvCursos.CurrentRow.Cells[1].Value.ToString() + " al " + dgvCursos.CurrentRow.Cells[2].Value.ToString() + " con clave " + dgvCursos.CurrentRow.Cells[0].Value.ToString() + "?"))
+            if (Preguntar("Finalizar curso", "¿Desea finalizar el curso con clave " + dgvCursos.CurrentRow.Cells[0].Value.ToString() + "?"))
             {
                 Escuela unaEscuela = new Escuela(dgvEscuelas.CurrentRow.Cells[0].Value.ToString());
                 ConexionBD.AgregarFondos((ConexionBD.TotalInscripciones(txtNombreColegio.Text) + ConexionBD.TotalMensualidades(txtNombreColegio.Text, dgvCursos.CurrentRow.Cells[0].Value.ToString())), dgvCursos.CurrentRow.Cells[0].Value.ToString());

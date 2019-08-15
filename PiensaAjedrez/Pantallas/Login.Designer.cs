@@ -52,6 +52,7 @@
             this.btnLogo.TabIndex = 48;
             this.btnLogo.TabStop = false;
             this.btnLogo.Zoom = 10;
+            this.btnLogo.Click += new System.EventHandler(this.BtnLogo_Click);
             // 
             // txtUsuario
             // 
@@ -166,12 +167,12 @@
             this.cbCorreos.ForeColor = System.Drawing.Color.White;
             this.cbCorreos.Items = new string[] {
         ""};
-            this.cbCorreos.Location = new System.Drawing.Point(561, 12);
+            this.cbCorreos.Location = new System.Drawing.Point(520, 12);
             this.cbCorreos.Name = "cbCorreos";
             this.cbCorreos.NomalColor = System.Drawing.Color.Teal;
             this.cbCorreos.onHoverColor = System.Drawing.Color.DarkSlateGray;
             this.cbCorreos.selectedIndex = -1;
-            this.cbCorreos.Size = new System.Drawing.Size(227, 35);
+            this.cbCorreos.Size = new System.Drawing.Size(268, 35);
             this.cbCorreos.TabIndex = 55;
             // 
             // Login

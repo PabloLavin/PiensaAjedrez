@@ -139,5 +139,10 @@ namespace PiensaAjedrez.Pantallas
             blnAceptarPago = unaForma.Aceptar();
             return blnAceptarPago;
         }
+
+        private void BtnLogo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
