@@ -90,11 +90,11 @@
             this.lblIngresos.AutoSize = true;
             this.lblIngresos.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIngresos.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblIngresos.Location = new System.Drawing.Point(100, 39);
+            this.lblIngresos.Location = new System.Drawing.Point(84, 26);
             this.lblIngresos.Name = "lblIngresos";
-            this.lblIngresos.Size = new System.Drawing.Size(159, 33);
+            this.lblIngresos.Size = new System.Drawing.Size(181, 66);
             this.lblIngresos.TabIndex = 22;
-            this.lblIngresos.Text = "Ingresos   |";
+            this.lblIngresos.Text = "Ingresos   |\r\nCurso Activo";
             // 
             // btnSalir
             // 

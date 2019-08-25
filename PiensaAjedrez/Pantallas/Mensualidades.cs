@@ -686,6 +686,7 @@ namespace PiensaAjedrez
                                                 miEscuela.CursoActivo.TotalMensualidad += double.Parse(txtMonto.Text);
 
                                         miEscuela.CursoActivo.TotalIngresos += double.Parse(txtMonto.Text);
+                                        InicializarDGVEstadisticas();
                                         LlenarDGV(miEscuela);
                                         Deshabilitar();
                                     }

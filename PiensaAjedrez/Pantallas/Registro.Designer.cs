@@ -85,6 +85,7 @@
             // 
             this.tabControl1.Controls.Add(this.tbUsuario);
             this.tabControl1.Controls.Add(this.tbCorreo);
+            this.tabControl1.HotTrack = true;
             this.tabControl1.Location = new System.Drawing.Point(12, 117);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;

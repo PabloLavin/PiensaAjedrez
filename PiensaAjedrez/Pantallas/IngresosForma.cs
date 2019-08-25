@@ -40,8 +40,10 @@ namespace PiensaAjedrez
                 dgvIngresos.Columns.Add("Alumno", "Alumno");
                 dgvIngresos.Columns.Add("Razon", "Razon");
                 dgvIngresos.Columns.Add("Monto", "Monto");
+                dgvIngresos.Columns.Add("Fecha", "Fecha");
                 dgvIngresos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 RellenarDGV(unaEscuela);
+                
             }
             catch (Exception)
             {
@@ -60,7 +62,7 @@ namespace PiensaAjedrez
             {
             foreach (Pagos unPago in ConexionBD.CargarPagosAlumno(unAlumno.NumeroDeControl))
             {
-                    dgvIngresos.Rows.Add(unAlumno.NumeroDeControl, unPago.MesPagado, unPago.Monto.ToString("C"));
+                    dgvIngresos.Rows.Add(unAlumno.NumeroDeControl, unPago.MesPagado, unPago.Monto.ToString("C"), unPago.FechayHora.ToShortDateString());
             }
             }
         }
