@@ -11,8 +11,8 @@ namespace PiensaAjedrez
 {
     abstract class Correo
     {
-        public static string Usuario = "";
-        public static string Contrasena = "";
+        public static string Usuario;
+        public static string Contrasena;
 
 
         //public static string Usuario = "wweyes21@outlook.com";

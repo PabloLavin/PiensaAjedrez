@@ -109,7 +109,7 @@ namespace PiensaAjedrez.Pantallas
                 if (ConexionBD.IniciarSesion(txtUsuario.Text, Encrypt.EncryptString(txtPassword.Text)))
                 {
                     Hide();
-                    if(cbCorreos.Visible)
+                    if(cbCorreos.selectedIndex!=-1)
                     {
                         string[] cuenta = ConexionBD.CargarCorreos(cbCorreos.selectedValue);
                         Correo.Usuario = cuenta[0];

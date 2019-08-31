@@ -60,7 +60,7 @@ namespace PiensaAjedrez
         {
             foreach (Alumno unAlumno in ConexionBD.CargarAlumnos(unaEscuela.Nombre))
             {
-            foreach (Pagos unPago in ConexionBD.CargarPagosAlumno(unAlumno.NumeroDeControl))
+            foreach (Pagos unPago in ConexionBD.CargarPagosAlumnoCurso(unAlumno,unaEscuela.CursoActivo.Clave))
             {
                     dgvIngresos.Rows.Add(unAlumno.NumeroDeControl, unPago.MesPagado, unPago.Monto.ToString("C"), unPago.FechayHora.ToShortDateString());
             }
