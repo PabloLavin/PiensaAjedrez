@@ -108,7 +108,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO ESCUELA VALUES ('" + strEscuela + "', '" + 0 + "', "+0+")", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO ESCUELA VALUES ('" + strEscuela + "', '" + 1 + "', "+1+")", con);
                 comando.ExecuteNonQuery();
             }
         }

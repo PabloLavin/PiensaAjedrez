@@ -51,10 +51,10 @@ namespace PiensaAjedrez
             if (ConexionBD.CargarEscuelas().Count > 0)
             {
                 cbEscuelas.selectedIndex = 0;
-                lblNombreEscuela.Text = cbEscuelas.selectedValue;
+              
             }
-            else
-                lblNombreEscuela.Text = "";
+         
+               
 
             Recordatorios.CargarConfiguracion();
             //MessageBox.Show(Recordatorios.dtmHoraRecordatorio.ToShortTimeString());
@@ -69,37 +69,50 @@ namespace PiensaAjedrez
             dgvEstadisticas.Columns.Clear();
             DgvEstadisticasEscuela.Rows.Clear();
             DgvEstadisticasEscuela.Columns.Clear();
+            dgvAlumnosParticular.Rows.Clear();
+            dgvAlumnosParticular.Columns.Clear();
 
             dgvEstadisticas.Columns.Add("labels", "");
             dgvEstadisticas.Columns.Add("datos", "");
 
+            dgvAlumnosParticular.Columns.Add("labels", "");
+            dgvAlumnosParticular.Columns.Add("datos", "");
+
             DgvEstadisticasEscuela.Columns.Add("labels", "");
             DgvEstadisticasEscuela.Columns.Add("datos", "");
+
 
             dgvEstadisticas.Rows.Add("Ingresos", ConexionBD.TotalIngresos().ToString("c"));
             dgvEstadisticas.Rows.Add("Egresos", ConexionBD.TotalGastos().ToString("c"));
             dgvEstadisticas.Rows.Add("Balance Total", (ConexionBD.TotalIngresos()-ConexionBD.TotalGastos()).ToString("c"));
+            dgvEstadisticas.Rows.Add("Total Alumnos", Convert.ToString(ConexionBD.CantidadAlumnos()));
+            dgvEstadisticas.Rows.Add("Alumnos Activos", Convert.ToString(ConexionBD.CantidadAlumnosActivos()));
 
             DgvEstadisticasEscuela.Rows.Add("Inscripciones","$0.00");
             DgvEstadisticasEscuela.Rows.Add("Mensualidades", "$0.00");
             DgvEstadisticasEscuela.Rows.Add("Total Ingresos", "$0.00");
+            dgvAlumnosParticular.Rows.Add("Total Alumnos", "0");
+            dgvAlumnosParticular.Rows.Add("Alumnos Activos", "0");
 
             if (ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue) != null)
             {
                  DgvEstadisticasEscuela.Rows.Clear();
+                dgvAlumnosParticular.Rows.Clear();
                  DgvEstadisticasEscuela.Rows.Add("Inscripciones", ConexionBD.TotalInscripciones(cbEscuelas.selectedValue).ToString("c"));
                  DgvEstadisticasEscuela.Rows.Add("Mensualidades", ConexionBD.TotalMensualidades(cbEscuelas.selectedValue,ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave).ToString("c"));
                  DgvEstadisticasEscuela.Rows.Add("Total Ingresos", (ConexionBD.TotalInscripciones(cbEscuelas.selectedValue)+ ConexionBD.TotalMensualidades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave)).ToString("c"));
+                dgvAlumnosParticular.Rows.Add("Total Alumnos", Convert.ToString(ConexionBD.CantidadAlumnos(cbEscuelas.selectedValue)));
+                dgvAlumnosParticular.Rows.Add("Alumnos Activos", Convert.ToString(ConexionBD.CantidadAlumnosActivos(cbEscuelas.selectedValue)));
             }
         }
 
         void CargarDatosEscuela(string strNombreEscuela)
         {
-            lblNombreEscuela.Text = strNombreEscuela;
-            lblAlumnosTotal.Text = Convert.ToString(ConexionBD.CantidadAlumnos());
-            lblAlumnosActivos.Text = Convert.ToString(ConexionBD.CantidadAlumnosActivos());
-            lblEscuelaAlumnos.Text = Convert.ToString(ConexionBD.CantidadAlumnos(strNombreEscuela));
-            lblEscuelaActivos.Text = Convert.ToString(ConexionBD.CantidadAlumnosActivos(strNombreEscuela));
+      
+            //lblAlumnosTotal.Text = Convert.ToString(ConexionBD.CantidadAlumnos());
+            //lblAlumnosActivos.Text = Convert.ToString(ConexionBD.CantidadAlumnosActivos());
+            //lblEscuelaAlumnos.Text = Convert.ToString(ConexionBD.CantidadAlumnos(strNombreEscuela));
+            //lblEscuelaActivos.Text = Convert.ToString(ConexionBD.CantidadAlumnosActivos(strNombreEscuela));
         }
 
         FormMensaje unaForma = new FormMensaje();
@@ -334,8 +347,7 @@ namespace PiensaAjedrez
                         }
                         catch (Exception)
                         {
-                            lblEscuelaActivos.Text = "0";
-                            lblEscuelaAlumnos.Text = "0";
+                            
                             DgvEstadisticasEscuela.Rows[1].Cells[1].Value = "$0.00";
                             DgvEstadisticasEscuela.Rows[2].Cells[1].Value = "$0.00";
                             DgvEstadisticasEscuela.Rows[0].Cells[1].Value = "$0.00";
