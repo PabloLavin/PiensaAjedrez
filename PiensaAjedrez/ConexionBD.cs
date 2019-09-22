@@ -494,7 +494,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO GASTO VALUES ((SELECT COUNT(*) + 1 FROM GASTO), '" + strRazon + "', " + dblMonto + ", '" + strNota + "','" + FormatearFecha(dtpFecha) + "',NULL,NULL,'')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO GASTO VALUES ((SELECT COUNT(*) + 1 FROM GASTO), '" + strRazon + "', " + dblMonto + ", '" + strNota + "','" + FormatearFecha(dtpFecha) + "','')", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -568,6 +568,18 @@ namespace PiensaAjedrez
 
                 SqlCommand comando = new SqlCommand("UPDATE GASTO SET Grupo = '"+strNombreGrupo+"' WHERE Grupo = '"+""+"'", con);
                 comando.ExecuteNonQuery();
+            }
+        }
+
+        public static void ArchivarGastos(string strNombreGrupo, List<Gastos> listaGastos)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                foreach (Gastos gastos in listaGastos)
+                {
+                SqlCommand comando = new SqlCommand("UPDATE TOP (1) GASTO SET Grupo = '" + strNombreGrupo + "' WHERE Razon= '"+gastos.Motivo+"' AND Monto= '"+gastos.Monto+"' AND Nota= '"+gastos.Nota+"' AND FechaHora= '"+FormatearFecha(gastos.FechaGasto)+"' AND Grupo = '" + "" + "'", con);
+                comando.ExecuteNonQuery();
+                }
             }
         }
         #region Asistencia

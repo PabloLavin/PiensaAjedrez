@@ -37,11 +37,11 @@
             this.elpTrabajo = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bnfArrastrar = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panelMenu = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.btnReportes = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAsistencia = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnPiensaAjedrez = new System.Windows.Forms.PictureBox();
             this.btnColegios = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnDesconectar = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnReportes = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnRegistrar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnMensualidades = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnPiensaAjedrezEstetico = new System.Windows.Forms.PictureBox();
@@ -123,6 +123,43 @@
             this.panelMenu.Quality = 10;
             this.panelMenu.Size = new System.Drawing.Size(1366, 49);
             this.panelMenu.TabIndex = 0;
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnReportes.BackColor = System.Drawing.Color.Transparent;
+            this.btnReportes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReportes.BorderRadius = 0;
+            this.btnReportes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btnReportes.ButtonText = "Reportes";
+            this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReportes.DisabledColor = System.Drawing.Color.Gray;
+            this.btnReportes.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnReportes.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnReportes.Iconimage")));
+            this.btnReportes.Iconimage_right = null;
+            this.btnReportes.Iconimage_right_Selected = null;
+            this.btnReportes.Iconimage_Selected = null;
+            this.btnReportes.IconMarginLeft = 0;
+            this.btnReportes.IconMarginRight = 0;
+            this.btnReportes.IconRightVisible = false;
+            this.btnReportes.IconRightZoom = 0D;
+            this.btnReportes.IconVisible = false;
+            this.btnReportes.IconZoom = 90D;
+            this.btnReportes.IsTab = true;
+            this.btnReportes.Location = new System.Drawing.Point(983, 0);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnReportes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnReportes.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnReportes.selected = false;
+            this.btnReportes.Size = new System.Drawing.Size(224, 50);
+            this.btnReportes.TabIndex = 4;
+            this.btnReportes.TabStop = false;
+            this.btnReportes.Text = "Reportes";
+            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnReportes.Textcolor = System.Drawing.Color.White;
+            this.btnReportes.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnAsistencia
             // 
@@ -245,43 +282,6 @@
             this.btnDesconectar.Textcolor = System.Drawing.Color.White;
             this.btnDesconectar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.btnDesconectar.Click += new System.EventHandler(this.btnDesconectar_Click);
-            // 
-            // btnReportes
-            // 
-            this.btnReportes.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnReportes.BackColor = System.Drawing.Color.Transparent;
-            this.btnReportes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnReportes.BorderRadius = 0;
-            this.btnReportes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btnReportes.ButtonText = "Reportes";
-            this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReportes.DisabledColor = System.Drawing.Color.Gray;
-            this.btnReportes.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnReportes.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnReportes.Iconimage")));
-            this.btnReportes.Iconimage_right = null;
-            this.btnReportes.Iconimage_right_Selected = null;
-            this.btnReportes.Iconimage_Selected = null;
-            this.btnReportes.IconMarginLeft = 0;
-            this.btnReportes.IconMarginRight = 0;
-            this.btnReportes.IconRightVisible = false;
-            this.btnReportes.IconRightZoom = 0D;
-            this.btnReportes.IconVisible = false;
-            this.btnReportes.IconZoom = 90D;
-            this.btnReportes.IsTab = true;
-            this.btnReportes.Location = new System.Drawing.Point(983, 0);
-            this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnReportes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnReportes.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnReportes.selected = false;
-            this.btnReportes.Size = new System.Drawing.Size(224, 50);
-            this.btnReportes.TabIndex = 4;
-            this.btnReportes.TabStop = false;
-            this.btnReportes.Text = "Reportes";
-            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnReportes.Textcolor = System.Drawing.Color.White;
-            this.btnReportes.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnRegistrar
             // 

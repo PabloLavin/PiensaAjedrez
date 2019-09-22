@@ -52,7 +52,13 @@ namespace PiensaAjedrez.Pantallas
             {
                 try
                 {
-                    ConexionBD.ArchivarGastos(txtNombre.Text);
+                    List<Gastos> listaGastos = new List<Gastos>();
+                    foreach (DataGridViewRow Fila in dgvGastos.Rows)
+                    {
+                        if (Fila.Selected)
+                            listaGastos.Add(new Gastos(Fila.Cells[0].Value.ToString(), double.Parse(Fila.Cells[2].Value.ToString()), Fila.Cells[3].Value.ToString(), DateTime.Parse(Fila.Cells[4].Value.ToString())));
+                    }
+                    ConexionBD.ArchivarGastos(txtNombre.Text,listaGastos);
                     new FormMensaje().Mostrar("Archivado correctamente", "¡Se archivó con éxito!", 5, new Mensualidades());
                     txtNombre.Clear();
                     RellenarDGV();

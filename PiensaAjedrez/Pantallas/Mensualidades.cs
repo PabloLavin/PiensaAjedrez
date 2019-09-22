@@ -208,7 +208,7 @@ namespace PiensaAjedrez
             foreach (DateTime mes in listaMeses)
             {
                 char c = char.Parse(mes.ToString("MMMM").Substring(0, 1).ToUpper());
-                string MesT = c + mes.ToString("MMMM").Substring(1);
+                string MesT = (c + mes.ToString("MMMM").Substring(1)).Substring(0,3);
                 meses.Add(MesT);
             }
             return (meses);

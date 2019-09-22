@@ -57,6 +57,14 @@ namespace PiensaAjedrez
             FechaGasto = dtmFecha;
             IDCurso = strCurso;
         }
+        public Gastos(string strMotivo, double dblMonto, string strNota, DateTime dtmFecha)
+        {
+            Motivo = strMotivo;
+            Monto = dblMonto;
+            Nota = strNota;
+            FechaGasto = dtmFecha;
+          
+        }
 
         public Gastos(string strMotivo, double dblMonto, string strNota)
         {
