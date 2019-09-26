@@ -338,7 +338,7 @@
             this.dgvAlumnosParticular.ColumnHeadersVisible = false;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -350,14 +350,14 @@
             this.dgvAlumnosParticular.GridColor = System.Drawing.Color.Black;
             this.dgvAlumnosParticular.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.dgvAlumnosParticular.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.dgvAlumnosParticular.Location = new System.Drawing.Point(232, 193);
+            this.dgvAlumnosParticular.Location = new System.Drawing.Point(232, 177);
             this.dgvAlumnosParticular.MultiSelect = false;
             this.dgvAlumnosParticular.Name = "dgvAlumnosParticular";
             this.dgvAlumnosParticular.ReadOnly = true;
             this.dgvAlumnosParticular.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAlumnosParticular.RowHeadersVisible = false;
             this.dgvAlumnosParticular.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dgvAlumnosParticular.Size = new System.Drawing.Size(172, 43);
+            this.dgvAlumnosParticular.Size = new System.Drawing.Size(172, 46);
             this.dgvAlumnosParticular.TabIndex = 50;
             this.dgvAlumnosParticular.TabStop = false;
             // 
@@ -386,7 +386,7 @@
             this.DgvEstadisticasEscuela.ColumnHeadersVisible = false;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -398,14 +398,14 @@
             this.DgvEstadisticasEscuela.GridColor = System.Drawing.Color.Black;
             this.DgvEstadisticasEscuela.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.DgvEstadisticasEscuela.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.DgvEstadisticasEscuela.Location = new System.Drawing.Point(24, 184);
+            this.DgvEstadisticasEscuela.Location = new System.Drawing.Point(24, 168);
             this.DgvEstadisticasEscuela.MultiSelect = false;
             this.DgvEstadisticasEscuela.Name = "DgvEstadisticasEscuela";
             this.DgvEstadisticasEscuela.ReadOnly = true;
             this.DgvEstadisticasEscuela.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DgvEstadisticasEscuela.RowHeadersVisible = false;
             this.DgvEstadisticasEscuela.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.DgvEstadisticasEscuela.Size = new System.Drawing.Size(202, 61);
+            this.DgvEstadisticasEscuela.Size = new System.Drawing.Size(202, 67);
             this.DgvEstadisticasEscuela.TabIndex = 49;
             this.DgvEstadisticasEscuela.TabStop = false;
             // 
@@ -849,7 +849,7 @@
             this.btnEscuela.BackColor = System.Drawing.Color.Transparent;
             this.btnEscuela.Image = ((System.Drawing.Image)(resources.GetObject("btnEscuela.Image")));
             this.btnEscuela.ImageActive = null;
-            this.btnEscuela.Location = new System.Drawing.Point(171, 37);
+            this.btnEscuela.Location = new System.Drawing.Point(171, 21);
             this.btnEscuela.Name = "btnEscuela";
             this.btnEscuela.Size = new System.Drawing.Size(82, 65);
             this.btnEscuela.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -861,7 +861,7 @@
             // 
             this.lblEscuela.AutoSize = true;
             this.lblEscuela.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lblEscuela.Location = new System.Drawing.Point(172, 105);
+            this.lblEscuela.Location = new System.Drawing.Point(172, 89);
             this.lblEscuela.Name = "lblEscuela";
             this.lblEscuela.Size = new System.Drawing.Size(82, 25);
             this.lblEscuela.TabIndex = 15;
@@ -875,7 +875,7 @@
             this.cbEscuelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEscuelas.ForeColor = System.Drawing.Color.White;
             this.cbEscuelas.Items = new string[0];
-            this.cbEscuelas.Location = new System.Drawing.Point(24, 142);
+            this.cbEscuelas.Location = new System.Drawing.Point(24, 126);
             this.cbEscuelas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbEscuelas.Name = "cbEscuelas";
             this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));

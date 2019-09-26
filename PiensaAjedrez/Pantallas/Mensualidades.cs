@@ -280,7 +280,8 @@ namespace PiensaAjedrez
 
         }
 
-        void LlenarDGV(Escuela otraEscuela)
+
+        void RellenarDGV(Escuela otraEscuela)
         {
             try
             {
@@ -311,9 +312,27 @@ namespace PiensaAjedrez
             }
             catch (Exception)
             {
-               
+
             }
-            
+
+        }
+
+        void LlenarDGV(Escuela otraEscuela)
+        {
+            if (chkNombre.Checked|| chkCorreo.Checked || chkAño.Checked)
+            {
+                try
+                {
+                    Filtrar();
+                }
+                catch (Exception)
+                {
+                    RellenarDGV(otraEscuela);
+                }
+                
+            }
+            else
+                RellenarDGV(otraEscuela);
         }
 
         private void cbEscuelas_onItemSelected(object sender, EventArgs e)
@@ -466,8 +485,7 @@ namespace PiensaAjedrez
             }
             else
             {
-                txtFiltroNoCtrl.Enabled = true;
-               
+                txtFiltroNoCtrl.Enabled = true;               
                 txtFiltroNoCtrl.Text = "";
             }
         }
@@ -877,7 +895,6 @@ namespace PiensaAjedrez
 
         private void LblInformacion_Click(object sender, EventArgs e)
         {
-
         }
 
         private void TxtFiltroNombre_TextChanged(object sender, EventArgs e)
@@ -901,29 +918,19 @@ namespace PiensaAjedrez
             lblInfo7.Text = unPago.MontoBeca.ToString("C");
         }
 
-
         private void Filtrar()
         {
             if (ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue) != null)
             {
-
-
                 Filtro unFiltro = new Filtro();
-
                 unFiltro.NumeroControl = chkCorreo.Checked;
-
                 unFiltro.Escuela = true;
-
                 unFiltro.Nombre = chkNombre.Checked;
-
 
                 if (cbEscuelas.selectedIndex >= 0)
                     unFiltro.ValorEscuela = cbEscuelas.selectedValue;
 
                 unFiltro.ValorFecha = DateTime.Now;
-
-
-
                 unFiltro.ValorNombre = txtFiltroNombre.Text;
                 unFiltro.ValorNoControl = txtFiltroNoCtrl.Text;
                 int intContador = 0;
@@ -938,9 +945,6 @@ namespace PiensaAjedrez
                     }
                 }
             }
-
-           
-
         }
 
         bool Preguntar(string strEncabezado, string strMensaje)

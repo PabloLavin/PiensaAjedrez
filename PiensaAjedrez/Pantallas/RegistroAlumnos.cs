@@ -72,7 +72,6 @@ namespace PiensaAjedrez
 
             InicializarAutorellenado();
         }
-
         
         void InicializarAutorellenado()
         {
@@ -159,10 +158,27 @@ namespace PiensaAjedrez
 
         void MostrarDatos()
         {
+            if(chkNombre.Checked || chkEscuela.Checked || chkFechaNacimiento.Checked || chkCorreo.Checked || chkFiltroActivo.Checked)
+            {   
+                try
+                {
+                    Filtrar();
+                }
+                catch (Exception)
+                {
+                    Recargar();
+                }
+            }    
+            else            
+                Recargar();                   
+        }
+
+        void Recargar()
+        {
             dgvAlumnos.Rows.Clear();
             foreach (Alumno miAlumno in ConexionBD.CargarAlumnos())
             {
-                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl,miAlumno.Grado,miAlumno.ApellidoPaterno,miAlumno.ApellidoMaterno, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo)?"Si":"No"), miAlumno.Tutor);
+                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Grado, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
             }
         }
 
