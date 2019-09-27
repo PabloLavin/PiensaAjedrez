@@ -35,6 +35,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Asistencia));
             this.dgvAlumnos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
+            this.btnDesmarcar = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnMarcarTodos = new Bunifu.Framework.UI.BunifuFlatButton();
             this.lblFecha = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.cbFechas = new Bunifu.Framework.UI.BunifuDropdown();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -42,11 +44,9 @@
             this.txtFiltroNoCtrl = new System.Windows.Forms.TextBox();
             this.txtFiltroNombre = new System.Windows.Forms.TextBox();
             this.lblfiltrar = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.imgFiltro = new Bunifu.Framework.UI.BunifuImageButton();
             this.chkCorreo = new Bunifu.Framework.UI.BunifuCheckbox();
             this.chkNombre = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.imgFiltro = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btnDesmarcar = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnMarcarTodos = new Bunifu.Framework.UI.BunifuFlatButton();
             this.lblColegios = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnEscuela = new Bunifu.Framework.UI.BunifuImageButton();
             this.cbEscuelas = new Bunifu.Framework.UI.BunifuDropdown();
@@ -106,7 +106,7 @@
             this.dgvAlumnos.RowTemplate.Height = 25;
             this.dgvAlumnos.RowTemplate.ReadOnly = true;
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvAlumnos.Size = new System.Drawing.Size(947, 628);
+            this.dgvAlumnos.Size = new System.Drawing.Size(947, 584);
             this.dgvAlumnos.TabIndex = 2;
             this.dgvAlumnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAlumnos_CellClick);
             this.dgvAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellContentClick);
@@ -124,146 +124,13 @@
             this.bunifuCards2.Controls.Add(this.cbFechas);
             this.bunifuCards2.Controls.Add(this.bunifuCustomLabel1);
             this.bunifuCards2.LeftSahddow = false;
-            this.bunifuCards2.Location = new System.Drawing.Point(17, 255);
+            this.bunifuCards2.Location = new System.Drawing.Point(17, 228);
             this.bunifuCards2.Name = "bunifuCards2";
             this.bunifuCards2.RightSahddow = true;
             this.bunifuCards2.ShadowDepth = 20;
             this.bunifuCards2.Size = new System.Drawing.Size(334, 157);
             this.bunifuCards2.TabIndex = 9;
             this.bunifuCards2.TabStop = true;
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.ForeColor = System.Drawing.Color.Black;
-            this.lblFecha.Location = new System.Drawing.Point(10, 55);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(138, 36);
-            this.lblFecha.TabIndex = 10;
-            this.lblFecha.Text = "Seleccione la\r\n fecha de asistencia";
-            // 
-            // cbFechas
-            // 
-            this.cbFechas.BackColor = System.Drawing.Color.Transparent;
-            this.cbFechas.BorderRadius = 3;
-            this.cbFechas.DisabledColor = System.Drawing.Color.Gray;
-            this.cbFechas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbFechas.ForeColor = System.Drawing.Color.White;
-            this.cbFechas.Items = new string[0];
-            this.cbFechas.Location = new System.Drawing.Point(13, 97);
-            this.cbFechas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cbFechas.Name = "cbFechas";
-            this.cbFechas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.cbFechas.onHoverColor = System.Drawing.Color.Teal;
-            this.cbFechas.selectedIndex = -1;
-            this.cbFechas.Size = new System.Drawing.Size(129, 35);
-            this.cbFechas.TabIndex = 9;
-            // 
-            // bunifuCustomLabel1
-            // 
-            this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(15, 18);
-            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(103, 25);
-            this.bunifuCustomLabel1.TabIndex = 3;
-            this.bunifuCustomLabel1.Text = "Opciones";
-            // 
-            // bunifuCards3
-            // 
-            this.bunifuCards3.BackColor = System.Drawing.Color.White;
-            this.bunifuCards3.BorderRadius = 5;
-            this.bunifuCards3.BottomSahddow = true;
-            this.bunifuCards3.color = System.Drawing.Color.Teal;
-            this.bunifuCards3.Controls.Add(this.txtFiltroNoCtrl);
-            this.bunifuCards3.Controls.Add(this.txtFiltroNombre);
-            this.bunifuCards3.Controls.Add(this.lblfiltrar);
-            this.bunifuCards3.Controls.Add(this.imgFiltro);
-            this.bunifuCards3.Controls.Add(this.chkCorreo);
-            this.bunifuCards3.Controls.Add(this.chkNombre);
-            this.bunifuCards3.LeftSahddow = false;
-            this.bunifuCards3.Location = new System.Drawing.Point(17, 465);
-            this.bunifuCards3.Name = "bunifuCards3";
-            this.bunifuCards3.RightSahddow = true;
-            this.bunifuCards3.ShadowDepth = 20;
-            this.bunifuCards3.Size = new System.Drawing.Size(334, 180);
-            this.bunifuCards3.TabIndex = 19;
-            // 
-            // txtFiltroNoCtrl
-            // 
-            this.txtFiltroNoCtrl.Enabled = false;
-            this.txtFiltroNoCtrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltroNoCtrl.Location = new System.Drawing.Point(105, 118);
-            this.txtFiltroNoCtrl.Name = "txtFiltroNoCtrl";
-            this.txtFiltroNoCtrl.Size = new System.Drawing.Size(124, 22);
-            this.txtFiltroNoCtrl.TabIndex = 27;
-            this.txtFiltroNoCtrl.Text = "Número de Control";
-            this.txtFiltroNoCtrl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtFiltroNoCtrl.TextChanged += new System.EventHandler(this.TxtFiltroNoCtrl_TextChanged);
-            // 
-            // txtFiltroNombre
-            // 
-            this.txtFiltroNombre.Enabled = false;
-            this.txtFiltroNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltroNombre.Location = new System.Drawing.Point(38, 66);
-            this.txtFiltroNombre.Name = "txtFiltroNombre";
-            this.txtFiltroNombre.Size = new System.Drawing.Size(261, 22);
-            this.txtFiltroNombre.TabIndex = 26;
-            this.txtFiltroNombre.Text = "Nombre";
-            this.txtFiltroNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtFiltroNombre.TextChanged += new System.EventHandler(this.TxtFiltroNombre_TextChanged);
-            // 
-            // lblfiltrar
-            // 
-            this.lblfiltrar.AutoSize = true;
-            this.lblfiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfiltrar.ForeColor = System.Drawing.Color.DimGray;
-            this.lblfiltrar.Location = new System.Drawing.Point(49, 19);
-            this.lblfiltrar.Name = "lblfiltrar";
-            this.lblfiltrar.Size = new System.Drawing.Size(113, 25);
-            this.lblfiltrar.TabIndex = 18;
-            this.lblfiltrar.Text = "Filtrar por... ";
-            // 
-            // chkCorreo
-            // 
-            this.chkCorreo.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.chkCorreo.ChechedOffColor = System.Drawing.Color.SkyBlue;
-            this.chkCorreo.Checked = false;
-            this.chkCorreo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
-            this.chkCorreo.ForeColor = System.Drawing.Color.White;
-            this.chkCorreo.Location = new System.Drawing.Point(79, 117);
-            this.chkCorreo.Name = "chkCorreo";
-            this.chkCorreo.Size = new System.Drawing.Size(20, 20);
-            this.chkCorreo.TabIndex = 12;
-            this.chkCorreo.OnChange += new System.EventHandler(this.ChkCorreo_OnChange);
-            // 
-            // chkNombre
-            // 
-            this.chkNombre.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.chkNombre.ChechedOffColor = System.Drawing.Color.SkyBlue;
-            this.chkNombre.Checked = false;
-            this.chkNombre.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
-            this.chkNombre.ForeColor = System.Drawing.Color.White;
-            this.chkNombre.Location = new System.Drawing.Point(12, 66);
-            this.chkNombre.Name = "chkNombre";
-            this.chkNombre.Size = new System.Drawing.Size(20, 20);
-            this.chkNombre.TabIndex = 8;
-            this.chkNombre.OnChange += new System.EventHandler(this.ChkNombre_OnChange);
-            // 
-            // imgFiltro
-            // 
-            this.imgFiltro.BackColor = System.Drawing.Color.Transparent;
-            this.imgFiltro.Image = ((System.Drawing.Image)(resources.GetObject("imgFiltro.Image")));
-            this.imgFiltro.ImageActive = ((System.Drawing.Image)(resources.GetObject("imgFiltro.ImageActive")));
-            this.imgFiltro.Location = new System.Drawing.Point(12, 17);
-            this.imgFiltro.Name = "imgFiltro";
-            this.imgFiltro.Size = new System.Drawing.Size(31, 30);
-            this.imgFiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgFiltro.TabIndex = 17;
-            this.imgFiltro.TabStop = false;
-            this.imgFiltro.Zoom = 10;
             // 
             // btnDesmarcar
             // 
@@ -335,6 +202,139 @@
             this.btnMarcarTodos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMarcarTodos.Click += new System.EventHandler(this.BunifuFlatButton1_Click);
             // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.Color.Black;
+            this.lblFecha.Location = new System.Drawing.Point(10, 55);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(138, 36);
+            this.lblFecha.TabIndex = 10;
+            this.lblFecha.Text = "Seleccione la\r\n fecha de asistencia";
+            // 
+            // cbFechas
+            // 
+            this.cbFechas.BackColor = System.Drawing.Color.Transparent;
+            this.cbFechas.BorderRadius = 3;
+            this.cbFechas.DisabledColor = System.Drawing.Color.Gray;
+            this.cbFechas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFechas.ForeColor = System.Drawing.Color.White;
+            this.cbFechas.Items = new string[0];
+            this.cbFechas.Location = new System.Drawing.Point(13, 97);
+            this.cbFechas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFechas.Name = "cbFechas";
+            this.cbFechas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.cbFechas.onHoverColor = System.Drawing.Color.Teal;
+            this.cbFechas.selectedIndex = -1;
+            this.cbFechas.Size = new System.Drawing.Size(129, 35);
+            this.cbFechas.TabIndex = 9;
+            // 
+            // bunifuCustomLabel1
+            // 
+            this.bunifuCustomLabel1.AutoSize = true;
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.Teal;
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(15, 18);
+            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(103, 25);
+            this.bunifuCustomLabel1.TabIndex = 3;
+            this.bunifuCustomLabel1.Text = "Opciones";
+            // 
+            // bunifuCards3
+            // 
+            this.bunifuCards3.BackColor = System.Drawing.Color.White;
+            this.bunifuCards3.BorderRadius = 5;
+            this.bunifuCards3.BottomSahddow = true;
+            this.bunifuCards3.color = System.Drawing.Color.Teal;
+            this.bunifuCards3.Controls.Add(this.txtFiltroNoCtrl);
+            this.bunifuCards3.Controls.Add(this.txtFiltroNombre);
+            this.bunifuCards3.Controls.Add(this.lblfiltrar);
+            this.bunifuCards3.Controls.Add(this.imgFiltro);
+            this.bunifuCards3.Controls.Add(this.chkCorreo);
+            this.bunifuCards3.Controls.Add(this.chkNombre);
+            this.bunifuCards3.LeftSahddow = false;
+            this.bunifuCards3.Location = new System.Drawing.Point(17, 412);
+            this.bunifuCards3.Name = "bunifuCards3";
+            this.bunifuCards3.RightSahddow = true;
+            this.bunifuCards3.ShadowDepth = 20;
+            this.bunifuCards3.Size = new System.Drawing.Size(334, 180);
+            this.bunifuCards3.TabIndex = 19;
+            // 
+            // txtFiltroNoCtrl
+            // 
+            this.txtFiltroNoCtrl.Enabled = false;
+            this.txtFiltroNoCtrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltroNoCtrl.Location = new System.Drawing.Point(105, 118);
+            this.txtFiltroNoCtrl.Name = "txtFiltroNoCtrl";
+            this.txtFiltroNoCtrl.Size = new System.Drawing.Size(124, 22);
+            this.txtFiltroNoCtrl.TabIndex = 27;
+            this.txtFiltroNoCtrl.Text = "Número de Control";
+            this.txtFiltroNoCtrl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFiltroNoCtrl.TextChanged += new System.EventHandler(this.TxtFiltroNoCtrl_TextChanged);
+            // 
+            // txtFiltroNombre
+            // 
+            this.txtFiltroNombre.Enabled = false;
+            this.txtFiltroNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltroNombre.Location = new System.Drawing.Point(38, 66);
+            this.txtFiltroNombre.Name = "txtFiltroNombre";
+            this.txtFiltroNombre.Size = new System.Drawing.Size(261, 22);
+            this.txtFiltroNombre.TabIndex = 26;
+            this.txtFiltroNombre.Text = "Nombre";
+            this.txtFiltroNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFiltroNombre.TextChanged += new System.EventHandler(this.TxtFiltroNombre_TextChanged);
+            // 
+            // lblfiltrar
+            // 
+            this.lblfiltrar.AutoSize = true;
+            this.lblfiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfiltrar.ForeColor = System.Drawing.Color.DimGray;
+            this.lblfiltrar.Location = new System.Drawing.Point(49, 19);
+            this.lblfiltrar.Name = "lblfiltrar";
+            this.lblfiltrar.Size = new System.Drawing.Size(113, 25);
+            this.lblfiltrar.TabIndex = 18;
+            this.lblfiltrar.Text = "Filtrar por... ";
+            // 
+            // imgFiltro
+            // 
+            this.imgFiltro.BackColor = System.Drawing.Color.Transparent;
+            this.imgFiltro.Image = ((System.Drawing.Image)(resources.GetObject("imgFiltro.Image")));
+            this.imgFiltro.ImageActive = ((System.Drawing.Image)(resources.GetObject("imgFiltro.ImageActive")));
+            this.imgFiltro.Location = new System.Drawing.Point(12, 17);
+            this.imgFiltro.Name = "imgFiltro";
+            this.imgFiltro.Size = new System.Drawing.Size(31, 30);
+            this.imgFiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgFiltro.TabIndex = 17;
+            this.imgFiltro.TabStop = false;
+            this.imgFiltro.Zoom = 10;
+            // 
+            // chkCorreo
+            // 
+            this.chkCorreo.BackColor = System.Drawing.Color.SkyBlue;
+            this.chkCorreo.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkCorreo.Checked = false;
+            this.chkCorreo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
+            this.chkCorreo.ForeColor = System.Drawing.Color.White;
+            this.chkCorreo.Location = new System.Drawing.Point(79, 117);
+            this.chkCorreo.Name = "chkCorreo";
+            this.chkCorreo.Size = new System.Drawing.Size(20, 20);
+            this.chkCorreo.TabIndex = 12;
+            this.chkCorreo.OnChange += new System.EventHandler(this.ChkCorreo_OnChange);
+            // 
+            // chkNombre
+            // 
+            this.chkNombre.BackColor = System.Drawing.Color.SkyBlue;
+            this.chkNombre.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkNombre.Checked = false;
+            this.chkNombre.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
+            this.chkNombre.ForeColor = System.Drawing.Color.White;
+            this.chkNombre.Location = new System.Drawing.Point(12, 66);
+            this.chkNombre.Name = "chkNombre";
+            this.chkNombre.Size = new System.Drawing.Size(20, 20);
+            this.chkNombre.TabIndex = 8;
+            this.chkNombre.OnChange += new System.EventHandler(this.ChkNombre_OnChange);
+            // 
             // lblColegios
             // 
             this.lblColegios.AutoSize = true;
@@ -385,7 +385,7 @@
             this.bunifuCards1.Controls.Add(this.btnEscuela);
             this.bunifuCards1.Controls.Add(this.lblColegios);
             this.bunifuCards1.LeftSahddow = false;
-            this.bunifuCards1.Location = new System.Drawing.Point(17, 17);
+            this.bunifuCards1.Location = new System.Drawing.Point(17, 28);
             this.bunifuCards1.Name = "bunifuCards1";
             this.bunifuCards1.RightSahddow = true;
             this.bunifuCards1.ShadowDepth = 20;
@@ -403,7 +403,7 @@
             this.Controls.Add(this.dgvAlumnos);
             this.Controls.Add(this.bunifuCards1);
             this.Name = "Asistencia";
-            this.Size = new System.Drawing.Size(1342, 670);
+            this.Size = new System.Drawing.Size(1342, 615);
             this.Load += new System.EventHandler(this.Asistencia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
             this.bunifuCards2.ResumeLayout(false);

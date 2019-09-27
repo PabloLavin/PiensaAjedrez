@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reportes));
             this.panelReportes = new System.Windows.Forms.Panel();
-            this.visorReportes = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
             this.cboCursos = new Bunifu.Framework.UI.BunifuDropdown();
             this.CargarReporteActividades = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -50,6 +49,7 @@
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.CargarEgresos = new Bunifu.Framework.UI.BunifuFlatButton();
             this.PreparandoDatos = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.visorReportes = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.panelReportes.SuspendLayout();
             this.bunifuCards1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).BeginInit();
@@ -63,24 +63,8 @@
             this.panelReportes.Controls.Add(this.visorReportes);
             this.panelReportes.Location = new System.Drawing.Point(492, 48);
             this.panelReportes.Name = "panelReportes";
-            this.panelReportes.Size = new System.Drawing.Size(839, 605);
+            this.panelReportes.Size = new System.Drawing.Size(839, 551);
             this.panelReportes.TabIndex = 0;
-            // 
-            // visorReportes
-            // 
-            this.visorReportes.ActiveViewIndex = -1;
-            this.visorReportes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.visorReportes.Cursor = System.Windows.Forms.Cursors.Default;
-            this.visorReportes.DisplayBackgroundEdge = false;
-            this.visorReportes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.visorReportes.Location = new System.Drawing.Point(0, 0);
-            this.visorReportes.Name = "visorReportes";
-            this.visorReportes.ShowCloseButton = false;
-            this.visorReportes.ShowCopyButton = false;
-            this.visorReportes.ShowLogo = false;
-            this.visorReportes.Size = new System.Drawing.Size(839, 605);
-            this.visorReportes.TabIndex = 0;
-            this.visorReportes.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // bunifuCards1
             // 
@@ -105,7 +89,7 @@
             this.bunifuCards1.Name = "bunifuCards1";
             this.bunifuCards1.RightSahddow = true;
             this.bunifuCards1.ShadowDepth = 20;
-            this.bunifuCards1.Size = new System.Drawing.Size(409, 420);
+            this.bunifuCards1.Size = new System.Drawing.Size(409, 386);
             this.bunifuCards1.TabIndex = 2;
             this.bunifuCards1.TabStop = true;
             // 
@@ -116,7 +100,7 @@
             this.cboCursos.DisabledColor = System.Drawing.Color.Gray;
             this.cboCursos.ForeColor = System.Drawing.Color.White;
             this.cboCursos.Items = new string[0];
-            this.cboCursos.Location = new System.Drawing.Point(98, 199);
+            this.cboCursos.Location = new System.Drawing.Point(98, 176);
             this.cboCursos.Name = "cboCursos";
             this.cboCursos.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.cboCursos.onHoverColor = System.Drawing.Color.Teal;
@@ -145,7 +129,7 @@
             this.CargarReporteActividades.IconVisible = false;
             this.CargarReporteActividades.IconZoom = 90D;
             this.CargarReporteActividades.IsTab = false;
-            this.CargarReporteActividades.Location = new System.Drawing.Point(268, 320);
+            this.CargarReporteActividades.Location = new System.Drawing.Point(268, 290);
             this.CargarReporteActividades.Name = "CargarReporteActividades";
             this.CargarReporteActividades.Normalcolor = System.Drawing.Color.Teal;
             this.CargarReporteActividades.OnHovercolor = System.Drawing.Color.LightSeaGreen;
@@ -180,7 +164,7 @@
             this.CargarAsistencias.IconVisible = false;
             this.CargarAsistencias.IconZoom = 90D;
             this.CargarAsistencias.IsTab = false;
-            this.CargarAsistencias.Location = new System.Drawing.Point(18, 366);
+            this.CargarAsistencias.Location = new System.Drawing.Point(18, 336);
             this.CargarAsistencias.Name = "CargarAsistencias";
             this.CargarAsistencias.Normalcolor = System.Drawing.Color.Teal;
             this.CargarAsistencias.OnHovercolor = System.Drawing.Color.LightSeaGreen;
@@ -215,7 +199,7 @@
             this.CargarReporteMensualidades.IconVisible = false;
             this.CargarReporteMensualidades.IconZoom = 90D;
             this.CargarReporteMensualidades.IsTab = false;
-            this.CargarReporteMensualidades.Location = new System.Drawing.Point(142, 320);
+            this.CargarReporteMensualidades.Location = new System.Drawing.Point(142, 290);
             this.CargarReporteMensualidades.Name = "CargarReporteMensualidades";
             this.CargarReporteMensualidades.Normalcolor = System.Drawing.Color.Teal;
             this.CargarReporteMensualidades.OnHovercolor = System.Drawing.Color.LightSeaGreen;
@@ -250,7 +234,7 @@
             this.CargarReporteInscripciones.IconVisible = false;
             this.CargarReporteInscripciones.IconZoom = 90D;
             this.CargarReporteInscripciones.IsTab = false;
-            this.CargarReporteInscripciones.Location = new System.Drawing.Point(18, 320);
+            this.CargarReporteInscripciones.Location = new System.Drawing.Point(18, 290);
             this.CargarReporteInscripciones.Name = "CargarReporteInscripciones";
             this.CargarReporteInscripciones.Normalcolor = System.Drawing.Color.Teal;
             this.CargarReporteInscripciones.OnHovercolor = System.Drawing.Color.LightSeaGreen;
@@ -271,7 +255,7 @@
             this.cbEscuelas.DisabledColor = System.Drawing.Color.Gray;
             this.cbEscuelas.ForeColor = System.Drawing.Color.White;
             this.cbEscuelas.Items = new string[0];
-            this.cbEscuelas.Location = new System.Drawing.Point(21, 122);
+            this.cbEscuelas.Location = new System.Drawing.Point(21, 105);
             this.cbEscuelas.Name = "cbEscuelas";
             this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.cbEscuelas.onHoverColor = System.Drawing.Color.Teal;
@@ -286,7 +270,7 @@
             this.lblCurso.AutoSize = true;
             this.lblCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurso.ForeColor = System.Drawing.Color.Black;
-            this.lblCurso.Location = new System.Drawing.Point(19, 205);
+            this.lblCurso.Location = new System.Drawing.Point(19, 182);
             this.lblCurso.Name = "lblCurso";
             this.lblCurso.Size = new System.Drawing.Size(49, 18);
             this.lblCurso.TabIndex = 11;
@@ -297,9 +281,9 @@
             this.btnEscuela.BackColor = System.Drawing.Color.Transparent;
             this.btnEscuela.Image = ((System.Drawing.Image)(resources.GetObject("btnEscuela.Image")));
             this.btnEscuela.ImageActive = null;
-            this.btnEscuela.Location = new System.Drawing.Point(162, 51);
+            this.btnEscuela.Location = new System.Drawing.Point(180, 42);
             this.btnEscuela.Name = "btnEscuela";
-            this.btnEscuela.Size = new System.Drawing.Size(82, 65);
+            this.btnEscuela.Size = new System.Drawing.Size(78, 60);
             this.btnEscuela.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnEscuela.TabIndex = 5;
             this.btnEscuela.TabStop = false;
@@ -308,11 +292,11 @@
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(15, 164);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(15, 145);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(195, 25);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(173, 24);
             this.bunifuCustomLabel1.TabIndex = 3;
             this.bunifuCustomLabel1.Text = "Selección de curso";
             // 
@@ -337,7 +321,7 @@
             this.CargarTodosIngresos.IconVisible = false;
             this.CargarTodosIngresos.IconZoom = 90D;
             this.CargarTodosIngresos.IsTab = false;
-            this.CargarTodosIngresos.Location = new System.Drawing.Point(19, 276);
+            this.CargarTodosIngresos.Location = new System.Drawing.Point(19, 246);
             this.CargarTodosIngresos.Name = "CargarTodosIngresos";
             this.CargarTodosIngresos.Normalcolor = System.Drawing.Color.Teal;
             this.CargarTodosIngresos.OnHovercolor = System.Drawing.Color.LightSeaGreen;
@@ -354,22 +338,22 @@
             // lblColegios
             // 
             this.lblColegios.AutoSize = true;
-            this.lblColegios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblColegios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lblColegios.ForeColor = System.Drawing.Color.Teal;
-            this.lblColegios.Location = new System.Drawing.Point(15, 18);
+            this.lblColegios.Location = new System.Drawing.Point(15, 15);
             this.lblColegios.Name = "lblColegios";
-            this.lblColegios.Size = new System.Drawing.Size(222, 25);
+            this.lblColegios.Size = new System.Drawing.Size(197, 24);
             this.lblColegios.TabIndex = 3;
             this.lblColegios.Text = "Selección de colegios";
             // 
             // lblTipoReporte
             // 
             this.lblTipoReporte.AutoSize = true;
-            this.lblTipoReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblTipoReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lblTipoReporte.ForeColor = System.Drawing.Color.Teal;
-            this.lblTipoReporte.Location = new System.Drawing.Point(15, 242);
+            this.lblTipoReporte.Location = new System.Drawing.Point(15, 218);
             this.lblTipoReporte.Name = "lblTipoReporte";
-            this.lblTipoReporte.Size = new System.Drawing.Size(286, 25);
+            this.lblTipoReporte.Size = new System.Drawing.Size(252, 24);
             this.lblTipoReporte.TabIndex = 9;
             this.lblTipoReporte.Text = "Selección del tipo de reporte";
             // 
@@ -384,11 +368,11 @@
             this.bunifuCards3.Controls.Add(this.bunifuCustomLabel2);
             this.bunifuCards3.Controls.Add(this.CargarEgresos);
             this.bunifuCards3.LeftSahddow = false;
-            this.bunifuCards3.Location = new System.Drawing.Point(56, 441);
+            this.bunifuCards3.Location = new System.Drawing.Point(56, 417);
             this.bunifuCards3.Name = "bunifuCards3";
             this.bunifuCards3.RightSahddow = true;
             this.bunifuCards3.ShadowDepth = 20;
-            this.bunifuCards3.Size = new System.Drawing.Size(409, 212);
+            this.bunifuCards3.Size = new System.Drawing.Size(409, 182);
             this.bunifuCards3.TabIndex = 10;
             // 
             // bunifuImageButton1
@@ -397,9 +381,9 @@
             this.bunifuImageButton1.Enabled = false;
             this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
             this.bunifuImageButton1.ImageActive = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.ImageActive")));
-            this.bunifuImageButton1.Location = new System.Drawing.Point(165, 49);
+            this.bunifuImageButton1.Location = new System.Drawing.Point(187, 40);
             this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(72, 66);
+            this.bunifuImageButton1.Size = new System.Drawing.Size(50, 50);
             this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.bunifuImageButton1.TabIndex = 20;
             this.bunifuImageButton1.TabStop = false;
@@ -412,7 +396,7 @@
             this.cboGrupoGastos.DisabledColor = System.Drawing.Color.Gray;
             this.cboGrupoGastos.ForeColor = System.Drawing.Color.White;
             this.cboGrupoGastos.Items = new string[0];
-            this.cboGrupoGastos.Location = new System.Drawing.Point(24, 121);
+            this.cboGrupoGastos.Location = new System.Drawing.Point(24, 94);
             this.cboGrupoGastos.Name = "cboGrupoGastos";
             this.cboGrupoGastos.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.cboGrupoGastos.onHoverColor = System.Drawing.Color.Teal;
@@ -424,11 +408,11 @@
             // bunifuCustomLabel2
             // 
             this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(17, 21);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(17, 15);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(206, 25);
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(180, 24);
             this.bunifuCustomLabel2.TabIndex = 12;
             this.bunifuCustomLabel2.Text = "Selección de gastos";
             // 
@@ -454,7 +438,7 @@
             this.CargarEgresos.IconVisible = false;
             this.CargarEgresos.IconZoom = 90D;
             this.CargarEgresos.IsTab = false;
-            this.CargarEgresos.Location = new System.Drawing.Point(22, 162);
+            this.CargarEgresos.Location = new System.Drawing.Point(22, 133);
             this.CargarEgresos.Name = "CargarEgresos";
             this.CargarEgresos.Normalcolor = System.Drawing.Color.Teal;
             this.CargarEgresos.OnHovercolor = System.Drawing.Color.LightSeaGreen;
@@ -479,6 +463,22 @@
             this.PreparandoDatos.TabIndex = 12;
             this.PreparandoDatos.Text = "Para mostrar un reporte, seleccione los datos y escoja un tipo de reporte.";
             // 
+            // visorReportes
+            // 
+            this.visorReportes.ActiveViewIndex = -1;
+            this.visorReportes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.visorReportes.Cursor = System.Windows.Forms.Cursors.Default;
+            this.visorReportes.DisplayBackgroundEdge = false;
+            this.visorReportes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.visorReportes.Location = new System.Drawing.Point(0, 0);
+            this.visorReportes.Name = "visorReportes";
+            this.visorReportes.ShowCloseButton = false;
+            this.visorReportes.ShowCopyButton = false;
+            this.visorReportes.ShowLogo = false;
+            this.visorReportes.Size = new System.Drawing.Size(839, 551);
+            this.visorReportes.TabIndex = 0;
+            this.visorReportes.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
             // Reportes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -489,7 +489,7 @@
             this.Controls.Add(this.bunifuCards1);
             this.Controls.Add(this.panelReportes);
             this.Name = "Reportes";
-            this.Size = new System.Drawing.Size(1342, 670);
+            this.Size = new System.Drawing.Size(1342, 615);
             this.panelReportes.ResumeLayout(false);
             this.bunifuCards1.ResumeLayout(false);
             this.bunifuCards1.PerformLayout();
@@ -505,7 +505,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelReportes;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer visorReportes;
         private Bunifu.Framework.UI.BunifuCards bunifuCards1;
         private Bunifu.Framework.UI.BunifuDropdown cbEscuelas;
         private Bunifu.Framework.UI.BunifuImageButton btnEscuela;
@@ -525,5 +524,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuDropdown cboGrupoGastos;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer visorReportes;
     }
 }

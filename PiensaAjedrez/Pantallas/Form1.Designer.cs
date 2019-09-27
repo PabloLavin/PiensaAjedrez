@@ -61,7 +61,7 @@
             this.panTrabajo.BackColor = System.Drawing.Color.White;
             this.panTrabajo.Location = new System.Drawing.Point(12, 107);
             this.panTrabajo.Name = "panTrabajo";
-            this.panTrabajo.Size = new System.Drawing.Size(1342, 649);
+            this.panTrabajo.Size = new System.Drawing.Size(1342, 615);
             this.panTrabajo.TabIndex = 0;
             this.panTrabajo.TabStop = true;
             // 
@@ -385,7 +385,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.ClientSize = new System.Drawing.Size(1366, 730);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.PiensaAjedrez);
             this.Controls.Add(this.Cerrar);
@@ -395,7 +395,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
             this.EnabledChanged += new System.EventHandler(this.Form1_EnabledChanged);
             this.panelMenu.ResumeLayout(false);

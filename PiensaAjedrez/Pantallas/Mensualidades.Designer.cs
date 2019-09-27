@@ -150,7 +150,7 @@
             this.bunifuCards2.Controls.Add(this.chkCorreo);
             this.bunifuCards2.Controls.Add(this.chkNombre);
             this.bunifuCards2.LeftSahddow = false;
-            this.bunifuCards2.Location = new System.Drawing.Point(992, 24);
+            this.bunifuCards2.Location = new System.Drawing.Point(992, 6);
             this.bunifuCards2.Name = "bunifuCards2";
             this.bunifuCards2.RightSahddow = true;
             this.bunifuCards2.ShadowDepth = 20;
@@ -305,11 +305,11 @@
             this.bunifuCards1.Controls.Add(this.bunifuImageButton2);
             this.bunifuCards1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCards1.LeftSahddow = false;
-            this.bunifuCards1.Location = new System.Drawing.Point(27, 24);
+            this.bunifuCards1.Location = new System.Drawing.Point(27, 6);
             this.bunifuCards1.Name = "bunifuCards1";
             this.bunifuCards1.RightSahddow = true;
             this.bunifuCards1.ShadowDepth = 20;
-            this.bunifuCards1.Size = new System.Drawing.Size(943, 257);
+            this.bunifuCards1.Size = new System.Drawing.Size(943, 250);
             this.bunifuCards1.TabIndex = 0;
             this.bunifuCards1.TabStop = true;
             // 
@@ -350,7 +350,7 @@
             this.dgvAlumnosParticular.GridColor = System.Drawing.Color.Black;
             this.dgvAlumnosParticular.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.dgvAlumnosParticular.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.dgvAlumnosParticular.Location = new System.Drawing.Point(232, 177);
+            this.dgvAlumnosParticular.Location = new System.Drawing.Point(232, 169);
             this.dgvAlumnosParticular.MultiSelect = false;
             this.dgvAlumnosParticular.Name = "dgvAlumnosParticular";
             this.dgvAlumnosParticular.ReadOnly = true;
@@ -398,7 +398,7 @@
             this.DgvEstadisticasEscuela.GridColor = System.Drawing.Color.Black;
             this.DgvEstadisticasEscuela.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.DgvEstadisticasEscuela.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.DgvEstadisticasEscuela.Location = new System.Drawing.Point(24, 168);
+            this.DgvEstadisticasEscuela.Location = new System.Drawing.Point(24, 160);
             this.DgvEstadisticasEscuela.MultiSelect = false;
             this.DgvEstadisticasEscuela.Name = "DgvEstadisticasEscuela";
             this.DgvEstadisticasEscuela.ReadOnly = true;
@@ -427,7 +427,7 @@
             this.gbEsconder.Controls.Add(this.lblInfo1);
             this.gbEsconder.Controls.Add(this.lblPRecibo);
             this.gbEsconder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbEsconder.Location = new System.Drawing.Point(447, 18);
+            this.gbEsconder.Location = new System.Drawing.Point(447, 10);
             this.gbEsconder.MaximumSize = new System.Drawing.Size(473, 217);
             this.gbEsconder.Name = "gbEsconder";
             this.gbEsconder.Size = new System.Drawing.Size(473, 217);
@@ -588,7 +588,7 @@
             this.lblBeca.AutoSize = true;
             this.lblBeca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBeca.ForeColor = System.Drawing.Color.Black;
-            this.lblBeca.Location = new System.Drawing.Point(485, 225);
+            this.lblBeca.Location = new System.Drawing.Point(485, 217);
             this.lblBeca.Name = "lblBeca";
             this.lblBeca.Size = new System.Drawing.Size(46, 20);
             this.lblBeca.TabIndex = 47;
@@ -602,7 +602,7 @@
             this.chkBeca.Checked = false;
             this.chkBeca.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkBeca.ForeColor = System.Drawing.Color.White;
-            this.chkBeca.Location = new System.Drawing.Point(459, 224);
+            this.chkBeca.Location = new System.Drawing.Point(459, 216);
             this.chkBeca.Margin = new System.Windows.Forms.Padding(4);
             this.chkBeca.Name = "chkBeca";
             this.chkBeca.Size = new System.Drawing.Size(20, 20);
@@ -612,7 +612,7 @@
             // 
             // txtNota
             // 
-            this.txtNota.Location = new System.Drawing.Point(723, 157);
+            this.txtNota.Location = new System.Drawing.Point(723, 149);
             this.txtNota.Name = "txtNota";
             this.txtNota.Size = new System.Drawing.Size(132, 24);
             this.txtNota.TabIndex = 43;
@@ -620,7 +620,7 @@
             // txtMonto
             // 
             this.txtMonto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMonto.Location = new System.Drawing.Point(519, 110);
+            this.txtMonto.Location = new System.Drawing.Point(519, 102);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(79, 24);
             this.txtMonto.TabIndex = 42;
@@ -630,7 +630,7 @@
             this.lblLiquidado.AutoSize = true;
             this.lblLiquidado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLiquidado.ForeColor = System.Drawing.Color.Black;
-            this.lblLiquidado.Location = new System.Drawing.Point(485, 202);
+            this.lblLiquidado.Location = new System.Drawing.Point(485, 194);
             this.lblLiquidado.Name = "lblLiquidado";
             this.lblLiquidado.Size = new System.Drawing.Size(56, 20);
             this.lblLiquidado.TabIndex = 38;
@@ -644,7 +644,7 @@
             this.chkLiquidado.Checked = false;
             this.chkLiquidado.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkLiquidado.ForeColor = System.Drawing.Color.White;
-            this.chkLiquidado.Location = new System.Drawing.Point(459, 201);
+            this.chkLiquidado.Location = new System.Drawing.Point(459, 193);
             this.chkLiquidado.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.chkLiquidado.Name = "chkLiquidado";
             this.chkLiquidado.Size = new System.Drawing.Size(20, 20);
@@ -655,7 +655,7 @@
             // 
             this.txtBeca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBeca.Enabled = false;
-            this.txtBeca.Location = new System.Drawing.Point(537, 224);
+            this.txtBeca.Location = new System.Drawing.Point(537, 216);
             this.txtBeca.Name = "txtBeca";
             this.txtBeca.Size = new System.Drawing.Size(70, 24);
             this.txtBeca.TabIndex = 48;
@@ -666,7 +666,7 @@
             this.lblNota.AutoSize = true;
             this.lblNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNota.ForeColor = System.Drawing.Color.Black;
-            this.lblNota.Location = new System.Drawing.Point(673, 158);
+            this.lblNota.Location = new System.Drawing.Point(673, 150);
             this.lblNota.Name = "lblNota";
             this.lblNota.Size = new System.Drawing.Size(43, 20);
             this.lblNota.TabIndex = 32;
@@ -677,7 +677,7 @@
             this.lblMesAPagar.AutoSize = true;
             this.lblMesAPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMesAPagar.ForeColor = System.Drawing.Color.Black;
-            this.lblMesAPagar.Location = new System.Drawing.Point(730, 42);
+            this.lblMesAPagar.Location = new System.Drawing.Point(730, 34);
             this.lblMesAPagar.Name = "lblMesAPagar";
             this.lblMesAPagar.Size = new System.Drawing.Size(49, 24);
             this.lblMesAPagar.TabIndex = 30;
@@ -688,7 +688,7 @@
             this.lblFechaPago.AutoSize = true;
             this.lblFechaPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaPago.ForeColor = System.Drawing.Color.Black;
-            this.lblFechaPago.Location = new System.Drawing.Point(455, 145);
+            this.lblFechaPago.Location = new System.Drawing.Point(455, 137);
             this.lblFechaPago.Name = "lblFechaPago";
             this.lblFechaPago.Size = new System.Drawing.Size(116, 20);
             this.lblFechaPago.TabIndex = 29;
@@ -701,7 +701,7 @@
             this.dtFechaPago.ForeColor = System.Drawing.Color.White;
             this.dtFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtFechaPago.FormatCustom = null;
-            this.dtFechaPago.Location = new System.Drawing.Point(459, 168);
+            this.dtFechaPago.Location = new System.Drawing.Point(459, 160);
             this.dtFechaPago.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dtFechaPago.Name = "dtFechaPago";
             this.dtFechaPago.Size = new System.Drawing.Size(148, 28);
@@ -727,7 +727,7 @@
             this.btnRegistroPago.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnRegistroPago.IdleForecolor = System.Drawing.Color.White;
             this.btnRegistroPago.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnRegistroPago.Location = new System.Drawing.Point(670, 198);
+            this.btnRegistroPago.Location = new System.Drawing.Point(670, 190);
             this.btnRegistroPago.Margin = new System.Windows.Forms.Padding(5);
             this.btnRegistroPago.Name = "btnRegistroPago";
             this.btnRegistroPago.Size = new System.Drawing.Size(185, 41);
@@ -756,7 +756,7 @@
             this.btnAgregado.IconVisible = true;
             this.btnAgregado.IconZoom = 61D;
             this.btnAgregado.IsTab = false;
-            this.btnAgregado.Location = new System.Drawing.Point(862, 206);
+            this.btnAgregado.Location = new System.Drawing.Point(862, 198);
             this.btnAgregado.Name = "btnAgregado";
             this.btnAgregado.Normalcolor = System.Drawing.Color.Transparent;
             this.btnAgregado.OnHovercolor = System.Drawing.Color.Transparent;
@@ -774,7 +774,7 @@
             this.lblMetodoPago.AutoSize = true;
             this.lblMetodoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMetodoPago.ForeColor = System.Drawing.Color.Black;
-            this.lblMetodoPago.Location = new System.Drawing.Point(602, 112);
+            this.lblMetodoPago.Location = new System.Drawing.Point(602, 104);
             this.lblMetodoPago.Name = "lblMetodoPago";
             this.lblMetodoPago.Size = new System.Drawing.Size(125, 20);
             this.lblMetodoPago.TabIndex = 24;
@@ -791,7 +791,7 @@
         "Efectivo",
         "Deposito",
         "Beca"};
-            this.cbMetodoPago.Location = new System.Drawing.Point(733, 104);
+            this.cbMetodoPago.Location = new System.Drawing.Point(733, 96);
             this.cbMetodoPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbMetodoPago.Name = "cbMetodoPago";
             this.cbMetodoPago.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
@@ -805,7 +805,7 @@
             this.lblMonto.AutoSize = true;
             this.lblMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMonto.ForeColor = System.Drawing.Color.Black;
-            this.lblMonto.Location = new System.Drawing.Point(455, 112);
+            this.lblMonto.Location = new System.Drawing.Point(455, 104);
             this.lblMonto.Name = "lblMonto";
             this.lblMonto.Size = new System.Drawing.Size(67, 20);
             this.lblMonto.TabIndex = 22;
@@ -816,7 +816,7 @@
             this.lblAlumno.AutoSize = true;
             this.lblAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAlumno.ForeColor = System.Drawing.Color.Black;
-            this.lblAlumno.Location = new System.Drawing.Point(454, 35);
+            this.lblAlumno.Location = new System.Drawing.Point(454, 27);
             this.lblAlumno.Name = "lblAlumno";
             this.lblAlumno.Size = new System.Drawing.Size(94, 29);
             this.lblAlumno.TabIndex = 20;
@@ -827,7 +827,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.Teal;
-            this.lblNombre.Location = new System.Drawing.Point(559, 75);
+            this.lblNombre.Location = new System.Drawing.Point(559, 67);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(296, 24);
             this.lblNombre.TabIndex = 19;
@@ -838,7 +838,7 @@
             this.lblNroControl.AutoSize = true;
             this.lblNroControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNroControl.ForeColor = System.Drawing.Color.Teal;
-            this.lblNroControl.Location = new System.Drawing.Point(455, 75);
+            this.lblNroControl.Location = new System.Drawing.Point(455, 67);
             this.lblNroControl.Name = "lblNroControl";
             this.lblNroControl.Size = new System.Drawing.Size(98, 24);
             this.lblNroControl.TabIndex = 18;
@@ -849,7 +849,7 @@
             this.btnEscuela.BackColor = System.Drawing.Color.Transparent;
             this.btnEscuela.Image = ((System.Drawing.Image)(resources.GetObject("btnEscuela.Image")));
             this.btnEscuela.ImageActive = null;
-            this.btnEscuela.Location = new System.Drawing.Point(171, 21);
+            this.btnEscuela.Location = new System.Drawing.Point(171, 19);
             this.btnEscuela.Name = "btnEscuela";
             this.btnEscuela.Size = new System.Drawing.Size(82, 65);
             this.btnEscuela.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -861,7 +861,7 @@
             // 
             this.lblEscuela.AutoSize = true;
             this.lblEscuela.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lblEscuela.Location = new System.Drawing.Point(172, 89);
+            this.lblEscuela.Location = new System.Drawing.Point(172, 87);
             this.lblEscuela.Name = "lblEscuela";
             this.lblEscuela.Size = new System.Drawing.Size(82, 25);
             this.lblEscuela.TabIndex = 15;
@@ -875,7 +875,7 @@
             this.cbEscuelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEscuelas.ForeColor = System.Drawing.Color.White;
             this.cbEscuelas.Items = new string[0];
-            this.cbEscuelas.Location = new System.Drawing.Point(24, 126);
+            this.cbEscuelas.Location = new System.Drawing.Point(24, 118);
             this.cbEscuelas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbEscuelas.Name = "cbEscuelas";
             this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
@@ -890,7 +890,7 @@
             this.bunifuImageButton2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.Image")));
             this.bunifuImageButton2.ImageActive = null;
-            this.bunifuImageButton2.Location = new System.Drawing.Point(386, 26);
+            this.bunifuImageButton2.Location = new System.Drawing.Point(386, 18);
             this.bunifuImageButton2.Name = "bunifuImageButton2";
             this.bunifuImageButton2.Size = new System.Drawing.Size(85, 210);
             this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -933,7 +933,7 @@
             this.dgvAlumnos.GridColor = System.Drawing.Color.Black;
             this.dgvAlumnos.HeaderBgColor = System.Drawing.Color.Teal;
             this.dgvAlumnos.HeaderForeColor = System.Drawing.Color.White;
-            this.dgvAlumnos.Location = new System.Drawing.Point(27, 297);
+            this.dgvAlumnos.Location = new System.Drawing.Point(27, 262);
             this.dgvAlumnos.Name = "dgvAlumnos";
             this.dgvAlumnos.ReadOnly = true;
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -1029,7 +1029,7 @@
             this.bunifuCards3.Controls.Add(this.bunifuCustomLabel1);
             this.bunifuCards3.Controls.Add(this.bunifuImageButton1);
             this.bunifuCards3.LeftSahddow = false;
-            this.bunifuCards3.Location = new System.Drawing.Point(992, 421);
+            this.bunifuCards3.Location = new System.Drawing.Point(992, 378);
             this.bunifuCards3.Name = "bunifuCards3";
             this.bunifuCards3.RightSahddow = true;
             this.bunifuCards3.ShadowDepth = 20;
@@ -1199,7 +1199,7 @@
             this.bunifuCards4.Controls.Add(this.lblBalanza);
             this.bunifuCards4.Controls.Add(this.bunifuImageButton3);
             this.bunifuCards4.LeftSahddow = false;
-            this.bunifuCards4.Location = new System.Drawing.Point(992, 192);
+            this.bunifuCards4.Location = new System.Drawing.Point(992, 161);
             this.bunifuCards4.Name = "bunifuCards4";
             this.bunifuCards4.RightSahddow = true;
             this.bunifuCards4.ShadowDepth = 20;
@@ -1289,7 +1289,7 @@
             this.Controls.Add(this.bunifuCards1);
             this.Controls.Add(this.bunifuCards2);
             this.Name = "Mensualidades";
-            this.Size = new System.Drawing.Size(1342, 670);
+            this.Size = new System.Drawing.Size(1342, 615);
             this.Load += new System.EventHandler(this.Mensualidades_Load);
             this.Enter += new System.EventHandler(this.Mensualidades_Enter);
             this.bunifuCards2.ResumeLayout(false);

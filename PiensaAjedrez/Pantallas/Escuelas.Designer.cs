@@ -129,7 +129,7 @@
             // txtNombreColegio
             // 
             this.txtNombreColegio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreColegio.Location = new System.Drawing.Point(106, 166);
+            this.txtNombreColegio.Location = new System.Drawing.Point(106, 150);
             this.txtNombreColegio.Name = "txtNombreColegio";
             this.txtNombreColegio.Size = new System.Drawing.Size(421, 24);
             this.txtNombreColegio.TabIndex = 19;
@@ -138,7 +138,7 @@
             // 
             this.btnCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.BackgroundImage")));
             this.btnCancelar.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.InitialImage")));
-            this.btnCancelar.Location = new System.Drawing.Point(388, 210);
+            this.btnCancelar.Location = new System.Drawing.Point(388, 194);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(27, 27);
             this.btnCancelar.TabIndex = 18;
@@ -168,7 +168,7 @@
             this.btnAgregado.IconVisible = true;
             this.btnAgregado.IconZoom = 61D;
             this.btnAgregado.IsTab = false;
-            this.btnAgregado.Location = new System.Drawing.Point(580, 205);
+            this.btnAgregado.Location = new System.Drawing.Point(580, 195);
             this.btnAgregado.Name = "btnAgregado";
             this.btnAgregado.Normalcolor = System.Drawing.Color.Transparent;
             this.btnAgregado.OnHovercolor = System.Drawing.Color.Transparent;
@@ -186,7 +186,7 @@
             this.btnEscuela.BackColor = System.Drawing.Color.Transparent;
             this.btnEscuela.Image = ((System.Drawing.Image)(resources.GetObject("btnEscuela.Image")));
             this.btnEscuela.ImageActive = null;
-            this.btnEscuela.Location = new System.Drawing.Point(277, 60);
+            this.btnEscuela.Location = new System.Drawing.Point(277, 49);
             this.btnEscuela.Name = "btnEscuela";
             this.btnEscuela.Size = new System.Drawing.Size(82, 65);
             this.btnEscuela.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -214,7 +214,7 @@
             this.btnAgregarColegio.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnAgregarColegio.IdleForecolor = System.Drawing.Color.White;
             this.btnAgregarColegio.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnAgregarColegio.Location = new System.Drawing.Point(256, 205);
+            this.btnAgregarColegio.Location = new System.Drawing.Point(256, 189);
             this.btnAgregarColegio.Margin = new System.Windows.Forms.Padding(5);
             this.btnAgregarColegio.Name = "btnAgregarColegio";
             this.btnAgregarColegio.Size = new System.Drawing.Size(124, 35);
@@ -238,7 +238,7 @@
             // 
             this.lblNombreColegio.AutoSize = true;
             this.lblNombreColegio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lblNombreColegio.Location = new System.Drawing.Point(278, 128);
+            this.lblNombreColegio.Location = new System.Drawing.Point(278, 117);
             this.lblNombreColegio.Name = "lblNombreColegio";
             this.lblNombreColegio.Size = new System.Drawing.Size(81, 25);
             this.lblNombreColegio.TabIndex = 1;
@@ -317,7 +317,7 @@
             this.lblDiaClase.Name = "lblDiaClase";
             this.lblDiaClase.Size = new System.Drawing.Size(115, 20);
             this.lblDiaClase.TabIndex = 28;
-            this.lblDiaClase.Text = "Dia de clase";
+            this.lblDiaClase.Text = "Día de clase";
             this.lblDiaClase.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnFinalizarCurso
@@ -622,7 +622,7 @@
             this.dgvEscuelas.EnableHeadersVisualStyles = false;
             this.dgvEscuelas.HeaderBgColor = System.Drawing.Color.Teal;
             this.dgvEscuelas.HeaderForeColor = System.Drawing.Color.White;
-            this.dgvEscuelas.Location = new System.Drawing.Point(25, 321);
+            this.dgvEscuelas.Location = new System.Drawing.Point(25, 302);
             this.dgvEscuelas.Name = "dgvEscuelas";
             this.dgvEscuelas.ReadOnly = true;
             this.dgvEscuelas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -756,7 +756,7 @@
             this.dgvCursosPasados.RowTemplate.Height = 25;
             this.dgvCursosPasados.RowTemplate.ReadOnly = true;
             this.dgvCursosPasados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCursosPasados.Size = new System.Drawing.Size(631, 261);
+            this.dgvCursosPasados.Size = new System.Drawing.Size(631, 219);
             this.dgvCursosPasados.TabIndex = 10;
             this.dgvCursosPasados.Visible = false;
             this.dgvCursosPasados.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCursosPasados_CellMouseDown);
@@ -795,7 +795,7 @@
             this.dgvEscuelasDesactivadas.EnableHeadersVisualStyles = false;
             this.dgvEscuelasDesactivadas.HeaderBgColor = System.Drawing.Color.Teal;
             this.dgvEscuelasDesactivadas.HeaderForeColor = System.Drawing.Color.White;
-            this.dgvEscuelasDesactivadas.Location = new System.Drawing.Point(25, 506);
+            this.dgvEscuelasDesactivadas.Location = new System.Drawing.Point(25, 463);
             this.dgvEscuelasDesactivadas.Name = "dgvEscuelasDesactivadas";
             this.dgvEscuelasDesactivadas.ReadOnly = true;
             this.dgvEscuelasDesactivadas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -813,44 +813,44 @@
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(40, 283);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(21, 274);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(96, 25);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(80, 22);
             this.bunifuCustomLabel1.TabIndex = 12;
             this.bunifuCustomLabel1.Text = "Colegios";
             // 
             // bunifuCustomLabel2
             // 
             this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(40, 463);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(21, 432);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(209, 25);
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(174, 22);
             this.bunifuCustomLabel2.TabIndex = 13;
             this.bunifuCustomLabel2.Text = "Colegios Archivados";
             // 
             // bunifuCustomLabel3
             // 
             this.bunifuCustomLabel3.AutoSize = true;
-            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.White;
             this.bunifuCustomLabel3.Location = new System.Drawing.Point(675, 274);
             this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(134, 25);
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(112, 22);
             this.bunifuCustomLabel3.TabIndex = 14;
             this.bunifuCustomLabel3.Text = "Curso Activo";
             // 
             // bunifuCustomLabel4
             // 
             this.bunifuCustomLabel4.AutoSize = true;
-            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.White;
             this.bunifuCustomLabel4.Location = new System.Drawing.Point(675, 352);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(193, 25);
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(161, 22);
             this.bunifuCustomLabel4.TabIndex = 15;
             this.bunifuCustomLabel4.Text = "Cursos Archivados";
             // 
@@ -870,7 +870,7 @@
             this.Controls.Add(this.bunifuCards2);
             this.Controls.Add(this.bunifuCards1);
             this.Name = "Escuelas";
-            this.Size = new System.Drawing.Size(1342, 670);
+            this.Size = new System.Drawing.Size(1342, 615);
             this.Load += new System.EventHandler(this.Escuelas_Load);
             this.bunifuCards1.ResumeLayout(false);
             this.bunifuCards1.PerformLayout();
