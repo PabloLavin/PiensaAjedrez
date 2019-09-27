@@ -375,9 +375,9 @@
             this.lblVersion.ForeColor = System.Drawing.Color.Gray;
             this.lblVersion.Location = new System.Drawing.Point(759, 8);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(80, 17);
+            this.lblVersion.Size = new System.Drawing.Size(88, 17);
             this.lblVersion.TabIndex = 4;
-            this.lblVersion.Text = "Versión 1.1";
+            this.lblVersion.Text = "Versión 1.35";
             // 
             // Form1
             // 
