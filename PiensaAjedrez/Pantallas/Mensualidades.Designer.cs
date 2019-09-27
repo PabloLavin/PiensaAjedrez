@@ -115,6 +115,7 @@
             this.dgvEstadisticas = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.lblBalanza = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuImageButton3 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btnListasActualizadas = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuCards2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).BeginInit();
             this.bunifuCards1.SuspendLayout();
@@ -154,14 +155,14 @@
             this.bunifuCards2.Name = "bunifuCards2";
             this.bunifuCards2.RightSahddow = true;
             this.bunifuCards2.ShadowDepth = 20;
-            this.bunifuCards2.Size = new System.Drawing.Size(323, 148);
+            this.bunifuCards2.Size = new System.Drawing.Size(323, 137);
             this.bunifuCards2.TabIndex = 18;
             // 
             // txtFiltroNoCtrl
             // 
             this.txtFiltroNoCtrl.Enabled = false;
             this.txtFiltroNoCtrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltroNoCtrl.Location = new System.Drawing.Point(35, 105);
+            this.txtFiltroNoCtrl.Location = new System.Drawing.Point(35, 97);
             this.txtFiltroNoCtrl.Name = "txtFiltroNoCtrl";
             this.txtFiltroNoCtrl.Size = new System.Drawing.Size(136, 22);
             this.txtFiltroNoCtrl.TabIndex = 27;
@@ -201,7 +202,7 @@
             "7",
             "8",
             "9"});
-            this.cbAño.Location = new System.Drawing.Point(207, 102);
+            this.cbAño.Location = new System.Drawing.Point(207, 94);
             this.cbAño.MaxDropDownItems = 12;
             this.cbAño.Name = "cbAño";
             this.cbAño.Size = new System.Drawing.Size(105, 32);
@@ -215,7 +216,7 @@
             this.chkAño.Checked = false;
             this.chkAño.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkAño.ForeColor = System.Drawing.Color.White;
-            this.chkAño.Location = new System.Drawing.Point(181, 107);
+            this.chkAño.Location = new System.Drawing.Point(181, 99);
             this.chkAño.Name = "chkAño";
             this.chkAño.Size = new System.Drawing.Size(20, 20);
             this.chkAño.TabIndex = 24;
@@ -252,7 +253,7 @@
             this.chkCorreo.Checked = false;
             this.chkCorreo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkCorreo.ForeColor = System.Drawing.Color.White;
-            this.chkCorreo.Location = new System.Drawing.Point(12, 107);
+            this.chkCorreo.Location = new System.Drawing.Point(12, 99);
             this.chkCorreo.Name = "chkCorreo";
             this.chkCorreo.Size = new System.Drawing.Size(20, 20);
             this.chkCorreo.TabIndex = 12;
@@ -350,7 +351,7 @@
             this.dgvAlumnosParticular.GridColor = System.Drawing.Color.Black;
             this.dgvAlumnosParticular.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.dgvAlumnosParticular.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.dgvAlumnosParticular.Location = new System.Drawing.Point(232, 169);
+            this.dgvAlumnosParticular.Location = new System.Drawing.Point(232, 179);
             this.dgvAlumnosParticular.MultiSelect = false;
             this.dgvAlumnosParticular.Name = "dgvAlumnosParticular";
             this.dgvAlumnosParticular.ReadOnly = true;
@@ -398,7 +399,7 @@
             this.DgvEstadisticasEscuela.GridColor = System.Drawing.Color.Black;
             this.DgvEstadisticasEscuela.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.DgvEstadisticasEscuela.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.DgvEstadisticasEscuela.Location = new System.Drawing.Point(24, 160);
+            this.DgvEstadisticasEscuela.Location = new System.Drawing.Point(24, 167);
             this.DgvEstadisticasEscuela.MultiSelect = false;
             this.DgvEstadisticasEscuela.Name = "DgvEstadisticasEscuela";
             this.DgvEstadisticasEscuela.ReadOnly = true;
@@ -603,7 +604,7 @@
             this.chkBeca.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkBeca.ForeColor = System.Drawing.Color.White;
             this.chkBeca.Location = new System.Drawing.Point(459, 216);
-            this.chkBeca.Margin = new System.Windows.Forms.Padding(4);
+            this.chkBeca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkBeca.Name = "chkBeca";
             this.chkBeca.Size = new System.Drawing.Size(20, 20);
             this.chkBeca.TabIndex = 46;
@@ -644,7 +645,7 @@
             this.chkLiquidado.Checked = false;
             this.chkLiquidado.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkLiquidado.ForeColor = System.Drawing.Color.White;
-            this.chkLiquidado.Location = new System.Drawing.Point(459, 193);
+            this.chkLiquidado.Location = new System.Drawing.Point(459, 192);
             this.chkLiquidado.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.chkLiquidado.Name = "chkLiquidado";
             this.chkLiquidado.Size = new System.Drawing.Size(20, 20);
@@ -701,7 +702,7 @@
             this.dtFechaPago.ForeColor = System.Drawing.Color.White;
             this.dtFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtFechaPago.FormatCustom = null;
-            this.dtFechaPago.Location = new System.Drawing.Point(459, 160);
+            this.dtFechaPago.Location = new System.Drawing.Point(459, 161);
             this.dtFechaPago.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dtFechaPago.Name = "dtFechaPago";
             this.dtFechaPago.Size = new System.Drawing.Size(148, 28);
@@ -849,7 +850,7 @@
             this.btnEscuela.BackColor = System.Drawing.Color.Transparent;
             this.btnEscuela.Image = ((System.Drawing.Image)(resources.GetObject("btnEscuela.Image")));
             this.btnEscuela.ImageActive = null;
-            this.btnEscuela.Location = new System.Drawing.Point(171, 19);
+            this.btnEscuela.Location = new System.Drawing.Point(182, 20);
             this.btnEscuela.Name = "btnEscuela";
             this.btnEscuela.Size = new System.Drawing.Size(82, 65);
             this.btnEscuela.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -861,7 +862,7 @@
             // 
             this.lblEscuela.AutoSize = true;
             this.lblEscuela.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lblEscuela.Location = new System.Drawing.Point(172, 87);
+            this.lblEscuela.Location = new System.Drawing.Point(182, 91);
             this.lblEscuela.Name = "lblEscuela";
             this.lblEscuela.Size = new System.Drawing.Size(82, 25);
             this.lblEscuela.TabIndex = 15;
@@ -875,7 +876,7 @@
             this.cbEscuelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEscuelas.ForeColor = System.Drawing.Color.White;
             this.cbEscuelas.Items = new string[0];
-            this.cbEscuelas.Location = new System.Drawing.Point(24, 118);
+            this.cbEscuelas.Location = new System.Drawing.Point(24, 122);
             this.cbEscuelas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbEscuelas.Name = "cbEscuelas";
             this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
@@ -933,7 +934,7 @@
             this.dgvAlumnos.GridColor = System.Drawing.Color.Black;
             this.dgvAlumnos.HeaderBgColor = System.Drawing.Color.Teal;
             this.dgvAlumnos.HeaderForeColor = System.Drawing.Color.White;
-            this.dgvAlumnos.Location = new System.Drawing.Point(27, 262);
+            this.dgvAlumnos.Location = new System.Drawing.Point(27, 264);
             this.dgvAlumnos.Name = "dgvAlumnos";
             this.dgvAlumnos.ReadOnly = true;
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -945,7 +946,7 @@
             this.dgvAlumnos.RowTemplate.Height = 25;
             this.dgvAlumnos.RowTemplate.ReadOnly = true;
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvAlumnos.Size = new System.Drawing.Size(943, 347);
+            this.dgvAlumnos.Size = new System.Drawing.Size(943, 306);
             this.dgvAlumnos.TabIndex = 1;
             this.dgvAlumnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellClick);
             this.dgvAlumnos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellDoubleClick);
@@ -957,7 +958,7 @@
             this.bnfdtpFechaGasto.ForeColor = System.Drawing.Color.White;
             this.bnfdtpFechaGasto.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.bnfdtpFechaGasto.FormatCustom = null;
-            this.bnfdtpFechaGasto.Location = new System.Drawing.Point(34, 179);
+            this.bnfdtpFechaGasto.Location = new System.Drawing.Point(23, 184);
             this.bnfdtpFechaGasto.Name = "bnfdtpFechaGasto";
             this.bnfdtpFechaGasto.Size = new System.Drawing.Size(157, 28);
             this.bnfdtpFechaGasto.TabIndex = 42;
@@ -1029,17 +1030,17 @@
             this.bunifuCards3.Controls.Add(this.bunifuCustomLabel1);
             this.bunifuCards3.Controls.Add(this.bunifuImageButton1);
             this.bunifuCards3.LeftSahddow = false;
-            this.bunifuCards3.Location = new System.Drawing.Point(992, 378);
+            this.bunifuCards3.Location = new System.Drawing.Point(992, 364);
             this.bunifuCards3.Name = "bunifuCards3";
             this.bunifuCards3.RightSahddow = true;
             this.bunifuCards3.ShadowDepth = 20;
-            this.bunifuCards3.Size = new System.Drawing.Size(323, 223);
+            this.bunifuCards3.Size = new System.Drawing.Size(323, 240);
             this.bunifuCards3.TabIndex = 21;
             // 
             // txtMontoAdicional
             // 
             this.txtMontoAdicional.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMontoAdicional.Location = new System.Drawing.Point(227, 146);
+            this.txtMontoAdicional.Location = new System.Drawing.Point(216, 141);
             this.txtMontoAdicional.Name = "txtMontoAdicional";
             this.txtMontoAdicional.Size = new System.Drawing.Size(59, 24);
             this.txtMontoAdicional.TabIndex = 48;
@@ -1047,7 +1048,7 @@
             // txtMotivo
             // 
             this.txtMotivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMotivo.Location = new System.Drawing.Point(34, 147);
+            this.txtMotivo.Location = new System.Drawing.Point(23, 142);
             this.txtMotivo.Name = "txtMotivo";
             this.txtMotivo.Size = new System.Drawing.Size(157, 24);
             this.txtMotivo.TabIndex = 47;
@@ -1057,7 +1058,7 @@
             this.lblMotivo.AutoSize = true;
             this.lblMotivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMotivo.ForeColor = System.Drawing.Color.Black;
-            this.lblMotivo.Location = new System.Drawing.Point(34, 123);
+            this.lblMotivo.Location = new System.Drawing.Point(23, 118);
             this.lblMotivo.Name = "lblMotivo";
             this.lblMotivo.Size = new System.Drawing.Size(43, 20);
             this.lblMotivo.TabIndex = 37;
@@ -1084,7 +1085,7 @@
             this.btnAgregadoGasto.IconVisible = true;
             this.btnAgregadoGasto.IconZoom = 61D;
             this.btnAgregadoGasto.IsTab = false;
-            this.btnAgregadoGasto.Location = new System.Drawing.Point(295, 181);
+            this.btnAgregadoGasto.Location = new System.Drawing.Point(288, 186);
             this.btnAgregadoGasto.Name = "btnAgregadoGasto";
             this.btnAgregadoGasto.Normalcolor = System.Drawing.Color.Transparent;
             this.btnAgregadoGasto.OnHovercolor = System.Drawing.Color.Transparent;
@@ -1108,7 +1109,7 @@
         "Pago a Colegios",
         "Gasto Adicional",
         "Pago a Maestros"};
-            this.cbGastos.Location = new System.Drawing.Point(34, 75);
+            this.cbGastos.Location = new System.Drawing.Point(23, 70);
             this.cbGastos.Name = "cbGastos";
             this.cbGastos.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.cbGastos.onHoverColor = System.Drawing.Color.Teal;
@@ -1134,7 +1135,7 @@
             this.btnRegistrarGasto.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
             this.btnRegistrarGasto.IdleForecolor = System.Drawing.Color.White;
             this.btnRegistrarGasto.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnRegistrarGasto.Location = new System.Drawing.Point(203, 174);
+            this.btnRegistrarGasto.Location = new System.Drawing.Point(192, 179);
             this.btnRegistrarGasto.Margin = new System.Windows.Forms.Padding(5);
             this.btnRegistrarGasto.Name = "btnRegistrarGasto";
             this.btnRegistrarGasto.Size = new System.Drawing.Size(92, 41);
@@ -1147,7 +1148,7 @@
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.Black;
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(211, 143);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(200, 138);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(18, 20);
             this.bunifuCustomLabel2.TabIndex = 41;
@@ -1158,7 +1159,7 @@
             this.lblMontoAdicional.AutoSize = true;
             this.lblMontoAdicional.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMontoAdicional.ForeColor = System.Drawing.Color.Black;
-            this.lblMontoAdicional.Location = new System.Drawing.Point(224, 124);
+            this.lblMontoAdicional.Location = new System.Drawing.Point(213, 119);
             this.lblMontoAdicional.Name = "lblMontoAdicional";
             this.lblMontoAdicional.Size = new System.Drawing.Size(58, 20);
             this.lblMontoAdicional.TabIndex = 39;
@@ -1199,11 +1200,11 @@
             this.bunifuCards4.Controls.Add(this.lblBalanza);
             this.bunifuCards4.Controls.Add(this.bunifuImageButton3);
             this.bunifuCards4.LeftSahddow = false;
-            this.bunifuCards4.Location = new System.Drawing.Point(992, 161);
+            this.bunifuCards4.Location = new System.Drawing.Point(992, 154);
             this.bunifuCards4.Name = "bunifuCards4";
             this.bunifuCards4.RightSahddow = true;
             this.bunifuCards4.ShadowDepth = 20;
-            this.bunifuCards4.Size = new System.Drawing.Size(323, 210);
+            this.bunifuCards4.Size = new System.Drawing.Size(323, 198);
             this.bunifuCards4.TabIndex = 44;
             // 
             // dgvEstadisticas
@@ -1242,7 +1243,7 @@
             this.dgvEstadisticas.GridColor = System.Drawing.Color.Black;
             this.dgvEstadisticas.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.dgvEstadisticas.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.dgvEstadisticas.Location = new System.Drawing.Point(12, 62);
+            this.dgvEstadisticas.Location = new System.Drawing.Point(12, 55);
             this.dgvEstadisticas.MultiSelect = false;
             this.dgvEstadisticas.Name = "dgvEstadisticas";
             this.dgvEstadisticas.ReadOnly = true;
@@ -1278,6 +1279,32 @@
             this.bunifuImageButton3.TabStop = false;
             this.bunifuImageButton3.Zoom = 10;
             // 
+            // btnListasActualizadas
+            // 
+            this.btnListasActualizadas.ActiveBorderThickness = 1;
+            this.btnListasActualizadas.ActiveCornerRadius = 20;
+            this.btnListasActualizadas.ActiveFillColor = System.Drawing.Color.Teal;
+            this.btnListasActualizadas.ActiveForecolor = System.Drawing.Color.White;
+            this.btnListasActualizadas.ActiveLineColor = System.Drawing.Color.Teal;
+            this.btnListasActualizadas.BackColor = System.Drawing.Color.Transparent;
+            this.btnListasActualizadas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnListasActualizadas.BackgroundImage")));
+            this.btnListasActualizadas.ButtonText = "Lista de pago actualizada";
+            this.btnListasActualizadas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListasActualizadas.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.btnListasActualizadas.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.btnListasActualizadas.IdleBorderThickness = 1;
+            this.btnListasActualizadas.IdleCornerRadius = 20;
+            this.btnListasActualizadas.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnListasActualizadas.IdleForecolor = System.Drawing.Color.White;
+            this.btnListasActualizadas.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnListasActualizadas.Location = new System.Drawing.Point(240, 570);
+            this.btnListasActualizadas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnListasActualizadas.Name = "btnListasActualizadas";
+            this.btnListasActualizadas.Size = new System.Drawing.Size(549, 48);
+            this.btnListasActualizadas.TabIndex = 45;
+            this.btnListasActualizadas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnListasActualizadas.Click += new System.EventHandler(this.btnListasActualizadas_Click);
+            // 
             // Mensualidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1286,8 +1313,9 @@
             this.Controls.Add(this.bunifuCards4);
             this.Controls.Add(this.bunifuCards3);
             this.Controls.Add(this.dgvAlumnos);
-            this.Controls.Add(this.bunifuCards1);
             this.Controls.Add(this.bunifuCards2);
+            this.Controls.Add(this.bunifuCards1);
+            this.Controls.Add(this.btnListasActualizadas);
             this.Name = "Mensualidades";
             this.Size = new System.Drawing.Size(1342, 615);
             this.Load += new System.EventHandler(this.Mensualidades_Load);
@@ -1392,5 +1420,6 @@
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvEstadisticas;
         private Bunifu.Framework.UI.BunifuCustomDataGrid DgvEstadisticasEscuela;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvAlumnosParticular;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnListasActualizadas;
     }
 }

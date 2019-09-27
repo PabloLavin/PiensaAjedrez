@@ -8,7 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SerializacionLibreria;
+using iTextSharp.text.pdf;
+using System.IO;
 using PiensaAjedrez.Pantallas;
+using iTextSharp.text;
+using System.Diagnostics;
 
 namespace PiensaAjedrez
 {
@@ -17,8 +21,9 @@ namespace PiensaAjedrez
         public Mensualidades()
         {
             InitializeComponent();
-
             VisibilidadControles(false);
+            btnListasActualizadas.Visible = true;
+
         }
 
         int intCaso = 1;
@@ -127,13 +132,15 @@ namespace PiensaAjedrez
                 return;
             }
             else
-            {
-                dgvAlumnos.Columns.Add("N°", "N°");
-                dgvAlumnos.Columns.Add("N° de ctrl.", "N° de ctrl.");
+            {                
+                dgvAlumnos.Columns.Add("N°", "N°");                
+                dgvAlumnos.Columns.Add("N° de ctrl.", "N° Control");                
                 dgvAlumnos.Columns.Add("ApellidoP", "Apellido P");
                 dgvAlumnos.Columns.Add("Apellido M", "Apellido M");
                 dgvAlumnos.Columns.Add("Nombre", "Nombre");
                 dgvAlumnos.Columns.Add("inscripcion", "Inscripcion");
+                dgvAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvAlumnos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
                 List<string> listaMeses = CargarMeses(unaEscuela.CursoActivo);
                 foreach (string mes in listaMeses)
@@ -630,35 +637,23 @@ namespace PiensaAjedrez
         {
             switch (strMes)
             {
-                case "Enero":
-                    return false;
-                case "Febrero":
-                    return false;
-                case "Marzo":
-                    return false;
-                case "Abril":
-                    return false;
-                case "Mayo":
-                    return false;
-                case "Junio":
-                    return false;
-                case "Julio":
-                    return false;
+                case "Enero":                    
+                case "Febrero":                    
+                case "Marzo":                    
+                case "Abril":                    
+                case "Mayo":                    
+                case "Junio":                    
+                case "Julio":                    
                 case "Agosto":
-                    return false;
                 case "Septiembre":
-                    return false;
-                case "Octubre":
-                    return false;
-                case "Noviembre":
-                    return false;
+                case "Octubre":                    
+                case "Noviembre":                    
                 case "Diciembre":
                     return false;
                 default:
                     return true;
             }
         }
-        
 
         private void btnRegistroPago_Click(object sender, EventArgs e)
         {
@@ -1138,6 +1133,71 @@ namespace PiensaAjedrez
         private void Mensualidades_Enter(object sender, EventArgs e)
         {
             LlenarDGV(new Escuela(cbEscuelas.selectedValue));
+        }
+
+        private void btnListasActualizadas_Click(object sender, EventArgs e)
+        {
+            PdfPTable pdfTable = new PdfPTable(dgvAlumnos.ColumnCount);
+            List<float> aFloat = new List<float>();
+            foreach (DataGridViewColumn column in dgvAlumnos.Columns)
+            {
+                aFloat.Add(column.Width);
+            }
+            pdfTable.SetWidths(aFloat.ToArray());
+            pdfTable.DefaultCell.Padding = 3;            
+            pdfTable.WidthPercentage = 100;
+            pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
+            pdfTable.DefaultCell.BorderWidth = 1;
+            
+            foreach (DataGridViewColumn column in dgvAlumnos.Columns)
+            {
+                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                pdfTable.AddCell(cell);
+            }
+            int maxWidth = 0;
+            
+            foreach (DataGridViewRow row in dgvAlumnos.Rows)
+            {
+                
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if(cell.Value != null)
+                    {
+                        if (cell.Size.Width >= maxWidth)
+                            maxWidth = cell.Size.Width;
+                        pdfTable.AddCell(cell.Value.ToString());                                                
+                    }
+                    else
+                        pdfTable.AddCell("");
+                }                        
+            }            
+            
+            string folderPath = Directory.GetCurrentDirectory();
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+            using (FileStream stream = new FileStream(folderPath + @"\ListaActualizada.pdf", FileMode.Create))
+            {
+                Document pdfDoc = new Document(new iTextSharp.text.Rectangle(0, 0, (int) PageSize.A4.Height, (int) PageSize.A4.Width), 10f, 10f, 20f, 10f);                                
+                PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+                double dblTotalIngresos = ConexionBD.TotalInscripciones(cbEscuelas.selectedValue) + ConexionBD.TotalMensualidades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave);
+                Cursos unCurso = ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue);
+                iTextSharp.text.Image pic = iTextSharp.text.Image.GetInstance("PiensaAjedrezLogo2.png");
+                pic.Alignment = Element.ALIGN_CENTER;
+                pic.ScalePercent(45);
+                pdfDoc.Add(pic);
+                pdfDoc.Add(new Paragraph(" "));
+                Paragraph prHeader = new Paragraph("Lista de pago actualizada     " + cbEscuelas.selectedValue + "     " + unCurso.InicioCursos.ToShortDateString() + " - " + unCurso.FinCurso.ToShortDateString() +"     " + DateTime.Now.ToShortDateString());
+                prHeader.Alignment = Element.ALIGN_CENTER;
+                pdfDoc.Add(prHeader);
+                pdfDoc.Add(new Paragraph(" "));
+                pdfDoc.Add(pdfTable);
+                pdfDoc.Close();
+                stream.Close();
+            }
+            Process.Start(folderPath+ @"\ListaActualizada.pdf");
         }
     }
 }

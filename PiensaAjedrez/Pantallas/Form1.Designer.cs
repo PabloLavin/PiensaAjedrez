@@ -377,7 +377,7 @@
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(88, 17);
             this.lblVersion.TabIndex = 4;
-            this.lblVersion.Text = "Versión 1.35";
+            this.lblVersion.Text = "Versión 1.45";
             // 
             // Form1
             // 
