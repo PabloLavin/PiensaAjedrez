@@ -12,17 +12,41 @@ namespace PiensaAjedrez
     {
         public static SqlConnection ObtenerConexion()
         {
-            //SqlConnection con = new SqlConnection(@"Data Source=LAVINW8; Initial Catalog = PIENSAJEDREZ; Server=LAVINW8\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
-            //SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-7L6CITQ7; Initial Catalog = PIENSAJEDREZ; Server=LAPTOP-7L6CITQ7\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
-            SqlConnection con = new SqlConnection(@"Data Source=ANCIRALAPTOP; Initial Catalog = PIENSAJEDREZ; Server=ANCIRALAPTOP\SQLEXPRESS; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True");
-            con.Open();
-            return (con);
+            List<SqlConnection> sqlLista = ObtenerListaConexiones();
+            foreach (SqlConnection con in sqlLista)
+            {
+                try
+                {
+                    con.Open();
+                    return (con);
+                }
+                catch (Exception) {}
+            }
+            throw new Exception("No se logró ninguna conexión.");            
+        }
+
+        public static string CrearCadenaConexion(string Hostname, string Instancia)
+        {
+            return "Data Source=" + Hostname + "; Initial Catalog = PIENSAJEDREZ; Server=" + Hostname + @"\" + Instancia + "; Integrated Security = SSPI; Trusted_Connection=True; MultipleActiveResultSets=True";
+        }
+
+        public static List<SqlConnection> ObtenerListaConexiones()
+        {
+            List<SqlConnection> sqlLista = new List<SqlConnection>();
+            sqlLista.Add(new SqlConnection(CrearCadenaConexion("ANCIRALAPTOP", "SQLEXPRESS")));
+            sqlLista.Add(new SqlConnection(CrearCadenaConexion("LAPTOP-7L6CITQ7", "SQLEXPRESS")));
+            sqlLista.Add(new SqlConnection(CrearCadenaConexion("LAVINW8", "SQLEXPRESS")));
+            sqlLista.Add(new SqlConnection(CrearCadenaConexion(Environment.GetEnvironmentVariable("COMPUTERNAME"), "SQLEXPRESS")));
+            sqlLista.Add(new SqlConnection(CrearCadenaConexion(Environment.GetEnvironmentVariable("COMPUTERNAME"), "SQLDEVELOPER")));                
+            return sqlLista;
         }
 
         public static string FormatearFecha(DateTime unaFecha)
         {
-            //return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month;//Formato de Pablo
-            return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day;   //Formato de los AEWWEYES
+            if (!ObtenerConexion().DataSource.Contains("LAVINW8"))            
+                return unaFecha.Year + "-" + unaFecha.Month + "-" + unaFecha.Day;            
+            else
+                return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month;
         }
 
         public static Reporte.Datasets.DatosIngresos ObtenerIngresosGlobales(string strCurso)
