@@ -10,19 +10,30 @@ namespace PiensaAjedrez
 {
     public abstract class ConexionBD
     {
+        public static string strConexion;
         public static SqlConnection ObtenerConexion()
         {
-            List<SqlConnection> sqlLista = ObtenerListaConexiones();
-            foreach (SqlConnection con in sqlLista)
+            if (strConexion==null)
             {
-                try
+                List<SqlConnection> sqlLista = ObtenerListaConexiones();
+                foreach (SqlConnection con in sqlLista)
                 {
-                    con.Open();
-                    return (con);
+                    try
+                    {
+                        con.Open();
+                        strConexion = con.ConnectionString;
+                        return (con);
+                    }
+                    catch (Exception) { }
                 }
-                catch (Exception) {}
+                throw new Exception("No se logró ninguna conexión.");
             }
-            throw new Exception("No se logró ninguna conexión.");            
+            else
+            {
+                SqlConnection con = new SqlConnection(strConexion);
+                con.Open();
+                return (con);
+            }
         }
 
         public static string CrearCadenaConexion(string Hostname, string Instancia)

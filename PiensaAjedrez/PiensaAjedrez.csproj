@@ -45,7 +45,7 @@
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="itextsharp">
-      <HintPath>..\..\..\itextsharp.dll</HintPath>
+      <HintPath>..\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="SerializacionLibreria, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
