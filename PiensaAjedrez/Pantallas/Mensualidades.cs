@@ -1184,7 +1184,7 @@ namespace PiensaAjedrez
                 pdfDoc.Open();
                 double dblTotalIngresos = ConexionBD.TotalInscripciones(cbEscuelas.selectedValue) + ConexionBD.TotalMensualidades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave);
                 Cursos unCurso = ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue);
-                iTextSharp.text.Image pic = iTextSharp.text.Image.GetInstance("PiensaAjedrezLogo2.png");
+                iTextSharp.text.Image pic = iTextSharp.text.Image.GetInstance("PiensaAjedrezLogo.png");
                 pic.Alignment = Element.ALIGN_CENTER;
                 pic.ScalePercent(45);
                 pdfDoc.Add(pic);
