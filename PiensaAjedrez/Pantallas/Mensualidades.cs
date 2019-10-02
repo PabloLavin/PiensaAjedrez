@@ -138,7 +138,7 @@ namespace PiensaAjedrez
                 dgvAlumnos.Columns.Add("ApellidoP", "Apellido P");
                 dgvAlumnos.Columns.Add("Apellido M", "Apellido M");
                 dgvAlumnos.Columns.Add("Nombre", "Nombre");
-                dgvAlumnos.Columns.Add("inscripcion", "Inscripcion");
+                dgvAlumnos.Columns.Add("Inscripcion", "Inscripcion");
                 dgvAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dgvAlumnos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
