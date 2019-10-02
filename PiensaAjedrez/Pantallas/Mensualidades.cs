@@ -145,7 +145,7 @@ namespace PiensaAjedrez
                 List<string> listaMeses = CargarMeses(unaEscuela.CursoActivo);
                 foreach (string mes in listaMeses)
                 {
-                    dgvAlumnos.Columns.Add(mes, mes);
+                    dgvAlumnos.Columns.Add(mes, mes.Substring(0, 3));
                 }
                 if (dgvAlumnos.Columns.Count <= 8)
                 {
@@ -215,7 +215,7 @@ namespace PiensaAjedrez
             foreach (DateTime mes in listaMeses)
             {
                 char c = char.Parse(mes.ToString("MMMM").Substring(0, 1).ToUpper());
-                string MesT = (c + mes.ToString("MMMM").Substring(1)).Substring(0,3);
+                string MesT = (c + mes.ToString("MMMM").Substring(1));
                 meses.Add(MesT);
             }
             return (meses);
@@ -610,17 +610,17 @@ namespace PiensaAjedrez
 
         void ObtenerMes(int intMes)
         {
-            lblMesAPagar.Text = dgvAlumnos.Columns[intMes].HeaderText;
-            if (dgvAlumnos.Columns[intMes].HeaderText == "N° de ctrl." || dgvAlumnos.Columns[intMes].HeaderText == "Nombre" || dgvAlumnos.Columns[intMes].HeaderText == "Apellido P" || dgvAlumnos.Columns[intMes].HeaderText == "Apellido M"|| dgvAlumnos.Columns[intMes].HeaderText == "N°")
+            lblMesAPagar.Text = dgvAlumnos.Columns[intMes].Name;
+            if (dgvAlumnos.Columns[intMes].Name == "N° de ctrl." || dgvAlumnos.Columns[intMes].Name == "Nombre" || dgvAlumnos.Columns[intMes].Name == "Apellido P" || dgvAlumnos.Columns[intMes].Name == "Apellido M" || dgvAlumnos.Columns[intMes].Name == "N°")
             {
                 Deshabilitar();
             }
-            else if (dgvAlumnos.Columns[intMes].HeaderText == "Inscripcion")
+            else if (dgvAlumnos.Columns[intMes].Name == "Inscripcion")
             {
                 Habilitar();
                 intCaso = 0;
             }
-            else if(EsActividad(dgvAlumnos.Columns[intMes].HeaderText))
+            else if (EsActividad(dgvAlumnos.Columns[intMes].Name))
             {
                 Habilitar();
                 intCaso = 0;
@@ -630,7 +630,7 @@ namespace PiensaAjedrez
                 Habilitar();
                 intCaso = 1;
             }
-            
+
         }
 
         bool EsActividad(string strMes)
@@ -1070,8 +1070,8 @@ namespace PiensaAjedrez
             //foreach (DataGridViewColumn encabezado in dgvAlumnos.Columns)
             for (int i = 6; i < dgvAlumnos.Columns.Count; i++)
             {
-                listaMeses.Add(dgvAlumnos.Columns[i].HeaderText);
-                if (DateTime.Now.ToString("MMMM") == dgvAlumnos.Columns[i].HeaderText.ToLower())
+                listaMeses.Add(dgvAlumnos.Columns[i].Name);
+                if (DateTime.Now.ToString("MMMM") == dgvAlumnos.Columns[i].Name.ToLower())
                     break;
             }
             return listaMeses;
