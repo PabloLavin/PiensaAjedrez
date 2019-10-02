@@ -604,7 +604,7 @@
             this.chkBeca.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
             this.chkBeca.ForeColor = System.Drawing.Color.White;
             this.chkBeca.Location = new System.Drawing.Point(459, 216);
-            this.chkBeca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkBeca.Margin = new System.Windows.Forms.Padding(4);
             this.chkBeca.Name = "chkBeca";
             this.chkBeca.Size = new System.Drawing.Size(20, 20);
             this.chkBeca.TabIndex = 46;
@@ -1286,7 +1286,7 @@
             this.btnListasActualizadas.ActiveFillColor = System.Drawing.Color.Teal;
             this.btnListasActualizadas.ActiveForecolor = System.Drawing.Color.White;
             this.btnListasActualizadas.ActiveLineColor = System.Drawing.Color.Teal;
-            this.btnListasActualizadas.BackColor = System.Drawing.Color.Transparent;
+            this.btnListasActualizadas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.btnListasActualizadas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnListasActualizadas.BackgroundImage")));
             this.btnListasActualizadas.ButtonText = "Lista de pago actualizada";
             this.btnListasActualizadas.Cursor = System.Windows.Forms.Cursors.Hand;

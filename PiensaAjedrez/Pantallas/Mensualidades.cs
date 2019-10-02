@@ -610,7 +610,7 @@ namespace PiensaAjedrez
 
         void ObtenerMes(int intMes)
         {
-            lblMesAPagar.Text = dgvAlumnos.Columns[intMes].Name;
+            lblMesAPagar.Text = dgvAlumnos.Columns[intMes].HeaderText;
             if (dgvAlumnos.Columns[intMes].Name == "N° de ctrl." || dgvAlumnos.Columns[intMes].Name == "Nombre" || dgvAlumnos.Columns[intMes].Name == "Apellido P" || dgvAlumnos.Columns[intMes].Name == "Apellido M" || dgvAlumnos.Columns[intMes].Name == "N°")
             {
                 Deshabilitar();
