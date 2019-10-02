@@ -529,7 +529,7 @@ namespace PiensaAjedrez
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO GASTO VALUES ((SELECT COUNT(*) + 1 FROM GASTO), '" + strRazon + "', " + dblMonto + ", '" + strNota + "','" + FormatearFecha(dtpFecha) + "','')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO GASTO (GastoID, Razon,Monto,Nota,FechaHora,Grupo) VALUES ((SELECT COUNT(*) + 1 FROM GASTO), '" + strRazon + "', " + dblMonto + ", '" + strNota + "','" + FormatearFecha(dtpFecha) + "','')", con);
                 comando.ExecuteNonQuery();
             }
         }
