@@ -418,7 +418,7 @@ namespace PiensaAjedrez
                                  txtMonto.Text = dgvAlumnos.CurrentCell.Value.ToString().Substring(1);
                                 foreach (Pagos pagos in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
                                 {
-                                    if (pagos.Monto.ToString("c").Equals(dgvAlumnos.CurrentCell.Value.ToString()) && pagos.MesPagado.Equals(dgvAlumnos.CurrentCell.OwningColumn.HeaderText)&&pagos.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
+                                    if (pagos.Monto.ToString("c").Equals(dgvAlumnos.CurrentCell.Value.ToString()) && pagos.MesPagado.Equals(dgvAlumnos.CurrentCell.OwningColumn.Name)&&pagos.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
                                     {
                                         txtNota.Text = pagos.Nota;
                                         chkLiquidado.Checked = pagos.Liquidado?false:true;
@@ -848,7 +848,7 @@ namespace PiensaAjedrez
                                 foreach (Pagos miPago in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
                                 {
                                     if(dgvAlumnos.CurrentCell.Value!=null)
-                                    if (miPago.Monto.ToString("c").Equals(dgvAlumnos.CurrentCell.Value.ToString()) && miPago.MesPagado.Equals(dgvAlumnos.CurrentCell.OwningColumn.HeaderText) && miPago.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
+                                    if (miPago.Monto.ToString("c").Equals(dgvAlumnos.CurrentCell.Value.ToString()) && miPago.MesPagado.Equals(dgvAlumnos.CurrentCell.OwningColumn.Name) && miPago.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
                                     {
                                         txtNota.Text = miPago.Nota;
                                         chkLiquidado.Checked = miPago.Liquidado ? false : true;
