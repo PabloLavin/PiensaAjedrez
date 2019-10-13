@@ -53,7 +53,13 @@ namespace PiensaAjedrez
             dgvAlumnos.Columns[7].Width = 92;
             dgvAlumnos.Columns[9].Width = 50;
 
-            lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2)))+( int.Parse("100000") + (ConexionBD.CargarAlumnos().Count)).ToString());
+            int intControlAlumno = 0;
+            do
+            {
+                lblnumerocontrol.Text= ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count + intControlAlumno)).ToString());
+                intControlAlumno++;
+            } while (ConexionBD.CargarAlumnos().Contains(new Alumno(lblnumerocontrol.Text)));
+            //lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2)))+( int.Parse("100000") + (ConexionBD.CargarAlumnos().Count)).ToString());
             cbDia.SelectedIndex = 0;
             cbMes.SelectedIndex = 0;
             btnCancelar.BackgroundImageLayout = ImageLayout.Stretch;
@@ -123,7 +129,12 @@ namespace PiensaAjedrez
                     miAlumno.Grado = 0;
                 if (btnAgregar.ButtonText=="Agregar")
                 {
-                    miAlumno.NumeroDeControl = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count)).ToString());
+                    int intControlAlumno = 0;
+                    do
+                    {
+                        miAlumno.NumeroDeControl = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count+intControlAlumno)).ToString());
+                        intControlAlumno++;
+                    } while (ConexionBD.CargarAlumnos().Contains(miAlumno));
                 }
                 else
                 {
@@ -143,8 +154,15 @@ namespace PiensaAjedrez
                 LimpiarControles();
                 lblBecado.Visible = false;
                 chkBecado.Checked = false;
-                InitializeTimer();       
-                lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count)).ToString());
+                InitializeTimer();
+                int intControl = 0;
+
+                do
+                {
+                    lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count + intControl)).ToString());
+                    miAlumno.NumeroDeControl = lblnumerocontrol.Text;
+                    intControl++;
+                } while (ConexionBD.CargarAlumnos().Contains(miAlumno));
                 btnAgregar.ButtonText = "Agregar";
                 contextMenuStrip1.Enabled = true;
                 tsEliminarAlumno.Visible = true;
@@ -549,7 +567,13 @@ namespace PiensaAjedrez
             LimpiarControles();
             btnAgregar.ButtonText = "Agregar";
             btnAgregar.IdleFillColor = Color.FromArgb(59, 202, 192);
-            lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count)).ToString());
+            int intControlAlumno = 0;
+            do
+            {
+                lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count + intControlAlumno)).ToString());
+                intControlAlumno++;
+            } while (ConexionBD.CargarAlumnos().Contains(new Alumno(lblnumerocontrol.Text)));
+            //lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count)).ToString());
             btnCancelar.Visible = false;
             dgvAlumnos.Focus();
         }

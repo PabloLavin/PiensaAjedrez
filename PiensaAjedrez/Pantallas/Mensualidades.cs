@@ -66,6 +66,7 @@ namespace PiensaAjedrez
             NotificarRetardos(Recordatorios.intCaso);
 
             InicializarDGVEstadisticas();
+
         }
 
         void InicializarDGVEstadisticas()
@@ -109,6 +110,17 @@ namespace PiensaAjedrez
                 dgvAlumnosParticular.Rows.Add("Total Alumnos", Convert.ToString(ConexionBD.CantidadAlumnos(cbEscuelas.selectedValue)));
                 dgvAlumnosParticular.Rows.Add("Alumnos Activos", Convert.ToString(ConexionBD.CantidadAlumnosActivos(cbEscuelas.selectedValue)));
             }
+
+            dgvEstadisticas.Rows[0].Cells[0].Style.BackColor = Color.DarkGreen;
+            dgvEstadisticas.Rows[1].Cells[0].Style.BackColor = Color.Maroon;
+            dgvEstadisticas.Rows[0].Cells[1].Style.BackColor = Color.ForestGreen;
+            dgvEstadisticas.Rows[1].Cells[1].Style.BackColor = Color.IndianRed;
+            dgvEstadisticas.Rows[0].Cells[0].Style.ForeColor = Color.White;
+            dgvEstadisticas.Rows[1].Cells[0].Style.ForeColor = Color.White;
+            dgvEstadisticas.Rows[0].Cells[1].Style.ForeColor = Color.White;
+            dgvEstadisticas.Rows[1].Cells[1].Style.ForeColor = Color.White;
+            dgvEstadisticas.Rows[4].Cells[1].Selected = true;
+            dgvAlumnosParticular.Columns[1].Width = 65;
         }
 
         void CargarDatosEscuela(string strNombreEscuela)
