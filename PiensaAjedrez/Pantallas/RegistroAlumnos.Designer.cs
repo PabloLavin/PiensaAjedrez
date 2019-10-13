@@ -38,11 +38,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsEliminarAlumno = new System.Windows.Forms.ToolStripMenuItem();
             this.bnfcarAgregar = new Bunifu.Framework.UI.BunifuCards();
-            this.lblPorcientoSimbolo = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.lblPorcentaje = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtPorcentajeBeca = new System.Windows.Forms.TextBox();
-            this.lblBecado = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.chkBecado = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.btnCumple = new Bunifu.Framework.UI.BunifuImageButton();
             this.txtGrado = new System.Windows.Forms.TextBox();
             this.txtTutor = new System.Windows.Forms.TextBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
@@ -91,6 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.bnfcarAgregar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCumple)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLimpiar)).BeginInit();
             this.bunifuCards2.SuspendLayout();
@@ -169,11 +166,7 @@
             this.bnfcarAgregar.BorderRadius = 5;
             this.bnfcarAgregar.BottomSahddow = true;
             this.bnfcarAgregar.color = System.Drawing.Color.Teal;
-            this.bnfcarAgregar.Controls.Add(this.lblPorcientoSimbolo);
-            this.bnfcarAgregar.Controls.Add(this.lblPorcentaje);
-            this.bnfcarAgregar.Controls.Add(this.txtPorcentajeBeca);
-            this.bnfcarAgregar.Controls.Add(this.lblBecado);
-            this.bnfcarAgregar.Controls.Add(this.chkBecado);
+            this.bnfcarAgregar.Controls.Add(this.btnCumple);
             this.bnfcarAgregar.Controls.Add(this.txtGrado);
             this.bnfcarAgregar.Controls.Add(this.txtTutor);
             this.bnfcarAgregar.Controls.Add(this.txtCorreo);
@@ -211,65 +204,20 @@
             this.bnfcarAgregar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             this.bnfcarAgregar.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuCards1_Paint);
             // 
-            // lblPorcientoSimbolo
+            // btnCumple
             // 
-            this.lblPorcientoSimbolo.AutoSize = true;
-            this.lblPorcientoSimbolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPorcientoSimbolo.ForeColor = System.Drawing.Color.Black;
-            this.lblPorcientoSimbolo.Location = new System.Drawing.Point(297, 192);
-            this.lblPorcientoSimbolo.Name = "lblPorcientoSimbolo";
-            this.lblPorcientoSimbolo.Size = new System.Drawing.Size(24, 20);
-            this.lblPorcientoSimbolo.TabIndex = 36;
-            this.lblPorcientoSimbolo.Text = "%";
-            this.lblPorcientoSimbolo.Visible = false;
-            // 
-            // lblPorcentaje
-            // 
-            this.lblPorcentaje.AutoSize = true;
-            this.lblPorcentaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPorcentaje.ForeColor = System.Drawing.Color.Black;
-            this.lblPorcentaje.Location = new System.Drawing.Point(140, 192);
-            this.lblPorcentaje.Name = "lblPorcentaje";
-            this.lblPorcentaje.Size = new System.Drawing.Size(95, 20);
-            this.lblPorcentaje.TabIndex = 35;
-            this.lblPorcentaje.Text = "Porcentaje";
-            this.lblPorcentaje.Visible = false;
-            // 
-            // txtPorcentajeBeca
-            // 
-            this.txtPorcentajeBeca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPorcentajeBeca.Location = new System.Drawing.Point(236, 190);
-            this.txtPorcentajeBeca.Name = "txtPorcentajeBeca";
-            this.txtPorcentajeBeca.Size = new System.Drawing.Size(60, 24);
-            this.txtPorcentajeBeca.TabIndex = 34;
-            this.txtPorcentajeBeca.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPorcentajeBeca.Visible = false;
-            // 
-            // lblBecado
-            // 
-            this.lblBecado.AutoSize = true;
-            this.lblBecado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBecado.ForeColor = System.Drawing.Color.Black;
-            this.lblBecado.Location = new System.Drawing.Point(50, 192);
-            this.lblBecado.Name = "lblBecado";
-            this.lblBecado.Size = new System.Drawing.Size(70, 20);
-            this.lblBecado.TabIndex = 33;
-            this.lblBecado.Text = "Becado";
-            this.lblBecado.Visible = false;
-            // 
-            // chkBecado
-            // 
-            this.chkBecado.BackColor = System.Drawing.Color.SkyBlue;
-            this.chkBecado.ChechedOffColor = System.Drawing.Color.SkyBlue;
-            this.chkBecado.Checked = false;
-            this.chkBecado.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
-            this.chkBecado.ForeColor = System.Drawing.Color.White;
-            this.chkBecado.Location = new System.Drawing.Point(24, 192);
-            this.chkBecado.Name = "chkBecado";
-            this.chkBecado.Size = new System.Drawing.Size(20, 20);
-            this.chkBecado.TabIndex = 32;
-            this.chkBecado.Visible = false;
-            this.chkBecado.OnChange += new System.EventHandler(this.ChkBecado_OnChange);
+            this.btnCumple.BackColor = System.Drawing.Color.Transparent;
+            this.btnCumple.Image = ((System.Drawing.Image)(resources.GetObject("btnCumple.Image")));
+            this.btnCumple.ImageActive = ((System.Drawing.Image)(resources.GetObject("btnCumple.ImageActive")));
+            this.btnCumple.Location = new System.Drawing.Point(12, 185);
+            this.btnCumple.Name = "btnCumple";
+            this.btnCumple.Size = new System.Drawing.Size(51, 36);
+            this.btnCumple.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCumple.TabIndex = 32;
+            this.btnCumple.TabStop = false;
+            this.Cancelartt.SetToolTip(this.btnCumple, "Ver Alumnos que cumplen años");
+            this.btnCumple.Zoom = 10;
+            this.btnCumple.Click += new System.EventHandler(this.BtnCumple_Click);
             // 
             // txtGrado
             // 
@@ -925,6 +873,7 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.bnfcarAgregar.ResumeLayout(false);
             this.bnfcarAgregar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCumple)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLimpiar)).EndInit();
             this.bunifuCards2.ResumeLayout(false);
@@ -985,10 +934,6 @@
         private System.Windows.Forms.TextBox txtFiltroCorreo;
         private System.Windows.Forms.TextBox txtFiltroTelefono;
         private System.Windows.Forms.TextBox txtFiltonombre;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblPorcentaje;
-        private System.Windows.Forms.TextBox txtPorcentajeBeca;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblBecado;
-        private Bunifu.Framework.UI.BunifuCheckbox chkBecado;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblPorcientoSimbolo;
+        private Bunifu.Framework.UI.BunifuImageButton btnCumple;
     }
 }

@@ -69,6 +69,7 @@
             this.bunifuImageButton1.TabIndex = 20;
             this.bunifuImageButton1.TabStop = false;
             this.bunifuImageButton1.Zoom = 10;
+            this.bunifuImageButton1.Click += new System.EventHandler(this.BunifuImageButton1_Click);
             // 
             // btnSalir
             // 
@@ -107,6 +108,7 @@
             this.lblControlGastos.Size = new System.Drawing.Size(241, 31);
             this.lblControlGastos.TabIndex = 3;
             this.lblControlGastos.Text = "Control de gastos |";
+            this.lblControlGastos.Click += new System.EventHandler(this.LblControlGastos_Click);
             // 
             // dgvGastos
             // 
@@ -156,6 +158,7 @@
             this.dgvGastos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGastos.Size = new System.Drawing.Size(751, 344);
             this.dgvGastos.TabIndex = 2;
+            this.dgvGastos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGastos_CellContentClick);
             // 
             // Form2
             // 

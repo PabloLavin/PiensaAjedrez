@@ -119,10 +119,10 @@ namespace PiensaAjedrez
                     miAlumno.Tutor = txtTutor.Text;
                 miAlumno.ApellidoPaterno = txtApellidoP.Text;
                 miAlumno.ApellidoMaterno = txtApellidoM.Text;
-                if (chkBecado.Checked)
-                    miAlumno.PorcentajeBeca = Int16.Parse(txtPorcentajeBeca.Text);
-                else
-                    miAlumno.PorcentajeBeca = 0;
+                //if (chkBecado.Checked)
+                //    miAlumno.PorcentajeBeca = Int16.Parse(txtPorcentajeBeca.Text);
+                //else
+                //    miAlumno.PorcentajeBeca = 0;
                 if (txtGrado.Text != "")
                     miAlumno.Grado = int.Parse(txtGrado.Text);
                 else
@@ -152,8 +152,8 @@ namespace PiensaAjedrez
                 ConexionBD.AgregarAlumno(miAlumno); 
                 MostrarDatos();
                 LimpiarControles();
-                lblBecado.Visible = false;
-                chkBecado.Checked = false;
+                //lblBecado.Visible = false;
+                //chkBecado.Checked = false;
                 InitializeTimer();
                 int intControl = 0;
 
@@ -443,22 +443,22 @@ namespace PiensaAjedrez
                     {
                         chkActivo.Checked = false;
                     }
-                    if (alumnos.PorcentajeBeca > 0)
-                    {
-                        chkBecado.Checked = true;
-                        lblPorcentaje.Visible = true;
-                        lblPorcientoSimbolo.Visible = true;
-                        txtPorcentajeBeca.Visible = true;
-                        txtPorcentajeBeca.Text = alumnos.PorcentajeBeca.ToString();
-                    }
-                    else
-                    {
-                        chkBecado.Checked = false;
-                        lblPorcentaje.Visible = false;
-                        txtPorcentajeBeca.Visible = false;
-                        txtPorcentajeBeca.Text = "";
-                        lblPorcientoSimbolo.Visible = false;
-                    }
+                    //if (alumnos.PorcentajeBeca > 0)
+                    //{
+                    //    chkBecado.Checked = true;
+                    //    lblPorcentaje.Visible = true;
+                    //    lblPorcientoSimbolo.Visible = true;
+                    //    txtPorcentajeBeca.Visible = true;
+                    //    txtPorcentajeBeca.Text = alumnos.PorcentajeBeca.ToString();
+                    //}
+                    //else
+                    //{
+                    //    chkBecado.Checked = false;
+                    //    lblPorcentaje.Visible = false;
+                    //    txtPorcentajeBeca.Visible = false;
+                    //    txtPorcentajeBeca.Text = "";
+                    //    lblPorcientoSimbolo.Visible = false;
+                    //}
                         lblnumerocontrol.Text = alumnos.NumeroDeControl;
                         btnAgregar.ButtonText = "Editar";
                     btnAgregar.IdleFillColor = Color.Teal;
@@ -744,18 +744,28 @@ namespace PiensaAjedrez
 
         private void ChkBecado_OnChange(object sender, EventArgs e)
         {
-            if (chkBecado.Checked)
-            {
-                lblPorcentaje.Visible = true;
-                txtPorcentajeBeca.Visible = true;
-            }
-            else
-            {
-                lblPorcentaje.Visible = false;
-                txtPorcentajeBeca.Visible = false;
-            }
 
         }
+
+        private void BtnCumple_Click(object sender, EventArgs e)
+        {
+            new Cumpleaños().ShowDialog();
+        }
+
+        //private void ChkBecado_OnChange(object sender, EventArgs e)
+        //{
+        //    if (chkBecado.Checked)
+        //    {
+        //        lblPorcentaje.Visible = true;
+        //        txtPorcentajeBeca.Visible = true;
+        //    }
+        //    else
+        //    {
+        //        lblPorcentaje.Visible = false;
+        //        txtPorcentajeBeca.Visible = false;
+        //    }
+
+        //}
     }
 }
 

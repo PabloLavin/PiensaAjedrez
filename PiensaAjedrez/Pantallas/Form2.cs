@@ -63,5 +63,20 @@ namespace PiensaAjedrez
         {
             this.Close();
         }
+
+        private void BunifuImageButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblControlGastos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DgvGastos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
