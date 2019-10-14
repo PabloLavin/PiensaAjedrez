@@ -25,6 +25,7 @@ namespace PiensaAjedrez
         private void Cumpleaños_Load(object sender, EventArgs e)
         {
             IniciarDGV();
+            lblCumple.Text += " de " + DateTime.Today.ToString("MMMM");
         }
 
         void IniciarDGV()
