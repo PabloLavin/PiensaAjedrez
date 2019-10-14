@@ -43,12 +43,14 @@ namespace PiensaAjedrez
 
         public static List<SqlConnection> ObtenerListaConexiones()
         {
-            List<SqlConnection> sqlLista = new List<SqlConnection>();
+            List<SqlConnection> sqlLista = new List<SqlConnection>();            
             sqlLista.Add(new SqlConnection(CrearCadenaConexion("ANCIRALAPTOP", "SQLEXPRESS")));
             sqlLista.Add(new SqlConnection(CrearCadenaConexion("LAPTOP-7L6CITQ7", "SQLEXPRESS")));
-            sqlLista.Add(new SqlConnection(CrearCadenaConexion("LAVINW8", "SQLEXPRESS")));
+            sqlLista.Add(new SqlConnection(CrearCadenaConexion("LAVINW8", "SQLDEVELOPER")));
+            sqlLista.Add(new SqlConnection(CrearCadenaConexion("LAPTOP-CR6AMKQQ", "")));
             sqlLista.Add(new SqlConnection(CrearCadenaConexion(Environment.GetEnvironmentVariable("COMPUTERNAME"), "SQLEXPRESS")));
-            sqlLista.Add(new SqlConnection(CrearCadenaConexion(Environment.GetEnvironmentVariable("COMPUTERNAME"), "SQLDEVELOPER")));                
+            sqlLista.Add(new SqlConnection(CrearCadenaConexion(Environment.GetEnvironmentVariable("COMPUTERNAME"), "SQLDEVELOPER")));
+            sqlLista.Add(new SqlConnection(CrearCadenaConexion(Environment.GetEnvironmentVariable("COMPUTERNAME"), "")));
             return sqlLista;
         }
 
