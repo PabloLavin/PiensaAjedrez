@@ -84,6 +84,7 @@
             this.lblfiltrar = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.imgFiltro = new Bunifu.Framework.UI.BunifuImageButton();
             this.Cancelartt = new System.Windows.Forms.ToolTip(this.components);
+            this.lblCumple = new Bunifu.Framework.UI.BunifuCustomLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.bnfcarAgregar.SuspendLayout();
@@ -166,6 +167,7 @@
             this.bnfcarAgregar.BorderRadius = 5;
             this.bnfcarAgregar.BottomSahddow = true;
             this.bnfcarAgregar.color = System.Drawing.Color.Teal;
+            this.bnfcarAgregar.Controls.Add(this.lblCumple);
             this.bnfcarAgregar.Controls.Add(this.btnCumple);
             this.bnfcarAgregar.Controls.Add(this.txtGrado);
             this.bnfcarAgregar.Controls.Add(this.txtTutor);
@@ -858,6 +860,19 @@
             this.Cancelartt.InitialDelay = 250;
             this.Cancelartt.ReshowDelay = 100;
             // 
+            // lblCumple
+            // 
+            this.lblCumple.AutoSize = true;
+            this.lblCumple.BackColor = System.Drawing.Color.Transparent;
+            this.lblCumple.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCumple.ForeColor = System.Drawing.Color.Black;
+            this.lblCumple.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblCumple.Location = new System.Drawing.Point(69, 194);
+            this.lblCumple.Name = "lblCumple";
+            this.lblCumple.Size = new System.Drawing.Size(138, 20);
+            this.lblCumple.TabIndex = 23;
+            this.lblCumple.Text = "Cumpleañeros de ";
+            // 
             // RegistroAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -935,5 +950,6 @@
         private System.Windows.Forms.TextBox txtFiltroTelefono;
         private System.Windows.Forms.TextBox txtFiltonombre;
         private Bunifu.Framework.UI.BunifuImageButton btnCumple;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblCumple;
     }
 }

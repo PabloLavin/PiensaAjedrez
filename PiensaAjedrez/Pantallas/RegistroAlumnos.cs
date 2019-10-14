@@ -21,8 +21,8 @@ namespace PiensaAjedrez
         {
             
             InitializeComponent();
-            
-            
+
+            lblCumple.Text += DateTime.Today.ToString("MMMM");
             txtNombre.Focus();
             btnCancelar.Visible = false;
             txtFiltroAño.MaxLength = 4;

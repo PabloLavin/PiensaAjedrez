@@ -35,14 +35,18 @@ namespace PiensaAjedrez
             dgvCumpleaneros.Columns.Add("AMaterno", "A. Materno");
             dgvCumpleaneros.Columns.Add("Nombre", "Nombre");
             dgvCumpleaneros.Columns.Add("Edad", "Edad");
+            dgvCumpleaneros.Columns.Add("CumpleHoy", "Cumple hoy");
             dgvCumpleaneros.Columns.Add("FechaNacimiento", "Fecha Nac.");
             dgvCumpleaneros.Columns.Add("Colegio", "Colegio");
-            dgvCumpleaneros.Columns.Add("CumpleHoy", "Cumple hoy");
             dgvCumpleaneros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             LlenarDGV();
-            dgvCumpleaneros.Sort(dgvCumpleaneros.Columns[5], ListSortDirection.Ascending);
+            dgvCumpleaneros.Sort(dgvCumpleaneros.Columns[6], ListSortDirection.Ascending);
+            dgvCumpleaneros.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            if(dgvCumpleaneros.Rows.Count!=0)
+            dgvCumpleaneros.Rows[0].Cells[0].Selected = true;
         }
+
 
         void LlenarDGV()
         {
@@ -54,11 +58,21 @@ namespace PiensaAjedrez
                 {
                     if (unAlumno.FechaNacimiento.Day == DateTime.Today.Day)
                         blnHoy = true;
-                    dgvCumpleaneros.Rows.Add(unAlumno.NumeroDeControl, unAlumno.ApellidoPaterno, unAlumno.ApellidoMaterno, unAlumno.Nombre, ObtenerEdad(unAlumno), unAlumno.FechaNacimiento.ToShortDateString(), unAlumno.Escuela, (blnHoy ? "Sí" : "No"));
+                    dgvCumpleaneros.Rows.Add(unAlumno.NumeroDeControl, unAlumno.ApellidoPaterno, unAlumno.ApellidoMaterno, unAlumno.Nombre, ObtenerEdad(unAlumno), (blnHoy ? "Sí" : "No"), unAlumno.FechaNacimiento.ToShortDateString(), unAlumno.Escuela);
                     blnHoy = false;
                 }
             }
+            if(dgvCumpleaneros.Rows.Count!=0)
+            for (int i = 0; i < dgvCumpleaneros.Rows.Count; i++)
+            {
+                if (dgvCumpleaneros.Rows[i].Cells[5].Value.ToString() == "Sí")
+                    dgvCumpleaneros.Rows[i].Cells[5].Style.BackColor = Color.ForestGreen;
+                else
+                    dgvCumpleaneros.Rows[i].Cells[5].Style.BackColor = Color.IndianRed;
+            }
         }
+
+        
 
         int ObtenerEdad(Alumno unAlumno)
         {
