@@ -62,7 +62,7 @@ namespace PiensaAjedrez
             if (Preguntar("Salir", "¿Desea cerrar la sesión?"))
             {
                 this.Hide();
-                new Login().ShowDialog();
+                new Form1().ShowDialog();
             }
         }
 
