@@ -1170,40 +1170,69 @@ namespace PiensaAjedrez
 
         private void btnListasActualizadas_Click(object sender, EventArgs e)
         {
-            PdfPTable pdfTable = new PdfPTable(dgvAlumnos.ColumnCount);
+            PdfPTable pdfTable = new PdfPTable(dgvAlumnos.ColumnCount);            
+            pdfTable.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+            pdfTable.DefaultCell.Padding = 3;
             List<float> aFloat = new List<float>();
             foreach (DataGridViewColumn column in dgvAlumnos.Columns)
             {
                 aFloat.Add(column.Width);
             }
             pdfTable.SetWidths(aFloat.ToArray());
-            pdfTable.DefaultCell.Padding = 3;            
+            pdfTable.DefaultCell.Padding = 3;
+            pdfTable.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
             pdfTable.WidthPercentage = 100;
-            pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
-            pdfTable.DefaultCell.BorderWidth = 1;
-            
+            pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;            
+
             foreach (DataGridViewColumn column in dgvAlumnos.Columns)
             {
-                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, FontFactory.GetFont("Segoe UI", 10.0f, BaseColor.WHITE)));                                
+                cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                cell.BackgroundColor = BaseColor.DARK_GRAY;                
+                cell.BorderColor = BaseColor.DARK_GRAY;
                 pdfTable.AddCell(cell);
             }
             int maxWidth = 0;
-            
+
+            bool zebra = false;
             foreach (DataGridViewRow row in dgvAlumnos.Rows)
-            {
-                
+            {                
                 foreach (DataGridViewCell cell in row.Cells)
                 {
                     if(cell.Value != null)
                     {
                         if (cell.Size.Width >= maxWidth)
                             maxWidth = cell.Size.Width;
-                        pdfTable.AddCell(cell.Value.ToString());                                                
+                        PdfPCell accel = new PdfPCell(new Phrase(cell.Value.ToString(), FontFactory.GetFont("Segoe UI", 10.0f, BaseColor.BLACK)));
+                        accel.HorizontalAlignment = Element.ALIGN_CENTER;
+                        accel.VerticalAlignment = Element.ALIGN_CENTER;
+                        if (zebra)
+                            accel.BackgroundColor = BaseColor.LIGHT_GRAY;
+                        accel.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                        if (cell.Value.ToString().Contains("$"))
+                        {
+                            switch(cell.Style.BackColor.Name)
+                            {
+                                case "Lime": accel.BackgroundColor = BaseColor.GREEN;  break;
+                                case "Yellow": accel.BackgroundColor = BaseColor.YELLOW; break;
+                            }
+                        }                        
+                        pdfTable.AddCell(accel);
                     }
                     else
-                        pdfTable.AddCell("");
-                }                        
-            }            
+                    {
+                        PdfPCell accel = new PdfPCell();
+                        accel.HorizontalAlignment = Element.ALIGN_CENTER;
+                        accel.VerticalAlignment = Element.ALIGN_CENTER; 
+                        if (zebra)
+                            accel.BackgroundColor = BaseColor.LIGHT_GRAY;
+                        accel.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                        pdfTable.AddCell(accel);
+                    }
+                        
+                }
+                zebra = !zebra;
+            }
             
             string folderPath = Directory.GetCurrentDirectory();
             if (!Directory.Exists(folderPath))
@@ -1222,7 +1251,7 @@ namespace PiensaAjedrez
                 pic.ScalePercent(45);
                 pdfDoc.Add(pic);
                 pdfDoc.Add(new Paragraph(" "));
-                Paragraph prHeader = new Paragraph("Lista de pago actualizada     " + cbEscuelas.selectedValue + "     " + unCurso.InicioCursos.ToShortDateString() + " - " + unCurso.FinCurso.ToShortDateString() +"     " + DateTime.Now.ToShortDateString());
+                Paragraph prHeader = new Paragraph("Lista de pago actualizada     " + cbEscuelas.selectedValue + "     " + unCurso.InicioCursos.ToShortDateString() + " - " + unCurso.FinCurso.ToShortDateString() +"     " + DateTime.Now.ToShortDateString(), FontFactory.GetFont("Courier", 14.0f, BaseColor.BLACK));
                 prHeader.Alignment = Element.ALIGN_CENTER;
                 pdfDoc.Add(prHeader);
                 pdfDoc.Add(new Paragraph(" "));
