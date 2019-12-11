@@ -38,8 +38,9 @@ namespace PiensaAjedrez
             dgvAlumnos.Columns.Add("ApellidoP", "Apellido P");
             dgvAlumnos.Columns.Add("Apellido M", "Apellido M");
             dgvAlumnos.Columns.Add("Nombre", "Nombre");
-            dgvAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgvAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvAlumnos.ColumnHeadersHeight = 50;
+            //dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
 
             dgvAlumnos.CellPainting += new DataGridViewCellPaintingEventHandler(DgvAlumnos_CellPainting);
             if (unaEscuela.CursoActivo == null)
@@ -466,6 +467,25 @@ namespace PiensaAjedrez
                 e.Graphics.DrawString(e.Value.ToString(), new Font("Century Gothic", 12.0f), Brushes.White, new PointF(rect.Y - (dgvAlumnos.ColumnHeadersHeight - titleSize.Width), rect.X ));
                 e.Graphics.RotateTransform(90.0F);
                 e.Graphics.TranslateTransform(0, -titleSize.Width);
+                e.Handled = true;
+            }
+            else if (e.RowIndex == -1 && e.ColumnIndex <= 4)
+            {
+                e.PaintBackground(e.ClipBounds, true);
+                Rectangle rect = this.dgvAlumnos.GetColumnDisplayRectangle(e.ColumnIndex, true);
+                Size titleSize = TextRenderer.MeasureText(e.Value.ToString(), e.CellStyle.Font);
+                //if (this.dgvAlumnos.ColumnHeadersHeight < titleSize.Width)
+                //{
+                //    this.dgvAlumnos.ColumnHeadersHeight = titleSize.Width;
+                //}
+
+                e.Graphics.TranslateTransform(titleSize.Width, 0 );
+                e.Graphics.RotateTransform(0.0F);
+
+
+                e.Graphics.DrawString(e.Value.ToString(), new Font("Century Gothic", 12.0f), Brushes.White, new PointF(rect.X-titleSize.Width+19, rect.Y+36));
+                e.Graphics.RotateTransform(0.0F);
+                e.Graphics.TranslateTransform(-titleSize.Width, 0);
                 e.Handled = true;
             }
            

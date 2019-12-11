@@ -575,7 +575,7 @@ namespace PiensaAjedrez
                 {
                     if (CargarCursoActivo(unaEscuela.Nombre) != null)
                     {
-                        SqlCommand comando = new SqlCommand("SELECT sum(monto-CantidadBeca) FROM PAGO where IDCurso in(select IDCurso from CURSO where activo=1)", con);
+                        SqlCommand comando = new SqlCommand("SELECT sum(monto-CantidadBeca)+ (select sum(INGRESO.Monto) from INGRESO) FROM PAGO where IDCurso in (select IDCurso from CURSO where activo = 1)", con);
                         SqlDataReader gastos = comando.ExecuteReader();
                         while (gastos.Read())
                         {
@@ -612,24 +612,54 @@ namespace PiensaAjedrez
 
         }
 
-        public static void ArchivarGastos(string strNombreGrupo)
+        public static List<Gastos> CargarIngresos()
+        {
+            List<Gastos> listaPagos = new List<Gastos>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM INGRESO WHERE Grupo = '" + "" + "' ORDER BY FECHAHORA DESC, MONTO DESC ", con);
+                SqlDataReader pagos = comando.ExecuteReader();
+                while (pagos.Read())
+                    listaPagos.Add(new Gastos(pagos.GetString(1), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(3), pagos.GetDateTime(4), ""));
+            }
+            return listaPagos;
+
+        }
+
+        public static void ArchivarGastos(string strNombreGrupo, int intCaso)
         {
             using (SqlConnection con = ObtenerConexion())
             {
-
-                SqlCommand comando = new SqlCommand("UPDATE GASTO SET Grupo = '"+strNombreGrupo+"' WHERE Grupo = '"+""+"'", con);
-                comando.ExecuteNonQuery();
+                if (intCaso == 1)
+                {
+                    SqlCommand comando = new SqlCommand("UPDATE GASTO SET Grupo = '"+strNombreGrupo+"' WHERE Grupo = '"+""+"'", con);
+                    comando.ExecuteNonQuery();
+                }
+                else
+                {
+                    SqlCommand comando = new SqlCommand("UPDATE INGRESO SET Grupo = '" + strNombreGrupo + "' WHERE Grupo = '" + "" + "'", con);
+                    comando.ExecuteNonQuery();
+                }
             }
         }
 
-        public static void ArchivarGastos(string strNombreGrupo, List<Gastos> listaGastos)
+        public static void ArchivarGastos(string strNombreGrupo, List<Gastos> listaGastos, int intCaso)
         {
             using (SqlConnection con = ObtenerConexion())
             {
                 foreach (Gastos gastos in listaGastos)
                 {
-                SqlCommand comando = new SqlCommand("UPDATE TOP (1) GASTO SET Grupo = '" + strNombreGrupo + "' WHERE Razon= '"+gastos.Motivo+"' AND Monto= '"+gastos.Monto+"' AND Nota= '"+gastos.Nota+"' AND FechaHora= '"+FormatearFecha(gastos.FechaGasto)+"' AND Grupo = '" + "" + "'", con);
-                comando.ExecuteNonQuery();
+                    if (intCaso == 1)
+                    {
+                        SqlCommand comando = new SqlCommand("UPDATE TOP (1) GASTO SET Grupo = '" + strNombreGrupo + "' WHERE Razon= '" + gastos.Motivo + "' AND Monto= '" + gastos.Monto + "' AND Nota= '" + gastos.Nota + "' AND FechaHora= '" + FormatearFecha(gastos.FechaGasto) + "' AND Grupo = '" + "" + "'", con);
+                        comando.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        SqlCommand comando = new SqlCommand("UPDATE TOP (1) INGRESO SET Grupo = '" + strNombreGrupo + "' WHERE Razon= '" + gastos.Motivo + "' AND Monto= '" + gastos.Monto + "' AND Nota= '" + gastos.Nota + "' AND FechaHora= '" + FormatearFecha(gastos.FechaGasto) + "' AND Grupo = '" + "" + "'", con);
+                        comando.ExecuteNonQuery();
+                    }
+                
                 }
             }
         }

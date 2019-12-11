@@ -12,10 +12,20 @@ namespace PiensaAjedrez
 {
    public partial class Form2 : Form
     {
-        string Escuela="";        
-        public Form2()
+        int intOpcion = 0;
+
+        public Form2(int intCaso)
         {
             InitializeComponent();
+            intOpcion = intCaso;
+            if (intCaso == 1)
+            {
+                lblControlGastos.Text = "Control de Gastos | ";
+            }
+            else
+            {
+                lblControlGastos.Text = "Control de Ingresos |";
+            }
         }
 
        
@@ -37,16 +47,27 @@ namespace PiensaAjedrez
             dgvGastos.Columns[4].Width = 100;
             
 
-            RellenarDGV(Escuela);
+            RellenarDGV();
         }
 
-        void RellenarDGV(string strNombreEscuela)
+        void RellenarDGV()
         {
             dgvGastos.Rows.Clear();
-            foreach (Gastos unGasto in ConexionBD.CargarGastos())
+            if (intOpcion == 1)
             {
-                dgvGastos.Rows.Add(unGasto.Motivo,"$", unGasto.Monto, unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
+                foreach (Gastos unGasto in ConexionBD.CargarGastos())
+                {
+                    dgvGastos.Rows.Add(unGasto.Motivo, "$", unGasto.Monto, unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
+                }
             }
+            else
+            {
+                foreach (Gastos unGasto in ConexionBD.CargarIngresos())
+                {
+                    dgvGastos.Rows.Add(unGasto.Motivo, "$", unGasto.Monto, unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
+                }
+            }
+           
         }
 
         void QuitarLinea()

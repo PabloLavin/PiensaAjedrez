@@ -95,6 +95,16 @@ namespace PiensaAjedrez
             dgvEstadisticas.Rows.Add("Balance Total", (ConexionBD.TotalIngresos()-ConexionBD.TotalGastos()).ToString("c"));
             dgvEstadisticas.Rows.Add("Total Alumnos", Convert.ToString(ConexionBD.CantidadAlumnos()));
             dgvEstadisticas.Rows.Add("Alumnos Activos", Convert.ToString(ConexionBD.CantidadAlumnosActivos()));
+            if(ConexionBD.TotalIngresos() - ConexionBD.TotalGastos() > 0)
+            {
+                dgvEstadisticas.Rows[2].Cells[1].Style.BackColor = Color.ForestGreen;
+                dgvEstadisticas.Rows[2].Cells[1].Style.ForeColor = Color.White;
+            }
+            else
+            {
+                dgvEstadisticas.Rows[2].Cells[1].Style.BackColor = Color.FromArgb(224, 139, 139);
+                dgvEstadisticas.Rows[2].Cells[1].Style.ForeColor = Color.White;
+            }
 
             DgvEstadisticasEscuela.Rows.Add("Inscripciones","$0.00");
             DgvEstadisticasEscuela.Rows.Add("Mensualidades", "$0.00");
@@ -918,7 +928,7 @@ namespace PiensaAjedrez
 
         private void btnVerGastos_Click(object sender, EventArgs e)
         {
-            new Form2().ShowDialog();
+            new Form2((radGastos.Checked?1:2)).ShowDialog();
         }
 
         private void LblInformacion_Click(object sender, EventArgs e)
@@ -1159,7 +1169,7 @@ namespace PiensaAjedrez
 
         private void BtnArchivar_Click(object sender, EventArgs e)
         {
-            new ArchivarForma().ShowDialog();
+            new ArchivarForma((radGastos.Checked?1:2)).ShowDialog();
             LlenarDGV(new Escuela(cbEscuelas.selectedValue));
         }
 
@@ -1291,8 +1301,8 @@ namespace PiensaAjedrez
             {
                 lblTransaccion.Text = "Ingresos";
                 
-                btnArchivar.Visible = false;
-                btnVerGastos.Visible = false;
+                btnArchivar.Visible = true;
+                btnVerGastos.Visible = true;
 
             }
         }

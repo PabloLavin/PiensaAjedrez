@@ -12,9 +12,20 @@ namespace PiensaAjedrez.Pantallas
 {
     public partial class ArchivarForma : Form
     {
-        public ArchivarForma()
+        int intOpcion = 0;
+        public ArchivarForma(int intCaso)
         {
             InitializeComponent();
+            if (intCaso == 1)
+            {
+                intOpcion = 1;
+                lblIngresos.Text = "Archivar Gastos";
+            }
+            else if (intCaso == 2)
+            {
+                intOpcion = 2;
+                lblIngresos.Text = "Archivar Ingresos";
+            }
         }
 
         private void ArchivarForma_Load(object sender, EventArgs e)
@@ -29,15 +40,25 @@ namespace PiensaAjedrez.Pantallas
             dgvGastos.Columns[2].Width = 65;
             dgvGastos.Columns[4].Width = 100;
 
-            RellenarDGV();
+            RellenarDGV(intOpcion);
         }
 
-        void RellenarDGV()
+        void RellenarDGV(int intCaso)
         {
             dgvGastos.Rows.Clear();
+            if (intCaso == 1)
+            {
             foreach (Gastos unGasto in ConexionBD.CargarGastos())
             {
                 dgvGastos.Rows.Add(unGasto.Motivo, "$", unGasto.Monto, unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
+            }
+            }
+            else
+            {
+                foreach (Gastos unGasto in ConexionBD.CargarIngresos())
+                {
+                    dgvGastos.Rows.Add(unGasto.Motivo, "$", unGasto.Monto, unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
+                }
             }
         }
 
@@ -58,10 +79,10 @@ namespace PiensaAjedrez.Pantallas
                         if (Fila.Selected)
                             listaGastos.Add(new Gastos(Fila.Cells[0].Value.ToString(), double.Parse(Fila.Cells[2].Value.ToString()), Fila.Cells[3].Value.ToString(), DateTime.Parse(Fila.Cells[4].Value.ToString())));
                     }
-                    ConexionBD.ArchivarGastos(txtNombre.Text,listaGastos);
+                    ConexionBD.ArchivarGastos(txtNombre.Text,listaGastos, intOpcion);
                     new FormMensaje().Mostrar("Archivado correctamente", "¡Se archivó con éxito!", 5, new Mensualidades());
                     txtNombre.Clear();
-                    RellenarDGV();
+                    RellenarDGV(intOpcion);
                 }
                 catch (Exception)
                 {
