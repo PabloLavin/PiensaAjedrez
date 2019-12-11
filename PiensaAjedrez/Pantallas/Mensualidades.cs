@@ -35,6 +35,8 @@ namespace PiensaAjedrez
             btnAgregado.Visible = false;
             dtFechaPago.Value = DateTime.Today;
             btnAgregadoGasto.Visible = false;
+            IniciarCBGastos();
+        
 
 
             Deshabilitar();
@@ -801,36 +803,54 @@ namespace PiensaAjedrez
 
         private void btnRegistrarGasto_Click(object sender, EventArgs e)
         {
-            /*try
-            {*/
-            if (cbGastos.selectedIndex != -1)
+            if (radGastos.Checked)
             {
-                try
+                if (cbGastos.selectedIndex != -1)
                 {
-                    if (Preguntar("Confirmar gasto", "Confirmar gasto:\nRazón: " + cbGastos.selectedValue.ToString() + "\nMonto: " + double.Parse(txtMontoAdicional.Text).ToString("c") +"\nFecha: " + bnfdtpFechaGasto.Value + "\nNota: " + txtMotivo.Text))
+                    try
                     {
-                        ConexionBD.RegistrarGasto(cbGastos.selectedValue.ToString(), double.Parse(txtMontoAdicional.Text), txtMotivo.Text, bnfdtpFechaGasto.Value);
-                        unaForma.Mostrar("Registro de gasto", "Gasto registrado con éxito.",5,this);
+                        if (Preguntar("Confirmar gasto", "Confirmar gasto:\nRazón: " + cbGastos.selectedValue.ToString() + "\nMonto: " + double.Parse(txtMontoAdicional.Text).ToString("c") + "\nFecha: " + bnfdtpFechaGasto.Value + "\nNota: " + txtMotivo.Text))
+                        {
+                            ConexionBD.RegistrarGasto(cbGastos.selectedValue.ToString(), double.Parse(txtMontoAdicional.Text), txtMotivo.Text, bnfdtpFechaGasto.Value);
+                            unaForma.Mostrar("Registro de gasto", "Gasto registrado con éxito.", 5, this);
+                        }
                     }
+                    catch (Exception) { unaForma.Mostrar("Error", "Introduzca solo valores numéricos.", 1, this); return; }
+                    txtMontoAdicional.Text = "";
+                    txtMotivo.Text = "";
+                    LlenarDGV(new Escuela(cbEscuelas.selectedValue));
+                    InicializarDGVEstadisticas();
                 }
-                catch (Exception) { unaForma.Mostrar("Error","Introduzca solo valores numéricos.",1,this); return; }
-                txtMontoAdicional.Text = "";
-                txtMotivo.Text = "";
-                LlenarDGV(new Escuela(cbEscuelas.selectedValue));
-                InicializarDGVEstadisticas();
+                else
+                {
+                    unaForma.Mostrar("Error", "Seleccione un asunto de gasto.", 1, this);
+                    return;
+                }
             }
-            else
+            else if(radIngreso.Checked)
             {
-                unaForma.Mostrar("Error","Seleccione un asunto de gasto.",1,this);
-                return;
+                if (cbGastos.selectedIndex != -1)
+                {
+                    try
+                    {
+                        if (Preguntar("Confirmar ingreso", "Confirmar ingreso:\nRazón: " + cbGastos.selectedValue.ToString() + "\nMonto: " + double.Parse(txtMontoAdicional.Text).ToString("c") + "\nFecha: " + bnfdtpFechaGasto.Value + "\nNota: " + txtMotivo.Text))
+                        {
+                            ConexionBD.RegistrarIngreso(cbGastos.selectedValue.ToString(), double.Parse(txtMontoAdicional.Text), txtMotivo.Text, bnfdtpFechaGasto.Value);
+                            unaForma.Mostrar("Registro de ingreso", "Ingreso registrado con éxito.", 5, this);
+                        }
+                    }
+                    catch (Exception) { unaForma.Mostrar("Error", "Introduzca solo valores numéricos.", 1, this); return; }
+                    txtMontoAdicional.Text = "";
+                    txtMotivo.Text = "";
+                    LlenarDGV(new Escuela(cbEscuelas.selectedValue));
+                    InicializarDGVEstadisticas();
+                }
+                else
+                {
+                    unaForma.Mostrar("Error", "Seleccione un asunto de ingreso.", 1, this);
+                    return;
+                }
             }
-               
-            /*}
-            catch (Exception)
-            {
-                MessageBox.Show("Error al registrar gasto", "Error de registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-*/          
         }
 
         private void dgvAlumnos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -1211,6 +1231,41 @@ namespace PiensaAjedrez
                 stream.Close();
             }
             Process.Start(folderPath+ @"\ListaActualizada.pdf");
+        }
+
+       
+
+        private void RadGastos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radGastos.Checked)
+            {
+                lblTransaccion.Text = "Gastos";
+                IniciarCBGastos();
+                btnArchivar.Visible = true;
+                btnVerGastos.Visible = true;
+
+            }
+        }
+
+        void IniciarCBGastos()
+        {
+            cbGastos.Clear();
+            cbGastos.AddItem("Pagos a Colegios");
+            cbGastos.AddItem("Gasto Adicional");
+            cbGastos.AddItem("Pago a Maestros");
+            cbGastos.selectedIndex = 0;
+        }
+
+        private void RadIngreso_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radIngreso.Checked)
+            {
+                lblTransaccion.Text = "Ingresos";
+                
+                btnArchivar.Visible = false;
+                btnVerGastos.Visible = false;
+
+            }
         }
     }
 }
