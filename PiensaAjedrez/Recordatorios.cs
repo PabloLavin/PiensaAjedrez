@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SerializacionLibreria;
+using System.IO;
 
 namespace PiensaAjedrez
 {
@@ -11,8 +12,7 @@ namespace PiensaAjedrez
     {
         public static ArchivoSecuencialSerializadoBinario<DateTime> miConfiguración = new ArchivoSecuencialSerializadoBinario<DateTime>(System.IO.Directory.GetCurrentDirectory() + @"\Configuracion.bin");
         public static DateTime dtmHoraRecordatorio;
-        //public delegate void CambioPropiedadEventHandler();
-        //public static event CambioPropiedadEventHandler unEvento;
+
 
         private static int _intCaso;
 
@@ -64,7 +64,7 @@ namespace PiensaAjedrez
 
         public static void GuardarConfiguracion(DateTime dtmHora)
         {
-            
+            File.Delete(Directory.GetCurrentDirectory() + @"\Configuracion.bin");
             miConfiguración.AbrirEnModoEscritura();
             miConfiguración.GrabarObjeto(dtmHora);
             miConfiguración.Cerrar();

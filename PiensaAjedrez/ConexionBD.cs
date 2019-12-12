@@ -468,10 +468,23 @@ namespace PiensaAjedrez
             List<Pagos> listaPagos = new List<Pagos>();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT * FROM PAGO WHERE NumeroControl = '" + unAlumno.NumeroDeControl + "' AND IDCURSO = '"+strIDCurso+"' AND Nota != 'N/A'", con);
+                SqlCommand comando = new SqlCommand("SELECT * FROM PAGO WHERE NumeroControl = '" + unAlumno.NumeroDeControl + "' AND IDCURSO = '"+strIDCurso+"'", con);
                 SqlDataReader pagos = comando.ExecuteReader();
                 while (pagos.Read())
                     listaPagos.Add(new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7) == 1 ? true : false), (pagos.GetInt16(8) == 1 ? true : false), pagos.GetString(9), (pagos.GetInt16(10) > 0 ? true : false), double.Parse(pagos.GetSqlMoney(11).ToString()), pagos.GetInt16(12)));
+            }
+            return listaPagos;
+        }
+
+        public static List<string> CargarMesesAlumnoCurso(Alumno unAlumno, string strIDCurso)
+        {
+            List<string> listaPagos = new List<string>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT MesPagado FROM PAGO WHERE NumeroControl = '" + unAlumno.NumeroDeControl + "' AND IDCURSO = '" + strIDCurso + "'", con);
+                SqlDataReader pagos = comando.ExecuteReader();
+                while (pagos.Read())
+                    listaPagos.Add(pagos.GetString(0));
             }
             return listaPagos;
         }

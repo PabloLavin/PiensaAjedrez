@@ -45,7 +45,7 @@ namespace PiensaAjedrez
         {
             MailMessage mail = new MailMessage();
             mail.IsBodyHtml = true;            
-            mail.AlternateViews.Add(ObtenerImagen(System.IO.Directory.GetCurrentDirectory() + @"\PiensaAjedrezLogo.jpg", miAlumno,miPago, intCaso));
+            mail.AlternateViews.Add(ObtenerImagen(System.IO.Directory.GetCurrentDirectory() + @"\PiensaAjedrezLogo.png", miAlumno,miPago, intCaso));
             mail.From = new MailAddress(Usuario);
             mail.To.Add(miAlumno.Correo);
             mail.Subject = "Piensa Ajedrez | Pago de " + miPago.MesPagado + " realizado";
@@ -76,7 +76,7 @@ namespace PiensaAjedrez
         {
             MailMessage mail = new MailMessage();
             mail.IsBodyHtml = true;
-            mail.AlternateViews.Add(ObtenerImagenRecordatorio(System.IO.Directory.GetCurrentDirectory() + @"\PiensaAjedrezLogo.jpg", miAlumno));
+            mail.AlternateViews.Add(ObtenerImagenRecordatorio(System.IO.Directory.GetCurrentDirectory() + @"\PiensaAjedrezLogo.png", miAlumno));
             mail.From = new MailAddress(Usuario);
             mail.To.Add(miAlumno.Correo);
             mail.Subject = "Piensa Ajedrez | Pago(s) Atrasado(s)";

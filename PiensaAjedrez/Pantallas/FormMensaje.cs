@@ -145,6 +145,7 @@ namespace PiensaAjedrez
             intCasos = 7;
             btnDeclinar.Visible = true;
             dtmHora.Visible = true;
+            dtmHora.Value = DateTime.Now;
             this.Height = 163;
             btnDeclinar.ButtonText = "Aceptar";
             lblEncabezado.Text = "Recordar mas tarde";

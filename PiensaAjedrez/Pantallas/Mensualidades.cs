@@ -1088,7 +1088,7 @@ namespace PiensaAjedrez
        public void NotificarRetardos(int intCaso)
         {
             if (intCaso == 0)
-                if (DateTime.Today.Day == 10|| DateTime.Today.Day == 20||EsUltimoDia() || DateTime.Today.Day == 26)
+                if (DateTime.Today.Day == 10|| DateTime.Today.Day == 20||EsUltimoDia() || DateTime.Today.Day == 11)
                 {
                     if (PreguntarRetardo("Retardos en pago", "¿Desea enviar un correo a todos los deudores?"))
                     {
@@ -1123,11 +1123,15 @@ namespace PiensaAjedrez
                 }
             if (intCaso == 1)
             {
-                if (DateTime.Today.Day == 10 || DateTime.Today.Day == 20 || EsUltimoDia() || DateTime.Today.Day == 26)
-                    if (DateTime.Now.TimeOfDay.Hours>=Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours && DateTime.Now.TimeOfDay.Minutes >= Recordatorios.dtmHoraRecordatorio.TimeOfDay.Minutes)
+                if (DateTime.Today.Day == 10 || DateTime.Today.Day == 20 || EsUltimoDia() || DateTime.Today.Day == 11)
+                {
+                    if ((DateTime.Now.TimeOfDay.Hours == Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours&& DateTime.Now.TimeOfDay.Minutes >= Recordatorios.dtmHoraRecordatorio.TimeOfDay.Minutes)|| DateTime.Now.TimeOfDay.Hours > Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours)
                     {
                         NotificarRetardos(0);
                     }
+
+                }
+
             }
         }
 
@@ -1183,14 +1187,13 @@ namespace PiensaAjedrez
             List<string> listaMeses = new List<string>();
             if(ConexionBD.CargarPagosAlumnoCurso(unAlumno, ConexionBD.CargarCursoActivo(unAlumno.Escuela).Clave).Count > 0)
             {
-            foreach (Pagos unPago in ConexionBD.CargarPagosAlumnoCurso(unAlumno, ConexionBD.CargarCursoActivo(unAlumno.Escuela).Clave))
-            {
                 foreach (string mes in ObtenerMesesDelCurso())
                 {
-                    if (mes!=unPago.MesPagado /*&& !ObtenerMesesDelCurso().Contains(unPago.MesPagado)*/)
+                    if(!ConexionBD.CargarMesesAlumnoCurso(unAlumno, ConexionBD.CargarCursoActivo(unAlumno.Escuela).Clave).Contains(mes))
+                    {
                         listaMeses.Add(mes);
+                    }
                 }
-            }
             }
             else
             {
@@ -1202,13 +1205,14 @@ namespace PiensaAjedrez
             return listaMeses;
         }
 
+
         List<Alumno> ObtenerAlumnosDeudores(string strNombreEscuela)
         {
             List<Alumno> listaAlumnos = new List<Alumno>();
            
                 foreach (Alumno unAlumno in ConexionBD.CargarAlumnos(strNombreEscuela))
                 {
-                    if (ObtenerMesesDeuda(unAlumno).Count > 0)
+                    if (ObtenerMesesDeuda(unAlumno).Count > 0 && unAlumno.Activo)
                         listaAlumnos.Add(unAlumno);
                 }
             
