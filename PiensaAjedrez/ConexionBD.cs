@@ -518,7 +518,23 @@ namespace PiensaAjedrez
             double dblTotalMensualidades = 0;
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT sum(monto-CantidadBeca) FROM PAGO, ALUMNO, CURSO  WHERE PAGO.NumeroControl = ALUMNO.NumeroControl AND ALUMNO.NombreEscuela = CURSO.NombreEscuela  AND MesPagado != 'Inscripcion' AND Nota != 'N/A' AND CURSO.Activo = 1 AND CURSO.NombreEscuela = '" + strNombreEscuela + "' AND PAGO.IDCurso='"+strClave+"'", con);
+                SqlCommand comando = new SqlCommand("SELECT sum(monto-CantidadBeca) FROM PAGO WHERE MesPagado != 'Inscripcion' AND Nota != 'N/A' AND IDCurso='" + strClave+"' AND (MesPagado='Enero' OR MesPagado='Febrero' OR MesPagado='Marzo' OR MesPagado='Abril' OR MesPagado='Mayo' OR MesPagado='Junio' OR MesPagado='Julio' OR MesPagado='Agosto' OR MesPagado='Septiembre' OR MesPagado='Octubre' OR MesPagado='Noviembre' OR MesPagado='Diciembre')", con);
+                SqlDataReader mensualidades = comando.ExecuteReader();
+                while (mensualidades.Read())
+                {
+                    if (!mensualidades.IsDBNull(0))
+                        dblTotalMensualidades = double.Parse(Convert.ToString(mensualidades.GetSqlMoney(0)));
+                }
+            }
+            return dblTotalMensualidades;
+        }
+
+        public static double TotalActividades(string strNombreEscuela, string strClave)
+        {
+            double dblTotalMensualidades = 0;
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT sum(monto-CantidadBeca) FROM PAGO WHERE MesPagado != 'Inscripcion' AND Nota != 'N/A' AND IDCurso= '" + strClave + "' AND MesPagado!='Enero' AND MesPagado!='Febrero' AND MesPagado!='Marzo' AND MesPagado!='Abril' AND MesPagado!='Mayo' AND MesPagado!='Junio' AND MesPagado!='Julio' AND MesPagado!='Agosto' AND MesPagado!='Septiembre' AND MesPagado!='Octubre' AND MesPagado!='Noviembre' AND MesPagado!='Diciembre'", con);
                 SqlDataReader mensualidades = comando.ExecuteReader();
                 while (mensualidades.Read())
                 {
@@ -554,11 +570,11 @@ namespace PiensaAjedrez
             }
         }
 
-        public static void RegistrarIngreso(string strRazon, double dblMonto, string strNota, DateTime dtpFecha)
+        public static void RegistrarIngreso(double dblMonto, string strNota, DateTime dtpFecha)
         {
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("INSERT INTO INGRESO (ID, Razon,Monto,Nota,FechaHora,Grupo) VALUES ((SELECT COUNT(*) + 1 FROM INGRESO), '" + strRazon + "', " + dblMonto + ", '" + strNota + "','" + FormatearFecha(dtpFecha) + "','')", con);
+                SqlCommand comando = new SqlCommand("INSERT INTO INGRESO (ID,Razon,Monto,Nota,FechaHora,Grupo) VALUES ((SELECT COUNT(*) + 1 FROM INGRESO), ''," + dblMonto + ", '" + strNota + "','" + FormatearFecha(dtpFecha) + "','')", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -588,7 +604,7 @@ namespace PiensaAjedrez
                 {
                     if (CargarCursoActivo(unaEscuela.Nombre) != null)
                     {
-                        SqlCommand comando = new SqlCommand("SELECT sum(monto-CantidadBeca)+ (select sum(INGRESO.Monto) from INGRESO) FROM PAGO where IDCurso in (select IDCurso from CURSO where activo = 1)", con);
+                        SqlCommand comando = new SqlCommand("SELECT sum(monto-CantidadBeca)+ ISNULL((select sum(INGRESO.Monto) from INGRESO), 0) FROM PAGO where IDCurso in (select IDCurso from CURSO where activo = 1)", con);
                         SqlDataReader gastos = comando.ExecuteReader();
                         while (gastos.Read())
                         {

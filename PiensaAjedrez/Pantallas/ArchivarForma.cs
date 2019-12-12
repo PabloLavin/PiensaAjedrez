@@ -39,6 +39,8 @@ namespace PiensaAjedrez.Pantallas
             dgvGastos.Columns[1].Width = 25;
             dgvGastos.Columns[2].Width = 65;
             dgvGastos.Columns[4].Width = 100;
+            if (intOpcion == 2)
+                dgvGastos.Columns[0].Visible = false;
 
             RellenarDGV(intOpcion);
         }

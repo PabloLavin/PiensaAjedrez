@@ -92,7 +92,7 @@ namespace PiensaAjedrez
 
             dgvEstadisticas.Rows.Add("Ingresos", ConexionBD.TotalIngresos().ToString("c"));
             dgvEstadisticas.Rows.Add("Egresos", ConexionBD.TotalGastos().ToString("c"));
-            dgvEstadisticas.Rows.Add("Balance Total", (ConexionBD.TotalIngresos()-ConexionBD.TotalGastos()).ToString("c"));
+            dgvEstadisticas.Rows.Add("Balance Total", (ConexionBD.TotalIngresos() - ConexionBD.TotalGastos()).ToString("c"));
             dgvEstadisticas.Rows.Add("Total Alumnos", Convert.ToString(ConexionBD.CantidadAlumnos()));
             dgvEstadisticas.Rows.Add("Alumnos Activos", Convert.ToString(ConexionBD.CantidadAlumnosActivos()));
             if(ConexionBD.TotalIngresos() - ConexionBD.TotalGastos() > 0)
@@ -118,9 +118,20 @@ namespace PiensaAjedrez
                 dgvAlumnosParticular.Rows.Clear();
                  DgvEstadisticasEscuela.Rows.Add("Inscripciones", ConexionBD.TotalInscripciones(cbEscuelas.selectedValue).ToString("c"));
                  DgvEstadisticasEscuela.Rows.Add("Mensualidades", ConexionBD.TotalMensualidades(cbEscuelas.selectedValue,ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave).ToString("c"));
-                 DgvEstadisticasEscuela.Rows.Add("Total Ingresos", (ConexionBD.TotalInscripciones(cbEscuelas.selectedValue)+ ConexionBD.TotalMensualidades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave)).ToString("c"));
+                if(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue)!=null)
+                if (ConexionBD.CargarActividades(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave).Count > 0)
+                {
+                        DgvEstadisticasEscuela.Rows.Add("Actividades", ConexionBD.TotalActividades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave).ToString("c"));
+                       
+                }
+                //Se realiza la misma comparación de arriba (Curso no nulo y actividades mayor a 0 en un if anidado ternario
+                DgvEstadisticasEscuela.Rows.Add("Total Ingresos", (ConexionBD.TotalInscripciones(cbEscuelas.selectedValue)+ ConexionBD.TotalMensualidades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave)+(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue) != null ? (ConexionBD.CargarActividades(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave).Count > 0 ? ConexionBD.TotalActividades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave) : 0) : 0)).ToString("c"));
+
+
+              
                 dgvAlumnosParticular.Rows.Add("Total Alumnos", Convert.ToString(ConexionBD.CantidadAlumnos(cbEscuelas.selectedValue)));
                 dgvAlumnosParticular.Rows.Add("Alumnos Activos", Convert.ToString(ConexionBD.CantidadAlumnosActivos(cbEscuelas.selectedValue)));
+                dgvAlumnos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             }
 
             dgvEstadisticas.Rows[0].Cells[0].Style.BackColor = Color.DarkGreen;
@@ -894,9 +905,9 @@ namespace PiensaAjedrez
                 {
                     try
                     {
-                        if (Preguntar("Confirmar ingreso", "Confirmar ingreso:\nRazón: " + cbGastos.selectedValue.ToString() + "\nMonto: " + double.Parse(txtMontoAdicional.Text).ToString("c") + "\nFecha: " + bnfdtpFechaGasto.Value + "\nNota: " + txtMotivo.Text))
+                        if (Preguntar("Confirmar ingreso", "Confirmar ingreso:\nMonto: " + double.Parse(txtMontoAdicional.Text).ToString("c") + "\nFecha: " + bnfdtpFechaGasto.Value + "\nNota: " + txtMotivo.Text))
                         {
-                            ConexionBD.RegistrarIngreso(cbGastos.selectedValue.ToString(), double.Parse(txtMontoAdicional.Text), txtMotivo.Text, bnfdtpFechaGasto.Value);
+                            ConexionBD.RegistrarIngreso(double.Parse(txtMontoAdicional.Text), txtMotivo.Text, bnfdtpFechaGasto.Value);
                             unaForma.Mostrar("Registro de ingreso", "Ingreso registrado con éxito.", 5, this);
                         }
                     }
@@ -1344,6 +1355,7 @@ namespace PiensaAjedrez
                 IniciarCBGastos();
                 btnArchivar.Visible = true;
                 btnVerGastos.Visible = true;
+                cbGastos.Visible = true;
 
             }
         }
@@ -1365,6 +1377,7 @@ namespace PiensaAjedrez
                 
                 btnArchivar.Visible = true;
                 btnVerGastos.Visible = true;
+                cbGastos.Visible = false;
 
             }
         }
