@@ -38,6 +38,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsEliminarAlumno = new System.Windows.Forms.ToolStripMenuItem();
             this.bnfcarAgregar = new Bunifu.Framework.UI.BunifuCards();
+            this.lblCumple = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnCumple = new Bunifu.Framework.UI.BunifuImageButton();
             this.txtGrado = new System.Windows.Forms.TextBox();
             this.txtTutor = new System.Windows.Forms.TextBox();
@@ -84,7 +85,6 @@
             this.lblfiltrar = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.imgFiltro = new Bunifu.Framework.UI.BunifuImageButton();
             this.Cancelartt = new System.Windows.Forms.ToolTip(this.components);
-            this.lblCumple = new Bunifu.Framework.UI.BunifuCustomLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.bnfcarAgregar.SuspendLayout();
@@ -151,13 +151,13 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsEliminarAlumno});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(162, 24);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 46);
             // 
             // tsEliminarAlumno
             // 
             this.tsEliminarAlumno.Name = "tsEliminarAlumno";
             this.tsEliminarAlumno.Padding = new System.Windows.Forms.Padding(0);
-            this.tsEliminarAlumno.Size = new System.Drawing.Size(161, 20);
+            this.tsEliminarAlumno.Size = new System.Drawing.Size(180, 20);
             this.tsEliminarAlumno.Text = "Eliminar alumno";
             this.tsEliminarAlumno.Click += new System.EventHandler(this.tsEliminarAlumno_Click);
             // 
@@ -205,6 +205,19 @@
             this.bnfcarAgregar.TabStop = true;
             this.bnfcarAgregar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             this.bnfcarAgregar.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuCards1_Paint);
+            // 
+            // lblCumple
+            // 
+            this.lblCumple.AutoSize = true;
+            this.lblCumple.BackColor = System.Drawing.Color.Transparent;
+            this.lblCumple.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCumple.ForeColor = System.Drawing.Color.Black;
+            this.lblCumple.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblCumple.Location = new System.Drawing.Point(69, 194);
+            this.lblCumple.Name = "lblCumple";
+            this.lblCumple.Size = new System.Drawing.Size(138, 20);
+            this.lblCumple.TabIndex = 23;
+            this.lblCumple.Text = "Cumpleañeros de ";
             // 
             // btnCumple
             // 
@@ -859,19 +872,6 @@
             this.Cancelartt.AutoPopDelay = 5000;
             this.Cancelartt.InitialDelay = 250;
             this.Cancelartt.ReshowDelay = 100;
-            // 
-            // lblCumple
-            // 
-            this.lblCumple.AutoSize = true;
-            this.lblCumple.BackColor = System.Drawing.Color.Transparent;
-            this.lblCumple.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCumple.ForeColor = System.Drawing.Color.Black;
-            this.lblCumple.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblCumple.Location = new System.Drawing.Point(69, 194);
-            this.lblCumple.Name = "lblCumple";
-            this.lblCumple.Size = new System.Drawing.Size(138, 20);
-            this.lblCumple.TabIndex = 23;
-            this.lblCumple.Text = "Cumpleañeros de ";
             // 
             // RegistroAlumnos
             // 

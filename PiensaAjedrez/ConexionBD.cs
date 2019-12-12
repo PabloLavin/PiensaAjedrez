@@ -367,6 +367,16 @@ namespace PiensaAjedrez
             }
         }
 
+        public static void EliminarAlumno(String strNumeroDeControl)
+        {
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("DELETE FROM ALUMNO WHERE NumeroControl = '" + strNumeroDeControl + "'", con);
+                comando.ExecuteNonQuery();
+            }
+        }
+
+
         public static List<Alumno> CargarAlumnos()
         {
             List<Alumno> listaAlumnos = new List<Alumno>();

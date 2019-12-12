@@ -587,40 +587,62 @@ namespace PiensaAjedrez
 
         private void dgvAlumnos_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //if (dgvAlumnos.CurrentRow == null)
-            //{
-            //    MessageBox.Show("Seleccione un alumno de la lista.");
-            //    return;
-            //}
-            //if (e.Button == MouseButtons.Right)
-            //{
-            //    dgvAlumnos.CurrentCell = dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            //    dgvAlumnos.Rows[e.RowIndex].Selected = true;
-            //    dgvAlumnos.Focus();
-            //}
+            if (dgvAlumnos.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un alumno de la lista.");
+                return;
+            }
+            if (e.Button == MouseButtons.Right)
+            {
+                contextMenuStrip1.Enabled = true;
+                contextMenuStrip1.Visible = true;
+                tsEliminarAlumno.Visible = true;
+              
+
+                var pos = ((DataGridView)sender).GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location;
+                pos.X += e.X;
+                pos.Y += e.Y;
+                contextMenuStrip1.Show((DataGridView)sender, pos);
+                if(e.RowIndex!= -1)
+                {
+                dgvAlumnos.CurrentCell = dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                dgvAlumnos.Rows[e.RowIndex].Selected = true;
+                dgvAlumnos.Focus();
+
+                }
+            }
         }
 
         private void tsEliminarAlumno_Click(object sender, EventArgs e)
         {
-            //unaForma.Mostrar("Eliminar alumno", "¿Desea eliminar al alumno " + dgvAlumnos.CurrentRow.Cells[0].Value.ToString() + "?",2,this);
-            //    if (blnAceptar)
-            //    {
-            //        listaAlumnos.Remove(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString()));
-            //    foreach (Escuela miEscuela in Escuelas.listaEscuela)
-            //        if (miEscuela.Equals(new Escuela(dgvAlumnos.CurrentRow.Cells[2].Value.ToString())))
-            //            miEscuela.listaAlumno.Remove(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString()));
+           if(Preguntar("Eliminar alumno", "¿Desea eliminar al alumno " + dgvAlumnos.CurrentRow.Cells[0].Value.ToString() + "?"))
+            {
+                ConexionBD.EliminarAlumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString());
+                //foreach (Escuela miEscuela in Escuelas.listaEscuela)
+                //    if (miEscuela.Equals(new Escuela(dgvAlumnos.CurrentRow.Cells[2].Value.ToString())))
+                //        miEscuela.listaAlumno.Remove(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString()));
+                unaForma.Mostrar("Eliminado con éxito", "Se ha eliminado al alumno " + dgvAlumnos.CurrentRow.Cells[0].Value.ToString() + " con éxito.",5, this);
 
-            //    }
-            
-            //MostrarDatos();
-            //LimpiarControles();
-            //if (btnAgregar.ButtonText == "Editar")
-            //{
-            //    btnAgregar.ButtonText = "Agregar";
-            //    btnCancelar.Visible = false;
-            //}
-            
+            }
+
+            MostrarDatos();
+            LimpiarControles();
+            if (btnAgregar.ButtonText == "Editar")
+            {
+                btnAgregar.ButtonText = "Agregar";
+                btnCancelar.Visible = false;
+            }
+
         }
+
+        bool Preguntar(string strEncabezado, string strMensaje)
+        {
+            blnAceptar = false;
+            unaForma.Mostrar(strEncabezado, strMensaje, 3, this);
+            blnAceptar = unaForma.Aceptar();
+            return blnAceptar;
+        }
+
 
         private void chkFiltroActivo_OnChange(object sender, EventArgs e)
         {
