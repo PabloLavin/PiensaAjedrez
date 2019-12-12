@@ -25,6 +25,7 @@ namespace PiensaAjedrez.Pantallas
             {
                 intOpcion = 2;
                 lblIngresos.Text = "Archivar Ingresos";
+                bunifuCustomLabel1.Text = "Asigna un nombre a estos ingresos:";
             }
         }
 
