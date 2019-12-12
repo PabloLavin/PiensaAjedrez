@@ -311,6 +311,7 @@ namespace PiensaAjedrez
             //txtBeca.Visible = true;
             lblBeca.Visible = true;
             chkNull.Visible = true;
+            chkNull.Checked = false;
             lblNull.Visible = true;
         }
 
@@ -400,10 +401,16 @@ namespace PiensaAjedrez
                         }
                         catch (Exception)
                         {
+                            try
+                            {
+                                DgvEstadisticasEscuela.Rows[1].Cells[1].Value = "$0.00";
+                                DgvEstadisticasEscuela.Rows[2].Cells[1].Value = "$0.00";
+                                DgvEstadisticasEscuela.Rows[0].Cells[1].Value = "$0.00";
+                            }
+                            catch (Exception)
+                            { 
+                            }
                             
-                            DgvEstadisticasEscuela.Rows[1].Cells[1].Value = "$0.00";
-                            DgvEstadisticasEscuela.Rows[2].Cells[1].Value = "$0.00";
-                            DgvEstadisticasEscuela.Rows[0].Cells[1].Value = "$0.00";
                         }
                         Deshabilitar();
                         cbGastos.Enabled = true;
@@ -1243,7 +1250,7 @@ namespace PiensaAjedrez
         private void btnListasActualizadas_Click(object sender, EventArgs e)
         {
             PdfPTable pdfTable = new PdfPTable(dgvAlumnos.ColumnCount);            
-            pdfTable.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+//            pdfTable.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
             pdfTable.DefaultCell.Padding = 3;
             List<float> aFloat = new List<float>();
             foreach (DataGridViewColumn column in dgvAlumnos.Columns)
@@ -1251,8 +1258,7 @@ namespace PiensaAjedrez
                 aFloat.Add(column.Width);
             }
             pdfTable.SetWidths(aFloat.ToArray());
-            pdfTable.DefaultCell.Padding = 3;
-            pdfTable.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+            pdfTable.DefaultCell.Padding = 3;            
             pdfTable.WidthPercentage = 100;
             pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;            
 
@@ -1260,13 +1266,12 @@ namespace PiensaAjedrez
             {
                 PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, FontFactory.GetFont("Segoe UI", 10.0f, BaseColor.WHITE)));                                
                 cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.BackgroundColor = BaseColor.DARK_GRAY;                
-                cell.BorderColor = BaseColor.DARK_GRAY;
+                cell.BackgroundColor = BaseColor.DARK_GRAY;                                
                 pdfTable.AddCell(cell);
             }
             int maxWidth = 0;
 
-            bool zebra = false;
+            
             foreach (DataGridViewRow row in dgvAlumnos.Rows)
             {                
                 foreach (DataGridViewCell cell in row.Cells)
@@ -1278,9 +1283,9 @@ namespace PiensaAjedrez
                         PdfPCell accel = new PdfPCell(new Phrase(cell.Value.ToString(), FontFactory.GetFont("Segoe UI", 10.0f, BaseColor.BLACK)));
                         accel.HorizontalAlignment = Element.ALIGN_CENTER;
                         accel.VerticalAlignment = Element.ALIGN_CENTER;
-                        if (zebra)
-                            accel.BackgroundColor = BaseColor.LIGHT_GRAY;
-                        accel.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                        if (cell.Value.ToString().Contains("N/A"))
+                            accel.BackgroundColor = BaseColor.GRAY;
+                        //accel.Border = iTextSharp.text.Rectangle.NO_BORDER;
                         if (cell.Value.ToString().Contains("$"))
                         {
                             switch(cell.Style.BackColor.Name)
@@ -1295,15 +1300,11 @@ namespace PiensaAjedrez
                     {
                         PdfPCell accel = new PdfPCell();
                         accel.HorizontalAlignment = Element.ALIGN_CENTER;
-                        accel.VerticalAlignment = Element.ALIGN_CENTER; 
-                        if (zebra)
-                            accel.BackgroundColor = BaseColor.LIGHT_GRAY;
-                        accel.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                        accel.VerticalAlignment = Element.ALIGN_CENTER;                         
                         pdfTable.AddCell(accel);
                     }
                         
-                }
-                zebra = !zebra;
+                }                
             }
             
             string folderPath = Directory.GetCurrentDirectory();
