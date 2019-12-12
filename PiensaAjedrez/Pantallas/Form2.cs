@@ -36,6 +36,7 @@ namespace PiensaAjedrez
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            
             dgvGastos.Columns.Add("Razón", "Razón");
             dgvGastos.Columns.Add("$", "$");
             dgvGastos.Columns.Add("Monto", "Monto");
@@ -45,6 +46,8 @@ namespace PiensaAjedrez
             dgvGastos.Columns[1].Width = 25;
             dgvGastos.Columns[2].Width = 65;
             dgvGastos.Columns[4].Width = 100;
+            if (intOpcion == 2)
+                dgvGastos.Columns[0].Visible = false;
             
 
             RellenarDGV();
