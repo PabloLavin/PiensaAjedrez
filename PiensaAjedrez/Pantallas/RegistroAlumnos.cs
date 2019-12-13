@@ -617,14 +617,19 @@ namespace PiensaAjedrez
         {
            if(Preguntar("Eliminar alumno", "¿Desea eliminar al alumno " + dgvAlumnos.CurrentRow.Cells[0].Value.ToString() + "?"))
             {
-                ConexionBD.EliminarAlumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString());
-                //foreach (Escuela miEscuela in Escuelas.listaEscuela)
-                //    if (miEscuela.Equals(new Escuela(dgvAlumnos.CurrentRow.Cells[2].Value.ToString())))
-                //        miEscuela.listaAlumno.Remove(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString()));
-                unaForma.Mostrar("Eliminado con éxito", "Se ha eliminado al alumno " + dgvAlumnos.CurrentRow.Cells[0].Value.ToString() + " con éxito.",5, this);
-
+                try
+                {
+                    ConexionBD.EliminarAlumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString());
+                    //foreach (Escuela miEscuela in Escuelas.listaEscuela)
+                    //    if (miEscuela.Equals(new Escuela(dgvAlumnos.CurrentRow.Cells[2].Value.ToString())))
+                    //        miEscuela.listaAlumno.Remove(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString()));
+                    unaForma.Mostrar("Eliminado con éxito", "Se ha eliminado al alumno " + dgvAlumnos.CurrentRow.Cells[0].Value.ToString() + " con éxito.", 5, this);
+                }
+                catch (Exception)
+                {
+                    unaForma.Mostrar("Error al eliminar un alumno", "Probablemente este alumno realizó un pago y por ende no puede ser eliminado.", 1, this);
+                }
             }
-
             MostrarDatos();
             LimpiarControles();
             if (btnAgregar.ButtonText == "Editar")
