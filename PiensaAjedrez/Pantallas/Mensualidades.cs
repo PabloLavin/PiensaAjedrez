@@ -1106,7 +1106,7 @@ namespace PiensaAjedrez
        public void NotificarRetardos(int intCaso)
         {
             if (intCaso == 0)
-                if (DateTime.Today.Day == 5 || DateTime.Today.Day == 10|| DateTime.Today.Day == 11||EsUltimoDia() || DateTime.Today.Day == 13)
+                if (DateTime.Today.Day == 5 || DateTime.Today.Day == 10|| DateTime.Today.Day == 11||EsUltimoDia())
                 {
                     if (PreguntarRetardo("Retardos en pago", "¿Desea enviar un correo a todos los deudores?"))
                     {
@@ -1128,7 +1128,7 @@ namespace PiensaAjedrez
                             int intOpcion = 0;
                             if (DateTime.Today.Day == 5)
                                 intOpcion = 3;
-                            if (DateTime.Today.Day == 10 || DateTime.Today.Day == 13)
+                            if (DateTime.Today.Day == 10)
                                 intOpcion = 2;
                             if (DateTime.Today.Day == 11 || EsUltimoDia())
                                 intOpcion = 1;
@@ -1147,7 +1147,7 @@ namespace PiensaAjedrez
                 }
             if (intCaso == 1)
             {
-                if (DateTime.Today.Day == 5 || DateTime.Today.Day == 10 || DateTime.Today.Day == 11 || EsUltimoDia() || DateTime.Today.Day == 13)
+                if (DateTime.Today.Day == 5 || DateTime.Today.Day == 10 || DateTime.Today.Day == 11 || EsUltimoDia())
                 {
                     if ((DateTime.Now.TimeOfDay.Hours == Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours&& DateTime.Now.TimeOfDay.Minutes >= Recordatorios.dtmHoraRecordatorio.TimeOfDay.Minutes)|| DateTime.Now.TimeOfDay.Hours > Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours)
                     {
