@@ -121,3 +121,4 @@ C:\Users\Pablo Lavín\Desktop\Desarrollos\PiensaAjedrez\PiensaAjedrez\PiensaAjed
 C:\Users\Pablo Lavín\Desktop\Desarrollos\PiensaAjedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.csproj.CopyComplete
 C:\Users\Pablo Lavín\Desktop\Desarrollos\PiensaAjedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\Piensa Ajedrez.exe
 C:\Users\Pablo Lavín\Desktop\Desarrollos\PiensaAjedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\Piensa Ajedrez.pdb
+F:\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.Pantallas.ClaveSeguridad.resources

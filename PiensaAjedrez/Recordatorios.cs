@@ -59,7 +59,33 @@ namespace PiensaAjedrez
                 else
                     intCaso = 0;
                 miConfiguración.Cerrar();
+                if (DateTime.Today.Day != 5 || DateTime.Today.Day != 10 || DateTime.Today.Day != 11 || !EsUltimoDia() || DateTime.Today.Day != 13)
+                    File.Delete(Directory.GetCurrentDirectory() + @"\Configuracion.bin");
             }
+        }
+
+       public static bool EsUltimoDia()
+        {
+            if (DateTime.Now.Month == 1 || DateTime.Now.Month == 3 || DateTime.Now.Month == 5 || DateTime.Now.Month == 7 || DateTime.Now.Month == 8 || DateTime.Now.Month == 10 || DateTime.Now.Month == 12)
+            {
+                if (DateTime.Now.Day == 31)
+                    return true;
+                else
+                    return false;
+            }
+            if (DateTime.Now.Month == 4 || DateTime.Now.Month == 6 || DateTime.Now.Month == 9 || DateTime.Now.Month == 11)
+            {
+                if (DateTime.Now.Day == 30)
+                    return true;
+                else
+                    return false;
+            }
+            if (DateTime.Now.Month == 2)
+                if (DateTime.Now.Day == 28)
+                    return true;
+                else
+                    return false;
+            return false;
         }
 
         public static void GuardarConfiguracion(DateTime dtmHora)
