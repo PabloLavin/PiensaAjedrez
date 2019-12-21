@@ -85,6 +85,7 @@
     <Compile Include="Pantallas\Registro.Designer.cs">
       <DependentUpon>Registro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte\ConstructorReportes.cs" />
     <Compile Include="Reporte\ReporteActividades.cs">
       <SubType>Component</SubType>
       <AutoGen>True</AutoGen>
@@ -175,7 +176,7 @@
       <DependentUpon>Escuelas.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\EstadisticasGastos.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pantallas\EstadisticasGastos.Designer.cs">
       <DependentUpon>EstadisticasGastos.cs</DependentUpon>

@@ -10,6 +10,7 @@ namespace PiensaAjedrez
 {
     public abstract class AdministradorReportes
     {
+        /*
         public static Reporte.ReporteIngresos CargarReporteIngresos(string strCurso, string strDatosCurso)
         {
             Reporte.Datasets.DatosIngresos datos = ConexionBD.ObtenerIngresosGlobales(strCurso);            
@@ -30,7 +31,7 @@ namespace PiensaAjedrez
             nuevoReporte.SetParameterValue("@GRUPO", strGrupo);            
             return nuevoReporte;
         }
-
+        
         public static Reporte.ReporteAsistencias CargarReporteAsistencias(string strCurso, string strDatosCurso)
         {
             Reporte.Datasets.DatosAsistencias datos = ConexionBD.ObtenerAsistencias(strCurso);
@@ -43,6 +44,7 @@ namespace PiensaAjedrez
             nuevoReporte.SetParameterValue("@CURSO", strCurso);            
             return nuevoReporte;
         }
+        
         public static Reporte.ReporteInscripcion CargarReporteInscripciones(string strCurso, string strDatosCurso)
         {
             Reporte.Datasets.DatosInscripcion datos = ConexionBD.ObtenerInscripciones(strCurso);
@@ -54,7 +56,7 @@ namespace PiensaAjedrez
             nuevoReporte.SetParameterValue("@Curso", strCurso);
             return nuevoReporte;
         }
-
+        */
         public static Reporte.ReporteMensualidades CargarReporteMensualidades(string strCurso, string strDatosCurso)
         {
             Reporte.Datasets.DatosMensualidades datos = ConexionBD.ObtenerMensualidades(strCurso);

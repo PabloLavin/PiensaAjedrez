@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PiensaAjedrez.Reporte;
 
 namespace PiensaAjedrez
 {
@@ -43,19 +44,18 @@ namespace PiensaAjedrez
 
         }
 
-
+        /*
         private void CargarReporte(CrystalDecisions.CrystalReports.Engine.ReportClass unReporte)
         {                       
                 visorReportes.ReportSource = unReporte;
                 PreparandoDatos.Text = "Listo.";
         }
-
+        */
         private void CargarTodosIngresos_Click(object sender, EventArgs e)
-        {
-            PreparandoDatos.Text = "Preparando datos...";
+        {            
             try
-            {
-                CargarReporte(AdministradorReportes.CargarReporteIngresos(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1), cbEscuelas.selectedValue + "\nCurso " + cboCursos.selectedValue));
+            {                
+                ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerIngresosGlobales(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1)), cbEscuelas.selectedValue, "Ingresos");                
             }
             catch (Exception)
             {
@@ -64,12 +64,11 @@ namespace PiensaAjedrez
             }            
         }
         
-        private void CargarEgresos_Click(object sender, EventArgs e)
-        {
-            PreparandoDatos.Text = "Preparando datos...";
+        private void CargarEgresos_Click(object sender, EventArgs e) 
+        {   
             try
             {
-                CargarReporte(AdministradorReportes.CargarReporteEgresos(cboGrupoGastos.selectedValue));
+                ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerEgresos(cboGrupoGastos.selectedValue), cboGrupoGastos.selectedValue, "Egresos");                
             }
             catch (Exception)
             {
@@ -79,11 +78,11 @@ namespace PiensaAjedrez
         }
 
         private void CargarAsistencias_Click(object sender, EventArgs e)
-        {
-            PreparandoDatos.Text = "Preparando datos...";
+        {   
             try
             {
-                CargarReporte(AdministradorReportes.CargarReporteAsistencias(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ")+1), cbEscuelas.selectedValue + "\nCurso " + cboCursos.selectedValue));
+                ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerAsistencias(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1)), cbEscuelas.selectedValue, "Asistencias");
+                
             }
             catch (Exception)
             {
@@ -93,11 +92,11 @@ namespace PiensaAjedrez
         }
 
         private void CargarReporteInscripciones_Click(object sender, EventArgs e)
-        {
-            PreparandoDatos.Text = "Preparando datos...";
+        {   
             try
             {
-                CargarReporte(AdministradorReportes.CargarReporteInscripciones(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1), cbEscuelas.selectedValue + "\nCurso " + cboCursos.selectedValue));
+                ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerInscripciones(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1)), cbEscuelas.selectedValue, "Inscripciones");
+                
             }
             catch (Exception)
             {
@@ -107,11 +106,11 @@ namespace PiensaAjedrez
         }
 
         private void CargarReporteMensualidades_Click(object sender, EventArgs e)
-        {
-            PreparandoDatos.Text = "Preparando datos...";
+        {            
             try
             {
-                CargarReporte(AdministradorReportes.CargarReporteMensualidades(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1), cbEscuelas.selectedValue + "\nCurso " + cboCursos.selectedValue));
+                ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerMensualidades(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1)), cbEscuelas.selectedValue, "Mensualidades");
+                
             }
             catch (Exception)
             {
@@ -121,11 +120,11 @@ namespace PiensaAjedrez
         }
 
         private void CargarReporteActividades_Click(object sender, EventArgs e)
-        {
-            PreparandoDatos.Text = "Preparando datos...";
+        {            
             try
             {
-                CargarReporte(AdministradorReportes.CargarReporteActividades(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1), cbEscuelas.selectedValue + "\nCurso " + cboCursos.selectedValue));
+                ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerActividades(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1)), cbEscuelas.selectedValue, "Actividades");
+                
             }
             catch (Exception)
             {

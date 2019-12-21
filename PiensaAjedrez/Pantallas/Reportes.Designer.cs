@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reportes));
-            this.panelReportes = new System.Windows.Forms.Panel();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
             this.cboCursos = new Bunifu.Framework.UI.BunifuDropdown();
             this.CargarReporteActividades = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -49,22 +48,11 @@
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.CargarEgresos = new Bunifu.Framework.UI.BunifuFlatButton();
             this.PreparandoDatos = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.visorReportes = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.panelReportes.SuspendLayout();
             this.bunifuCards1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).BeginInit();
             this.bunifuCards3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panelReportes
-            // 
-            this.panelReportes.BackColor = System.Drawing.SystemColors.Control;
-            this.panelReportes.Controls.Add(this.visorReportes);
-            this.panelReportes.Location = new System.Drawing.Point(492, 48);
-            this.panelReportes.Name = "panelReportes";
-            this.panelReportes.Size = new System.Drawing.Size(839, 551);
-            this.panelReportes.TabIndex = 0;
             // 
             // bunifuCards1
             // 
@@ -463,22 +451,6 @@
             this.PreparandoDatos.TabIndex = 12;
             this.PreparandoDatos.Text = "Para mostrar un reporte, seleccione los datos y escoja un tipo de reporte.";
             // 
-            // visorReportes
-            // 
-            this.visorReportes.ActiveViewIndex = -1;
-            this.visorReportes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.visorReportes.Cursor = System.Windows.Forms.Cursors.Default;
-            this.visorReportes.DisplayBackgroundEdge = false;
-            this.visorReportes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.visorReportes.Location = new System.Drawing.Point(0, 0);
-            this.visorReportes.Name = "visorReportes";
-            this.visorReportes.ShowCloseButton = false;
-            this.visorReportes.ShowCopyButton = false;
-            this.visorReportes.ShowLogo = false;
-            this.visorReportes.Size = new System.Drawing.Size(839, 551);
-            this.visorReportes.TabIndex = 0;
-            this.visorReportes.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
-            // 
             // Reportes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -487,10 +459,8 @@
             this.Controls.Add(this.PreparandoDatos);
             this.Controls.Add(this.bunifuCards3);
             this.Controls.Add(this.bunifuCards1);
-            this.Controls.Add(this.panelReportes);
             this.Name = "Reportes";
             this.Size = new System.Drawing.Size(1342, 615);
-            this.panelReportes.ResumeLayout(false);
             this.bunifuCards1.ResumeLayout(false);
             this.bunifuCards1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).EndInit();
@@ -503,8 +473,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelReportes;
         private Bunifu.Framework.UI.BunifuCards bunifuCards1;
         private Bunifu.Framework.UI.BunifuDropdown cbEscuelas;
         private Bunifu.Framework.UI.BunifuImageButton btnEscuela;
@@ -523,7 +491,6 @@
         private Bunifu.Framework.UI.BunifuDropdown cboCursos;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuDropdown cboGrupoGastos;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer visorReportes;
+        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;        
     }
 }
