@@ -1289,21 +1289,24 @@ namespace PiensaAjedrez
                 {
                     if(cell.Value != null)
                     {
+                        string strDatoDuro = cell.Value.ToString();
                         if (cell.Size.Width >= maxWidth)
                             maxWidth = cell.Size.Width;
-                        PdfPCell accel = new PdfPCell(new Phrase(cell.Value.ToString(), FontFactory.GetFont("Segoe UI", 10.0f, BaseColor.BLACK)));
+                        if(strDatoDuro.Contains("$"))
+                            strDatoDuro = strDatoDuro.Substring(0, strDatoDuro.IndexOf('.'));
+                        PdfPCell accel = new PdfPCell(new Phrase(strDatoDuro, FontFactory.GetFont("Segoe UI", 10.0f, BaseColor.BLACK)));
                         accel.HorizontalAlignment = Element.ALIGN_CENTER;
                         accel.VerticalAlignment = Element.ALIGN_CENTER;
-                        if (cell.Value.ToString().Contains("N/A"))
+                        if (strDatoDuro.Contains("N/A"))
                             accel.BackgroundColor = BaseColor.GRAY;
                         //accel.Border = iTextSharp.text.Rectangle.NO_BORDER;
-                        if (cell.Value.ToString().Contains("$"))
+                        if (strDatoDuro.Contains("$"))
                         {
                             switch(cell.Style.BackColor.Name)
                             {
                                 case "Lime": accel.BackgroundColor = BaseColor.GREEN;  break;
                                 case "Yellow": accel.BackgroundColor = BaseColor.YELLOW; break;
-                            }
+                            }                            
                         }                        
                         pdfTable.AddCell(accel);
                     }
@@ -1330,9 +1333,9 @@ namespace PiensaAjedrez
                 pdfDoc.Open();
                 double dblTotalIngresos = ConexionBD.TotalInscripciones(cbEscuelas.selectedValue) + ConexionBD.TotalMensualidades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave);
                 Cursos unCurso = ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue);
-                iTextSharp.text.Image pic = iTextSharp.text.Image.GetInstance("PiensaAjedrezLogo2.png");
+                iTextSharp.text.Image pic = iTextSharp.text.Image.GetInstance("PiensaAjedrezLogo.png");
                 pic.Alignment = Element.ALIGN_CENTER;
-                pic.ScalePercent(45);
+                pic.ScalePercent(18);
                 pdfDoc.Add(pic);
                 pdfDoc.Add(new Paragraph(" "));
                 Paragraph prHeader = new Paragraph("Lista de pago actualizada     " + cbEscuelas.selectedValue + "     " + unCurso.InicioCursos.ToShortDateString() + " - " + unCurso.FinCurso.ToShortDateString() +"     " + DateTime.Now.ToShortDateString(), FontFactory.GetFont("Courier", 14.0f, BaseColor.BLACK));
