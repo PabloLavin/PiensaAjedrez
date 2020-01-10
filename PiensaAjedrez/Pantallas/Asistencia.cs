@@ -23,6 +23,7 @@ namespace PiensaAjedrez
             {
                 cbEscuelas.AddItem(unaEscuela.Nombre);
             }
+            dgvAlumnos.CellPainting -= new DataGridViewCellPaintingEventHandler(DgvAlumnos_CellPainting);
             if (ConexionBD.CargarEscuelas().Count > 0)
                 cbEscuelas.selectedIndex = 0;
         }
@@ -41,12 +42,16 @@ namespace PiensaAjedrez
             dgvAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvAlumnos.ColumnHeadersHeight = 50;
             //dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-
-            dgvAlumnos.CellPainting += new DataGridViewCellPaintingEventHandler(DgvAlumnos_CellPainting);
             if (unaEscuela.CursoActivo == null)
             {
               unaForma.Mostrar("Error",unaEscuela.Nombre + " no contiene ningún curso actualmente.\nAgregue uno para continuar.",1,this);
                 return;
+            }
+            if(CargarFechas(ConexionBD.CargarCursoActivo(unaEscuela.Nombre)).Count>0)
+                 dgvAlumnos.CellPainting += new DataGridViewCellPaintingEventHandler(DgvAlumnos_CellPainting);
+            else
+            {
+                dgvAlumnos.CellPainting -= new DataGridViewCellPaintingEventHandler(DgvAlumnos_CellPainting);
             }
 
             List<string> listaFechas = CargarFechas(unaEscuela.CursoActivo);
@@ -130,7 +135,6 @@ namespace PiensaAjedrez
                         CargarCBFechas(miEscuela.CursoActivo);
                         if (CargarFechas(miEscuela.CursoActivo).Count > 0)
                             cbFechas.selectedIndex = 0;
-
                     }
 
                 }

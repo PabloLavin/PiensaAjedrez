@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PiensaAjedrez.Pantallas;
 
 namespace PiensaAjedrez
 {
@@ -16,6 +17,8 @@ namespace PiensaAjedrez
         public static List<Alumno> listaAlumnos = ConexionBD.CargarAlumnos();
         public FormMensaje unaForma = new FormMensaje();
         public bool blnAceptar;
+
+        string strClave = "0101";
         
         public RegistroAlumnos()
         {
@@ -613,31 +616,47 @@ namespace PiensaAjedrez
             }
         }
 
+        ClaveSeguridad pantalla;
+        bool Preguntar()
+        {
+            pantalla = new ClaveSeguridad();
+            pantalla.ShowDialog();
+            return pantalla.blnOpcion;
+        }
+
         private void tsEliminarAlumno_Click(object sender, EventArgs e)
         {
-           if(Preguntar("Eliminar alumno", "¿Desea eliminar al alumno " + dgvAlumnos.CurrentRow.Cells[0].Value.ToString() + "?"))
+            if (Preguntar())
             {
-                try
+                if (Preguntar("Eliminar alumno", "¿Desea eliminar al alumno " + dgvAlumnos.CurrentRow.Cells[0].Value.ToString() + "?"))
                 {
-                    ConexionBD.EliminarAlumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString());
-                    //foreach (Escuela miEscuela in Escuelas.listaEscuela)
-                    //    if (miEscuela.Equals(new Escuela(dgvAlumnos.CurrentRow.Cells[2].Value.ToString())))
-                    //        miEscuela.listaAlumno.Remove(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString()));
-                    unaForma.Mostrar("Eliminado con éxito", "Se ha eliminado al alumno " + dgvAlumnos.CurrentRow.Cells[0].Value.ToString() + " con éxito.", 5, this);
+                    try
+                    {
+                        ConexionBD.EliminarAlumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString());
+                        //foreach (Escuela miEscuela in Escuelas.listaEscuela)
+                        //    if (miEscuela.Equals(new Escuela(dgvAlumnos.CurrentRow.Cells[2].Value.ToString())))
+                        //        miEscuela.listaAlumno.Remove(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString()));
+                        unaForma.Mostrar("Eliminado con éxito", "Se ha eliminado al alumno " + dgvAlumnos.CurrentRow.Cells[0].Value.ToString() + " con éxito.", 5, this);
+                    }
+                    catch (Exception)
+                    {
+                        unaForma.Mostrar("Error al eliminar un alumno", "Probablemente este alumno realizó un pago y por ende no puede ser eliminado.", 1, this);
+                    }
                 }
-                catch (Exception)
+                MostrarDatos();
+                LimpiarControles();
+                if (btnAgregar.ButtonText == "Editar")
                 {
-                    unaForma.Mostrar("Error al eliminar un alumno", "Probablemente este alumno realizó un pago y por ende no puede ser eliminado.", 1, this);
+                    btnAgregar.ButtonText = "Agregar";
+                    btnCancelar.Visible = false;
                 }
-            }
-            MostrarDatos();
-            LimpiarControles();
-            if (btnAgregar.ButtonText == "Editar")
-            {
-                btnAgregar.ButtonText = "Agregar";
-                btnCancelar.Visible = false;
-            }
 
+            }
+            else
+            {
+                new FormMensaje().Mostrar("Permiso insuficiente.", "Necesita la clave para continuar la operación.", 1, this);
+                return;
+            }
         }
 
         bool Preguntar(string strEncabezado, string strMensaje)

@@ -1106,7 +1106,7 @@ namespace PiensaAjedrez
        public void NotificarRetardos(int intCaso)
         {
             if (intCaso == 0)
-                if (DateTime.Today.Day == 10|| DateTime.Today.Day == 20||EsUltimoDia() || DateTime.Today.Day == 11)
+                if (DateTime.Today.Day == 5 || DateTime.Today.Day == 10|| DateTime.Today.Day == 11||EsUltimoDia())
                 {
                     if (PreguntarRetardo("Retardos en pago", "¿Desea enviar un correo a todos los deudores?"))
                     {
@@ -1125,8 +1125,14 @@ namespace PiensaAjedrez
                         }
                             try
                             {
-                               
-                                EnviarCorreos();
+                            int intOpcion = 0;
+                            if (DateTime.Today.Day == 5)
+                                intOpcion = 3;
+                            if (DateTime.Today.Day == 10)
+                                intOpcion = 2;
+                            if (DateTime.Today.Day == 11 || EsUltimoDia())
+                                intOpcion = 1;
+                            EnviarCorreos(intOpcion);
                             }
                             catch (Exception)
                             {
@@ -1141,7 +1147,7 @@ namespace PiensaAjedrez
                 }
             if (intCaso == 1)
             {
-                if (DateTime.Today.Day == 10 || DateTime.Today.Day == 20 || EsUltimoDia() || DateTime.Today.Day == 11)
+                if (DateTime.Today.Day == 5 || DateTime.Today.Day == 10 || DateTime.Today.Day == 11 || EsUltimoDia())
                 {
                     if ((DateTime.Now.TimeOfDay.Hours == Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours&& DateTime.Now.TimeOfDay.Minutes >= Recordatorios.dtmHoraRecordatorio.TimeOfDay.Minutes)|| DateTime.Now.TimeOfDay.Hours > Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours)
                     {
@@ -1238,12 +1244,14 @@ namespace PiensaAjedrez
         }
         #endregion
 
-        void EnviarCorreos()
+        void EnviarCorreos(int intCaso)
         {
             foreach (Escuela escuela in ConexionBD.CargarEscuelas())
             {
             foreach (Alumno unAlumno in ConexionBD.CargarDeudores(ConexionBD.CargarCursoActivo(escuela.Nombre).Clave))
-                Correo.EnviarCorreo(Correo.CrearRecordatorio(unAlumno));            
+                {
+                    Correo.EnviarCorreo(Correo.CrearRecordatorio(unAlumno,intCaso));            
+                }
             }
         }
 

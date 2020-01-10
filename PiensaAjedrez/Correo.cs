@@ -52,34 +52,69 @@ namespace PiensaAjedrez
             return mail;
         }
 
-        static AlternateView ObtenerImagenRecordatorio(String filePath, Alumno miAlumno)
+        static AlternateView ObtenerImagenRecordatorio(String filePath, Alumno miAlumno, int intCaso)
         {
             LinkedResource res = new LinkedResource(filePath, MediaTypeNames.Image.Jpeg);
             res.ContentId = Guid.NewGuid().ToString();
             List<Deuda> listaDeudas= ConexionBD.CargarDeudas(miAlumno.NumeroDeControl);
             double dblMonto=0;
             string strDescripcion = "";
-            foreach (Deuda deuda in listaDeudas)
+            string htmlBody="";
+            //Caso 1 - Notificar retrasos en los pagos.
+            if (intCaso == 1)
             {
-                dblMonto += 400;
-                dblMonto += deuda.Monto;
-                strDescripcion += "<li><b>Mensualidad de " + deuda.Mes + ":</b> $400.00";
-                strDescripcion += "<li><b>Comision por atraso en " + deuda.Mes + ":</b> " + deuda.Monto.ToString("C") + "</li>";
+                foreach (Deuda deuda in listaDeudas)
+                {
+                    dblMonto += 400;
+                    dblMonto += deuda.Monto;
+                    strDescripcion += "<li><b>Mensualidad de " + deuda.Mes + ":</b> $400.00";
+                    strDescripcion += "<li><b>Comision por atraso en " + deuda.Mes + ":</b> " + deuda.Monto.ToString("C") + "</li>";
+                }
+                htmlBody = "<html><body><center> " + @"<img src='cid:" + res.ContentId + @"'></center><br><p style='text-align:justify'>Estimado padre de familia. <br>A traves de este conducto le reiteramos nuestro compromiso con la educacion de su hijo(a) y le notificamos que cuenta con" + (listaDeudas.Count == 1 ? " un atraso en el pago." : " atrasos en algunos pagos.") + " </p><b>Numero de Control: </b>" + miAlumno.NumeroDeControl + "<br><b>Alumno: </b>" + miAlumno.Nombre + " " + miAlumno.ApellidoPaterno + " " + miAlumno.ApellidoMaterno + "<br><b>Adeudo Total: </b>" + dblMonto.ToString("c") + "<br><b>Descripcion:</b><br>" + strDescripcion + "<br><b>Fecha: </b>" + DateTime.Now.ToShortDateString() + "</p><p style='text-align:justify'><i> Nota: Este correo fue generado por un sistema automatizado, los acentos fueron removidos intencionalmente para garantizar que el correo llegue completamente legible al destinatario. Este correo electronico es confidencial y/o puede contener informacion privilegiada. Queda prohibida la retransmision a distintas personas sin previa autorizacion del remitente.</i></p><center><b>Piensa Ajedrez<br>Direccion General.</b></center></body></html>";
             }
-            string htmlBody = "<html><body><center> " + @"<img src='cid:" + res.ContentId + @"'></center><br><p style='text-align:justify'>Estimado padre de familia. <br>A traves de este conducto le reiteramos nuestro compromiso con la educacion de su hijo(a) y le notificamos que cuenta con"+(listaDeudas.Count==1?" un atraso en el pago.":" atrasos en algunos pagos.")+" </p><b>Numero de Control: </b>" + miAlumno.NumeroDeControl + "<br><b>Alumno: </b>" + miAlumno.Nombre + " " + miAlumno.ApellidoPaterno + " " + miAlumno.ApellidoMaterno + "<br><b>Adeudo Total: </b>" + dblMonto.ToString("c") +"<br><b>Descripcion:</b><br>" + strDescripcion + "<br><b>Fecha: </b>" + DateTime.Now.ToShortDateString() + "</p><p style='text-align:justify'><i> Nota: Este correo fue generado por un sistema automatizado, los acentos fueron removidos intencionalmente para garantizar que el correo llegue completamente legible al destinatario. Este correo electronico es confidencial y/o puede contener informacion privilegiada. Queda prohibida la retransmision a distintas personas sin previa autorizacion del remitente.</i></p><center><b>Piensa Ajedrez<br>Direccion General.</b></center></body></html>";
+            //Caso 2 - Notificar que es último día
+            else if(intCaso == 2)
+            {
+                foreach (Deuda deuda in listaDeudas)
+                {
+                    dblMonto += 400;
+                    //dblMonto += deuda.Monto;
+                    strDescripcion += "<li><b>Mensualidad de " + deuda.Mes + ":</b> $400.00";
+                    //strDescripcion += "<li><b>Comision por atraso en " + deuda.Mes + ":</b> " + deuda.Monto.ToString("C") + "</li>";
+                }
+                htmlBody = "<html><body><center> " + @"<img src='cid:" + res.ContentId + @"'></center><br><p style='text-align:justify'>Estimado padre de familia. <br>Le informamos que hoy es el último día que tiene para pagar la(s) mensualidad(es) y evitar comisiones por atraso. Le notificamos que cuenta con" + (listaDeudas.Count == 1 ? " un atraso en el pago." : " atrasos en algunos pagos.") + " </p><b>Numero de Control: </b>" + miAlumno.NumeroDeControl + "<br><b>Alumno: </b>" + miAlumno.Nombre + " " + miAlumno.ApellidoPaterno + " " + miAlumno.ApellidoMaterno + "<br><b>Adeudo Total: </b>" + dblMonto.ToString("c") + "<br><b>Descripcion:</b><br>" + strDescripcion + "<br><b>Fecha: </b>" + DateTime.Now.ToShortDateString() + "</p><p style='text-align:justify'><i> Nota: Este correo fue generado por un sistema automatizado, los acentos fueron removidos intencionalmente para garantizar que el correo llegue completamente legible al destinatario. Este correo electronico es confidencial y/o puede contener informacion privilegiada. Queda prohibida la retransmision a distintas personas sin previa autorizacion del remitente.</i></p><center><b>Piensa Ajedrez<br>Direccion General.</b></center></body></html>";
+            }
+            //Caso 3 - Notificar que está pendiente de pagar
+            else if (intCaso == 3)
+            {
+                foreach (Deuda deuda in listaDeudas)
+                {
+                    dblMonto += 400;
+                    //dblMonto += deuda.Monto;
+                    strDescripcion += "<li><b>Mensualidad de " + deuda.Mes + ":</b> $400.00";
+                    //strDescripcion += "<li><b>Comision por atraso en " + deuda.Mes + ":</b> " + deuda.Monto.ToString("C") + "</li>";
+                }
+                htmlBody = "<html><body><center> " + @"<img src='cid:" + res.ContentId + @"'></center><br><p style='text-align:justify'>Estimado padre de familia. <br>Le informamos que aún está pendiente de realizar los pagos de la(s) mensualidad(es) y así evitar comisiones. Tiene hasta el día 10 del presente mes para efectuarlos. Cuenta con" + (listaDeudas.Count == 1 ? " un pago pendiente." : " varios pagos pendientes.") + " </p><b>Numero de Control: </b>" + miAlumno.NumeroDeControl + "<br><b>Alumno: </b>" + miAlumno.Nombre + " " + miAlumno.ApellidoPaterno + " " + miAlumno.ApellidoMaterno + "<br><b>Adeudo Total: </b>" + dblMonto.ToString("c") + "<br><b>Descripcion:</b><br>" + strDescripcion + "<br><b>Fecha: </b>" + DateTime.Now.ToShortDateString() + "</p><p style='text-align:justify'><i> Nota: Este correo fue generado por un sistema automatizado, los acentos fueron removidos intencionalmente para garantizar que el correo llegue completamente legible al destinatario. Este correo electronico es confidencial y/o puede contener informacion privilegiada. Queda prohibida la retransmision a distintas personas sin previa autorizacion del remitente.</i></p><center><b>Piensa Ajedrez<br>Direccion General.</b></center></body></html>";
+            }
+
             AlternateView alternateView = AlternateView.CreateAlternateViewFromString(htmlBody, null, MediaTypeNames.Text.Html);
             alternateView.LinkedResources.Add(res);
             return alternateView;
         }
 
-        static public MailMessage CrearRecordatorio(Alumno miAlumno)
+        static public MailMessage CrearRecordatorio(Alumno miAlumno, int intCaso)
         {
             MailMessage mail = new MailMessage();
             mail.IsBodyHtml = true;
-            mail.AlternateViews.Add(ObtenerImagenRecordatorio(System.IO.Directory.GetCurrentDirectory() + @"\PiensaAjedrezLogo.png", miAlumno));
+            mail.AlternateViews.Add(ObtenerImagenRecordatorio(System.IO.Directory.GetCurrentDirectory() + @"\PiensaAjedrezLogo.png", miAlumno, intCaso));
             mail.From = new MailAddress(Usuario);
             mail.To.Add(miAlumno.Correo);
-            mail.Subject = "Piensa Ajedrez | Pago(s) Atrasado(s)";
+            if(intCaso==1)
+                mail.Subject = "Piensa Ajedrez | Pago(s) Atrasado(s)";
+            if (intCaso == 2)
+                mail.Subject = "Piensa Ajedrez | Recordatorio: Hoy es el ultimo dia para evitar comisiones";
+            if (intCaso == 3)
+                mail.Subject = "Piensa Ajedrez | Recordatorio: Se acerca la fecha limite del pago proximo";
             return mail;
         }
 
