@@ -116,7 +116,7 @@
             // 
             this.btnRegistrar.ActiveBorderThickness = 1;
             this.btnRegistrar.ActiveCornerRadius = 20;
-            this.btnRegistrar.ActiveFillColor = System.Drawing.Color.DarkSlateGray;
+            this.btnRegistrar.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(104)))), ((int)(((byte)(29)))));
             this.btnRegistrar.ActiveForecolor = System.Drawing.Color.White;
             this.btnRegistrar.ActiveLineColor = System.Drawing.Color.Transparent;
             this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
@@ -127,7 +127,7 @@
             this.btnRegistrar.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnRegistrar.IdleBorderThickness = 1;
             this.btnRegistrar.IdleCornerRadius = 20;
-            this.btnRegistrar.IdleFillColor = System.Drawing.Color.Teal;
+            this.btnRegistrar.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.btnRegistrar.IdleForecolor = System.Drawing.Color.White;
             this.btnRegistrar.IdleLineColor = System.Drawing.Color.Transparent;
             this.btnRegistrar.Location = new System.Drawing.Point(211, 156);
@@ -246,7 +246,7 @@
             // 
             this.btnRegistrarCorreo.ActiveBorderThickness = 1;
             this.btnRegistrarCorreo.ActiveCornerRadius = 20;
-            this.btnRegistrarCorreo.ActiveFillColor = System.Drawing.Color.DarkSlateGray;
+            this.btnRegistrarCorreo.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(104)))), ((int)(((byte)(29)))));
             this.btnRegistrarCorreo.ActiveForecolor = System.Drawing.Color.White;
             this.btnRegistrarCorreo.ActiveLineColor = System.Drawing.Color.Transparent;
             this.btnRegistrarCorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
@@ -257,7 +257,7 @@
             this.btnRegistrarCorreo.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnRegistrarCorreo.IdleBorderThickness = 1;
             this.btnRegistrarCorreo.IdleCornerRadius = 20;
-            this.btnRegistrarCorreo.IdleFillColor = System.Drawing.Color.Teal;
+            this.btnRegistrarCorreo.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.btnRegistrarCorreo.IdleForecolor = System.Drawing.Color.White;
             this.btnRegistrarCorreo.IdleLineColor = System.Drawing.Color.Transparent;
             this.btnRegistrarCorreo.Location = new System.Drawing.Point(211, 156);

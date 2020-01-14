@@ -590,12 +590,12 @@ namespace PiensaAjedrez
             if (chkAño.Checked)
             {
                 cbAño.Enabled = true;
-                cbAño.BackColor = Color.FromArgb(59, 202, 192);
+                cbAño.BackColor = Color.FromArgb(222, 139, 58);
             }
             else
             {
                 cbAño.Enabled = false;
-                cbAño.BackColor = Color.SkyBlue;
+                cbAño.BackColor = Color.FromArgb(194, 128, 64);
                 cbAño.Text = DateTime.Today.Year.ToString();
                 foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
                 {

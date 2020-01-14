@@ -111,7 +111,7 @@
             // 
             this.btnIniciarSesion.ActiveBorderThickness = 1;
             this.btnIniciarSesion.ActiveCornerRadius = 20;
-            this.btnIniciarSesion.ActiveFillColor = System.Drawing.Color.DarkSlateGray;
+            this.btnIniciarSesion.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnIniciarSesion.ActiveForecolor = System.Drawing.Color.White;
             this.btnIniciarSesion.ActiveLineColor = System.Drawing.Color.Transparent;
             this.btnIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
@@ -122,7 +122,7 @@
             this.btnIniciarSesion.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnIniciarSesion.IdleBorderThickness = 1;
             this.btnIniciarSesion.IdleCornerRadius = 20;
-            this.btnIniciarSesion.IdleFillColor = System.Drawing.Color.Teal;
+            this.btnIniciarSesion.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.btnIniciarSesion.IdleForecolor = System.Drawing.Color.White;
             this.btnIniciarSesion.IdleLineColor = System.Drawing.Color.Transparent;
             this.btnIniciarSesion.Location = new System.Drawing.Point(323, 337);
@@ -138,18 +138,18 @@
             this.btnRegistrar.ActiveBorderThickness = 1;
             this.btnRegistrar.ActiveCornerRadius = 20;
             this.btnRegistrar.ActiveFillColor = System.Drawing.Color.Transparent;
-            this.btnRegistrar.ActiveForecolor = System.Drawing.Color.Teal;
+            this.btnRegistrar.ActiveForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnRegistrar.ActiveLineColor = System.Drawing.Color.Transparent;
             this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.btnRegistrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRegistrar.BackgroundImage")));
             this.btnRegistrar.ButtonText = "¿No tienes cuenta? ¡Regístrate!";
             this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnRegistrar.IdleBorderThickness = 1;
             this.btnRegistrar.IdleCornerRadius = 20;
             this.btnRegistrar.IdleFillColor = System.Drawing.Color.Transparent;
-            this.btnRegistrar.IdleForecolor = System.Drawing.Color.SkyBlue;
+            this.btnRegistrar.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnRegistrar.IdleLineColor = System.Drawing.Color.Transparent;
             this.btnRegistrar.Location = new System.Drawing.Point(267, 402);
             this.btnRegistrar.Margin = new System.Windows.Forms.Padding(5);
@@ -169,8 +169,8 @@
         ""};
             this.cbCorreos.Location = new System.Drawing.Point(520, 12);
             this.cbCorreos.Name = "cbCorreos";
-            this.cbCorreos.NomalColor = System.Drawing.Color.Teal;
-            this.cbCorreos.onHoverColor = System.Drawing.Color.DarkSlateGray;
+            this.cbCorreos.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.cbCorreos.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.cbCorreos.selectedIndex = -1;
             this.cbCorreos.Size = new System.Drawing.Size(268, 35);
             this.cbCorreos.TabIndex = 55;

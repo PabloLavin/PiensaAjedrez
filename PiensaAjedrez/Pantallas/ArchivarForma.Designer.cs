@@ -82,7 +82,7 @@
             this.dgvGastos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvGastos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.5F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -102,7 +102,7 @@
             this.dgvGastos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvGastos.EnableHeadersVisualStyles = false;
             this.dgvGastos.GridColor = System.Drawing.Color.Black;
-            this.dgvGastos.HeaderBgColor = System.Drawing.Color.Teal;
+            this.dgvGastos.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.dgvGastos.HeaderForeColor = System.Drawing.Color.White;
             this.dgvGastos.Location = new System.Drawing.Point(25, 149);
             this.dgvGastos.Name = "dgvGastos";
@@ -132,10 +132,10 @@
             // 
             // btnArchivar
             // 
-            this.btnArchivar.Activecolor = System.Drawing.Color.Teal;
-            this.btnArchivar.BackColor = System.Drawing.Color.Teal;
+            this.btnArchivar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
+            this.btnArchivar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.btnArchivar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnArchivar.BorderRadius = 0;
+            this.btnArchivar.BorderRadius = 7;
             this.btnArchivar.ButtonText = "Archivar";
             this.btnArchivar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnArchivar.DisabledColor = System.Drawing.Color.Gray;
@@ -153,8 +153,8 @@
             this.btnArchivar.IsTab = false;
             this.btnArchivar.Location = new System.Drawing.Point(217, 37);
             this.btnArchivar.Name = "btnArchivar";
-            this.btnArchivar.Normalcolor = System.Drawing.Color.Teal;
-            this.btnArchivar.OnHovercolor = System.Drawing.Color.DarkSlateGray;
+            this.btnArchivar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.btnArchivar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnArchivar.OnHoverTextColor = System.Drawing.Color.White;
             this.btnArchivar.selected = false;
             this.btnArchivar.Size = new System.Drawing.Size(104, 31);

@@ -79,9 +79,9 @@
             // 
             this.btnAceptar.ActiveBorderThickness = 1;
             this.btnAceptar.ActiveCornerRadius = 20;
-            this.btnAceptar.ActiveFillColor = System.Drawing.Color.Teal;
+            this.btnAceptar.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(112)))), ((int)(((byte)(8)))));
             this.btnAceptar.ActiveForecolor = System.Drawing.Color.White;
-            this.btnAceptar.ActiveLineColor = System.Drawing.Color.Teal;
+            this.btnAceptar.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(112)))), ((int)(((byte)(8)))));
             this.btnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.btnAceptar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAceptar.BackgroundImage")));
             this.btnAceptar.ButtonText = "Aceptar";
@@ -90,9 +90,9 @@
             this.btnAceptar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnAceptar.IdleBorderThickness = 1;
             this.btnAceptar.IdleCornerRadius = 20;
-            this.btnAceptar.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnAceptar.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(162)))), ((int)(((byte)(58)))));
             this.btnAceptar.IdleForecolor = System.Drawing.SystemColors.Control;
-            this.btnAceptar.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnAceptar.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(162)))), ((int)(((byte)(58)))));
             this.btnAceptar.Location = new System.Drawing.Point(98, 122);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";

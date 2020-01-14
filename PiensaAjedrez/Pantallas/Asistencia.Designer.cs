@@ -71,7 +71,7 @@
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.5F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
@@ -92,7 +92,7 @@
             this.dgvAlumnos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAlumnos.EnableHeadersVisualStyles = false;
             this.dgvAlumnos.GridColor = System.Drawing.Color.Black;
-            this.dgvAlumnos.HeaderBgColor = System.Drawing.Color.Teal;
+            this.dgvAlumnos.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.dgvAlumnos.HeaderForeColor = System.Drawing.Color.White;
             this.dgvAlumnos.Location = new System.Drawing.Point(368, 17);
             this.dgvAlumnos.Name = "dgvAlumnos";
@@ -117,7 +117,7 @@
             this.bunifuCards2.BackColor = System.Drawing.Color.White;
             this.bunifuCards2.BorderRadius = 5;
             this.bunifuCards2.BottomSahddow = true;
-            this.bunifuCards2.color = System.Drawing.Color.Teal;
+            this.bunifuCards2.color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.bunifuCards2.Controls.Add(this.btnDesmarcar);
             this.bunifuCards2.Controls.Add(this.btnMarcarTodos);
             this.bunifuCards2.Controls.Add(this.lblFecha);
@@ -169,8 +169,8 @@
             // 
             // btnMarcarTodos
             // 
-            this.btnMarcarTodos.Activecolor = System.Drawing.Color.Teal;
-            this.btnMarcarTodos.BackColor = System.Drawing.Color.Teal;
+            this.btnMarcarTodos.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(162)))), ((int)(((byte)(58)))));
+            this.btnMarcarTodos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(112)))), ((int)(((byte)(8)))));
             this.btnMarcarTodos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMarcarTodos.BorderRadius = 0;
             this.btnMarcarTodos.ButtonText = "Marcar todos";
@@ -190,8 +190,8 @@
             this.btnMarcarTodos.IsTab = false;
             this.btnMarcarTodos.Location = new System.Drawing.Point(168, 25);
             this.btnMarcarTodos.Name = "btnMarcarTodos";
-            this.btnMarcarTodos.Normalcolor = System.Drawing.Color.Teal;
-            this.btnMarcarTodos.OnHovercolor = System.Drawing.Color.LightSeaGreen;
+            this.btnMarcarTodos.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(112)))), ((int)(((byte)(8)))));
+            this.btnMarcarTodos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(162)))), ((int)(((byte)(58)))));
             this.btnMarcarTodos.OnHoverTextColor = System.Drawing.Color.White;
             this.btnMarcarTodos.selected = false;
             this.btnMarcarTodos.Size = new System.Drawing.Size(139, 48);
@@ -224,8 +224,8 @@
             this.cbFechas.Location = new System.Drawing.Point(13, 97);
             this.cbFechas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbFechas.Name = "cbFechas";
-            this.cbFechas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.cbFechas.onHoverColor = System.Drawing.Color.Teal;
+            this.cbFechas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
+            this.cbFechas.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.cbFechas.selectedIndex = -1;
             this.cbFechas.Size = new System.Drawing.Size(129, 35);
             this.cbFechas.TabIndex = 9;
@@ -234,7 +234,7 @@
             // 
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.Teal;
+            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.bunifuCustomLabel1.Location = new System.Drawing.Point(15, 18);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(103, 25);
@@ -246,7 +246,7 @@
             this.bunifuCards3.BackColor = System.Drawing.Color.White;
             this.bunifuCards3.BorderRadius = 5;
             this.bunifuCards3.BottomSahddow = true;
-            this.bunifuCards3.color = System.Drawing.Color.Teal;
+            this.bunifuCards3.color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.bunifuCards3.Controls.Add(this.txtFiltroNoCtrl);
             this.bunifuCards3.Controls.Add(this.txtFiltroNombre);
             this.bunifuCards3.Controls.Add(this.lblfiltrar);
@@ -289,7 +289,7 @@
             // 
             this.lblfiltrar.AutoSize = true;
             this.lblfiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfiltrar.ForeColor = System.Drawing.Color.DimGray;
+            this.lblfiltrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.lblfiltrar.Location = new System.Drawing.Point(49, 19);
             this.lblfiltrar.Name = "lblfiltrar";
             this.lblfiltrar.Size = new System.Drawing.Size(113, 25);
@@ -311,10 +311,10 @@
             // 
             // chkCorreo
             // 
-            this.chkCorreo.BackColor = System.Drawing.Color.SkyBlue;
-            this.chkCorreo.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkCorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.chkCorreo.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.chkCorreo.Checked = false;
-            this.chkCorreo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
+            this.chkCorreo.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.chkCorreo.ForeColor = System.Drawing.Color.White;
             this.chkCorreo.Location = new System.Drawing.Point(79, 117);
             this.chkCorreo.Name = "chkCorreo";
@@ -324,10 +324,10 @@
             // 
             // chkNombre
             // 
-            this.chkNombre.BackColor = System.Drawing.Color.SkyBlue;
-            this.chkNombre.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.chkNombre.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.chkNombre.Checked = false;
-            this.chkNombre.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
+            this.chkNombre.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.chkNombre.ForeColor = System.Drawing.Color.White;
             this.chkNombre.Location = new System.Drawing.Point(12, 66);
             this.chkNombre.Name = "chkNombre";
@@ -339,7 +339,7 @@
             // 
             this.lblColegios.AutoSize = true;
             this.lblColegios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.lblColegios.ForeColor = System.Drawing.Color.Teal;
+            this.lblColegios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.lblColegios.Location = new System.Drawing.Point(15, 18);
             this.lblColegios.Name = "lblColegios";
             this.lblColegios.Size = new System.Drawing.Size(222, 25);
@@ -368,8 +368,8 @@
             this.cbEscuelas.Items = new string[0];
             this.cbEscuelas.Location = new System.Drawing.Point(21, 122);
             this.cbEscuelas.Name = "cbEscuelas";
-            this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.cbEscuelas.onHoverColor = System.Drawing.Color.Teal;
+            this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.cbEscuelas.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.cbEscuelas.selectedIndex = -1;
             this.cbEscuelas.Size = new System.Drawing.Size(285, 35);
             this.cbEscuelas.TabIndex = 8;
@@ -380,7 +380,7 @@
             this.bunifuCards1.BackColor = System.Drawing.Color.White;
             this.bunifuCards1.BorderRadius = 5;
             this.bunifuCards1.BottomSahddow = true;
-            this.bunifuCards1.color = System.Drawing.Color.Teal;
+            this.bunifuCards1.color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.bunifuCards1.Controls.Add(this.cbEscuelas);
             this.bunifuCards1.Controls.Add(this.btnEscuela);
             this.bunifuCards1.Controls.Add(this.lblColegios);

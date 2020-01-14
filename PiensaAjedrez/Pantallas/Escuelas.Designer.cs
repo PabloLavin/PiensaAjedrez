@@ -109,7 +109,7 @@
             this.bunifuCards1.BackColor = System.Drawing.Color.White;
             this.bunifuCards1.BorderRadius = 5;
             this.bunifuCards1.BottomSahddow = true;
-            this.bunifuCards1.color = System.Drawing.Color.Teal;
+            this.bunifuCards1.color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.bunifuCards1.Controls.Add(this.txtNombreColegio);
             this.bunifuCards1.Controls.Add(this.btnCancelar);
             this.bunifuCards1.Controls.Add(this.btnAgregado);
@@ -200,9 +200,9 @@
             // 
             this.btnAgregarColegio.ActiveBorderThickness = 1;
             this.btnAgregarColegio.ActiveCornerRadius = 20;
-            this.btnAgregarColegio.ActiveFillColor = System.Drawing.Color.Teal;
+            this.btnAgregarColegio.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(112)))), ((int)(((byte)(8)))));
             this.btnAgregarColegio.ActiveForecolor = System.Drawing.Color.White;
-            this.btnAgregarColegio.ActiveLineColor = System.Drawing.Color.Teal;
+            this.btnAgregarColegio.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(112)))), ((int)(((byte)(8)))));
             this.btnAgregarColegio.BackColor = System.Drawing.Color.White;
             this.btnAgregarColegio.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgregarColegio.BackgroundImage")));
             this.btnAgregarColegio.ButtonText = "Agregar";
@@ -211,9 +211,9 @@
             this.btnAgregarColegio.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnAgregarColegio.IdleBorderThickness = 1;
             this.btnAgregarColegio.IdleCornerRadius = 20;
-            this.btnAgregarColegio.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnAgregarColegio.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(162)))), ((int)(((byte)(58)))));
             this.btnAgregarColegio.IdleForecolor = System.Drawing.Color.White;
-            this.btnAgregarColegio.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnAgregarColegio.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(162)))), ((int)(((byte)(58)))));
             this.btnAgregarColegio.Location = new System.Drawing.Point(256, 189);
             this.btnAgregarColegio.Margin = new System.Windows.Forms.Padding(5);
             this.btnAgregarColegio.Name = "btnAgregarColegio";
@@ -227,7 +227,7 @@
             // 
             this.lblColegios.AutoSize = true;
             this.lblColegios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.lblColegios.ForeColor = System.Drawing.Color.Teal;
+            this.lblColegios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.lblColegios.Location = new System.Drawing.Point(15, 18);
             this.lblColegios.Name = "lblColegios";
             this.lblColegios.Size = new System.Drawing.Size(208, 25);
@@ -249,7 +249,7 @@
             this.bunifuCards2.BackColor = System.Drawing.Color.White;
             this.bunifuCards2.BorderRadius = 5;
             this.bunifuCards2.BottomSahddow = true;
-            this.bunifuCards2.color = System.Drawing.Color.Teal;
+            this.bunifuCards2.color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.bunifuCards2.Controls.Add(this.txtActividad);
             this.bunifuCards2.Controls.Add(this.cbDiaClase);
             this.bunifuCards2.Controls.Add(this.lblDiaClase);
@@ -302,8 +302,8 @@
         "Domingo"};
             this.cbDiaClase.Location = new System.Drawing.Point(492, 15);
             this.cbDiaClase.Name = "cbDiaClase";
-            this.cbDiaClase.NomalColor = System.Drawing.Color.Teal;
-            this.cbDiaClase.onHoverColor = System.Drawing.Color.Teal;
+            this.cbDiaClase.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.cbDiaClase.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.cbDiaClase.selectedIndex = 0;
             this.cbDiaClase.Size = new System.Drawing.Size(117, 28);
             this.cbDiaClase.TabIndex = 29;
@@ -363,9 +363,9 @@
             // 
             this.btnAgregarCurso.ActiveBorderThickness = 1;
             this.btnAgregarCurso.ActiveCornerRadius = 20;
-            this.btnAgregarCurso.ActiveFillColor = System.Drawing.Color.Teal;
+            this.btnAgregarCurso.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(112)))), ((int)(((byte)(8)))));
             this.btnAgregarCurso.ActiveForecolor = System.Drawing.Color.White;
-            this.btnAgregarCurso.ActiveLineColor = System.Drawing.Color.Teal;
+            this.btnAgregarCurso.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(112)))), ((int)(((byte)(8)))));
             this.btnAgregarCurso.BackColor = System.Drawing.Color.White;
             this.btnAgregarCurso.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgregarCurso.BackgroundImage")));
             this.btnAgregarCurso.ButtonText = "Agregar curso";
@@ -374,9 +374,9 @@
             this.btnAgregarCurso.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnAgregarCurso.IdleBorderThickness = 1;
             this.btnAgregarCurso.IdleCornerRadius = 20;
-            this.btnAgregarCurso.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnAgregarCurso.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(162)))), ((int)(((byte)(58)))));
             this.btnAgregarCurso.IdleForecolor = System.Drawing.Color.White;
-            this.btnAgregarCurso.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnAgregarCurso.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(162)))), ((int)(((byte)(58)))));
             this.btnAgregarCurso.Location = new System.Drawing.Point(225, 205);
             this.btnAgregarCurso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAgregarCurso.Name = "btnAgregarCurso";
@@ -398,7 +398,7 @@
             this.dgvListaActividades.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvListaActividades.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.5F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -418,7 +418,7 @@
             this.dgvListaActividades.DoubleBuffered = true;
             this.dgvListaActividades.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvListaActividades.EnableHeadersVisualStyles = false;
-            this.dgvListaActividades.HeaderBgColor = System.Drawing.Color.Teal;
+            this.dgvListaActividades.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.dgvListaActividades.HeaderForeColor = System.Drawing.Color.White;
             this.dgvListaActividades.Location = new System.Drawing.Point(334, 48);
             this.dgvListaActividades.Name = "dgvListaActividades";
@@ -506,7 +506,7 @@
             // 
             // dtmFinCurso
             // 
-            this.dtmFinCurso.BackColor = System.Drawing.Color.Teal;
+            this.dtmFinCurso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.dtmFinCurso.BorderRadius = 0;
             this.dtmFinCurso.ForeColor = System.Drawing.Color.White;
             this.dtmFinCurso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -531,7 +531,7 @@
             // 
             // dtmInicioCurso
             // 
-            this.dtmInicioCurso.BackColor = System.Drawing.Color.Teal;
+            this.dtmInicioCurso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.dtmInicioCurso.BorderRadius = 0;
             this.dtmInicioCurso.ForeColor = System.Drawing.Color.White;
             this.dtmInicioCurso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -546,7 +546,7 @@
             // 
             this.lblCurso.AutoSize = true;
             this.lblCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.lblCurso.ForeColor = System.Drawing.Color.Teal;
+            this.lblCurso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.lblCurso.Location = new System.Drawing.Point(23, 18);
             this.lblCurso.Name = "lblCurso";
             this.lblCurso.Size = new System.Drawing.Size(80, 25);
@@ -600,7 +600,7 @@
             this.dgvEscuelas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvEscuelas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.5F);
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -620,7 +620,7 @@
             this.dgvEscuelas.DoubleBuffered = true;
             this.dgvEscuelas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvEscuelas.EnableHeadersVisualStyles = false;
-            this.dgvEscuelas.HeaderBgColor = System.Drawing.Color.Teal;
+            this.dgvEscuelas.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.dgvEscuelas.HeaderForeColor = System.Drawing.Color.White;
             this.dgvEscuelas.Location = new System.Drawing.Point(25, 302);
             this.dgvEscuelas.Name = "dgvEscuelas";
@@ -666,7 +666,7 @@
             this.dgvCursos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvCursos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 11.5F);
             dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -685,7 +685,7 @@
             this.dgvCursos.DoubleBuffered = true;
             this.dgvCursos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCursos.EnableHeadersVisualStyles = false;
-            this.dgvCursos.HeaderBgColor = System.Drawing.Color.Teal;
+            this.dgvCursos.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.dgvCursos.HeaderForeColor = System.Drawing.Color.White;
             this.dgvCursos.Location = new System.Drawing.Point(680, 302);
             this.dgvCursos.Name = "dgvCursos";
@@ -723,7 +723,7 @@
             this.dgvCursosPasados.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvCursosPasados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 11.5F);
             dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -742,7 +742,7 @@
             this.dgvCursosPasados.DoubleBuffered = true;
             this.dgvCursosPasados.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCursosPasados.EnableHeadersVisualStyles = false;
-            this.dgvCursosPasados.HeaderBgColor = System.Drawing.Color.Teal;
+            this.dgvCursosPasados.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.dgvCursosPasados.HeaderForeColor = System.Drawing.Color.White;
             this.dgvCursosPasados.Location = new System.Drawing.Point(680, 377);
             this.dgvCursosPasados.Name = "dgvCursosPasados";
@@ -774,7 +774,7 @@
             this.dgvEscuelasDesactivadas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvEscuelasDesactivadas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 11.5F);
             dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -793,7 +793,7 @@
             this.dgvEscuelasDesactivadas.DoubleBuffered = true;
             this.dgvEscuelasDesactivadas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvEscuelasDesactivadas.EnableHeadersVisualStyles = false;
-            this.dgvEscuelasDesactivadas.HeaderBgColor = System.Drawing.Color.Teal;
+            this.dgvEscuelasDesactivadas.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.dgvEscuelasDesactivadas.HeaderForeColor = System.Drawing.Color.White;
             this.dgvEscuelasDesactivadas.Location = new System.Drawing.Point(25, 463);
             this.dgvEscuelasDesactivadas.Name = "dgvEscuelasDesactivadas";

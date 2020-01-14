@@ -146,7 +146,7 @@ namespace PiensaAjedrez
                     ConexionBD.EditarAlumno(miAlumno.NumeroDeControl, miAlumno);
                     listaAlumnos.Sort();
                     btnAgregar.ButtonText = "Agregar";
-                    btnAgregar.IdleFillColor = Color.FromArgb(59, 202, 192);
+                    btnAgregar.IdleFillColor = Color.FromArgb(222,139,58);
                     LimpiarControles();
                     MostrarDatos();
                     unaForma.Mostrar("Éxito", "Alumno editado correctamente", 5, this);
@@ -464,7 +464,7 @@ namespace PiensaAjedrez
                     //}
                         lblnumerocontrol.Text = alumnos.NumeroDeControl;
                         btnAgregar.ButtonText = "Editar";
-                    btnAgregar.IdleFillColor = Color.Teal;
+                    btnAgregar.IdleFillColor = Color.FromArgb(222, 139, 58);
                     btnCancelar.Visible = true;
                 } 
             }

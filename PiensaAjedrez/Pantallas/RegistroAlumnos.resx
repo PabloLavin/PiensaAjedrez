@@ -1625,17 +1625,17 @@
   <data name="btnAgregar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAALkAAAApCAYAAABpy4gfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI4SURBVHhe7ZxNT1NBGEb9XZCAQT7VhIS4dOGKFW6MGxP/
-        gzFxa+JfcOHKDR9tCrZcixY1lEQkilHAD4hBVPLaZ+6lgXZgS+fNOclZ3ellc3ozd+jMJQNwDpGDe4gc
-        3EPk4B4iB/cQObjn3MgPj47s+c4Xu7v22m6t1uxaVrb+F7OIF65aVJO339Xt2fZn2//3t6i2mzMjX/yx
-        axNZyUaXS9a/FP9DiBdtX8uR5QUbb7X69OtWUe9puiLXN+Jes2Fjirvjhoi9rJqdfpPZ7p/DouacU5Er
-        8Kl6xQarc9GbIKbg1ErFtn4fFFV3RK4nOIGjBzVfP6YduebgTFHQi1dqC/b44/vQdohcqyh6yYwNRkzV
-        iaxsGwe/8si1BKM31NhAxFQdaE29H26u55FrrVFLMbGBiCl7Y2Uxj3zyZSU6ADF19TQPkQ9V56MDED0Y
-        Io9dQPQikaN7iRzdS+ToXiJH9xI5upfI0b1Eju4Nkeu/QrGLiB4MkbN3Ez0bIteWodhFxNTV77JC5E8+
-        bdhlfr+CDr3fXM0j1364cXYFoTPHspLNfdvOIxePNtdtuMbGCfSh9irfWXsV2m5Hri1wNxvV6AcQU/N6
-        Vm4fONSOXGg/3FVWWjBxtbcz2/teVN0RuWjs/wxnrwzVeBHFtNQURU/wk4GLrsiFpi4PPjTDxD12M8Se
-        cmk2HGc487YePRMxGvkx+kZoCWaElRfsUbV1UwfS6mDaszg3cgAPEDm4h8jBPUQO7iFycI7Zf+URR+D7
-        GselAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJFSURBVHhe7ZzNaxNBGIf9u4QGReyHB0G8evDkxV7Ei+B/
+        oCQl3YIoQvEgWESwh56KqCB6E0RBEJrsBvsFpqit2C993d/sJthm2muzL88DzymT6eXJMjt05pQBOIfI
+        wT1EDu4hcnAPkYN7iBzcc2zkf/d2bPPzoq09u2nLj65aOnPBWndPI564alFNrs5N2s+PC/Zne7OsdpAj
+        I//VepdPNG5p87wtRf4I4jC4dCcPvnnO0mTMfnyYL+s9yEDk+kWsP79lWf6l2KSIw2o6PWorj6/Z/ta3
+        suaCA5Er8M79S9aq16KTIA67WnVkecN731fKqg9Fric4gaMHtV7v0Y9ca3CWKOhFrdM33jwMbYfItYui
+        l8zYYMSqmibjtttNi8i1BaPyYwMRK2t9xLovm0Xk2mvUVkx0IGKF7Ty4XESe3bsYHYBYefOneYi8PXU2
+        PgDRgSHy2AeIXiRydC+Ro3uJHN1L5OheIkf3Ejm6l8jRvUXk9ZHoh4geDJFzdhM9GyLXkSHOcaJH9X9Z
+        IfKNt7PWnjoTHYRYVfXgXp+/XUSu83DpNKeC0JdZMmpbX14XkYvuq8TaHJxALzZqtvb0Rmi7H7mOwH2d
+        vWItDk+gA7WZ0rtwqB+50Hm4dGYi+iXEqpglE/a7876s+lDkYnv5U7h7pd3gRRQrZr0WnuD/By4GIhda
+        unRfNCzLX0bZWsRhV43qOsPVJ9ejdyJGI++hX4S2YDRBbHLEk1ZHN3UhrS6mPYpjIwfwAJGDe4gc3EPk
+        4B4iB+eY/QPhYHgfoJbgDAAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="imgFiltro.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

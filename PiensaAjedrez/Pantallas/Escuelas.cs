@@ -271,7 +271,7 @@ namespace PiensaAjedrez
             if (btnAgregarCurso.ButtonText == "Editar")
             {
                 btnAgregarCurso.ButtonText = "Agregar curso";
-                btnAgregarCurso.IdleFillColor = Color.FromArgb(59, 202, 192);
+                btnAgregarCurso.IdleFillColor = Color.FromArgb(89, 162, 58);
                 btnCancelarCurso.Visible = false;
                 dgvListaActividades.Rows.Clear();
             }
@@ -282,7 +282,7 @@ namespace PiensaAjedrez
             btnAgregarCurso.Visible = true;
             btnAgregarActividad.Enabled = true;
             btnAgregarColegio.ButtonText = "Editar";
-            btnAgregarColegio.IdleFillColor = Color.Teal;
+            btnAgregarColegio.IdleFillColor = Color.FromArgb(89, 162, 58);
             btnCancelar.Visible = true;
             cbDiaClase.Visible = true;
             bunifuCustomLabel3.Visible = true;
@@ -308,7 +308,7 @@ namespace PiensaAjedrez
             bunifuCustomLabel3.Visible = false;
             bunifuCustomLabel4.Visible = false;
             btnAgregarColegio.ButtonText = "Agregar";
-            btnAgregarColegio.IdleFillColor = Color.FromArgb(59, 202, 192);
+            btnAgregarColegio.IdleFillColor = Color.FromArgb(89, 162, 58);
             btnAgregarCurso.Visible = false;
             btnCancelar.Visible = false;
             dgvEscuelas.Focus();
@@ -339,7 +339,7 @@ namespace PiensaAjedrez
             tsDesactivarEscuela.Visible = true;
             btnAgregarCurso.ButtonText = "Editar";
             btnCancelarCurso.Visible = true;
-            btnAgregarCurso.IdleFillColor = Color.Teal;
+            btnAgregarCurso.IdleFillColor = Color.FromArgb(89, 162, 58);
             listaEscuela = ConexionBD.CargarEscuelas();
             foreach (Escuela miEscuela in listaEscuela)
             {
@@ -376,7 +376,7 @@ namespace PiensaAjedrez
         private void btnCancelarCurso_Click(object sender, EventArgs e)
         {
             btnAgregarCurso.ButtonText = "Agregar curso";
-            btnAgregarCurso.IdleFillColor = Color.FromArgb(59, 202, 192);
+            btnAgregarCurso.IdleFillColor = Color.FromArgb(89, 162, 58);
             btnCancelarCurso.Visible = false;
             dgvCursos.Focus();
             btnFinalizarCurso.Visible = false;

@@ -114,10 +114,10 @@
             this.panelMenu.Controls.Add(this.btnDesconectar);
             this.panelMenu.Controls.Add(this.btnRegistrar);
             this.panelMenu.Controls.Add(this.btnMensualidades);
-            this.panelMenu.GradientBottomLeft = System.Drawing.Color.DarkCyan;
-            this.panelMenu.GradientBottomRight = System.Drawing.Color.DarkTurquoise;
-            this.panelMenu.GradientTopLeft = System.Drawing.Color.DarkTurquoise;
-            this.panelMenu.GradientTopRight = System.Drawing.Color.CadetBlue;
+            this.panelMenu.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
+            this.panelMenu.GradientBottomRight = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.panelMenu.GradientTopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
+            this.panelMenu.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(104)))), ((int)(((byte)(29)))));
             this.panelMenu.Location = new System.Drawing.Point(0, 30);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Quality = 10;
@@ -126,7 +126,7 @@
             // 
             // btnReportes
             // 
-            this.btnReportes.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnReportes.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnReportes.BackColor = System.Drawing.Color.Transparent;
             this.btnReportes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnReportes.BorderRadius = 0;
@@ -149,7 +149,7 @@
             this.btnReportes.Location = new System.Drawing.Point(983, 0);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnReportes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnReportes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnReportes.OnHoverTextColor = System.Drawing.Color.White;
             this.btnReportes.selected = false;
             this.btnReportes.Size = new System.Drawing.Size(224, 50);
@@ -163,7 +163,7 @@
             // 
             // btnAsistencia
             // 
-            this.btnAsistencia.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnAsistencia.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnAsistencia.BackColor = System.Drawing.Color.Transparent;
             this.btnAsistencia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAsistencia.BorderRadius = 0;
@@ -186,7 +186,7 @@
             this.btnAsistencia.Location = new System.Drawing.Point(768, 0);
             this.btnAsistencia.Name = "btnAsistencia";
             this.btnAsistencia.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnAsistencia.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnAsistencia.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnAsistencia.OnHoverTextColor = System.Drawing.Color.White;
             this.btnAsistencia.selected = false;
             this.btnAsistencia.Size = new System.Drawing.Size(217, 50);
@@ -212,7 +212,7 @@
             // 
             // btnColegios
             // 
-            this.btnColegios.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnColegios.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnColegios.BackColor = System.Drawing.Color.Transparent;
             this.btnColegios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnColegios.BorderRadius = 0;
@@ -235,7 +235,7 @@
             this.btnColegios.Location = new System.Drawing.Point(543, 0);
             this.btnColegios.Name = "btnColegios";
             this.btnColegios.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnColegios.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnColegios.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnColegios.OnHoverTextColor = System.Drawing.Color.White;
             this.btnColegios.selected = false;
             this.btnColegios.Size = new System.Drawing.Size(225, 50);
@@ -249,7 +249,7 @@
             // 
             // btnDesconectar
             // 
-            this.btnDesconectar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnDesconectar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnDesconectar.BackColor = System.Drawing.Color.Transparent;
             this.btnDesconectar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDesconectar.BorderRadius = 0;
@@ -272,7 +272,7 @@
             this.btnDesconectar.Location = new System.Drawing.Point(1206, 0);
             this.btnDesconectar.Name = "btnDesconectar";
             this.btnDesconectar.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnDesconectar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnDesconectar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnDesconectar.OnHoverTextColor = System.Drawing.Color.White;
             this.btnDesconectar.selected = false;
             this.btnDesconectar.Size = new System.Drawing.Size(160, 50);
@@ -285,7 +285,7 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnRegistrar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnRegistrar.BackColor = System.Drawing.Color.Transparent;
             this.btnRegistrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRegistrar.BorderRadius = 0;
@@ -308,7 +308,7 @@
             this.btnRegistrar.Location = new System.Drawing.Point(313, 0);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnRegistrar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnRegistrar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnRegistrar.OnHoverTextColor = System.Drawing.Color.White;
             this.btnRegistrar.selected = false;
             this.btnRegistrar.Size = new System.Drawing.Size(229, 50);
@@ -322,8 +322,8 @@
             // 
             // btnMensualidades
             // 
-            this.btnMensualidades.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.btnMensualidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnMensualidades.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
+            this.btnMensualidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnMensualidades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMensualidades.BorderRadius = 0;
             this.btnMensualidades.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -345,7 +345,7 @@
             this.btnMensualidades.Location = new System.Drawing.Point(93, 0);
             this.btnMensualidades.Name = "btnMensualidades";
             this.btnMensualidades.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnMensualidades.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnMensualidades.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnMensualidades.OnHoverTextColor = System.Drawing.Color.White;
             this.btnMensualidades.selected = true;
             this.btnMensualidades.Size = new System.Drawing.Size(223, 50);
@@ -377,7 +377,7 @@
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(92, 17);
             this.lblVersion.TabIndex = 4;
-            this.lblVersion.Text = "Versión 1.4.9";
+            this.lblVersion.Text = "Versión 1.9.9";
             // 
             // Form1
             // 

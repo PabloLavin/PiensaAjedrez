@@ -145,7 +145,7 @@
             this.bunifuCards2.BackColor = System.Drawing.Color.White;
             this.bunifuCards2.BorderRadius = 5;
             this.bunifuCards2.BottomSahddow = true;
-            this.bunifuCards2.color = System.Drawing.Color.Teal;
+            this.bunifuCards2.color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.bunifuCards2.Controls.Add(this.txtFiltroNoCtrl);
             this.bunifuCards2.Controls.Add(this.txtFiltroNombre);
             this.bunifuCards2.Controls.Add(this.cbAño);
@@ -188,7 +188,7 @@
             // 
             // cbAño
             // 
-            this.cbAño.BackColor = System.Drawing.Color.SkyBlue;
+            this.cbAño.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.cbAño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAño.Enabled = false;
             this.cbAño.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -215,10 +215,10 @@
             // 
             // chkAño
             // 
-            this.chkAño.BackColor = System.Drawing.Color.SkyBlue;
-            this.chkAño.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkAño.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
+            this.chkAño.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.chkAño.Checked = false;
-            this.chkAño.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
+            this.chkAño.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.chkAño.ForeColor = System.Drawing.Color.White;
             this.chkAño.Location = new System.Drawing.Point(181, 99);
             this.chkAño.Name = "chkAño";
@@ -252,10 +252,10 @@
             // 
             // chkCorreo
             // 
-            this.chkCorreo.BackColor = System.Drawing.Color.SkyBlue;
-            this.chkCorreo.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkCorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
+            this.chkCorreo.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.chkCorreo.Checked = false;
-            this.chkCorreo.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
+            this.chkCorreo.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.chkCorreo.ForeColor = System.Drawing.Color.White;
             this.chkCorreo.Location = new System.Drawing.Point(12, 99);
             this.chkCorreo.Name = "chkCorreo";
@@ -265,10 +265,10 @@
             // 
             // chkNombre
             // 
-            this.chkNombre.BackColor = System.Drawing.Color.SkyBlue;
-            this.chkNombre.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
+            this.chkNombre.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.chkNombre.Checked = false;
-            this.chkNombre.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
+            this.chkNombre.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.chkNombre.ForeColor = System.Drawing.Color.White;
             this.chkNombre.Location = new System.Drawing.Point(12, 66);
             this.chkNombre.Name = "chkNombre";
@@ -281,7 +281,7 @@
             this.bunifuCards1.BackColor = System.Drawing.Color.White;
             this.bunifuCards1.BorderRadius = 5;
             this.bunifuCards1.BottomSahddow = true;
-            this.bunifuCards1.color = System.Drawing.Color.Teal;
+            this.bunifuCards1.color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.bunifuCards1.Controls.Add(this.gbEsconder);
             this.bunifuCards1.Controls.Add(this.lblNull);
             this.bunifuCards1.Controls.Add(this.chkNull);
@@ -338,7 +338,7 @@
             this.gbEsconder.Controls.Add(this.lblInfo1);
             this.gbEsconder.Controls.Add(this.lblPRecibo);
             this.gbEsconder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbEsconder.Location = new System.Drawing.Point(447, 10);
+            this.gbEsconder.Location = new System.Drawing.Point(447, 11);
             this.gbEsconder.MaximumSize = new System.Drawing.Size(473, 217);
             this.gbEsconder.Name = "gbEsconder";
             this.gbEsconder.Size = new System.Drawing.Size(473, 217);
@@ -508,10 +508,10 @@
             // 
             // chkNull
             // 
-            this.chkNull.BackColor = System.Drawing.Color.SkyBlue;
-            this.chkNull.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkNull.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
+            this.chkNull.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.chkNull.Checked = false;
-            this.chkNull.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
+            this.chkNull.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.chkNull.ForeColor = System.Drawing.Color.White;
             this.chkNull.Location = new System.Drawing.Point(576, 192);
             this.chkNull.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
@@ -546,7 +546,7 @@
             this.dgvAlumnosParticular.ColumnHeadersVisible = false;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -558,7 +558,7 @@
             this.dgvAlumnosParticular.GridColor = System.Drawing.Color.Black;
             this.dgvAlumnosParticular.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.dgvAlumnosParticular.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.dgvAlumnosParticular.Location = new System.Drawing.Point(241, 171);
+            this.dgvAlumnosParticular.Location = new System.Drawing.Point(241, 169);
             this.dgvAlumnosParticular.MultiSelect = false;
             this.dgvAlumnosParticular.Name = "dgvAlumnosParticular";
             this.dgvAlumnosParticular.ReadOnly = true;
@@ -594,7 +594,7 @@
             this.DgvEstadisticasEscuela.ColumnHeadersVisible = false;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -606,14 +606,14 @@
             this.DgvEstadisticasEscuela.GridColor = System.Drawing.Color.Black;
             this.DgvEstadisticasEscuela.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.DgvEstadisticasEscuela.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.DgvEstadisticasEscuela.Location = new System.Drawing.Point(24, 159);
+            this.DgvEstadisticasEscuela.Location = new System.Drawing.Point(24, 148);
             this.DgvEstadisticasEscuela.MultiSelect = false;
             this.DgvEstadisticasEscuela.Name = "DgvEstadisticasEscuela";
             this.DgvEstadisticasEscuela.ReadOnly = true;
             this.DgvEstadisticasEscuela.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DgvEstadisticasEscuela.RowHeadersVisible = false;
             this.DgvEstadisticasEscuela.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.DgvEstadisticasEscuela.Size = new System.Drawing.Size(211, 81);
+            this.DgvEstadisticasEscuela.Size = new System.Drawing.Size(211, 92);
             this.DgvEstadisticasEscuela.TabIndex = 49;
             this.DgvEstadisticasEscuela.TabStop = false;
             // 
@@ -631,10 +631,10 @@
             // 
             // chkBeca
             // 
-            this.chkBeca.BackColor = System.Drawing.Color.SkyBlue;
-            this.chkBeca.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkBeca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
+            this.chkBeca.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.chkBeca.Checked = false;
-            this.chkBeca.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
+            this.chkBeca.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.chkBeca.ForeColor = System.Drawing.Color.White;
             this.chkBeca.Location = new System.Drawing.Point(459, 216);
             this.chkBeca.Margin = new System.Windows.Forms.Padding(4);
@@ -673,10 +673,10 @@
             // 
             // chkLiquidado
             // 
-            this.chkLiquidado.BackColor = System.Drawing.Color.SkyBlue;
-            this.chkLiquidado.ChechedOffColor = System.Drawing.Color.SkyBlue;
+            this.chkLiquidado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
+            this.chkLiquidado.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.chkLiquidado.Checked = false;
-            this.chkLiquidado.CheckedOnColor = System.Drawing.Color.LightSeaGreen;
+            this.chkLiquidado.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.chkLiquidado.ForeColor = System.Drawing.Color.White;
             this.chkLiquidado.Location = new System.Drawing.Point(459, 192);
             this.chkLiquidado.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
@@ -730,7 +730,7 @@
             // 
             // dtFechaPago
             // 
-            this.dtFechaPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.dtFechaPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.dtFechaPago.BorderRadius = 0;
             this.dtFechaPago.ForeColor = System.Drawing.Color.White;
             this.dtFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -747,9 +747,9 @@
             // 
             this.btnRegistroPago.ActiveBorderThickness = 1;
             this.btnRegistroPago.ActiveCornerRadius = 20;
-            this.btnRegistroPago.ActiveFillColor = System.Drawing.Color.Teal;
+            this.btnRegistroPago.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.btnRegistroPago.ActiveForecolor = System.Drawing.Color.White;
-            this.btnRegistroPago.ActiveLineColor = System.Drawing.Color.Teal;
+            this.btnRegistroPago.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.btnRegistroPago.BackColor = System.Drawing.Color.White;
             this.btnRegistroPago.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRegistroPago.BackgroundImage")));
             this.btnRegistroPago.ButtonText = "Registrar pago";
@@ -758,9 +758,9 @@
             this.btnRegistroPago.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.btnRegistroPago.IdleBorderThickness = 1;
             this.btnRegistroPago.IdleCornerRadius = 20;
-            this.btnRegistroPago.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnRegistroPago.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnRegistroPago.IdleForecolor = System.Drawing.Color.White;
-            this.btnRegistroPago.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnRegistroPago.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnRegistroPago.Location = new System.Drawing.Point(670, 190);
             this.btnRegistroPago.Margin = new System.Windows.Forms.Padding(5);
             this.btnRegistroPago.Name = "btnRegistroPago";
@@ -818,7 +818,7 @@
             // 
             this.cbMetodoPago.BackColor = System.Drawing.Color.Transparent;
             this.cbMetodoPago.BorderRadius = 3;
-            this.cbMetodoPago.DisabledColor = System.Drawing.Color.SkyBlue;
+            this.cbMetodoPago.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.cbMetodoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMetodoPago.ForeColor = System.Drawing.Color.White;
             this.cbMetodoPago.Items = new string[] {
@@ -828,8 +828,8 @@
             this.cbMetodoPago.Location = new System.Drawing.Point(733, 96);
             this.cbMetodoPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbMetodoPago.Name = "cbMetodoPago";
-            this.cbMetodoPago.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.cbMetodoPago.onHoverColor = System.Drawing.Color.Teal;
+            this.cbMetodoPago.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.cbMetodoPago.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.cbMetodoPago.selectedIndex = 0;
             this.cbMetodoPago.Size = new System.Drawing.Size(122, 35);
             this.cbMetodoPago.TabIndex = 2;
@@ -860,7 +860,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.ForeColor = System.Drawing.Color.Teal;
+            this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.lblNombre.Location = new System.Drawing.Point(559, 67);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(296, 24);
@@ -871,7 +871,7 @@
             // 
             this.lblNroControl.AutoSize = true;
             this.lblNroControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNroControl.ForeColor = System.Drawing.Color.Teal;
+            this.lblNroControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.lblNroControl.Location = new System.Drawing.Point(455, 67);
             this.lblNroControl.Name = "lblNroControl";
             this.lblNroControl.Size = new System.Drawing.Size(98, 24);
@@ -883,7 +883,7 @@
             this.btnEscuela.BackColor = System.Drawing.Color.Transparent;
             this.btnEscuela.Image = ((System.Drawing.Image)(resources.GetObject("btnEscuela.Image")));
             this.btnEscuela.ImageActive = null;
-            this.btnEscuela.Location = new System.Drawing.Point(182, 12);
+            this.btnEscuela.Location = new System.Drawing.Point(182, 10);
             this.btnEscuela.Name = "btnEscuela";
             this.btnEscuela.Size = new System.Drawing.Size(82, 65);
             this.btnEscuela.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -894,10 +894,10 @@
             // lblEscuela
             // 
             this.lblEscuela.AutoSize = true;
-            this.lblEscuela.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lblEscuela.Location = new System.Drawing.Point(182, 83);
+            this.lblEscuela.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.lblEscuela.Location = new System.Drawing.Point(185, 79);
             this.lblEscuela.Name = "lblEscuela";
-            this.lblEscuela.Size = new System.Drawing.Size(82, 25);
+            this.lblEscuela.Size = new System.Drawing.Size(74, 22);
             this.lblEscuela.TabIndex = 15;
             this.lblEscuela.Text = "Escuela";
             // 
@@ -909,11 +909,11 @@
             this.cbEscuelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEscuelas.ForeColor = System.Drawing.Color.White;
             this.cbEscuelas.Items = new string[0];
-            this.cbEscuelas.Location = new System.Drawing.Point(24, 114);
+            this.cbEscuelas.Location = new System.Drawing.Point(24, 106);
             this.cbEscuelas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbEscuelas.Name = "cbEscuelas";
-            this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.cbEscuelas.onHoverColor = System.Drawing.Color.Teal;
+            this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.cbEscuelas.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.cbEscuelas.selectedIndex = -1;
             this.cbEscuelas.Size = new System.Drawing.Size(380, 39);
             this.cbEscuelas.TabIndex = 0;
@@ -944,7 +944,7 @@
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
@@ -965,7 +965,7 @@
             this.dgvAlumnos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAlumnos.EnableHeadersVisualStyles = false;
             this.dgvAlumnos.GridColor = System.Drawing.Color.Black;
-            this.dgvAlumnos.HeaderBgColor = System.Drawing.Color.Teal;
+            this.dgvAlumnos.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.dgvAlumnos.HeaderForeColor = System.Drawing.Color.White;
             this.dgvAlumnos.Location = new System.Drawing.Point(27, 264);
             this.dgvAlumnos.Name = "dgvAlumnos";
@@ -986,7 +986,7 @@
             // 
             // bnfdtpFechaGasto
             // 
-            this.bnfdtpFechaGasto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.bnfdtpFechaGasto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.bnfdtpFechaGasto.BorderRadius = 0;
             this.bnfdtpFechaGasto.ForeColor = System.Drawing.Color.White;
             this.bnfdtpFechaGasto.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -1048,7 +1048,7 @@
             this.bunifuCards3.BackColor = System.Drawing.Color.White;
             this.bunifuCards3.BorderRadius = 5;
             this.bunifuCards3.BottomSahddow = true;
-            this.bunifuCards3.color = System.Drawing.Color.Teal;
+            this.bunifuCards3.color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.bunifuCards3.Controls.Add(this.radIngreso);
             this.bunifuCards3.Controls.Add(this.radGastos);
             this.bunifuCards3.Controls.Add(this.btnArchivar);
@@ -1161,14 +1161,14 @@
             // 
             this.cbGastos.BackColor = System.Drawing.Color.Transparent;
             this.cbGastos.BorderRadius = 3;
-            this.cbGastos.DisabledColor = System.Drawing.Color.SkyBlue;
+            this.cbGastos.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.cbGastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbGastos.ForeColor = System.Drawing.Color.White;
             this.cbGastos.Items = new string[0];
             this.cbGastos.Location = new System.Drawing.Point(23, 82);
             this.cbGastos.Name = "cbGastos";
-            this.cbGastos.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.cbGastos.onHoverColor = System.Drawing.Color.Teal;
+            this.cbGastos.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.cbGastos.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.cbGastos.selectedIndex = -1;
             this.cbGastos.Size = new System.Drawing.Size(261, 39);
             this.cbGastos.TabIndex = 42;
@@ -1177,9 +1177,9 @@
             // 
             this.btnRegistrarGasto.ActiveBorderThickness = 1;
             this.btnRegistrarGasto.ActiveCornerRadius = 20;
-            this.btnRegistrarGasto.ActiveFillColor = System.Drawing.Color.Teal;
+            this.btnRegistrarGasto.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.btnRegistrarGasto.ActiveForecolor = System.Drawing.Color.White;
-            this.btnRegistrarGasto.ActiveLineColor = System.Drawing.Color.Teal;
+            this.btnRegistrarGasto.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.btnRegistrarGasto.BackColor = System.Drawing.Color.White;
             this.btnRegistrarGasto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRegistrarGasto.BackgroundImage")));
             this.btnRegistrarGasto.ButtonText = "Registrar";
@@ -1188,9 +1188,9 @@
             this.btnRegistrarGasto.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.btnRegistrarGasto.IdleBorderThickness = 1;
             this.btnRegistrarGasto.IdleCornerRadius = 20;
-            this.btnRegistrarGasto.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnRegistrarGasto.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnRegistrarGasto.IdleForecolor = System.Drawing.Color.White;
-            this.btnRegistrarGasto.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnRegistrarGasto.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnRegistrarGasto.Location = new System.Drawing.Point(192, 191);
             this.btnRegistrarGasto.Margin = new System.Windows.Forms.Padding(5);
             this.btnRegistrarGasto.Name = "btnRegistrarGasto";
@@ -1250,7 +1250,7 @@
             this.bunifuCards4.BackColor = System.Drawing.Color.White;
             this.bunifuCards4.BorderRadius = 5;
             this.bunifuCards4.BottomSahddow = true;
-            this.bunifuCards4.color = System.Drawing.Color.Teal;
+            this.bunifuCards4.color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.bunifuCards4.Controls.Add(this.dgvEstadisticas);
             this.bunifuCards4.Controls.Add(this.btnVerIngresos);
             this.bunifuCards4.Controls.Add(this.lblBalanza);
@@ -1339,9 +1339,9 @@
             // 
             this.btnListasActualizadas.ActiveBorderThickness = 1;
             this.btnListasActualizadas.ActiveCornerRadius = 20;
-            this.btnListasActualizadas.ActiveFillColor = System.Drawing.Color.Teal;
+            this.btnListasActualizadas.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.btnListasActualizadas.ActiveForecolor = System.Drawing.Color.White;
-            this.btnListasActualizadas.ActiveLineColor = System.Drawing.Color.Teal;
+            this.btnListasActualizadas.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.btnListasActualizadas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.btnListasActualizadas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnListasActualizadas.BackgroundImage")));
             this.btnListasActualizadas.ButtonText = "Lista de pago actualizada";
@@ -1350,9 +1350,9 @@
             this.btnListasActualizadas.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.btnListasActualizadas.IdleBorderThickness = 1;
             this.btnListasActualizadas.IdleCornerRadius = 20;
-            this.btnListasActualizadas.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnListasActualizadas.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnListasActualizadas.IdleForecolor = System.Drawing.Color.White;
-            this.btnListasActualizadas.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnListasActualizadas.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnListasActualizadas.Location = new System.Drawing.Point(240, 570);
             this.btnListasActualizadas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnListasActualizadas.Name = "btnListasActualizadas";

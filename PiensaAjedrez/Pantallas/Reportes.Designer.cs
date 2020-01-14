@@ -59,7 +59,7 @@
             this.bunifuCards1.BackColor = System.Drawing.Color.White;
             this.bunifuCards1.BorderRadius = 5;
             this.bunifuCards1.BottomSahddow = true;
-            this.bunifuCards1.color = System.Drawing.Color.Teal;
+            this.bunifuCards1.color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.bunifuCards1.Controls.Add(this.cboCursos);
             this.bunifuCards1.Controls.Add(this.CargarReporteActividades);
             this.bunifuCards1.Controls.Add(this.CargarAsistencias);
@@ -90,8 +90,8 @@
             this.cboCursos.Items = new string[0];
             this.cboCursos.Location = new System.Drawing.Point(98, 176);
             this.cboCursos.Name = "cboCursos";
-            this.cboCursos.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.cboCursos.onHoverColor = System.Drawing.Color.Teal;
+            this.cboCursos.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.cboCursos.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.cboCursos.selectedIndex = -1;
             this.cboCursos.Size = new System.Drawing.Size(285, 35);
             this.cboCursos.TabIndex = 9;
@@ -99,7 +99,7 @@
             // CargarReporteActividades
             // 
             this.CargarReporteActividades.Activecolor = System.Drawing.Color.DarkSlateGray;
-            this.CargarReporteActividades.BackColor = System.Drawing.Color.Teal;
+            this.CargarReporteActividades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.CargarReporteActividades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CargarReporteActividades.BorderRadius = 7;
             this.CargarReporteActividades.ButtonText = "Actividades ";
@@ -119,8 +119,8 @@
             this.CargarReporteActividades.IsTab = false;
             this.CargarReporteActividades.Location = new System.Drawing.Point(268, 290);
             this.CargarReporteActividades.Name = "CargarReporteActividades";
-            this.CargarReporteActividades.Normalcolor = System.Drawing.Color.Teal;
-            this.CargarReporteActividades.OnHovercolor = System.Drawing.Color.LightSeaGreen;
+            this.CargarReporteActividades.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.CargarReporteActividades.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.CargarReporteActividades.OnHoverTextColor = System.Drawing.Color.White;
             this.CargarReporteActividades.selected = false;
             this.CargarReporteActividades.Size = new System.Drawing.Size(115, 40);
@@ -134,7 +134,7 @@
             // CargarAsistencias
             // 
             this.CargarAsistencias.Activecolor = System.Drawing.Color.DarkSlateGray;
-            this.CargarAsistencias.BackColor = System.Drawing.Color.Teal;
+            this.CargarAsistencias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.CargarAsistencias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CargarAsistencias.BorderRadius = 7;
             this.CargarAsistencias.ButtonText = "Asistencias ";
@@ -154,8 +154,8 @@
             this.CargarAsistencias.IsTab = false;
             this.CargarAsistencias.Location = new System.Drawing.Point(18, 336);
             this.CargarAsistencias.Name = "CargarAsistencias";
-            this.CargarAsistencias.Normalcolor = System.Drawing.Color.Teal;
-            this.CargarAsistencias.OnHovercolor = System.Drawing.Color.LightSeaGreen;
+            this.CargarAsistencias.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.CargarAsistencias.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.CargarAsistencias.OnHoverTextColor = System.Drawing.Color.White;
             this.CargarAsistencias.selected = false;
             this.CargarAsistencias.Size = new System.Drawing.Size(364, 40);
@@ -169,7 +169,7 @@
             // CargarReporteMensualidades
             // 
             this.CargarReporteMensualidades.Activecolor = System.Drawing.Color.DarkSlateGray;
-            this.CargarReporteMensualidades.BackColor = System.Drawing.Color.Teal;
+            this.CargarReporteMensualidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.CargarReporteMensualidades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CargarReporteMensualidades.BorderRadius = 7;
             this.CargarReporteMensualidades.ButtonText = "Mensualidades";
@@ -189,8 +189,8 @@
             this.CargarReporteMensualidades.IsTab = false;
             this.CargarReporteMensualidades.Location = new System.Drawing.Point(142, 290);
             this.CargarReporteMensualidades.Name = "CargarReporteMensualidades";
-            this.CargarReporteMensualidades.Normalcolor = System.Drawing.Color.Teal;
-            this.CargarReporteMensualidades.OnHovercolor = System.Drawing.Color.LightSeaGreen;
+            this.CargarReporteMensualidades.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.CargarReporteMensualidades.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.CargarReporteMensualidades.OnHoverTextColor = System.Drawing.Color.White;
             this.CargarReporteMensualidades.selected = false;
             this.CargarReporteMensualidades.Size = new System.Drawing.Size(116, 40);
@@ -204,7 +204,7 @@
             // CargarReporteInscripciones
             // 
             this.CargarReporteInscripciones.Activecolor = System.Drawing.Color.DarkSlateGray;
-            this.CargarReporteInscripciones.BackColor = System.Drawing.Color.Teal;
+            this.CargarReporteInscripciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.CargarReporteInscripciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CargarReporteInscripciones.BorderRadius = 7;
             this.CargarReporteInscripciones.ButtonText = "Inscripciones";
@@ -224,8 +224,8 @@
             this.CargarReporteInscripciones.IsTab = false;
             this.CargarReporteInscripciones.Location = new System.Drawing.Point(18, 290);
             this.CargarReporteInscripciones.Name = "CargarReporteInscripciones";
-            this.CargarReporteInscripciones.Normalcolor = System.Drawing.Color.Teal;
-            this.CargarReporteInscripciones.OnHovercolor = System.Drawing.Color.LightSeaGreen;
+            this.CargarReporteInscripciones.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.CargarReporteInscripciones.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.CargarReporteInscripciones.OnHoverTextColor = System.Drawing.Color.White;
             this.CargarReporteInscripciones.selected = false;
             this.CargarReporteInscripciones.Size = new System.Drawing.Size(116, 40);
@@ -245,8 +245,8 @@
             this.cbEscuelas.Items = new string[0];
             this.cbEscuelas.Location = new System.Drawing.Point(21, 105);
             this.cbEscuelas.Name = "cbEscuelas";
-            this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.cbEscuelas.onHoverColor = System.Drawing.Color.Teal;
+            this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.cbEscuelas.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.cbEscuelas.selectedIndex = -1;
             this.cbEscuelas.Size = new System.Drawing.Size(362, 35);
             this.cbEscuelas.TabIndex = 8;
@@ -281,7 +281,7 @@
             // 
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.Teal;
+            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.bunifuCustomLabel1.Location = new System.Drawing.Point(15, 145);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(173, 24);
@@ -291,7 +291,7 @@
             // CargarTodosIngresos
             // 
             this.CargarTodosIngresos.Activecolor = System.Drawing.Color.DarkSlateGray;
-            this.CargarTodosIngresos.BackColor = System.Drawing.Color.Teal;
+            this.CargarTodosIngresos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.CargarTodosIngresos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CargarTodosIngresos.BorderRadius = 7;
             this.CargarTodosIngresos.ButtonText = "Ingresos";
@@ -311,8 +311,8 @@
             this.CargarTodosIngresos.IsTab = false;
             this.CargarTodosIngresos.Location = new System.Drawing.Point(19, 246);
             this.CargarTodosIngresos.Name = "CargarTodosIngresos";
-            this.CargarTodosIngresos.Normalcolor = System.Drawing.Color.Teal;
-            this.CargarTodosIngresos.OnHovercolor = System.Drawing.Color.LightSeaGreen;
+            this.CargarTodosIngresos.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.CargarTodosIngresos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.CargarTodosIngresos.OnHoverTextColor = System.Drawing.Color.White;
             this.CargarTodosIngresos.selected = false;
             this.CargarTodosIngresos.Size = new System.Drawing.Size(364, 40);
@@ -327,7 +327,7 @@
             // 
             this.lblColegios.AutoSize = true;
             this.lblColegios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lblColegios.ForeColor = System.Drawing.Color.Teal;
+            this.lblColegios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.lblColegios.Location = new System.Drawing.Point(15, 15);
             this.lblColegios.Name = "lblColegios";
             this.lblColegios.Size = new System.Drawing.Size(197, 24);
@@ -338,7 +338,7 @@
             // 
             this.lblTipoReporte.AutoSize = true;
             this.lblTipoReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lblTipoReporte.ForeColor = System.Drawing.Color.Teal;
+            this.lblTipoReporte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.lblTipoReporte.Location = new System.Drawing.Point(15, 218);
             this.lblTipoReporte.Name = "lblTipoReporte";
             this.lblTipoReporte.Size = new System.Drawing.Size(252, 24);
@@ -350,7 +350,7 @@
             this.bunifuCards3.BackColor = System.Drawing.Color.White;
             this.bunifuCards3.BorderRadius = 5;
             this.bunifuCards3.BottomSahddow = true;
-            this.bunifuCards3.color = System.Drawing.Color.Teal;
+            this.bunifuCards3.color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.bunifuCards3.Controls.Add(this.bunifuImageButton1);
             this.bunifuCards3.Controls.Add(this.cboGrupoGastos);
             this.bunifuCards3.Controls.Add(this.bunifuCustomLabel2);
@@ -386,8 +386,8 @@
             this.cboGrupoGastos.Items = new string[0];
             this.cboGrupoGastos.Location = new System.Drawing.Point(24, 94);
             this.cboGrupoGastos.Name = "cboGrupoGastos";
-            this.cboGrupoGastos.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
-            this.cboGrupoGastos.onHoverColor = System.Drawing.Color.Teal;
+            this.cboGrupoGastos.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.cboGrupoGastos.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.cboGrupoGastos.selectedIndex = -1;
             this.cboGrupoGastos.Size = new System.Drawing.Size(362, 35);
             this.cboGrupoGastos.TabIndex = 13;
@@ -397,7 +397,7 @@
             // 
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.Teal;
+            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.bunifuCustomLabel2.Location = new System.Drawing.Point(17, 15);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(180, 24);
@@ -407,7 +407,7 @@
             // CargarEgresos
             // 
             this.CargarEgresos.Activecolor = System.Drawing.Color.DarkSlateGray;
-            this.CargarEgresos.BackColor = System.Drawing.Color.Teal;
+            this.CargarEgresos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.CargarEgresos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CargarEgresos.BorderRadius = 7;
             this.CargarEgresos.ButtonText = "Gastos del grupo seleccionado";
@@ -428,8 +428,8 @@
             this.CargarEgresos.IsTab = false;
             this.CargarEgresos.Location = new System.Drawing.Point(22, 133);
             this.CargarEgresos.Name = "CargarEgresos";
-            this.CargarEgresos.Normalcolor = System.Drawing.Color.Teal;
-            this.CargarEgresos.OnHovercolor = System.Drawing.Color.LightSeaGreen;
+            this.CargarEgresos.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.CargarEgresos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.CargarEgresos.OnHoverTextColor = System.Drawing.Color.White;
             this.CargarEgresos.selected = false;
             this.CargarEgresos.Size = new System.Drawing.Size(364, 39);

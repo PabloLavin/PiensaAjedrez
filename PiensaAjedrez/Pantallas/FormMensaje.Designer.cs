@@ -36,8 +36,8 @@
             this.btnAceptar = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnDeclinar = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnRecordar = new Bunifu.Framework.UI.BunifuThinButton2();
             this.dtmHora = new System.Windows.Forms.DateTimePicker();
+            this.btnRecordar = new Bunifu.Framework.UI.BunifuThinButton2();
             ((System.ComponentModel.ISupportInitialize)(this.btnImagen)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -93,9 +93,9 @@
             // 
             this.btnAceptar.ActiveBorderThickness = 1;
             this.btnAceptar.ActiveCornerRadius = 20;
-            this.btnAceptar.ActiveFillColor = System.Drawing.Color.Teal;
+            this.btnAceptar.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(112)))), ((int)(((byte)(8)))));
             this.btnAceptar.ActiveForecolor = System.Drawing.Color.White;
-            this.btnAceptar.ActiveLineColor = System.Drawing.Color.Teal;
+            this.btnAceptar.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(112)))), ((int)(((byte)(8)))));
             this.btnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.btnAceptar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAceptar.BackgroundImage")));
             this.btnAceptar.ButtonText = "Aceptar";
@@ -104,9 +104,9 @@
             this.btnAceptar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnAceptar.IdleBorderThickness = 1;
             this.btnAceptar.IdleCornerRadius = 20;
-            this.btnAceptar.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnAceptar.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(162)))), ((int)(((byte)(58)))));
             this.btnAceptar.IdleForecolor = System.Drawing.SystemColors.Control;
-            this.btnAceptar.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(202)))), ((int)(((byte)(192)))));
+            this.btnAceptar.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(162)))), ((int)(((byte)(58)))));
             this.btnAceptar.Location = new System.Drawing.Point(44, 119);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";
@@ -150,6 +150,18 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             // 
+            // dtmHora
+            // 
+            this.dtmHora.CustomFormat = "HH:MM:SS";
+            this.dtmHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtmHora.Location = new System.Drawing.Point(58, 94);
+            this.dtmHora.Name = "dtmHora";
+            this.dtmHora.ShowUpDown = true;
+            this.dtmHora.Size = new System.Drawing.Size(89, 20);
+            this.dtmHora.TabIndex = 1;
+            this.dtmHora.Value = new System.DateTime(2019, 6, 11, 15, 53, 39, 0);
+            this.dtmHora.Visible = false;
+            // 
             // btnRecordar
             // 
             this.btnRecordar.ActiveBorderThickness = 1;
@@ -176,18 +188,6 @@
             this.btnRecordar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnRecordar.Visible = false;
             this.btnRecordar.Click += new System.EventHandler(this.BtnRecordar_Click);
-            // 
-            // dtmHora
-            // 
-            this.dtmHora.CustomFormat = "HH:MM:SS";
-            this.dtmHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtmHora.Location = new System.Drawing.Point(58, 94);
-            this.dtmHora.Name = "dtmHora";
-            this.dtmHora.ShowUpDown = true;
-            this.dtmHora.Size = new System.Drawing.Size(89, 20);
-            this.dtmHora.TabIndex = 1;
-            this.dtmHora.Value = new System.DateTime(2019, 6, 11, 15, 53, 39, 0);
-            this.dtmHora.Visible = false;
             // 
             // FormMensaje
             // 
