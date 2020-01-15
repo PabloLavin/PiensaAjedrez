@@ -95,16 +95,20 @@ namespace PiensaAjedrez
             dgvEstadisticas.Rows.Add("Balance Total", (ConexionBD.TotalIngresos() - ConexionBD.TotalGastos()).ToString("c"));
             dgvEstadisticas.Rows.Add("Total Alumnos", Convert.ToString(ConexionBD.CantidadAlumnos()));
             dgvEstadisticas.Rows.Add("Alumnos Activos", Convert.ToString(ConexionBD.CantidadAlumnosActivos()));
-            if(ConexionBD.TotalIngresos() - ConexionBD.TotalGastos() > 0)
+            dgvEstadisticas.Rows[2].Cells[0].Style.ForeColor = Color.White;
+            dgvEstadisticas.Rows[2].Cells[0].Style.BackColor= Color.FromArgb(181, 104, 29);
+            if (ConexionBD.TotalIngresos() - ConexionBD.TotalGastos() > 0)
             {
-                dgvEstadisticas.Rows[2].Cells[1].Style.BackColor = Color.ForestGreen;
-                dgvEstadisticas.Rows[2].Cells[1].Style.ForeColor = Color.White;
+                dgvEstadisticas.Rows[2].Cells[1].Style.ForeColor = Color.ForestGreen;
+                dgvEstadisticas.Rows[2].Cells[1].Style.BackColor = Color.White;
             }
             else
             {
-                dgvEstadisticas.Rows[2].Cells[1].Style.BackColor = Color.FromArgb(224, 139, 139);
-                dgvEstadisticas.Rows[2].Cells[1].Style.ForeColor = Color.White;
+                dgvEstadisticas.Rows[2].Cells[1].Style.ForeColor = Color.FromArgb(224, 139, 139);
+                dgvEstadisticas.Rows[2].Cells[1].Style.BackColor = Color.White;
             }
+
+            
 
             DgvEstadisticasEscuela.Rows.Add("Inscripciones","$0.00");
             DgvEstadisticasEscuela.Rows.Add("Mensualidades", "$0.00");
@@ -135,15 +139,36 @@ namespace PiensaAjedrez
             }
 
             dgvEstadisticas.Rows[0].Cells[0].Style.BackColor = Color.DarkGreen;
-            dgvEstadisticas.Rows[1].Cells[0].Style.BackColor = Color.Maroon;
-            dgvEstadisticas.Rows[0].Cells[1].Style.BackColor = Color.ForestGreen;
-            dgvEstadisticas.Rows[1].Cells[1].Style.BackColor = Color.FromArgb(224, 139, 139);
             dgvEstadisticas.Rows[0].Cells[0].Style.ForeColor = Color.White;
+            dgvEstadisticas.Rows[0].Cells[1].Style.ForeColor = Color.Black;
+            dgvEstadisticas.Rows[0].Cells[1].Style.BackColor = Color.LightGreen;
+
+            dgvEstadisticas.Rows[1].Cells[0].Style.BackColor = Color.Maroon;
             dgvEstadisticas.Rows[1].Cells[0].Style.ForeColor = Color.White;
-            dgvEstadisticas.Rows[0].Cells[1].Style.ForeColor = Color.White;
-            dgvEstadisticas.Rows[1].Cells[1].Style.ForeColor = Color.White;
-            dgvEstadisticas.Rows[4].Cells[1].Selected = true;
+            dgvEstadisticas.Rows[1].Cells[1].Style.ForeColor = Color.Black;
+            dgvEstadisticas.Rows[1].Cells[1].Style.BackColor = Color.FromArgb(224, 139, 139);
+
+            dgvEstadisticas.Rows[3].Cells[0].Style.ForeColor = Color.White;
+            dgvEstadisticas.Rows[3].Cells[0].Style.BackColor = Color.RoyalBlue;
+            dgvEstadisticas.Rows[4].Cells[0].Style.ForeColor = Color.White;
+            dgvEstadisticas.Rows[4].Cells[0].Style.BackColor = Color.SteelBlue;
+            dgvEstadisticas.Rows[3].Cells[1].Style.ForeColor = Color.Black;
+            dgvEstadisticas.Rows[3].Cells[1].Style.BackColor = Color.LightBlue;
+            dgvEstadisticas.Rows[4].Cells[1].Style.ForeColor = Color.Black;
+            dgvEstadisticas.Rows[4].Cells[1].Style.BackColor = Color.LightSteelBlue;
+
+            dgvEstadisticas.Rows[4].Cells[0].Selected = true;
+            dgvEstadisticas.Rows[4].Cells[0].Selected = false;
+            DgvEstadisticasEscuela.Rows[0].Cells[0].Selected = false;
+            dgvAlumnosParticular.Rows[0].Cells[0].Selected = false;
+
             dgvAlumnosParticular.Columns[1].Width = 65;
+            /*DgvEstadisticasEscuela.DefaultCellStyle.SelectionBackColor = DgvEstadisticasEscuela.DefaultCellStyle.BackColor;
+            DgvEstadisticasEscuela.DefaultCellStyle.SelectionForeColor = DgvEstadisticasEscuela.DefaultCellStyle.ForeColor;
+            dgvEstadisticas.DefaultCellStyle.SelectionBackColor = dgvEstadisticas.DefaultCellStyle.BackColor;
+            dgvEstadisticas.DefaultCellStyle.SelectionForeColor = dgvEstadisticas.DefaultCellStyle.ForeColor;
+            dgvAlumnosParticular.DefaultCellStyle.SelectionBackColor = dgvAlumnosParticular.DefaultCellStyle.BackColor;
+            dgvAlumnosParticular.DefaultCellStyle.SelectionForeColor = dgvAlumnosParticular.DefaultCellStyle.ForeColor;*/
         }
 
         void CargarDatosEscuela(string strNombreEscuela)
