@@ -60,12 +60,12 @@ namespace PiensaAjedrez
                 cbEscuelas.selectedIndex = 0;
               
             }
-         
-               
 
-            Recordatorios.CargarConfiguracion();
+
+
+            //Recordatorios.CargarConfiguracion();
             //MessageBox.Show(Recordatorios.dtmHoraRecordatorio.ToShortTimeString());
-            NotificarRetardos(Recordatorios.intCaso);
+            //NotificarRetardos(Recordatorios.intCaso);
 
             InicializarDGVEstadisticas();
 
@@ -1128,61 +1128,61 @@ namespace PiensaAjedrez
             return blnAceptarPago;
         }
 
-       public void NotificarRetardos(int intCaso)
-        {
-            if (intCaso == 0)
-                if (DateTime.Today.Day == 5 || DateTime.Today.Day == 10|| DateTime.Today.Day == 11||EsUltimoDia())
-                {
-                    if (PreguntarRetardo("Retardos en pago", "¿Desea enviar un correo a todos los deudores?"))
-                    {
-                        int i = 0;
-                        foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
-                        {
-                            cbEscuelas.selectedIndex = i;
-                            ConexionBD.BorrarDeudas(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave);
+       //public void NotificarRetardos(int intCaso)
+       // {
+       //     if (intCaso == 0)
+       //         if (DateTime.Today.Day == 5 || DateTime.Today.Day == 10|| DateTime.Today.Day == 18)
+       //         {
+       //             if (PreguntarRetardo("Retardos en pago", "¿Desea enviar un correo a todos los deudores?"))
+       //             {
+       //                 int i = 0;
+       //                 foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
+       //                 {
+       //                     cbEscuelas.selectedIndex = i;
+       //                     ConexionBD.BorrarDeudas(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave);
 
-                            foreach (Alumno alumno in ObtenerAlumnosDeudores(cbEscuelas.selectedValue))
-                            {
-                                AñadirDeuda(alumno);
+       //                     foreach (Alumno alumno in ObtenerAlumnosDeudores(cbEscuelas.selectedValue))
+       //                     {
+       //                         AñadirDeuda(alumno);
                                 
-                            }
-                            i++;
-                        }
-                            try
-                            {
-                            int intOpcion = 0;
-                            if (DateTime.Today.Day == 5)
-                                intOpcion = 3;
-                            if (DateTime.Today.Day == 10)
-                                intOpcion = 2;
-                            if (DateTime.Today.Day == 11 || EsUltimoDia())
-                                intOpcion = 1;
-                            EnviarCorreos(intOpcion);
-                            }
-                            catch (Exception)
-                            {
-                                unaForma.Mostrar("Error de conexión", "Ocurrió un error al intentar enviar un correo.\nCompruebe sus credenciales y la conexión a internet.\nSi el error persiste, intente más tarde.", 4, this);
-                            }
+       //                     }
+       //                     i++;
+       //                 }
+       //                     try
+       //                     {
+       //                     int intOpcion = 0;
+       //                     if (DateTime.Today.Day == 5)
+       //                         intOpcion = 3;
+       //                     if (DateTime.Today.Day == 10)
+       //                         intOpcion = 2;
+       //                     if (DateTime.Today.Day == 18/* || EsUltimoDia()*/)
+       //                         intOpcion = 1;
+       //                     EnviarCorreos(intOpcion);
+       //                     }
+       //                     catch (Exception)
+       //                     {
+       //                         unaForma.Mostrar("Error de conexión", "Ocurrió un error al intentar enviar un correo.\nCompruebe sus credenciales y la conexión a internet.\nSi el error persiste, intente más tarde.", 4, this);
+       //                     }
 
-                    }
-                    else if (Recordatorios.intCaso == 1)
-                        NotificarRetardos(1);
-                    else if(Recordatorios.intCaso==2)
-                        return;
-                }
-            if (intCaso == 1)
-            {
-                if (DateTime.Today.Day == 5 || DateTime.Today.Day == 10 || DateTime.Today.Day == 11 || EsUltimoDia())
-                {
-                    if ((DateTime.Now.TimeOfDay.Hours == Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours&& DateTime.Now.TimeOfDay.Minutes >= Recordatorios.dtmHoraRecordatorio.TimeOfDay.Minutes)|| DateTime.Now.TimeOfDay.Hours > Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours)
-                    {
-                        NotificarRetardos(0);
-                    }
+       //             }
+       //             else if (Recordatorios.intCaso == 1)
+       //                 NotificarRetardos(1);
+       //             else if(Recordatorios.intCaso==2)
+       //                 return;
+       //         }
+       //     if (intCaso == 1)
+       //     {
+       //         if (DateTime.Today.Day == 5 || DateTime.Today.Day == 10 || DateTime.Today.Day == 18)
+       //         {
+       //             if ((DateTime.Now.TimeOfDay.Hours == Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours&& DateTime.Now.TimeOfDay.Minutes >= Recordatorios.dtmHoraRecordatorio.TimeOfDay.Minutes)|| DateTime.Now.TimeOfDay.Hours > Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours)
+       //             {
+       //                 NotificarRetardos(0);
+       //             }
 
-                }
+       //         }
 
-            }
-        }
+       //     }
+       // }
 
         bool EsUltimoDia()
         {
@@ -1444,6 +1444,56 @@ namespace PiensaAjedrez
                 lblBeca.Visible = true;
                 lblLiquidado.Visible = true;
                 txtNota.Text = "";
+            }
+        }
+
+        private void BtnEnviarRecordatorios_Click(object sender, EventArgs e)
+        {
+            if (PreguntarRetardo("Retardos en pago", "¿Desea enviar un correo a todos los deudores?"))
+            {
+                int i = 0;
+                foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
+                {
+                    cbEscuelas.selectedIndex = i;
+                    ConexionBD.BorrarDeudas(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave);
+
+                    foreach (Alumno alumno in ObtenerAlumnosDeudores(cbEscuelas.selectedValue))
+                    {
+                        AñadirDeuda(alumno);
+
+                    }
+                    i++;
+                }
+                try
+                {
+                    int intOpcion = 0;
+                    string strMensajeRecordatorio = "";
+                    if (DateTime.Today.Day >= 1 && DateTime.Today.Day <= 9)
+                    {
+                        intOpcion = 3;
+                        strMensajeRecordatorio = "Se enviará un recordatorio indicando que aún hay tiempo.\nDías 1 - 9";
+                    }
+                    if (DateTime.Today.Day == 10)
+                    {
+                        intOpcion = 2;
+                        strMensajeRecordatorio = "Se enviará un recordatorio indicando que hoy es el último día para evitar comisiones.\nDía 10";
+                    }
+                    if (DateTime.Today.Day >= 11 /* EsUltimoDia()*/)
+                    {
+                        intOpcion = 1;
+                        strMensajeRecordatorio = "Se enviará un recordatorio indicando que se sobrepasó la fecha límite para evitar comisiones.\nDías 11 en adelante";
+                    }
+
+                    if (Preguntar("Confirmar Recordatorio", strMensajeRecordatorio))
+                        EnviarCorreos(intOpcion);
+                    else
+                        return;
+                }
+                catch (Exception)
+                {
+                    unaForma.Mostrar("Error de conexión", "Ocurrió un error al intentar enviar un correo.\nCompruebe sus credenciales y la conexión a internet.\nSi el error persiste, intente más tarde.", 4, this);
+                }
+
             }
         }
     }

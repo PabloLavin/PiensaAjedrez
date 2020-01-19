@@ -76,7 +76,7 @@ namespace PiensaAjedrez
             btnDeclinar.Location = new Point(164, 119);
             this.Height = 163;
             btnAceptar.ButtonText = "Aceptar";
-            btnRecordar.Visible = false;
+            //btnRecordar.Visible = false;
             groupBox1.Visible = false;
             if (intCaso == 1)
             {
@@ -118,8 +118,8 @@ namespace PiensaAjedrez
             }
             if (intCaso == 6)
             {
-                btnRecordar.Visible = true;
-                this.Height = 190;
+                //btnRecordar.Visible = true;
+                this.Height = 180;
                 btnDeclinar.Visible = true;
                 btnAceptar.ButtonText = "Sí";
                 btnDeclinar.ButtonText = "No";

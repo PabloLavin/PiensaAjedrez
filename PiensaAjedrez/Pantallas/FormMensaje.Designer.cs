@@ -37,7 +37,6 @@
             this.btnDeclinar = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtmHora = new System.Windows.Forms.DateTimePicker();
-            this.btnRecordar = new Bunifu.Framework.UI.BunifuThinButton2();
             ((System.ComponentModel.ISupportInitialize)(this.btnImagen)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -162,40 +161,12 @@
             this.dtmHora.Value = new System.DateTime(2019, 6, 11, 15, 53, 39, 0);
             this.dtmHora.Visible = false;
             // 
-            // btnRecordar
-            // 
-            this.btnRecordar.ActiveBorderThickness = 1;
-            this.btnRecordar.ActiveCornerRadius = 20;
-            this.btnRecordar.ActiveFillColor = System.Drawing.Color.RoyalBlue;
-            this.btnRecordar.ActiveForecolor = System.Drawing.Color.White;
-            this.btnRecordar.ActiveLineColor = System.Drawing.Color.RoyalBlue;
-            this.btnRecordar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.btnRecordar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRecordar.BackgroundImage")));
-            this.btnRecordar.ButtonText = "Recordar mas tarde";
-            this.btnRecordar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRecordar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRecordar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRecordar.IdleBorderThickness = 1;
-            this.btnRecordar.IdleCornerRadius = 20;
-            this.btnRecordar.IdleFillColor = System.Drawing.Color.SlateGray;
-            this.btnRecordar.IdleForecolor = System.Drawing.SystemColors.Control;
-            this.btnRecordar.IdleLineColor = System.Drawing.Color.SlateGray;
-            this.btnRecordar.Location = new System.Drawing.Point(77, 150);
-            this.btnRecordar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnRecordar.Name = "btnRecordar";
-            this.btnRecordar.Size = new System.Drawing.Size(147, 31);
-            this.btnRecordar.TabIndex = 52;
-            this.btnRecordar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnRecordar.Visible = false;
-            this.btnRecordar.Click += new System.EventHandler(this.BtnRecordar_Click);
-            // 
             // FormMensaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(383, 163);
-            this.Controls.Add(this.btnRecordar);
             this.Controls.Add(this.btnDeclinar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnImagen);
@@ -229,7 +200,6 @@
         private Bunifu.Framework.UI.BunifuThinButton2 btnAceptar;
         private Bunifu.Framework.UI.BunifuThinButton2 btnDeclinar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private Bunifu.Framework.UI.BunifuThinButton2 btnRecordar;
         private System.Windows.Forms.DateTimePicker dtmHora;
     }
 }

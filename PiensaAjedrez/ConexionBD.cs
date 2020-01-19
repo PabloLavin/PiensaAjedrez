@@ -390,6 +390,20 @@ namespace PiensaAjedrez
             return listaAlumnos;
         }
 
+        public static List<Alumno> ContarAlumnosControl()
+        {
+            List<Alumno> listaAlumnos = new List<Alumno>();
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("SELECT * FROM ALUMNO WHERE NumeroControl LIKE '"+(int.Parse(DateTime.Today.Year.ToString().Substring(2)))+"%'", con);
+                SqlDataReader alumnos = comando.ExecuteReader();
+                while (alumnos.Read())
+                    listaAlumnos.Add(new Alumno(alumnos.GetString(0), alumnos.GetString(1), alumnos.GetString(2), alumnos.GetDateTime(3), alumnos.GetString(4), alumnos.GetString(5), alumnos.GetInt16(6), alumnos.GetString(7), alumnos.GetString(8), alumnos.GetString(9), alumnos.GetInt16(10), alumnos.GetInt16(11)));
+            }
+            return listaAlumnos;
+        }
+
+
         public static void EditarAlumno(string strNroControl, Alumno unAlumno)
         {
             using (SqlConnection con = ObtenerConexion())

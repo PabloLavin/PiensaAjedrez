@@ -120,6 +120,7 @@
             this.lblBalanza = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuImageButton3 = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnListasActualizadas = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnEnviarRecordatorios = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuCards2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).BeginInit();
             this.bunifuCards1.SuspendLayout();
@@ -1353,7 +1354,7 @@
             this.btnListasActualizadas.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.btnListasActualizadas.IdleForecolor = System.Drawing.Color.White;
             this.btnListasActualizadas.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
-            this.btnListasActualizadas.Location = new System.Drawing.Point(240, 570);
+            this.btnListasActualizadas.Location = new System.Drawing.Point(368, 570);
             this.btnListasActualizadas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnListasActualizadas.Name = "btnListasActualizadas";
             this.btnListasActualizadas.Size = new System.Drawing.Size(549, 48);
@@ -1361,11 +1362,38 @@
             this.btnListasActualizadas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnListasActualizadas.Click += new System.EventHandler(this.btnListasActualizadas_Click);
             // 
+            // btnEnviarRecordatorios
+            // 
+            this.btnEnviarRecordatorios.ActiveBorderThickness = 1;
+            this.btnEnviarRecordatorios.ActiveCornerRadius = 20;
+            this.btnEnviarRecordatorios.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.btnEnviarRecordatorios.ActiveForecolor = System.Drawing.Color.White;
+            this.btnEnviarRecordatorios.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.btnEnviarRecordatorios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnEnviarRecordatorios.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEnviarRecordatorios.BackgroundImage")));
+            this.btnEnviarRecordatorios.ButtonText = "Enviar Recordatorios";
+            this.btnEnviarRecordatorios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEnviarRecordatorios.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.btnEnviarRecordatorios.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.btnEnviarRecordatorios.IdleBorderThickness = 1;
+            this.btnEnviarRecordatorios.IdleCornerRadius = 20;
+            this.btnEnviarRecordatorios.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
+            this.btnEnviarRecordatorios.IdleForecolor = System.Drawing.Color.White;
+            this.btnEnviarRecordatorios.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
+            this.btnEnviarRecordatorios.Location = new System.Drawing.Point(118, 570);
+            this.btnEnviarRecordatorios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEnviarRecordatorios.Name = "btnEnviarRecordatorios";
+            this.btnEnviarRecordatorios.Size = new System.Drawing.Size(231, 48);
+            this.btnEnviarRecordatorios.TabIndex = 46;
+            this.btnEnviarRecordatorios.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnEnviarRecordatorios.Click += new System.EventHandler(this.BtnEnviarRecordatorios_Click);
+            // 
             // Mensualidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.Controls.Add(this.btnEnviarRecordatorios);
             this.Controls.Add(this.bunifuCards1);
             this.Controls.Add(this.bunifuCards4);
             this.Controls.Add(this.bunifuCards3);
@@ -1481,5 +1509,6 @@
         private System.Windows.Forms.Label lblPControl;
         private System.Windows.Forms.Label lblInfo1;
         private System.Windows.Forms.Label lblPRecibo;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnEnviarRecordatorios;
     }
 }

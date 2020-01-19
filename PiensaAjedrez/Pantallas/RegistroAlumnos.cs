@@ -59,7 +59,7 @@ namespace PiensaAjedrez
             int intControlAlumno = 0;
             do
             {
-                lblnumerocontrol.Text= ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count + intControlAlumno)).ToString());
+                lblnumerocontrol.Text= ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.ContarAlumnosControl().Count + intControlAlumno)).ToString());
                 intControlAlumno++;
             } while (ConexionBD.CargarAlumnos().Contains(new Alumno(lblnumerocontrol.Text)));
             //lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2)))+( int.Parse("100000") + (ConexionBD.CargarAlumnos().Count)).ToString());
@@ -135,7 +135,7 @@ namespace PiensaAjedrez
                     int intControlAlumno = 0;
                     do
                     {
-                        miAlumno.NumeroDeControl = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count+intControlAlumno)).ToString());
+                        miAlumno.NumeroDeControl = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.ContarAlumnosControl().Count+intControlAlumno)).ToString());
                         intControlAlumno++;
                     } while (ConexionBD.CargarAlumnos().Contains(miAlumno));
                 }
@@ -162,7 +162,7 @@ namespace PiensaAjedrez
 
                 do
                 {
-                    lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count + intControl)).ToString());
+                    lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.ContarAlumnosControl().Count + intControl)).ToString());
                     miAlumno.NumeroDeControl = lblnumerocontrol.Text;
                     intControl++;
                 } while (ConexionBD.CargarAlumnos().Contains(miAlumno));
@@ -573,7 +573,7 @@ namespace PiensaAjedrez
             int intControlAlumno = 0;
             do
             {
-                lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count + intControlAlumno)).ToString());
+                lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.ContarAlumnosControl().Count + intControlAlumno)).ToString());
                 intControlAlumno++;
             } while (ConexionBD.CargarAlumnos().Contains(new Alumno(lblnumerocontrol.Text)));
             //lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.CargarAlumnos().Count)).ToString());

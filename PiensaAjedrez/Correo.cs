@@ -57,7 +57,7 @@ namespace PiensaAjedrez
             LinkedResource res = new LinkedResource(filePath, MediaTypeNames.Image.Jpeg);
             res.ContentId = Guid.NewGuid().ToString();
             List<Deuda> listaDeudas= ConexionBD.CargarDeudas(miAlumno.NumeroDeControl);
-            double dblMonto=0;
+            //double dblMonto=0;
             string strDescripcion = "";
             string htmlBody="";
             //Caso 1 - Notificar retrasos en los pagos.
@@ -65,36 +65,35 @@ namespace PiensaAjedrez
             {
                 foreach (Deuda deuda in listaDeudas)
                 {
-                    dblMonto += 400;
-                    dblMonto += deuda.Monto;
-                    strDescripcion += "<li><b>Mensualidad de " + deuda.Mes + ":</b> $400.00";
-                    strDescripcion += "<li><b>Comision por atraso en " + deuda.Mes + ":</b> " + deuda.Monto.ToString("C") + "</li>";
+                    
+                    strDescripcion += "<li><b>Mensualidad de " + deuda.Mes + "</b>";
+                   
                 }
-                htmlBody = "<html><body><center> " + @"<img src='cid:" + res.ContentId + @"'></center><br><p style='text-align:justify'>Estimado padre de familia. <br>A traves de este conducto le reiteramos nuestro compromiso con la educacion de su hijo(a) y le notificamos que cuenta con" + (listaDeudas.Count == 1 ? " un atraso en el pago." : " atrasos en algunos pagos.") + " </p><b>Numero de Control: </b>" + miAlumno.NumeroDeControl + "<br><b>Alumno: </b>" + miAlumno.Nombre + " " + miAlumno.ApellidoPaterno + " " + miAlumno.ApellidoMaterno + "<br><b>Adeudo Total: </b>" + dblMonto.ToString("c") + "<br><b>Descripcion:</b><br>" + strDescripcion + "<br><b>Fecha: </b>" + DateTime.Now.ToShortDateString() + "</p><p style='text-align:justify'><i> Nota: Este correo fue generado por un sistema automatizado, los acentos fueron removidos intencionalmente para garantizar que el correo llegue completamente legible al destinatario. Este correo electronico es confidencial y/o puede contener informacion privilegiada. Queda prohibida la retransmision a distintas personas sin previa autorizacion del remitente.</i></p><center><b>Piensa Ajedrez<br>Direccion General.</b></center></body></html>";
+                htmlBody = "<html><body><center> " + @"<img src='cid:" + res.ContentId + @"'></center><br><p style='text-align:justify'>Estimado padre de familia. <br>Le recordamos que el pago de las mensualidades se deben de realizar los primeros 10 días de cada mes. La fecha de pago puntual a expirado por lo que se han generado comisiones. Le agradecemos se ponga al corriente para poder seguir disfrutando de la capacitacion de su hijo con nuestros servicios. Gracias."+ " </p><b>Numero de Control: </b>" + miAlumno.NumeroDeControl + "<br><b>Alumno: </b>" + miAlumno.Nombre + " " + miAlumno.ApellidoPaterno + " " + miAlumno.ApellidoMaterno + "<br><b>Descripcion:</b><br>" + strDescripcion + "<br><br><b>Fecha: </b>" + DateTime.Now.ToShortDateString() + "</p><p style='text-align:justify'><i> Nota: Este correo fue generado por un sistema automatizado, los acentos fueron removidos intencionalmente para garantizar que el correo llegue completamente legible al destinatario. Este correo electronico es confidencial y/o puede contener informacion privilegiada. Queda prohibida la retransmision a distintas personas sin previa autorizacion del remitente.</i></p><center><b>Piensa Ajedrez<br>Direccion General.</b></center></body></html>";
             }
             //Caso 2 - Notificar que es último día
             else if(intCaso == 2)
             {
                 foreach (Deuda deuda in listaDeudas)
                 {
-                    dblMonto += 400;
+                  
                     //dblMonto += deuda.Monto;
-                    strDescripcion += "<li><b>Mensualidad de " + deuda.Mes + ":</b> $400.00";
+                    strDescripcion += "<li><b>Mensualidad de " + deuda.Mes + "";
                     //strDescripcion += "<li><b>Comision por atraso en " + deuda.Mes + ":</b> " + deuda.Monto.ToString("C") + "</li>";
                 }
-                htmlBody = "<html><body><center> " + @"<img src='cid:" + res.ContentId + @"'></center><br><p style='text-align:justify'>Estimado padre de familia. <br>Le informamos que hoy es el último día que tiene para pagar la(s) mensualidad(es) y evitar comisiones por atraso. Le notificamos que cuenta con" + (listaDeudas.Count == 1 ? " un atraso en el pago." : " atrasos en algunos pagos.") + " </p><b>Numero de Control: </b>" + miAlumno.NumeroDeControl + "<br><b>Alumno: </b>" + miAlumno.Nombre + " " + miAlumno.ApellidoPaterno + " " + miAlumno.ApellidoMaterno + "<br><b>Adeudo Total: </b>" + dblMonto.ToString("c") + "<br><b>Descripcion:</b><br>" + strDescripcion + "<br><b>Fecha: </b>" + DateTime.Now.ToShortDateString() + "</p><p style='text-align:justify'><i> Nota: Este correo fue generado por un sistema automatizado, los acentos fueron removidos intencionalmente para garantizar que el correo llegue completamente legible al destinatario. Este correo electronico es confidencial y/o puede contener informacion privilegiada. Queda prohibida la retransmision a distintas personas sin previa autorizacion del remitente.</i></p><center><b>Piensa Ajedrez<br>Direccion General.</b></center></body></html>";
+                htmlBody = "<html><body><center> " + @"<img src='cid:" + res.ContentId + @"'></center><br><p style='text-align:justify'>Estimado padre de familia. <br>Le recordamos que el pago de las mensualidades se deben de realizar los primeros 10 días de cada mes. Por lo que hoy es el último día que tiene para efectuar el pago y evitar comisiones. Gracias." + " </p><b>Numero de Control: </b>" + miAlumno.NumeroDeControl + "<br><b>Alumno: </b>" + miAlumno.Nombre + " " + miAlumno.ApellidoPaterno + " " + miAlumno.ApellidoMaterno + "<br><b>Descripcion:</b><br>" + strDescripcion + "<br><br><b>Fecha: </b>" + DateTime.Now.ToShortDateString() + "</p><p style='text-align:justify'><i> Nota: Este correo fue generado por un sistema automatizado, los acentos fueron removidos intencionalmente para garantizar que el correo llegue completamente legible al destinatario. Este correo electronico es confidencial y/o puede contener informacion privilegiada. Queda prohibida la retransmision a distintas personas sin previa autorizacion del remitente.</i></p><center><b>Piensa Ajedrez<br>Direccion General.</b></center></body></html>";
             }
             //Caso 3 - Notificar que está pendiente de pagar
             else if (intCaso == 3)
             {
                 foreach (Deuda deuda in listaDeudas)
                 {
-                    dblMonto += 400;
+                  
                     //dblMonto += deuda.Monto;
-                    strDescripcion += "<li><b>Mensualidad de " + deuda.Mes + ":</b> $400.00";
+                    strDescripcion += "<li><b>Mensualidad de " + deuda.Mes + "</b>";
                     //strDescripcion += "<li><b>Comision por atraso en " + deuda.Mes + ":</b> " + deuda.Monto.ToString("C") + "</li>";
                 }
-                htmlBody = "<html><body><center> " + @"<img src='cid:" + res.ContentId + @"'></center><br><p style='text-align:justify'>Estimado padre de familia. <br>Le informamos que aún está pendiente de realizar los pagos de la(s) mensualidad(es) y así evitar comisiones. Tiene hasta el día 10 del presente mes para efectuarlos. Cuenta con" + (listaDeudas.Count == 1 ? " un pago pendiente." : " varios pagos pendientes.") + " </p><b>Numero de Control: </b>" + miAlumno.NumeroDeControl + "<br><b>Alumno: </b>" + miAlumno.Nombre + " " + miAlumno.ApellidoPaterno + " " + miAlumno.ApellidoMaterno + "<br><b>Adeudo Total: </b>" + dblMonto.ToString("c") + "<br><b>Descripcion:</b><br>" + strDescripcion + "<br><b>Fecha: </b>" + DateTime.Now.ToShortDateString() + "</p><p style='text-align:justify'><i> Nota: Este correo fue generado por un sistema automatizado, los acentos fueron removidos intencionalmente para garantizar que el correo llegue completamente legible al destinatario. Este correo electronico es confidencial y/o puede contener informacion privilegiada. Queda prohibida la retransmision a distintas personas sin previa autorizacion del remitente.</i></p><center><b>Piensa Ajedrez<br>Direccion General.</b></center></body></html>";
+                htmlBody = "<html><body><center> " + @"<img src='cid:" + res.ContentId + @"'></center><br><p style='text-align:justify'>Estimado padre de familia. <br>Le recordamos que el pago de las mensualidades se deben de realizar los primeros 10 días de cada mes. Le agradecemos su pago puntual para que de esta manera no se generen comisiones. Gracias." + " </p><b>Numero de Control: </b>" + miAlumno.NumeroDeControl + "<br><b>Alumno: </b>" + miAlumno.Nombre + " " + miAlumno.ApellidoPaterno + " " + miAlumno.ApellidoMaterno + "<br><b>Descripcion:</b><br>" + strDescripcion + "<br><br><b>Fecha: </b>" + DateTime.Now.ToShortDateString() + "</p><p style='text-align:justify'><i> Nota: Este correo fue generado por un sistema automatizado, los acentos fueron removidos intencionalmente para garantizar que el correo llegue completamente legible al destinatario. Este correo electronico es confidencial y/o puede contener informacion privilegiada. Queda prohibida la retransmision a distintas personas sin previa autorizacion del remitente.</i></p><center><b>Piensa Ajedrez<br>Direccion General.</b></center></body></html>";
             }
 
             AlternateView alternateView = AlternateView.CreateAlternateViewFromString(htmlBody, null, MediaTypeNames.Text.Html);
