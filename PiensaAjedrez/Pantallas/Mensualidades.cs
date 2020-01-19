@@ -61,7 +61,7 @@ namespace PiensaAjedrez
               
             }
 
-
+            ClickPestanaGastos();
 
             //Recordatorios.CargarConfiguracion();
             //MessageBox.Show(Recordatorios.dtmHoraRecordatorio.ToShortTimeString());
@@ -1388,11 +1388,7 @@ namespace PiensaAjedrez
         {
             if (radGastos.Checked)
             {
-                lblTransaccion.Text = "Gastos";
-                IniciarCBGastos();
-                btnArchivar.Visible = true;
-                btnVerGastos.Visible = true;
-                cbGastos.Visible = true;
+               
 
             }
         }
@@ -1410,12 +1406,7 @@ namespace PiensaAjedrez
         {
             if (radIngreso.Checked)
             {
-                lblTransaccion.Text = "Ingresos";
-                
-                btnArchivar.Visible = true;
-                btnVerGastos.Visible = true;
-                cbGastos.Visible = false;
-
+               
             }
         }
 
@@ -1495,6 +1486,51 @@ namespace PiensaAjedrez
                 }
 
             }
+        }
+
+        private void BtnPestañaGastos_Click(object sender, EventArgs e)
+        {
+            //lblTransaccion.Text = "Gastos";
+            ClickPestanaGastos();
+        }
+
+        private void BtnPestañaIngresos_Click(object sender, EventArgs e)
+        {
+            //lblTransaccion.Text = "Ingresos";
+            ClickPestanaIngreso();
+           
+        }
+
+        void ClickPestanaIngreso()
+        {
+            btnArchivar.Visible = true;
+            btnVerGastos.Visible = true;
+            cbGastos.Visible = false;
+            btnPestañaIngresos.BringToFront();
+            btnPestañaIngresos.IdleFillColor = Color.FromArgb(222, 139, 58);
+            btnPestañaIngresos.IdleLineColor = Color.FromArgb(222, 139, 58);
+            btnPestañaIngresos.IdleForecolor = Color.White;
+
+            btnPestañaGastos.IdleFillColor = Color.White;
+            btnPestañaGastos.IdleLineColor = Color.DimGray;
+            btnPestañaGastos.IdleForecolor = Color.DimGray;
+            radIngreso.Checked = true;
+        }
+        void ClickPestanaGastos()
+        {
+            IniciarCBGastos();
+            btnArchivar.Visible = true;
+            btnVerGastos.Visible = true;
+            cbGastos.Visible = true;
+            btnPestañaGastos.BringToFront();
+            btnPestañaGastos.IdleFillColor = Color.FromArgb(222, 139, 58);
+            btnPestañaGastos.IdleLineColor = Color.FromArgb(222, 139, 58);
+            btnPestañaGastos.IdleForecolor = Color.White;
+
+            btnPestañaIngresos.IdleFillColor = Color.White;
+            btnPestañaIngresos.IdleLineColor = Color.DimGray;
+            btnPestañaIngresos.IdleForecolor = Color.DimGray;
+            radGastos.Checked = true; ;
         }
     }
 }

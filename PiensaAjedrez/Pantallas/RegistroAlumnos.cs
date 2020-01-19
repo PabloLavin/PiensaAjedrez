@@ -645,6 +645,12 @@ namespace PiensaAjedrez
                 }
                 MostrarDatos();
                 LimpiarControles();
+                int intControlAlumno = 0;
+                do
+                {
+                    lblnumerocontrol.Text = ((int.Parse(DateTime.Today.Year.ToString().Substring(2))) + (int.Parse("100000") + (ConexionBD.ContarAlumnosControl().Count + intControlAlumno)).ToString());
+                    intControlAlumno++;
+                } while (ConexionBD.CargarAlumnos().Contains(new Alumno(lblnumerocontrol.Text)));
                 if (btnAgregar.ButtonText == "Editar")
                 {
                     btnAgregar.ButtonText = "Agregar";

@@ -103,8 +103,6 @@
             this.btnArchivar = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnVerGastos = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuCards3 = new Bunifu.Framework.UI.BunifuCards();
-            this.radIngreso = new System.Windows.Forms.RadioButton();
-            this.radGastos = new System.Windows.Forms.RadioButton();
             this.txtMontoAdicional = new System.Windows.Forms.TextBox();
             this.txtMotivo = new System.Windows.Forms.TextBox();
             this.lblMotivo = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -113,7 +111,6 @@
             this.btnRegistrarGasto = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblMontoAdicional = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.lblTransaccion = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuCards4 = new Bunifu.Framework.UI.BunifuCards();
             this.dgvEstadisticas = new Bunifu.Framework.UI.BunifuCustomDataGrid();
@@ -121,6 +118,10 @@
             this.bunifuImageButton3 = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnListasActualizadas = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnEnviarRecordatorios = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnPestañaGastos = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnPestañaIngresos = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.radGastos = new System.Windows.Forms.RadioButton();
+            this.radIngreso = new System.Windows.Forms.RadioButton();
             this.bunifuCards2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).BeginInit();
             this.bunifuCards1.SuspendLayout();
@@ -1050,6 +1051,8 @@
             this.bunifuCards3.BorderRadius = 5;
             this.bunifuCards3.BottomSahddow = true;
             this.bunifuCards3.color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.bunifuCards3.Controls.Add(this.btnPestañaIngresos);
+            this.bunifuCards3.Controls.Add(this.btnPestañaGastos);
             this.bunifuCards3.Controls.Add(this.radIngreso);
             this.bunifuCards3.Controls.Add(this.radGastos);
             this.bunifuCards3.Controls.Add(this.btnArchivar);
@@ -1063,7 +1066,6 @@
             this.bunifuCards3.Controls.Add(this.btnRegistrarGasto);
             this.bunifuCards3.Controls.Add(this.bunifuCustomLabel2);
             this.bunifuCards3.Controls.Add(this.lblMontoAdicional);
-            this.bunifuCards3.Controls.Add(this.lblTransaccion);
             this.bunifuCards3.Controls.Add(this.bunifuImageButton1);
             this.bunifuCards3.LeftSahddow = false;
             this.bunifuCards3.Location = new System.Drawing.Point(992, 364);
@@ -1072,30 +1074,6 @@
             this.bunifuCards3.ShadowDepth = 20;
             this.bunifuCards3.Size = new System.Drawing.Size(323, 240);
             this.bunifuCards3.TabIndex = 21;
-            // 
-            // radIngreso
-            // 
-            this.radIngreso.AutoSize = true;
-            this.radIngreso.Location = new System.Drawing.Point(160, 52);
-            this.radIngreso.Name = "radIngreso";
-            this.radIngreso.Size = new System.Drawing.Size(60, 17);
-            this.radIngreso.TabIndex = 51;
-            this.radIngreso.Text = "Ingreso";
-            this.radIngreso.UseVisualStyleBackColor = true;
-            this.radIngreso.CheckedChanged += new System.EventHandler(this.RadIngreso_CheckedChanged);
-            // 
-            // radGastos
-            // 
-            this.radGastos.AutoSize = true;
-            this.radGastos.Checked = true;
-            this.radGastos.Location = new System.Drawing.Point(104, 52);
-            this.radGastos.Name = "radGastos";
-            this.radGastos.Size = new System.Drawing.Size(53, 17);
-            this.radGastos.TabIndex = 50;
-            this.radGastos.TabStop = true;
-            this.radGastos.Text = "Gasto";
-            this.radGastos.UseVisualStyleBackColor = true;
-            this.radGastos.CheckedChanged += new System.EventHandler(this.RadGastos_CheckedChanged);
             // 
             // txtMontoAdicional
             // 
@@ -1221,17 +1199,6 @@
             this.lblMontoAdicional.Size = new System.Drawing.Size(58, 20);
             this.lblMontoAdicional.TabIndex = 39;
             this.lblMontoAdicional.Text = "Monto ";
-            // 
-            // lblTransaccion
-            // 
-            this.lblTransaccion.AutoSize = true;
-            this.lblTransaccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTransaccion.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTransaccion.Location = new System.Drawing.Point(49, 14);
-            this.lblTransaccion.Name = "lblTransaccion";
-            this.lblTransaccion.Size = new System.Drawing.Size(74, 25);
-            this.lblTransaccion.TabIndex = 20;
-            this.lblTransaccion.Text = "Gastos";
             // 
             // bunifuImageButton1
             // 
@@ -1388,6 +1355,84 @@
             this.btnEnviarRecordatorios.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnEnviarRecordatorios.Click += new System.EventHandler(this.BtnEnviarRecordatorios_Click);
             // 
+            // btnPestañaGastos
+            // 
+            this.btnPestañaGastos.ActiveBorderThickness = 1;
+            this.btnPestañaGastos.ActiveCornerRadius = 6;
+            this.btnPestañaGastos.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.btnPestañaGastos.ActiveForecolor = System.Drawing.Color.White;
+            this.btnPestañaGastos.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.btnPestañaGastos.BackColor = System.Drawing.Color.White;
+            this.btnPestañaGastos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPestañaGastos.BackgroundImage")));
+            this.btnPestañaGastos.ButtonText = "Gastos";
+            this.btnPestañaGastos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPestañaGastos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPestañaGastos.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnPestañaGastos.IdleBorderThickness = 1;
+            this.btnPestañaGastos.IdleCornerRadius = 6;
+            this.btnPestañaGastos.IdleFillColor = System.Drawing.Color.White;
+            this.btnPestañaGastos.IdleForecolor = System.Drawing.Color.DimGray;
+            this.btnPestañaGastos.IdleLineColor = System.Drawing.Color.DimGray;
+            this.btnPestañaGastos.Location = new System.Drawing.Point(48, 5);
+            this.btnPestañaGastos.Margin = new System.Windows.Forms.Padding(5);
+            this.btnPestañaGastos.Name = "btnPestañaGastos";
+            this.btnPestañaGastos.Size = new System.Drawing.Size(85, 41);
+            this.btnPestañaGastos.TabIndex = 52;
+            this.btnPestañaGastos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPestañaGastos.Click += new System.EventHandler(this.BtnPestañaGastos_Click);
+            // 
+            // btnPestañaIngresos
+            // 
+            this.btnPestañaIngresos.ActiveBorderThickness = 1;
+            this.btnPestañaIngresos.ActiveCornerRadius = 6;
+            this.btnPestañaIngresos.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.btnPestañaIngresos.ActiveForecolor = System.Drawing.Color.White;
+            this.btnPestañaIngresos.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.btnPestañaIngresos.BackColor = System.Drawing.Color.White;
+            this.btnPestañaIngresos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPestañaIngresos.BackgroundImage")));
+            this.btnPestañaIngresos.ButtonText = "Ingresos";
+            this.btnPestañaIngresos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPestañaIngresos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPestañaIngresos.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnPestañaIngresos.IdleBorderThickness = 1;
+            this.btnPestañaIngresos.IdleCornerRadius = 6;
+            this.btnPestañaIngresos.IdleFillColor = System.Drawing.Color.White;
+            this.btnPestañaIngresos.IdleForecolor = System.Drawing.Color.DimGray;
+            this.btnPestañaIngresos.IdleLineColor = System.Drawing.Color.DimGray;
+            this.btnPestañaIngresos.Location = new System.Drawing.Point(125, 5);
+            this.btnPestañaIngresos.Margin = new System.Windows.Forms.Padding(5);
+            this.btnPestañaIngresos.Name = "btnPestañaIngresos";
+            this.btnPestañaIngresos.Size = new System.Drawing.Size(85, 41);
+            this.btnPestañaIngresos.TabIndex = 53;
+            this.btnPestañaIngresos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPestañaIngresos.Click += new System.EventHandler(this.BtnPestañaIngresos_Click);
+            // 
+            // radGastos
+            // 
+            this.radGastos.AutoSize = true;
+            this.radGastos.Checked = true;
+            this.radGastos.Location = new System.Drawing.Point(54, 54);
+            this.radGastos.Name = "radGastos";
+            this.radGastos.Size = new System.Drawing.Size(53, 17);
+            this.radGastos.TabIndex = 50;
+            this.radGastos.TabStop = true;
+            this.radGastos.Text = "Gasto";
+            this.radGastos.UseVisualStyleBackColor = true;
+            this.radGastos.Visible = false;
+            this.radGastos.CheckedChanged += new System.EventHandler(this.RadGastos_CheckedChanged);
+            // 
+            // radIngreso
+            // 
+            this.radIngreso.AutoSize = true;
+            this.radIngreso.Location = new System.Drawing.Point(110, 54);
+            this.radIngreso.Name = "radIngreso";
+            this.radIngreso.Size = new System.Drawing.Size(60, 17);
+            this.radIngreso.TabIndex = 51;
+            this.radIngreso.Text = "Ingreso";
+            this.radIngreso.UseVisualStyleBackColor = true;
+            this.radIngreso.Visible = false;
+            this.radIngreso.CheckedChanged += new System.EventHandler(this.RadIngreso_CheckedChanged);
+            // 
             // Mensualidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1459,7 +1504,6 @@
         private Bunifu.Framework.UI.BunifuCheckbox chkAño;
         private System.Windows.Forms.ComboBox cbAño;
         private Bunifu.Framework.UI.BunifuCards bunifuCards3;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblTransaccion;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
         private Bunifu.Framework.UI.BunifuThinButton2 btnRegistrarGasto;
         private Bunifu.Framework.UI.BunifuDropdown cbGastos;
@@ -1489,8 +1533,6 @@
         private Bunifu.Framework.UI.BunifuCustomDataGrid DgvEstadisticasEscuela;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvAlumnosParticular;
         private Bunifu.Framework.UI.BunifuThinButton2 btnListasActualizadas;
-        private System.Windows.Forms.RadioButton radIngreso;
-        private System.Windows.Forms.RadioButton radGastos;
         private Bunifu.Framework.UI.BunifuCustomLabel lblNull;
         private Bunifu.Framework.UI.BunifuCheckbox chkNull;
         private System.Windows.Forms.GroupBox gbEsconder;
@@ -1510,5 +1552,9 @@
         private System.Windows.Forms.Label lblInfo1;
         private System.Windows.Forms.Label lblPRecibo;
         private Bunifu.Framework.UI.BunifuThinButton2 btnEnviarRecordatorios;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnPestañaIngresos;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnPestañaGastos;
+        private System.Windows.Forms.RadioButton radIngreso;
+        private System.Windows.Forms.RadioButton radGastos;
     }
 }
