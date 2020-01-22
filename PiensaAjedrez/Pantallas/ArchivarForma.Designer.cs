@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArchivarForma));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblIngresos = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.imgIngresos = new Bunifu.Framework.UI.BunifuImageButton();
             this.dgvGastos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
@@ -41,9 +41,11 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnSalir = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.dgvGastosTotales = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.imgIngresos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).BeginInit();
             this.gbClasificar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGastosTotales)).BeginInit();
             this.SuspendLayout();
             // 
             // lblIngresos
@@ -76,28 +78,28 @@
             this.dgvGastos.AllowUserToDeleteRows = false;
             this.dgvGastos.AllowUserToResizeColumns = false;
             this.dgvGastos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvGastos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvGastos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvGastos.BackgroundColor = System.Drawing.Color.White;
             this.dgvGastos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvGastos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGastos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGastos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGastos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGastos.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvGastos.DoubleBuffered = true;
             this.dgvGastos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvGastos.EnableHeadersVisualStyles = false;
@@ -106,18 +108,18 @@
             this.dgvGastos.HeaderForeColor = System.Drawing.Color.White;
             this.dgvGastos.Location = new System.Drawing.Point(25, 149);
             this.dgvGastos.Name = "dgvGastos";
-            this.dgvGastos.ReadOnly = true;
             this.dgvGastos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvGastos.RowHeadersVisible = false;
             this.dgvGastos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgvGastos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.dgvGastos.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvGastos.RowTemplate.Height = 25;
             this.dgvGastos.RowTemplate.ReadOnly = true;
             this.dgvGastos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGastos.Size = new System.Drawing.Size(682, 302);
             this.dgvGastos.TabIndex = 25;
+            this.dgvGastos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGastos_CellClick);
             // 
             // gbClasificar
             // 
@@ -210,12 +212,26 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
+            // dgvGastosTotales
+            // 
+            this.dgvGastosTotales.AllowUserToAddRows = false;
+            this.dgvGastosTotales.AllowUserToDeleteRows = false;
+            this.dgvGastosTotales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGastosTotales.ColumnHeadersVisible = false;
+            this.dgvGastosTotales.Location = new System.Drawing.Point(109, 86);
+            this.dgvGastosTotales.Name = "dgvGastosTotales";
+            this.dgvGastosTotales.ReadOnly = true;
+            this.dgvGastosTotales.RowHeadersVisible = false;
+            this.dgvGastosTotales.Size = new System.Drawing.Size(207, 45);
+            this.dgvGastosTotales.TabIndex = 28;
+            // 
             // ArchivarForma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(732, 469);
+            this.Controls.Add(this.dgvGastosTotales);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.gbClasificar);
             this.Controls.Add(this.dgvGastos);
@@ -233,6 +249,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).EndInit();
             this.gbClasificar.ResumeLayout(false);
             this.gbClasificar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGastosTotales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,5 +265,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuFlatButton btnArchivar;
         private Bunifu.Framework.UI.BunifuThinButton2 btnSalir;
+        private System.Windows.Forms.DataGridView dgvGastosTotales;
     }
 }

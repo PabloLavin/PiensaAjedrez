@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -211,7 +212,7 @@ namespace PiensaAjedrez
                 {
                      dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     //dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                    dgvAlumnos.Columns[5].Width = 120;
+                    dgvAlumnos.Columns[5].Width = 105;
                 }
                 else
                 {
@@ -229,6 +230,7 @@ namespace PiensaAjedrez
                 dgvAlumnos.Columns[2].Width = 115;
                 dgvAlumnos.Columns[3].Width = 125;
                 dgvAlumnos.Columns[4].Width = 150;
+                dgvAlumnos.Columns[5].Width = 105;
             }
         }
 

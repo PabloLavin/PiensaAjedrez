@@ -103,6 +103,10 @@
             this.btnArchivar = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnVerGastos = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuCards3 = new Bunifu.Framework.UI.BunifuCards();
+            this.btnPestañaIngresos = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnPestañaGastos = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.radIngreso = new System.Windows.Forms.RadioButton();
+            this.radGastos = new System.Windows.Forms.RadioButton();
             this.txtMontoAdicional = new System.Windows.Forms.TextBox();
             this.txtMotivo = new System.Windows.Forms.TextBox();
             this.lblMotivo = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -118,10 +122,6 @@
             this.bunifuImageButton3 = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnListasActualizadas = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnEnviarRecordatorios = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btnPestañaGastos = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btnPestañaIngresos = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.radGastos = new System.Windows.Forms.RadioButton();
-            this.radIngreso = new System.Windows.Forms.RadioButton();
             this.bunifuCards2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).BeginInit();
             this.bunifuCards1.SuspendLayout();
@@ -947,7 +947,7 @@
             this.dgvAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -957,7 +957,7 @@
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
@@ -1074,6 +1074,84 @@
             this.bunifuCards3.ShadowDepth = 20;
             this.bunifuCards3.Size = new System.Drawing.Size(323, 240);
             this.bunifuCards3.TabIndex = 21;
+            // 
+            // btnPestañaIngresos
+            // 
+            this.btnPestañaIngresos.ActiveBorderThickness = 1;
+            this.btnPestañaIngresos.ActiveCornerRadius = 6;
+            this.btnPestañaIngresos.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.btnPestañaIngresos.ActiveForecolor = System.Drawing.Color.White;
+            this.btnPestañaIngresos.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.btnPestañaIngresos.BackColor = System.Drawing.Color.White;
+            this.btnPestañaIngresos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPestañaIngresos.BackgroundImage")));
+            this.btnPestañaIngresos.ButtonText = "Ingresos";
+            this.btnPestañaIngresos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPestañaIngresos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPestañaIngresos.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnPestañaIngresos.IdleBorderThickness = 1;
+            this.btnPestañaIngresos.IdleCornerRadius = 6;
+            this.btnPestañaIngresos.IdleFillColor = System.Drawing.Color.White;
+            this.btnPestañaIngresos.IdleForecolor = System.Drawing.Color.DimGray;
+            this.btnPestañaIngresos.IdleLineColor = System.Drawing.Color.DimGray;
+            this.btnPestañaIngresos.Location = new System.Drawing.Point(125, 5);
+            this.btnPestañaIngresos.Margin = new System.Windows.Forms.Padding(5);
+            this.btnPestañaIngresos.Name = "btnPestañaIngresos";
+            this.btnPestañaIngresos.Size = new System.Drawing.Size(85, 41);
+            this.btnPestañaIngresos.TabIndex = 53;
+            this.btnPestañaIngresos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPestañaIngresos.Click += new System.EventHandler(this.BtnPestañaIngresos_Click);
+            // 
+            // btnPestañaGastos
+            // 
+            this.btnPestañaGastos.ActiveBorderThickness = 1;
+            this.btnPestañaGastos.ActiveCornerRadius = 6;
+            this.btnPestañaGastos.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.btnPestañaGastos.ActiveForecolor = System.Drawing.Color.White;
+            this.btnPestañaGastos.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.btnPestañaGastos.BackColor = System.Drawing.Color.White;
+            this.btnPestañaGastos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPestañaGastos.BackgroundImage")));
+            this.btnPestañaGastos.ButtonText = "Gastos";
+            this.btnPestañaGastos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPestañaGastos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPestañaGastos.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnPestañaGastos.IdleBorderThickness = 1;
+            this.btnPestañaGastos.IdleCornerRadius = 6;
+            this.btnPestañaGastos.IdleFillColor = System.Drawing.Color.White;
+            this.btnPestañaGastos.IdleForecolor = System.Drawing.Color.DimGray;
+            this.btnPestañaGastos.IdleLineColor = System.Drawing.Color.DimGray;
+            this.btnPestañaGastos.Location = new System.Drawing.Point(48, 5);
+            this.btnPestañaGastos.Margin = new System.Windows.Forms.Padding(5);
+            this.btnPestañaGastos.Name = "btnPestañaGastos";
+            this.btnPestañaGastos.Size = new System.Drawing.Size(85, 41);
+            this.btnPestañaGastos.TabIndex = 52;
+            this.btnPestañaGastos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPestañaGastos.Click += new System.EventHandler(this.BtnPestañaGastos_Click);
+            // 
+            // radIngreso
+            // 
+            this.radIngreso.AutoSize = true;
+            this.radIngreso.Location = new System.Drawing.Point(110, 54);
+            this.radIngreso.Name = "radIngreso";
+            this.radIngreso.Size = new System.Drawing.Size(60, 17);
+            this.radIngreso.TabIndex = 51;
+            this.radIngreso.Text = "Ingreso";
+            this.radIngreso.UseVisualStyleBackColor = true;
+            this.radIngreso.Visible = false;
+            this.radIngreso.CheckedChanged += new System.EventHandler(this.RadIngreso_CheckedChanged);
+            // 
+            // radGastos
+            // 
+            this.radGastos.AutoSize = true;
+            this.radGastos.Checked = true;
+            this.radGastos.Location = new System.Drawing.Point(54, 54);
+            this.radGastos.Name = "radGastos";
+            this.radGastos.Size = new System.Drawing.Size(53, 17);
+            this.radGastos.TabIndex = 50;
+            this.radGastos.TabStop = true;
+            this.radGastos.Text = "Gasto";
+            this.radGastos.UseVisualStyleBackColor = true;
+            this.radGastos.Visible = false;
+            this.radGastos.CheckedChanged += new System.EventHandler(this.RadGastos_CheckedChanged);
             // 
             // txtMontoAdicional
             // 
@@ -1354,84 +1432,6 @@
             this.btnEnviarRecordatorios.TabIndex = 46;
             this.btnEnviarRecordatorios.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnEnviarRecordatorios.Click += new System.EventHandler(this.BtnEnviarRecordatorios_Click);
-            // 
-            // btnPestañaGastos
-            // 
-            this.btnPestañaGastos.ActiveBorderThickness = 1;
-            this.btnPestañaGastos.ActiveCornerRadius = 6;
-            this.btnPestañaGastos.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
-            this.btnPestañaGastos.ActiveForecolor = System.Drawing.Color.White;
-            this.btnPestañaGastos.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
-            this.btnPestañaGastos.BackColor = System.Drawing.Color.White;
-            this.btnPestañaGastos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPestañaGastos.BackgroundImage")));
-            this.btnPestañaGastos.ButtonText = "Gastos";
-            this.btnPestañaGastos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPestañaGastos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPestañaGastos.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnPestañaGastos.IdleBorderThickness = 1;
-            this.btnPestañaGastos.IdleCornerRadius = 6;
-            this.btnPestañaGastos.IdleFillColor = System.Drawing.Color.White;
-            this.btnPestañaGastos.IdleForecolor = System.Drawing.Color.DimGray;
-            this.btnPestañaGastos.IdleLineColor = System.Drawing.Color.DimGray;
-            this.btnPestañaGastos.Location = new System.Drawing.Point(48, 5);
-            this.btnPestañaGastos.Margin = new System.Windows.Forms.Padding(5);
-            this.btnPestañaGastos.Name = "btnPestañaGastos";
-            this.btnPestañaGastos.Size = new System.Drawing.Size(85, 41);
-            this.btnPestañaGastos.TabIndex = 52;
-            this.btnPestañaGastos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnPestañaGastos.Click += new System.EventHandler(this.BtnPestañaGastos_Click);
-            // 
-            // btnPestañaIngresos
-            // 
-            this.btnPestañaIngresos.ActiveBorderThickness = 1;
-            this.btnPestañaIngresos.ActiveCornerRadius = 6;
-            this.btnPestañaIngresos.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
-            this.btnPestañaIngresos.ActiveForecolor = System.Drawing.Color.White;
-            this.btnPestañaIngresos.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
-            this.btnPestañaIngresos.BackColor = System.Drawing.Color.White;
-            this.btnPestañaIngresos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPestañaIngresos.BackgroundImage")));
-            this.btnPestañaIngresos.ButtonText = "Ingresos";
-            this.btnPestañaIngresos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPestañaIngresos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPestañaIngresos.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnPestañaIngresos.IdleBorderThickness = 1;
-            this.btnPestañaIngresos.IdleCornerRadius = 6;
-            this.btnPestañaIngresos.IdleFillColor = System.Drawing.Color.White;
-            this.btnPestañaIngresos.IdleForecolor = System.Drawing.Color.DimGray;
-            this.btnPestañaIngresos.IdleLineColor = System.Drawing.Color.DimGray;
-            this.btnPestañaIngresos.Location = new System.Drawing.Point(125, 5);
-            this.btnPestañaIngresos.Margin = new System.Windows.Forms.Padding(5);
-            this.btnPestañaIngresos.Name = "btnPestañaIngresos";
-            this.btnPestañaIngresos.Size = new System.Drawing.Size(85, 41);
-            this.btnPestañaIngresos.TabIndex = 53;
-            this.btnPestañaIngresos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnPestañaIngresos.Click += new System.EventHandler(this.BtnPestañaIngresos_Click);
-            // 
-            // radGastos
-            // 
-            this.radGastos.AutoSize = true;
-            this.radGastos.Checked = true;
-            this.radGastos.Location = new System.Drawing.Point(54, 54);
-            this.radGastos.Name = "radGastos";
-            this.radGastos.Size = new System.Drawing.Size(53, 17);
-            this.radGastos.TabIndex = 50;
-            this.radGastos.TabStop = true;
-            this.radGastos.Text = "Gasto";
-            this.radGastos.UseVisualStyleBackColor = true;
-            this.radGastos.Visible = false;
-            this.radGastos.CheckedChanged += new System.EventHandler(this.RadGastos_CheckedChanged);
-            // 
-            // radIngreso
-            // 
-            this.radIngreso.AutoSize = true;
-            this.radIngreso.Location = new System.Drawing.Point(110, 54);
-            this.radIngreso.Name = "radIngreso";
-            this.radIngreso.Size = new System.Drawing.Size(60, 17);
-            this.radIngreso.TabIndex = 51;
-            this.radIngreso.Text = "Ingreso";
-            this.radIngreso.UseVisualStyleBackColor = true;
-            this.radIngreso.Visible = false;
-            this.radIngreso.CheckedChanged += new System.EventHandler(this.RadIngreso_CheckedChanged);
             // 
             // Mensualidades
             // 

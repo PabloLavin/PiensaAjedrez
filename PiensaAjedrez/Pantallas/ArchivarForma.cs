@@ -43,6 +43,11 @@ namespace PiensaAjedrez.Pantallas
             if (intOpcion == 2)
                 dgvGastos.Columns[0].Visible = false;
 
+            dgvGastosTotales.Columns.Add("Razon", "");
+            dgvGastosTotales.Columns.Add("MontoTotal", "");
+            dgvGastosTotales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvGastosTotales.Columns[0].Width = dgvGastosTotales.Columns[0].Width + 20;
+
             RellenarDGV(intOpcion);
         }
 
@@ -55,6 +60,9 @@ namespace PiensaAjedrez.Pantallas
             {
                 dgvGastos.Rows.Add(unGasto.Motivo, "$", unGasto.Monto, unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
             }
+
+                dgvGastosTotales.Rows.Add("Gastos Totales", ConexionBD.TotalGastos().ToString("C"));
+                dgvGastosTotales.Rows.Add("Gastos Seleccionados", 0);
             }
             else
             {
@@ -62,7 +70,10 @@ namespace PiensaAjedrez.Pantallas
                 {
                     dgvGastos.Rows.Add(unGasto.Motivo, "$", unGasto.Monto, unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
                 }
+                dgvGastosTotales.Rows.Add("Ingresos Totales", ConexionBD.TotalIngresos().ToString("C"));
+                dgvGastosTotales.Rows.Add("Ingresos Seleccionados", 0);
             }
+            dgvGastosTotales.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -95,6 +106,24 @@ namespace PiensaAjedrez.Pantallas
             }
             else
                 new FormMensaje().Mostrar("Error", "No deje el nombre vacío", 1, new Mensualidades());
+        }
+
+        private void DgvGastos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {           
+                dgvGastosTotales.Rows[1].Cells[1].Value = SumarSeleccionados();          
+        }
+
+        double SumarSeleccionados()
+        {
+            double dblSuma = 0;
+            foreach (DataGridViewRow fila in dgvGastos.Rows)
+            {
+                if (fila.Selected)
+                {
+                        dblSuma += int.Parse(fila.Cells[2].Value.ToString());          
+                }
+            }
+            return dblSuma;
         }
     }
 }

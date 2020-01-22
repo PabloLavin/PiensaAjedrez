@@ -48,8 +48,11 @@ namespace PiensaAjedrez
             dgvGastos.Columns[4].Width = 100;
             if (intOpcion == 2)
                 dgvGastos.Columns[0].Visible = false;
-            
 
+            dgvGastosTotales.Columns.Add("Razon", "");
+            dgvGastosTotales.Columns.Add("MontoTotal", "");
+            dgvGastosTotales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvGastosTotales.Columns[0].Width = dgvGastosTotales.Columns[0].Width + 20;
             RellenarDGV();
         }
 
@@ -62,6 +65,8 @@ namespace PiensaAjedrez
                 {
                     dgvGastos.Rows.Add(unGasto.Motivo, "$", unGasto.Monto, unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
                 }
+                dgvGastosTotales.Rows.Add("Gastos Totales", ConexionBD.TotalGastos().ToString("C"));
+                dgvGastosTotales.Rows.Add("Gastos Seleccionados", 0);
             }
             else
             {
@@ -69,8 +74,11 @@ namespace PiensaAjedrez
                 {
                     dgvGastos.Rows.Add(unGasto.Motivo, "$", unGasto.Monto, unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
                 }
+                dgvGastosTotales.Rows.Add("Ingresos Totales", ConexionBD.TotalIngresos().ToString("C"));
+                dgvGastosTotales.Rows.Add("Ingresos Seleccionados", 0);
             }
-           
+            dgvGastosTotales.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
         }
 
         void QuitarLinea()
@@ -101,6 +109,28 @@ namespace PiensaAjedrez
         private void DgvGastos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void PanGastos_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void DgvGastos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvGastosTotales.Rows[1].Cells[1].Value = SumarSeleccionados();
+        }
+        double SumarSeleccionados()
+        {
+            double dblSuma = 0;
+            foreach (DataGridViewRow fila in dgvGastos.Rows)
+            {
+                if (fila.Selected)
+                {
+                    dblSuma += int.Parse(fila.Cells[2].Value.ToString());
+                }
+            }
+            return dblSuma;
         }
     }
 }

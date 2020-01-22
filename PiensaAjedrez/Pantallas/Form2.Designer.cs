@@ -40,14 +40,17 @@
             this.lblControlGastos = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.dgvGastos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.dgvGastosTotales = new System.Windows.Forms.DataGridView();
             this.panGastos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGastosTotales)).BeginInit();
             this.SuspendLayout();
             // 
             // panGastos
             // 
             this.panGastos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.panGastos.Controls.Add(this.dgvGastosTotales);
             this.panGastos.Controls.Add(this.bunifuImageButton1);
             this.panGastos.Controls.Add(this.btnSalir);
             this.panGastos.Controls.Add(this.lblControlGastos);
@@ -56,6 +59,7 @@
             this.panGastos.Name = "panGastos";
             this.panGastos.Size = new System.Drawing.Size(800, 451);
             this.panGastos.TabIndex = 0;
+            this.panGastos.Paint += new System.Windows.Forms.PaintEventHandler(this.PanGastos_Paint);
             // 
             // bunifuImageButton1
             // 
@@ -158,7 +162,21 @@
             this.dgvGastos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGastos.Size = new System.Drawing.Size(751, 344);
             this.dgvGastos.TabIndex = 2;
+            this.dgvGastos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGastos_CellClick);
             this.dgvGastos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGastos_CellContentClick);
+            // 
+            // dgvGastosTotales
+            // 
+            this.dgvGastosTotales.AllowUserToAddRows = false;
+            this.dgvGastosTotales.AllowUserToDeleteRows = false;
+            this.dgvGastosTotales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGastosTotales.ColumnHeadersVisible = false;
+            this.dgvGastosTotales.Location = new System.Drawing.Point(347, 21);
+            this.dgvGastosTotales.Name = "dgvGastosTotales";
+            this.dgvGastosTotales.ReadOnly = true;
+            this.dgvGastosTotales.RowHeadersVisible = false;
+            this.dgvGastosTotales.Size = new System.Drawing.Size(207, 45);
+            this.dgvGastosTotales.TabIndex = 29;
             // 
             // Form2
             // 
@@ -179,6 +197,7 @@
             this.panGastos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGastosTotales)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -191,5 +210,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private Bunifu.Framework.UI.BunifuThinButton2 btnSalir;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
+        private System.Windows.Forms.DataGridView dgvGastosTotales;
     }
 }
