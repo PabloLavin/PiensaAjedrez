@@ -37,7 +37,7 @@ namespace PiensaAjedrez
             dtFechaPago.Value = DateTime.Today;
             btnAgregadoGasto.Visible = false;
             IniciarCBGastos();
-        
+
 
 
             Deshabilitar();
@@ -59,7 +59,7 @@ namespace PiensaAjedrez
             if (ConexionBD.CargarEscuelas().Count > 0)
             {
                 cbEscuelas.selectedIndex = 0;
-              
+
             }
 
             ClickPestanaGastos();
@@ -97,7 +97,7 @@ namespace PiensaAjedrez
             dgvEstadisticas.Rows.Add("Total Alumnos", Convert.ToString(ConexionBD.CantidadAlumnos()));
             dgvEstadisticas.Rows.Add("Alumnos Activos", Convert.ToString(ConexionBD.CantidadAlumnosActivos()));
             dgvEstadisticas.Rows[2].Cells[0].Style.ForeColor = Color.White;
-            dgvEstadisticas.Rows[2].Cells[0].Style.BackColor= Color.FromArgb(181, 104, 29);
+            dgvEstadisticas.Rows[2].Cells[0].Style.BackColor = Color.FromArgb(181, 104, 29);
             if (ConexionBD.TotalIngresos() - ConexionBD.TotalGastos() > 0)
             {
                 dgvEstadisticas.Rows[2].Cells[1].Style.ForeColor = Color.ForestGreen;
@@ -109,9 +109,9 @@ namespace PiensaAjedrez
                 dgvEstadisticas.Rows[2].Cells[1].Style.BackColor = Color.White;
             }
 
-            
 
-            DgvEstadisticasEscuela.Rows.Add("Inscripciones","$0.00");
+
+            DgvEstadisticasEscuela.Rows.Add("Inscripciones", "$0.00");
             DgvEstadisticasEscuela.Rows.Add("Mensualidades", "$0.00");
             DgvEstadisticasEscuela.Rows.Add("Total Ingresos", "$0.00");
             dgvAlumnosParticular.Rows.Add("Total Alumnos", "0");
@@ -119,21 +119,21 @@ namespace PiensaAjedrez
 
             if (ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue) != null)
             {
-                 DgvEstadisticasEscuela.Rows.Clear();
+                DgvEstadisticasEscuela.Rows.Clear();
                 dgvAlumnosParticular.Rows.Clear();
-                 DgvEstadisticasEscuela.Rows.Add("Inscripciones", ConexionBD.TotalInscripciones(cbEscuelas.selectedValue).ToString("c"));
-                 DgvEstadisticasEscuela.Rows.Add("Mensualidades", ConexionBD.TotalMensualidades(cbEscuelas.selectedValue,ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave).ToString("c"));
-                if(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue)!=null)
-                if (ConexionBD.CargarActividades(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave).Count > 0)
-                {
+                DgvEstadisticasEscuela.Rows.Add("Inscripciones", ConexionBD.TotalInscripciones(cbEscuelas.selectedValue).ToString("c"));
+                DgvEstadisticasEscuela.Rows.Add("Mensualidades", ConexionBD.TotalMensualidades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave).ToString("c"));
+                if (ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue) != null)
+                    if (ConexionBD.CargarActividades(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave).Count > 0)
+                    {
                         DgvEstadisticasEscuela.Rows.Add("Actividades", ConexionBD.TotalActividades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave).ToString("c"));
-                       
-                }
+
+                    }
                 //Se realiza la misma comparación de arriba (Curso no nulo y actividades mayor a 0 en un if anidado ternario
-                DgvEstadisticasEscuela.Rows.Add("Total Ingresos", (ConexionBD.TotalInscripciones(cbEscuelas.selectedValue)+ ConexionBD.TotalMensualidades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave)+(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue) != null ? (ConexionBD.CargarActividades(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave).Count > 0 ? ConexionBD.TotalActividades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave) : 0) : 0)).ToString("c"));
+                DgvEstadisticasEscuela.Rows.Add("Total Ingresos", (ConexionBD.TotalInscripciones(cbEscuelas.selectedValue) + ConexionBD.TotalMensualidades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave) + (ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue) != null ? (ConexionBD.CargarActividades(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave).Count > 0 ? ConexionBD.TotalActividades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave) : 0) : 0)).ToString("c"));
 
 
-              
+
                 dgvAlumnosParticular.Rows.Add("Total Alumnos", Convert.ToString(ConexionBD.CantidadAlumnos(cbEscuelas.selectedValue)));
                 dgvAlumnosParticular.Rows.Add("Alumnos Activos", Convert.ToString(ConexionBD.CantidadAlumnosActivos(cbEscuelas.selectedValue)));
                 dgvAlumnos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
@@ -174,7 +174,7 @@ namespace PiensaAjedrez
 
         void CargarDatosEscuela(string strNombreEscuela)
         {
-      
+
             //lblAlumnosTotal.Text = Convert.ToString(ConexionBD.CantidadAlumnos());
             //lblAlumnosActivos.Text = Convert.ToString(ConexionBD.CantidadAlumnosActivos());
             //lblEscuelaAlumnos.Text = Convert.ToString(ConexionBD.CantidadAlumnos(strNombreEscuela));
@@ -189,13 +189,13 @@ namespace PiensaAjedrez
             dgvAlumnos.Rows.Clear();
             if (unaEscuela.CursoActivo == null)
             {
-                unaForma.Mostrar("Error",unaEscuela.Nombre + " no contiene ningún curso actualmente.\nAgregue uno para continuar.",1,this);
+                unaForma.Mostrar("Error", unaEscuela.Nombre + " no contiene ningún curso actualmente.\nAgregue uno para continuar.", 1, this);
                 return;
             }
             else
-            {                
-                dgvAlumnos.Columns.Add("N°", "N°");                
-                dgvAlumnos.Columns.Add("N° de ctrl.", "N° Control");                
+            {
+                dgvAlumnos.Columns.Add("N°", "N°");
+                dgvAlumnos.Columns.Add("N° de ctrl.", "N° Control");
                 dgvAlumnos.Columns.Add("Apellido P", "Apellido P");
                 dgvAlumnos.Columns.Add("Apellido M", "Apellido M");
                 dgvAlumnos.Columns.Add("Nombre", "Nombre");
@@ -210,13 +210,13 @@ namespace PiensaAjedrez
                 }
                 if (dgvAlumnos.Columns.Count <= 8)
                 {
-                     dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     //dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                    dgvAlumnos.Columns[5].Width = 105;
+                    dgvAlumnos.Columns[5].Width = 85;
                 }
                 else
                 {
-                    dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
                     //dgvAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                     dgvAlumnos.Columns[0].Width = 30;
                     dgvAlumnos.Columns[0].Frozen = true;
@@ -225,12 +225,12 @@ namespace PiensaAjedrez
                     dgvAlumnos.Columns[3].Frozen = true;
                     dgvAlumnos.Columns[4].Frozen = true;
                 }
-                dgvAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dgvAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
                 dgvAlumnos.Columns[1].Width = 110;
                 dgvAlumnos.Columns[2].Width = 115;
                 dgvAlumnos.Columns[3].Width = 125;
                 dgvAlumnos.Columns[4].Width = 150;
-                dgvAlumnos.Columns[5].Width = 105;
+                dgvAlumnos.Columns[5].Width = 75;
             }
         }
 
@@ -262,7 +262,7 @@ namespace PiensaAjedrez
                         }
                         unCurso.InicioCursos = unCurso.InicioCursos.AddYears(1);
                     }
-                    while (unCurso.InicioCursos.Month <= 12&&blnAño)
+                    while (unCurso.InicioCursos.Month <= 12 && blnAño)
                     {
                         listaMeses.Add(unCurso.InicioCursos);
                         unCurso.InicioCursos = unCurso.InicioCursos.AddMonths(1);
@@ -273,7 +273,7 @@ namespace PiensaAjedrez
                     }
                 }
             }
-           
+
             foreach (DateTime mes in listaMeses)
             {
                 char c = char.Parse(mes.ToString("MMMM").Substring(0, 1).ToUpper());
@@ -299,7 +299,7 @@ namespace PiensaAjedrez
             cbMetodoPago.Enabled = false;
             lblMesAPagar.Text = "Mes";
             //txtMonto.LineIdleColor = Color.SkyBlue;
-            
+
             lblNombre.Text = "Nombre(s) Apellido P. Apellido M.";
             lblNroControl.Text = "19100000";
             chkLiquidado.Enabled = false;
@@ -312,7 +312,7 @@ namespace PiensaAjedrez
             chkLiquidado.Checked = false;
             lblNull.Visible = false;
             VisibilidadControles(false);
-           
+
             /*
             if (cbEscuelas.selectedValue.Equals(""))
             { 
@@ -335,13 +335,13 @@ namespace PiensaAjedrez
                 if (c is TextBox)
                     c.Enabled = true;
             }
-            
+
             cbMetodoPago.Enabled = true;
             //txtMonto.LineIdleColor = Color.Teal;
-            
+
             chkLiquidado.Enabled = true;
             chkLiquidado.Visible = true;
-           
+
             lblLiquidado.Visible = true;
             chkLiquidado.Checked = false;
             VisibilidadControles(false);
@@ -392,7 +392,7 @@ namespace PiensaAjedrez
 
         void LlenarDGV(Escuela otraEscuela)
         {
-            if (chkNombre.Checked|| chkCorreo.Checked || chkAño.Checked)
+            if (chkNombre.Checked || chkCorreo.Checked || chkAño.Checked)
             {
                 try
                 {
@@ -402,7 +402,7 @@ namespace PiensaAjedrez
                 {
                     RellenarDGV(otraEscuela);
                 }
-                
+
             }
             else
                 RellenarDGV(otraEscuela);
@@ -410,11 +410,11 @@ namespace PiensaAjedrez
 
         private void cbEscuelas_onItemSelected(object sender, EventArgs e)
         {
-            if(Escuelas.listaEscuela.Count>0)
-            foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
-            {
-                if (cbEscuelas.selectedValue == miEscuela.Nombre)
+            if (Escuelas.listaEscuela.Count > 0)
+                foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
                 {
+                    if (cbEscuelas.selectedValue == miEscuela.Nombre)
+                    {
                         if (miEscuela.CursoActivo == null)
                         {
                             miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
@@ -423,17 +423,17 @@ namespace PiensaAjedrez
                         try
                         {
                             LlenarDGV(miEscuela);
-                            
+
                         }
                         catch (Exception)
                         {
                             //new FormMensaje().Mostrar("Error", "Ocurrió un error. Comprueba los cursos activos.", 1, this);
-                           
+
                         }
 
                         try
                         {
-                            
+
                             InicializarDGVEstadisticas();
                             CargarDatosEscuela(cbEscuelas.selectedValue);
                         }
@@ -446,9 +446,9 @@ namespace PiensaAjedrez
                                 DgvEstadisticasEscuela.Rows[0].Cells[1].Value = "$0.00";
                             }
                             catch (Exception)
-                            { 
+                            {
                             }
-                            
+
                         }
                         Deshabilitar();
                         cbGastos.Enabled = true;
@@ -456,20 +456,20 @@ namespace PiensaAjedrez
                         txtMotivo.Enabled = true;
                         btnRegistrarGasto.Visible = true;
 
-                        
+
                     }
-                    
+
                 }
-            
-          
+
+
         }
 
         private void dgvAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
             if (dgvAlumnos.CurrentRow == null)
             {
-                unaForma.Mostrar("Error","Seleccione un alumno de la lista.",1,this);
+                unaForma.Mostrar("Error", "Seleccione un alumno de la lista.", 1, this);
                 return;
             }
             txtMonto.Text = "";
@@ -477,28 +477,28 @@ namespace PiensaAjedrez
             txtMonto.Focus();
             foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
             {
-                if(miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
+                if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
                     foreach (Alumno miAlumno in ConexionBD.CargarAlumnos(miEscuela.Nombre))
-                        if(miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[1].Value.ToString())))
+                        if (miAlumno.Equals(new Alumno(dgvAlumnos.CurrentRow.Cells[1].Value.ToString())))
                         {
                             lblNroControl.Text = miAlumno.NumeroDeControl;
                             lblNombre.Text = ObtenerNombreCompleto(miAlumno);
-                            
+
                             ObtenerMes(int.Parse(dgvAlumnos.CurrentCell.ColumnIndex.ToString()));
                             if (dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.DimGray))
                             {
                                 Deshabilitar();
                                 return;
                             }
-                            else if (dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.Lime)|| dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.Yellow))
+                            else if (dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.Lime) || dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.Yellow))
                             {
-                                 txtMonto.Text = dgvAlumnos.CurrentCell.Value.ToString().Substring(1);
+                                txtMonto.Text = dgvAlumnos.CurrentCell.Value.ToString().Substring(1);
                                 foreach (Pagos pagos in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
                                 {
-                                    if (pagos.Monto.ToString("c").Equals(dgvAlumnos.CurrentCell.Value.ToString()) && pagos.MesPagado.Equals(dgvAlumnos.CurrentCell.OwningColumn.Name)&&pagos.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
+                                    if (pagos.IDCurso == ConexionBD.CargarCursoActivo(miEscuela.Nombre).Clave && pagos.MesPagado.Equals(dgvAlumnos.CurrentCell.OwningColumn.Name)/*&&pagos.FechayHora.Year.Equals(int.Parse(cbAño.Text))*/)
                                     {
                                         txtNota.Text = pagos.Nota;
-                                        chkLiquidado.Checked = pagos.Liquidado?false:true;
+                                        chkLiquidado.Checked = pagos.Liquidado ? false : true;
                                         if (chkLiquidado.Checked)
                                             txtMonto.Text = "";
                                         else
@@ -508,17 +508,17 @@ namespace PiensaAjedrez
                                             MostrarPago(pagos, miAlumno.NumeroDeControl);
                                         }
                                     }
-                                    
+
                                 }
                             }
                         }
             }
         }
-       
+
         #region Filtro
         private void txtFiltroNombre_OnValueChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void chkNombre_OnChange(object sender, EventArgs e)
@@ -528,22 +528,22 @@ namespace PiensaAjedrez
             if (!chkNombre.Checked)
             {
                 txtFiltroNombre.Enabled = false;
-              
+
                 txtFiltroNombre.Text = "Nombre";
                 foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
                 {
-                    if(cbEscuelas.selectedIndex!=-1)
-                    if (cbEscuelas.selectedValue == miEscuela.Nombre)
-                    {
-                        LlenarDGV(miEscuela);
-                    }
+                    if (cbEscuelas.selectedIndex != -1)
+                        if (cbEscuelas.selectedValue == miEscuela.Nombre)
+                        {
+                            LlenarDGV(miEscuela);
+                        }
                 }
 
             }
             else
             {
                 txtFiltroNombre.Enabled = true;
-                
+
                 txtFiltroNombre.Text = "";
 
             }
@@ -556,27 +556,27 @@ namespace PiensaAjedrez
             if (!chkCorreo.Checked)
             {
                 txtFiltroNoCtrl.Enabled = false;
-               
+
                 txtFiltroNoCtrl.Text = "No. ctrl";
                 foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
                 {
                     if (cbEscuelas.selectedIndex != -1)
                         if (cbEscuelas.selectedValue == miEscuela.Nombre)
                         {
-                        LlenarDGV(miEscuela);
+                            LlenarDGV(miEscuela);
                         }
                 }
             }
             else
             {
-                txtFiltroNoCtrl.Enabled = true;               
+                txtFiltroNoCtrl.Enabled = true;
                 txtFiltroNoCtrl.Text = "";
             }
         }
 
         private void txtFiltroNoCtrl_OnValueChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void cbAño_TextChanged(object sender, EventArgs e)
@@ -608,7 +608,7 @@ namespace PiensaAjedrez
 
                 }
             }
-        }  
+        }
 
         private void chkAño_OnChange(object sender, EventArgs e)
         {
@@ -714,17 +714,17 @@ namespace PiensaAjedrez
         {
             switch (strMes)
             {
-                case "Enero":                    
-                case "Febrero":                    
-                case "Marzo":                    
-                case "Abril":                    
-                case "Mayo":                    
-                case "Junio":                    
-                case "Julio":                    
+                case "Enero":
+                case "Febrero":
+                case "Marzo":
+                case "Abril":
+                case "Mayo":
+                case "Junio":
+                case "Julio":
                 case "Agosto":
                 case "Septiembre":
-                case "Octubre":                    
-                case "Noviembre":                    
+                case "Octubre":
+                case "Noviembre":
                 case "Diciembre":
                     return false;
                 default:
@@ -751,16 +751,16 @@ namespace PiensaAjedrez
                                         miEscuela.CursoActivo = ConexionBD.CargarCursoActivo(miEscuela.Nombre);
 
                                         Pagos unPago = new Pagos(ObtenerClaveRecibo(dtFechaPago.Value), dtFechaPago.Value, 0, txtNota.Text, lblMesAPagar.Text, cbMetodoPago.selectedValue.ToString(), false, (chkLiquidado.Checked ? false : true), ConexionBD.CargarCursoActivo(miEscuela.Nombre).Clave, (chkBeca.Checked ? true : false), (chkBeca.Checked ? ObtenerBeca(double.Parse(txtMonto.Text), double.Parse(txtBeca.Text)) : 0), (chkBeca.Checked ? Int16.Parse(txtBeca.Text) : (Int16)0));
-                                       
-                                            if (dgvAlumnos.CurrentCell.Value == null)
-                                            {
-                                                unPago.Liquidado = true;
-                                                ConexionBD.AgregarPago(unPago, miAlumno);
-                                            }
+
+                                        if (dgvAlumnos.CurrentCell.Value == null)
+                                        {
+                                            unPago.Liquidado = true;
+                                            ConexionBD.AgregarPago(unPago, miAlumno);
+                                        }
                                     }
-                                        InicializarDGVEstadisticas();
-                                        LlenarDGV(miEscuela);
-                                        Deshabilitar();
+                                    InicializarDGVEstadisticas();
+                                    LlenarDGV(miEscuela);
+                                    Deshabilitar();
                                 }
                     }
                 }
@@ -789,7 +789,10 @@ namespace PiensaAjedrez
                                                 }
                                                 else
                                                 {
-                                                    ConexionBD.EditarPago(unPago, false, miAlumno.NumeroDeControl, double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1)));
+                                                    Pagos unPagoAuxiliar = new Pagos(unPago.NumeroRecibo, unPago.FechayHora, unPago.Monto, unPago.Nota, unPago.MesPagado, unPago.MetodoPago, unPago.Notificado, unPago.Liquidado, miEscuela.CursoActivo.Clave, (chkBeca.Checked ? true : false), (chkBeca.Checked ? ObtenerBeca(double.Parse(txtMonto.Text), double.Parse(txtBeca.Text)) : 0), (chkBeca.Checked ? Int16.Parse(txtBeca.Text) : (Int16)0));
+
+                                                    unPagoAuxiliar.Monto += ConexionBD.BuscarPago(dgvAlumnos.CurrentRow.Cells[1].Value.ToString(), dgvAlumnos.CurrentCell.OwningColumn.Name, miEscuela.CursoActivo.Clave).Monto;
+                                                    ConexionBD.EditarPago(unPago, false, miAlumno.NumeroDeControl, unPagoAuxiliar.Monto);
                                                 }
                                             }
                                             else
@@ -805,8 +808,9 @@ namespace PiensaAjedrez
                                                 {
 
                                                     Pagos unPagoAuxiliar = new Pagos(unPago.NumeroRecibo, unPago.FechayHora, unPago.Monto, unPago.Nota, unPago.MesPagado, unPago.MetodoPago, unPago.Notificado, unPago.Liquidado, miEscuela.CursoActivo.Clave, (chkBeca.Checked ? true : false), (chkBeca.Checked ? ObtenerBeca(double.Parse(txtMonto.Text), double.Parse(txtBeca.Text)) : 0), (chkBeca.Checked ? Int16.Parse(txtBeca.Text) : (Int16)0));
-                                                    unPagoAuxiliar.Monto += double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1));
-                                                    ConexionBD.EditarPago(unPago, true, miAlumno.NumeroDeControl, double.Parse(dgvAlumnos.CurrentCell.Value.ToString().Substring(1)));
+
+                                                    unPagoAuxiliar.Monto += ConexionBD.BuscarPago(dgvAlumnos.CurrentRow.Cells[1].Value.ToString(), dgvAlumnos.CurrentCell.OwningColumn.Name, miEscuela.CursoActivo.Clave).Monto;
+                                                    ConexionBD.EditarPago(unPago, true, miAlumno.NumeroDeControl, unPagoAuxiliar.Monto);
                                                 }
 
                                             }
@@ -829,19 +833,19 @@ namespace PiensaAjedrez
             catch (Exception)
             {
 
-                unaForma.Mostrar("Error", "Introduzca únicamente valores válidos", 1,this);
+                unaForma.Mostrar("Error", "Introduzca únicamente valores válidos", 1, this);
             }
         }
 
-        
+
         string ObtenerClaveRecibo(DateTime unaFecha)
         {
-           return unaFecha.Day.ToString()+unaFecha.Month.ToString()+ unaFecha.Year.ToString() + ((int.Parse("1000")) + (ConexionBD.CargarPagos().Count)+new Random().Next(500)).ToString();
+            return unaFecha.Day.ToString() + unaFecha.Month.ToString() + unaFecha.Year.ToString() + ((int.Parse("1000")) + (ConexionBD.CargarPagos().Count) + new Random().Next(500)).ToString();
         }
 
         string ObtenerNombreCompleto(Alumno unAlumno)
         {
-            return (unAlumno.ApellidoPaterno+" "+unAlumno.ApellidoMaterno+" "+unAlumno.Nombre);
+            return (unAlumno.ApellidoPaterno + " " + unAlumno.ApellidoMaterno + " " + unAlumno.Nombre);
         }
 
         void RellenarPagos(Alumno miAlumno, string strCurso)
@@ -864,8 +868,9 @@ namespace PiensaAjedrez
                                     }
                                     else
                                     {
-                                        Fila.Cells[columna.Index].Value = miPagos.Monto.ToString("c");
-                                        Fila.Cells[columna.Index].Style.ForeColor = Color.Black;                                    
+                                        //Fila.Cells[columna.Index].Value = miPagos.Monto.ToString("c");
+                                        Fila.Cells[columna.Index].Value = "♚";
+                                        Fila.Cells[columna.Index].Style.ForeColor = Color.Black;
                                     }
                                     if (miPagos.Notificado)
                                         Fila.Cells[columna.Index].Style.BackColor = Color.Lime;
@@ -882,18 +887,18 @@ namespace PiensaAjedrez
             }
         }
 
-        void EnviarCorreo(Alumno miAlumno,Pagos miPago)
+        void EnviarCorreo(Alumno miAlumno, Pagos miPago)
         {
             try
             {
-                
+
                 Correo.EnviarCorreo(Correo.CrearCorreo(miAlumno, miPago, intCaso));
                 miPago.Notificado = true;
                 ConexionBD.ConfirmarEnvioCorreo(miPago);
             }
             catch (Exception)
             {
-                unaForma.Mostrar("Error de conexión","Ocurrió un error al intentar enviar un correo.\nCompruebe sus credenciales y la conexión a internet.\nSi el error persiste, intente más tarde.",4,this);
+                unaForma.Mostrar("Error de conexión", "Ocurrió un error al intentar enviar un correo.\nCompruebe sus credenciales y la conexión a internet.\nSi el error persiste, intente más tarde.", 4, this);
                 foreach (Pagos pagos in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
                 {
                     if (pagos.Equals(miPago))
@@ -933,7 +938,7 @@ namespace PiensaAjedrez
                     return;
                 }
             }
-            else if(radIngreso.Checked)
+            else if (radIngreso.Checked)
             {
                 if (cbGastos.selectedIndex != -1)
                 {
@@ -964,7 +969,7 @@ namespace PiensaAjedrez
             bool blnReenviar = false;
             if (dgvAlumnos.CurrentRow == null)
             {
-                unaForma.Mostrar("Error","Seleccione un alumno de la lista.",1,this);
+                unaForma.Mostrar("Error", "Seleccione un alumno de la lista.", 1, this);
                 return;
             }
             if (dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.DimGray))
@@ -972,12 +977,12 @@ namespace PiensaAjedrez
                 Deshabilitar();
                 return;
             }
-            else if(dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.Yellow)||dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.Lime))
+            else if (dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.Yellow) || dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.Lime))
                 if (Preguntar("Enviar correo", "¿Intentar de nuevo?"))
                 {
                     blnReenviar = true;
                 }
-          
+
             foreach (Escuela miEscuela in ConexionBD.CargarEscuelas())
             {
                 if (miEscuela.Equals(new Escuela(cbEscuelas.selectedValue)))
@@ -987,11 +992,11 @@ namespace PiensaAjedrez
                             lblNroControl.Text = miAlumno.NumeroDeControl;
                             lblNombre.Text = ObtenerNombreCompleto(miAlumno);
                             ObtenerMes(int.Parse(dgvAlumnos.CurrentCell.ColumnIndex.ToString()));
-                            
-                                foreach (Pagos miPago in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
-                                {
-                                    if(dgvAlumnos.CurrentCell.Value!=null)
-                                    if (miPago.Monto.ToString("c").Equals(dgvAlumnos.CurrentCell.Value.ToString()) && miPago.MesPagado.Equals(dgvAlumnos.CurrentCell.OwningColumn.Name) && miPago.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
+
+                            foreach (Pagos miPago in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
+                            {
+                                if (dgvAlumnos.CurrentCell.Value != null)
+                                    if (miPago.IDCurso == ConexionBD.CargarCursoActivo(miEscuela.Nombre).Clave && miPago.MesPagado.Equals(dgvAlumnos.CurrentCell.OwningColumn.Name))
                                     {
                                         txtNota.Text = miPago.Nota;
                                         chkLiquidado.Checked = miPago.Liquidado ? false : true;
@@ -1007,8 +1012,8 @@ namespace PiensaAjedrez
                                         MostrarPago(miPago, miAlumno.NumeroDeControl);
                                     }
 
-                                }
-                            
+                            }
+
                         }
             }
 
@@ -1031,7 +1036,7 @@ namespace PiensaAjedrez
 
         private void btnVerGastos_Click(object sender, EventArgs e)
         {
-            new Form2((radGastos.Checked?1:2)).ShowDialog();
+            new Form2((radGastos.Checked ? 1 : 2)).ShowDialog();
         }
 
         private void LblInformacion_Click(object sender, EventArgs e)
@@ -1096,7 +1101,7 @@ namespace PiensaAjedrez
             return blnAceptarPago;
         }
 
-       
+
         double ObtenerBeca(double dblMonto, double dblPorcentaje)
         {
             return (dblMonto * (dblPorcentaje / 100));
@@ -1122,7 +1127,7 @@ namespace PiensaAjedrez
         }
 
         #region Retardos
-       public bool PreguntarRetardo(string strEncabezado, string strMensaje)
+        public bool PreguntarRetardo(string strEncabezado, string strMensaje)
         {
             blnAceptarPago = false;
             unaForma.Mostrar(strEncabezado, strMensaje, 6, this);
@@ -1130,72 +1135,72 @@ namespace PiensaAjedrez
             return blnAceptarPago;
         }
 
-       //public void NotificarRetardos(int intCaso)
-       // {
-       //     if (intCaso == 0)
-       //         if (DateTime.Today.Day == 5 || DateTime.Today.Day == 10|| DateTime.Today.Day == 18)
-       //         {
-       //             if (PreguntarRetardo("Retardos en pago", "¿Desea enviar un correo a todos los deudores?"))
-       //             {
-       //                 int i = 0;
-       //                 foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
-       //                 {
-       //                     cbEscuelas.selectedIndex = i;
-       //                     ConexionBD.BorrarDeudas(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave);
+        //public void NotificarRetardos(int intCaso)
+        // {
+        //     if (intCaso == 0)
+        //         if (DateTime.Today.Day == 5 || DateTime.Today.Day == 10|| DateTime.Today.Day == 18)
+        //         {
+        //             if (PreguntarRetardo("Retardos en pago", "¿Desea enviar un correo a todos los deudores?"))
+        //             {
+        //                 int i = 0;
+        //                 foreach (Escuela unaEscuela in ConexionBD.CargarEscuelas())
+        //                 {
+        //                     cbEscuelas.selectedIndex = i;
+        //                     ConexionBD.BorrarDeudas(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave);
 
-       //                     foreach (Alumno alumno in ObtenerAlumnosDeudores(cbEscuelas.selectedValue))
-       //                     {
-       //                         AñadirDeuda(alumno);
-                                
-       //                     }
-       //                     i++;
-       //                 }
-       //                     try
-       //                     {
-       //                     int intOpcion = 0;
-       //                     if (DateTime.Today.Day == 5)
-       //                         intOpcion = 3;
-       //                     if (DateTime.Today.Day == 10)
-       //                         intOpcion = 2;
-       //                     if (DateTime.Today.Day == 18/* || EsUltimoDia()*/)
-       //                         intOpcion = 1;
-       //                     EnviarCorreos(intOpcion);
-       //                     }
-       //                     catch (Exception)
-       //                     {
-       //                         unaForma.Mostrar("Error de conexión", "Ocurrió un error al intentar enviar un correo.\nCompruebe sus credenciales y la conexión a internet.\nSi el error persiste, intente más tarde.", 4, this);
-       //                     }
+        //                     foreach (Alumno alumno in ObtenerAlumnosDeudores(cbEscuelas.selectedValue))
+        //                     {
+        //                         AñadirDeuda(alumno);
 
-       //             }
-       //             else if (Recordatorios.intCaso == 1)
-       //                 NotificarRetardos(1);
-       //             else if(Recordatorios.intCaso==2)
-       //                 return;
-       //         }
-       //     if (intCaso == 1)
-       //     {
-       //         if (DateTime.Today.Day == 5 || DateTime.Today.Day == 10 || DateTime.Today.Day == 18)
-       //         {
-       //             if ((DateTime.Now.TimeOfDay.Hours == Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours&& DateTime.Now.TimeOfDay.Minutes >= Recordatorios.dtmHoraRecordatorio.TimeOfDay.Minutes)|| DateTime.Now.TimeOfDay.Hours > Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours)
-       //             {
-       //                 NotificarRetardos(0);
-       //             }
+        //                     }
+        //                     i++;
+        //                 }
+        //                     try
+        //                     {
+        //                     int intOpcion = 0;
+        //                     if (DateTime.Today.Day == 5)
+        //                         intOpcion = 3;
+        //                     if (DateTime.Today.Day == 10)
+        //                         intOpcion = 2;
+        //                     if (DateTime.Today.Day == 18/* || EsUltimoDia()*/)
+        //                         intOpcion = 1;
+        //                     EnviarCorreos(intOpcion);
+        //                     }
+        //                     catch (Exception)
+        //                     {
+        //                         unaForma.Mostrar("Error de conexión", "Ocurrió un error al intentar enviar un correo.\nCompruebe sus credenciales y la conexión a internet.\nSi el error persiste, intente más tarde.", 4, this);
+        //                     }
 
-       //         }
+        //             }
+        //             else if (Recordatorios.intCaso == 1)
+        //                 NotificarRetardos(1);
+        //             else if(Recordatorios.intCaso==2)
+        //                 return;
+        //         }
+        //     if (intCaso == 1)
+        //     {
+        //         if (DateTime.Today.Day == 5 || DateTime.Today.Day == 10 || DateTime.Today.Day == 18)
+        //         {
+        //             if ((DateTime.Now.TimeOfDay.Hours == Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours&& DateTime.Now.TimeOfDay.Minutes >= Recordatorios.dtmHoraRecordatorio.TimeOfDay.Minutes)|| DateTime.Now.TimeOfDay.Hours > Recordatorios.dtmHoraRecordatorio.TimeOfDay.Hours)
+        //             {
+        //                 NotificarRetardos(0);
+        //             }
 
-       //     }
-       // }
+        //         }
+
+        //     }
+        // }
 
         bool EsUltimoDia()
         {
-            if(DateTime.Now.Month==1|| DateTime.Now.Month == 3|| DateTime.Now.Month == 5 || DateTime.Now.Month == 7 || DateTime.Now.Month == 8 || DateTime.Now.Month == 10|| DateTime.Now.Month == 12)
+            if (DateTime.Now.Month == 1 || DateTime.Now.Month == 3 || DateTime.Now.Month == 5 || DateTime.Now.Month == 7 || DateTime.Now.Month == 8 || DateTime.Now.Month == 10 || DateTime.Now.Month == 12)
             {
                 if (DateTime.Now.Day == 31)
                     return true;
                 else
                     return false;
             }
-            if (DateTime.Now.Month == 4 || DateTime.Now.Month == 6 || DateTime.Now.Month == 9 || DateTime.Now.Month == 11 )
+            if (DateTime.Now.Month == 4 || DateTime.Now.Month == 6 || DateTime.Now.Month == 9 || DateTime.Now.Month == 11)
             {
                 if (DateTime.Now.Day == 30)
                     return true;
@@ -1236,11 +1241,11 @@ namespace PiensaAjedrez
         List<string> ObtenerMesesDeuda(Alumno unAlumno)
         {
             List<string> listaMeses = new List<string>();
-            if(ConexionBD.CargarPagosAlumnoCurso(unAlumno, ConexionBD.CargarCursoActivo(unAlumno.Escuela).Clave).Count > 0)
+            if (ConexionBD.CargarPagosAlumnoCurso(unAlumno, ConexionBD.CargarCursoActivo(unAlumno.Escuela).Clave).Count > 0)
             {
                 foreach (string mes in ObtenerMesesDelCurso())
                 {
-                    if(!ConexionBD.CargarMesesAlumnoCurso(unAlumno, ConexionBD.CargarCursoActivo(unAlumno.Escuela).Clave).Contains(mes))
+                    if (!ConexionBD.CargarMesesAlumnoCurso(unAlumno, ConexionBD.CargarCursoActivo(unAlumno.Escuela).Clave).Contains(mes))
                     {
                         listaMeses.Add(mes);
                     }
@@ -1260,13 +1265,13 @@ namespace PiensaAjedrez
         List<Alumno> ObtenerAlumnosDeudores(string strNombreEscuela)
         {
             List<Alumno> listaAlumnos = new List<Alumno>();
-           
-                foreach (Alumno unAlumno in ConexionBD.CargarAlumnos(strNombreEscuela))
-                {
-                    if (ObtenerMesesDeuda(unAlumno).Count > 0 && unAlumno.Activo)
-                        listaAlumnos.Add(unAlumno);
-                }
-            
+
+            foreach (Alumno unAlumno in ConexionBD.CargarAlumnos(strNombreEscuela))
+            {
+                if (ObtenerMesesDeuda(unAlumno).Count > 0 && unAlumno.Activo)
+                    listaAlumnos.Add(unAlumno);
+            }
+
             return listaAlumnos;
         }
         #endregion
@@ -1275,16 +1280,16 @@ namespace PiensaAjedrez
         {
             foreach (Escuela escuela in ConexionBD.CargarEscuelas())
             {
-            foreach (Alumno unAlumno in ConexionBD.CargarDeudores(ConexionBD.CargarCursoActivo(escuela.Nombre).Clave))
+                foreach (Alumno unAlumno in ConexionBD.CargarDeudores(ConexionBD.CargarCursoActivo(escuela.Nombre).Clave))
                 {
-                    Correo.EnviarCorreo(Correo.CrearRecordatorio(unAlumno,intCaso));            
+                    Correo.EnviarCorreo(Correo.CrearRecordatorio(unAlumno, intCaso));
                 }
             }
         }
 
         private void BtnArchivar_Click(object sender, EventArgs e)
         {
-            new ArchivarForma((radGastos.Checked?1:2)).ShowDialog();
+            new ArchivarForma((radGastos.Checked ? 1 : 2)).ShowDialog();
             LlenarDGV(new Escuela(cbEscuelas.selectedValue));
         }
 
@@ -1295,8 +1300,8 @@ namespace PiensaAjedrez
 
         private void btnListasActualizadas_Click(object sender, EventArgs e)
         {
-            PdfPTable pdfTable = new PdfPTable(dgvAlumnos.ColumnCount);            
-//            pdfTable.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+            PdfPTable pdfTable = new PdfPTable(dgvAlumnos.ColumnCount);
+            //            pdfTable.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
             pdfTable.DefaultCell.Padding = 3;
             List<float> aFloat = new List<float>();
             foreach (DataGridViewColumn column in dgvAlumnos.Columns)
@@ -1304,30 +1309,30 @@ namespace PiensaAjedrez
                 aFloat.Add(column.Width);
             }
             pdfTable.SetWidths(aFloat.ToArray());
-            pdfTable.DefaultCell.Padding = 3;            
+            pdfTable.DefaultCell.Padding = 3;
             pdfTable.WidthPercentage = 100;
-            pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;            
+            pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
 
             foreach (DataGridViewColumn column in dgvAlumnos.Columns)
             {
-                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, FontFactory.GetFont("Segoe UI", 10.0f, BaseColor.WHITE)));                                
+                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, FontFactory.GetFont("Segoe UI", 10.0f, BaseColor.WHITE)));
                 cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.BackgroundColor = BaseColor.DARK_GRAY;                                
+                cell.BackgroundColor = BaseColor.DARK_GRAY;
                 pdfTable.AddCell(cell);
             }
             int maxWidth = 0;
 
-            
+
             foreach (DataGridViewRow row in dgvAlumnos.Rows)
-            {                
+            {
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    if(cell.Value != null)
+                    if (cell.Value != null)
                     {
                         string strDatoDuro = cell.Value.ToString();
                         if (cell.Size.Width >= maxWidth)
                             maxWidth = cell.Size.Width;
-                        if(strDatoDuro.Contains("$"))
+                        if (strDatoDuro.Contains("$"))
                             strDatoDuro = strDatoDuro.Substring(0, strDatoDuro.IndexOf('.'));
                         PdfPCell accel = new PdfPCell(new Phrase(strDatoDuro, FontFactory.GetFont("Segoe UI", 10.0f, BaseColor.BLACK)));
                         accel.HorizontalAlignment = Element.ALIGN_CENTER;
@@ -1337,25 +1342,25 @@ namespace PiensaAjedrez
                         //accel.Border = iTextSharp.text.Rectangle.NO_BORDER;
                         if (strDatoDuro.Contains("$"))
                         {
-                            switch(cell.Style.BackColor.Name)
+                            switch (cell.Style.BackColor.Name)
                             {
-                                case "Lime": accel.BackgroundColor = BaseColor.GREEN;  break;
+                                case "Lime": accel.BackgroundColor = BaseColor.GREEN; break;
                                 case "Yellow": accel.BackgroundColor = BaseColor.YELLOW; break;
-                            }                            
-                        }                        
+                            }
+                        }
                         pdfTable.AddCell(accel);
                     }
                     else
                     {
                         PdfPCell accel = new PdfPCell();
                         accel.HorizontalAlignment = Element.ALIGN_CENTER;
-                        accel.VerticalAlignment = Element.ALIGN_CENTER;                         
+                        accel.VerticalAlignment = Element.ALIGN_CENTER;
                         pdfTable.AddCell(accel);
                     }
-                        
-                }                
+
+                }
             }
-            
+
             string folderPath = Directory.GetCurrentDirectory();
             if (!Directory.Exists(folderPath))
             {
@@ -1363,7 +1368,7 @@ namespace PiensaAjedrez
             }
             using (FileStream stream = new FileStream(folderPath + @"\ListaActualizada.pdf", FileMode.Create))
             {
-                Document pdfDoc = new Document(new iTextSharp.text.Rectangle(0, 0, (int) PageSize.A4.Height, (int) PageSize.A4.Width), 10f, 10f, 20f, 10f);                                
+                Document pdfDoc = new Document(new iTextSharp.text.Rectangle(0, 0, (int)PageSize.A4.Height, (int)PageSize.A4.Width), 10f, 10f, 20f, 10f);
                 PdfWriter.GetInstance(pdfDoc, stream);
                 pdfDoc.Open();
                 double dblTotalIngresos = ConexionBD.TotalInscripciones(cbEscuelas.selectedValue) + ConexionBD.TotalMensualidades(cbEscuelas.selectedValue, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave);
@@ -1373,7 +1378,7 @@ namespace PiensaAjedrez
                 pic.ScalePercent(18);
                 pdfDoc.Add(pic);
                 pdfDoc.Add(new Paragraph(" "));
-                Paragraph prHeader = new Paragraph("Lista de pago actualizada     " + cbEscuelas.selectedValue + "     " + unCurso.InicioCursos.ToShortDateString() + " - " + unCurso.FinCurso.ToShortDateString() +"     " + DateTime.Now.ToShortDateString(), FontFactory.GetFont("Courier", 14.0f, BaseColor.BLACK));
+                Paragraph prHeader = new Paragraph("Lista de pago actualizada     " + cbEscuelas.selectedValue + "     " + unCurso.InicioCursos.ToShortDateString() + " - " + unCurso.FinCurso.ToShortDateString() + "     " + DateTime.Now.ToShortDateString(), FontFactory.GetFont("Courier", 14.0f, BaseColor.BLACK));
                 prHeader.Alignment = Element.ALIGN_CENTER;
                 pdfDoc.Add(prHeader);
                 pdfDoc.Add(new Paragraph(" "));
@@ -1381,16 +1386,16 @@ namespace PiensaAjedrez
                 pdfDoc.Close();
                 stream.Close();
             }
-            Process.Start(folderPath+ @"\ListaActualizada.pdf");
+            Process.Start(folderPath + @"\ListaActualizada.pdf");
         }
 
-       
+
 
         private void RadGastos_CheckedChanged(object sender, EventArgs e)
         {
             if (radGastos.Checked)
             {
-               
+
 
             }
         }
@@ -1408,7 +1413,7 @@ namespace PiensaAjedrez
         {
             if (radIngreso.Checked)
             {
-               
+
             }
         }
 
@@ -1500,7 +1505,7 @@ namespace PiensaAjedrez
         {
             //lblTransaccion.Text = "Ingresos";
             ClickPestanaIngreso();
-           
+
         }
 
         void ClickPestanaIngreso()
@@ -1533,6 +1538,92 @@ namespace PiensaAjedrez
             btnPestañaIngresos.IdleLineColor = Color.DimGray;
             btnPestañaIngresos.IdleForecolor = Color.DimGray;
             radGastos.Checked = true; ;
+        }
+
+        private void DgvAlumnos_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            if (dgvAlumnos.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un pago de la lista.");
+                return;
+            }
+            if (e.Button == MouseButtons.Right)
+            {
+
+
+                tsEliminarPago.Visible = true;
+                tsEliminarPago.Enabled = true;
+
+
+                var pos = ((DataGridView)sender).GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location;
+                pos.X += e.X;
+                pos.Y += e.Y;
+                contextMenuStrip1.Show((DataGridView)sender, pos);
+                if (e.RowIndex != -1)
+                {
+                    dgvAlumnos.CurrentCell = dgvAlumnos.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    dgvAlumnos.Rows[e.RowIndex].Selected = true;
+
+                   
+                    if (dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.Yellow) || dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.Lime))
+                    {
+                        contextMenuStrip1.Enabled = true;
+                        contextMenuStrip1.Visible = true;
+
+                       
+                    }
+                    else
+                    {
+                        contextMenuStrip1.Enabled = false;
+                        contextMenuStrip1.Visible = false;
+
+                        //tsEliminarPago.Visible = false;
+                        //tsEliminarPago.Enabled = false;
+                    }
+                    dgvAlumnos.Focus();
+                }
+                else
+                {
+                    contextMenuStrip1.Enabled = false;
+                    contextMenuStrip1.Visible = false;
+                }
+               
+            }
+        }
+        ClaveSeguridad pantalla;
+        bool Preguntar()
+        {
+            pantalla = new ClaveSeguridad();
+            pantalla.ShowDialog();
+            return pantalla.blnOpcion;
+        }
+
+        private void TsEliminarPago_Click(object sender, EventArgs e)
+        {
+            if(dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.Yellow) || dgvAlumnos.CurrentCell.Style.BackColor.Equals(Color.Lime))
+            if (Preguntar())
+            {
+                Pagos unPago = ConexionBD.BuscarPago(dgvAlumnos.CurrentRow.Cells[1].Value.ToString(), dgvAlumnos.CurrentCell.OwningColumn.Name, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave);
+                if (Preguntar("Eliminar Pago", "¿Desea eliminar el pago:\nRecibo: " + unPago.NumeroRecibo + "\nCon el monto de: " + unPago.Monto.ToString("C") + "\nCon Alumno: " + dgvAlumnos.CurrentRow.Cells[1].Value.ToString() + "\nFecha de Pago: "+unPago.FechayHora.ToShortDateString()+"?"))
+                {
+                    try
+                    {
+                        ConexionBD.EliminarPago(dgvAlumnos.CurrentRow.Cells[1].Value.ToString(), dgvAlumnos.CurrentCell.OwningColumn.Name, ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave);
+                        //foreach (Escuela miEscuela in Escuelas.listaEscuela)
+                        //    if (miEscuela.Equals(new Escuela(dgvAlumnos.CurrentRow.Cells[2].Value.ToString())))
+                        //        miEscuela.listaAlumno.Remove(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString()));
+                        unaForma.Mostrar("Pago eliminado con éxito", "Se ha eliminado el pago " + unPago.NumeroRecibo + " con éxito.", 5, this);
+                        InicializarDGVEstadisticas();
+                        LlenarDGV(new Escuela(cbEscuelas.selectedValue));
+                        Deshabilitar();
+                    }
+                    catch (Exception)
+                    {
+                        unaForma.Mostrar("Error al eliminar el pago", "No se pudo eliminar\n Intente de nuevo o contacte a los desarrolladores.", 1, this);
+                    }
+                }
+            }
         }
     }
 }

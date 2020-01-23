@@ -151,13 +151,14 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsEliminarAlumno});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(162, 24);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 46);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenuStrip1_Opening);
             // 
             // tsEliminarAlumno
             // 
             this.tsEliminarAlumno.Name = "tsEliminarAlumno";
             this.tsEliminarAlumno.Padding = new System.Windows.Forms.Padding(0);
-            this.tsEliminarAlumno.Size = new System.Drawing.Size(161, 20);
+            this.tsEliminarAlumno.Size = new System.Drawing.Size(180, 20);
             this.tsEliminarAlumno.Text = "Eliminar alumno";
             this.tsEliminarAlumno.Click += new System.EventHandler(this.tsEliminarAlumno_Click);
             // 
@@ -569,7 +570,7 @@
             // 
             // chkNombre
             // 
-            this.chkNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.chkNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.chkNombre.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.chkNombre.Checked = false;
             this.chkNombre.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
@@ -582,7 +583,7 @@
             // 
             // chkEscuela
             // 
-            this.chkEscuela.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.chkEscuela.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.chkEscuela.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.chkEscuela.Checked = false;
             this.chkEscuela.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
@@ -595,7 +596,7 @@
             // 
             // chkFechaNacimiento
             // 
-            this.chkFechaNacimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.chkFechaNacimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.chkFechaNacimiento.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.chkFechaNacimiento.Checked = false;
             this.chkFechaNacimiento.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
@@ -608,7 +609,7 @@
             // 
             // chkTelefono
             // 
-            this.chkTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.chkTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.chkTelefono.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.chkTelefono.Checked = false;
             this.chkTelefono.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
@@ -621,7 +622,7 @@
             // 
             // chkCorreo
             // 
-            this.chkCorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.chkCorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.chkCorreo.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.chkCorreo.Checked = false;
             this.chkCorreo.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
@@ -724,7 +725,7 @@
             // 
             // chkFiltroActivo
             // 
-            this.chkFiltroActivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.chkFiltroActivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.chkFiltroActivo.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
             this.chkFiltroActivo.Checked = false;
             this.chkFiltroActivo.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));

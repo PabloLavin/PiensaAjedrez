@@ -804,6 +804,11 @@ namespace PiensaAjedrez
             new Cumpleaños().ShowDialog();
         }
 
+        private void ContextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
         //private void ChkBecado_OnChange(object sender, EventArgs e)
         //{
         //    if (chkBecado.Checked)

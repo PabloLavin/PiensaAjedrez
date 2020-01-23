@@ -628,7 +628,7 @@ namespace PiensaAjedrez
                 {
                     if (CargarCursoActivo(unaEscuela.Nombre) != null)
                     {
-                        SqlCommand comando = new SqlCommand("SELECT sum(monto-CantidadBeca)+ ISNULL((select sum(INGRESO.Monto) from INGRESO), 0) FROM PAGO where IDCurso in (select IDCurso from CURSO where activo = 1)", con);
+                        SqlCommand comando = new SqlCommand("SELECT sum(monto-CantidadBeca)+ ISNULL((select sum(INGRESO.Monto) from INGRESO WHERE Grupo = ''), 0) FROM PAGO where IDCurso in (select IDCurso from CURSO where activo = 1)", con);
                         SqlDataReader gastos = comando.ExecuteReader();
                         while (gastos.Read())
                         {
@@ -646,7 +646,7 @@ namespace PiensaAjedrez
             using (SqlConnection con = ObtenerConexion())
             {
 
-                SqlCommand comando = new SqlCommand("UPDATE PAGO SET Monto = '" + (dblMonto + unPago.Monto) + "',  Liquidado = '" + (blnLiquidado ? 1 : 0) + "', Nota = '" + unPago.Nota + "'  WHERE NumeroControl = '" + strNumeroControl + "' AND MesPagado = '" + unPago.MesPagado + "' AND Monto = '" + dblMonto + "'", con);
+                SqlCommand comando = new SqlCommand("UPDATE PAGO SET Monto = '" + (dblMonto) + "',  Liquidado = '" + (blnLiquidado ? 1 : 0) + "', Nota = '" + unPago.Nota + "'  WHERE NumeroControl = '" + strNumeroControl + "' AND MesPagado = '" + unPago.MesPagado + "' AND IDCurso = '" + unPago.IDCurso + "'", con);
                 comando.ExecuteNonQuery();
             }
         }
@@ -932,6 +932,31 @@ namespace PiensaAjedrez
                 }
             }
             return intAlumnosActivos;
+        }
+
+        public static Pagos BuscarPago(string strNumeroControl, string strMes, string strIDCurso)
+        {
+           
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("select * from PAGO WHERE MesPagado = '"+strMes+"' AND NumeroControl = '"+strNumeroControl+"' AND IDCurso = '"+strIDCurso+"'", con);
+                SqlDataReader pagos = comando.ExecuteReader();
+                while (pagos.Read())
+                    return new Pagos(pagos.GetString(0), pagos.GetDateTime(4), double.Parse(Convert.ToString(pagos.GetSqlMoney(2))), pagos.GetString(6), pagos.GetString(3), pagos.GetString(5), (pagos.GetInt16(7) == 1 ? true : false), (pagos.GetInt16(8) == 1 ? true : false), pagos.GetString(9), (pagos.GetInt16(10) > 0 ? true : false), double.Parse(pagos.GetSqlMoney(11).ToString()), pagos.GetInt16(12));
+            }
+            return null;
+        }
+
+        public static bool EliminarPago(string strNumeroControl, string strMes, string strIDCurso)
+        {
+
+            using (SqlConnection con = ObtenerConexion())
+            {
+                SqlCommand comando = new SqlCommand("DELETE from PAGO WHERE MesPagado = '" + strMes + "' AND NumeroControl = '" + strNumeroControl + "' AND IDCurso = '" + strIDCurso + "'", con);
+                comando.ExecuteNonQuery();
+                return true;
+            }
+            return false;
         }
     }
 }
