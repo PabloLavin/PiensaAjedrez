@@ -1086,7 +1086,7 @@
             this.btnPestañaIngresos.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.btnPestañaIngresos.ActiveForecolor = System.Drawing.Color.White;
             this.btnPestañaIngresos.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
-            this.btnPestañaIngresos.BackColor = System.Drawing.Color.White;
+            this.btnPestañaIngresos.BackColor = System.Drawing.Color.Transparent;
             this.btnPestañaIngresos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPestañaIngresos.BackgroundImage")));
             this.btnPestañaIngresos.ButtonText = "Ingresos";
             this.btnPestañaIngresos.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1097,7 +1097,7 @@
             this.btnPestañaIngresos.IdleFillColor = System.Drawing.Color.White;
             this.btnPestañaIngresos.IdleForecolor = System.Drawing.Color.DimGray;
             this.btnPestañaIngresos.IdleLineColor = System.Drawing.Color.DimGray;
-            this.btnPestañaIngresos.Location = new System.Drawing.Point(125, 5);
+            this.btnPestañaIngresos.Location = new System.Drawing.Point(133, 5);
             this.btnPestañaIngresos.Margin = new System.Windows.Forms.Padding(5);
             this.btnPestañaIngresos.Name = "btnPestañaIngresos";
             this.btnPestañaIngresos.Size = new System.Drawing.Size(85, 41);
@@ -1112,7 +1112,7 @@
             this.btnPestañaGastos.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.btnPestañaGastos.ActiveForecolor = System.Drawing.Color.White;
             this.btnPestañaGastos.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
-            this.btnPestañaGastos.BackColor = System.Drawing.Color.White;
+            this.btnPestañaGastos.BackColor = System.Drawing.Color.Transparent;
             this.btnPestañaGastos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPestañaGastos.BackgroundImage")));
             this.btnPestañaGastos.ButtonText = "Gastos";
             this.btnPestañaGastos.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1442,13 +1442,13 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsEliminarPago});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(148, 26);
             // 
             // tsEliminarPago
             // 
             this.tsEliminarPago.Enabled = false;
             this.tsEliminarPago.Name = "tsEliminarPago";
-            this.tsEliminarPago.Size = new System.Drawing.Size(180, 22);
+            this.tsEliminarPago.Size = new System.Drawing.Size(147, 22);
             this.tsEliminarPago.Text = "Eliminar Pago";
             this.tsEliminarPago.Click += new System.EventHandler(this.TsEliminarPago_Click);
             // 
