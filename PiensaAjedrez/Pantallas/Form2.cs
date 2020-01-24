@@ -66,7 +66,7 @@ namespace PiensaAjedrez
                     dgvGastos.Rows.Add(unGasto.Motivo, "$", unGasto.Monto, unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
                 }
                 dgvGastosTotales.Rows.Add("Gastos Totales", ConexionBD.TotalGastos().ToString("C"));
-                dgvGastosTotales.Rows.Add("Gastos Seleccionados", 0);
+                dgvGastosTotales.Rows.Add("Gastos Seleccionados", 0.ToString("C"));
             }
             else
             {
@@ -75,7 +75,7 @@ namespace PiensaAjedrez
                     dgvGastos.Rows.Add(unGasto.Motivo, "$", unGasto.Monto, unGasto.Nota, unGasto.FechaGasto.ToShortDateString());
                 }
                 dgvGastosTotales.Rows.Add("Ingresos Totales", ConexionBD.TotalIngresos().ToString("C"));
-                dgvGastosTotales.Rows.Add("Ingresos Seleccionados", 0);
+                dgvGastosTotales.Rows.Add("Ingresos Seleccionados", 0.ToString("C"));
             }
             dgvGastosTotales.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
@@ -118,7 +118,7 @@ namespace PiensaAjedrez
 
         private void DgvGastos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            dgvGastosTotales.Rows[1].Cells[1].Value = SumarSeleccionados();
+            dgvGastosTotales.Rows[1].Cells[1].Value = SumarSeleccionados().ToString("C");
         }
         double SumarSeleccionados()
         {
