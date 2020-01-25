@@ -27,6 +27,7 @@ namespace PiensaAjedrez.Pantallas
                 lblIngresos.Text = "Archivar Ingresos";
                 bunifuCustomLabel1.Text = "Asigna un nombre a estos ingresos:";
             }
+            
         }
 
         private void ArchivarForma_Load(object sender, EventArgs e)
@@ -54,6 +55,7 @@ namespace PiensaAjedrez.Pantallas
         void RellenarDGV(int intCaso)
         {
             dgvGastos.Rows.Clear();
+            dgvGastosTotales.Rows.Clear();
             if (intCaso == 1)
             {
             foreach (Gastos unGasto in ConexionBD.CargarGastos())
@@ -74,6 +76,7 @@ namespace PiensaAjedrez.Pantallas
                 dgvGastosTotales.Rows.Add("Ingresos Seleccionados", 0.ToString("C"));
             }
             dgvGastosTotales.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvGastosTotales.Rows[0].Cells[0].Selected = false;
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)

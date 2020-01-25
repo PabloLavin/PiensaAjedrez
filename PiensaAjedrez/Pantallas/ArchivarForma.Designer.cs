@@ -218,11 +218,11 @@
             this.dgvGastosTotales.AllowUserToDeleteRows = false;
             this.dgvGastosTotales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGastosTotales.ColumnHeadersVisible = false;
-            this.dgvGastosTotales.Location = new System.Drawing.Point(109, 86);
+            this.dgvGastosTotales.Location = new System.Drawing.Point(109, 90);
             this.dgvGastosTotales.Name = "dgvGastosTotales";
             this.dgvGastosTotales.ReadOnly = true;
             this.dgvGastosTotales.RowHeadersVisible = false;
-            this.dgvGastosTotales.Size = new System.Drawing.Size(207, 45);
+            this.dgvGastosTotales.Size = new System.Drawing.Size(207, 43);
             this.dgvGastosTotales.TabIndex = 28;
             // 
             // ArchivarForma

@@ -25,7 +25,7 @@ namespace PiensaAjedrez
             else
             {
                 lblControlGastos.Text = "Control de Ingresos |";
-            }
+            }            
         }
 
        
@@ -52,7 +52,7 @@ namespace PiensaAjedrez
             dgvGastosTotales.Columns.Add("Razon", "");
             dgvGastosTotales.Columns.Add("MontoTotal", "");
             dgvGastosTotales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvGastosTotales.Columns[0].Width = dgvGastosTotales.Columns[0].Width + 20;
+            dgvGastosTotales.Columns[0].Width = dgvGastosTotales.Columns[0].Width + 20;                      
             RellenarDGV();
         }
 
@@ -78,6 +78,7 @@ namespace PiensaAjedrez
                 dgvGastosTotales.Rows.Add("Ingresos Seleccionados", 0.ToString("C"));
             }
             dgvGastosTotales.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvGastosTotales.Rows[0].Cells[0].Selected = false;
 
         }
 

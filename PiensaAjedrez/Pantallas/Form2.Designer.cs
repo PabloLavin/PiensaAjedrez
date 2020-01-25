@@ -35,16 +35,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panGastos = new System.Windows.Forms.Panel();
+            this.dgvGastosTotales = new System.Windows.Forms.DataGridView();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnSalir = new Bunifu.Framework.UI.BunifuThinButton2();
             this.lblControlGastos = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.dgvGastos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.dgvGastosTotales = new System.Windows.Forms.DataGridView();
             this.panGastos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGastosTotales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGastosTotales)).BeginInit();
             this.SuspendLayout();
             // 
             // panGastos
@@ -60,6 +60,19 @@
             this.panGastos.Size = new System.Drawing.Size(800, 451);
             this.panGastos.TabIndex = 0;
             this.panGastos.Paint += new System.Windows.Forms.PaintEventHandler(this.PanGastos_Paint);
+            // 
+            // dgvGastosTotales
+            // 
+            this.dgvGastosTotales.AllowUserToAddRows = false;
+            this.dgvGastosTotales.AllowUserToDeleteRows = false;
+            this.dgvGastosTotales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGastosTotales.ColumnHeadersVisible = false;
+            this.dgvGastosTotales.Location = new System.Drawing.Point(366, 25);
+            this.dgvGastosTotales.Name = "dgvGastosTotales";
+            this.dgvGastosTotales.ReadOnly = true;
+            this.dgvGastosTotales.RowHeadersVisible = false;
+            this.dgvGastosTotales.Size = new System.Drawing.Size(207, 43);
+            this.dgvGastosTotales.TabIndex = 29;
             // 
             // bunifuImageButton1
             // 
@@ -165,19 +178,6 @@
             this.dgvGastos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGastos_CellClick);
             this.dgvGastos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGastos_CellContentClick);
             // 
-            // dgvGastosTotales
-            // 
-            this.dgvGastosTotales.AllowUserToAddRows = false;
-            this.dgvGastosTotales.AllowUserToDeleteRows = false;
-            this.dgvGastosTotales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGastosTotales.ColumnHeadersVisible = false;
-            this.dgvGastosTotales.Location = new System.Drawing.Point(347, 21);
-            this.dgvGastosTotales.Name = "dgvGastosTotales";
-            this.dgvGastosTotales.ReadOnly = true;
-            this.dgvGastosTotales.RowHeadersVisible = false;
-            this.dgvGastosTotales.Size = new System.Drawing.Size(207, 45);
-            this.dgvGastosTotales.TabIndex = 29;
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,9 +195,9 @@
             this.Load += new System.EventHandler(this.Form2_Load);
             this.panGastos.ResumeLayout(false);
             this.panGastos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGastosTotales)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGastosTotales)).EndInit();
             this.ResumeLayout(false);
 
         }
