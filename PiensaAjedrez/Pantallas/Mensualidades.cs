@@ -194,14 +194,14 @@ namespace PiensaAjedrez
             }
             else
             {
-                dgvAlumnos.Columns.Add("N°", "N°");
+                dgvAlumnos.Columns.Add("N°", "#");
                 dgvAlumnos.Columns.Add("N° de ctrl.", "N° Control");
                 dgvAlumnos.Columns.Add("Apellido P", "Apellido P");
                 dgvAlumnos.Columns.Add("Apellido M", "Apellido M");
                 dgvAlumnos.Columns.Add("Nombre", "Nombre");
-                dgvAlumnos.Columns.Add("Inscripcion", "Inscripcion");
-                dgvAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dgvAlumnos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvAlumnos.Columns.Add("Inscripcion", "Inscr");
+                /*dgvAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvAlumnos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;*/
 
                 List<string> listaMeses = CargarMeses(unaEscuela.CursoActivo);
                 foreach (string mes in listaMeses)
@@ -210,27 +210,27 @@ namespace PiensaAjedrez
                 }
                 if (dgvAlumnos.Columns.Count <= 8)
                 {
-                    dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    /*dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;*/
                     //dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                    dgvAlumnos.Columns[5].Width = 85;
+                    //dgvAlumnos.Columns[5].Width = 85;
                 }
                 else
-                {
+                {/*
                     dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
                     //dgvAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    dgvAlumnos.Columns[0].Width = 30;
+                    dgvAlumnos.Columns[0].Width = 30;*/
                     dgvAlumnos.Columns[0].Frozen = true;
                     dgvAlumnos.Columns[1].Frozen = true;
                     dgvAlumnos.Columns[2].Frozen = true;
                     dgvAlumnos.Columns[3].Frozen = true;
                     dgvAlumnos.Columns[4].Frozen = true;
                 }
-                dgvAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+                /*dgvAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
                 dgvAlumnos.Columns[1].Width = 110;
                 dgvAlumnos.Columns[2].Width = 115;
                 dgvAlumnos.Columns[3].Width = 125;
                 dgvAlumnos.Columns[4].Width = 150;
-                dgvAlumnos.Columns[5].Width = 75;
+                dgvAlumnos.Columns[5].Width = 75;*/
             }
         }
 
@@ -406,7 +406,69 @@ namespace PiensaAjedrez
             }
             else
                 RellenarDGV(otraEscuela);
+            /*Theshit:3*/
+            MagnumResizer();
         }
+
+
+
+        void MagnumResizer()
+        {   
+            foreach (DataGridViewColumn aCol in dgvAlumnos.Columns)
+            {
+                aCol.MinimumWidth = 2;
+                aCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                aCol.Resizable = DataGridViewTriState.True;
+                if (aCol.Frozen)
+                {
+                    aCol.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    aCol.HeaderCell.Style.Padding = new Padding(0, 0, 7, 0);
+                    switch (aCol.HeaderText)
+                    {
+                        case "#":
+                            aCol.Width = 27;
+                            break;
+                        case "N° Control": aCol.Width = 65; break;
+                        case "Apellido P": aCol.Width = 71; break;
+                        case "Apellido M": aCol.Width = 74; break;
+                        case "Nombre": aCol.Width = 80;
+                            aCol.HeaderCell.Style.Padding = new Padding(3, 0, 0, 0); 
+                            break;
+                        default: aCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader; break;
+                    }
+
+                }
+                else
+                {
+                    aCol.HeaderCell.Style.Padding = new Padding(0, 0, 2, 0);
+                    if (aCol.HeaderText.Length <= 3)
+                    {
+                        aCol.Width = 38;
+                    }
+                    else
+                    {
+                        if (aCol.HeaderText == "Inscr")
+                        {
+                            aCol.HeaderCell.Style.Padding = new Padding(0, 0, 5, 0);
+                            if (ConexionBD.CargarActividades(ConexionBD.CargarCursoActivo(cbEscuelas.selectedValue).Clave).Count > 0)
+                                aCol.Width = 40;
+                        }
+                        else
+                            aCol.Width = 90;
+                    }
+                }
+                aCol.Resizable = DataGridViewTriState.False;
+            }            
+            
+            /*
+            dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;            
+            dgvAlumnos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgvAlumnos.Columns[1].Resizable = DataGridViewTriState.True;
+            
+            dgvAlumnos.Columns[1].Resizable = DataGridViewTriState.False;            */
+        }
+
+
 
         private void cbEscuelas_onItemSelected(object sender, EventArgs e)
         {
