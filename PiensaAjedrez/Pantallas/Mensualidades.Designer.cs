@@ -43,6 +43,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
             this.txtFiltroNoCtrl = new System.Windows.Forms.TextBox();
             this.txtFiltroNombre = new System.Windows.Forms.TextBox();
@@ -124,6 +128,7 @@
             this.btnEnviarRecordatorios = new Bunifu.Framework.UI.BunifuThinButton2();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsEliminarPago = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgvAlumnosCopia = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.bunifuCards2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFiltro)).BeginInit();
             this.bunifuCards1.SuspendLayout();
@@ -143,6 +148,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstadisticas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnosCopia)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuCards2
@@ -1452,6 +1458,57 @@
             this.tsEliminarPago.Text = "Eliminar Pago";
             this.tsEliminarPago.Click += new System.EventHandler(this.TsEliminarPago_Click);
             // 
+            // dgvAlumnosCopia
+            // 
+            this.dgvAlumnosCopia.AllowUserToAddRows = false;
+            this.dgvAlumnosCopia.AllowUserToDeleteRows = false;
+            this.dgvAlumnosCopia.AllowUserToResizeColumns = false;
+            this.dgvAlumnosCopia.AllowUserToResizeRows = false;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvAlumnosCopia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            this.dgvAlumnosCopia.BackgroundColor = System.Drawing.Color.White;
+            this.dgvAlumnosCopia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAlumnosCopia.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Century Gothic", 7.5F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnosCopia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dgvAlumnosCopia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnosCopia.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dgvAlumnosCopia.DoubleBuffered = true;
+            this.dgvAlumnosCopia.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvAlumnosCopia.EnableHeadersVisualStyles = false;
+            this.dgvAlumnosCopia.GridColor = System.Drawing.Color.Black;
+            this.dgvAlumnosCopia.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.dgvAlumnosCopia.HeaderForeColor = System.Drawing.Color.White;
+            this.dgvAlumnosCopia.Location = new System.Drawing.Point(18, 262);
+            this.dgvAlumnosCopia.Name = "dgvAlumnosCopia";
+            this.dgvAlumnosCopia.ReadOnly = true;
+            this.dgvAlumnosCopia.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvAlumnosCopia.RowHeadersVisible = false;
+            this.dgvAlumnosCopia.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
+            this.dgvAlumnosCopia.RowsDefaultCellStyle = dataGridViewCellStyle17;
+            this.dgvAlumnosCopia.RowTemplate.Height = 25;
+            this.dgvAlumnosCopia.RowTemplate.ReadOnly = true;
+            this.dgvAlumnosCopia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvAlumnosCopia.Size = new System.Drawing.Size(943, 306);
+            this.dgvAlumnosCopia.TabIndex = 47;
+            this.dgvAlumnosCopia.Visible = false;
+            // 
             // Mensualidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1464,6 +1521,7 @@
             this.Controls.Add(this.dgvAlumnos);
             this.Controls.Add(this.bunifuCards2);
             this.Controls.Add(this.btnListasActualizadas);
+            this.Controls.Add(this.dgvAlumnosCopia);
             this.Name = "Mensualidades";
             this.Size = new System.Drawing.Size(1342, 615);
             this.Load += new System.EventHandler(this.Mensualidades_Load);
@@ -1492,6 +1550,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstadisticas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnosCopia)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1578,5 +1637,6 @@
         private System.Windows.Forms.RadioButton radGastos;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsEliminarPago;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid dgvAlumnosCopia;
     }
 }

@@ -43,6 +43,8 @@ namespace PiensaAjedrez
             dgvAlumnos.Columns.Add("Correo", "Correo");
             dgvAlumnos.Columns.Add("Activo", "Activo");
             dgvAlumnos.Columns.Add("Tutor", "Padre o Tutor");
+            dgvAlumnos.Columns.Add("Profesor", "Profesor");
+            dgvAlumnos.Columns.Add("Rango", "Rango");
             dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             dgvAlumnos.Columns[6].Width = 92;
@@ -78,6 +80,16 @@ namespace PiensaAjedrez
             if (ConexionBD.CargarEscuelas().Count > 0)
                 cbEscuelas.selectedIndex = 0;
             MostrarDatos();
+
+            cbRango.AddItem("Bronce");
+            cbRango.AddItem("Plata");
+            cbRango.AddItem("Oro");
+            cbRango.AddItem("Platino");
+            cbRango.AddItem("Diamante");
+            cbRango.AddItem("Rey del tablero");
+            cbRango.AddItem("Sin Rango");
+
+            cbRango.selectedIndex = 0;
 
             InicializarAutorellenado();
         }
@@ -122,6 +134,8 @@ namespace PiensaAjedrez
                     miAlumno.Tutor = txtTutor.Text;
                 miAlumno.ApellidoPaterno = txtApellidoP.Text;
                 miAlumno.ApellidoMaterno = txtApellidoM.Text;
+                miAlumno.Profesor = txtProfesor.Text;
+                miAlumno.Rango = cbRango.selectedValue;
                 //if (chkBecado.Checked)
                 //    miAlumno.PorcentajeBeca = Int16.Parse(txtPorcentajeBeca.Text);
                 //else
@@ -199,7 +213,7 @@ namespace PiensaAjedrez
             dgvAlumnos.Rows.Clear();
             foreach (Alumno miAlumno in ConexionBD.CargarAlumnos())
             {
-                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Grado, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor);
+                dgvAlumnos.Rows.Add(miAlumno.NumeroDeControl, miAlumno.Grado, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre, miAlumno.Escuela, miAlumno.FechaNacimiento.ToShortDateString(), miAlumno.Telefono, miAlumno.Correo, ((miAlumno.Activo) ? "Si" : "No"), miAlumno.Tutor, miAlumno.Profesor, miAlumno.Rango);
             }
         }
 
@@ -438,6 +452,8 @@ namespace PiensaAjedrez
                     txtApellidoM.Text = alumnos.ApellidoMaterno;
                     txtGrado.Text = Convert.ToString(alumnos.Grado);
                     cbEscuelas.selectedIndex = ObtenerIndex(alumnos.Escuela);
+                    txtProfesor.Text = alumnos.Profesor;
+                    cbRango.selectedIndex = ObtenerIndexRango(alumnos.Rango);
                     if (alumnos.Activo)
                     {
                         chkActivo.Checked = true;
@@ -728,6 +744,27 @@ namespace PiensaAjedrez
                     return i;
             }
             return -1;
+        }
+
+        int ObtenerIndexRango(string strRango)
+        {
+            switch (strRango)
+            {
+                case "Bronce":
+                    return 0;
+                case "Plata":
+                    return 1;
+                case "Oro":
+                    return 2;
+                case "Platino":
+                    return 3;
+                case "Diamante":
+                    return 4;
+                case "Rey del Tablero":
+                    return 5;
+                default:
+                    return 6;
+            }
         }
 
         private void cbMes_SelectedIndexChanged(object sender, EventArgs e)

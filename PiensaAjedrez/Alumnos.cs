@@ -119,7 +119,7 @@ namespace PiensaAjedrez
 
         }
 
-        public Alumno(string strNroControl, string strNombre, string strEscuela, DateTime dtmFechaNacimiento, string strTelefono, string strCorreo, int intActivo, string strTutor, string strApellidoP, string strApellidoM, int intGrado, Int16 intBeca)
+        public Alumno(string strNroControl, string strNombre, string strEscuela, DateTime dtmFechaNacimiento, string strTelefono, string strCorreo, int intActivo, string strTutor, string strApellidoP, string strApellidoM, int intGrado, Int16 intBeca, string strProfesor, string strRango)
         {
             NumeroDeControl = strNroControl;
             Nombre = strNombre;
@@ -133,6 +133,8 @@ namespace PiensaAjedrez
             ApellidoMaterno = strApellidoM;
             Grado = intGrado;
             PorcentajeBeca = intBeca;
+            Profesor = strProfesor;
+            Rango = strRango;
         }
 
         public Alumno(string strNumeroControl, string strNombre, string strAMaterno, string strAPaterno)
@@ -157,5 +159,22 @@ namespace PiensaAjedrez
         {
             return int.Parse(this.NumeroDeControl).CompareTo(int.Parse(otroAlumno.NumeroDeControl));
         }
+
+        private string _strProfesor;
+
+        public string Profesor
+        {
+            get { return _strProfesor; }
+            set { _strProfesor = value; }
+        }
+
+        private string _strRango;
+
+        public string Rango
+        {
+            get { return _strRango; }
+            set { _strRango = value; }
+        }
+
     }
 }

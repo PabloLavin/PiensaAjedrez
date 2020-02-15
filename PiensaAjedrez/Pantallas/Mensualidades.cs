@@ -354,7 +354,7 @@ namespace PiensaAjedrez
         }
 
 
-        void RellenarDGV(Escuela otraEscuela)
+        void RellenarDGV(Escuela otraEscuela, bool blnLogo)
         {
             try
             {
@@ -377,7 +377,7 @@ namespace PiensaAjedrez
                     if (miAlumno.Activo)
                     {
                         dgvAlumnos.Rows.Add(numero, miAlumno.NumeroDeControl, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre);
-                        RellenarPagos(miAlumno, otraEscuela.CursoActivo.Clave);
+                        RellenarPagos(miAlumno, otraEscuela.CursoActivo.Clave, blnLogo);
                         numero++;
                     }
                 }
@@ -390,7 +390,7 @@ namespace PiensaAjedrez
 
         }
 
-        void LlenarDGV(Escuela otraEscuela)
+        void LlenarDGV(Escuela otraEscuela, bool blnLogo)
         {
             if (chkNombre.Checked || chkCorreo.Checked || chkAño.Checked)
             {
@@ -400,12 +400,12 @@ namespace PiensaAjedrez
                 }
                 catch (Exception)
                 {
-                    RellenarDGV(otraEscuela);
+                    RellenarDGV(otraEscuela, blnLogo);
                 }
 
             }
             else
-                RellenarDGV(otraEscuela);
+                RellenarDGV(otraEscuela, blnLogo);
             /*Theshit:3*/
             MagnumResizer();
         }
@@ -484,7 +484,7 @@ namespace PiensaAjedrez
 
                         try
                         {
-                            LlenarDGV(miEscuela);
+                            LlenarDGV(miEscuela,false);
 
                         }
                         catch (Exception)
@@ -597,7 +597,7 @@ namespace PiensaAjedrez
                     if (cbEscuelas.selectedIndex != -1)
                         if (cbEscuelas.selectedValue == miEscuela.Nombre)
                         {
-                            LlenarDGV(miEscuela);
+                            LlenarDGV(miEscuela,false);
                         }
                 }
 
@@ -625,7 +625,7 @@ namespace PiensaAjedrez
                     if (cbEscuelas.selectedIndex != -1)
                         if (cbEscuelas.selectedValue == miEscuela.Nombre)
                         {
-                            LlenarDGV(miEscuela);
+                            LlenarDGV(miEscuela,false);
                         }
                 }
             }
@@ -661,7 +661,7 @@ namespace PiensaAjedrez
                                 if (miPago.FechayHora.Year.Equals(int.Parse(cbAño.Text)))
                                 {
 
-                                    RellenarPagos(miAlumno, miEscuela.CursoActivo.Clave);
+                                    RellenarPagos(miAlumno, miEscuela.CursoActivo.Clave,false);
                                 }
 
                             }
@@ -691,7 +691,7 @@ namespace PiensaAjedrez
                     if (cbEscuelas.selectedIndex != -1)
                         if (cbEscuelas.selectedValue == miEscuela.Nombre)
                         {
-                            LlenarDGV(miEscuela);
+                            LlenarDGV(miEscuela,false);
                         }
                 }
             }
@@ -821,7 +821,7 @@ namespace PiensaAjedrez
                                         }
                                     }
                                     InicializarDGVEstadisticas();
-                                    LlenarDGV(miEscuela);
+                                    LlenarDGV(miEscuela,false);
                                     Deshabilitar();
                                 }
                     }
@@ -885,7 +885,7 @@ namespace PiensaAjedrez
 
                                             miEscuela.CursoActivo.TotalIngresos += double.Parse(txtMonto.Text);
                                             InicializarDGVEstadisticas();
-                                            LlenarDGV(miEscuela);
+                                            LlenarDGV(miEscuela,false);
                                             Deshabilitar();
                                         }
                                     }
@@ -910,7 +910,7 @@ namespace PiensaAjedrez
             return (unAlumno.ApellidoPaterno + " " + unAlumno.ApellidoMaterno + " " + unAlumno.Nombre);
         }
 
-        void RellenarPagos(Alumno miAlumno, string strCurso)
+        void RellenarPagos(Alumno miAlumno, string strCurso, bool blnLogo)
         {
             foreach (Pagos miPagos in ConexionBD.CargarPagosAlumno(miAlumno.NumeroDeControl))
             {
@@ -930,8 +930,16 @@ namespace PiensaAjedrez
                                     }
                                     else
                                     {
-                                        //Fila.Cells[columna.Index].Value = miPagos.Monto.ToString("c");
-                                        Fila.Cells[columna.Index].Value = "♚";
+                                        if (blnLogo)
+                                        {
+                                            Fila.Cells[columna.Index].Value = miPagos.Monto.ToString("c");
+
+                                        }
+                                        else
+                                        {
+                                            Fila.Cells[columna.Index].Value = "♚";
+
+                                        }
                                         Fila.Cells[columna.Index].Style.ForeColor = Color.Black;
                                     }
                                     if (miPagos.Notificado)
@@ -970,7 +978,7 @@ namespace PiensaAjedrez
                     }
                 }
             }
-            LlenarDGV(new Escuela(cbEscuelas.selectedValue));
+            LlenarDGV(new Escuela(cbEscuelas.selectedValue),false);
 
         }
 
@@ -991,7 +999,7 @@ namespace PiensaAjedrez
                     catch (Exception) { unaForma.Mostrar("Error", "Introduzca solo valores numéricos.", 1, this); return; }
                     txtMontoAdicional.Text = "";
                     txtMotivo.Text = "";
-                    LlenarDGV(new Escuela(cbEscuelas.selectedValue));
+                    LlenarDGV(new Escuela(cbEscuelas.selectedValue),false);
                     InicializarDGVEstadisticas();
                 }
                 else
@@ -1015,7 +1023,7 @@ namespace PiensaAjedrez
                     catch (Exception) { unaForma.Mostrar("Error", "Introduzca solo valores numéricos.", 1, this); return; }
                     txtMontoAdicional.Text = "";
                     txtMotivo.Text = "";
-                    LlenarDGV(new Escuela(cbEscuelas.selectedValue));
+                    LlenarDGV(new Escuela(cbEscuelas.selectedValue),false);
                     InicializarDGVEstadisticas();
                 }
                 else
@@ -1067,7 +1075,7 @@ namespace PiensaAjedrez
                                         if (blnReenviar)
                                         {
                                             EnviarCorreo(miAlumno, miPago);
-                                            LlenarDGV(miEscuela);
+                                            LlenarDGV(miEscuela,false);
                                             Deshabilitar();
                                         }
                                         VisibilidadControles(true);
@@ -1149,7 +1157,7 @@ namespace PiensaAjedrez
                     {
                         intContador++;
                         dgvAlumnos.Rows.Add(intContador, miAlumno.NumeroDeControl, miAlumno.ApellidoPaterno, miAlumno.ApellidoMaterno, miAlumno.Nombre);
-                        RellenarPagos(miAlumno, ConexionBD.CargarCursoActivo(miAlumno.Escuela).Clave);
+                        RellenarPagos(miAlumno, ConexionBD.CargarCursoActivo(miAlumno.Escuela).Clave,false);
                     }
                 }
             }
@@ -1352,12 +1360,12 @@ namespace PiensaAjedrez
         private void BtnArchivar_Click(object sender, EventArgs e)
         {
             new ArchivarForma((radGastos.Checked ? 1 : 2)).ShowDialog();
-            LlenarDGV(new Escuela(cbEscuelas.selectedValue));
+            LlenarDGV(new Escuela(cbEscuelas.selectedValue),false);
         }
 
         private void Mensualidades_Enter(object sender, EventArgs e)
         {
-            LlenarDGV(new Escuela(cbEscuelas.selectedValue));
+            LlenarDGV(new Escuela(cbEscuelas.selectedValue),false);
         }
 
         private void btnListasActualizadas_Click(object sender, EventArgs e)
@@ -1366,6 +1374,9 @@ namespace PiensaAjedrez
             //            pdfTable.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
             pdfTable.DefaultCell.Padding = 3;
             List<float> aFloat = new List<float>();
+
+            LlenarDGV(new Escuela(cbEscuelas.selectedValue),true);
+            //dgvAlumnosCopia = dgvAlumnos;
             foreach (DataGridViewColumn column in dgvAlumnos.Columns)
             {
                 aFloat.Add(column.Width);
@@ -1449,6 +1460,7 @@ namespace PiensaAjedrez
                 stream.Close();
             }
             Process.Start(folderPath + @"\ListaActualizada.pdf");
+            LlenarDGV(new Escuela(cbEscuelas.selectedValue), false);
         }
 
 
@@ -1677,7 +1689,7 @@ namespace PiensaAjedrez
                         //        miEscuela.listaAlumno.Remove(new Alumno(dgvAlumnos.CurrentRow.Cells[0].Value.ToString()));
                         unaForma.Mostrar("Pago eliminado con éxito", "Se ha eliminado el pago " + unPago.NumeroRecibo + " con éxito.", 5, this);
                         InicializarDGVEstadisticas();
-                        LlenarDGV(new Escuela(cbEscuelas.selectedValue));
+                        LlenarDGV(new Escuela(cbEscuelas.selectedValue),false);
                         Deshabilitar();
                     }
                     catch (Exception)

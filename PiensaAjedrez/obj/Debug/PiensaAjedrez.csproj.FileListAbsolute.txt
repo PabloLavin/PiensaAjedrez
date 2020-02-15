@@ -123,3 +123,43 @@ C:\Users\Pablo Lavín\Desktop\Desarrollos\PiensaAjedrez\PiensaAjedrez\PiensaAjed
 C:\Users\Pablo Lavín\Desktop\Desarrollos\PiensaAjedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\Piensa Ajedrez.pdb
 F:\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.Pantallas.ClaveSeguridad.resources
 C:\Users\Pablo Lavín\Desktop\Desarrollos\PiensaAjedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.Pantallas.ClaveSeguridad.resources
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\Piensa Ajedrez.exe.config
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\Piensa Ajedrez.exe
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\Piensa Ajedrez.pdb
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\Bunifu_UI_v1.5.3.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\itextsharp.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\SerializacionLibreria.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\ShockwaveFlashObjects.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\bin\Debug\stdole.dll
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.csprojAssemblyReference.cache
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.Pantallas.ArchivarForma.resources
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.Asistencia.resources
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.Pantallas.ClaveSeguridad.resources
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.Escuelas.resources
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.Cumpleaños.resources
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.Form1.resources
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.Form2.resources
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.FormMensaje.resources
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.IngresosForma.resources
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.Pantallas.Login.resources
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.Mensualidades.resources
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.Pantallas.Registro.resources
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.Properties.Resources.resources
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.RegistroAlumnos.resources
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.Reportes.resources
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.csproj.GenerateResource.cache
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\PiensaAjedrez.csproj.CopyComplete
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\Piensa Ajedrez.exe
+F:\Proyectos\sistema ajedrez\PiensaAjedrez\PiensaAjedrez\obj\Debug\Piensa Ajedrez.pdb

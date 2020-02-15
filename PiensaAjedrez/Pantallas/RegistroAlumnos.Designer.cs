@@ -85,6 +85,10 @@
             this.lblfiltrar = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.imgFiltro = new Bunifu.Framework.UI.BunifuImageButton();
             this.Cancelartt = new System.Windows.Forms.ToolTip(this.components);
+            this.cbRango = new Bunifu.Framework.UI.BunifuDropdown();
+            this.lblRango = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtProfesor = new System.Windows.Forms.TextBox();
+            this.lblProfesor = new Bunifu.Framework.UI.BunifuCustomLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.bnfcarAgregar.SuspendLayout();
@@ -129,7 +133,7 @@
             this.dgvAlumnos.GridColor = System.Drawing.Color.Black;
             this.dgvAlumnos.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.dgvAlumnos.HeaderForeColor = System.Drawing.Color.White;
-            this.dgvAlumnos.Location = new System.Drawing.Point(27, 253);
+            this.dgvAlumnos.Location = new System.Drawing.Point(27, 279);
             this.dgvAlumnos.Name = "dgvAlumnos";
             this.dgvAlumnos.ReadOnly = true;
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -141,7 +145,7 @@
             this.dgvAlumnos.RowTemplate.Height = 25;
             this.dgvAlumnos.RowTemplate.ReadOnly = true;
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAlumnos.Size = new System.Drawing.Size(1288, 347);
+            this.dgvAlumnos.Size = new System.Drawing.Size(1288, 321);
             this.dgvAlumnos.TabIndex = 7;
             this.dgvAlumnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellClick);
             this.dgvAlumnos.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAlumnos_CellMouseDown);
@@ -151,14 +155,14 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsEliminarAlumno});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 46);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(162, 24);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenuStrip1_Opening);
             // 
             // tsEliminarAlumno
             // 
             this.tsEliminarAlumno.Name = "tsEliminarAlumno";
             this.tsEliminarAlumno.Padding = new System.Windows.Forms.Padding(0);
-            this.tsEliminarAlumno.Size = new System.Drawing.Size(180, 20);
+            this.tsEliminarAlumno.Size = new System.Drawing.Size(161, 20);
             this.tsEliminarAlumno.Text = "Eliminar alumno";
             this.tsEliminarAlumno.Click += new System.EventHandler(this.tsEliminarAlumno_Click);
             // 
@@ -168,6 +172,10 @@
             this.bnfcarAgregar.BorderRadius = 5;
             this.bnfcarAgregar.BottomSahddow = true;
             this.bnfcarAgregar.color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.bnfcarAgregar.Controls.Add(this.txtProfesor);
+            this.bnfcarAgregar.Controls.Add(this.lblProfesor);
+            this.bnfcarAgregar.Controls.Add(this.cbRango);
+            this.bnfcarAgregar.Controls.Add(this.lblRango);
             this.bnfcarAgregar.Controls.Add(this.lblCumple);
             this.bnfcarAgregar.Controls.Add(this.btnCumple);
             this.bnfcarAgregar.Controls.Add(this.txtGrado);
@@ -201,7 +209,7 @@
             this.bnfcarAgregar.Name = "bnfcarAgregar";
             this.bnfcarAgregar.RightSahddow = true;
             this.bnfcarAgregar.ShadowDepth = 20;
-            this.bnfcarAgregar.Size = new System.Drawing.Size(923, 231);
+            this.bnfcarAgregar.Size = new System.Drawing.Size(923, 252);
             this.bnfcarAgregar.TabIndex = 0;
             this.bnfcarAgregar.TabStop = true;
             this.bnfcarAgregar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
@@ -214,7 +222,7 @@
             this.lblCumple.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCumple.ForeColor = System.Drawing.Color.Black;
             this.lblCumple.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblCumple.Location = new System.Drawing.Point(69, 194);
+            this.lblCumple.Location = new System.Drawing.Point(69, 219);
             this.lblCumple.Name = "lblCumple";
             this.lblCumple.Size = new System.Drawing.Size(138, 20);
             this.lblCumple.TabIndex = 23;
@@ -225,7 +233,7 @@
             this.btnCumple.BackColor = System.Drawing.Color.Transparent;
             this.btnCumple.Image = ((System.Drawing.Image)(resources.GetObject("btnCumple.Image")));
             this.btnCumple.ImageActive = ((System.Drawing.Image)(resources.GetObject("btnCumple.ImageActive")));
-            this.btnCumple.Location = new System.Drawing.Point(12, 185);
+            this.btnCumple.Location = new System.Drawing.Point(12, 210);
             this.btnCumple.Name = "btnCumple";
             this.btnCumple.Size = new System.Drawing.Size(51, 36);
             this.btnCumple.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -238,7 +246,7 @@
             // txtGrado
             // 
             this.txtGrado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrado.Location = new System.Drawing.Point(474, 192);
+            this.txtGrado.Location = new System.Drawing.Point(474, 220);
             this.txtGrado.Name = "txtGrado";
             this.txtGrado.Size = new System.Drawing.Size(73, 24);
             this.txtGrado.TabIndex = 31;
@@ -311,7 +319,7 @@
             this.lblGrado.AutoSize = true;
             this.lblGrado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGrado.ForeColor = System.Drawing.Color.Black;
-            this.lblGrado.Location = new System.Drawing.Point(409, 193);
+            this.lblGrado.Location = new System.Drawing.Point(409, 221);
             this.lblGrado.Name = "lblGrado";
             this.lblGrado.Size = new System.Drawing.Size(59, 20);
             this.lblGrado.TabIndex = 24;
@@ -321,7 +329,7 @@
             // 
             this.btnCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.BackgroundImage")));
             this.btnCancelar.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.InitialImage")));
-            this.btnCancelar.Location = new System.Drawing.Point(877, 189);
+            this.btnCancelar.Location = new System.Drawing.Point(877, 209);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(30, 30);
             this.btnCancelar.TabIndex = 17;
@@ -422,7 +430,7 @@
             this.btnAgregado.IconVisible = true;
             this.btnAgregado.IconZoom = 61D;
             this.btnAgregado.IsTab = false;
-            this.btnAgregado.Location = new System.Drawing.Point(879, 192);
+            this.btnAgregado.Location = new System.Drawing.Point(879, 212);
             this.btnAgregado.Name = "btnAgregado";
             this.btnAgregado.Normalcolor = System.Drawing.Color.Transparent;
             this.btnAgregado.OnHovercolor = System.Drawing.Color.Transparent;
@@ -440,7 +448,7 @@
             this.lblActivo.AutoSize = true;
             this.lblActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblActivo.ForeColor = System.Drawing.Color.Black;
-            this.lblActivo.Location = new System.Drawing.Point(607, 192);
+            this.lblActivo.Location = new System.Drawing.Point(607, 220);
             this.lblActivo.Name = "lblActivo";
             this.lblActivo.Size = new System.Drawing.Size(58, 20);
             this.lblActivo.TabIndex = 10;
@@ -453,7 +461,7 @@
             this.chkActivo.Checked = true;
             this.chkActivo.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.chkActivo.ForeColor = System.Drawing.Color.White;
-            this.chkActivo.Location = new System.Drawing.Point(581, 192);
+            this.chkActivo.Location = new System.Drawing.Point(581, 220);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(20, 20);
             this.chkActivo.TabIndex = 9;
@@ -501,7 +509,7 @@
             this.btnAgregar.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.btnAgregar.IdleForecolor = System.Drawing.Color.White;
             this.btnAgregar.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
-            this.btnAgregar.Location = new System.Drawing.Point(691, 182);
+            this.btnAgregar.Location = new System.Drawing.Point(691, 202);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(5);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(185, 41);
@@ -627,7 +635,7 @@
             this.chkCorreo.Checked = false;
             this.chkCorreo.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.chkCorreo.ForeColor = System.Drawing.Color.White;
-            this.chkCorreo.Location = new System.Drawing.Point(12, 169);
+            this.chkCorreo.Location = new System.Drawing.Point(12, 173);
             this.chkCorreo.Name = "chkCorreo";
             this.chkCorreo.Size = new System.Drawing.Size(20, 20);
             this.chkCorreo.TabIndex = 12;
@@ -661,7 +669,7 @@
             this.bunifuCards2.Name = "bunifuCards2";
             this.bunifuCards2.RightSahddow = true;
             this.bunifuCards2.ShadowDepth = 20;
-            this.bunifuCards2.Size = new System.Drawing.Size(335, 231);
+            this.bunifuCards2.Size = new System.Drawing.Size(335, 252);
             this.bunifuCards2.TabIndex = 17;
             // 
             // txtFiltroAño
@@ -680,7 +688,7 @@
             // 
             this.txtFiltroCorreo.Enabled = false;
             this.txtFiltroCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltroCorreo.Location = new System.Drawing.Point(38, 169);
+            this.txtFiltroCorreo.Location = new System.Drawing.Point(38, 173);
             this.txtFiltroCorreo.Name = "txtFiltroCorreo";
             this.txtFiltroCorreo.Size = new System.Drawing.Size(273, 24);
             this.txtFiltroCorreo.TabIndex = 26;
@@ -717,7 +725,7 @@
             this.lblFiltroActivo.AutoSize = true;
             this.lblFiltroActivo.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.lblFiltroActivo.ForeColor = System.Drawing.Color.Black;
-            this.lblFiltroActivo.Location = new System.Drawing.Point(37, 200);
+            this.lblFiltroActivo.Location = new System.Drawing.Point(37, 209);
             this.lblFiltroActivo.Name = "lblFiltroActivo";
             this.lblFiltroActivo.Size = new System.Drawing.Size(171, 21);
             this.lblFiltroActivo.TabIndex = 23;
@@ -730,7 +738,7 @@
             this.chkFiltroActivo.Checked = false;
             this.chkFiltroActivo.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.chkFiltroActivo.ForeColor = System.Drawing.Color.White;
-            this.chkFiltroActivo.Location = new System.Drawing.Point(12, 201);
+            this.chkFiltroActivo.Location = new System.Drawing.Point(12, 210);
             this.chkFiltroActivo.Name = "chkFiltroActivo";
             this.chkFiltroActivo.Size = new System.Drawing.Size(20, 20);
             this.chkFiltroActivo.TabIndex = 15;
@@ -874,6 +882,60 @@
             this.Cancelartt.InitialDelay = 250;
             this.Cancelartt.ReshowDelay = 100;
             // 
+            // cbRango
+            // 
+            this.cbRango.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.cbRango.BorderRadius = 3;
+            this.cbRango.DisabledColor = System.Drawing.Color.Gray;
+            this.cbRango.ForeColor = System.Drawing.Color.White;
+            this.cbRango.Items = new string[0];
+            this.cbRango.Location = new System.Drawing.Point(96, 176);
+            this.cbRango.Name = "cbRango";
+            this.cbRango.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.cbRango.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
+            this.cbRango.selectedIndex = -1;
+            this.cbRango.Size = new System.Drawing.Size(234, 35);
+            this.cbRango.TabIndex = 34;
+            // 
+            // lblRango
+            // 
+            this.lblRango.AutoSize = true;
+            this.lblRango.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRango.ForeColor = System.Drawing.Color.Black;
+            this.lblRango.Location = new System.Drawing.Point(20, 187);
+            this.lblRango.Name = "lblRango";
+            this.lblRango.Size = new System.Drawing.Size(62, 20);
+            this.lblRango.TabIndex = 33;
+            this.lblRango.Text = "Rango";
+            // 
+            // txtProfesor
+            // 
+            this.txtProfesor.AutoCompleteCustomSource.AddRange(new string[] {
+            "@hotmail.com",
+            "@gmail.com",
+            "@outlook.com",
+            " gmail.com",
+            " hotmail.com",
+            " outlook.com"});
+            this.txtProfesor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtProfesor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtProfesor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProfesor.Location = new System.Drawing.Point(432, 187);
+            this.txtProfesor.Name = "txtProfesor";
+            this.txtProfesor.Size = new System.Drawing.Size(251, 24);
+            this.txtProfesor.TabIndex = 36;
+            // 
+            // lblProfesor
+            // 
+            this.lblProfesor.AutoSize = true;
+            this.lblProfesor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProfesor.ForeColor = System.Drawing.Color.Black;
+            this.lblProfesor.Location = new System.Drawing.Point(346, 187);
+            this.lblProfesor.Name = "lblProfesor";
+            this.lblProfesor.Size = new System.Drawing.Size(77, 20);
+            this.lblProfesor.TabIndex = 35;
+            this.lblProfesor.Text = "Profesor";
+            // 
             // RegistroAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -952,5 +1014,9 @@
         private System.Windows.Forms.TextBox txtFiltonombre;
         private Bunifu.Framework.UI.BunifuImageButton btnCumple;
         private Bunifu.Framework.UI.BunifuCustomLabel lblCumple;
+        private System.Windows.Forms.TextBox txtProfesor;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblProfesor;
+        private Bunifu.Framework.UI.BunifuDropdown cbRango;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblRango;
     }
 }
