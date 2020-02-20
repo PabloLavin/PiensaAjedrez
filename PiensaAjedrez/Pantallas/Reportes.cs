@@ -52,10 +52,11 @@ namespace PiensaAjedrez
         }
         */
         private void CargarTodosIngresos_Click(object sender, EventArgs e)
-        {            
+        {
+            string strMetodoPago = cbMetodoPago.selectedValue != "Cualquiera" ? cbMetodoPago.selectedValue : "";
             try
             {                
-                ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerIngresosGlobales(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1)), cbEscuelas.selectedValue, "Ingresos");                
+                ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerIngresosGlobales(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1), strMetodoPago), cbEscuelas.selectedValue, "Ingresos");                
             }
             catch (Exception)
             {
@@ -67,11 +68,18 @@ namespace PiensaAjedrez
         private void CargarEgresos_Click(object sender, EventArgs e) 
         {   
             try
-            {
-                ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerEgresos(cboGrupoGastos.selectedValue), cboGrupoGastos.selectedValue, "Egresos");                
+            {   
+                string strGrupo = chkGrupo.Checked ? cboGrupoGastos.selectedValue : "";
+                string strFechaInicio = chkFecha.Checked ? ConexionBD.FormatearFecha(dtmInicioCurso.Value) : "";
+                string strFechaFin = chkFecha.Checked ? ConexionBD.FormatearFecha(dtmFinCurso.Value) : "";
+                string strTipo = chkTipoGasto.Checked ? gpTipoGasto.selectedValue : "";
+                string strNombreReporte = strGrupo != "" ? strGrupo : strTipo;
+
+                ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerEgresos(strGrupo, strFechaInicio,strFechaFin, strTipo), strNombreReporte, "Egresos");                
             }
-            catch (Exception)
+            catch (Exception exception)
             {
+                MessageBox.Show(exception.Message);
                 FormMensaje unaForma = new FormMensaje();
                 unaForma.Mostrar("Error de generación de reporte", "Verifique los datos seleccionados. Si el error sigue, comuníquese con los desarrolladores.", 1, this);
             }
@@ -92,10 +100,11 @@ namespace PiensaAjedrez
         }
 
         private void CargarReporteInscripciones_Click(object sender, EventArgs e)
-        {   
+        {
+            string strMetodoPago = cbMetodoPago.selectedValue != "Cualquiera" ? cbMetodoPago.selectedValue : "";
             try
             {
-                ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerInscripciones(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1)), cbEscuelas.selectedValue, "Inscripciones");
+                ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerInscripciones(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1), strMetodoPago), cbEscuelas.selectedValue, "Inscripciones");
                 
             }
             catch (Exception)
@@ -106,10 +115,11 @@ namespace PiensaAjedrez
         }
 
         private void CargarReporteMensualidades_Click(object sender, EventArgs e)
-        {            
+        {
+            string strMetodoPago = cbMetodoPago.selectedValue != "Cualquiera" ? cbMetodoPago.selectedValue : "";
             try
             {
-                ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerMensualidades(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1)), cbEscuelas.selectedValue, "Mensualidades");
+                ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerMensualidades(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1), strMetodoPago), cbEscuelas.selectedValue, "Mensualidades");
                 
             }
             catch (Exception)
@@ -120,10 +130,11 @@ namespace PiensaAjedrez
         }
 
         private void CargarReporteActividades_Click(object sender, EventArgs e)
-        {            
+        {
+            string strMetodoPago = cbMetodoPago.selectedValue != "Cualquiera" ? cbMetodoPago.selectedValue : "";
             try
             {
-                ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerActividades(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1)), cbEscuelas.selectedValue, "Actividades");
+                ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerActividades(cboCursos.selectedValue.Substring(0, cboCursos.selectedValue.IndexOf(" ") + 1), strMetodoPago), cbEscuelas.selectedValue, "Actividades");
                 
             }
             catch (Exception)
@@ -147,6 +158,11 @@ namespace PiensaAjedrez
         private void cbEscuelas_onItemSelected(object sender, EventArgs e)
         {
             CargarListaCursos();
+        }
+
+        private void bunifuCards1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

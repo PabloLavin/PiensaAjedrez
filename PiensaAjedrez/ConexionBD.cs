@@ -67,13 +67,13 @@ namespace PiensaAjedrez
                 return unaFecha.Year + "-" + unaFecha.Day + "-" + unaFecha.Month;
         }
 
-        public static Reporte.Datasets.DatosIngresos ObtenerIngresosGlobales(string strCurso)
+        public static Reporte.Datasets.DatosIngresos ObtenerIngresosGlobales(string strCurso, string strMetodoPago)
         {
             
             Reporte.Datasets.DatosIngresos datos = new Reporte.Datasets.DatosIngresos();
             using (SqlConnection con = ObtenerConexion())
-            {
-                SqlCommand comando = new SqlCommand("EXEC INGRESOSTOTALES '" + strCurso + "'", con);
+            {   
+                SqlCommand comando = new SqlCommand($"EXEC INGRESOSTOTALES '{strCurso}','{strMetodoPago}'", con);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(datos);
@@ -81,12 +81,12 @@ namespace PiensaAjedrez
             return datos;
         }
 
-        public static Reporte.Datasets.DatosEgresos ObtenerEgresos(string strGrupo)
+        public static Reporte.Datasets.DatosEgresos ObtenerEgresos(string strGrupo, string FechaInicio, string FechaFin, string TipoGasto)
         {
             Reporte.Datasets.DatosEgresos datosEgresos = new Reporte.Datasets.DatosEgresos();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("EXEC EGRESOS '" + strGrupo+ "'", con);
+                SqlCommand comando = new SqlCommand($"EXEC EGRESOS '{strGrupo}', '{FechaInicio}', '{FechaFin}', '{TipoGasto}'", con);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(datosEgresos);
@@ -107,12 +107,12 @@ namespace PiensaAjedrez
             return datos;
         }
 
-        public static Reporte.Datasets.DatosInscripcion ObtenerInscripciones(string strCurso)
+        public static Reporte.Datasets.DatosInscripcion ObtenerInscripciones(string strCurso, string strMetodoPago)
         {
             Reporte.Datasets.DatosInscripcion datos = new Reporte.Datasets.DatosInscripcion();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("EXEC Inscripcion '" + strCurso + "'", con);
+                SqlCommand comando = new SqlCommand($"EXEC Inscripcion '{strCurso}', '{strMetodoPago}'", con);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(datos);
@@ -120,12 +120,12 @@ namespace PiensaAjedrez
             return datos;
         }
 
-        public static Reporte.Datasets.DatosMensualidades ObtenerMensualidades(string strCurso)
+        public static Reporte.Datasets.DatosMensualidades ObtenerMensualidades(string strCurso, string strMetodoPago)
         {
             Reporte.Datasets.DatosMensualidades datos = new Reporte.Datasets.DatosMensualidades();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("EXEC Mensualidades '" + strCurso + "'", con);
+                SqlCommand comando = new SqlCommand($"EXEC Mensualidades '{strCurso}','{strMetodoPago}'", con);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(datos);
@@ -133,12 +133,12 @@ namespace PiensaAjedrez
             return datos;
         }
 
-        public static Reporte.Datasets.DatosActividades ObtenerActividades(string strCurso)
+        public static Reporte.Datasets.DatosActividades ObtenerActividades(string strCurso, string strMetodoPago)
         {
             Reporte.Datasets.DatosActividades datos = new Reporte.Datasets.DatosActividades();
             using (SqlConnection con = ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("EXEC Actividades '" + strCurso+ "' ", con);
+                SqlCommand comando = new SqlCommand($"EXEC Actividades  '{strCurso}', '{strMetodoPago}'", con);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(datos);

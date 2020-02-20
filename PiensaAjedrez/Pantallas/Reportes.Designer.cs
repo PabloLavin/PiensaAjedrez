@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reportes));
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
+            this.cbMetodoPago = new Bunifu.Framework.UI.BunifuDropdown();
+            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.cboCursos = new Bunifu.Framework.UI.BunifuDropdown();
             this.CargarReporteActividades = new Bunifu.Framework.UI.BunifuFlatButton();
             this.CargarAsistencias = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -43,11 +46,21 @@
             this.lblColegios = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblTipoReporte = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCards3 = new Bunifu.Framework.UI.BunifuCards();
+            this.lblFinCurso = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.dtmFinCurso = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.lblInicioCurso = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.dtmInicioCurso = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.gpTipoGasto = new Bunifu.Framework.UI.BunifuDropdown();
+            this.lblTipoDeGasto = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.chkTipoGasto = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.lblFecha = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.chkFecha = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.lblGrupo = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.chkGrupo = new Bunifu.Framework.UI.BunifuCheckbox();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.cboGrupoGastos = new Bunifu.Framework.UI.BunifuDropdown();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.CargarEgresos = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.PreparandoDatos = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCards1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEscuela)).BeginInit();
             this.bunifuCards3.SuspendLayout();
@@ -60,6 +73,9 @@
             this.bunifuCards1.BorderRadius = 5;
             this.bunifuCards1.BottomSahddow = true;
             this.bunifuCards1.color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.bunifuCards1.Controls.Add(this.cbMetodoPago);
+            this.bunifuCards1.Controls.Add(this.bunifuCustomLabel4);
+            this.bunifuCards1.Controls.Add(this.bunifuCustomLabel3);
             this.bunifuCards1.Controls.Add(this.cboCursos);
             this.bunifuCards1.Controls.Add(this.CargarReporteActividades);
             this.bunifuCards1.Controls.Add(this.CargarAsistencias);
@@ -73,13 +89,55 @@
             this.bunifuCards1.Controls.Add(this.lblColegios);
             this.bunifuCards1.Controls.Add(this.lblTipoReporte);
             this.bunifuCards1.LeftSahddow = false;
-            this.bunifuCards1.Location = new System.Drawing.Point(56, 15);
+            this.bunifuCards1.Location = new System.Drawing.Point(150, 32);
             this.bunifuCards1.Name = "bunifuCards1";
             this.bunifuCards1.RightSahddow = true;
             this.bunifuCards1.ShadowDepth = 20;
-            this.bunifuCards1.Size = new System.Drawing.Size(409, 386);
+            this.bunifuCards1.Size = new System.Drawing.Size(501, 528);
             this.bunifuCards1.TabIndex = 2;
             this.bunifuCards1.TabStop = true;
+            this.bunifuCards1.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuCards1_Paint);
+            // 
+            // cbMetodoPago
+            // 
+            this.cbMetodoPago.BackColor = System.Drawing.Color.Transparent;
+            this.cbMetodoPago.BorderRadius = 3;
+            this.cbMetodoPago.DisabledColor = System.Drawing.Color.Gray;
+            this.cbMetodoPago.ForeColor = System.Drawing.Color.White;
+            this.cbMetodoPago.Items = new string[] {
+        "Cualquiera",
+        "Efectivo",
+        "Deposito",
+        "Beca"};
+            this.cbMetodoPago.Location = new System.Drawing.Point(167, 274);
+            this.cbMetodoPago.Name = "cbMetodoPago";
+            this.cbMetodoPago.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.cbMetodoPago.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
+            this.cbMetodoPago.selectedIndex = 0;
+            this.cbMetodoPago.Size = new System.Drawing.Size(304, 35);
+            this.cbMetodoPago.TabIndex = 18;
+            // 
+            // bunifuCustomLabel4
+            // 
+            this.bunifuCustomLabel4.AutoSize = true;
+            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.Black;
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(45, 281);
+            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(116, 18);
+            this.bunifuCustomLabel4.TabIndex = 17;
+            this.bunifuCustomLabel4.Text = "Método de pago";
+            // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(44, 246);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(61, 24);
+            this.bunifuCustomLabel3.TabIndex = 16;
+            this.bunifuCustomLabel3.Text = "Filtrar ";
             // 
             // cboCursos
             // 
@@ -88,12 +146,12 @@
             this.cboCursos.DisabledColor = System.Drawing.Color.Gray;
             this.cboCursos.ForeColor = System.Drawing.Color.White;
             this.cboCursos.Items = new string[0];
-            this.cboCursos.Location = new System.Drawing.Point(98, 176);
+            this.cboCursos.Location = new System.Drawing.Point(167, 204);
             this.cboCursos.Name = "cboCursos";
             this.cboCursos.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.cboCursos.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.cboCursos.selectedIndex = -1;
-            this.cboCursos.Size = new System.Drawing.Size(285, 35);
+            this.cboCursos.Size = new System.Drawing.Size(304, 35);
             this.cboCursos.TabIndex = 9;
             // 
             // CargarReporteActividades
@@ -117,7 +175,7 @@
             this.CargarReporteActividades.IconVisible = false;
             this.CargarReporteActividades.IconZoom = 90D;
             this.CargarReporteActividades.IsTab = false;
-            this.CargarReporteActividades.Location = new System.Drawing.Point(268, 290);
+            this.CargarReporteActividades.Location = new System.Drawing.Point(321, 416);
             this.CargarReporteActividades.Name = "CargarReporteActividades";
             this.CargarReporteActividades.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.CargarReporteActividades.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
@@ -152,7 +210,7 @@
             this.CargarAsistencias.IconVisible = false;
             this.CargarAsistencias.IconZoom = 90D;
             this.CargarAsistencias.IsTab = false;
-            this.CargarAsistencias.Location = new System.Drawing.Point(18, 336);
+            this.CargarAsistencias.Location = new System.Drawing.Point(71, 468);
             this.CargarAsistencias.Name = "CargarAsistencias";
             this.CargarAsistencias.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.CargarAsistencias.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
@@ -187,7 +245,7 @@
             this.CargarReporteMensualidades.IconVisible = false;
             this.CargarReporteMensualidades.IconZoom = 90D;
             this.CargarReporteMensualidades.IsTab = false;
-            this.CargarReporteMensualidades.Location = new System.Drawing.Point(142, 290);
+            this.CargarReporteMensualidades.Location = new System.Drawing.Point(195, 416);
             this.CargarReporteMensualidades.Name = "CargarReporteMensualidades";
             this.CargarReporteMensualidades.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.CargarReporteMensualidades.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
@@ -222,7 +280,7 @@
             this.CargarReporteInscripciones.IconVisible = false;
             this.CargarReporteInscripciones.IconZoom = 90D;
             this.CargarReporteInscripciones.IsTab = false;
-            this.CargarReporteInscripciones.Location = new System.Drawing.Point(18, 290);
+            this.CargarReporteInscripciones.Location = new System.Drawing.Point(71, 416);
             this.CargarReporteInscripciones.Name = "CargarReporteInscripciones";
             this.CargarReporteInscripciones.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.CargarReporteInscripciones.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
@@ -243,7 +301,7 @@
             this.cbEscuelas.DisabledColor = System.Drawing.Color.Gray;
             this.cbEscuelas.ForeColor = System.Drawing.Color.White;
             this.cbEscuelas.Items = new string[0];
-            this.cbEscuelas.Location = new System.Drawing.Point(21, 105);
+            this.cbEscuelas.Location = new System.Drawing.Point(73, 129);
             this.cbEscuelas.Name = "cbEscuelas";
             this.cbEscuelas.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.cbEscuelas.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
@@ -258,7 +316,7 @@
             this.lblCurso.AutoSize = true;
             this.lblCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurso.ForeColor = System.Drawing.Color.Black;
-            this.lblCurso.Location = new System.Drawing.Point(19, 182);
+            this.lblCurso.Location = new System.Drawing.Point(45, 210);
             this.lblCurso.Name = "lblCurso";
             this.lblCurso.Size = new System.Drawing.Size(49, 18);
             this.lblCurso.TabIndex = 11;
@@ -269,7 +327,7 @@
             this.btnEscuela.BackColor = System.Drawing.Color.Transparent;
             this.btnEscuela.Image = ((System.Drawing.Image)(resources.GetObject("btnEscuela.Image")));
             this.btnEscuela.ImageActive = null;
-            this.btnEscuela.Location = new System.Drawing.Point(180, 42);
+            this.btnEscuela.Location = new System.Drawing.Point(222, 56);
             this.btnEscuela.Name = "btnEscuela";
             this.btnEscuela.Size = new System.Drawing.Size(78, 60);
             this.btnEscuela.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -282,7 +340,7 @@
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(15, 145);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(41, 171);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(173, 24);
             this.bunifuCustomLabel1.TabIndex = 3;
@@ -309,7 +367,7 @@
             this.CargarTodosIngresos.IconVisible = false;
             this.CargarTodosIngresos.IconZoom = 90D;
             this.CargarTodosIngresos.IsTab = false;
-            this.CargarTodosIngresos.Location = new System.Drawing.Point(19, 246);
+            this.CargarTodosIngresos.Location = new System.Drawing.Point(72, 367);
             this.CargarTodosIngresos.Name = "CargarTodosIngresos";
             this.CargarTodosIngresos.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.CargarTodosIngresos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
@@ -328,7 +386,7 @@
             this.lblColegios.AutoSize = true;
             this.lblColegios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lblColegios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
-            this.lblColegios.Location = new System.Drawing.Point(15, 15);
+            this.lblColegios.Location = new System.Drawing.Point(17, 16);
             this.lblColegios.Name = "lblColegios";
             this.lblColegios.Size = new System.Drawing.Size(197, 24);
             this.lblColegios.TabIndex = 3;
@@ -339,7 +397,7 @@
             this.lblTipoReporte.AutoSize = true;
             this.lblTipoReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lblTipoReporte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
-            this.lblTipoReporte.Location = new System.Drawing.Point(15, 218);
+            this.lblTipoReporte.Location = new System.Drawing.Point(41, 335);
             this.lblTipoReporte.Name = "lblTipoReporte";
             this.lblTipoReporte.Size = new System.Drawing.Size(252, 24);
             this.lblTipoReporte.TabIndex = 9;
@@ -351,17 +409,165 @@
             this.bunifuCards3.BorderRadius = 5;
             this.bunifuCards3.BottomSahddow = true;
             this.bunifuCards3.color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.bunifuCards3.Controls.Add(this.lblFinCurso);
+            this.bunifuCards3.Controls.Add(this.dtmFinCurso);
+            this.bunifuCards3.Controls.Add(this.lblInicioCurso);
+            this.bunifuCards3.Controls.Add(this.dtmInicioCurso);
+            this.bunifuCards3.Controls.Add(this.gpTipoGasto);
+            this.bunifuCards3.Controls.Add(this.lblTipoDeGasto);
+            this.bunifuCards3.Controls.Add(this.chkTipoGasto);
+            this.bunifuCards3.Controls.Add(this.lblFecha);
+            this.bunifuCards3.Controls.Add(this.chkFecha);
+            this.bunifuCards3.Controls.Add(this.lblGrupo);
+            this.bunifuCards3.Controls.Add(this.chkGrupo);
             this.bunifuCards3.Controls.Add(this.bunifuImageButton1);
             this.bunifuCards3.Controls.Add(this.cboGrupoGastos);
             this.bunifuCards3.Controls.Add(this.bunifuCustomLabel2);
             this.bunifuCards3.Controls.Add(this.CargarEgresos);
             this.bunifuCards3.LeftSahddow = false;
-            this.bunifuCards3.Location = new System.Drawing.Point(56, 417);
+            this.bunifuCards3.Location = new System.Drawing.Point(694, 32);
             this.bunifuCards3.Name = "bunifuCards3";
             this.bunifuCards3.RightSahddow = true;
             this.bunifuCards3.ShadowDepth = 20;
-            this.bunifuCards3.Size = new System.Drawing.Size(409, 182);
+            this.bunifuCards3.Size = new System.Drawing.Size(510, 528);
             this.bunifuCards3.TabIndex = 10;
+            // 
+            // lblFinCurso
+            // 
+            this.lblFinCurso.AutoSize = true;
+            this.lblFinCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFinCurso.ForeColor = System.Drawing.Color.Black;
+            this.lblFinCurso.Location = new System.Drawing.Point(219, 279);
+            this.lblFinCurso.Name = "lblFinCurso";
+            this.lblFinCurso.Size = new System.Drawing.Size(32, 20);
+            this.lblFinCurso.TabIndex = 31;
+            this.lblFinCurso.Text = "Fin\r\n";
+            this.lblFinCurso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dtmFinCurso
+            // 
+            this.dtmFinCurso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.dtmFinCurso.BorderRadius = 0;
+            this.dtmFinCurso.ForeColor = System.Drawing.Color.White;
+            this.dtmFinCurso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtmFinCurso.FormatCustom = "DD/MM/YY";
+            this.dtmFinCurso.Location = new System.Drawing.Point(273, 270);
+            this.dtmFinCurso.Name = "dtmFinCurso";
+            this.dtmFinCurso.Size = new System.Drawing.Size(193, 29);
+            this.dtmFinCurso.TabIndex = 29;
+            this.dtmFinCurso.Value = new System.DateTime(2019, 3, 5, 10, 54, 35, 360);
+            // 
+            // lblInicioCurso
+            // 
+            this.lblInicioCurso.AutoSize = true;
+            this.lblInicioCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInicioCurso.ForeColor = System.Drawing.Color.Black;
+            this.lblInicioCurso.Location = new System.Drawing.Point(219, 220);
+            this.lblInicioCurso.Name = "lblInicioCurso";
+            this.lblInicioCurso.Size = new System.Drawing.Size(48, 20);
+            this.lblInicioCurso.TabIndex = 30;
+            this.lblInicioCurso.Text = "Inicio\r\n";
+            this.lblInicioCurso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dtmInicioCurso
+            // 
+            this.dtmInicioCurso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.dtmInicioCurso.BorderRadius = 0;
+            this.dtmInicioCurso.ForeColor = System.Drawing.Color.White;
+            this.dtmInicioCurso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtmInicioCurso.FormatCustom = "DD/MM/YY";
+            this.dtmInicioCurso.Location = new System.Drawing.Point(273, 212);
+            this.dtmInicioCurso.Name = "dtmInicioCurso";
+            this.dtmInicioCurso.Size = new System.Drawing.Size(193, 29);
+            this.dtmInicioCurso.TabIndex = 28;
+            this.dtmInicioCurso.Value = new System.DateTime(2019, 3, 5, 0, 0, 0, 0);
+            // 
+            // gpTipoGasto
+            // 
+            this.gpTipoGasto.BackColor = System.Drawing.Color.Transparent;
+            this.gpTipoGasto.BorderRadius = 3;
+            this.gpTipoGasto.DisabledColor = System.Drawing.Color.Gray;
+            this.gpTipoGasto.ForeColor = System.Drawing.Color.White;
+            this.gpTipoGasto.Items = new string[] {
+        "Pagos a Colegios",
+        "Gasto Adicional",
+        "Pago a Maestros"};
+            this.gpTipoGasto.Location = new System.Drawing.Point(223, 346);
+            this.gpTipoGasto.Name = "gpTipoGasto";
+            this.gpTipoGasto.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.gpTipoGasto.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
+            this.gpTipoGasto.selectedIndex = 0;
+            this.gpTipoGasto.Size = new System.Drawing.Size(243, 35);
+            this.gpTipoGasto.TabIndex = 27;
+            // 
+            // lblTipoDeGasto
+            // 
+            this.lblTipoDeGasto.AutoSize = true;
+            this.lblTipoDeGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoDeGasto.ForeColor = System.Drawing.Color.Black;
+            this.lblTipoDeGasto.Location = new System.Drawing.Point(103, 351);
+            this.lblTipoDeGasto.Name = "lblTipoDeGasto";
+            this.lblTipoDeGasto.Size = new System.Drawing.Size(98, 18);
+            this.lblTipoDeGasto.TabIndex = 26;
+            this.lblTipoDeGasto.Text = "Tipo de gasto";
+            // 
+            // chkTipoGasto
+            // 
+            this.chkTipoGasto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.chkTipoGasto.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
+            this.chkTipoGasto.Checked = true;
+            this.chkTipoGasto.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.chkTipoGasto.ForeColor = System.Drawing.Color.White;
+            this.chkTipoGasto.Location = new System.Drawing.Point(67, 351);
+            this.chkTipoGasto.Name = "chkTipoGasto";
+            this.chkTipoGasto.Size = new System.Drawing.Size(20, 20);
+            this.chkTipoGasto.TabIndex = 25;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.Color.Black;
+            this.lblFecha.Location = new System.Drawing.Point(102, 246);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(49, 18);
+            this.lblFecha.TabIndex = 24;
+            this.lblFecha.Text = "Fecha";
+            // 
+            // chkFecha
+            // 
+            this.chkFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.chkFecha.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
+            this.chkFecha.Checked = true;
+            this.chkFecha.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.chkFecha.ForeColor = System.Drawing.Color.White;
+            this.chkFecha.Location = new System.Drawing.Point(67, 246);
+            this.chkFecha.Name = "chkFecha";
+            this.chkFecha.Size = new System.Drawing.Size(20, 20);
+            this.chkFecha.TabIndex = 23;
+            // 
+            // lblGrupo
+            // 
+            this.lblGrupo.AutoSize = true;
+            this.lblGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGrupo.ForeColor = System.Drawing.Color.Black;
+            this.lblGrupo.Location = new System.Drawing.Point(102, 136);
+            this.lblGrupo.Name = "lblGrupo";
+            this.lblGrupo.Size = new System.Drawing.Size(50, 18);
+            this.lblGrupo.TabIndex = 22;
+            this.lblGrupo.Text = "Grupo";
+            // 
+            // chkGrupo
+            // 
+            this.chkGrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.chkGrupo.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(128)))), ((int)(((byte)(64)))));
+            this.chkGrupo.Checked = true;
+            this.chkGrupo.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.chkGrupo.ForeColor = System.Drawing.Color.White;
+            this.chkGrupo.Location = new System.Drawing.Point(67, 136);
+            this.chkGrupo.Name = "chkGrupo";
+            this.chkGrupo.Size = new System.Drawing.Size(20, 20);
+            this.chkGrupo.TabIndex = 21;
             // 
             // bunifuImageButton1
             // 
@@ -369,7 +575,7 @@
             this.bunifuImageButton1.Enabled = false;
             this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
             this.bunifuImageButton1.ImageActive = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.ImageActive")));
-            this.bunifuImageButton1.Location = new System.Drawing.Point(187, 40);
+            this.bunifuImageButton1.Location = new System.Drawing.Point(244, 49);
             this.bunifuImageButton1.Name = "bunifuImageButton1";
             this.bunifuImageButton1.Size = new System.Drawing.Size(50, 50);
             this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -384,12 +590,12 @@
             this.cboGrupoGastos.DisabledColor = System.Drawing.Color.Gray;
             this.cboGrupoGastos.ForeColor = System.Drawing.Color.White;
             this.cboGrupoGastos.Items = new string[0];
-            this.cboGrupoGastos.Location = new System.Drawing.Point(24, 94);
+            this.cboGrupoGastos.Location = new System.Drawing.Point(223, 130);
             this.cboGrupoGastos.Name = "cboGrupoGastos";
             this.cboGrupoGastos.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.cboGrupoGastos.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
             this.cboGrupoGastos.selectedIndex = -1;
-            this.cboGrupoGastos.Size = new System.Drawing.Size(362, 35);
+            this.cboGrupoGastos.Size = new System.Drawing.Size(243, 35);
             this.cboGrupoGastos.TabIndex = 13;
             this.cboGrupoGastos.Load += new System.EventHandler(this.cboGrupoGastos_Load);
             // 
@@ -398,7 +604,7 @@
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(17, 15);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(11, 15);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(180, 24);
             this.bunifuCustomLabel2.TabIndex = 12;
@@ -426,7 +632,7 @@
             this.CargarEgresos.IconVisible = false;
             this.CargarEgresos.IconZoom = 90D;
             this.CargarEgresos.IsTab = false;
-            this.CargarEgresos.Location = new System.Drawing.Point(22, 133);
+            this.CargarEgresos.Location = new System.Drawing.Point(84, 464);
             this.CargarEgresos.Name = "CargarEgresos";
             this.CargarEgresos.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
             this.CargarEgresos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(157)))), ((int)(((byte)(80)))));
@@ -440,23 +646,11 @@
             this.CargarEgresos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.CargarEgresos.Click += new System.EventHandler(this.CargarEgresos_Click);
             // 
-            // PreparandoDatos
-            // 
-            this.PreparandoDatos.AutoSize = true;
-            this.PreparandoDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.PreparandoDatos.ForeColor = System.Drawing.Color.White;
-            this.PreparandoDatos.Location = new System.Drawing.Point(488, 15);
-            this.PreparandoDatos.Name = "PreparandoDatos";
-            this.PreparandoDatos.Size = new System.Drawing.Size(522, 20);
-            this.PreparandoDatos.TabIndex = 12;
-            this.PreparandoDatos.Text = "Para mostrar un reporte, seleccione los datos y escoja un tipo de reporte.";
-            // 
             // Reportes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.Controls.Add(this.PreparandoDatos);
             this.Controls.Add(this.bunifuCards3);
             this.Controls.Add(this.bunifuCards1);
             this.Name = "Reportes";
@@ -468,7 +662,6 @@
             this.bunifuCards3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -487,10 +680,23 @@
         private Bunifu.Framework.UI.BunifuFlatButton CargarReporteMensualidades;
         private Bunifu.Framework.UI.BunifuFlatButton CargarAsistencias;
         private Bunifu.Framework.UI.BunifuFlatButton CargarEgresos;
-        private Bunifu.Framework.UI.BunifuCustomLabel PreparandoDatos;
         private Bunifu.Framework.UI.BunifuDropdown cboCursos;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuDropdown cboGrupoGastos;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;        
+        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblTipoDeGasto;
+        private Bunifu.Framework.UI.BunifuCheckbox chkTipoGasto;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblFecha;
+        private Bunifu.Framework.UI.BunifuCheckbox chkFecha;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblGrupo;
+        private Bunifu.Framework.UI.BunifuCheckbox chkGrupo;
+        private Bunifu.Framework.UI.BunifuDropdown gpTipoGasto;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblFinCurso;
+        private Bunifu.Framework.UI.BunifuDatepicker dtmFinCurso;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblInicioCurso;
+        private Bunifu.Framework.UI.BunifuDatepicker dtmInicioCurso;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
+        private Bunifu.Framework.UI.BunifuDropdown cbMetodoPago;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
     }
 }

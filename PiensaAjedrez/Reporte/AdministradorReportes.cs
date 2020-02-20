@@ -56,10 +56,10 @@ namespace PiensaAjedrez
             nuevoReporte.SetParameterValue("@Curso", strCurso);
             return nuevoReporte;
         }
-        */
+        *//*
         public static Reporte.ReporteMensualidades CargarReporteMensualidades(string strCurso, string strDatosCurso)
         {
-            Reporte.Datasets.DatosMensualidades datos = ConexionBD.ObtenerMensualidades(strCurso);
+            /*Reporte.Datasets.DatosMensualidades datos = ConexionBD.ObtenerMensualidades(strCurso);
             Reporte.ReporteMensualidades nuevoReporte = new Reporte.ReporteMensualidades();
             nuevoReporte.SetDataSource(datos);
             CrystalDecisions.CrystalReports.Engine.TextObject txtNombreDatos;
@@ -68,7 +68,7 @@ namespace PiensaAjedrez
             nuevoReporte.SetParameterValue("@CURSO", strCurso);
             return nuevoReporte;
         }
-
+    *//*
         public static Reporte.ReporteActividades CargarReporteActividades(string strCurso, string strDatosCurso)
         {
             Reporte.Datasets.DatosActividades datos = ConexionBD.ObtenerActividades(strCurso);
@@ -79,6 +79,6 @@ namespace PiensaAjedrez
             txtNombreDatos.Text = strDatosCurso;
             nuevoReporte.SetParameterValue("@CURSO", strCurso);
             return nuevoReporte;
-        }
+        }*/
     }
 }
