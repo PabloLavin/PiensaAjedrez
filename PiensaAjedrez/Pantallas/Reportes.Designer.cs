@@ -327,7 +327,7 @@
             this.btnEscuela.BackColor = System.Drawing.Color.Transparent;
             this.btnEscuela.Image = ((System.Drawing.Image)(resources.GetObject("btnEscuela.Image")));
             this.btnEscuela.ImageActive = null;
-            this.btnEscuela.Location = new System.Drawing.Point(222, 56);
+            this.btnEscuela.Location = new System.Drawing.Point(223, 57);
             this.btnEscuela.Name = "btnEscuela";
             this.btnEscuela.Size = new System.Drawing.Size(78, 60);
             this.btnEscuela.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -451,7 +451,7 @@
             this.dtmFinCurso.ForeColor = System.Drawing.Color.White;
             this.dtmFinCurso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtmFinCurso.FormatCustom = "DD/MM/YY";
-            this.dtmFinCurso.Location = new System.Drawing.Point(273, 270);
+            this.dtmFinCurso.Location = new System.Drawing.Point(273, 274);
             this.dtmFinCurso.Name = "dtmFinCurso";
             this.dtmFinCurso.Size = new System.Drawing.Size(193, 29);
             this.dtmFinCurso.TabIndex = 29;
@@ -476,7 +476,7 @@
             this.dtmInicioCurso.ForeColor = System.Drawing.Color.White;
             this.dtmInicioCurso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtmInicioCurso.FormatCustom = "DD/MM/YY";
-            this.dtmInicioCurso.Location = new System.Drawing.Point(273, 212);
+            this.dtmInicioCurso.Location = new System.Drawing.Point(273, 215);
             this.dtmInicioCurso.Name = "dtmInicioCurso";
             this.dtmInicioCurso.Size = new System.Drawing.Size(193, 29);
             this.dtmInicioCurso.TabIndex = 28;
@@ -522,6 +522,7 @@
             this.chkTipoGasto.Name = "chkTipoGasto";
             this.chkTipoGasto.Size = new System.Drawing.Size(20, 20);
             this.chkTipoGasto.TabIndex = 25;
+            this.chkTipoGasto.OnChange += new System.EventHandler(this.chkTipoGasto_OnChange);
             // 
             // lblFecha
             // 
@@ -545,6 +546,7 @@
             this.chkFecha.Name = "chkFecha";
             this.chkFecha.Size = new System.Drawing.Size(20, 20);
             this.chkFecha.TabIndex = 23;
+            this.chkFecha.OnChange += new System.EventHandler(this.chkFecha_OnChange);
             // 
             // lblGrupo
             // 
@@ -568,6 +570,7 @@
             this.chkGrupo.Name = "chkGrupo";
             this.chkGrupo.Size = new System.Drawing.Size(20, 20);
             this.chkGrupo.TabIndex = 21;
+            this.chkGrupo.OnChange += new System.EventHandler(this.chkGrupo_OnChange);
             // 
             // bunifuImageButton1
             // 

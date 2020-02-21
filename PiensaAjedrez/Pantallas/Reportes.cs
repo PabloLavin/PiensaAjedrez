@@ -13,10 +13,25 @@ namespace PiensaAjedrez
 {
     public partial class Reportes : UserControl
     {
+        Color original;
         public Reportes()
         {
             InitializeComponent();
-            
+            dtmInicioCurso.Value = DateTime.Now.AddYears(-1);
+            dtmFinCurso.Value = DateTime.Now;
+            chkFecha.Checked = false;
+            chkGrupo.Checked = false;
+            chkTipoGasto.Checked = false;
+            original = chkFecha.BackColor;
+            Activar();
+        }
+
+        void Activar()
+        {
+            dtmInicioCurso.BackColor = chkFecha.Checked ? original : Color.Gray ;
+            dtmFinCurso.BackColor = chkFecha.Checked ? original : Color.Gray;
+            cboGrupoGastos.Enabled = chkGrupo.Checked;
+            gpTipoGasto.Enabled = chkTipoGasto.Checked;
         }
       
         private void cbEscuelas_Load(object sender, EventArgs e)
@@ -26,6 +41,7 @@ namespace PiensaAjedrez
             {
                 cbEscuelas.AddItem(unaEscuela.Nombre);
             }
+
             if (ConexionBD.CargarEscuelas().Count > 0)
                 cbEscuelas.selectedIndex = 0;
             CargarListaCursos();
@@ -78,8 +94,7 @@ namespace PiensaAjedrez
                 ConstructorReportes.ConstruirReporte(ConexionBD.ObtenerEgresos(strGrupo, strFechaInicio,strFechaFin, strTipo), strNombreReporte, "Egresos");                
             }
             catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
+            {                
                 FormMensaje unaForma = new FormMensaje();
                 unaForma.Mostrar("Error de generación de reporte", "Verifique los datos seleccionados. Si el error sigue, comuníquese con los desarrolladores.", 1, this);
             }
@@ -163,6 +178,21 @@ namespace PiensaAjedrez
         private void bunifuCards1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void chkGrupo_OnChange(object sender, EventArgs e)
+        {
+            Activar();
+        }
+
+        private void chkFecha_OnChange(object sender, EventArgs e)
+        {
+            Activar();
+        }
+
+        private void chkTipoGasto_OnChange(object sender, EventArgs e)
+        {
+            Activar();
         }
     }
 }
